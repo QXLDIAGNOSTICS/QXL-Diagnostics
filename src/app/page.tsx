@@ -605,7 +605,7 @@ export default function Home() {
       ctaLink: "/franchise",
       ctaSecondary: "Contact Us",
       ctaSecondaryLink: "/contact",
-      image: "/image/franchise_partner_indian.png",
+      image: "/image/user_male_professional.jpg",
       imageFit: "cover",
       bgFrom: "#f0fdf4",
       bgTo: "#dcfce7",
