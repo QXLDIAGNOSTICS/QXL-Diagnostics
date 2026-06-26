@@ -49,11 +49,11 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div className="bg-white p-3 rounded-2xl inline-block mb-5 shadow-lg">
+            <div className="bg-white p-2 rounded-xl inline-block mb-5 shadow-lg">
               <img
                 src={settings.logoImage || "/image/Logo (1).png"}
                 alt={`${settings.siteName || "QXL"} Logo`}
-                className="h-28 w-auto object-contain"
+                className="h-14 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const fallbackSpan = e.currentTarget.parentElement?.querySelector('.logo-text-footer') as HTMLElement;
