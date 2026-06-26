@@ -1,0 +1,51 @@
+"use client";
+
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import AdminSidebar from "@/components/admin/Sidebar";
+import AdminHeader from "@/components/admin/Header";
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const isLoginPage = pathname === "/admin/login";
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const auth = sessionStorage.getItem("adminAuth");
+      if (auth === "true") {
+        setIsAuthenticated(true);
+      } else if (!isLoginPage) {
+        router.push("/admin/login");
+        return;
+      }
+    }
+    setLoading(false);
+  }, [isLoginPage, router]);
+
+  if (isLoginPage) {
+    return <>{children}</>;
+  }
+
+  if (loading || (!isAuthenticated && !isLoginPage)) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950">
+        <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-teal-600"></div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex h-screen bg-gray-50 dark:bg-gray-950 font-sans">
+      <AdminSidebar />
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        <AdminHeader />
+        <main className="flex-1 overflow-y-auto p-4 md:p-6 lg:p-8 custom-scrollbar">
+          {children}
+        </main>
+      </div>
+    </div>
+  );
+}
