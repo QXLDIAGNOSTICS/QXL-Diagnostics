@@ -1,35 +1,71 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import { Calendar, User, Phone, MapPin, Search, ChevronRight, Shield } from 'lucide-react';
+import { Calendar, User, Phone, MapPin, Search, ChevronRight, Shield, Plus, X } from 'lucide-react';
 import { packagesData } from '../../data/packages';
+import { api } from '../../lib/api';
 
 export default function BookPage() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    testName: '',
     address: '',
     date: '',
     collectionType: 'home' // 'home' or 'center'
   });
+  const [testNames, setTestNames] = useState<string[]>([]);
+  const [testInput, setTestInput] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const packageName = params.get('package');
-    if (packageName) {
-      setFormData(prev => ({ ...prev, testName: packageName }));
+    const multiple = params.getAll('tests').map(t => t.trim()).filter(Boolean);
+    const single = params.get('package');
+    if (multiple.length) {
+      setTestNames(multiple);
+    } else if (single) {
+      setTestNames([single]);
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const addTest = () => {
+    const value = testInput.trim();
+    if (!value) return;
+    setTestNames(prev => (prev.includes(value) ? prev : [...prev, value]));
+    setTestInput('');
+  };
+
+  const removeTest = (name: string) => {
+    setTestNames(prev => prev.filter(t => t !== name));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.phone) {
+    if (!formData.name || !formData.phone) return;
+    setError(null);
+    setSubmitting(true);
+    try {
+      await api.bookings.create({
+        patient_name: formData.name,
+        patient_phone: formData.phone,
+        test_name: testNames.length ? testNames.join(', ') : null,
+        collection_type: formData.collectionType === 'center' ? 'center' : 'home',
+        collection_address: formData.collectionType === 'home' ? formData.address || null : null,
+        preferred_date: formData.date || null,
+      });
       setSubmitted(true);
+    } catch (err) {
+      console.error('Booking submission failed', err);
+      setError('We could not submit your booking. Please try again or call us directly.');
+    } finally {
+      setSubmitting(false);
     }
   };
 
-  const selectedPackageDetails = packagesData.find(p => p.name === formData.testName);
+  const selectedPackageDetailsList = testNames
+    .map(name => packagesData.find(p => p.name === name))
+    .filter((p): p is (typeof packagesData)[number] => Boolean(p));
 
   return (
     <div className="bg-[#f8faff] min-h-screen">
@@ -58,7 +94,7 @@ export default function BookPage() {
                   Thank you, <strong className="text-slate-700">{formData.name}</strong>. Our clinical coordinator will call you back at <strong className="text-slate-700">{formData.phone}</strong> within 15 minutes to confirm your test slot.
                 </p>
                 <button 
-                  onClick={() => { setSubmitted(false); setFormData({ name: '', phone: '', testName: '', address: '', date: '', collectionType: 'home' }); }} 
+                  onClick={() => { setSubmitted(false); setFormData({ name: '', phone: '', address: '', date: '', collectionType: 'home' }); setTestNames([]); setTestInput(''); }} 
                   className="bg-[#2563eb] text-white font-bold px-8 py-2.5 rounded-full hover:bg-[#1d4ed8] transition-colors text-sm uppercase tracking-wider"
                 >
                   Book Another Test
@@ -100,21 +136,60 @@ export default function BookPage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Test Selection */}
-                  <div className="flex flex-col">
-                    <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                      <Search className="w-3.5 h-3.5 text-[#0f2d5e]" /> Selected Test or Package
-                    </label>
-                    <input 
-                      type="text" 
-                      placeholder="e.g. Complete Blood Count (CBC)"
-                      value={formData.testName}
-                      onChange={(e) => setFormData({...formData, testName: e.target.value})}
-                      className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
+                <div className="flex flex-col">
+                  <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
+                    <Search className="w-3.5 h-3.5 text-[#0f2d5e]" /> Tests / Packages to Book
+                  </label>
+                  {testNames.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {testNames.map((name) => (
+                        <span
+                          key={name}
+                          className="inline-flex items-center gap-1.5 bg-[#dbeafe] text-[#0f2d5e] text-xs font-bold pl-3 pr-2 py-1.5 rounded-full"
+                        >
+                          {name}
+                          <button
+                            type="button"
+                            onClick={() => removeTest(name)}
+                            className="hover:bg-white/50 rounded-full p-0.5 transition-colors"
+                            aria-label={`Remove ${name}`}
+                          >
+                            <X className="w-3 h-3" />
+                          </button>
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="e.g. Complete Blood Count (CBC) — press Enter to add"
+                      value={testInput}
+                      onChange={(e) => setTestInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          e.preventDefault();
+                          addTest();
+                        }
+                      }}
+                      className="flex-1 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
                     />
+                    <button
+                      type="button"
+                      onClick={addTest}
+                      className="shrink-0 bg-[#0f2d5e] text-white font-bold px-4 rounded-xl hover:bg-[#0f2d5e]/90 transition-colors flex items-center gap-1.5 text-xs uppercase tracking-wider"
+                    >
+                      <Plus className="w-4 h-4" /> Add
+                    </button>
                   </div>
+                  {testNames.length === 0 && (
+                    <p className="text-[11px] text-slate-400 mt-2 font-medium">
+                      Add one or more tests/packages, or leave blank and our team will help you choose.
+                    </p>
+                  )}
+                </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* Preferred Date */}
                   <div className="flex flex-col">
                     <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
@@ -181,11 +256,16 @@ export default function BookPage() {
                   </div>
                 )}
 
+                {error && (
+                  <p className="text-xs font-semibold text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-3">{error}</p>
+                )}
+
                 <button 
                   type="submit" 
-                  className="w-full bg-[#2563eb] text-white font-bold py-3.5 rounded-xl hover:bg-[#1d4ed8] transition-colors uppercase tracking-wider text-xs shadow-md mt-6"
+                  disabled={submitting}
+                  className="w-full bg-[#2563eb] text-white font-bold py-3.5 rounded-xl hover:bg-[#1d4ed8] transition-colors uppercase tracking-wider text-xs shadow-md mt-6 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Submit Booking Request
+                  {submitting ? 'Submitting…' : 'Submit Booking Request'}
                 </button>
               </form>
             )}
@@ -193,28 +273,28 @@ export default function BookPage() {
 
           {/* Right Info Sidebar */}
           <div className="w-full lg:w-1/3 space-y-6">
-            {selectedPackageDetails && (
-              <div className="bg-white border border-[#2563eb]/20 rounded-3xl p-6 shadow-md relative overflow-hidden">
+            {selectedPackageDetailsList.map((pkg) => (
+              <div key={pkg.name} className="bg-white border border-[#2563eb]/20 rounded-3xl p-6 shadow-md relative overflow-hidden">
                 <div className="absolute top-0 right-0 bg-[#2563eb] text-white px-3 py-1 rounded-bl-xl text-[10px] font-extrabold uppercase tracking-wider">
                   Selected
                 </div>
-                <h3 className="font-extrabold text-[#0f2d5e] text-lg mb-2 pr-16">{selectedPackageDetails.name}</h3>
+                <h3 className="font-extrabold text-[#0f2d5e] text-lg mb-2 pr-16">{pkg.name}</h3>
                 
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-2xl font-black text-[#2563eb]">₹{selectedPackageDetails.price}</span>
-                  <span className="text-sm text-slate-400 line-through">₹{selectedPackageDetails.old_price}</span>
+                  <span className="text-2xl font-black text-[#2563eb]">₹{pkg.price}</span>
+                  <span className="text-sm text-slate-400 line-through">₹{pkg.old_price}</span>
                 </div>
                 
                 <div className="mb-4">
                   <p className="text-[11px] text-slate-500 font-semibold mb-2 flex items-center gap-1.5">
-                    <Shield className="w-3.5 h-3.5 text-[#0f2d5e]" /> {selectedPackageDetails.parameters}
+                    <Shield className="w-3.5 h-3.5 text-[#0f2d5e]" /> {pkg.parameters}
                   </p>
                   <p className="text-[11px] text-slate-600 font-medium leading-relaxed">
-                    <strong>Includes:</strong> {selectedPackageDetails.includes}
+                    <strong>Includes:</strong> {pkg.includes}
                   </p>
                 </div>
               </div>
-            )}
+            ))}
             
             <div className="bg-gradient-to-br from-[#0f2d5e] to-[#0e4253] text-white rounded-3xl p-6 shadow-md">
               <h3 className="font-bold text-lg mb-4">Why Book with QXL?</h3>

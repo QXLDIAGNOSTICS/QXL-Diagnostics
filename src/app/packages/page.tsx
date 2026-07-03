@@ -3,18 +3,29 @@ import React, { useState, useEffect } from 'react';
 import { Shield, Clock, CheckCircle, Users, Scale, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { cmsStore } from "../../lib/cmsStore";
+import { api } from "../../lib/api";
 
 export default function PackagesPage() {
   const [packages, setPackages] = useState<any[]>([]);
 
   useEffect(() => {
-    const loadCmsData = () => {
-      setPackages(cmsStore.getAll("packages"));
+    let cancelled = false;
+    api.packages
+      .list()
+      .then((data) => {
+        if (cancelled) return;
+        setPackages(
+          data.map((p) => ({
+            ...p,
+            age: p.age_group,
+            benefits: p.benefits ? JSON.parse(p.benefits) : [],
+          }))
+        );
+      })
+      .catch((err) => console.error("Failed to load packages", err));
+    return () => {
+      cancelled = true;
     };
-    loadCmsData();
-    window.addEventListener("cms-update", loadCmsData);
-    return () => window.removeEventListener("cms-update", loadCmsData);
   }, []);
 
   const Card = ({ name, price, old_price, parameters, includes, tag, save_amount, benefits, who_should_take, age, gender, doctor_recommended }: any) => (
@@ -117,7 +128,7 @@ export default function PackagesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {packages.map((p, idx) => (
               <motion.div 
-                key={p.name}
+                key={p.id}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: idx * 0.05 }}

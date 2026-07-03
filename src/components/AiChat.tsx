@@ -19,6 +19,7 @@ export default function AiChat() {
   }, []);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [conversationId, setConversationId] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('English');
@@ -56,6 +57,90 @@ export default function AiChat() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const getMockReply = (text: string, file: File | null): string => {
+    let replyMessage = "Thank you for your query! For accurate information, please call us at +91 99646 39639 or WhatsApp us. Our team will be happy to assist you.";
+    if (text.toLowerCase().includes('package') || text.toLowerCase().includes('checkup')) {
+      replyMessage = "We offer a range of health packages starting from ₹1,899. Our popular ones include Full Body Checkup (86+ parameters), Senior Citizen Packages, and Women's Health Packages. Visit our Packages page or call +91 99646 39639 to book!";
+    } else if (text.toLowerCase().includes('home') || text.toLowerCase().includes('collection')) {
+      replyMessage = "Yes! We provide free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 99646 39639.";
+    } else if (text.toLowerCase().includes('location') || text.toLowerCase().includes('lab') || text.toLowerCase().includes('where')) {
+      replyMessage = "We have two centers in Bengaluru:\n1. Main Lab: SLN Complex, Mysore Road, Kengeri – 560 060\n2. North Hub: L Square, opposite RMZ Galleria Mall, Yelahanka – 560064\nBoth are Open 24x7.";
+    } else if (text.toLowerCase().includes('cbc') || text.toLowerCase().includes('blood')) {
+      replyMessage = "CBC (Complete Blood Count) is a test that evaluates 24 parameters of your blood including RBC, WBC, Hemoglobin, Platelets, and more. It helps detect anemia, infections, and blood disorders. Price: ₹395 at QXL.";
+    } else if (text.toLowerCase().includes('report') || text.toLowerCase().includes('how long')) {
+      replyMessage = "Most routine tests (like CBC, Thyroid, Sugar) have same-day reporting. You will receive a WhatsApp message and email with the secure link to download your digital report once it's ready.";
+    } else if (text.toLowerCase().includes('fast') || text.toLowerCase().includes('empty stomach')) {
+      replyMessage = "Fasting requirements depend on the test. Tests like Fasting Blood Sugar (FBS) or Lipid Profile usually require 10-12 hours of fasting. Please drink only water during this time. CBC or Thyroid tests typically do not require fasting.";
+    }
+    if (file) {
+      replyMessage = `I've received your file: ${file.name}. To get an AI analysis of a prescription, please use the "Upload Prescription" page — this chat window is for questions only.`;
+    }
+    return replyMessage;
+  };
+
+  const sendMockReply = (text: string, file: File | null) => {
+    setTimeout(() => {
+      setMessages(prev => [...prev, { role: 'assistant', content: getMockReply(text, file) }]);
+      setIsLoading(false);
+    }, 1000);
+  };
+
+  // Consume the FastAPI SSE stream from POST /api/v1/chat/stream and render
+  // assistant tokens incrementally. The request is same-origin (proxied to the
+  // backend by next.config.ts rewrites) so the httpOnly session cookie is sent
+  // automatically — no token plumbing needed. Returns false if the backend is
+  // unavailable or the user isn't logged in, so the caller can fall back to a
+  // local mock reply instead of showing a broken chat.
+  const streamFromBackend = async (question: string): Promise<boolean> => {
+    try {
+      const res = await fetch(`/api/v1/chat/stream`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question, conversation_id: conversationId }),
+      });
+      if (!res.ok || !res.body) return false;
+
+      // Add an empty assistant message we will progressively fill.
+      setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let assistant = '';
+      let buffer = '';
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() ?? '';
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const payload = line.slice(6).trim();
+          if (payload === '[DONE]') continue;
+          try {
+            const evt = JSON.parse(payload);
+            if (evt.conversation_id) setConversationId(evt.conversation_id);
+            if (evt.delta) {
+              assistant = `${assistant}${evt.delta}`;
+              setMessages(prev => {
+                const next = [...prev];
+                next[next.length - 1] = { role: 'assistant', content: assistant };
+                return next;
+              });
+            }
+          } catch {
+            // ignore malformed keep-alive lines
+          }
+        }
+      }
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
   const handleSend = async (text: string = input, file: File | null = selectedFile) => {
     if (!text.trim() && !file) return;
 
@@ -65,28 +150,15 @@ export default function AiChat() {
     setSelectedFile(null);
     setIsLoading(true);
 
-    // Simulate backend response
-    setTimeout(() => {
-      let replyMessage = "Thank you for your query! For accurate information, please call us at +91 99646 39639 or WhatsApp us. Our team will be happy to assist you.";
-      if (text.toLowerCase().includes('package') || text.toLowerCase().includes('checkup')) {
-        replyMessage = "We offer a range of health packages starting from ₹1,899. Our popular ones include Full Body Checkup (86+ parameters), Senior Citizen Packages, and Women's Health Packages. Visit our Packages page or call +91 99646 39639 to book!";
-      } else if (text.toLowerCase().includes('home') || text.toLowerCase().includes('collection')) {
-        replyMessage = "Yes! We provide free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 99646 39639.";
-      } else if (text.toLowerCase().includes('location') || text.toLowerCase().includes('lab') || text.toLowerCase().includes('where')) {
-        replyMessage = "We have two centers in Bengaluru:\n1. Main Lab: SLN Complex, Mysore Road, Kengeri – 560 060\n2. North Hub: L Square, opposite RMZ Galleria Mall, Yelahanka – 560064\nBoth are Open 24x7.";
-      } else if (text.toLowerCase().includes('cbc') || text.toLowerCase().includes('blood')) {
-        replyMessage = "CBC (Complete Blood Count) is a test that evaluates 24 parameters of your blood including RBC, WBC, Hemoglobin, Platelets, and more. It helps detect anemia, infections, and blood disorders. Price: ₹395 at QXL.";
-      } else if (text.toLowerCase().includes('report') || text.toLowerCase().includes('how long')) {
-        replyMessage = "Most routine tests (like CBC, Thyroid, Sugar) have same-day reporting. You will receive a WhatsApp message and email with the secure link to download your digital report once it's ready.";
-      } else if (text.toLowerCase().includes('fast') || text.toLowerCase().includes('empty stomach')) {
-        replyMessage = "Fasting requirements depend on the test. Tests like Fasting Blood Sugar (FBS) or Lipid Profile usually require 10-12 hours of fasting. Please drink only water during this time. CBC or Thyroid tests typically do not require fasting.";
-      }
-      if (file) {
-        replyMessage = `I've received your file: ${file.name}. For a detailed report analysis, please contact our medical team at +91 99646 39639 or visit our nearest center.`;
-      }
-      setMessages(prev => [...prev, { role: 'assistant', content: replyMessage }]);
+    // Prefer the real backend when the user is authenticated; gracefully fall
+    // back to the mock reply otherwise (e.g. logged-out visitors, or file
+    // attachments, which the chat widget doesn't stream-analyze).
+    const streamed = !file ? await streamFromBackend(text) : false;
+    if (streamed) {
       setIsLoading(false);
-    }, 1000);
+      return;
+    }
+    sendMockReply(text, file);
   };
 
   return (

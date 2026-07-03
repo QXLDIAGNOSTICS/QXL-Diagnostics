@@ -1,14 +1,18 @@
 "use client";
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
-import { Upload, FileText, CheckCircle, Phone, MessageCircle, Brain, X } from 'lucide-react';
+import { Upload, FileText, CheckCircle, Phone, MessageCircle, Brain, X, AlertCircle } from 'lucide-react';
+import { useAuth } from '../../lib/useAuth';
+import { api, Prescription } from '../../lib/api';
 
 export default function UploadPrescriptionPage() {
+  const { user, loading: authLoading } = useAuth();
   const [dragActive, setDragActive] = useState(false);
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [analysisResult, setAnalysisResult] = useState<string | null>(null);
+  const [prescription, setPrescription] = useState<Prescription | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleDrag = (e: React.DragEvent) => {
@@ -27,7 +31,8 @@ export default function UploadPrescriptionPage() {
 
   const processFile = (file: File) => {
     setUploadedFile(file);
-    setAnalysisResult(null);
+    setPrescription(null);
+    setError(null);
     if (file.type.startsWith('image/')) {
       const reader = new FileReader();
       reader.onload = (ev) => setUploadedImage(ev.target?.result as string);
@@ -37,15 +42,37 @@ export default function UploadPrescriptionPage() {
     }
   };
 
-  const handleAnalyze = () => {
+  const pollUntilDone = async (id: string) => {
+    for (let attempt = 0; attempt < 30; attempt++) {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      const record = await api.prescriptions.get(id);
+      setPrescription(record);
+      if (record.analysis_status === 'completed' || record.analysis_status === 'failed') {
+        return record;
+      }
+    }
+    return null;
+  };
+
+  const handleAnalyze = async () => {
     if (!uploadedFile) return;
+    setError(null);
     setIsAnalyzing(true);
-    setTimeout(() => {
-      setAnalysisResult(
-        `✅ Prescription Analysis Complete\n\nBased on your uploaded file "${uploadedFile.name}", our AI has identified potential tests that may be recommended:\n\n• Complete Blood Count (CBC)\n• Thyroid Function Test (T3, T4, TSH)\n• HbA1c Glycated Hemoglobin\n• Lipid Profile Extended\n• Liver Function Test (LFT)\n\nPlease call +91 99646 39639 or WhatsApp our team to confirm the test list and book your appointment. A certified pathologist will review and confirm before collection.`
-      );
+    try {
+      const created = await api.prescriptions.upload(uploadedFile);
+      setPrescription(created);
+      const finalRecord = await pollUntilDone(created.id);
+      if (!finalRecord) {
+        setError('Analysis is taking longer than expected. Please check back shortly or call us for help.');
+      } else if (finalRecord.analysis_status === 'failed') {
+        setError(finalRecord.error_message || 'We could not analyze this file. Please try a clearer photo or PDF.');
+      }
+    } catch (err: any) {
+      console.error('Prescription upload failed', err);
+      setError(err?.status === 401 ? 'Please log in to upload and analyze a prescription.' : 'Upload failed. Please try again.');
+    } finally {
       setIsAnalyzing(false);
-    }, 2200);
+    }
   };
 
   return (
@@ -104,7 +131,7 @@ export default function UploadPrescriptionPage() {
                     <p className="font-extrabold text-green-700 text-sm mb-1">✓ File Uploaded</p>
                     <p className="text-slate-500 text-xs font-medium">{uploadedFile.name}</p>
                     <button
-                      onClick={(e) => { e.stopPropagation(); setUploadedFile(null); setUploadedImage(null); setAnalysisResult(null); }}
+                      onClick={(e) => { e.stopPropagation(); setUploadedFile(null); setUploadedImage(null); setPrescription(null); setError(null); }}
                       className="mt-3 flex items-center gap-1 text-red-500 text-xs font-bold hover:underline"
                     >
                       <X className="w-3.5 h-3.5" /> Remove file
@@ -124,7 +151,7 @@ export default function UploadPrescriptionPage() {
               </div>
 
               {/* AI Analyze Button */}
-              {uploadedFile && !analysisResult && (
+              {uploadedFile && !prescription && !authLoading && user && (
                 <button
                   onClick={handleAnalyze}
                   disabled={isAnalyzing}
@@ -135,15 +162,60 @@ export default function UploadPrescriptionPage() {
                 </button>
               )}
 
+              {/* Login required notice */}
+              {uploadedFile && !authLoading && !user && (
+                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                  <p className="text-xs text-amber-800 font-semibold leading-relaxed">
+                    Please <Link href="/login" className="underline font-extrabold">log in</Link> to upload and get an AI analysis of your prescription.
+                  </p>
+                </div>
+              )}
+
+              {/* Error */}
+              {error && (
+                <div className="bg-red-50 border border-red-200 rounded-2xl p-5 flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+                  <p className="text-xs text-red-700 font-semibold leading-relaxed">{error}</p>
+                </div>
+              )}
+
               {/* AI Result */}
-              {analysisResult && (
+              {prescription?.analysis_status === 'completed' && prescription.analysis && (
                 <div className="bg-white border border-green-200 rounded-2xl p-6 shadow-sm">
                   <div className="flex items-center gap-2 mb-3">
                     <CheckCircle className="w-5 h-5 text-green-500" />
                     <h3 className="font-extrabold text-slate-800 text-sm">AI Analysis Result</h3>
                   </div>
-                  <pre className="text-xs text-slate-600 font-medium leading-relaxed whitespace-pre-wrap">{analysisResult}</pre>
+                  <p className="text-xs text-slate-600 font-medium leading-relaxed mb-4">{prescription.analysis.summary}</p>
+                  {prescription.analysis.tests.length > 0 && (
+                    <div className="mb-4">
+                      <p className="text-[11px] font-extrabold text-slate-700 uppercase tracking-wider mb-2">Recommended Tests</p>
+                      <ul className="space-y-1">
+                        {prescription.analysis.tests.map((t, i) => (
+                          <li key={i} className="text-xs text-slate-600 font-medium flex items-start gap-1.5">
+                            <CheckCircle className="w-3.5 h-3.5 text-green-500 shrink-0 mt-0.5" /> {t}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {prescription.analysis.medications.length > 0 && (
+                    <div className="mb-4">
+                      <p className="text-[11px] font-extrabold text-slate-700 uppercase tracking-wider mb-2">Medications Noted</p>
+                      <p className="text-xs text-slate-600 font-medium">{prescription.analysis.medications.join(', ')}</p>
+                    </div>
+                  )}
+                  <p className="text-[10px] text-slate-400 font-medium leading-relaxed mb-4">{prescription.analysis.disclaimer}</p>
                   <div className="mt-4 flex gap-3 flex-wrap">
+                    {prescription.analysis.tests.length > 0 && (
+                      <Link
+                        href={`/book?${prescription.analysis.tests.map((t) => `tests=${encodeURIComponent(t)}`).join('&')}`}
+                        className="inline-flex items-center gap-2 bg-green-600 text-white text-xs font-bold px-5 py-2.5 rounded-full"
+                      >
+                        Book These Tests
+                      </Link>
+                    )}
                     <a href="tel:+919964639639"
                       className="inline-flex items-center gap-2 bg-[#2563eb] text-white text-xs font-bold px-5 py-2.5 rounded-full">
                       <Phone className="w-3.5 h-3.5" /> Call to Confirm
@@ -154,6 +226,10 @@ export default function UploadPrescriptionPage() {
                     </a>
                   </div>
                 </div>
+              )}
+
+              {isAnalyzing && !prescription?.analysis && (
+                <p className="text-xs text-slate-500 font-semibold text-center">Our AI is reading your prescription… this can take up to a minute.</p>
               )}
             </div>
 

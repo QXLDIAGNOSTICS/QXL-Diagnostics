@@ -4,32 +4,29 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import AdminSidebar from "@/components/admin/Sidebar";
 import AdminHeader from "@/components/admin/Header";
+import { useAuth } from "@/lib/useAuth";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const isLoginPage = pathname === "/admin/login";
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const { user, loading } = useAuth();
+  const [checked, setChecked] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const auth = sessionStorage.getItem("adminAuth");
-      if (auth === "true") {
-        setIsAuthenticated(true);
-      } else if (!isLoginPage) {
-        router.push("/admin/login");
-        return;
-      }
+    if (loading) return;
+    const isAdmin = user?.role === "admin";
+    if (!isAdmin && !isLoginPage) {
+      router.push("/admin/login");
     }
-    setLoading(false);
-  }, [isLoginPage, router]);
+    setChecked(true);
+  }, [loading, user, isLoginPage, router]);
 
   if (isLoginPage) {
     return <>{children}</>;
   }
 
-  if (loading || (!isAuthenticated && !isLoginPage)) {
+  if (loading || !checked || user?.role !== "admin") {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-teal-600"></div>

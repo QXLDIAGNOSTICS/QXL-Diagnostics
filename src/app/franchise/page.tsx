@@ -2,17 +2,38 @@
 import React, { useState } from 'react';
 import { Building2, TrendingUp, ShieldCheck, Users, Briefcase, Award, CheckCircle2, ChevronRight, Activity, Beaker, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import { api } from '../../lib/api';
 
 export default function FranchisePage() {
   const [formData, setFormData] = useState({
     name: '', phone: '', email: '', state: '', city: '', model: '', budget: '', message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (formData.name && formData.phone) {
+    if (!formData.name || !formData.phone) return;
+    setError(null);
+    setSubmitting(true);
+    try {
+      await api.leads.collaboration({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email || null,
+        city: formData.state || null,
+        interest: formData.model || null,
+        message: [formData.city && `Region: ${formData.city}`, formData.budget && `Budget: ${formData.budget}`]
+          .filter(Boolean)
+          .join(' | ') || null,
+      });
       setSubmitted(true);
+    } catch (err) {
+      console.error('Collaboration lead submission failed', err);
+      setError('We could not submit your inquiry. Please try again or call us directly.');
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -111,9 +132,10 @@ export default function FranchisePage() {
                   <input type="text" value={formData.budget} onChange={e=>setFormData({...formData, budget:e.target.value})} className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-[#2563eb] outline-none bg-gray-50/50" placeholder="e.g. 5 Lakhs" />
                 </div>
 
-                <button type="submit" className="w-full bg-[#2563eb] text-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-[#1d4ed8] transition-colors shadow-md text-sm uppercase tracking-wider mt-2">
-                  Submit Inquiry
+                <button type="submit" disabled={submitting} className="w-full bg-[#2563eb] text-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-[#1d4ed8] transition-colors shadow-md text-sm uppercase tracking-wider mt-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                  {submitting ? 'Submitting…' : 'Submit Inquiry'}
                 </button>
+                {error && <p className="text-xs font-semibold text-red-600 bg-red-50 border border-red-100 rounded-lg px-3 py-2">{error}</p>}
               </form>
             )}
           </div>
