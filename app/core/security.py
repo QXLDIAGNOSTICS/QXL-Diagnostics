@@ -59,6 +59,19 @@ class Auth0Validator:
     async def verify(self, token: str) -> dict:
         if not self._settings.AUTH0_DOMAIN or not self._settings.AUTH0_API_AUDIENCE:
             raise UnauthorizedError("Auth0 is not configured")
+        return await self._verify_against_audience(token, self._settings.AUTH0_API_AUDIENCE)
+
+    async def verify_id_token(self, token: str) -> dict:
+        """Verify an Auth0 ID token issued to our Regular Web App (login flow).
+
+        Uses AUTH0_CLIENT_ID as the audience, per OIDC — distinct from the API
+        access-token audience used by ``verify()``.
+        """
+        if not self._settings.AUTH0_DOMAIN or not self._settings.AUTH0_CLIENT_ID:
+            raise UnauthorizedError("Auth0 is not configured")
+        return await self._verify_against_audience(token, self._settings.AUTH0_CLIENT_ID)
+
+    async def _verify_against_audience(self, token: str, audience: str) -> dict:
         try:
             header = jwt.get_unverified_header(token)
         except JWTError as exc:
@@ -74,7 +87,7 @@ class Auth0Validator:
                 token,
                 key,
                 algorithms=self._settings.AUTH0_ALGORITHMS,
-                audience=self._settings.AUTH0_API_AUDIENCE,
+                audience=audience,
                 issuer=self._settings.issuer,
             )
         except JWTError as exc:

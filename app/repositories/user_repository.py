@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import uuid
 
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models.user import User
@@ -35,3 +35,20 @@ class UserRepository:
             user.name = name
         await self.db.flush()
         return user
+
+    async def list_all(self, limit: int = 100, offset: int = 0) -> tuple[list[User], int]:
+        count = (await self.db.execute(select(func.count()).select_from(User))).scalar_one()
+        rows = list(
+            (
+                await self.db.execute(
+                    select(User).order_by(User.created_at.desc()).limit(limit).offset(offset)
+                )
+            ).scalars().all()
+        )
+        return rows, count
+
+    async def set_role(self, user: User, role: str) -> User:
+        user.role = role
+        await self.db.flush()
+        return user
+

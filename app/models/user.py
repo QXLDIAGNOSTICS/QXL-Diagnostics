@@ -18,6 +18,8 @@ class User(Base, TimestampMixin):
     auth0_sub: Mapped[str] = mapped_column(String, unique=True, index=True, nullable=False)
     email: Mapped[str | None] = mapped_column(String, index=True, nullable=True)
     name: Mapped[str | None] = mapped_column(String, nullable=True)
+    # Authorization lives in our own DB, not in Auth0 claims: Auth0 only verifies identity.
+    role: Mapped[str] = mapped_column(String(20), server_default="patient", nullable=False)
     updated_at: Mapped[datetime] = mapped_column(
         server_default=func.now(), onupdate=func.now(), nullable=False
     )
@@ -27,4 +29,13 @@ class User(Base, TimestampMixin):
     )
     conversations: Mapped[list["Conversation"]] = relationship(  # noqa: F821
         back_populates="owner", cascade="all, delete-orphan"
+    )
+    sessions: Mapped[list["Session"]] = relationship(  # noqa: F821
+        back_populates="user", cascade="all, delete-orphan"
+    )
+    bookings: Mapped[list["Booking"]] = relationship(  # noqa: F821
+        back_populates="user", cascade="all, delete-orphan"
+    )
+    prescriptions: Mapped[list["Prescription"]] = relationship(  # noqa: F821
+        back_populates="user", cascade="all, delete-orphan"
     )

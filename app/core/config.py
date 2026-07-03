@@ -2,9 +2,10 @@
 from __future__ import annotations
 
 from functools import lru_cache
+from typing import Annotated
 
 from pydantic import Field, field_validator
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 
 class Settings(BaseSettings):
@@ -19,9 +20,11 @@ class Settings(BaseSettings):
     ENVIRONMENT: str = "development"
     API_V1_PREFIX: str = "/api/v1"
     PROJECT_NAME: str = "QXL Backend"
-    CORS_ORIGINS: list[str] = Field(default_factory=lambda: ["http://localhost:3000"])
+    CORS_ORIGINS: Annotated[list[str], NoDecode] = Field(
+        default_factory=lambda: ["http://localhost:3000"]
+    )
     MAX_UPLOAD_BYTES: int = 25 * 1024 * 1024  # 25 MB
-    ALLOWED_UPLOAD_TYPES: list[str] = Field(
+    ALLOWED_UPLOAD_TYPES: Annotated[list[str], NoDecode] = Field(
         default_factory=lambda: [
             "application/pdf",
             "image/png",
@@ -33,11 +36,19 @@ class Settings(BaseSettings):
     # PostgreSQL
     DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/appdb"
 
-    # Auth0
+    # Auth0 (API — validates Bearer access tokens on protected endpoints)
     AUTH0_DOMAIN: str = ""
     AUTH0_API_AUDIENCE: str = ""
     AUTH0_ISSUER: str = ""
-    AUTH0_ALGORITHMS: list[str] = Field(default_factory=lambda: ["RS256"])
+    AUTH0_ALGORITHMS: Annotated[list[str], NoDecode] = Field(default_factory=lambda: ["RS256"])
+
+    # Auth0 (Regular Web App — backend-owned Authorization Code login flow)
+    AUTH0_CLIENT_ID: str = ""
+    AUTH0_CLIENT_SECRET: str = ""
+    AUTH0_CALLBACK_URL: str = "http://localhost:3000/api/v1/auth/callback"
+    FRONTEND_BASE_URL: str = "http://localhost:3000"
+    SESSION_COOKIE_NAME: str = "qxl_session"
+    SESSION_TTL_DAYS: int = 14
 
     # Supabase
     SUPABASE_URL: str = ""
