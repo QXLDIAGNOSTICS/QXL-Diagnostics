@@ -1,70 +1,125 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { CalendarDays, Plus, Search, Trash2, X, Check, Clock, Eye } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { CalendarDays, Plus, Search, X, Check, Clock, Ban, Loader2 } from "lucide-react";
+import { api, type Booking, type HealthPackage, type TestCatalogItem } from "@/lib/api";
+
+const STATUS_STYLES: Record<string, string> = {
+  pending: "bg-orange-100 text-orange-700",
+  confirmed: "bg-emerald-100 text-emerald-700",
+  sample_collected: "bg-blue-100 text-blue-700",
+  report_ready: "bg-purple-100 text-purple-700",
+  completed: "bg-teal-100 text-teal-700",
+  cancelled: "bg-red-100 text-red-700",
+};
+
+const NEXT_STATUS: Record<string, string> = {
+  pending: "confirmed",
+  confirmed: "sample_collected",
+  sample_collected: "report_ready",
+  report_ready: "completed",
+};
 
 export default function AppointmentsAdminPage() {
-  const [appointments, setAppointments] = useState<any[]>([]);
+  const [appointments, setAppointments] = useState<Booking[]>([]);
+  const [packages, setPackages] = useState<HealthPackage[]>([]);
+  const [tests, setTests] = useState<TestCatalogItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Form states
   const [patientName, setPatientName] = useState("");
   const [phone, setPhone] = useState("");
-  const [service, setService] = useState("Full Body Checkup");
+  const [bookingType, setBookingType] = useState<"test" | "package">("package");
+  const [selectedTestId, setSelectedTestId] = useState("");
+  const [selectedPackageId, setSelectedPackageId] = useState("");
+  const [collectionType, setCollectionType] = useState<"home" | "center">("home");
+  const [collectionAddress, setCollectionAddress] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("09:00 AM");
 
-  useEffect(() => {
-    const refreshData = () => {
-      setAppointments(cmsStore.getAll("appointments"));
-    };
-    refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const [bookingsRes, packagesRes, testsRes] = await Promise.all([
+        api.bookings.adminList(undefined, 200, 0),
+        api.packages.adminList(200, 0),
+        api.tests.adminList(200, 0),
+      ]);
+      setAppointments(bookingsRes.items);
+      setPackages(packagesRes.items);
+      setTests(testsRes.items);
+    } catch {
+      setError("Failed to load appointments.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
 
   const openAddModal = () => {
     setPatientName("");
     setPhone("");
-    setService("Full Body Checkup");
+    setBookingType("package");
+    setSelectedTestId("");
+    setSelectedPackageId(packages[0]?.id || "");
+    setCollectionType("home");
+    setCollectionAddress("");
     setDate(new Date().toISOString().split("T")[0]);
     setTime("09:00 AM");
     setIsModalOpen(true);
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!patientName || !phone || !date) return;
+    if (bookingType === "package" && !selectedPackageId) return;
+    if (bookingType === "test" && !selectedTestId) return;
+    if (collectionType === "home" && !collectionAddress) return;
 
-    const payload = {
-      patientName,
-      phone,
-      service,
-      date,
-      time,
-      status: "Confirmed"
-    };
-
-    cmsStore.addItem("appointments", payload);
-    setIsModalOpen(false);
-  };
-
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this appointment?")) {
-      cmsStore.deleteItem("appointments", id);
+    setSaving(true);
+    setError(null);
+    try {
+      await api.bookings.create({
+        patient_name: patientName,
+        patient_phone: phone,
+        package_id: bookingType === "package" ? selectedPackageId : null,
+        test_id: bookingType === "test" ? selectedTestId : null,
+        collection_type: collectionType,
+        collection_address: collectionType === "home" ? collectionAddress : null,
+        preferred_date: date,
+        preferred_time: time,
+      });
+      setIsModalOpen(false);
+      await refreshData();
+    } catch {
+      setError("Failed to schedule the visit — please choose a valid test/package.");
+    } finally {
+      setSaving(false);
     }
   };
 
-  const handleStatusChange = (id: string, status: string) => {
-    cmsStore.updateItem("appointments", id, { status });
+  const handleStatusChange = async (id: string, status: string) => {
+    try {
+      await api.bookings.updateStatus(id, status);
+      await refreshData();
+    } catch {
+      setError("Failed to update booking status.");
+    }
   };
 
-  const filtered = appointments.filter(apt =>
-    apt.patientName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    apt.service.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    apt.phone.includes(searchQuery)
+  const filtered = appointments.filter(
+    (apt) =>
+      apt.patient_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (apt.test_name || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+      apt.patient_phone.includes(searchQuery)
   );
 
   return (
@@ -89,6 +144,12 @@ export default function AppointmentsAdminPage() {
         </button>
       </div>
 
+      {error && (
+        <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm">
+          {error}
+        </div>
+      )}
+
       {/* Main Table Container */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
         
@@ -108,7 +169,11 @@ export default function AppointmentsAdminPage() {
           </div>
         </div>
 
-        {filtered.length === 0 ? (
+        {loading ? (
+          <div className="p-12 flex items-center justify-center text-gray-400">
+            <Loader2 className="w-6 h-6 animate-spin" />
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="p-12 text-center flex flex-col items-center justify-center">
             <CalendarDays className="w-12 h-12 text-gray-300 mb-3" />
             <h3 className="text-base font-semibold text-gray-955 dark:text-white">No appointments found</h3>
@@ -130,45 +195,34 @@ export default function AppointmentsAdminPage() {
               <tbody className="divide-y divide-gray-100 dark:divide-gray-800 text-xs">
                 {filtered.map((apt) => (
                   <tr key={apt.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-950/10">
-                    <td className="px-6 py-4 font-extrabold text-slate-900 dark:text-white">{apt.patientName}</td>
-                    <td className="px-6 py-4 font-medium">{apt.phone}</td>
-                    <td className="px-6 py-4 font-bold text-teal-650 dark:text-teal-400">{apt.service}</td>
-                    <td className="px-6 py-4 font-medium">{apt.date} @ {apt.time}</td>
+                    <td className="px-6 py-4 font-extrabold text-slate-900 dark:text-white">{apt.patient_name}</td>
+                    <td className="px-6 py-4 font-medium">{apt.patient_phone}</td>
+                    <td className="px-6 py-4 font-bold text-teal-650 dark:text-teal-400">{apt.test_name || "—"}</td>
+                    <td className="px-6 py-4 font-medium">{apt.preferred_date || "—"} @ {apt.preferred_time || "—"}</td>
                     <td className="px-6 py-4">
-                      <span className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase ${
-                        apt.status === "Confirmed" ? "bg-emerald-100 text-emerald-700" :
-                        apt.status === "Checked In" ? "bg-blue-100 text-blue-700" :
-                        "bg-orange-100 text-orange-700"
-                      }`}>
-                        {apt.status}
+                      <span className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase ${STATUS_STYLES[apt.status] || "bg-gray-100 text-gray-700"}`}>
+                        {apt.status.replace("_", " ")}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-right flex items-center justify-end gap-1.5 mt-1.5">
-                      {apt.status !== "Confirmed" && (
+                      {NEXT_STATUS[apt.status] && (
                         <button 
-                          onClick={() => handleStatusChange(apt.id, "Confirmed")}
+                          onClick={() => handleStatusChange(apt.id, NEXT_STATUS[apt.status])}
                           className="p-1 text-emerald-600 hover:bg-emerald-50 rounded-md cursor-pointer"
-                          title="Confirm Appointment"
+                          title={`Advance to ${NEXT_STATUS[apt.status].replace("_", " ")}`}
                         >
-                          <Check className="w-4 h-4" />
+                          {apt.status === "pending" ? <Check className="w-4 h-4" /> : <Clock className="w-4 h-4" />}
                         </button>
                       )}
-                      {apt.status === "Confirmed" && (
+                      {apt.status !== "cancelled" && apt.status !== "completed" && (
                         <button 
-                          onClick={() => handleStatusChange(apt.id, "Checked In")}
-                          className="p-1 text-blue-600 hover:bg-blue-50 rounded-md cursor-pointer"
-                          title="Check In Patient"
+                          onClick={() => handleStatusChange(apt.id, "cancelled")}
+                          className="p-1 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-md cursor-pointer"
+                          title="Cancel Booking"
                         >
-                          <Clock className="w-4 h-4" />
+                          <Ban className="w-4 h-4" />
                         </button>
                       )}
-                      <button 
-                        onClick={() => handleDelete(apt.id)}
-                        className="p-1 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-md cursor-pointer"
-                        title="Delete Record"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
                     </td>
                   </tr>
                 ))}
@@ -215,16 +269,83 @@ export default function AppointmentsAdminPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Requested Service</label>
-                <input 
-                  type="text" 
-                  required
-                  value={service} 
-                  onChange={(e) => setService(e.target.value)} 
-                  placeholder="Full Body Checkup" 
-                  className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                />
+                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Booking Type</label>
+                <div className="flex gap-2 mb-2">
+                  <button
+                    type="button"
+                    onClick={() => setBookingType("package")}
+                    className={`flex-1 px-3 py-2 text-xs font-bold rounded-lg cursor-pointer ${bookingType === "package" ? "bg-teal-600 text-white" : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"}`}
+                  >
+                    Health Package
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setBookingType("test")}
+                    className={`flex-1 px-3 py-2 text-xs font-bold rounded-lg cursor-pointer ${bookingType === "test" ? "bg-teal-600 text-white" : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"}`}
+                  >
+                    Individual Test
+                  </button>
+                </div>
+                {bookingType === "package" ? (
+                  <select
+                    required
+                    value={selectedPackageId}
+                    onChange={(e) => setSelectedPackageId(e.target.value)}
+                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  >
+                    <option value="">Select a package…</option>
+                    {packages.map((p) => (
+                      <option key={p.id} value={p.id}>{p.name} — ₹{p.price}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <select
+                    required
+                    value={selectedTestId}
+                    onChange={(e) => setSelectedTestId(e.target.value)}
+                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  >
+                    <option value="">Select a test…</option>
+                    {tests.map((t) => (
+                      <option key={t.id} value={t.id}>{t.name}{t.price ? ` — ₹${t.price}` : ""}</option>
+                    ))}
+                  </select>
+                )}
               </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Collection Type</label>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setCollectionType("home")}
+                    className={`flex-1 px-3 py-2 text-xs font-bold rounded-lg cursor-pointer ${collectionType === "home" ? "bg-teal-600 text-white" : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"}`}
+                  >
+                    Home Collection
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCollectionType("center")}
+                    className={`flex-1 px-3 py-2 text-xs font-bold rounded-lg cursor-pointer ${collectionType === "center" ? "bg-teal-600 text-white" : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"}`}
+                  >
+                    Visit Center
+                  </button>
+                </div>
+              </div>
+
+              {collectionType === "home" && (
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Collection Address</label>
+                  <input
+                    type="text"
+                    required
+                    value={collectionAddress}
+                    onChange={(e) => setCollectionAddress(e.target.value)}
+                    placeholder="House no, Street, Area, City"
+                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  />
+                </div>
+              )}
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
@@ -260,8 +381,10 @@ export default function AppointmentsAdminPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
+                  disabled={saving}
+                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-60 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer flex items-center gap-2"
                 >
+                  {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   Confirm Schedule
                 </button>
               </div>

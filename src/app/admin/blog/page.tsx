@@ -1,12 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { MessageSquare, Plus, Search, Edit2, Trash2, X, Sparkles } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { MessageSquare, Plus, Search, Edit2, Trash2, X, Sparkles, Loader2 } from "lucide-react";
+import { api, type BlogPost } from "@/lib/api";
 import { aiHelper } from "@/lib/aiHelper";
 
 export default function BlogAdminPage() {
-  const [blogs, setBlogs] = useState<any[]>([]);
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -23,14 +26,22 @@ export default function BlogAdminPage() {
   const [isAiGenerating, setIsAiGenerating] = useState(false);
   const [showAiInput, setShowAiInput] = useState(false);
 
-  useEffect(() => {
-    const refreshData = () => {
-      setBlogs(cmsStore.getAll("blogs"));
-    };
-    refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const { items } = await api.blog.adminList(200, 0);
+      setBlogs(items);
+    } catch {
+      setError("Failed to load blog articles.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
 
   const openAddModal = () => {
     setEditingId(null);
@@ -44,42 +55,54 @@ export default function BlogAdminPage() {
     setAiTopic("");
   };
 
-  const openEditModal = (blog: any) => {
+  const openEditModal = (blog: BlogPost) => {
     setEditingId(blog.id);
     setTitle(blog.title);
-    setExcerpt(blog.excerpt);
-    setContent(blog.content);
-    setAuthor(blog.author);
-    setImage(blog.image);
+    setExcerpt(blog.excerpt || "");
+    setContent(blog.content || "");
+    setAuthor(blog.author || "");
+    setImage(blog.image_url || "");
     setIsModalOpen(true);
     setShowAiInput(false);
     setAiTopic("");
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || !content) return;
 
-    const payload = {
-      title,
-      excerpt,
-      content,
-      author,
-      image,
-      date: new Date().toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' })
-    };
+    setSaving(true);
+    setError(null);
+    try {
+      const payload = {
+        title,
+        excerpt,
+        content,
+        author,
+        image_url: image,
+      };
 
-    if (editingId) {
-      cmsStore.updateItem("blogs", editingId, payload);
-    } else {
-      cmsStore.addItem("blogs", payload);
+      if (editingId) {
+        await api.blog.update(editingId, payload);
+      } else {
+        await api.blog.create({ ...payload, is_published: true });
+      }
+      setIsModalOpen(false);
+      await refreshData();
+    } catch {
+      setError("Failed to save the blog article.");
+    } finally {
+      setSaving(false);
     }
-    setIsModalOpen(false);
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this blog post?")) {
-      cmsStore.deleteItem("blogs", id);
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this blog post?")) return;
+    try {
+      await api.blog.remove(id);
+      await refreshData();
+    } catch {
+      setError("Failed to delete the blog article.");
     }
   };
 
@@ -102,7 +125,7 @@ export default function BlogAdminPage() {
 
   const filtered = blogs.filter(blog =>
     blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    blog.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
+    (blog.excerpt || "").toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -127,6 +150,12 @@ export default function BlogAdminPage() {
         </button>
       </div>
 
+      {error && (
+        <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm">
+          {error}
+        </div>
+      )}
+
       {/* Grid */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
         
@@ -146,7 +175,11 @@ export default function BlogAdminPage() {
           </div>
         </div>
 
-        {filtered.length === 0 ? (
+        {loading ? (
+          <div className="p-12 flex items-center justify-center text-gray-400">
+            <Loader2 className="w-6 h-6 animate-spin" />
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="p-12 text-center flex flex-col items-center justify-center">
             <MessageSquare className="w-12 h-12 text-gray-300 mb-3" />
             <h3 className="text-base font-semibold text-gray-955 dark:text-white">No articles found</h3>
@@ -161,7 +194,7 @@ export default function BlogAdminPage() {
               <div key={blog.id} className="border border-gray-200 dark:border-gray-800 rounded-xl p-5 flex flex-col justify-between bg-slate-50/50 dark:bg-slate-950/20 relative">
                 <div>
                   <div className="flex justify-between items-start gap-2 mb-2">
-                    <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold">{blog.date} • By {blog.author}</span>
+                    <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold">By {blog.author}</span>
                   </div>
                   <h4 className="font-extrabold text-slate-800 dark:text-white text-sm mb-2">{blog.title}</h4>
                   <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-medium line-clamp-3">{blog.excerpt}</p>
@@ -321,8 +354,10 @@ export default function BlogAdminPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
+                  disabled={saving}
+                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-60 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer flex items-center gap-2"
                 >
+                  {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   Publish Article
                 </button>
               </div>

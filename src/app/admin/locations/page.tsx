@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { MapPin, Plus, Search, Edit2, Trash2, X } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { MapPin, Plus, Search, Edit2, Trash2, X, Loader2 } from "lucide-react";
+import { api, type Center } from "@/lib/api";
 
 export default function LocationsAdminPage() {
-  const [locations, setLocations] = useState<any[]>([]);
+  const [locations, setLocations] = useState<Center[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -15,19 +18,26 @@ export default function LocationsAdminPage() {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("Bengaluru");
   const [phone, setPhone] = useState("+91 99646 39639");
-  const [email, setEmail] = useState("qxldiagnostics@gmail.com");
   const [hours, setHours] = useState("Mon - Sat: 8:00 AM - 7:00 PM | Sun: Closed");
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
 
-  useEffect(() => {
-    const refreshData = () => {
-      setLocations(cmsStore.getAll("locations"));
-    };
-    refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const { items } = await api.centers.adminList(200, 0);
+      setLocations(items);
+    } catch {
+      setError("Failed to load locations.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
 
   const openAddModal = () => {
     setEditingId(null);
@@ -35,52 +45,62 @@ export default function LocationsAdminPage() {
     setAddress("");
     setCity("Bengaluru");
     setPhone("+91 99646 39639");
-    setEmail("qxldiagnostics@gmail.com");
     setHours("Mon - Sat: 8:00 AM - 7:00 PM | Sun: Closed");
     setLat("");
     setLng("");
     setIsModalOpen(true);
   };
 
-  const openEditModal = (loc: any) => {
+  const openEditModal = (loc: Center) => {
     setEditingId(loc.id);
     setName(loc.name);
     setAddress(loc.address);
     setCity(loc.city || "Bengaluru");
     setPhone(loc.phone || "+91 99646 39639");
-    setEmail(loc.email || "qxldiagnostics@gmail.com");
     setHours(loc.hours || "Mon - Sat: 8:00 AM - 7:00 PM | Sun: Closed");
-    setLat(loc.lat ? String(loc.lat) : "");
-    setLng(loc.lng ? String(loc.lng) : "");
+    setLat(loc.lat != null ? String(loc.lat) : "");
+    setLng(loc.lng != null ? String(loc.lng) : "");
     setIsModalOpen(true);
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !address) return;
 
-    const payload = { 
-      name, 
-      address,
-      city,
-      phone,
-      email,
-      hours,
-      lat: lat ? parseFloat(lat) : 0,
-      lng: lng ? parseFloat(lng) : 0
-    };
+    setSaving(true);
+    setError(null);
+    try {
+      const payload = {
+        name,
+        address,
+        city,
+        phone,
+        hours,
+        lat: lat ? parseFloat(lat) : null,
+        lng: lng ? parseFloat(lng) : null,
+      };
 
-    if (editingId) {
-      cmsStore.updateItem("locations", editingId, payload);
-    } else {
-      cmsStore.addItem("locations", payload);
+      if (editingId) {
+        await api.centers.update(editingId, payload);
+      } else {
+        await api.centers.create(payload);
+      }
+      setIsModalOpen(false);
+      await refreshData();
+    } catch {
+      setError("Failed to save the location.");
+    } finally {
+      setSaving(false);
     }
-    setIsModalOpen(false);
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this location?")) {
-      cmsStore.deleteItem("locations", id);
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this location?")) return;
+    try {
+      await api.centers.remove(id);
+      await refreshData();
+    } catch {
+      setError("Failed to delete the location.");
     }
   };
 
@@ -111,6 +131,12 @@ export default function LocationsAdminPage() {
         </button>
       </div>
 
+      {error && (
+        <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm">
+          {error}
+        </div>
+      )}
+
       {/* Grid */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
         
@@ -127,7 +153,11 @@ export default function LocationsAdminPage() {
           </div>
         </div>
 
-        {filtered.length === 0 ? (
+        {loading ? (
+          <div className="p-12 flex items-center justify-center text-gray-400">
+            <Loader2 className="w-6 h-6 animate-spin" />
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="p-12 text-center text-gray-450">No locations found.</div>
         ) : (
           <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -282,8 +312,10 @@ export default function LocationsAdminPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
+                  disabled={saving}
+                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-60 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer flex items-center gap-2"
                 >
+                  {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   Save Location
                 </button>
               </div>

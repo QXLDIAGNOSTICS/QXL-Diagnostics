@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Stethoscope, Plus, Search, Edit2, Trash2, X } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { Stethoscope, Plus, Search, Edit2, Trash2, X, Loader2 } from "lucide-react";
+import { api, type Doctor } from "@/lib/api";
 
 export default function DoctorsAdminPage() {
-  const [doctors, setDoctors] = useState<any[]>([]);
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -15,14 +18,22 @@ export default function DoctorsAdminPage() {
   const [qual, setQual] = useState("");
   const [image, setImage] = useState("");
 
-  useEffect(() => {
-    const refreshData = () => {
-      setDoctors(cmsStore.getAll("doctors"));
-    };
-    refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const items = await api.doctors.adminList(200, 0);
+      setDoctors(items);
+    } catch {
+      setError("Failed to load doctors.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
 
   const openAddModal = () => {
     setEditingId(null);
@@ -32,37 +43,57 @@ export default function DoctorsAdminPage() {
     setIsModalOpen(true);
   };
 
-  const openEditModal = (doc: any) => {
+  const openEditModal = (doc: Doctor) => {
     setEditingId(doc.id);
     setName(doc.name);
-    setQual(doc.qual);
-    setImage(doc.image);
+    setQual(doc.qualification || "");
+    setImage(doc.image_url || "");
     setIsModalOpen(true);
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !qual) return;
 
-    const payload = { name, qual, image };
-
-    if (editingId) {
-      cmsStore.updateItem("doctors", editingId, payload);
-    } else {
-      cmsStore.addItem("doctors", payload);
+    setSaving(true);
+    setError(null);
+    try {
+      if (editingId) {
+        await api.doctors.update(editingId, {
+          name,
+          qualification: qual,
+          image_url: image,
+        });
+      } else {
+        await api.doctors.create({
+          name,
+          qualification: qual,
+          image_url: image,
+          is_active: true,
+        });
+      }
+      setIsModalOpen(false);
+      await refreshData();
+    } catch {
+      setError("Failed to save the doctor profile.");
+    } finally {
+      setSaving(false);
     }
-    setIsModalOpen(false);
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this doctor profile?")) {
-      cmsStore.deleteItem("doctors", id);
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this doctor profile?")) return;
+    try {
+      await api.doctors.remove(id);
+      await refreshData();
+    } catch {
+      setError("Failed to delete the doctor profile.");
     }
   };
 
   const filteredDoctors = doctors.filter(doc =>
     doc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    doc.qual.toLowerCase().includes(searchQuery.toLowerCase())
+    (doc.qualification || "").toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -87,6 +118,12 @@ export default function DoctorsAdminPage() {
         </button>
       </div>
 
+      {error && (
+        <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm">
+          {error}
+        </div>
+      )}
+
       {/* Main Grid */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
         
@@ -106,7 +143,11 @@ export default function DoctorsAdminPage() {
           </div>
         </div>
 
-        {filteredDoctors.length === 0 ? (
+        {loading ? (
+          <div className="p-12 flex items-center justify-center text-gray-400">
+            <Loader2 className="w-6 h-6 animate-spin" />
+          </div>
+        ) : filteredDoctors.length === 0 ? (
           <div className="p-12 text-center flex flex-col items-center justify-center">
             <Stethoscope className="w-12 h-12 text-gray-300 dark:text-gray-600 mb-3" />
             <h3 className="text-base font-semibold text-gray-950 dark:text-white">No doctors found</h3>
@@ -120,10 +161,10 @@ export default function DoctorsAdminPage() {
             {filteredDoctors.map((doc) => (
               <div key={doc.id} className="border border-gray-100 dark:border-gray-800 rounded-xl p-4 flex flex-col items-center text-center bg-slate-50/50 dark:bg-slate-950/20 relative group">
                 <div className="w-32 h-32 rounded-full overflow-hidden bg-teal-50 dark:bg-teal-950/20 flex items-center justify-center mb-4 border border-gray-100 dark:border-gray-800">
-                  <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" />
+                  <img src={doc.image_url || ""} alt={doc.name} className="w-full h-full object-cover" />
                 </div>
                 <h4 className="font-extrabold text-slate-800 dark:text-white text-sm line-clamp-1">{doc.name}</h4>
-                <p className="text-xs text-teal-600 dark:text-teal-400 font-bold mt-1 uppercase tracking-wider">{doc.qual}</p>
+                <p className="text-xs text-teal-600 dark:text-teal-400 font-bold mt-1 uppercase tracking-wider">{doc.qualification}</p>
                 <p className="text-[10px] text-gray-400 mt-0.5">ID: {doc.id}</p>
 
                 <div className="flex gap-2 mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 w-full justify-center opacity-100">
@@ -206,8 +247,10 @@ export default function DoctorsAdminPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
+                  disabled={saving}
+                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-60 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer flex items-center gap-2"
                 >
+                  {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   Save Profile
                 </button>
               </div>

@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { HelpCircle, Plus, Search, Edit2, Trash2, X } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { HelpCircle, Plus, Search, Edit2, Trash2, X, Loader2 } from "lucide-react";
+import { api, type FAQItem } from "@/lib/api";
 
 export default function FAQAdminPage() {
-  const [faqs, setFaqs] = useState<any[]>([]);
+  const [faqs, setFaqs] = useState<FAQItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -14,14 +17,22 @@ export default function FAQAdminPage() {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
 
-  useEffect(() => {
-    const refreshData = () => {
-      setFaqs(cmsStore.getAll("faqs"));
-    };
-    refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const items = await api.faqs.adminList(200, 0);
+      setFaqs(items);
+    } catch {
+      setError("Failed to load FAQs.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
 
   const openAddModal = () => {
     setEditingId(null);
@@ -30,30 +41,41 @@ export default function FAQAdminPage() {
     setIsModalOpen(true);
   };
 
-  const openEditModal = (faq: any) => {
+  const openEditModal = (faq: FAQItem) => {
     setEditingId(faq.id);
     setQuestion(faq.question);
     setAnswer(faq.answer);
     setIsModalOpen(true);
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!question || !answer) return;
 
-    const payload = { question, answer };
-
-    if (editingId) {
-      cmsStore.updateItem("faqs", editingId, payload);
-    } else {
-      cmsStore.addItem("faqs", payload);
+    setSaving(true);
+    setError(null);
+    try {
+      if (editingId) {
+        await api.faqs.update(editingId, { question, answer });
+      } else {
+        await api.faqs.create({ question, answer, is_active: true });
+      }
+      setIsModalOpen(false);
+      await refreshData();
+    } catch {
+      setError("Failed to save the FAQ.");
+    } finally {
+      setSaving(false);
     }
-    setIsModalOpen(false);
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this FAQ?")) {
-      cmsStore.deleteItem("faqs", id);
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this FAQ?")) return;
+    try {
+      await api.faqs.remove(id);
+      await refreshData();
+    } catch {
+      setError("Failed to delete the FAQ.");
     }
   };
 
@@ -84,6 +106,12 @@ export default function FAQAdminPage() {
         </button>
       </div>
 
+      {error && (
+        <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm">
+          {error}
+        </div>
+      )}
+
       {/* List */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
         
@@ -100,7 +128,11 @@ export default function FAQAdminPage() {
           </div>
         </div>
 
-        {filtered.length === 0 ? (
+        {loading ? (
+          <div className="p-12 flex items-center justify-center text-gray-400">
+            <Loader2 className="w-6 h-6 animate-spin" />
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="p-12 text-center text-gray-400">No FAQs found.</div>
         ) : (
           <div className="p-6 divide-y divide-gray-100 dark:divide-gray-800 space-y-4">
@@ -179,8 +211,10 @@ export default function FAQAdminPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
+                  disabled={saving}
+                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-60 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer flex items-center gap-2"
                 >
+                  {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   Save FAQ
                 </button>
               </div>

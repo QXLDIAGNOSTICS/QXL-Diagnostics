@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Briefcase, Plus, Search, Edit2, Trash2, X } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { Briefcase, Plus, Search, Edit2, Trash2, X, Loader2 } from "lucide-react";
+import { api, type HealthPackage } from "@/lib/api";
 
 export default function PackagesAdminPage() {
-  const [packages, setPackages] = useState<any[]>([]);
+  const [packages, setPackages] = useState<HealthPackage[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -18,14 +21,22 @@ export default function PackagesAdminPage() {
   const [parameters, setParameters] = useState("");
   const [tag, setTag] = useState("");
 
-  useEffect(() => {
-    const refreshData = () => {
-      setPackages(cmsStore.getAll("packages"));
-    };
-    refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const { items } = await api.packages.adminList(200, 0);
+      setPackages(items);
+    } catch {
+      setError("Failed to load health packages.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
 
   const openAddModal = () => {
     setEditingId(null);
@@ -38,47 +49,61 @@ export default function PackagesAdminPage() {
     setIsModalOpen(true);
   };
 
-  const openEditModal = (pkg: any) => {
+  const openEditModal = (pkg: HealthPackage) => {
     setEditingId(pkg.id);
     setName(pkg.name);
-    setPrice(pkg.price);
-    setOldPrice(pkg.old_price);
-    setIncludes(pkg.includes);
-    setParameters(pkg.parameters);
+    setPrice(String(pkg.price ?? ""));
+    setOldPrice(String(pkg.old_price ?? ""));
+    setIncludes(pkg.includes || "");
+    setParameters(pkg.parameters || "");
     setTag(pkg.tag || "");
     setIsModalOpen(true);
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !price || !oldPrice) return;
 
-    const payload = {
-      name,
-      price,
-      old_price: oldPrice,
-      includes,
-      parameters,
-      tag
-    };
+    setSaving(true);
+    setError(null);
+    try {
+      const payload = {
+        name,
+        price: Number(price),
+        old_price: Number(oldPrice),
+        includes,
+        parameters,
+        tag,
+      };
 
-    if (editingId) {
-      cmsStore.updateItem("packages", editingId, payload);
-    } else {
-      cmsStore.addItem("packages", payload);
+      if (editingId) {
+        await api.packages.update(editingId, payload);
+      } else {
+        await api.packages.create(payload);
+      }
+      setIsModalOpen(false);
+      await refreshData();
+    } catch {
+      setError("Failed to save the health package.");
+    } finally {
+      setSaving(false);
     }
-    setIsModalOpen(false);
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this health package?")) {
-      cmsStore.deleteItem("packages", id);
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this health package?")) return;
+    try {
+      await api.packages.remove(id);
+      await refreshData();
+    } catch {
+      setError("Failed to delete the health package.");
     }
   };
 
-  const filteredPackages = packages.filter(pkg =>
-    pkg.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    pkg.includes.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredPackages = packages.filter(
+    (pkg) =>
+      pkg.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (pkg.includes || "").toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -103,6 +128,12 @@ export default function PackagesAdminPage() {
         </button>
       </div>
 
+      {error && (
+        <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm">
+          {error}
+        </div>
+      )}
+
       {/* Grid */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
         
@@ -122,7 +153,11 @@ export default function PackagesAdminPage() {
           </div>
         </div>
 
-        {filteredPackages.length === 0 ? (
+        {loading ? (
+          <div className="p-12 flex items-center justify-center text-gray-400">
+            <Loader2 className="w-6 h-6 animate-spin" />
+          </div>
+        ) : filteredPackages.length === 0 ? (
           <div className="p-12 text-center flex flex-col items-center justify-center">
             <Briefcase className="w-12 h-12 text-gray-300 mb-3" />
             <h3 className="text-base font-semibold text-gray-950 dark:text-white">No packages found</h3>
@@ -266,8 +301,10 @@ export default function PackagesAdminPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
+                  disabled={saving}
+                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-60 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer flex items-center gap-2"
                 >
+                  {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   Save Package
                 </button>
               </div>

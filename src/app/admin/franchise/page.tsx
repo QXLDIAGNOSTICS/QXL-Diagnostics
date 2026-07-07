@@ -1,36 +1,47 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Store, Search, Trash2, CheckCircle, Clock, X, Mail, Phone, MapPin, DollarSign } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { Store, Search, CheckCircle, Mail, Phone, MapPin, Loader2 } from "lucide-react";
+import { api, type CollaborationLeadRead } from "@/lib/api";
 
 export default function FranchisePage() {
-  const [franchiseList, setFranchiseList] = useState<any[]>([]);
+  const [leads, setLeads] = useState<CollaborationLeadRead[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [unreadOnly, setUnreadOnly] = useState(false);
+
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const { items } = await api.leads.adminListCollaboration(unreadOnly, 200, 0);
+      setLeads(items);
+    } catch {
+      setError("Failed to load collaboration leads.");
+    } finally {
+      setLoading(false);
+    }
+  }, [unreadOnly]);
 
   useEffect(() => {
-    const refreshData = () => {
-      setFranchiseList(cmsStore.getAll("franchise"));
-    };
     refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
-  }, []);
+  }, [refreshData]);
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this franchise enquiry?")) {
-      cmsStore.deleteItem("franchise", id);
+  const handleMarkRead = async (id: string) => {
+    try {
+      await api.leads.markCollaborationRead(id);
+      await refreshData();
+    } catch {
+      setError("Failed to mark lead as read.");
     }
   };
 
-  const updateStatus = (id: string, status: string) => {
-    cmsStore.updateItem("franchise", id, { status });
-  };
-
-  const filtered = franchiseList.filter(fran => 
-    fran.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    fran.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    (fran.email || "").toLowerCase().includes(searchQuery.toLowerCase())
+  const filtered = leads.filter(
+    (lead) =>
+      lead.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (lead.city || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (lead.email || "").toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -43,12 +54,18 @@ export default function FranchisePage() {
             <Store className="w-6 h-6 text-teal-600 dark:text-teal-400" />
             Collaboration & Partnership
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">Review partnership request applications, check candidate cities, investment budgets, and change review status.</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">Review partnership/franchise leads submitted via the website and mark them as read.</p>
         </div>
       </div>
 
+      {error && (
+        <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm">
+          {error}
+        </div>
+      )}
+
       {/* Action Bar */}
-      <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm p-4 flex items-center justify-between">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="relative max-w-sm w-full">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input 
@@ -59,14 +76,29 @@ export default function FranchisePage() {
             className="w-full pl-9 pr-4 py-2 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all text-slate-800 dark:text-slate-100"
           />
         </div>
-        <div className="text-sm text-gray-500 dark:text-gray-400 font-bold">
-          {filtered.length} requests registered
+        <div className="flex items-center gap-4">
+          <label className="flex items-center gap-2 text-xs font-bold text-gray-600 dark:text-gray-300 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={unreadOnly}
+              onChange={(e) => setUnreadOnly(e.target.checked)}
+              className="rounded border-gray-300"
+            />
+            Unread only
+          </label>
+          <div className="text-sm text-gray-500 dark:text-gray-400 font-bold">
+            {filtered.length} requests
+          </div>
         </div>
       </div>
 
       {/* Main List */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
-        {filtered.length === 0 ? (
+        {loading ? (
+          <div className="p-12 flex items-center justify-center text-gray-400">
+            <Loader2 className="w-6 h-6 animate-spin" />
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="p-12 text-center flex flex-col items-center justify-center">
             <Store className="w-12 h-12 text-gray-300 mb-3" />
             <h3 className="text-base font-semibold text-gray-955 dark:text-white">No applications found</h3>
@@ -78,66 +110,45 @@ export default function FranchisePage() {
               <thead>
                 <tr className="bg-slate-50/50 dark:bg-slate-950/20 text-gray-400 uppercase text-[10px] font-black tracking-wider border-b border-gray-100 dark:border-gray-800">
                   <th className="px-6 py-4">Applicant Name</th>
-                  <th className="px-6 py-4">Partnership City</th>
-                  <th className="px-6 py-4">Investment Capacity</th>
+                  <th className="px-6 py-4">City</th>
+                  <th className="px-6 py-4">Interest</th>
                   <th className="px-6 py-4">Contacts</th>
-                  <th className="px-6 py-4">Review Status</th>
+                  <th className="px-6 py-4">Status</th>
                   <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-gray-800 text-xs">
-                {filtered.map((fran) => (
-                  <tr key={fran.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-950/10">
-                    <td className="px-6 py-4 font-extrabold text-slate-900 dark:text-white">{fran.name}</td>
-                    <td className="px-6 py-4 font-bold text-teal-650 dark:text-teal-400 flex items-center gap-1.5 mt-2">
-                      <MapPin className="w-3.5 h-3.5" />
-                      {fran.city}
+                {filtered.map((lead) => (
+                  <tr key={lead.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-950/10">
+                    <td className="px-6 py-4 font-extrabold text-slate-900 dark:text-white">{lead.name}</td>
+                    <td className="px-6 py-4 font-bold text-teal-650 dark:text-teal-400">
+                      <div className="flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5" />
+                        {lead.city || "—"}
+                      </div>
                     </td>
-                    <td className="px-6 py-4 font-extrabold">
-                      <span className="inline-flex items-center gap-1 bg-amber-50 dark:bg-amber-950/20 text-amber-700 px-2 py-0.5 rounded border border-amber-100">
-                        <DollarSign className="w-3 h-3" />
-                        {fran.investment}
-                      </span>
-                    </td>
+                    <td className="px-6 py-4 font-medium">{lead.interest || "—"}</td>
                     <td className="px-6 py-4 font-medium space-y-1">
-                      <div className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-gray-450" /> {fran.phone}</div>
-                      <div className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-gray-450" /> {fran.email}</div>
+                      <div className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 text-gray-450" /> {lead.phone}</div>
+                      <div className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5 text-gray-450" /> {lead.email || "—"}</div>
                     </td>
                     <td className="px-6 py-4">
                       <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase ${
-                        fran.status === "Approved" ? "bg-emerald-100 text-emerald-700" :
-                        fran.status === "Declined" ? "bg-red-100 text-red-700" :
-                        "bg-amber-100 text-amber-700"
+                        lead.is_read ? "bg-slate-100 text-slate-600" : "bg-amber-100 text-amber-700"
                       }`}>
-                        {fran.status}
+                        {lead.is_read ? "Read" : "Unread"}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-right flex items-center justify-end gap-1.5 mt-1.5">
-                      {fran.status !== "Approved" && (
+                    <td className="px-6 py-4 text-right">
+                      {!lead.is_read && (
                         <button 
-                          onClick={() => updateStatus(fran.id, "Approved")}
-                          className="p-1 text-emerald-600 hover:bg-emerald-50 rounded-md cursor-pointer"
-                          title="Approve Proposal"
+                          onClick={() => handleMarkRead(lead.id)}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 text-emerald-600 hover:bg-emerald-50 rounded-md cursor-pointer text-[10px] font-bold"
+                          title="Mark as read"
                         >
-                          <CheckCircle className="w-4 h-4" />
+                          <CheckCircle className="w-4 h-4" /> Mark Read
                         </button>
                       )}
-                      {fran.status !== "Declined" && (
-                        <button 
-                          onClick={() => updateStatus(fran.id, "Declined")}
-                          className="p-1 text-red-500 hover:bg-red-50 rounded-md cursor-pointer"
-                          title="Decline Proposal"
-                        >
-                          <X className="w-4 h-4" />
-                        </button>
-                      )}
-                      <button 
-                        onClick={() => handleDelete(fran.id)}
-                        className="p-1 text-slate-400 hover:text-red-650 hover:bg-red-50 rounded-md cursor-pointer"
-                        title="Delete Record"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
                     </td>
                   </tr>
                 ))}

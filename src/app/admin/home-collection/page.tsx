@@ -1,89 +1,112 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Truck, Plus, Search, Trash2, Edit2, X, Check, MapPin, Calendar } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { Truck, Plus, Search, X, Check, MapPin, Calendar, Ban, Loader2 } from "lucide-react";
+import { api, type Booking, type HealthPackage, type TestCatalogItem } from "@/lib/api";
+
+const STATUS_STYLES: Record<string, string> = {
+  pending: "bg-orange-100 text-orange-700",
+  confirmed: "bg-blue-100 text-blue-700",
+  sample_collected: "bg-blue-100 text-blue-700",
+  report_ready: "bg-purple-100 text-purple-700",
+  completed: "bg-emerald-100 text-emerald-700",
+  cancelled: "bg-red-100 text-red-700",
+};
 
 export default function HomeCollectionPage() {
-  const [homeCollections, setHomeCollections] = useState<any[]>([]);
+  const [homeCollections, setHomeCollections] = useState<Booking[]>([]);
+  const [packages, setPackages] = useState<HealthPackage[]>([]);
+  const [tests, setTests] = useState<TestCatalogItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingId, setEditingId] = useState<string | null>(null);
 
   // Form states
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
-  const [tests, setTests] = useState("");
+  const [bookingType, setBookingType] = useState<"test" | "package">("package");
+  const [selectedTestId, setSelectedTestId] = useState("");
+  const [selectedPackageId, setSelectedPackageId] = useState("");
   const [date, setDate] = useState("");
-  const [status, setStatus] = useState("Scheduled");
 
-  useEffect(() => {
-    const refreshData = () => {
-      setHomeCollections(cmsStore.getAll("homeCollection"));
-    };
-    refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const [bookingsRes, packagesRes, testsRes] = await Promise.all([
+        api.bookings.adminList(undefined, 200, 0),
+        api.packages.adminList(200, 0),
+        api.tests.adminList(200, 0),
+      ]);
+      setHomeCollections(bookingsRes.items.filter((b) => b.collection_type === "home"));
+      setPackages(packagesRes.items);
+      setTests(testsRes.items);
+    } catch {
+      setError("Failed to load home collections.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
+
   const openAddModal = () => {
-    setEditingId(null);
     setName("");
     setPhone("");
     setAddress("");
-    setTests("Lipid Profile, HbA1c");
+    setBookingType("package");
+    setSelectedPackageId(packages[0]?.id || "");
+    setSelectedTestId("");
     setDate(new Date().toISOString().split("T")[0]);
-    setStatus("Scheduled");
     setIsModalOpen(true);
   };
 
-  const openEditModal = (hc: any) => {
-    setEditingId(hc.id);
-    setName(hc.name);
-    setPhone(hc.phone);
-    setAddress(hc.address);
-    setTests(hc.tests);
-    setDate(hc.date);
-    setStatus(hc.status);
-    setIsModalOpen(true);
-  };
-
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !phone || !address) return;
+    if (bookingType === "package" && !selectedPackageId) return;
+    if (bookingType === "test" && !selectedTestId) return;
 
-    const payload = {
-      name,
-      phone,
-      address,
-      tests,
-      date,
-      status
-    };
-
-    if (editingId) {
-      cmsStore.updateItem("homeCollection", editingId, payload);
-    } else {
-      cmsStore.addItem("homeCollection", payload);
+    setSaving(true);
+    setError(null);
+    try {
+      await api.bookings.create({
+        patient_name: name,
+        patient_phone: phone,
+        package_id: bookingType === "package" ? selectedPackageId : null,
+        test_id: bookingType === "test" ? selectedTestId : null,
+        collection_type: "home",
+        collection_address: address,
+        preferred_date: date,
+      });
+      setIsModalOpen(false);
+      await refreshData();
+    } catch {
+      setError("Failed to schedule collection — please choose a valid test/package.");
+    } finally {
+      setSaving(false);
     }
-    setIsModalOpen(false);
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this home collection request?")) {
-      cmsStore.deleteItem("homeCollection", id);
+  const updateStatus = async (id: string, nextStatus: string) => {
+    try {
+      await api.bookings.updateStatus(id, nextStatus);
+      await refreshData();
+    } catch {
+      setError("Failed to update collection status.");
     }
   };
 
-  const updateStatus = (id: string, nextStatus: string) => {
-    cmsStore.updateItem("homeCollection", id, { status: nextStatus });
-  };
-
-  const filtered = homeCollections.filter(hc => 
-    hc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    hc.address.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    hc.tests.toLowerCase().includes(searchQuery.toLowerCase())
+  const filtered = homeCollections.filter(
+    (hc) =>
+      hc.patient_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (hc.collection_address || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (hc.test_name || "").toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -108,6 +131,12 @@ export default function HomeCollectionPage() {
         </button>
       </div>
 
+      {error && (
+        <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm">
+          {error}
+        </div>
+      )}
+
       {/* Main Table */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
         
@@ -127,7 +156,11 @@ export default function HomeCollectionPage() {
           </div>
         </div>
 
-        {filtered.length === 0 ? (
+        {loading ? (
+          <div className="p-12 flex items-center justify-center text-gray-400">
+            <Loader2 className="w-6 h-6 animate-spin" />
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="p-12 text-center flex flex-col items-center justify-center">
             <Truck className="w-12 h-12 text-gray-300 mb-3" />
             <h3 className="text-base font-semibold text-gray-955 dark:text-white">No collections scheduled</h3>
@@ -143,7 +176,7 @@ export default function HomeCollectionPage() {
                 <tr className="bg-slate-50/50 dark:bg-slate-950/20 text-gray-400 uppercase text-[10px] font-black tracking-wider border-b border-gray-100 dark:border-gray-800">
                   <th className="px-6 py-4">Patient & Phone</th>
                   <th className="px-6 py-4">Visit Address</th>
-                  <th className="px-6 py-4">Required Tests</th>
+                  <th className="px-6 py-4">Required Test/Package</th>
                   <th className="px-6 py-4">Schedule Date</th>
                   <th className="px-6 py-4">Collection Status</th>
                   <th className="px-6 py-4 text-right">Actions</th>
@@ -153,53 +186,44 @@ export default function HomeCollectionPage() {
                 {filtered.map((hc) => (
                   <tr key={hc.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-950/10">
                     <td className="px-6 py-4 font-extrabold text-slate-900 dark:text-white">
-                      <div>{hc.name}</div>
-                      <div className="text-[10px] text-gray-450 dark:text-gray-500 mt-0.5">{hc.phone}</div>
+                      <div>{hc.patient_name}</div>
+                      <div className="text-[10px] text-gray-450 dark:text-gray-500 mt-0.5">{hc.patient_phone}</div>
                     </td>
                     <td className="px-6 py-4 font-medium text-slate-650 dark:text-slate-300">
                       <div className="flex items-center gap-1.5 max-w-[200px] truncate">
                         <MapPin className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-                        {hc.address}
+                        {hc.collection_address || "—"}
                       </div>
                     </td>
-                    <td className="px-6 py-4 font-bold text-teal-650 dark:text-teal-400">{hc.tests}</td>
+                    <td className="px-6 py-4 font-bold text-teal-650 dark:text-teal-400">{hc.test_name || "—"}</td>
                     <td className="px-6 py-4 font-medium flex items-center gap-1.5 mt-2">
                       <Calendar className="w-3.5 h-3.5 text-gray-400" />
-                      {hc.date}
+                      {hc.preferred_date || "—"}
                     </td>
                     <td className="px-6 py-4">
-                      <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase ${
-                        hc.status === "Completed" ? "bg-emerald-100 text-emerald-700" :
-                        hc.status === "Cancelled" ? "bg-red-100 text-red-700" :
-                        "bg-orange-100 text-orange-700"
-                      }`}>
-                        {hc.status}
+                      <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase ${STATUS_STYLES[hc.status] || "bg-gray-100 text-gray-700"}`}>
+                        {hc.status.replace("_", " ")}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-right flex items-center justify-end gap-1.5 mt-1.5">
-                      {hc.status !== "Completed" && (
+                      {hc.status !== "completed" && hc.status !== "cancelled" && (
                         <button 
-                          onClick={() => updateStatus(hc.id, "Completed")}
+                          onClick={() => updateStatus(hc.id, "completed")}
                           className="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-md cursor-pointer"
                           title="Complete collection"
                         >
                           <Check className="w-4 h-4" />
                         </button>
                       )}
-                      <button 
-                        onClick={() => openEditModal(hc)}
-                        className="p-1.5 text-slate-500 hover:text-teal-650 hover:bg-slate-100 rounded-md cursor-pointer"
-                        title="Edit Details"
-                      >
-                        <Edit2 className="w-4 h-4" />
-                      </button>
-                      <button 
-                        onClick={() => handleDelete(hc.id)}
-                        className="p-1.5 text-slate-400 hover:text-red-650 hover:bg-red-50 rounded-md cursor-pointer"
-                        title="Delete Record"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
+                      {hc.status !== "completed" && hc.status !== "cancelled" && (
+                        <button 
+                          onClick={() => updateStatus(hc.id, "cancelled")}
+                          className="p-1.5 text-slate-400 hover:text-red-650 hover:bg-red-50 rounded-md cursor-pointer"
+                          title="Cancel collection"
+                        >
+                          <Ban className="w-4 h-4" />
+                        </button>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -215,7 +239,7 @@ export default function HomeCollectionPage() {
           <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-md w-full shadow-2xl border border-gray-150 dark:border-gray-800 overflow-hidden">
             <div className="p-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
               <h3 className="text-base font-bold text-gray-900 dark:text-white">
-                {editingId ? "Edit Collection details" : "Schedule collection details"}
+                Schedule collection details
               </h3>
               <button onClick={() => setIsModalOpen(false)} className="p-2 text-gray-400 hover:text-gray-650 rounded-lg">
                 <X className="w-5 h-5" />
@@ -260,40 +284,59 @@ export default function HomeCollectionPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Requested Tests</label>
-                <input 
-                  type="text" 
-                  required
-                  value={tests} 
-                  onChange={(e) => setTests(e.target.value)} 
-                  placeholder="HbA1c, Lipid Profile" 
-                  className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
-                />
+                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Booking Type</label>
+                <div className="flex gap-2 mb-2">
+                  <button
+                    type="button"
+                    onClick={() => setBookingType("package")}
+                    className={`flex-1 px-3 py-2 text-xs font-bold rounded-lg cursor-pointer ${bookingType === "package" ? "bg-teal-600 text-white" : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"}`}
+                  >
+                    Health Package
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setBookingType("test")}
+                    className={`flex-1 px-3 py-2 text-xs font-bold rounded-lg cursor-pointer ${bookingType === "test" ? "bg-teal-600 text-white" : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"}`}
+                  >
+                    Individual Test
+                  </button>
+                </div>
+                {bookingType === "package" ? (
+                  <select
+                    required
+                    value={selectedPackageId}
+                    onChange={(e) => setSelectedPackageId(e.target.value)}
+                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
+                  >
+                    <option value="">Select a package…</option>
+                    {packages.map((p) => (
+                      <option key={p.id} value={p.id}>{p.name} — ₹{p.price}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <select
+                    required
+                    value={selectedTestId}
+                    onChange={(e) => setSelectedTestId(e.target.value)}
+                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
+                  >
+                    <option value="">Select a test…</option>
+                    {tests.map((t) => (
+                      <option key={t.id} value={t.id}>{t.name}{t.price ? ` — ₹${t.price}` : ""}</option>
+                    ))}
+                  </select>
+                )}
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Visit Date</label>
-                  <input 
-                    type="date" 
-                    required
-                    value={date} 
-                    onChange={(e) => setDate(e.target.value)} 
-                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Status</label>
-                  <select 
-                    value={status} 
-                    onChange={(e) => setStatus(e.target.value)} 
-                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-655 dark:text-slate-100 focus:outline-none"
-                  >
-                    <option value="Scheduled">Scheduled</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Cancelled">Cancelled</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Visit Date</label>
+                <input 
+                  type="date" 
+                  required
+                  value={date} 
+                  onChange={(e) => setDate(e.target.value)} 
+                  className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
+                />
               </div>
 
               <div className="pt-4 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-800">
@@ -305,6 +348,23 @@ export default function HomeCollectionPage() {
                   Cancel
                 </button>
                 <button 
+                  type="submit" 
+                  disabled={saving}
+                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-60 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer flex items-center gap-2"
+                >
+                  {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
+                  Save Schedule
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+}
+
                   type="submit" 
                   className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
                 >

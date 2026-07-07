@@ -1,9 +1,38 @@
 "use client";
 
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useState } from "react";
+import { api, ApiError } from "@/lib/api";
 import { useAuth } from "@/lib/useAuth";
+import LoginFlow from "@/components/auth/LoginFlow";
 
 export default function LoginPage() {
-  const { user, loading } = useAuth();
+  return (
+    <Suspense fallback={null}>
+      <LoginPageInner />
+    </Suspense>
+  );
+}
+
+function LoginPageInner() {
+  const { user, loading, refresh } = useAuth();
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [loggingOut, setLoggingOut] = useState(false);
+
+  const returnTo = searchParams.get("return_to") || "/";
+
+  async function handleLogout() {
+    setLoggingOut(true);
+    try {
+      await api.auth.logout();
+    } catch (err) {
+      if (!(err instanceof ApiError)) throw err;
+    } finally {
+      await refresh();
+      setLoggingOut(false);
+    }
+  }
 
   return (
     <div className="bg-[#f8faff] min-h-[80vh] flex items-center justify-center px-4 py-12">
@@ -16,21 +45,14 @@ export default function LoginPage() {
           />
           <h2 className="text-[#0f2d5e] text-xl font-bold mb-1">Patient Portal</h2>
           <p className="text-slate-500 text-xs font-semibold">
-            Secure sign in powered by Auth0
+            Secure sign in with password + two-factor verification
           </p>
         </div>
 
         {loading ? (
           <div className="py-6 text-center text-sm text-slate-400">Checking session…</div>
         ) : !user ? (
-          <div className="space-y-3">
-            <a
-              href="/api/v1/auth/login?return_to=/login"
-              className="block w-full bg-[#2563eb] text-white font-bold py-3.5 rounded-xl hover:bg-[#1d4ed8] transition-colors uppercase tracking-wider text-xs shadow-md text-center"
-            >
-              Log In
-            </a>
-          </div>
+          <LoginFlow onComplete={() => router.push(returnTo)} />
         ) : (
           <div className="space-y-4">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm">
@@ -38,12 +60,13 @@ export default function LoginPage() {
                 Logged in as: {user.email || user.name || "Authenticated user"}
               </p>
             </div>
-            <a
-              href="/api/v1/auth/logout"
-              className="block w-full bg-[#0f2d5e] text-white font-bold py-3.5 rounded-xl hover:bg-[#0c254c] transition-colors uppercase tracking-wider text-xs shadow-md text-center"
+            <button
+              onClick={handleLogout}
+              disabled={loggingOut}
+              className="block w-full bg-[#0f2d5e] text-white font-bold py-3.5 rounded-xl hover:bg-[#0c254c] transition-colors uppercase tracking-wider text-xs shadow-md text-center disabled:opacity-50"
             >
-              Log Out
-            </a>
+              {loggingOut ? "Logging out…" : "Log Out"}
+            </button>
           </div>
         )}
 
@@ -56,3 +79,4 @@ export default function LoginPage() {
     </div>
   );
 }
+

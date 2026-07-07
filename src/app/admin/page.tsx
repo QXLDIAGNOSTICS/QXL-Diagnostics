@@ -1,10 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import StatCard from "@/components/admin/StatCard";
 import { RevenueChart, BookingChart } from "@/components/admin/Charts";
-import { Users, CalendarDays, Stethoscope, Activity, DollarSign, MousePointerClick, X } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import { Users, CalendarDays, Stethoscope, Activity, DollarSign, Clock3, X, Loader2 } from "lucide-react";
+import { api, type Booking, type HealthPackage } from "@/lib/api";
+
+interface RecentAppointment {
+  id: string;
+  name: string;
+  service: string;
+  date: string;
+  status: string;
+  note: string;
+}
+
+interface TopService {
+  name: string;
+  count: number;
+  percentage: number;
+}
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState({
@@ -13,70 +28,85 @@ export default function AdminDashboard() {
     doctors: 0,
     tests: 0,
     revenue: 0,
-    active: 0
+    pending: 0,
   });
+  const [loading, setLoading] = useState(true);
 
   const [selectedPatient, setSelectedPatient] = useState<string | null>(null);
-  const [recentAppointments, setRecentAppointments] = useState<any[]>([]);
-  const [topServices, setTopServices] = useState<any[]>([]);
+  const [recentAppointments, setRecentAppointments] = useState<RecentAppointment[]>([]);
+  const [topServices, setTopServices] = useState<TopService[]>([]);
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
   };
 
-  useEffect(() => {
-    const loadStats = () => {
-      const pats = cmsStore.getAll("patients");
-      const appts = cmsStore.getAll("appointments");
-      const docs = cmsStore.getAll("doctors");
-      const tsts = cmsStore.getAll("tests");
-      const pkgs = cmsStore.getAll("packages");
+  const loadStats = useCallback(async () => {
+    setLoading(true);
+    try {
+      const [adminStats, doctors, tests, bookingsRes, packages] = await Promise.all([
+        api.admin.stats(),
+        api.doctors.list(),
+        api.tests.list(),
+        api.bookings.adminList(undefined, 100, 0),
+        api.packages.list(),
+      ]);
 
-      // Calculate revenue based on booked package prices or a standard visit cost
-      const rev = appts.reduce((sum, apt) => {
-        // Try to find matching package price
-        const matchedPkg = pkgs.find(p => p.name === apt.service);
-        const price = matchedPkg ? Number(matchedPkg.price) : 1800;
-        return sum + price;
-      }, 0);
+      const bookings: Booking[] = bookingsRes.items;
+      const revenue = bookings
+        .filter((b) => b.payment_status === "paid" && b.amount_paise)
+        .reduce((sum, b) => sum + (b.amount_paise || 0) / 100, 0);
 
       setStats({
-        patients: 0,
-        bookings: 0,
-        doctors: 0,
-        tests: 0,
-        revenue: 0,
-        active: 0
+        patients: adminStats.total_users,
+        bookings: adminStats.total_bookings,
+        doctors: doctors.length,
+        tests: tests.length,
+        revenue,
+        pending: adminStats.pending_bookings,
       });
 
-      // Map doctors names dynamically
-      const mappedAppointments = appts.map(apt => {
-        const docIndex = Math.abs(apt.id.split('-')[1] || 0) % (docs.length || 1);
-        const docName = docs[docIndex]?.name || "Dr. Shantakumar Muruda";
-        return {
-          id: apt.id,
-          name: apt.patientName,
-          doctor: docName,
-          date: `${apt.date} @ ${apt.time}`,
-          status: apt.status || "Confirmed",
-          condition: `Routine checkup for ${apt.service}`
-        };
-      });
+      setRecentAppointments(
+        bookings.slice(0, 5).map((b) => ({
+          id: b.id,
+          name: b.patient_name,
+          service: b.test_name || "—",
+          date: `${b.preferred_date || "—"} ${b.preferred_time ? `@ ${b.preferred_time}` : ""}`.trim(),
+          status: b.status,
+          note: `${b.collection_type === "home" ? "Home collection" : "Center visit"} · ${b.status.replace("_", " ")}`,
+        }))
+      );
 
-      setRecentAppointments(mappedAppointments.slice(0, 5));
-
-      // Calculate Top Packages
-      setTopServices(pkgs.slice(0, 4).map((p, idx) => ({
-        name: p.name,
-        count: [14, 11, 7, 5][idx] || 3,
-        percentage: [90, 75, 55, 35][idx] || 25
-      })));
-    };
-
-    loadStats();
-    window.addEventListener("cms-update", loadStats);
-    return () => window.removeEventListener("cms-update", loadStats);
+      const counts = new Map<string, number>();
+      for (const b of bookings) {
+        if (b.package_id) counts.set(b.package_id, (counts.get(b.package_id) || 0) + 1);
+      }
+      const ranked: (HealthPackage & { count: number })[] = packages
+        .map((p) => ({ ...p, count: counts.get(p.id) || 0 }))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 4);
+      const maxCount = Math.max(1, ...ranked.map((p) => p.count));
+      setTopServices(
+        ranked.map((p) => ({ name: p.name, count: p.count, percentage: Math.round((p.count / maxCount) * 100) || 5 }))
+      );
+    } catch {
+      // Leave defaults on failure — dashboard should never hard-crash.
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    loadStats();
+  }, [loadStats]);
+
+  const STATUS_BADGE: Record<string, string> = {
+    pending: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
+    confirmed: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
+    sample_collected: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
+    report_ready: "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400",
+    completed: "bg-teal-100 text-teal-700 dark:bg-teal-900/30 dark:text-teal-400",
+    cancelled: "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400",
+  };
 
   return (
     <div className="space-y-6 relative">
@@ -97,14 +127,20 @@ export default function AdminDashboard() {
       </div>
 
       {/* Stats Grid */}
+      {loading ? (
+        <div className="p-12 flex items-center justify-center text-gray-400">
+          <Loader2 className="w-6 h-6 animate-spin" />
+        </div>
+      ) : (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-        <StatCard title="Total Patients" value={stats.patients.toString()} icon={Users} color="blue" trend="+12%" trendUp={true} />
-        <StatCard title="Total Bookings" value={stats.bookings.toString()} icon={CalendarDays} color="teal" trend="+8%" trendUp={true} />
-        <StatCard title="Total Doctors" value={stats.doctors.toString()} icon={Stethoscope} color="purple" trend="0%" trendUp={true} />
-        <StatCard title="Total Tests" value={stats.tests.toString()} icon={Activity} color="orange" trend="+15%" trendUp={true} />
-        <StatCard title="Total Revenue" value={formatCurrency(stats.revenue)} icon={DollarSign} color="rose" trend="+6%" trendUp={true} />
-        <StatCard title="Active Users" value={stats.active.toString()} icon={MousePointerClick} color="blue" trend="Live" trendUp={true} />
+        <StatCard title="Total Patients" value={stats.patients.toString()} icon={Users} color="blue" trend="Live" trendUp={true} />
+        <StatCard title="Total Bookings" value={stats.bookings.toString()} icon={CalendarDays} color="teal" trend="Live" trendUp={true} />
+        <StatCard title="Total Doctors" value={stats.doctors.toString()} icon={Stethoscope} color="purple" trend="" trendUp={true} />
+        <StatCard title="Total Tests" value={stats.tests.toString()} icon={Activity} color="orange" trend="" trendUp={true} />
+        <StatCard title="Revenue (Paid)" value={formatCurrency(stats.revenue)} icon={DollarSign} color="rose" trend="Live" trendUp={true} />
+        <StatCard title="Pending Bookings" value={stats.pending.toString()} icon={Clock3} color="blue" trend="Live" trendUp={true} />
       </div>
+      )}
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -150,7 +186,7 @@ export default function AdminDashboard() {
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-300">
                 <tr>
                   <th className="px-4 py-3 rounded-tl-lg">Patient</th>
-                  <th className="px-4 py-3">Doctor</th>
+                  <th className="px-4 py-3">Test / Package</th>
                   <th className="px-4 py-3">Date & Time</th>
                   <th className="px-4 py-3">Status</th>
                   <th className="px-4 py-3 rounded-tr-lg text-right">Action</th>
@@ -166,15 +202,11 @@ export default function AdminDashboard() {
                 ) : recentAppointments.map((item) => (
                   <tr key={item.id} className="border-b border-gray-100 dark:border-gray-800 last:border-0 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
                     <td className="px-4 py-4 font-medium text-gray-900 dark:text-white">{item.name}</td>
-                    <td className="px-4 py-4">{item.doctor}</td>
+                    <td className="px-4 py-4">{item.service}</td>
                     <td className="px-4 py-4">{item.date}</td>
                     <td className="px-4 py-4">
-                      <span className={`px-2.5 py-1 rounded-full text-xs font-semibold
-                        ${item.status === 'Confirmed' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' : ''}
-                        ${item.status === 'Checked In' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' : ''}
-                        ${item.status === 'Pending' ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400' : ''}
-                      `}>
-                        {item.status}
+                      <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${STATUS_BADGE[item.status] || "bg-gray-100 text-gray-700"}`}>
+                        {item.status.replace("_", " ")}
                       </span>
                     </td>
                     <td className="px-4 py-4 text-right">
@@ -238,8 +270,8 @@ export default function AdminDashboard() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">Assigned Doctor</p>
-                    <p className="text-gray-700 dark:text-gray-300">{apt.doctor}</p>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">Test / Package</p>
+                    <p className="text-gray-700 dark:text-gray-300">{apt.service}</p>
                   </div>
                   <div>
                     <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">Time</p>
@@ -249,7 +281,7 @@ export default function AdminDashboard() {
                 <div>
                   <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold mb-1">Reason / Condition</p>
                   <div className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
-                    <p className="text-gray-700 dark:text-gray-300 text-sm">{apt.condition}</p>
+                    <p className="text-gray-700 dark:text-gray-300 text-sm">{apt.note}</p>
                   </div>
                 </div>
                 

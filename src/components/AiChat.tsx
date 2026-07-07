@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import { api, ApiError } from '@/lib/api';
 
 export default function AiChat() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,20 @@ export default function AiChat() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('English');
+  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Silently request the user's location once so the assistant can find/rank
+  // the nearest collection centers without asking — the browser still shows
+  // its own native permission prompt; we simply never invent coordinates.
+  useEffect(() => {
+    if (!navigator.geolocation) return;
+    navigator.geolocation.getCurrentPosition(
+      (pos) => setLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+      () => setLocation(null),
+      { enableHighAccuracy: false, timeout: 8000 }
+    );
+  }, []);
 
   const languages = ['English', 'ಕನ್ನಡ (Kannada)', 'हिंदी (Hindi)', 'தமிழ் (Tamil)', 'తెలుగు (Telugu)', 'മലയാളം (Malayalam)'];
 
@@ -97,7 +111,11 @@ export default function AiChat() {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question, conversation_id: conversationId }),
+        body: JSON.stringify({
+          question,
+          conversation_id: conversationId,
+          ...(location ? { lat: location.lat, lng: location.lng } : {}),
+        }),
       });
       if (!res.ok || !res.body) return false;
 
@@ -150,9 +168,33 @@ export default function AiChat() {
     setSelectedFile(null);
     setIsLoading(true);
 
+    // A prescription file: upload it for real AI analysis, then ask the
+    // assistant (which can read it back via get_my_prescriptions) to explain
+    // it / suggest a booking — instead of just acknowledging receipt.
+    if (file) {
+      try {
+        await api.prescriptions.upload(file);
+        const followUp =
+          text.trim() ||
+          "I just uploaded a prescription. Please read it and tell me what tests it recommends, and help me book them.";
+        const streamed = await streamFromBackend(followUp);
+        if (streamed) {
+          setIsLoading(false);
+          return;
+        }
+      } catch (err) {
+        const message =
+          err instanceof ApiError && err.status === 401
+            ? "Please log in first so I can securely analyze your prescription — you can sign in from the top of the site, then re-upload it here."
+            : "I couldn't process that file right now. Please try again, or use the Upload Prescription page.";
+        setMessages(prev => [...prev, { role: 'assistant', content: message }]);
+        setIsLoading(false);
+        return;
+      }
+    }
+
     // Prefer the real backend when the user is authenticated; gracefully fall
-    // back to the mock reply otherwise (e.g. logged-out visitors, or file
-    // attachments, which the chat widget doesn't stream-analyze).
+    // back to the mock reply otherwise (e.g. logged-out visitors).
     const streamed = !file ? await streamFromBackend(text) : false;
     if (streamed) {
       setIsLoading(false);
@@ -434,7 +476,7 @@ export default function AiChat() {
                 onMouseOver={(e) => e.currentTarget.style.color = '#2563eb'}
                 onMouseOut={(e) => e.currentTarget.style.color = '#94a3b8'}
               >
-                <input type="file" accept=".pdf" onChange={(e) => setSelectedFile(e.target.files?.[0] || null)} style={{ display: 'none' }} />
+                <input type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,application/pdf,image/png,image/jpeg,image/webp" onChange={(e) => setSelectedFile(e.target.files?.[0] || null)} style={{ display: 'none' }} />
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
               </label>
 

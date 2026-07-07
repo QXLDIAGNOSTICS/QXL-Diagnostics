@@ -1,12 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Image as ImageIcon, Plus, Search, Filter, Edit2, Trash2, Sparkles, X, Eye } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { Image as ImageIcon, Plus, Search, Edit2, Trash2, Sparkles, X, Eye, Loader2 } from "lucide-react";
+import { api, type Banner } from "@/lib/api";
 import { aiHelper } from "@/lib/aiHelper";
 
 export default function BannerManagementPage() {
-  const [banners, setBanners] = useState<any[]>([]);
+  const [banners, setBanners] = useState<Banner[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   
   // Modal states
@@ -33,14 +36,22 @@ export default function BannerManagementPage() {
   const [isAiGenerating, setIsAiGenerating] = useState(false);
   const [showAiInput, setShowAiInput] = useState(false);
 
-  useEffect(() => {
-    const refreshData = () => {
-      setBanners(cmsStore.getAll("banners"));
-    };
-    refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const items = await api.banners.adminList(200, 0);
+      setBanners(items);
+    } catch {
+      setError("Failed to load banners.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
 
   const openAddModal = () => {
     setEditingId(null);
@@ -62,56 +73,77 @@ export default function BannerManagementPage() {
     setAiPrompt("");
   };
 
-  const openEditModal = (banner: any) => {
+  const openEditModal = (banner: Banner) => {
     setEditingId(banner.id);
-    setImageOnly(banner.imageOnly || false);
-    setImage(banner.image || "");
-    setBgFrom(banner.bgFrom || "#ffffff");
-    setBgTo(banner.bgTo || "#ffffff");
+    setImageOnly(banner.image_only || false);
+    setImage(banner.image_url || "");
+    setBgFrom(banner.bg_from || "#ffffff");
+    setBgTo(banner.bg_to || "#ffffff");
     setBadge(banner.badge || "");
     setTitle(banner.title || "");
-    setTitleAccent(banner.titleAccent || "");
+    setTitleAccent(banner.title_accent || "");
     setSubtitle(banner.subtitle || "");
-    setSubtitleAccent(banner.subtitleAccent || "");
+    setSubtitleAccent(banner.subtitle_accent || "");
     setDescription(banner.description || "");
-    setCta(banner.cta || "");
-    setCtaLink(banner.ctaLink || "");
-    setFeaturesText(banner.features ? banner.features.join(", ") : "");
+    setCta(banner.cta_label || "");
+    setCtaLink(banner.cta_link || "");
+    let features: string[] = [];
+    try {
+      features = banner.features ? JSON.parse(banner.features) : [];
+    } catch {
+      features = [];
+    }
+    setFeaturesText(features.join(", "));
     setIsModalOpen(true);
     setShowAiInput(false);
     setAiPrompt("");
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    const payload = {
-      imageOnly,
-      image,
-      bgFrom,
-      bgTo,
-      badge,
-      title,
-      titleAccent,
-      subtitle,
-      subtitleAccent,
-      description,
-      cta,
-      ctaLink,
-      imageFit: "cover",
-      features: featuresText ? featuresText.split(",").map(f => f.trim()).filter(Boolean) : []
-    };
 
-    if (editingId) {
-      cmsStore.updateItem("banners", editingId, payload);
-    } else {
-      cmsStore.addItem("banners", payload);
+    setSaving(true);
+    setError(null);
+    try {
+      const featuresArray = featuresText ? featuresText.split(",").map(f => f.trim()).filter(Boolean) : [];
+      const payload = {
+        image_only: imageOnly,
+        image_url: image,
+        bg_from: bgFrom,
+        bg_to: bgTo,
+        badge,
+        title,
+        title_accent: titleAccent,
+        subtitle,
+        subtitle_accent: subtitleAccent,
+        description,
+        cta_label: cta,
+        cta_link: ctaLink,
+        image_fit: "cover",
+        features: JSON.stringify(featuresArray),
+      };
+
+      if (editingId) {
+        await api.banners.update(editingId, payload);
+      } else {
+        await api.banners.create({ ...payload, is_active: true });
+      }
+      setIsModalOpen(false);
+      await refreshData();
+    } catch {
+      setError("Failed to save the banner.");
+    } finally {
+      setSaving(false);
     }
-    setIsModalOpen(false);
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this banner?")) {
-      cmsStore.deleteItem("banners", id);
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this banner?")) return;
+    try {
+      await api.banners.remove(id);
+      await refreshData();
+    } catch {
+      setError("Failed to delete the banner.");
     }
   };
 
@@ -172,6 +204,12 @@ export default function BannerManagementPage() {
         </div>
       </div>
 
+      {error && (
+        <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm">
+          {error}
+        </div>
+      )}
+
       {/* Main Content Area */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
         
@@ -213,7 +251,11 @@ export default function BannerManagementPage() {
         ) : (
           /* Cards Grid & Previews */
           <div className="p-6 grid grid-cols-1 gap-6">
-            {filteredBanners.map((banner) => (
+            {loading ? (
+              <div className="p-12 flex items-center justify-center text-gray-400">
+                <Loader2 className="w-6 h-6 animate-spin" />
+              </div>
+            ) : filteredBanners.map((banner) => (
               <div 
                 key={banner.id} 
                 className="border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden shadow-xs flex flex-col lg:flex-row bg-slate-50/50 dark:bg-slate-950/20"
@@ -223,9 +265,9 @@ export default function BannerManagementPage() {
                   <span className="text-xs font-bold text-gray-400 mb-2 flex items-center gap-1.5"><Eye className="w-3.5 h-3.5" /> Render Preview:</span>
                   <div 
                     className="relative rounded-xl p-6 h-[200px] flex flex-col justify-center overflow-hidden border border-gray-200 dark:border-gray-800"
-                    style={{ background: `linear-gradient(135deg, ${banner.bgFrom} 0%, ${banner.bgTo} 100%)` }}
+                    style={{ background: `linear-gradient(135deg, ${banner.bg_from} 0%, ${banner.bg_to} 100%)` }}
                   >
-                    {banner.imageOnly ? (
+                    {banner.image_only ? (
                       <div className="w-full h-full flex items-center justify-center text-slate-400 font-bold bg-white/80 rounded-lg">
                         [Pure Banner Image Only]
                       </div>
@@ -240,7 +282,7 @@ export default function BannerManagementPage() {
                           {banner.title}
                         </h4>
                         <h4 className="text-[12px] font-black text-[#2563eb] leading-tight mb-1">
-                          {banner.titleAccent}
+                          {banner.title_accent}
                         </h4>
                         <p className="text-[9px] text-slate-500 line-clamp-2 leading-relaxed">
                           {banner.description}
@@ -255,15 +297,15 @@ export default function BannerManagementPage() {
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="bg-slate-100 dark:bg-gray-800 text-slate-600 dark:text-slate-300 text-xs font-bold px-2.5 py-1 rounded-md">
-                        {banner.imageOnly ? "Image Banner" : "Layout Banner"}
+                        {banner.image_only ? "Image Banner" : "Layout Banner"}
                       </span>
                       <span className="text-[11px] text-gray-400 font-medium">ID: {banner.id}</span>
                     </div>
 
-                    {!banner.imageOnly && (
+                    {!banner.image_only && (
                       <div>
                         <h3 className="font-extrabold text-slate-800 dark:text-white text-base leading-tight">
-                          {banner.title} <span className="text-[#2563eb]">{banner.titleAccent}</span>
+                          {banner.title} <span className="text-[#2563eb]">{banner.title_accent}</span>
                         </h3>
                         <p className="text-xs text-slate-500 dark:text-gray-400 line-clamp-2 mt-1">
                           {banner.description}
@@ -272,9 +314,9 @@ export default function BannerManagementPage() {
                     )}
 
                     <div className="text-xs text-slate-400 dark:text-gray-500 flex flex-wrap gap-2 pt-1">
-                      <span>Bg: {banner.bgFrom} → {banner.bgTo}</span>
+                      <span>Bg: {banner.bg_from} → {banner.bg_to}</span>
                       <span>•</span>
-                      <span>CTA: {banner.cta || "None"}</span>
+                      <span>CTA: {banner.cta_label || "None"}</span>
                     </div>
                   </div>
 
@@ -542,8 +584,10 @@ export default function BannerManagementPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="px-6 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-sm font-medium shadow-sm cursor-pointer"
+                  disabled={saving}
+                  className="px-6 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-60 text-white rounded-lg text-sm font-medium shadow-sm cursor-pointer flex items-center gap-2"
                 >
+                  {saving && <Loader2 className="w-4 h-4 animate-spin" />}
                   Save Changes
                 </button>
               </div>
