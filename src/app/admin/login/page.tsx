@@ -17,7 +17,7 @@ export default function AdminLogin() {
 
   useEffect(() => {
     if (loading) return;
-    if (user?.role === "admin") {
+    if (user?.role === "admin" || user?.role === "super_admin") {
       router.replace("/admin");
     }
   }, [loading, user, router]);
@@ -34,18 +34,19 @@ export default function AdminLogin() {
         </div>
 
         <div className="p-8 space-y-4">
-          {user?.role === "admin" ? (
+          {user?.role === "admin" || user?.role === "super_admin" ? (
             <div className="text-sm text-gray-500 dark:text-gray-400 text-center space-y-3">
               <p>You're signed in as an admin. Continuing to the dashboard…</p>
             </div>
           ) : (
             <>
               <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
-                Sign in with your admin account (password + email code + SMS link). A separate
-                secret key will be required once inside before any admin action is allowed.
+                Sign in with your admin account (email/phone + password), then verify
+                with OTP and admin secret key.
               </p>
               <LoginFlow
-                allowRegister={false}
+                loginVariant="password_otp"
+                requireAdminSecret
                 onComplete={() => router.push("/admin")}
                 inputClassName={inputClass}
                 primaryButtonClassName={buttonClass}

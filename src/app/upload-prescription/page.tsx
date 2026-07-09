@@ -96,6 +96,12 @@ export default function UploadPrescriptionPage() {
 
             {/* Left: Upload area */}
             <div className="lg:col-span-3 flex flex-col gap-6">
+              {!authLoading && user && (
+                <div className="bg-blue-50 border border-blue-100 rounded-2xl p-4 text-xs font-semibold text-[#0f2d5e]">
+                  Signed in as {user.name || user.phone || 'QXL patient'}. Prescription uploads will be saved to your profile.
+                </div>
+              )}
+
               {/* Drag & Drop Zone */}
               <div
                 onDragEnter={handleDrag}

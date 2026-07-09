@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { MessageSquare, Plus, Search, Edit2, Trash2, X, Sparkles, Loader2 } from "lucide-react";
+import { MessageSquare, Plus, Search, Edit2, Trash2, X, Sparkles, Loader2, Eye, EyeOff } from "lucide-react";
 import { api, type BlogPost } from "@/lib/api";
 import { aiHelper } from "@/lib/aiHelper";
 
@@ -20,6 +20,7 @@ export default function BlogAdminPage() {
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
   const [image, setImage] = useState("");
+  const [isPublished, setIsPublished] = useState(true);
 
   // AI states
   const [aiTopic, setAiTopic] = useState("");
@@ -50,6 +51,7 @@ export default function BlogAdminPage() {
     setContent("");
     setAuthor("QXL Medical Review Team");
     setImage("/image/food_intolerance_banner.png");
+    setIsPublished(true);
     setIsModalOpen(true);
     setShowAiInput(false);
     setAiTopic("");
@@ -62,6 +64,7 @@ export default function BlogAdminPage() {
     setContent(blog.content || "");
     setAuthor(blog.author || "");
     setImage(blog.image_url || "");
+    setIsPublished(blog.is_published !== false);
     setIsModalOpen(true);
     setShowAiInput(false);
     setAiTopic("");
@@ -80,12 +83,13 @@ export default function BlogAdminPage() {
         content,
         author,
         image_url: image,
+        is_published: isPublished,
       };
 
       if (editingId) {
         await api.blog.update(editingId, payload);
       } else {
-        await api.blog.create({ ...payload, is_published: true });
+        await api.blog.create(payload);
       }
       setIsModalOpen(false);
       await refreshData();
@@ -103,6 +107,15 @@ export default function BlogAdminPage() {
       await refreshData();
     } catch {
       setError("Failed to delete the blog article.");
+    }
+  };
+
+  const togglePublish = async (blog: BlogPost) => {
+    try {
+      await api.blog.update(blog.id, { is_published: !blog.is_published });
+      await refreshData();
+    } catch {
+      setError("Failed to update publish status.");
     }
   };
 
@@ -195,6 +208,9 @@ export default function BlogAdminPage() {
                 <div>
                   <div className="flex justify-between items-start gap-2 mb-2">
                     <span className="text-[10px] text-gray-400 dark:text-gray-500 font-bold">By {blog.author}</span>
+                    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider ${blog.is_published ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"}`}>
+                      {blog.is_published ? "Published" : "Draft"}
+                    </span>
                   </div>
                   <h4 className="font-extrabold text-slate-800 dark:text-white text-sm mb-2">{blog.title}</h4>
                   <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-medium line-clamp-3">{blog.excerpt}</p>
@@ -203,6 +219,13 @@ export default function BlogAdminPage() {
                 <div className="mt-6 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
                   <span className="text-[10px] text-gray-400 font-mono">ID: {blog.id}</span>
                   <div className="flex gap-2">
+                    <button
+                      onClick={() => togglePublish(blog)}
+                      title={blog.is_published ? "Unpublish" : "Publish"}
+                      className="p-1.5 text-slate-500 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-slate-100 dark:hover:bg-gray-800 rounded-md transition-colors cursor-pointer"
+                    >
+                      {blog.is_published ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+                    </button>
                     <button 
                       onClick={() => openEditModal(blog)}
                       className="p-1.5 text-slate-500 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-100 dark:hover:bg-gray-800 rounded-md transition-colors cursor-pointer"
@@ -344,6 +367,16 @@ export default function BlogAdminPage() {
                 ></textarea>
               </div>
 
+              <label className="flex items-center gap-2.5 p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={isPublished}
+                  onChange={(e) => setIsPublished(e.target.checked)}
+                  className="w-4 h-4 accent-teal-600"
+                />
+                <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Publish immediately (uncheck to save as draft)</span>
+              </label>
+
               <div className="pt-4 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-800">
                 <button 
                   type="button" 
@@ -358,7 +391,7 @@ export default function BlogAdminPage() {
                   className="px-5 py-2 bg-teal-600 hover:bg-teal-700 disabled:opacity-60 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer flex items-center gap-2"
                 >
                   {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
-                  Publish Article
+                  {isPublished ? "Publish Article" : "Save Draft"}
                 </button>
               </div>
             </form>

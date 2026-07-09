@@ -28,8 +28,28 @@ export default function FaqSection() {
 
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
+  // Page-level FAQPage structured data generated from the FAQs actually
+  // rendered below, so schema always matches on-page visible content
+  // (required by Google's structured data guidelines).
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
     <section className="py-16 bg-[#f8faff] border-t border-gray-150">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <div className="max-w-[800px] mx-auto px-4 w-full">
         <div className="text-center mb-10">
           <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2">Help Center</span>

@@ -1,31 +1,36 @@
 "use client";
 
 import React, { useState, useEffect, use } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, User, Clock, Share2 } from "lucide-react";
-import { cmsStore } from "../../../lib/cmsStore";
+import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
+import { api, type BlogPost } from "../../../lib/api";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 export default function SingleBlogPage({ params }: { params: Promise<{ id: string }> }) {
   const unwrappedParams = use(params);
-  const [blog, setBlog] = useState<any | null>(null);
+  const [blog, setBlog] = useState<BlogPost | null>(null);
+  const [related, setRelated] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchBlog = () => {
-      const allBlogs = cmsStore.getAll("blogs");
-      const foundBlog = allBlogs.find(b => b.id === unwrappedParams.id);
-      setBlog(foundBlog || null);
-      setLoading(false);
+    let cancelled = false;
+    setLoading(true);
+    (async () => {
+      try {
+        const found = await api.blog.get(unwrappedParams.id);
+        if (!cancelled) setBlog(found);
+        const { items } = await api.blog.list(6, 0);
+        if (!cancelled) setRelated(items.filter((b) => b.slug !== unwrappedParams.id));
+      } catch {
+        if (!cancelled) setBlog(null);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
     };
-
-    fetchBlog();
-
-    const handleUpdate = () => fetchBlog();
-    window.addEventListener("cms-update", handleUpdate);
-    return () => window.removeEventListener("cms-update", handleUpdate);
   }, [unwrappedParams.id]);
 
   if (loading) {
@@ -64,13 +69,13 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
             {blog.title}
           </h1>
           <p className="text-sm font-semibold text-slate-400 mb-6 flex items-center gap-2">
-            Last Updated: {blog.date} (Reviewed by QXL Medical Team)
+            Last Updated: {new Date(blog.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })} (Reviewed by QXL Medical Team)
           </p>
           
           <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-semibold border-b border-gray-200 pb-6">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#2563eb]" />
-              {blog.date}
+              {new Date(blog.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-[#2563eb]" />
@@ -130,8 +135,8 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
         <div className="mt-16 pt-10 border-t border-gray-200">
           <h3 className="text-2xl font-extrabold text-[#0d2e42] mb-6">Related Articles</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {cmsStore.getAll("blogs").filter(b => b.id !== blog.id).slice(0, 4).map(related => (
-              <Link key={related.id} href={`/blog/${related.id}`} className="block bg-white border border-gray-150 p-4 rounded-xl hover:shadow-md hover:border-blue-200 transition-all group">
+            {related.slice(0, 4).map(related => (
+              <Link key={related.id} href={`/blog/${related.slug}`} className="block bg-white border border-gray-150 p-4 rounded-xl hover:shadow-md hover:border-blue-200 transition-all group">
                 <span className="text-xs font-bold text-blue-600 mb-1 block">{related.category}</span>
                 <h4 className="text-sm font-bold text-slate-800 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">{related.title}</h4>
               </Link>
@@ -148,11 +153,11 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
             "@type": "BlogPosting",
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://qxldiagnostics.com/blog/${blog.id}`,
+              "@id": `https://qxldiagnostics.com/blog/${blog.slug}`,
             },
             headline: blog.title,
             description: blog.excerpt,
-            image: `https://qxldiagnostics.com${blog.image}`,
+            image: blog.image_url ? `https://qxldiagnostics.com${blog.image_url}` : undefined,
             author: {
               "@type": "Person",
               name: blog.author,
@@ -165,8 +170,8 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
                 url: "https://qxldiagnostics.com/image/Logo (1).png",
               },
             },
-            datePublished: new Date(blog.date).toISOString(),
-            dateModified: new Date(blog.date).toISOString(),
+            datePublished: new Date(blog.created_at).toISOString(),
+            dateModified: new Date(blog.created_at).toISOString(),
           }),
         }}
       />

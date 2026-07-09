@@ -94,6 +94,12 @@ export default function PrescriptionModal({ isOpen, onClose }: PrescriptionModal
         </div>
 
         <div className="p-6 flex-1 overflow-y-auto">
+          {!authLoading && user && (
+            <div className="mb-4 bg-blue-50 border border-blue-100 rounded-xl px-4 py-3 text-xs font-semibold text-[#0f2d5e]">
+              Uploading as {user.name || user.phone || 'QXL patient'}.
+            </div>
+          )}
+
           {!authLoading && !user ? (
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 flex flex-col items-center text-center gap-3">
               <AlertCircle className="w-8 h-8 text-amber-600" />

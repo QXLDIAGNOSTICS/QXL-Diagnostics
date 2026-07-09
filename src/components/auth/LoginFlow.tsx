@@ -1,17 +1,20 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import { api, ApiError, type LoginChallengeResponse } from "@/lib/api";
+import { useCallback, useState } from "react";
+import { api, ApiError, type AuthMeResponse, type LoginChallengeResponse } from "@/lib/api";
 import { useAuth } from "@/lib/useAuth";
 
 type Step = "credentials" | "verify";
-type Mode = "login" | "register";
+type LoginVariant = "patient_phone_otp" | "password_otp";
 
 export interface LoginFlowProps {
   /** Called once the session cookie is confirmed present (login fully complete). */
-  onComplete: () => void;
-  /** Show the "Create an account" tab. Admin login hides this. */
-  allowRegister?: boolean;
+  onComplete: (user?: AuthMeResponse) => void;
+  /** Patient flow is phone+OTP (auto-creates the account on first login);
+   * admin flow is identifier+password, then OTP+admin secret. */
+  loginVariant?: LoginVariant;
+  /** Require admin secret key in OTP step (admin login). */
+  requireAdminSecret?: boolean;
   inputClassName?: string;
   primaryButtonClassName?: string;
 }
@@ -23,110 +26,52 @@ const defaultButtonClass =
 
 export default function LoginFlow({
   onComplete,
-  allowRegister = true,
+  loginVariant = "password_otp",
+  requireAdminSecret = false,
   inputClassName = defaultInputClass,
   primaryButtonClassName = defaultButtonClass,
 }: LoginFlowProps) {
   const { refresh } = useAuth();
-  const [mode, setMode] = useState<Mode>("login");
   const [step, setStep] = useState<Step>("credentials");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [notice, setNotice] = useState<string | null>(null);
 
   // Login form
+  const [phone, setPhone] = useState("");
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
 
-  // Register form
-  const [regEmail, setRegEmail] = useState("");
-  const [regPhone, setRegPhone] = useState("");
-  const [regName, setRegName] = useState("");
-  const [regPassword, setRegPassword] = useState("");
-
-  // Verify (2FA) state
+  // Verify (OTP) state
   const [challenge, setChallenge] = useState<LoginChallengeResponse | null>(null);
   const [otp, setOtp] = useState("");
   const [otpVerified, setOtpVerified] = useState(false);
-  const [linkVerified, setLinkVerified] = useState(false);
-  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const stopPolling = useCallback(() => {
-    if (pollRef.current) {
-      clearInterval(pollRef.current);
-      pollRef.current = null;
-    }
-  }, []);
-
-  useEffect(() => stopPolling, [stopPolling]);
+  const [adminSecretKey, setAdminSecretKey] = useState("");
 
   const finishIfSessionReady = useCallback(async () => {
     try {
-      await api.auth.me();
-      stopPolling();
+      const me = await api.auth.me();
       await refresh();
-      onComplete();
+      onComplete(me);
       return true;
     } catch {
       return false;
     }
-  }, [onComplete, refresh, stopPolling]);
-
-  const startPolling = useCallback(
-    (challengeId: string) => {
-      stopPolling();
-      pollRef.current = setInterval(async () => {
-        try {
-          const status = await api.auth.loginStatus(challengeId);
-          setOtpVerified(status.otp_verified);
-          setLinkVerified(status.link_verified);
-          if (status.completed) {
-            const ready = await finishIfSessionReady();
-            if (ready) return;
-          }
-        } catch {
-          /* transient — keep polling */
-        }
-      }, 2500);
-    },
-    [finishIfSessionReady, stopPolling]
-  );
+  }, [onComplete, refresh]);
 
   async function handleLoginSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     setBusy(true);
     try {
-      const res = await api.auth.login({ identifier, password });
+      const res =
+        loginVariant === "patient_phone_otp"
+          ? await api.auth.loginPhoneOtp({ phone })
+          : await api.auth.login({ identifier, password });
       setChallenge(res);
       setOtpVerified(res.otp_verified);
-      setLinkVerified(res.link_verified);
       setStep("verify");
-      startPolling(res.challenge_id);
     } catch (err) {
       setError(err instanceof ApiError ? err.message : "Login failed");
-    } finally {
-      setBusy(false);
-    }
-  }
-
-  async function handleRegisterSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setError(null);
-    setBusy(true);
-    try {
-      await api.auth.register({
-        email: regEmail,
-        phone: regPhone,
-        name: regName || null,
-        password: regPassword,
-      });
-      setNotice("Account created — please sign in.");
-      setMode("login");
-      setIdentifier(regEmail);
-      setPassword("");
-    } catch (err) {
-      setError(err instanceof ApiError ? err.message : "Registration failed");
     } finally {
       setBusy(false);
     }
@@ -138,9 +83,12 @@ export default function LoginFlow({
     setError(null);
     setBusy(true);
     try {
-      const status = await api.auth.verifyOtp(challenge.challenge_id, otp);
+      const status = await api.auth.verifyOtp(
+        challenge.challenge_id,
+        otp,
+        requireAdminSecret ? adminSecretKey : undefined
+      );
       setOtpVerified(status.otp_verified);
-      setLinkVerified(status.link_verified);
       if (status.completed) {
         await finishIfSessionReady();
       }
@@ -152,23 +100,21 @@ export default function LoginFlow({
   }
 
   if (step === "verify" && challenge) {
-    const bothDone = otpVerified && linkVerified;
     return (
       <div className="space-y-4">
         <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm space-y-1">
           <p className="font-semibold text-slate-700">Verify it's you</p>
           <p className="text-slate-500 text-xs">
-            We sent a 6-digit code to {challenge.masked_email} and a verification link by SMS to{" "}
-            {challenge.masked_phone}. Both are required to sign in.
+            We sent an 8-digit code to {challenge.masked_phone}.
+            {challenge.masked_email && challenge.masked_email !== "***" && (
+              <> Account: {challenge.masked_email}.</>
+            )}
           </p>
         </div>
 
         <ul className="text-xs space-y-1">
           <li className={otpVerified ? "text-green-600" : "text-slate-400"}>
-            {otpVerified ? "✓" : "○"} Email code verified
-          </li>
-          <li className={linkVerified ? "text-green-600" : "text-slate-400"}>
-            {linkVerified ? "✓" : "○"} SMS link verified {linkVerified ? "" : "— tap the link we texted you"}
+            {otpVerified ? "✓" : "○"} OTP verified
           </li>
         </ul>
 
@@ -176,21 +122,31 @@ export default function LoginFlow({
           <form onSubmit={handleOtpSubmit} className="space-y-3">
             <input
               className={inputClassName}
-              placeholder="6-digit code"
+              placeholder="8-digit OTP"
               inputMode="numeric"
-              maxLength={6}
+              maxLength={8}
               value={otp}
               onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
               required
             />
-            <button type="submit" disabled={busy || otp.length < 4} className={primaryButtonClassName}>
+            {requireAdminSecret && (
+              <input
+                className={inputClassName}
+                type="password"
+                placeholder="Admin secret key"
+                value={adminSecretKey}
+                onChange={(e) => setAdminSecretKey(e.target.value)}
+                required
+              />
+            )}
+            <button
+              type="submit"
+              disabled={busy || otp.length < 8 || (requireAdminSecret && !adminSecretKey.trim())}
+              className={primaryButtonClassName}
+            >
               Verify Code
             </button>
           </form>
-        )}
-
-        {bothDone && (
-          <p className="text-xs text-slate-400 text-center">Finalizing sign in…</p>
         )}
 
         {error && <p className="text-xs text-red-600">{error}</p>}
@@ -198,10 +154,10 @@ export default function LoginFlow({
         <button
           type="button"
           onClick={() => {
-            stopPolling();
             setStep("credentials");
             setChallenge(null);
             setOtp("");
+            setAdminSecretKey("");
             setError(null);
           }}
           className="text-xs text-slate-400 underline block mx-auto"
@@ -214,91 +170,43 @@ export default function LoginFlow({
 
   return (
     <div className="space-y-4">
-      {allowRegister && (
-        <div className="flex rounded-xl bg-slate-100 p-1 text-xs font-semibold">
-          <button
-            type="button"
-            onClick={() => setMode("login")}
-            className={`flex-1 py-2 rounded-lg transition-colors ${mode === "login" ? "bg-white shadow text-[#0f2d5e]" : "text-slate-500"}`}
-          >
-            Sign In
-          </button>
-          <button
-            type="button"
-            onClick={() => setMode("register")}
-            className={`flex-1 py-2 rounded-lg transition-colors ${mode === "register" ? "bg-white shadow text-[#0f2d5e]" : "text-slate-500"}`}
-          >
-            Create Account
-          </button>
-        </div>
-      )}
-
-      {notice && <p className="text-xs text-green-600">{notice}</p>}
       {error && <p className="text-xs text-red-600">{error}</p>}
 
-      {mode === "login" ? (
-        <form onSubmit={handleLoginSubmit} className="space-y-3">
-          <input
-            className={inputClassName}
-            placeholder="Email or phone"
-            value={identifier}
-            onChange={(e) => setIdentifier(e.target.value)}
-            autoComplete="username"
-            required
-          />
-          <input
-            className={inputClassName}
-            placeholder="Password"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
-            required
-          />
-          <button type="submit" disabled={busy} className={primaryButtonClassName}>
-            {busy ? "Signing in…" : "Log In"}
-          </button>
-        </form>
-      ) : (
-        <form onSubmit={handleRegisterSubmit} className="space-y-3">
-          <input
-            className={inputClassName}
-            placeholder="Full name"
-            value={regName}
-            onChange={(e) => setRegName(e.target.value)}
-            autoComplete="name"
-          />
-          <input
-            className={inputClassName}
-            placeholder="Email"
-            type="email"
-            value={regEmail}
-            onChange={(e) => setRegEmail(e.target.value)}
-            autoComplete="email"
-            required
-          />
+      <form onSubmit={handleLoginSubmit} className="space-y-3">
+        {loginVariant === "patient_phone_otp" ? (
           <input
             className={inputClassName}
             placeholder="Phone (e.g. +919876543210)"
-            value={regPhone}
-            onChange={(e) => setRegPhone(e.target.value)}
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             autoComplete="tel"
             required
           />
-          <input
-            className={inputClassName}
-            placeholder="Password (min 8 chars, letters + numbers)"
-            type="password"
-            value={regPassword}
-            onChange={(e) => setRegPassword(e.target.value)}
-            autoComplete="new-password"
-            required
-          />
-          <button type="submit" disabled={busy} className={primaryButtonClassName}>
-            {busy ? "Creating account…" : "Create Account"}
-          </button>
-        </form>
-      )}
+        ) : (
+          <>
+            <input
+              className={inputClassName}
+              placeholder="Email or phone"
+              value={identifier}
+              onChange={(e) => setIdentifier(e.target.value)}
+              autoComplete="username"
+              required
+            />
+            <input
+              className={inputClassName}
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
+              required
+            />
+          </>
+        )}
+        <button type="submit" disabled={busy} className={primaryButtonClassName}>
+          {busy ? "Signing in…" : "Log In"}
+        </button>
+      </form>
     </div>
   );
 }

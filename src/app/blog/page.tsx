@@ -1,23 +1,29 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { BookOpen, Calendar, User, ArrowRight } from "lucide-react";
-import { cmsStore } from "../../lib/cmsStore";
+import { BookOpen, Calendar, ArrowRight, Loader2 } from "lucide-react";
+import { api, type BlogPost } from "../../lib/api";
 
 export default function BlogPage() {
-  const [blogs, setBlogs] = useState<any[]>([]);
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch blogs from our local CMS store
-    const fetchedBlogs = cmsStore.getAll("blogs");
-    setBlogs(fetchedBlogs);
-
-    // Optional: listen for updates
-    const handleUpdate = () => setBlogs(cmsStore.getAll("blogs"));
-    window.addEventListener("cms-update", handleUpdate);
-    return () => window.removeEventListener("cms-update", handleUpdate);
+    let cancelled = false;
+    (async () => {
+      try {
+        const { items } = await api.blog.list(50, 0);
+        if (!cancelled) setBlogs(items);
+      } catch {
+        if (!cancelled) setBlogs([]);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
@@ -38,7 +44,11 @@ export default function BlogPage() {
         </div>
 
         {/* Blog Grid */}
-        {blogs.length === 0 ? (
+        {loading ? (
+          <div className="flex justify-center py-20">
+            <Loader2 className="w-8 h-8 text-[#2563eb] animate-spin" />
+          </div>
+        ) : blogs.length === 0 ? (
           <div className="text-center py-20 text-slate-500">
             <BookOpen className="w-12 h-12 mx-auto text-slate-300 mb-4" />
             <p className="text-lg font-semibold">No articles available yet.</p>
@@ -58,7 +68,7 @@ export default function BlogPage() {
                   <div className="flex items-center gap-4 text-xs text-slate-500 font-semibold mb-3">
                     <div className="flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5" />
-                      {blog.date}
+                      {new Date(blog.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
                     </div>
                   </div>
 
@@ -72,7 +82,7 @@ export default function BlogPage() {
 
                   <div className="mt-auto pt-4 border-t border-gray-100">
                     <Link 
-                      href={`/blog/${blog.id}`} 
+                      href={`/blog/${blog.slug}`} 
                       className="inline-flex items-center gap-2 text-sm font-bold text-[#2563eb] hover:text-[#1d4ed8] transition-colors"
                     >
                       Read Full Article <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | QXL Diagnostics Bengaluru",
   },
   alternates: {
-    canonical: "https://qxldiagnostics.in",
+    canonical: "https://qxldiagnostics.com",
   },
   description:
     "QXL Diagnostics — AI-powered super speciality diagnostic laboratory in Bengaluru. NABL certified, 300+ tests, expert-reviewed reports, same-day results and home collection. Advanced pathology, microbiology, molecular diagnostics, histopathology, immunology & precision testing.",

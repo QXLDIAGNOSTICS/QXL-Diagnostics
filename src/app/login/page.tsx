@@ -5,6 +5,7 @@ import { Suspense, useState } from "react";
 import { api, ApiError } from "@/lib/api";
 import { useAuth } from "@/lib/useAuth";
 import LoginFlow from "@/components/auth/LoginFlow";
+import ProfileForm from "@/components/ProfileForm";
 
 export default function LoginPage() {
   return (
@@ -21,6 +22,7 @@ function LoginPageInner() {
   const [loggingOut, setLoggingOut] = useState(false);
 
   const returnTo = searchParams.get("return_to") || "/";
+  const profileReturnTo = `/profile?first_login=1&return_to=${encodeURIComponent(returnTo)}`;
 
   async function handleLogout() {
     setLoggingOut(true);
@@ -45,21 +47,27 @@ function LoginPageInner() {
           />
           <h2 className="text-[#0f2d5e] text-xl font-bold mb-1">Patient Portal</h2>
           <p className="text-slate-500 text-xs font-semibold">
-            Secure sign in with password + two-factor verification
+            Secure sign in with phone number + 8-digit OTP
           </p>
         </div>
 
         {loading ? (
           <div className="py-6 text-center text-sm text-slate-400">Checking session…</div>
         ) : !user ? (
-          <LoginFlow onComplete={() => router.push(returnTo)} />
+          <LoginFlow
+            onComplete={(signedInUser) => {
+              router.push(signedInUser?.name ? returnTo : profileReturnTo);
+            }}
+            loginVariant="patient_phone_otp"
+          />
         ) : (
           <div className="space-y-4">
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm">
               <p className="font-semibold text-slate-700">
-                Logged in as: {user.email || user.name || "Authenticated user"}
+                Logged in as: {user.name || user.phone || "QXL patient"}
               </p>
             </div>
+            <ProfileForm firstLogin={!user.name} />
             <button
               onClick={handleLogout}
               disabled={loggingOut}
@@ -79,4 +87,3 @@ function LoginPageInner() {
     </div>
   );
 }
-

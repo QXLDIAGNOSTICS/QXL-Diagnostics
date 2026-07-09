@@ -217,7 +217,13 @@ export default function CentersPage() {
                       <div>
                         <h3 className="font-extrabold text-slate-800 text-sm mb-2 flex items-start gap-1.5 pr-14 leading-tight group-hover:text-[#2563eb] transition-colors">
                           <Shield className="w-4 h-4 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                          <span>{center.name}</span>
+                          {center.slug ? (
+                            <Link href={`/centers/${center.slug}`} className="hover:underline" onClick={(e) => e.stopPropagation()}>
+                              {center.name}
+                            </Link>
+                          ) : (
+                            <span>{center.name}</span>
+                          )}
                         </h3>
 
                         {/* Distance info */}

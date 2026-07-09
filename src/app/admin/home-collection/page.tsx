@@ -364,18 +364,3 @@ export default function HomeCollectionPage() {
     </div>
   );
 }
-
-                  type="submit" 
-                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
-                >
-                  Save Schedule
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-    </div>
-  );
-}

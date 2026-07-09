@@ -2,8 +2,12 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { api, ApiError } from '@/lib/api';
+import { useAuth } from '@/lib/useAuth';
+
+type StreamResult = 'streamed' | 'unauthorized' | 'failed';
 
 export default function AiChat() {
+  const { user, loading: authLoading, refresh } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string; type?: 'text' | 'file' }[]>([]);
@@ -14,10 +18,19 @@ export default function AiChat() {
     if (hour < 12) greeting = "Good morning!";
     else if (hour < 18) greeting = "Good afternoon!";
 
-    setMessages([
-      { role: 'assistant', content: `${greeting} I am the QXL AI Assistant. How can I help you today?\n\nYou can ask me questions or upload your medical report for a quick summary.` }
-    ]);
-  }, []);
+    const signedInLine = user
+      ? `\n\nYou're signed in as ${user.name || user.phone || 'a QXL patient'}, so I can help with your bookings and prescriptions.`
+      : "\n\nYou can ask me questions or upload your medical report for a quick summary.";
+    const greetingMessage = {
+      role: 'assistant' as const,
+      content: `${greeting} I am the QXL AI Assistant. How can I help you today?${signedInLine}`,
+    };
+
+    setMessages(prev => {
+      if (prev.length > 1) return prev;
+      return [greetingMessage];
+    });
+  }, [user?.name, user?.phone]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState<string | null>(null);
@@ -73,7 +86,11 @@ export default function AiChat() {
 
   const getMockReply = (text: string, file: File | null): string => {
     let replyMessage = "Thank you for your query! For accurate information, please call us at +91 99646 39639 or WhatsApp us. Our team will be happy to assist you.";
-    if (text.toLowerCase().includes('package') || text.toLowerCase().includes('checkup')) {
+    if ((text.toLowerCase().includes('booking') || text.toLowerCase().includes('bookings')) && text.toLowerCase().includes('my')) {
+      replyMessage = user
+        ? "I can see you're signed in, but I couldn't reach your account data right now. Please open Profile > Bookings, or try again in a moment."
+        : "Please log in to your QXL account to view your bookings.";
+    } else if (text.toLowerCase().includes('package') || text.toLowerCase().includes('checkup')) {
       replyMessage = "We offer a range of health packages starting from ₹1,899. Our popular ones include Full Body Checkup (86+ parameters), Senior Citizen Packages, and Women's Health Packages. Visit our Packages page or call +91 99646 39639 to book!";
     } else if (text.toLowerCase().includes('home') || text.toLowerCase().includes('collection')) {
       replyMessage = "Yes! We provide free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 99646 39639.";
@@ -105,7 +122,7 @@ export default function AiChat() {
   // automatically — no token plumbing needed. Returns false if the backend is
   // unavailable or the user isn't logged in, so the caller can fall back to a
   // local mock reply instead of showing a broken chat.
-  const streamFromBackend = async (question: string): Promise<boolean> => {
+  const streamFromBackend = async (question: string): Promise<StreamResult> => {
     try {
       const res = await fetch(`/api/v1/chat/stream`, {
         method: 'POST',
@@ -117,7 +134,8 @@ export default function AiChat() {
           ...(location ? { lat: location.lat, lng: location.lng } : {}),
         }),
       });
-      if (!res.ok || !res.body) return false;
+      if (res.status === 401) return 'unauthorized';
+      if (!res.ok || !res.body) return 'failed';
 
       // Add an empty assistant message we will progressively fill.
       setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
@@ -153,9 +171,9 @@ export default function AiChat() {
           }
         }
       }
-      return true;
+      return 'streamed';
     } catch {
-      return false;
+      return 'failed';
     }
   };
 
@@ -168,6 +186,12 @@ export default function AiChat() {
     setSelectedFile(null);
     setIsLoading(true);
 
+    if (authLoading) {
+      setMessages(prev => [...prev, { role: 'assistant', content: "I am still checking your sign-in status. Please try again in a moment." }]);
+      setIsLoading(false);
+      return;
+    }
+
     // A prescription file: upload it for real AI analysis, then ask the
     // assistant (which can read it back via get_my_prescriptions) to explain
     // it / suggest a booking — instead of just acknowledging receipt.
@@ -178,14 +202,17 @@ export default function AiChat() {
           text.trim() ||
           "I just uploaded a prescription. Please read it and tell me what tests it recommends, and help me book them.";
         const streamed = await streamFromBackend(followUp);
-        if (streamed) {
+        if (streamed === 'streamed') {
           setIsLoading(false);
           return;
         }
       } catch (err) {
+        const refreshedUser = err instanceof ApiError && err.status === 401 ? await refresh() : user;
         const message =
-          err instanceof ApiError && err.status === 401
+          err instanceof ApiError && err.status === 401 && !refreshedUser
             ? "Please log in first so I can securely analyze your prescription — you can sign in from the top of the site, then re-upload it here."
+            : err instanceof ApiError && err.status === 401
+            ? "Your sign-in is visible on the site, but the prescription service could not verify the session. Please refresh once and try the upload again."
             : "I couldn't process that file right now. Please try again, or use the Upload Prescription page.";
         setMessages(prev => [...prev, { role: 'assistant', content: message }]);
         setIsLoading(false);
@@ -195,8 +222,22 @@ export default function AiChat() {
 
     // Prefer the real backend when the user is authenticated; gracefully fall
     // back to the mock reply otherwise (e.g. logged-out visitors).
-    const streamed = !file ? await streamFromBackend(text) : false;
-    if (streamed) {
+    const streamed = !file ? await streamFromBackend(text) : 'failed';
+    if (streamed === 'streamed') {
+      setIsLoading(false);
+      return;
+    }
+    if (streamed === 'unauthorized') {
+      const refreshedUser = await refresh();
+      const message = refreshedUser
+        ? "I can see you're signed in, but the assistant service could not verify the session. Please refresh once and try again."
+        : "Please log in to your QXL account so I can access your bookings and prescriptions.";
+      setMessages(prev => [...prev, { role: 'assistant', content: message }]);
+      setIsLoading(false);
+      return;
+    }
+    if (user) {
+      setMessages(prev => [...prev, { role: 'assistant', content: "I can see you're signed in, but I couldn't reach the assistant service right now. Please try again in a moment." }]);
       setIsLoading(false);
       return;
     }

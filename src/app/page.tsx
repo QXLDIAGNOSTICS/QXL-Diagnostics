@@ -11,6 +11,7 @@ import AiDiagnostics from "../components/AiDiagnostics";
 import HomeCollectionSection from "../components/HomeCollectionSection";
 import Accreditations from "../components/Accreditations";
 import FaqSection from "../components/FaqSection";
+import ReviewsSection from "../components/ReviewsSection";
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
 const whySlides = [
@@ -1323,6 +1324,9 @@ export default function Home() {
         {/* ── Accreditation ── */}
         <Accreditations />
 
+        {/* ── Reviews ── */}
+        <ReviewsSection />
+
         {/* ── FAQs ── */}
         <FaqSection />
 
@@ -1552,6 +1556,9 @@ export default function Home() {
 
         {/* Accreditation */}
         <Accreditations />
+
+        {/* Reviews */}
+        <ReviewsSection />
 
         {/* FAQs */}
         <FaqSection />

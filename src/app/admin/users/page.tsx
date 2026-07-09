@@ -1,15 +1,24 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { UserCog, Search, ShieldAlert, BadgeCheck, Loader2 } from "lucide-react";
+import { UserCog, Search, ShieldAlert, BadgeCheck, Loader2, UserPlus } from "lucide-react";
 import { api, type AdminUser } from "@/lib/api";
+import { useAuth } from "@/lib/useAuth";
 
 export default function UsersPage() {
+  const { user } = useAuth();
+  const isSuperAdmin = user?.role === "super_admin";
   const [users, setUsers] = useState<AdminUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [creating, setCreating] = useState(false);
+  const [newName, setNewName] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [newPhone, setNewPhone] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [newRole, setNewRole] = useState<"patient" | "admin">("patient");
 
   const refreshData = useCallback(async () => {
     setLoading(true);
@@ -29,8 +38,9 @@ export default function UsersPage() {
   }, [refreshData]);
 
   const handleToggleRole = async (usr: AdminUser) => {
+    if (!isSuperAdmin) return;
     const newRole = usr.role === "admin" ? "patient" : "admin";
-    if (!confirm(`Change ${usr.name || usr.email}'s role to "${newRole}"?`)) return;
+    if (!confirm(`Change ${usr.name || usr.email || usr.phone}'s role to "${newRole}"?`)) return;
     setUpdatingId(usr.id);
     try {
       await api.admin.updateUserRole(usr.id, newRole);
@@ -42,9 +52,36 @@ export default function UsersPage() {
     }
   };
 
+  const handleCreateUser = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isSuperAdmin) return;
+    setError(null);
+    setCreating(true);
+    try {
+      await api.admin.createUser({
+        name: newName || null,
+        email: newEmail,
+        phone: newPhone,
+        password: newPassword,
+        role: newRole,
+      });
+      setNewName("");
+      setNewEmail("");
+      setNewPhone("");
+      setNewPassword("");
+      setNewRole("patient");
+      await refreshData();
+    } catch {
+      setError("Failed to create user.");
+    } finally {
+      setCreating(false);
+    }
+  };
+
   const filtered = users.filter(u => 
     (u.name || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
-    u.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    (u.email || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+    u.phone.toLowerCase().includes(searchQuery.toLowerCase()) ||
     u.role.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -61,6 +98,63 @@ export default function UsersPage() {
           <p className="text-gray-500 dark:text-gray-400 mt-1">View registered accounts and assign the admin role. Users self-register via the public site.</p>
         </div>
       </div>
+
+      {isSuperAdmin && (
+        <form onSubmit={handleCreateUser} className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 p-4 shadow-sm">
+          <div className="flex items-center gap-2 mb-3 text-sm font-bold text-slate-700 dark:text-slate-200">
+            <UserPlus className="w-4 h-4 text-teal-600" />
+            Create User
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
+            <input
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+              placeholder="Name"
+              className="px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm"
+            />
+            <input
+              value={newEmail}
+              onChange={(e) => setNewEmail(e.target.value)}
+              placeholder="Email"
+              type="email"
+              className="px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm"
+              required
+            />
+            <input
+              value={newPhone}
+              onChange={(e) => setNewPhone(e.target.value)}
+              placeholder="Phone (e.g. +919876543210)"
+              className="px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm"
+              required
+            />
+            <input
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="Temporary password"
+              type="password"
+              className="px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm"
+              required
+            />
+            <div className="flex items-center gap-2">
+              <select
+                value={newRole}
+                onChange={(e) => setNewRole((e.target.value as "patient" | "admin"))}
+                className="flex-1 px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm"
+              >
+                <option value="patient">patient</option>
+                <option value="admin">admin</option>
+              </select>
+              <button
+                type="submit"
+                disabled={creating}
+                className="px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold disabled:opacity-50"
+              >
+                {creating ? "Creating..." : "Create"}
+              </button>
+            </div>
+          </div>
+        </form>
+      )}
 
       {error && (
         <div className="p-3 rounded-lg bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-900 text-red-600 dark:text-red-400 text-sm">
@@ -111,7 +205,7 @@ export default function UsersPage() {
                       {usr.name || "—"}
                     </td>
                     <td className="px-6 py-4 font-medium">
-                      <div>{usr.email}</div>
+                      <div>{usr.email || <span className="text-gray-400">No email</span>}</div>
                       <div className="text-gray-400">{usr.phone}</div>
                     </td>
                     <td className="px-6 py-4 font-bold text-teal-650 dark:text-teal-400 uppercase">{usr.role}</td>
@@ -132,12 +226,12 @@ export default function UsersPage() {
                     <td className="px-6 py-4 text-right">
                       <button 
                         onClick={() => handleToggleRole(usr)}
-                        disabled={updatingId === usr.id}
+                        disabled={updatingId === usr.id || !isSuperAdmin}
                         className="inline-flex items-center gap-1 p-1.5 text-slate-500 hover:text-teal-650 hover:bg-slate-100 rounded-md cursor-pointer disabled:opacity-50 text-[10px] font-bold"
                         title={usr.role === "admin" ? "Revoke admin role" : "Grant admin role"}
                       >
                         {updatingId === usr.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <ShieldAlert className="w-4 h-4" />}
-                        {usr.role === "admin" ? "Revoke Admin" : "Make Admin"}
+                        {!isSuperAdmin ? "View Only" : usr.role === "admin" ? "Revoke Admin" : "Make Admin"}
                       </button>
                     </td>
                   </tr>

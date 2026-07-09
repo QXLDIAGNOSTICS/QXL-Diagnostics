@@ -5,19 +5,19 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AiChat from "@/components/AiChat";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import { AuthProvider } from "@/lib/useAuth";
 
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdminRoute = pathname?.startsWith("/admin");
 
   return (
-    <>
+    <AuthProvider>
       {!isAdminRoute && <Header />}
       <main className={!isAdminRoute ? "pb-[60px] md:pb-0" : ""}>{children}</main>
       {!isAdminRoute && <Footer />}
       {!isAdminRoute && <AiChat />}
       {!isAdminRoute && <StickyMobileCTA />}
-    </>
+    </AuthProvider>
   );
 }
-

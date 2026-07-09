@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { Activity, Plus, Search, Trash2, Edit2, X, FlaskConical, Hourglass, Loader2 } from "lucide-react";
+import { Activity, Plus, Search, Trash2, Edit2, X, FlaskConical, Hourglass, Loader2, Home, Building2 } from "lucide-react";
 import { api, type TestCatalogItem } from "@/lib/api";
 
 export default function TestsPage() {
@@ -19,6 +19,7 @@ export default function TestsPage() {
   const [category, setCategory] = useState("");
   const [preparation, setPreparation] = useState("");
   const [turnaroundHours, setTurnaroundHours] = useState("");
+  const [homeCollectionAvailable, setHomeCollectionAvailable] = useState(true);
 
   const refreshData = useCallback(async () => {
     setLoading(true);
@@ -44,6 +45,7 @@ export default function TestsPage() {
     setCategory("");
     setPreparation("");
     setTurnaroundHours("");
+    setHomeCollectionAvailable(true);
     setIsModalOpen(true);
   };
 
@@ -54,6 +56,7 @@ export default function TestsPage() {
     setCategory(tst.category || "");
     setPreparation(tst.preparation || "");
     setTurnaroundHours(tst.turnaround_hours != null ? String(tst.turnaround_hours) : "");
+    setHomeCollectionAvailable(tst.home_collection_available !== false);
     setIsModalOpen(true);
   };
 
@@ -70,6 +73,7 @@ export default function TestsPage() {
         category: category || null,
         preparation: preparation || null,
         turnaround_hours: turnaroundHours ? Number(turnaroundHours) : null,
+        home_collection_available: homeCollectionAvailable,
       };
 
       if (editingId) {
@@ -93,6 +97,15 @@ export default function TestsPage() {
       await refreshData();
     } catch {
       setError("Failed to delete the test.");
+    }
+  };
+
+  const toggleHomeCollection = async (tst: TestCatalogItem) => {
+    try {
+      await api.tests.update(tst.id, { home_collection_available: !tst.home_collection_available });
+      await refreshData();
+    } catch {
+      setError("Failed to update home collection availability.");
     }
   };
 
@@ -171,6 +184,7 @@ export default function TestsPage() {
                   <th className="px-6 py-4">Preparation</th>
                   <th className="px-6 py-4">Turnaround Time</th>
                   <th className="px-6 py-4">Catalog Pricing</th>
+                  <th className="px-6 py-4">Collection</th>
                   <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
@@ -193,6 +207,21 @@ export default function TestsPage() {
                       <div className="flex items-baseline gap-1.5">
                         <span className="text-slate-905 dark:text-white font-extrabold">₹{tst.price ?? "—"}</span>
                       </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <button
+                        type="button"
+                        onClick={() => toggleHomeCollection(tst)}
+                        title="Click to toggle home collection eligibility"
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold cursor-pointer transition-colors ${
+                          tst.home_collection_available
+                            ? "bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
+                            : "bg-amber-50 text-amber-700 hover:bg-amber-100"
+                        }`}
+                      >
+                        {tst.home_collection_available ? <Home className="w-3 h-3" /> : <Building2 className="w-3 h-3" />}
+                        {tst.home_collection_available ? "Home + Center" : "Center Only"}
+                      </button>
                     </td>
                     <td className="px-6 py-4 text-right flex items-center justify-end gap-1.5 mt-1">
                       <button 
@@ -289,6 +318,16 @@ export default function TestsPage() {
                   className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
                 />
               </div>
+
+              <label className="flex items-center gap-2.5 p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={homeCollectionAvailable}
+                  onChange={(e) => setHomeCollectionAvailable(e.target.checked)}
+                  className="w-4 h-4 accent-teal-600"
+                />
+                <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Available for home sample collection</span>
+              </label>
 
               <div className="pt-4 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-800">
                 <button 

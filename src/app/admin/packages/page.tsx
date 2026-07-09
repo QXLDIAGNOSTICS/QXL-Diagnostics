@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { Briefcase, Plus, Search, Edit2, Trash2, X, Loader2 } from "lucide-react";
+import { Briefcase, Plus, Search, Edit2, Trash2, X, Loader2, Home, Building2 } from "lucide-react";
 import { api, type HealthPackage } from "@/lib/api";
 
 export default function PackagesAdminPage() {
@@ -20,6 +20,7 @@ export default function PackagesAdminPage() {
   const [includes, setIncludes] = useState("");
   const [parameters, setParameters] = useState("");
   const [tag, setTag] = useState("");
+  const [homeCollectionAvailable, setHomeCollectionAvailable] = useState(true);
 
   const refreshData = useCallback(async () => {
     setLoading(true);
@@ -57,6 +58,7 @@ export default function PackagesAdminPage() {
     setIncludes(pkg.includes || "");
     setParameters(pkg.parameters || "");
     setTag(pkg.tag || "");
+    setHomeCollectionAvailable(pkg.home_collection_available !== false);
     setIsModalOpen(true);
   };
 
@@ -74,6 +76,7 @@ export default function PackagesAdminPage() {
         includes,
         parameters,
         tag,
+        home_collection_available: homeCollectionAvailable,
       };
 
       if (editingId) {
@@ -97,6 +100,15 @@ export default function PackagesAdminPage() {
       await refreshData();
     } catch {
       setError("Failed to delete the health package.");
+    }
+  };
+
+  const toggleHomeCollection = async (pkg: HealthPackage) => {
+    try {
+      await api.packages.update(pkg.id, { home_collection_available: !pkg.home_collection_available });
+      await refreshData();
+    } catch {
+      setError("Failed to update home collection availability.");
     }
   };
 
@@ -177,6 +189,19 @@ export default function PackagesAdminPage() {
                   </div>
                   <p className="text-xs text-[#2563eb] font-bold mb-2">📋 {pkg.parameters}</p>
                   <p className="text-[11px] text-gray-500 dark:text-gray-400 line-clamp-3 bg-white dark:bg-gray-900 p-2 border border-gray-100 dark:border-gray-800 rounded-lg">{pkg.includes}</p>
+                  <button
+                    type="button"
+                    onClick={() => toggleHomeCollection(pkg)}
+                    title="Click to toggle home collection eligibility"
+                    className={`mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold cursor-pointer transition-colors ${
+                      pkg.home_collection_available
+                        ? "bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
+                        : "bg-amber-50 text-amber-700 hover:bg-amber-100"
+                    }`}
+                  >
+                    {pkg.home_collection_available ? <Home className="w-3 h-3" /> : <Building2 className="w-3 h-3" />}
+                    {pkg.home_collection_available ? "Home + Center" : "Center Only"}
+                  </button>
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
@@ -290,6 +315,16 @@ export default function PackagesAdminPage() {
                   className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"
                 ></textarea>
               </div>
+
+              <label className="flex items-center gap-2.5 p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={homeCollectionAvailable}
+                  onChange={(e) => setHomeCollectionAvailable(e.target.checked)}
+                  className="w-4 h-4 accent-teal-600"
+                />
+                <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Available for home sample collection</span>
+              </label>
 
               <div className="pt-4 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-800">
                 <button 

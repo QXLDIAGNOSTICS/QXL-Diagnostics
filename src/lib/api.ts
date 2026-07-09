@@ -22,15 +22,27 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
     ...init,
   });
   if (!res.ok) {
-    let detail: unknown = null;
+    let body: unknown = null;
     try {
-      detail = await res.json();
+      body = await res.json();
     } catch {
       /* no JSON body */
     }
+    // Backend error envelope is `{ error: { code, message, detail } }` — see
+    // app.core.exceptions._envelope. Fall back to statusText only if the
+    // body doesn't match that shape.
     let message = res.statusText || 'Request failed';
-    if (detail && typeof detail === 'object' && 'message' in detail) {
-      message = String((detail as { message: unknown }).message);
+    let detail: unknown = body;
+    if (body && typeof body === 'object' && 'error' in body) {
+      const err = (body as { error: unknown }).error;
+      if (err && typeof err === 'object' && 'message' in err) {
+        message = String((err as { message: unknown }).message);
+      }
+      if (err && typeof err === 'object' && 'detail' in err) {
+        detail = (err as { detail: unknown }).detail;
+      }
+    } else if (body && typeof body === 'object' && 'message' in body) {
+      message = String((body as { message: unknown }).message);
     }
     throw new ApiError(res.status, message, detail);
   }
@@ -53,6 +65,7 @@ const del = <T>(path: string) => request<T>(path, { method: 'DELETE' });
 export interface Center {
   id: string;
   name: string;
+  slug: string;
   address: string;
   city: string;
   phone: string | null;
@@ -80,6 +93,7 @@ export interface HealthPackage {
   gender: string | null;
   doctor_recommended: boolean;
   is_active: boolean;
+  home_collection_available: boolean;
   sort_order: number;
 }
 
@@ -93,6 +107,7 @@ export interface TestCatalogItem {
   preparation: string | null;
   turnaround_hours: number | null;
   is_active: boolean;
+  home_collection_available: boolean;
 }
 
 export interface Booking {
@@ -107,7 +122,7 @@ export interface Booking {
   test_id: string | null;
   package_id: string | null;
   center_id: string | null;
-  collection_type: string;
+  collection_type: 'home' | 'center';
   collection_address: string | null;
   preferred_date: string | null;
   preferred_time: string | null;
@@ -149,6 +164,7 @@ export interface BookingAdminUpdate {
 
 export interface CenterCreate {
   name: string;
+  slug?: string | null;
   address: string;
   city: string;
   phone?: string | null;
@@ -176,6 +192,7 @@ export interface HealthPackageCreate {
   gender?: string | null;
   doctor_recommended?: boolean;
   is_active?: boolean;
+  home_collection_available?: boolean;
   sort_order?: number;
 }
 export type HealthPackageUpdate = Partial<Omit<HealthPackageCreate, 'slug'>>;
@@ -189,11 +206,13 @@ export interface TestCatalogCreate {
   preparation?: string | null;
   turnaround_hours?: number | null;
   is_active?: boolean;
+  home_collection_available?: boolean;
 }
 export type TestCatalogUpdate = Partial<Omit<TestCatalogCreate, 'slug'>>;
 
 export interface DoctorCreate {
   name: string;
+  slug?: string | null;
   qualification?: string | null;
   specialization?: string | null;
   bio?: string | null;
@@ -237,6 +256,7 @@ export interface BlogPost {
   tags: string | null;
   is_published: boolean;
   sort_order: number;
+  created_at: string;
 }
 export interface BlogPostCreate {
   title: string;
@@ -284,9 +304,10 @@ export interface ContactInquiryRead {
 
 export interface AdminUser {
   id: string;
-  email: string;
+  email: string | null;
   phone: string;
   name: string | null;
+  date_of_birth?: string | null;
   role: string;
   is_email_verified: boolean;
   is_phone_verified: boolean;
@@ -300,6 +321,32 @@ export interface AdminStats {
   total_prescriptions: number;
   unread_collaboration_leads: number;
   unread_contact_inquiries: number;
+}
+
+export interface CreateOrderResponse {
+  key_id: string;
+  order_id: string;
+  amount: number;
+  currency: string;
+  booking_id: string;
+  name: string;
+  description: string;
+}
+
+export interface VerifyPaymentRequest {
+  razorpay_order_id: string;
+  razorpay_payment_id: string;
+  razorpay_signature: string;
+}
+
+export interface PaymentRead {
+  id: string;
+  booking_id: string;
+  razorpay_order_id: string;
+  razorpay_payment_id: string | null;
+  amount: number;
+  currency: string;
+  status: string;
 }
 
 export interface KnowledgeDocument {
@@ -334,6 +381,7 @@ export interface Prescription {
 export interface Doctor {
   id: string;
   name: string;
+  slug: string;
   qualification: string | null;
   specialization: string | null;
   bio: string | null;
@@ -373,6 +421,27 @@ export interface FAQItem {
   sort_order: number;
 }
 
+export interface ReviewItem {
+  id: string;
+  author_name: string;
+  rating: number;
+  content: string;
+  source: string | null;
+  is_published: boolean;
+  sort_order: number;
+  created_at: string;
+}
+
+export interface ReviewCreate {
+  author_name: string;
+  rating: number;
+  content: string;
+  source?: string | null;
+  is_published?: boolean;
+  sort_order?: number;
+}
+export type ReviewUpdate = Partial<ReviewCreate>;
+
 export interface CollaborationLeadCreate {
   name: string;
   phone: string;
@@ -394,12 +463,19 @@ export interface ContactInquiryCreate {
 
 export interface AuthMeResponse {
   id: string;
-  email: string;
+  email: string | null;
   phone: string;
   name: string | null;
+  date_of_birth: string | null;
   role: string;
   is_email_verified: boolean;
   is_phone_verified: boolean;
+}
+
+export interface UserProfileUpdate {
+  email?: string | null;
+  name?: string | null;
+  date_of_birth?: string | null;
 }
 
 export interface RegisterRequest {
@@ -420,26 +496,31 @@ export interface LoginRequest {
   password: string;
 }
 
+export interface PhoneOtpLoginRequest {
+  phone: string;
+}
+
 export interface LoginChallengeResponse {
   challenge_id: string;
   masked_email: string;
   masked_phone: string;
   otp_expires_in: number;
-  link_expires_in: number;
   otp_verified: boolean;
-  link_verified: boolean;
+  requires_admin_secret: boolean;
 }
 
 export interface LoginStatusResponse {
   challenge_id: string;
   otp_verified: boolean;
-  link_verified: boolean;
   completed: boolean;
 }
 
-export interface AdminElevationStatus {
-  elevated: boolean;
-  elevated_until: string | null;
+export interface AdminUserCreate {
+  email: string;
+  phone: string;
+  name?: string | null;
+  password: string;
+  role?: 'patient' | 'admin';
 }
 
 // ── API surface ───────────────────────────────────────────────────────────────
@@ -448,18 +529,21 @@ export const api = {
   auth: {
     register: (data: RegisterRequest) => post<RegisterResponse>('/auth/register', data),
     login: (data: LoginRequest) => post<LoginChallengeResponse>('/auth/login', data),
-    verifyOtp: (challenge_id: string, otp: string) =>
-      post<LoginStatusResponse>('/auth/login/otp', { challenge_id, otp }),
+    loginPhoneOtp: (data: PhoneOtpLoginRequest) => post<LoginChallengeResponse>('/auth/login/phone', data),
+    verifyOtp: (challenge_id: string, otp: string, admin_secret_key?: string) =>
+      post<LoginStatusResponse>('/auth/login/otp', { challenge_id, otp, admin_secret_key }),
     loginStatus: (challengeId: string) =>
       get<LoginStatusResponse>(`/auth/login/status?challenge_id=${encodeURIComponent(challengeId)}`),
     logout: () => post<void>('/auth/logout'),
     me: () => get<AuthMeResponse>('/auth/me'),
-    adminElevationStatus: () => get<AdminElevationStatus>('/auth/admin/elevation-status'),
-    adminElevate: (secret_key: string) =>
-      post<AdminElevationStatus>('/auth/admin/elevate', { secret_key }),
+  },
+  users: {
+    me: () => get<AuthMeResponse>('/users/me'),
+    updateMe: (data: UserProfileUpdate) => patch<AuthMeResponse>('/users/me', data),
   },
   centers: {
     list: (city?: string) => get<Center[]>(`/centers${city ? `?city=${encodeURIComponent(city)}` : ''}`),
+    get: (slug: string) => get<Center>(`/centers/${encodeURIComponent(slug)}`),
     adminList: (limit = 100, offset = 0) =>
       get<{ items: Center[]; count: number }>(`/centers/admin?limit=${limit}&offset=${offset}`),
     create: (data: CenterCreate) => post<Center>('/centers', data),
@@ -494,6 +578,11 @@ export const api = {
     updateStatus: (id: string, status: string) => patch<Booking>(`/bookings/${id}/status`, { status }),
     update: (id: string, data: BookingAdminUpdate) => patch<Booking>(`/bookings/${id}`, data),
   },
+  payments: {
+    createOrder: (bookingId: string) => post<CreateOrderResponse>('/payments/orders', { booking_id: bookingId }),
+    verify: (data: VerifyPaymentRequest) => post<PaymentRead>('/payments/verify', data),
+    reconcile: (paymentId: string) => post<PaymentRead>(`/payments/${paymentId}/reconcile`),
+  },
   prescriptions: {
     upload: (file: File) => {
       const form = new FormData();
@@ -505,6 +594,7 @@ export const api = {
   },
   doctors: {
     list: () => get<Doctor[]>('/doctors'),
+    get: (slug: string) => get<Doctor>(`/doctors/${encodeURIComponent(slug)}`),
     adminList: (limit = 100, offset = 0) => get<Doctor[]>(`/doctors/admin?limit=${limit}&offset=${offset}`),
     create: (data: DoctorCreate) => post<Doctor>('/doctors', data),
     update: (id: string, data: DoctorUpdate) => patch<Doctor>(`/doctors/${id}`, data),
@@ -533,6 +623,14 @@ export const api = {
     update: (id: string, data: FAQUpdate) => patch<FAQItem>(`/faqs/${id}`, data),
     remove: (id: string) => del<void>(`/faqs/${id}`),
   },
+  reviews: {
+    list: (limit = 20, offset = 0) => get<{ items: ReviewItem[]; count: number }>(`/reviews?limit=${limit}&offset=${offset}`),
+    adminList: (limit = 100, offset = 0) =>
+      get<{ items: ReviewItem[]; count: number }>(`/reviews/admin?limit=${limit}&offset=${offset}`),
+    create: (data: ReviewCreate) => post<ReviewItem>('/reviews', data),
+    update: (id: string, data: ReviewUpdate) => patch<ReviewItem>(`/reviews/${id}`, data),
+    remove: (id: string) => del<void>(`/reviews/${id}`),
+  },
   leads: {
     collaboration: (data: CollaborationLeadCreate) => post('/leads/collaboration', data),
     contact: (data: ContactInquiryCreate) => post('/leads/contact', data),
@@ -552,6 +650,7 @@ export const api = {
       get<{ items: AdminUser[]; count: number }>(
         `/admin/users?limit=${limit}&offset=${offset}${role ? `&role=${encodeURIComponent(role)}` : ''}`
       ),
+    createUser: (data: AdminUserCreate) => post<AdminUser>('/admin/users', data),
     updateUserRole: (id: string, role: string) => patch<AdminUser>(`/admin/users/${id}/role`, { role }),
     stats: () => get<AdminStats>('/admin/stats'),
   },

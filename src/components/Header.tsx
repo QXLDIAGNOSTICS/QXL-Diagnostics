@@ -9,9 +9,11 @@ import SmartSearchBar from './SmartSearchBar';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { cmsStore } from '../lib/cmsStore';
+import { useAuth } from '../lib/useAuth';
 
 export default function Header() {
   const pathname = usePathname();
+  const { user } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [location, setLocation] = useState("Bengaluru");
@@ -26,8 +28,8 @@ export default function Header() {
     siteName: "QXL Diagnostics",
     logoText: "QXL",
     logoImage: "/image/Logo (1).png",
-    contactPhone: "+91 9964 639639",
-    whatsappNumber: "+91 9964 639639",
+    contactPhone: "+91 99646 39639",
+    whatsappNumber: "+91 99646 39639",
     navItems: [
       { label: "Home", href: "/", visible: true },
       { label: "About Us", href: "/about", visible: true },
@@ -89,6 +91,29 @@ export default function Header() {
     window.dispatchEvent(new CustomEvent('locationChange', { detail: loc }));
     setShowLocationModal(false);
   };
+
+  const defaultNavItems = [
+    { label: "Home", href: "/", visible: true },
+    { label: "About Us", href: "/about", visible: true },
+    { label: "Founder & Consultants", href: "/founder", visible: true },
+    { label: "Our Specialities", href: "/specialities", visible: true },
+    { label: "Packages", href: "/packages", visible: true },
+    { label: "Book a Test", href: "/book", visible: true },
+    { label: "Find Nearest Centre", href: "/centers", visible: true },
+    { label: "Download Report", href: "/report", visible: true },
+    { label: "Collaborate with us", href: "/franchise", visible: true },
+    { label: "Login", href: "/login", visible: true }
+  ];
+  const navItems = ((settings.navItems && settings.navItems.length > 0) ? settings.navItems : defaultNavItems)
+    .filter((item: any) => item.visible !== false)
+    .map((item: any) => {
+      if (String(item.label).toLowerCase() === "login") {
+        return user ? { ...item, label: "Profile", href: "/profile" } : { ...item, label: "Login", href: "/login" };
+      }
+      return item;
+    });
+  const userDisplayName = user?.name?.trim() || user?.phone || "Profile";
+  const userInitial = (user?.name?.trim()?.[0] || "U").toUpperCase();
 
   return (
     <>
@@ -218,6 +243,20 @@ export default function Header() {
                   <a href={`tel:+919964639639`} className="text-[#0f2d5e] font-extrabold text-[15px] hover:underline tracking-tight">+91 9964 639639</a>
                 </div>
               </div>
+              {user && (
+                <Link
+                  href="/profile"
+                  className="hidden xl:flex items-center gap-2 max-w-[180px] rounded-full border border-blue-100 bg-blue-50/70 px-3 py-2 hover:bg-blue-50 transition-colors"
+                  title={userDisplayName}
+                >
+                  <span className="w-7 h-7 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs font-extrabold flex-shrink-0">
+                    {userInitial}
+                  </span>
+                  <span className="text-[12px] font-extrabold text-[#0f2d5e] truncate">
+                    {userDisplayName}
+                  </span>
+                </Link>
+              )}
               <Link 
                 href="/book" 
                 className="hidden xl:inline-block bg-[#2563eb] text-white font-extrabold px-6 py-2.5 rounded-full text-xs hover:bg-[#1d4ed8] active:scale-95 transition-all shadow-md uppercase tracking-wider whitespace-nowrap"
@@ -234,18 +273,7 @@ export default function Header() {
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <nav className="flex items-center justify-center w-full">
               <div className="flex items-center justify-between w-full max-w-[1260px] text-black text-[11px] xl:text-[12px] font-extrabold gap-2">
-                {((settings.navItems && settings.navItems.length > 0) ? settings.navItems : [
-                  { label: "Home", href: "/", visible: true },
-                  { label: "About Us", href: "/about", visible: true },
-                  { label: "Founder & Consultants", href: "/founder", visible: true },
-                  { label: "Our Specialities", href: "/specialities", visible: true },
-                  { label: "Packages", href: "/packages", visible: true },
-                  { label: "Book a Test", href: "/book", visible: true },
-                  { label: "Find Nearest Centre", href: "/centers", visible: true },
-                  { label: "Download Report", href: "/report", visible: true },
-                  { label: "Collaborate with us", href: "/franchise", visible: true },
-                  { label: "Login", href: "/login", visible: true }
-                ]).filter((item: any) => item.visible !== false).map((item: any) => (
+                {navItems.map((item: any) => (
                   <Link 
                     key={item.label} 
                     href={item.href} 
@@ -300,6 +328,13 @@ export default function Header() {
               <span className="font-extrabold text-[11px] text-[#2563eb] max-w-[70px] truncate">{getShortLocationName(location)}</span>
               <ChevronDown className="w-3 h-3 text-[#2563eb] flex-shrink-0" />
             </button>
+            <Link
+              href={user ? "/profile" : "/login"}
+              className="w-9 h-9 rounded-full bg-[#dbeafe] flex items-center justify-center text-[#2563eb]"
+              aria-label={user ? "Open profile" : "Log in"}
+            >
+              <User className="w-4 h-4" />
+            </Link>
           </div>
         </div>
 
@@ -411,12 +446,14 @@ export default function Header() {
               <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-[#eff6ff] to-white flex-shrink-0">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-[#2563eb] flex items-center justify-center text-white flex-shrink-0">
-                    <User className="w-5 h-5" />
+                    {user ? <span className="text-sm font-extrabold">{userInitial}</span> : <User className="w-5 h-5" />}
                   </div>
                   <div>
-                    <p className="font-extrabold text-sm text-[#0f2d5e]">Welcome Guest</p>
-                    <Link href="/login" onClick={() => setMobileMenuOpen(false)} className="text-[11px] text-[#2563eb] font-bold hover:underline">
-                      Login / Register
+                    <p className="font-extrabold text-sm text-[#0f2d5e] truncate max-w-[145px]">
+                      {user ? userDisplayName : "Welcome Guest"}
+                    </p>
+                    <Link href={user ? "/profile" : "/login"} onClick={() => setMobileMenuOpen(false)} className="text-[11px] text-[#2563eb] font-bold hover:underline">
+                      {user ? "View Profile" : "Login / Register"}
                     </Link>
                   </div>
                 </div>
@@ -432,18 +469,7 @@ export default function Header() {
               {/* Nav Links — scrollable */}
               <div className="flex-1 overflow-y-auto py-2 px-3">
                 <nav className="flex flex-col gap-0.5">
-                  {((settings.navItems && settings.navItems.length > 0) ? settings.navItems : [
-                    { label: "Home", href: "/", visible: true },
-                    { label: "About Us", href: "/about", visible: true },
-                    { label: "Founder & Consultants", href: "/founder", visible: true },
-                    { label: "Our Specialities", href: "/specialities", visible: true },
-                    { label: "Packages", href: "/packages", visible: true },
-                    { label: "Book a Test", href: "/book", visible: true },
-                    { label: "Find Nearest Centre", href: "/centers", visible: true },
-                    { label: "Download Report", href: "/report", visible: true },
-                    { label: "Collaborate with us", href: "/franchise", visible: true },
-                    { label: "Login", href: "/login", visible: true }
-                  ]).filter((item: any) => item.visible !== false).map((item: any) => {
+                  {navItems.map((item: any) => {
                     const isActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href);
                     return (
                       <Link
@@ -488,7 +514,7 @@ export default function Header() {
             { label: "Book a Test", href: "/book", icon: Microscope },
             { label: "Packages", href: "/packages", icon: Layers },
             { label: "Reports", href: "/report", icon: FileText },
-            { label: "Login", href: "/login", icon: User },
+            { label: user ? "Profile" : "Login", href: user ? "/profile" : "/login", icon: User },
           ].map((tab) => {
             const TabIcon = tab.icon;
             const isActive = tab.href === '/' ? pathname === '/' : pathname?.startsWith(tab.href);
