@@ -10,6 +10,8 @@ from pydantic import BaseModel, ConfigDict, Field
 class ChatRequest(BaseModel):
     question: str = Field(..., min_length=1, max_length=4000)
     conversation_id: uuid.UUID | None = None
+    lat: float | None = Field(None, ge=-90, le=90)
+    lng: float | None = Field(None, ge=-180, le=180)
 
 
 class MessageRead(BaseModel):

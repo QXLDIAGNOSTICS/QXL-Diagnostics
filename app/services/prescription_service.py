@@ -2,13 +2,15 @@
 from __future__ import annotations
 
 import base64
+import calendar
 import json
 import uuid
+from datetime import datetime, timezone
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import settings
-from app.core.exceptions import NotFoundError
+from app.core.exceptions import NotFoundError, ValidationError
 from app.core.logging import get_logger
 from app.models.prescription import Prescription
 from app.repositories.prescription_repository import PrescriptionRepository
@@ -185,3 +187,38 @@ async def latest_completed_summaries(db: AsyncSession, user_id: uuid.UUID, limit
             }
         )
     return out
+
+
+def _month_start(now: datetime | None = None) -> datetime:
+    now = now or datetime.now(timezone.utc)
+    return now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+
+
+def _month_end(now: datetime | None = None) -> datetime:
+    now = now or datetime.now(timezone.utc)
+    last_day = calendar.monthrange(now.year, now.month)[1]
+    return now.replace(
+        day=last_day, hour=23, minute=59, second=59, microsecond=0
+    )
+
+
+async def get_upload_quota(db: AsyncSession, user_id: uuid.UUID) -> dict:
+    """Monthly prescription-upload quota usage for a user."""
+    used = await PrescriptionRepository(db).count_for_user_since(user_id, _month_start())
+    limit = settings.PRESCRIPTION_MONTHLY_UPLOAD_LIMIT
+    return {
+        "used": used,
+        "limit": limit,
+        "remaining": max(0, limit - used),
+        "resets_at": _month_end().isoformat(),
+    }
+
+
+async def check_upload_quota(db: AsyncSession, user_id: uuid.UUID) -> None:
+    """Raise ValidationError if the user has hit their monthly upload cap."""
+    quota = await get_upload_quota(db, user_id)
+    if quota["remaining"] <= 0:
+        raise ValidationError(
+            f"You've reached your limit of {quota['limit']} prescription uploads this month. "
+            f"Your quota resets on {quota['resets_at'][:10]}."
+        )

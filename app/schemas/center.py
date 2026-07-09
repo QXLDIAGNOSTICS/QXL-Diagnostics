@@ -21,11 +21,12 @@ class CenterBase(BaseModel):
 
 
 class CenterCreate(CenterBase):
-    pass
+    slug: str | None = None  # auto-generated from name if omitted
 
 
 class CenterUpdate(BaseModel):
     name: str | None = None
+    slug: str | None = None
     address: str | None = None
     city: str | None = None
     phone: str | None = None
@@ -40,8 +41,10 @@ class CenterUpdate(BaseModel):
 class CenterRead(CenterBase):
     model_config = ConfigDict(from_attributes=True)
     id: uuid.UUID
+    slug: str
     lat: float | None = None
     lng: float | None = None
+    distance_km: float | None = None
 
 
 class CenterList(BaseModel):

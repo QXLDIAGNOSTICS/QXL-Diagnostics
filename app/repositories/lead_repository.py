@@ -72,3 +72,10 @@ class ContactInquiryRepository:
             ).scalars().all()
         )
         return rows, count
+
+    async def mark_read(self, inquiry_id: uuid.UUID) -> ContactInquiry | None:
+        inquiry = await self.db.get(ContactInquiry, inquiry_id)
+        if inquiry:
+            inquiry.is_read = True
+            await self.db.flush()
+        return inquiry

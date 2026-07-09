@@ -86,3 +86,27 @@ class TestCatalogRepository:
             )).scalars().all()
         )
         return rows, count
+
+    async def get_by_slug(self, slug: str) -> TestCatalog | None:
+        stmt = select(TestCatalog).where(TestCatalog.slug == slug)
+        return (await self.db.execute(stmt)).scalars().first()
+
+    async def get_by_id(self, test_id: uuid.UUID) -> TestCatalog | None:
+        return await self.db.get(TestCatalog, test_id)
+
+    async def create(self, **kwargs) -> TestCatalog:  # noqa: ANN003
+        test = TestCatalog(**kwargs)
+        self.db.add(test)
+        await self.db.flush()
+        return test
+
+    async def update(self, test: TestCatalog, **kwargs) -> TestCatalog:  # noqa: ANN003
+        for k, v in kwargs.items():
+            if v is not None:
+                setattr(test, k, v)
+        await self.db.flush()
+        return test
+
+    async def delete(self, test: TestCatalog) -> None:
+        await self.db.delete(test)
+        await self.db.flush()

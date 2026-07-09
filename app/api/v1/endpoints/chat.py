@@ -19,7 +19,9 @@ async def chat_stream(
     user: CurrentUser,
     db: DbSession,
 ) -> StreamingResponse:
-    generator = chat_service.stream_answer(db, user, body.question, body.conversation_id)
+    generator = chat_service.stream_answer(
+        db, user, body.question, body.conversation_id, lat=body.lat, lng=body.lng
+    )
     return StreamingResponse(
         generator,
         media_type="text/event-stream",

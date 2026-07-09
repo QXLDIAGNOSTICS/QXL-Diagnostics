@@ -12,8 +12,10 @@ from app.schemas.package import (
     HealthPackageList,
     HealthPackageRead,
     HealthPackageUpdate,
+    TestCatalogCreate,
     TestCatalogList,
     TestCatalogRead,
+    TestCatalogUpdate,
 )
 from app.services import catalog_service
 
@@ -82,3 +84,35 @@ async def admin_list_tests(
 ) -> TestCatalogList:
     items, count = await catalog_service.list_all_tests(db, limit=limit, offset=offset)
     return TestCatalogList(items=[TestCatalogRead.model_validate(t) for t in items], count=count)
+
+
+@router.get("/tests/{test_id}", response_model=TestCatalogRead)
+async def get_test(test_id: uuid.UUID, db: DbSession) -> TestCatalogRead:
+    test = await catalog_service.get_test(db, test_id)
+    return TestCatalogRead.model_validate(test)
+
+
+@router.post("/tests", response_model=TestCatalogRead, status_code=201)
+async def create_test(
+    body: TestCatalogCreate, db: DbSession, user: User = Depends(require_role("admin"))
+) -> TestCatalogRead:
+    test = await catalog_service.create_test(db, body.model_dump())
+    return TestCatalogRead.model_validate(test)
+
+
+@router.patch("/tests/{test_id}", response_model=TestCatalogRead)
+async def update_test(
+    test_id: uuid.UUID,
+    body: TestCatalogUpdate,
+    db: DbSession,
+    user: User = Depends(require_role("admin")),
+) -> TestCatalogRead:
+    test = await catalog_service.update_test(db, test_id, body.model_dump(exclude_unset=True))
+    return TestCatalogRead.model_validate(test)
+
+
+@router.delete("/tests/{test_id}", status_code=204)
+async def delete_test(
+    test_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))
+) -> None:
+    await catalog_service.delete_test(db, test_id)

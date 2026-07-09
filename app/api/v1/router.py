@@ -13,8 +13,10 @@ from app.api.v1.endpoints import (
     chat,
     content,
     files,
+    knowledge_base,
     leads,
     packages,
+    payments,
     prescriptions,
     users,
 )
@@ -27,10 +29,12 @@ api_router.include_router(chat.router)
 api_router.include_router(centers.router)
 api_router.include_router(packages.router)
 api_router.include_router(bookings.router)
+api_router.include_router(payments.router)
 api_router.include_router(prescriptions.router)
 api_router.include_router(leads.router)
 api_router.include_router(content.router)
 api_router.include_router(admin.router)
+api_router.include_router(knowledge_base.router)
 
 
 @api_router.get("/health", tags=["system"])

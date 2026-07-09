@@ -6,12 +6,13 @@ import uuid
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.exceptions import NotFoundError
-from app.models.content import FAQ, Banner, BlogPost, Doctor
+from app.models.content import FAQ, Banner, BlogPost, Doctor, Review
 from app.repositories.content_repository import (
     BannerRepository,
     BlogPostRepository,
     DoctorRepository,
     FAQRepository,
+    ReviewRepository,
 )
 from app.services.catalog_service import slugify
 
@@ -21,12 +22,25 @@ async def list_active_doctors(db: AsyncSession) -> list[Doctor]:
     return await DoctorRepository(db).get_all_active()
 
 
+async def get_doctor_by_slug(db: AsyncSession, slug: str) -> Doctor:
+    doc = await DoctorRepository(db).get_by_slug(slug)
+    if doc is None:
+        raise NotFoundError("Doctor not found")
+    return doc
+
+
 async def list_all_doctors(db: AsyncSession, limit: int, offset: int) -> tuple[list[Doctor], int]:
     return await DoctorRepository(db).list_all(limit=limit, offset=offset)
 
 
 async def create_doctor(db: AsyncSession, data: dict) -> Doctor:
-    doc = await DoctorRepository(db).create(**data)
+    repo = DoctorRepository(db)
+    if not data.get("slug"):
+        data["slug"] = slugify(data["name"])
+    existing = await repo.get_by_slug(data["slug"])
+    if existing is not None:
+        data["slug"] = f"{data['slug']}-{uuid.uuid4().hex[:6]}"
+    doc = await repo.create(**data)
     await db.commit()
     await db.refresh(doc)
     return doc
@@ -110,6 +124,9 @@ async def create_post(db: AsyncSession, data: dict) -> BlogPost:
     repo = BlogPostRepository(db)
     if not data.get("slug"):
         data["slug"] = slugify(data["title"])
+    existing = await repo.get_by_slug(data["slug"])
+    if existing is not None:
+        data["slug"] = f"{data['slug']}-{uuid.uuid4().hex[:6]}"
     post = await repo.create(**data)
     await db.commit()
     await db.refresh(post)
@@ -134,6 +151,10 @@ async def delete_post(db: AsyncSession, post_id: uuid.UUID) -> None:
         raise NotFoundError("Blog post not found")
     await repo.delete(post)
     await db.commit()
+
+
+async def search_blog_posts(db: AsyncSession, q: str, limit: int = 5) -> list[BlogPost]:
+    return await BlogPostRepository(db).search(q, limit=limit, published_only=True)
 
 
 # ── FAQs ──────────────────────────────────────────────────────────────────────
@@ -170,4 +191,41 @@ async def delete_faq(db: AsyncSession, faq_id: uuid.UUID) -> None:
     if faq is None:
         raise NotFoundError("FAQ not found")
     await repo.delete(faq)
+    await db.commit()
+
+
+# ── Reviews ───────────────────────────────────────────────────────────────────
+
+async def list_published_reviews(db: AsyncSession, limit: int = 20, offset: int = 0) -> tuple[list[Review], int]:
+    return await ReviewRepository(db).get_published(limit=limit, offset=offset)
+
+
+async def list_all_reviews(db: AsyncSession, limit: int, offset: int) -> tuple[list[Review], int]:
+    return await ReviewRepository(db).list_all(limit=limit, offset=offset)
+
+
+async def create_review(db: AsyncSession, data: dict) -> Review:
+    review = await ReviewRepository(db).create(**data)
+    await db.commit()
+    await db.refresh(review)
+    return review
+
+
+async def update_review(db: AsyncSession, review_id: uuid.UUID, data: dict) -> Review:
+    repo = ReviewRepository(db)
+    review = await repo.get_by_id(review_id)
+    if review is None:
+        raise NotFoundError("Review not found")
+    review = await repo.update(review, **data)
+    await db.commit()
+    await db.refresh(review)
+    return review
+
+
+async def delete_review(db: AsyncSession, review_id: uuid.UUID) -> None:
+    repo = ReviewRepository(db)
+    review = await repo.get_by_id(review_id)
+    if review is None:
+        raise NotFoundError("Review not found")
+    await repo.delete(review)
     await db.commit()

@@ -34,7 +34,7 @@ def _extract_pdf(data: bytes) -> str:
 async def ingest_document(
     db: AsyncSession,
     *,
-    owner_id: uuid.UUID,
+    owner_id: uuid.UUID | None,
     file_id: uuid.UUID | None,
     raw_text: str,
 ) -> int:
@@ -59,7 +59,7 @@ async def ingest_document(
 async def ingest_file_bytes(
     db: AsyncSession,
     *,
-    owner_id: uuid.UUID,
+    owner_id: uuid.UUID | None,
     file_id: uuid.UUID,
     data: bytes,
     content_type: str,

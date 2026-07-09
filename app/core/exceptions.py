@@ -49,21 +49,48 @@ def _envelope(code: str, message: str, detail: object | None = None) -> dict:
 
 def register_exception_handlers(app: FastAPI) -> None:
     @app.exception_handler(AppError)
-    async def _app_error_handler(_: Request, exc: AppError) -> JSONResponse:
+    async def _app_error_handler(request: Request, exc: AppError) -> JSONResponse:
+        logger.warning(
+            "Application error",
+            extra={
+                "request_id": getattr(request.state, "request_id", None),
+                "method": request.method,
+                "path": request.url.path,
+                "status_code": exc.status_code,
+            },
+        )
         return JSONResponse(
             status_code=exc.status_code,
             content=_envelope(exc.code, exc.message, exc.detail),
         )
 
     @app.exception_handler(StarletteHTTPException)
-    async def _http_exception_handler(_: Request, exc: StarletteHTTPException) -> JSONResponse:
+    async def _http_exception_handler(request: Request, exc: StarletteHTTPException) -> JSONResponse:
+        logger.warning(
+            "HTTP exception",
+            extra={
+                "request_id": getattr(request.state, "request_id", None),
+                "method": request.method,
+                "path": request.url.path,
+                "status_code": exc.status_code,
+            },
+        )
         return JSONResponse(
             status_code=exc.status_code,
             content=_envelope("http_error", str(exc.detail)),
         )
 
     @app.exception_handler(RequestValidationError)
-    async def _validation_handler(_: Request, exc: RequestValidationError) -> JSONResponse:
+    async def _validation_handler(request: Request, exc: RequestValidationError) -> JSONResponse:
+        logger.warning(
+            "Request validation failed",
+            extra={
+                "request_id": getattr(request.state, "request_id", None),
+                "method": request.method,
+                "path": request.url.path,
+                "status_code": 422,
+            },
+        )
         return JSONResponse(
             status_code=422,
             content=_envelope("validation_error", "Request validation failed", exc.errors()),
@@ -71,7 +98,15 @@ def register_exception_handlers(app: FastAPI) -> None:
 
     @app.exception_handler(Exception)
     async def _unhandled_handler(request: Request, exc: Exception) -> JSONResponse:
-        logger.exception("Unhandled error", extra={"path": request.url.path})
+        logger.exception(
+            "Unhandled error",
+            extra={
+                "request_id": getattr(request.state, "request_id", None),
+                "method": request.method,
+                "path": request.url.path,
+                "status_code": status.HTTP_500_INTERNAL_SERVER_ERROR,
+            },
+        )
         return JSONResponse(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             content=_envelope("internal_error", "An unexpected error occurred"),

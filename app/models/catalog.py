@@ -18,6 +18,7 @@ class Center(Base, TimestampMixin):
 
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=new_uuid)
     name: Mapped[str] = mapped_column(String, nullable=False)
+    slug: Mapped[str] = mapped_column(String, unique=True, index=True, nullable=False)
     address: Mapped[str] = mapped_column(String, nullable=False)
     city: Mapped[str] = mapped_column(String, nullable=False, index=True)
     phone: Mapped[str | None] = mapped_column(String, nullable=True)
@@ -52,6 +53,9 @@ class HealthPackage(Base, TimestampMixin):
     gender: Mapped[str | None] = mapped_column(String(32), nullable=True)
     doctor_recommended: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
+    # Whether this package can be booked for home sample collection. Some
+    # packages require lab-only equipment/collection and are center-visit only.
+    home_collection_available: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
 
     bookings: Mapped[list["Booking"]] = relationship(back_populates="package")  # noqa: F821
@@ -71,3 +75,6 @@ class TestCatalog(Base, TimestampMixin):
     preparation: Mapped[str | None] = mapped_column(Text, nullable=True)
     turnaround_hours: Mapped[int | None] = mapped_column(Integer, nullable=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
+    # Whether this test can be booked for home sample collection (some tests
+    # require lab-only equipment/processing and are center-visit only).
+    home_collection_available: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)

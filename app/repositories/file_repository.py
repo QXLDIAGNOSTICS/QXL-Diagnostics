@@ -16,7 +16,7 @@ class FileRepository:
     async def create(
         self,
         *,
-        owner_id: uuid.UUID,
+        owner_id: uuid.UUID | None,
         bucket: str,
         object_path: str,
         filename: str,
@@ -34,6 +34,28 @@ class FileRepository:
         self.db.add(record)
         await self.db.flush()
         return record
+
+    async def get_global(self, file_id: uuid.UUID) -> FileRecord | None:
+        result = await self.db.execute(
+            select(FileRecord).where(FileRecord.id == file_id, FileRecord.owner_id.is_(None))
+        )
+        return result.scalar_one_or_none()
+
+    async def list_global(self, *, limit: int = 100, offset: int = 0) -> tuple[list[FileRecord], int]:
+        base = select(FileRecord).where(FileRecord.owner_id.is_(None))
+        items = (
+            (
+                await self.db.execute(
+                    base.order_by(FileRecord.created_at.desc()).limit(limit).offset(offset)
+                )
+            )
+            .scalars()
+            .all()
+        )
+        count = await self.db.scalar(
+            select(func.count()).select_from(FileRecord).where(FileRecord.owner_id.is_(None))
+        )
+        return list(items), int(count or 0)
 
     async def get_owned(self, file_id: uuid.UUID, owner_id: uuid.UUID) -> FileRecord | None:
         result = await self.db.execute(

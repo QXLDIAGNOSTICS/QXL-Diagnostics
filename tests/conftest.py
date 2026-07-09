@@ -8,19 +8,20 @@ from unittest.mock import AsyncMock
 import pytest
 from httpx import ASGITransport, AsyncClient
 
-from app.api.deps import get_current_user, get_db, get_token_claims
+from app.api.deps import get_current_user, get_db
 from app.main import app
-
-TEST_PERMISSIONS = ["read:files", "write:files", "read:chat", "read:users"]
 
 
 @pytest.fixture
 def fake_user() -> SimpleNamespace:
     return SimpleNamespace(
         id=uuid.uuid4(),
-        auth0_sub="auth0|test-user",
         email="test@example.com",
+        phone="+919876543210",
         name="Test User",
+        role="patient",
+        is_email_verified=True,
+        is_phone_verified=True,
     )
 
 
@@ -34,14 +35,10 @@ async def client(fake_user, fake_db):
     async def _override_db():
         yield fake_db
 
-    async def _override_claims() -> dict:
-        return {"sub": fake_user.auth0_sub, "permissions": TEST_PERMISSIONS}
-
     async def _override_user():
         return fake_user
 
     app.dependency_overrides[get_db] = _override_db
-    app.dependency_overrides[get_token_claims] = _override_claims
     app.dependency_overrides[get_current_user] = _override_user
 
     transport = ASGITransport(app=app)

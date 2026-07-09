@@ -65,3 +65,19 @@ class BookingRepository:
         booking.status = status
         await self.db.flush()
         return booking
+
+    async def update(self, booking: Booking, **kwargs) -> Booking:  # noqa: ANN003
+        for k, v in kwargs.items():
+            if v is not None:
+                setattr(booking, k, v)
+        await self.db.flush()
+        return booking
+
+    async def update_payment_status(
+        self, booking: Booking, *, payment_status: str, amount_paise: int | None = None
+    ) -> Booking:
+        booking.payment_status = payment_status
+        if amount_paise is not None:
+            booking.amount_paise = amount_paise
+        await self.db.flush()
+        return booking

@@ -21,6 +21,7 @@ class HealthPackageBase(BaseModel):
     gender: str | None = None
     doctor_recommended: bool = False
     is_active: bool = True
+    home_collection_available: bool = True
     sort_order: int = 0
 
 
@@ -42,6 +43,7 @@ class HealthPackageUpdate(BaseModel):
     gender: str | None = None
     doctor_recommended: bool | None = None
     is_active: bool | None = None
+    home_collection_available: bool | None = None
     sort_order: int | None = None
 
 
@@ -55,6 +57,33 @@ class HealthPackageList(BaseModel):
     count: int
 
 
+class TestCatalogBase(BaseModel):
+    name: str
+    slug: str
+    category: str | None = None
+    description: str | None = None
+    price: int | None = None
+    preparation: str | None = None
+    turnaround_hours: int | None = None
+    is_active: bool = True
+    home_collection_available: bool = True
+
+
+class TestCatalogCreate(TestCatalogBase):
+    slug: str | None = None  # auto-generated from name if omitted
+
+
+class TestCatalogUpdate(BaseModel):
+    name: str | None = None
+    category: str | None = None
+    description: str | None = None
+    price: int | None = None
+    preparation: str | None = None
+    turnaround_hours: int | None = None
+    is_active: bool | None = None
+    home_collection_available: bool | None = None
+
+
 class TestCatalogRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: uuid.UUID
@@ -66,6 +95,7 @@ class TestCatalogRead(BaseModel):
     preparation: str | None = None
     turnaround_hours: int | None = None
     is_active: bool = True
+    home_collection_available: bool = True
 
 
 class TestCatalogList(BaseModel):

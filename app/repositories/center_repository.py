@@ -22,6 +22,10 @@ class CenterRepository:
     async def get_by_id(self, center_id: uuid.UUID) -> Center | None:
         return await self.db.get(Center, center_id)
 
+    async def get_by_slug(self, slug: str) -> Center | None:
+        stmt = select(Center).where(Center.slug == slug)
+        return (await self.db.execute(stmt)).scalars().first()
+
     async def list_all(self, limit: int = 100, offset: int = 0) -> tuple[list[Center], int]:
         count = (await self.db.execute(select(func.count()).select_from(Center))).scalar_one()
         rows = list(

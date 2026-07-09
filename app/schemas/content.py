@@ -2,8 +2,9 @@
 from __future__ import annotations
 
 import uuid
+from datetime import datetime
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 # ── Doctor ────────────────────────────────────────────────────────────────────
@@ -12,6 +13,7 @@ class DoctorRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: uuid.UUID
     name: str
+    slug: str
     qualification: str | None = None
     specialization: str | None = None
     bio: str | None = None
@@ -22,6 +24,7 @@ class DoctorRead(BaseModel):
 
 class DoctorCreate(BaseModel):
     name: str
+    slug: str | None = None  # auto-generated from name if omitted
     qualification: str | None = None
     specialization: str | None = None
     bio: str | None = None
@@ -122,11 +125,12 @@ class BlogPostRead(BaseModel):
     tags: str | None = None
     is_published: bool = False
     sort_order: int = 0
+    created_at: datetime
 
 
 class BlogPostCreate(BaseModel):
     title: str
-    slug: str
+    slug: str | None = None  # auto-generated from title if omitted
     excerpt: str | None = None
     content: str | None = None
     author: str | None = None
@@ -181,3 +185,40 @@ class FAQUpdate(BaseModel):
     category: str | None = None
     is_active: bool | None = None
     sort_order: int | None = None
+
+
+# ── Review ────────────────────────────────────────────────────────────────────
+
+class ReviewRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: uuid.UUID
+    author_name: str
+    rating: int
+    content: str
+    source: str | None = None
+    is_published: bool = True
+    sort_order: int = 0
+    created_at: datetime
+
+
+class ReviewCreate(BaseModel):
+    author_name: str
+    rating: int = Field(ge=1, le=5)
+    content: str
+    source: str | None = None
+    is_published: bool = True
+    sort_order: int = 0
+
+
+class ReviewUpdate(BaseModel):
+    author_name: str | None = None
+    rating: int | None = Field(default=None, ge=1, le=5)
+    content: str | None = None
+    source: str | None = None
+    is_published: bool | None = None
+    sort_order: int | None = None
+
+
+class ReviewList(BaseModel):
+    items: list[ReviewRead]
+    count: int

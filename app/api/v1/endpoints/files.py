@@ -3,13 +3,12 @@ from __future__ import annotations
 
 import uuid
 
-from fastapi import APIRouter, BackgroundTasks, Depends, File, UploadFile
+from fastapi import APIRouter, BackgroundTasks, File, UploadFile
 
-from app.api.deps import DbSession, require_permission
+from app.api.deps import CurrentUser, DbSession
 from app.core.config import settings
 from app.core.exceptions import NotFoundError, ValidationError
 from app.db.session import AsyncSessionLocal
-from app.models.user import User
 from app.repositories.file_repository import FileRepository
 from app.schemas.file import FileList, FileRead, FileWithUrl
 from app.services import ingestion_service
@@ -31,8 +30,8 @@ async def _ingest_in_background(
 async def upload_file(
     background: BackgroundTasks,
     db: DbSession,
+    user: CurrentUser,
     file: UploadFile = File(...),
-    user: User = Depends(require_permission("write:files")),
 ) -> FileRead:
     content_type = file.content_type or "application/octet-stream"
     if content_type not in settings.ALLOWED_UPLOAD_TYPES:
@@ -67,9 +66,9 @@ async def upload_file(
 @router.get("", response_model=FileList)
 async def list_files(
     db: DbSession,
+    user: CurrentUser,
     limit: int = 50,
     offset: int = 0,
-    user: User = Depends(require_permission("read:files")),
 ) -> FileList:
     repo = FileRepository(db)
     items, count = await repo.list_for_owner(user.id, limit=limit, offset=offset)
@@ -80,7 +79,7 @@ async def list_files(
 async def get_file(
     file_id: uuid.UUID,
     db: DbSession,
-    user: User = Depends(require_permission("read:files")),
+    user: CurrentUser,
 ) -> FileWithUrl:
     repo = FileRepository(db)
     record = await repo.get_owned(file_id, user.id)
@@ -94,7 +93,7 @@ async def get_file(
 async def delete_file(
     file_id: uuid.UUID,
     db: DbSession,
-    user: User = Depends(require_permission("write:files")),
+    user: CurrentUser,
 ) -> None:
     repo = FileRepository(db)
     record = await repo.get_owned(file_id, user.id)

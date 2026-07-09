@@ -7,6 +7,8 @@ from app.models.conversation import Conversation, Message
 from app.models.doc_chunk import DocChunk
 from app.models.file import FileRecord
 from app.models.lead import CollaborationLead, ContactInquiry
+from app.models.login_challenge import LoginChallenge
+from app.models.payment import Payment
 from app.models.prescription import Prescription
 from app.models.session import Session
 from app.models.user import User
@@ -19,6 +21,8 @@ __all__ = [
     "Message",
     "DocChunk",
     "Session",
+    "LoginChallenge",
+    "Payment",
     "Center",
     "HealthPackage",
     "TestCatalog",

@@ -14,8 +14,16 @@ router = APIRouter(prefix="/centers", tags=["centers"])
 
 
 @router.get("", response_model=list[CenterRead])
-async def list_centers(db: DbSession, city: str | None = None) -> list[CenterRead]:
-    centers = await catalog_service.list_active_centers(db, city=city)
+async def list_centers(
+    db: DbSession,
+    city: str | None = None,
+    lat: float | None = None,
+    lng: float | None = None,
+) -> list[CenterRead]:
+    """Public center listing. When ``lat``/``lng`` are provided (e.g. from the
+    browser's geolocation or a user-set location), results are sorted nearest
+    first and each item includes a computed ``distance_km``."""
+    centers = await catalog_service.list_active_centers(db, city=city, lat=lat, lng=lng)
     return [CenterRead.model_validate(c) for c in centers]
 
 
@@ -28,6 +36,12 @@ async def admin_list_centers(
 ) -> CenterList:
     items, count = await catalog_service.list_all_centers(db, limit=limit, offset=offset)
     return CenterList(items=[CenterRead.model_validate(c) for c in items], count=count)
+
+
+@router.get("/{slug}", response_model=CenterRead)
+async def get_center(slug: str, db: DbSession) -> CenterRead:
+    center = await catalog_service.get_center_by_slug(db, slug)
+    return CenterRead.model_validate(center)
 
 
 @router.post("", response_model=CenterRead, status_code=201)

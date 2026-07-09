@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import uuid
+from datetime import datetime
 
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -21,6 +22,14 @@ class PrescriptionRepository:
 
     async def get_by_id(self, prescription_id: uuid.UUID) -> Prescription | None:
         return await self.db.get(Prescription, prescription_id)
+
+    async def count_for_user_since(self, user_id: uuid.UUID, since: datetime) -> int:
+        result = await self.db.execute(
+            select(func.count())
+            .select_from(Prescription)
+            .where(Prescription.user_id == user_id, Prescription.created_at >= since)
+        )
+        return result.scalar_one()
 
     async def list_for_user(
         self, user_id: uuid.UUID, limit: int = 50, offset: int = 0

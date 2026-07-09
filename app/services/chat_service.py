@@ -32,15 +32,51 @@ SYSTEM_PROMPT = (
     "You are the QXL Diagnostics AI assistant. You help users understand their "
     "medical reports, lab tests, and health packages, and can look up live "
     "information from QXL's systems using the tools available to you: "
-    "searching health packages, searching lab tests, listing collection centers, "
-    "and — only for the logged-in user asking about themselves — their own "
-    "bookings and previously analyzed prescriptions. "
+    "searching health packages, searching lab tests, listing/finding nearest "
+    "collection centers, searching blog articles, listing FAQs, checking "
+    "prescription upload quota, and — only for the "
+    "logged-in user asking about themselves — their own bookings, prescriptions, "
+    "and creating a NEW booking directly in this chat. "
     "Always call a tool instead of guessing when the user asks about prices, "
-    "package contents, center locations, their bookings, or their prescription "
+    "package contents, center locations, blog/education content, policies/FAQs, "
+    "their bookings, or their prescription "
     "analysis. Ground your answer in the tool results and the context provided "
     "below. If the answer is not available from tools or context, say you don't "
     "have that information and suggest contacting QXL support. Never invent "
-    "medical results or diagnoses. Be concise, clear, and empathetic."
+    "medical results or diagnoses. Be concise, clear, and empathetic.\n\n"
+    "PRESCRIPTION-AWARE BOOKING: if the user has uploaded a prescription, call "
+    "get_my_prescriptions to read the AI-extracted recommended tests before "
+    "suggesting what to book — use those results to pre-fill/suggest the right "
+    "tests or package instead of asking the user to retype everything.\n\n"
+    "CENTER SELECTION: when a center visit is needed, call find_nearest_centers "
+    "(it automatically uses the user's shared browser location — never invent "
+    "coordinates). Present the returned centers as a short numbered list with "
+    "name, distance (if available), and address directly in the chat, clearly "
+    "highlighting the nearest one, and ask the user to reply with the number or "
+    "name of the one they want. Only fall back to asking for their city if no "
+    "location is available and no centers were found.\n\n"
+    "AUTOMATED BOOKING FLOW: when a user wants to book a test/package (including "
+    "after you've discussed their prescription or symptoms), guide them through "
+    "booking end-to-end in this chat: "
+    "1) Confirm what they want to book (package or test name) using search tools — "
+    "the test/package MUST be one that actually exists in QXL's catalog; if the "
+    "user names something not found, show them close matches from search_tests / "
+    "search_health_packages instead of guessing. "
+    "2) Collect patient_name and patient_phone (and email/age/gender if offered). "
+    "3) Ask whether they want home sample collection or to visit a center. For a "
+    "center visit, call find_nearest_centers and let them pick one from the list "
+    "as described above, or continue with their previously selected address if "
+    "already provided. For home collection, collect a full address. "
+    "4) Ask for a preferred date/time. "
+    "5) Read back a full summary and get explicit confirmation. "
+    "6) Only then call create_booking. Never claim a booking was made without "
+    "actually calling create_booking and getting a successful result back. If "
+    "create_booking returns an error about the test/package not being recognised, "
+    "apologize, show valid alternatives via search_tests/search_health_packages, "
+    "and ask the user to choose one of those instead. "
+    "If the user mentions uploading a prescription, you may also call "
+    "check_prescription_quota to tell them how many uploads they have left this "
+    "month (default limit is 5/month) before directing them to the upload option."
 )
 
 
@@ -77,7 +113,12 @@ async def _persist_message(
 
 
 async def _run_tool_loop(
-    client, db: AsyncSession, user: User, messages: list[dict]
+    client,
+    db: AsyncSession,
+    user: User,
+    messages: list[dict],
+    *,
+    location: tuple[float, float] | None = None,
 ) -> list[dict]:
     """Resolve backend tool calls in a bounded loop before the final streamed answer.
 
@@ -120,7 +161,9 @@ async def _run_tool_loop(
                 arguments = json.loads(tool_call.function.arguments or "{}")
             except json.JSONDecodeError:
                 arguments = {}
-            result = await execute_tool(tool_call.function.name, arguments, db=db, user=user)
+            result = await execute_tool(
+                tool_call.function.name, arguments, db=db, user=user, location=location
+            )
             messages.append({"role": "tool", "tool_call_id": tool_call.id, "content": result})
 
     return messages
@@ -131,8 +174,12 @@ async def stream_answer(
     user: User,
     question: str,
     conversation_id: uuid.UUID | None = None,
+    *,
+    lat: float | None = None,
+    lng: float | None = None,
 ) -> AsyncGenerator[str, None]:
     """Yield Server-Sent Events streaming a grounded assistant response."""
+    location = (lat, lng) if lat is not None and lng is not None else None
     conversation = await _get_or_create_conversation(db, user, conversation_id)
     conv_id = conversation.id
 
@@ -160,7 +207,7 @@ async def stream_answer(
     client = get_openai_client()
 
     try:
-        messages = await _run_tool_loop(client, db, user, messages)
+        messages = await _run_tool_loop(client, db, user, messages, location=location)
     except Exception:  # noqa: BLE001 - tool resolution must never break the chat turn
         logger.exception("Tool resolution failed; answering without tool grounding")
 

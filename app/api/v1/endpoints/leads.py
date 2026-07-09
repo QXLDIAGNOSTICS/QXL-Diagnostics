@@ -66,3 +66,11 @@ async def list_contact_inquiries(
 ) -> ContactInquiryList:
     items, count = await lead_service.list_contact_inquiries(db, unread_only, limit, offset)
     return ContactInquiryList(items=[ContactInquiryRead.model_validate(i) for i in items], count=count)
+
+
+@router.patch("/leads/contact/{inquiry_id}/read", response_model=ContactInquiryRead)
+async def mark_contact_inquiry_read(
+    inquiry_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))
+) -> ContactInquiryRead:
+    inquiry = await lead_service.mark_contact_inquiry_read(db, inquiry_id)
+    return ContactInquiryRead.model_validate(inquiry)

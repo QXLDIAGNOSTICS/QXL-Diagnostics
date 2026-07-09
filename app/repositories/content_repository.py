@@ -6,7 +6,7 @@ import uuid
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.content import FAQ, Banner, BlogPost, Doctor
+from app.models.content import FAQ, Banner, BlogPost, Doctor, Review
 
 
 class DoctorRepository:
@@ -30,6 +30,10 @@ class DoctorRepository:
 
     async def get_by_id(self, doctor_id: uuid.UUID) -> Doctor | None:
         return await self.db.get(Doctor, doctor_id)
+
+    async def get_by_slug(self, slug: str) -> Doctor | None:
+        stmt = select(Doctor).where(Doctor.slug == slug)
+        return (await self.db.execute(stmt)).scalars().first()
 
     async def create(self, **kwargs) -> Doctor:  # noqa: ANN003
         doc = Doctor(**kwargs)
@@ -115,6 +119,17 @@ class BlogPostRepository:
         stmt = select(BlogPost).where(BlogPost.slug == slug)
         return (await self.db.execute(stmt)).scalars().first()
 
+    async def search(self, q: str, limit: int = 5, *, published_only: bool = True) -> list[BlogPost]:
+        stmt = select(BlogPost).where(
+            (BlogPost.title.ilike(f"%{q}%"))
+            | (BlogPost.excerpt.ilike(f"%{q}%"))
+            | (BlogPost.category.ilike(f"%{q}%"))
+        )
+        if published_only:
+            stmt = stmt.where(BlogPost.is_published == True)  # noqa: E712
+        stmt = stmt.order_by(BlogPost.created_at.desc()).limit(limit)
+        return list((await self.db.execute(stmt)).scalars().all())
+
     async def list_all(self, limit: int = 50, offset: int = 0) -> tuple[list[BlogPost], int]:
         count = (await self.db.execute(select(func.count()).select_from(BlogPost))).scalar_one()
         rows = list(
@@ -178,4 +193,57 @@ class FAQRepository:
 
     async def delete(self, faq: FAQ) -> None:
         await self.db.delete(faq)
+        await self.db.flush()
+
+
+class ReviewRepository:
+    def __init__(self, db: AsyncSession) -> None:
+        self.db = db
+
+    async def get_published(self, limit: int = 20, offset: int = 0) -> tuple[list[Review], int]:
+        count = (
+            await self.db.execute(
+                select(func.count()).select_from(Review).where(Review.is_published == True)  # noqa: E712
+            )
+        ).scalar_one()
+        rows = list(
+            (
+                await self.db.execute(
+                    select(Review)
+                    .where(Review.is_published == True)  # noqa: E712
+                    .order_by(Review.sort_order, Review.created_at.desc())
+                    .limit(limit)
+                    .offset(offset)
+                )
+            ).scalars().all()
+        )
+        return rows, count
+
+    async def list_all(self, limit: int = 100, offset: int = 0) -> tuple[list[Review], int]:
+        count = (await self.db.execute(select(func.count()).select_from(Review))).scalar_one()
+        rows = list(
+            (await self.db.execute(
+                select(Review).order_by(Review.sort_order, Review.created_at.desc()).limit(limit).offset(offset)
+            )).scalars().all()
+        )
+        return rows, count
+
+    async def get_by_id(self, review_id: uuid.UUID) -> Review | None:
+        return await self.db.get(Review, review_id)
+
+    async def create(self, **kwargs) -> Review:  # noqa: ANN003
+        review = Review(**kwargs)
+        self.db.add(review)
+        await self.db.flush()
+        return review
+
+    async def update(self, review: Review, **kwargs) -> Review:  # noqa: ANN003
+        for k, v in kwargs.items():
+            if v is not None:
+                setattr(review, k, v)
+        await self.db.flush()
+        return review
+
+    async def delete(self, review: Review) -> None:
+        await self.db.delete(review)
         await self.db.flush()

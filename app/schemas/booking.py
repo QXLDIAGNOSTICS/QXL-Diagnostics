@@ -14,6 +14,7 @@ class BookingCreate(BaseModel):
     patient_gender: str | None = None
 
     test_name: str | None = None
+    test_id: uuid.UUID | None = None
     package_id: uuid.UUID | None = None
     center_id: uuid.UUID | None = None
 
@@ -44,6 +45,28 @@ class BookingStatusUpdate(BaseModel):
         return v
 
 
+class BookingAdminUpdate(BaseModel):
+    """General-purpose admin update: status, report link, and internal notes."""
+
+    status: str | None = None
+    report_url: str | None = None
+    notes: str | None = None
+    is_urgent: bool | None = None
+    center_id: uuid.UUID | None = None
+    preferred_date: str | None = None
+    preferred_time: str | None = None
+
+    @field_validator("status")
+    @classmethod
+    def _valid_status(cls, v: str | None) -> str | None:
+        if v is None:
+            return v
+        allowed = {"pending", "confirmed", "sample_collected", "report_ready", "completed", "cancelled"}
+        if v not in allowed:
+            raise ValueError(f"status must be one of {allowed}")
+        return v
+
+
 class BookingRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: uuid.UUID
@@ -54,6 +77,7 @@ class BookingRead(BaseModel):
     patient_age: int | None = None
     patient_gender: str | None = None
     test_name: str | None = None
+    test_id: uuid.UUID | None = None
     package_id: uuid.UUID | None = None
     center_id: uuid.UUID | None = None
     collection_type: str
@@ -63,6 +87,9 @@ class BookingRead(BaseModel):
     status: str
     notes: str | None = None
     is_urgent: bool
+    report_url: str | None = None
+    amount_paise: int | None = None
+    payment_status: str
 
 
 class BookingList(BaseModel):

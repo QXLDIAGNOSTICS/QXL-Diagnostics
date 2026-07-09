@@ -32,6 +32,8 @@ async def upload_prescription(
     user: CurrentUser,
     file: UploadFile = File(...),
 ) -> PrescriptionRead:
+    await prescription_service.check_upload_quota(db, user.id)
+
     content_type = file.content_type or "application/octet-stream"
     if content_type not in _ALLOWED_TYPES:
         raise ValidationError(
@@ -71,6 +73,11 @@ async def upload_prescription(
     background.add_task(_analyze_in_background, prescription.id, data, content_type)
 
     return await prescription_service.get_prescription_for_user(db, prescription.id, user.id)
+
+
+@router.get("/quota")
+async def get_upload_quota(db: DbSession, user: CurrentUser) -> dict:
+    return await prescription_service.get_upload_quota(db, user.id)
 
 
 @router.get("", response_model=PrescriptionList)

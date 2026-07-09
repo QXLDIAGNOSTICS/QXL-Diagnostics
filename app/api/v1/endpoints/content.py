@@ -21,6 +21,10 @@ from app.schemas.content import (
     FAQCreate,
     FAQRead,
     FAQUpdate,
+    ReviewCreate,
+    ReviewList,
+    ReviewRead,
+    ReviewUpdate,
 )
 from app.services import content_service
 
@@ -41,6 +45,12 @@ async def admin_list_doctors(
 ) -> list[DoctorRead]:
     items, _ = await content_service.list_all_doctors(db, limit=limit, offset=offset)
     return [DoctorRead.model_validate(d) for d in items]
+
+
+@router.get("/doctors/{slug}", response_model=DoctorRead)
+async def get_doctor(slug: str, db: DbSession) -> DoctorRead:
+    doc = await content_service.get_doctor_by_slug(db, slug)
+    return DoctorRead.model_validate(doc)
 
 
 @router.post("/doctors", response_model=DoctorRead, status_code=201)
@@ -171,3 +181,38 @@ async def update_faq(
 @router.delete("/faqs/{faq_id}", status_code=204)
 async def delete_faq(faq_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))) -> None:
     await content_service.delete_faq(db, faq_id)
+
+
+# ── Reviews ───────────────────────────────────────────────────────────────
+
+@router.get("/reviews", response_model=ReviewList)
+async def list_reviews(db: DbSession, limit: int = 20, offset: int = 0) -> ReviewList:
+    items, count = await content_service.list_published_reviews(db, limit=limit, offset=offset)
+    return ReviewList(items=[ReviewRead.model_validate(r) for r in items], count=count)
+
+
+@router.get("/reviews/admin", response_model=ReviewList)
+async def admin_list_reviews(
+    db: DbSession, limit: int = 100, offset: int = 0, user: User = Depends(require_role("admin"))
+) -> ReviewList:
+    items, count = await content_service.list_all_reviews(db, limit=limit, offset=offset)
+    return ReviewList(items=[ReviewRead.model_validate(r) for r in items], count=count)
+
+
+@router.post("/reviews", response_model=ReviewRead, status_code=201)
+async def create_review(body: ReviewCreate, db: DbSession, user: User = Depends(require_role("admin"))) -> ReviewRead:
+    review = await content_service.create_review(db, body.model_dump())
+    return ReviewRead.model_validate(review)
+
+
+@router.patch("/reviews/{review_id}", response_model=ReviewRead)
+async def update_review(
+    review_id: uuid.UUID, body: ReviewUpdate, db: DbSession, user: User = Depends(require_role("admin"))
+) -> ReviewRead:
+    review = await content_service.update_review(db, review_id, body.model_dump(exclude_unset=True))
+    return ReviewRead.model_validate(review)
+
+
+@router.delete("/reviews/{review_id}", status_code=204)
+async def delete_review(review_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))) -> None:
+    await content_service.delete_review(db, review_id)

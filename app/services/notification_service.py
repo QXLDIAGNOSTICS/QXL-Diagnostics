@@ -24,7 +24,11 @@ _NETTYFISH_SEND_SMS_PATH = "/api/v2/SendSMS"
 
 def _nettyfish_configured() -> bool:
     return bool(
-        settings.NETTYFISH_API_KEY and settings.NETTYFISH_CLIENT_ID and settings.NETTYFISH_SENDER_ID
+        settings.NETTYFISH_API_KEY
+        and settings.NETTYFISH_CLIENT_ID
+        and settings.NETTYFISH_SENDER_ID
+        and settings.NETTYFISH_TEMPLATE_ID
+        and settings.NETTYFISH_PRINCIPLE_ENTITY_ID
     )
 
 
@@ -35,9 +39,15 @@ def _smtp_configured() -> bool:
 def _to_nettyfish_mobile(phone: str) -> str:
     """Nettyfish expects bare 10-digit Indian mobile numbers (no '+'/country code)."""
     digits = "".join(ch for ch in phone if ch.isdigit())
-    if len(digits) > 10:
-        digits = digits[-10:]
-    return digits
+    if len(digits) == 13 and digits.startswith("091"):
+        return digits[3:]
+    if len(digits) == 12 and digits.startswith("91"):
+        return digits[2:]
+    if len(digits) == 11 and digits.startswith("0"):
+        return digits[1:]
+    if len(digits) == 10:
+        return digits
+    raise ValueError(f"Invalid Indian mobile number: {phone}")
 
 
 async def send_sms(to_phone: str, body: str) -> bool:
@@ -48,27 +58,71 @@ async def send_sms(to_phone: str, body: str) -> bool:
             _mask_for_log(to_phone),
         )
         return False
+    try:
+        mobile_numbers = _to_nettyfish_mobile(to_phone)
+    except ValueError:
+        logger.error("SMS not sent (invalid phone format): to=%s", _mask_for_log(to_phone))
+        return False
+
     payload = {
         "SenderId": settings.NETTYFISH_SENDER_ID,
+        "Is_Unicode": False,
+        "Is_Flash": False,
+        "IsRegisteredForDelivery": True,
+        "ValidityPeriod": settings.NETTYFISH_VALIDITY_PERIOD,
+        "DataCoding": "0",
+        "SchedTime": "",
+        "GroupId": "",
         "Message": body,
-        "MobileNumbers": _to_nettyfish_mobile(to_phone),
+        "MobileNumbers": mobile_numbers,
+        "ServiceId": settings.NETTYFISH_SERVICE_ID,
+        "CoRelator": "",
+        "LinkId": "",
+        "PrincipleEntityId": settings.NETTYFISH_PRINCIPLE_ENTITY_ID,
+        "TemplateId": settings.NETTYFISH_TEMPLATE_ID,
         "ApiKey": settings.NETTYFISH_API_KEY,
         "ClientId": settings.NETTYFISH_CLIENT_ID,
     }
     try:
         async with httpx.AsyncClient(base_url=settings.NETTYFISH_BASE_URL, timeout=10.0) as http:
-            response = await http.post(_NETTYFISH_SEND_SMS_PATH, json=payload)
+            response = await http.post(
+                _NETTYFISH_SEND_SMS_PATH,
+                headers={"Type": "json"},
+                json=payload,
+            )
             response.raise_for_status()
             result = response.json()
-        error_code = result.get("ErrorCode")
-        if error_code != 0:
+
+        error_code_raw = result.get("ErrorCode")
+        error_code = str(error_code_raw).strip() if error_code_raw is not None else ""
+        # Nettyfish may return either int 0 or string "0" for success.
+        if error_code not in {"0", ""}:
             logger.error(
-                "Nettyfish SMS send failed for %s: code=%s desc=%s",
+                "Nettyfish SMS send failed for %s: code=%s desc=%s result=%s",
                 _mask_for_log(to_phone),
                 error_code,
                 result.get("ErrorDescription"),
+                result,
             )
             return False
+
+        # Some provider responses report top-level success but include per-recipient failure.
+        data = result.get("Data")
+        if isinstance(data, list):
+            for item in data:
+                if not isinstance(item, dict):
+                    continue
+                msg_code = str(item.get("MessageErrorCode", "")).strip()
+                if msg_code and msg_code != "0":
+                    logger.error(
+                        "Nettyfish SMS recipient failed for %s: msg_code=%s msg_desc=%s result=%s",
+                        _mask_for_log(to_phone),
+                        msg_code,
+                        item.get("MessageErrorDescription"),
+                        result,
+                    )
+                    return False
+
         return True
     except Exception:  # noqa: BLE001
         logger.exception("Failed to send SMS to %s", _mask_for_log(to_phone))

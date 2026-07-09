@@ -17,6 +17,7 @@ class Doctor(Base, TimestampMixin):
 
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=new_uuid)
     name: Mapped[str] = mapped_column(String, nullable=False)
+    slug: Mapped[str] = mapped_column(String, unique=True, index=True, nullable=False)
     qualification: Mapped[str | None] = mapped_column(String, nullable=True)
     specialization: Mapped[str | None] = mapped_column(String, nullable=True)
     bio: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -80,4 +81,21 @@ class FAQ(Base, TimestampMixin):
     answer: Mapped[str] = mapped_column(Text, nullable=False)
     category: Mapped[str | None] = mapped_column(String, nullable=True, index=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
+    sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+
+
+class Review(Base, TimestampMixin):
+    """Patient review/testimonial — powers on-site testimonials plus
+    AggregateRating/Review JSON-LD schema for SEO/AEO/GEO trust signals."""
+
+    __tablename__ = "reviews"
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=new_uuid)
+    author_name: Mapped[str] = mapped_column(String, nullable=False)
+    rating: Mapped[int] = mapped_column(Integer, nullable=False)  # 1-5
+    content: Mapped[str] = mapped_column(Text, nullable=False)
+    # Where the review originated, e.g. "Google", "Website", "Practo" — shown
+    # as an attribution badge and helps keep NAP/reputation signals honest.
+    source: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    is_published: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)

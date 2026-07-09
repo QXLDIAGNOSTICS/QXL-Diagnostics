@@ -29,7 +29,7 @@ from app.core.config import settings
 from app.core.exceptions import NotFoundError, PermissionDeniedError, UnauthorizedError, ValidationError
 from app.core.logging import get_logger
 from app.models.booking import Booking
-from app.models.catalog import HealthPackage
+from app.models.catalog import HealthPackage, TestCatalog
 from app.models.payment import Payment
 from app.models.user import User
 from app.repositories.booking_repository import BookingRepository
@@ -42,13 +42,23 @@ _RAZORPAY_BASE_URL = "https://api.razorpay.com/v1"
 
 async def _amount_for_booking(db: AsyncSession, booking: Booking) -> int:
     """Resolve the amount to charge, in paise (INR smallest unit)."""
+    amount: int | None = None
     if booking.amount_paise:
-        return booking.amount_paise
-    if booking.package_id is not None:
+        amount = booking.amount_paise
+    elif booking.package_id is not None:
         package = await db.get(HealthPackage, booking.package_id)
         if package is not None and package.price is not None:
-            return int(package.price) * 100
-    raise ValidationError("Unable to determine an amount for this booking")
+            amount = int(package.price) * 100
+    elif booking.test_id is not None:
+        test = await db.get(TestCatalog, booking.test_id)
+        if test is not None and test.price is not None:
+            amount = int(test.price) * 100
+    if amount is None:
+        raise ValidationError("Unable to determine an amount for this booking")
+    if amount < 100:
+        # Razorpay's minimum chargeable amount is 100 paise (₹1).
+        raise ValidationError("Payment amount must be at least ₹1")
+    return amount
 
 
 async def create_order(
@@ -80,6 +90,9 @@ async def create_order(
                 "notes": {"booking_id": str(booking.id)},
             },
         )
+        if resp.status_code in (401, 403):
+            logger.error("Razorpay auth failed: %s %s", resp.status_code, resp.text)
+            raise UnauthorizedError("Razorpay authentication failed — check API keys")
         if resp.status_code >= 400:
             logger.error("Razorpay order creation failed: %s %s", resp.status_code, resp.text)
             raise ValidationError("Unable to create payment order")
@@ -181,3 +194,67 @@ async def handle_webhook_event(db: AsyncSession, event: dict) -> None:
             await booking_repo.update_payment_status(booking, payment_status="refunded")
 
     await db.commit()
+
+
+async def reconcile_payment(db: AsyncSession, *, payment_id: uuid.UUID) -> Payment:
+    """Re-verify a payment's status directly against the Razorpay API.
+
+    Used as a manual/admin recovery path for payments stuck in "created" or
+    "pending" (e.g. the webhook never arrived or was dropped) — the webhook
+    remains the primary source of truth, but this lets an operator force a
+    reconciliation instead of the payment staying ambiguous forever.
+    """
+    if not settings.RAZORPAY_KEY_ID or not settings.RAZORPAY_KEY_SECRET:
+        raise ValidationError("Payments are not configured")
+
+    payment_repo = PaymentRepository(db)
+    payment = await payment_repo.get_by_id(payment_id)
+    if payment is None:
+        raise NotFoundError("Payment not found")
+
+    async with httpx.AsyncClient(
+        auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET), timeout=15.0
+    ) as client:
+        resp = await client.get(
+            f"{_RAZORPAY_BASE_URL}/orders/{payment.razorpay_order_id}/payments"
+        )
+        if resp.status_code >= 400:
+            logger.error(
+                "Razorpay reconciliation lookup failed for order=%s: %s %s",
+                payment.razorpay_order_id, resp.status_code, resp.text,
+            )
+            raise ValidationError("Unable to reach Razorpay to reconcile this payment")
+        attempts = resp.json().get("items", [])
+
+    # Prefer a captured attempt; otherwise take the most recent attempt to
+    # reflect its (failed/authorized) state instead of leaving it ambiguous.
+    captured = next((a for a in attempts if a.get("status") == "captured"), None)
+    latest = captured or (attempts[-1] if attempts else None)
+
+    booking_repo = BookingRepository(db)
+    booking = await booking_repo.get_by_id(payment.booking_id)
+
+    if latest is None:
+        # No payment attempts recorded at Razorpay at all — order was never paid.
+        if payment.status not in {"paid", "refunded"}:
+            payment.status = "failed"
+            payment.failure_reason = "No payment attempts found at Razorpay during reconciliation"
+            if booking is not None:
+                await booking_repo.update_payment_status(booking, payment_status="failed")
+    elif latest.get("status") == "captured":
+        payment.razorpay_payment_id = latest.get("id") or payment.razorpay_payment_id
+        if payment.status != "paid":
+            payment.status = "paid"
+            payment.paid_at = datetime.now(timezone.utc)
+        if booking is not None:
+            await booking_repo.update_payment_status(booking, payment_status="paid")
+    elif latest.get("status") in {"failed"}:
+        if payment.status not in {"paid", "refunded"}:
+            payment.status = "failed"
+            payment.failure_reason = latest.get("error_description") or "Payment failed at Razorpay"
+            if booking is not None:
+                await booking_repo.update_payment_status(booking, payment_status="failed")
+
+    await db.commit()
+    await db.refresh(payment)
+    return payment

@@ -1,6 +1,7 @@
 """Tool (function-calling) definitions the chat assistant can invoke to ground
 its answers in real backend data: catalog search, centers, bookings, and the
-current user's analyzed prescriptions.
+current user's analyzed prescriptions. Also supports fully automated,
+in-chat booking: finding the nearest center and creating a booking directly.
 """
 from __future__ import annotations
 
@@ -9,8 +10,9 @@ import uuid
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.exceptions import AppError
 from app.models.user import User
-from app.services import booking_service, catalog_service, prescription_service
+from app.services import booking_service, catalog_service, content_service, prescription_service
 
 TOOL_SPECS: list[dict] = [
     {
@@ -97,13 +99,149 @@ TOOL_SPECS: list[dict] = [
             "parameters": {"type": "object", "properties": {}, "required": []},
         },
     },
+    {
+        "type": "function",
+        "function": {
+            "name": "check_prescription_quota",
+            "description": (
+                "Check how many prescription uploads the current user has left this month "
+                "(monthly upload limit). Use this before telling a user they can upload a "
+                "prescription for AI-assisted booking, or when they ask about their upload limit."
+            ),
+            "parameters": {"type": "object", "properties": {}, "required": []},
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "find_nearest_centers",
+            "description": (
+                "Find QXL collection centers nearest to the user, sorted by distance. Uses "
+                "the user's shared browser location automatically when available — do NOT "
+                "invent latitude/longitude yourself. If no location is available and no city "
+                "is given, this returns centers unsorted and you should ask the user for their "
+                "city or to share their location."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "Optional city to filter/narrow results, e.g. 'Mumbai'.",
+                    },
+                    "limit": {
+                        "type": "integer",
+                        "description": "Max number of centers to return (default 5).",
+                    },
+                },
+                "required": [],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "search_blog_posts",
+            "description": (
+                "Search QXL's published blog articles by keyword or topic (e.g. 'diabetes', "
+                "'thyroid', 'preventive health'). Use this when the user asks for health "
+                "education content, articles, or 'what does QXL say about X'."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string", "description": "Keyword or topic to search blog posts for."}
+                },
+                "required": ["query"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "list_faqs",
+            "description": (
+                "List QXL's frequently asked questions, optionally filtered by category. "
+                "Use this for general policy/process questions (report time, fasting rules, "
+                "home collection process, payment, etc.) before saying you don't know."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "category": {"type": "string", "description": "Optional FAQ category, or empty for all."}
+                },
+                "required": [],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "create_booking",
+            "description": (
+                "Create a real test/package booking for the current user, directly from the "
+                "chat conversation. Only call this after you have collected and confirmed ALL "
+                "required patient details with the user (name, phone, and either a package name "
+                "or test name), the collection type (home or center), and — for home collection "
+                "— a full address, or — for center visit — a center (use find_nearest_centers "
+                "first and confirm which one). Always read back a summary and get explicit "
+                "confirmation from the user before calling this tool."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "patient_name": {"type": "string"},
+                    "patient_phone": {"type": "string"},
+                    "patient_email": {"type": "string", "description": "Optional."},
+                    "patient_age": {"type": "integer", "description": "Optional."},
+                    "patient_gender": {"type": "string", "description": "Optional."},
+                    "package_name": {
+                        "type": "string",
+                        "description": "Name of the health package being booked, if any.",
+                    },
+                    "test_name": {
+                        "type": "string",
+                        "description": "Name of the individual test being booked, if any.",
+                    },
+                    "center_id": {
+                        "type": "string",
+                        "description": "UUID of the chosen center (from find_nearest_centers), if collection_type is 'center'.",
+                    },
+                    "collection_type": {
+                        "type": "string",
+                        "enum": ["home", "center"],
+                        "description": "'home' for home sample collection, 'center' for visiting a center.",
+                    },
+                    "collection_address": {
+                        "type": "string",
+                        "description": "Full address, required when collection_type is 'home'.",
+                    },
+                    "preferred_date": {"type": "string", "description": "ISO date, e.g. 2025-04-01."},
+                    "preferred_time": {"type": "string", "description": "Preferred time slot, e.g. '9:00 AM'."},
+                    "notes": {"type": "string", "description": "Optional notes."},
+                    "is_urgent": {"type": "boolean", "description": "Optional, default false."},
+                },
+                "required": ["patient_name", "patient_phone", "collection_type"],
+            },
+        },
+    },
 ]
 
 
 async def execute_tool(
-    name: str, arguments: dict, *, db: AsyncSession, user: User
+    name: str,
+    arguments: dict,
+    *,
+    db: AsyncSession,
+    user: User,
+    location: tuple[float, float] | None = None,
 ) -> str:
-    """Dispatch a tool call by name and return a JSON string result."""
+    """Dispatch a tool call by name and return a JSON string result.
+
+    ``location`` is the user's browser-shared (lat, lng), threaded in from
+    the chat request — never taken from the model's own arguments, so the
+    assistant can't fabricate a location.
+    """
     try:
         if name == "search_health_packages":
             query = (arguments.get("query") or "").strip()
@@ -182,6 +320,128 @@ async def execute_tool(
                 return json.dumps({"message": "No analyzed prescriptions found for this user yet."})
             return json.dumps(summaries)
 
+        if name == "search_blog_posts":
+            query = (arguments.get("query") or "").strip()
+            if not query:
+                return json.dumps({"error": "Provide a keyword or topic to search blog posts for."})
+            posts = await content_service.search_blog_posts(db, query, limit=5)
+            return json.dumps(
+                [
+                    {
+                        "title": p.title,
+                        "excerpt": p.excerpt,
+                        "category": p.category,
+                        "slug": p.slug,
+                    }
+                    for p in posts
+                ]
+            )
+
+        if name == "list_faqs":
+            category = (arguments.get("category") or "").strip() or None
+            faqs = await content_service.list_active_faqs(db, category=category)
+            return json.dumps(
+                [{"question": f.question, "answer": f.answer, "category": f.category} for f in faqs[:15]]
+            )
+
+        if name == "check_prescription_quota":
+            quota = await prescription_service.get_upload_quota(db, user.id)
+            return json.dumps(quota)
+
+        if name == "find_nearest_centers":
+            city = (arguments.get("city") or "").strip() or None
+            limit = int(arguments.get("limit") or 5)
+            if location is not None:
+                lat, lng = location
+                centers = await catalog_service.nearest_centers(db, lat=lat, lng=lng, city=city, limit=limit)
+            else:
+                centers = (await catalog_service.list_active_centers(db, city=city))[:limit]
+            return json.dumps(
+                [
+                    {
+                        "id": str(c.id),
+                        "name": c.name,
+                        "address": c.address,
+                        "city": c.city,
+                        "phone": c.phone,
+                        "hours": c.hours,
+                        "distance_km": getattr(c, "distance_km", None),
+                    }
+                    for c in centers
+                ]
+            )
+
+        if name == "create_booking":
+            data = await _build_booking_payload(db, arguments, location=location)
+            booking = await booking_service.create_booking(db, data, user)
+            return json.dumps(
+                {
+                    "booking_id": str(booking.id),
+                    "status": booking.status,
+                    "test_name": booking.test_name,
+                    "collection_type": booking.collection_type,
+                    "preferred_date": booking.preferred_date,
+                    "message": "Booking created successfully.",
+                }
+            )
+
         return json.dumps({"error": f"Unknown tool: {name}"})
+    except AppError as exc:
+        return json.dumps({"error": exc.message})
+    except ValueError as exc:
+        return json.dumps({"error": str(exc)})
     except Exception as exc:  # noqa: BLE001 - never let a tool crash the chat turn
         return json.dumps({"error": f"Tool execution failed: {exc}"})
+
+
+async def _build_booking_payload(
+    db: AsyncSession, arguments: dict, *, location: tuple[float, float] | None
+) -> dict:
+    collection_type = (arguments.get("collection_type") or "home").strip()
+    if collection_type not in {"home", "center"}:
+        raise ValueError("collection_type must be 'home' or 'center'")
+
+    package_id = None
+    package_name = (arguments.get("package_name") or "").strip()
+    if package_name:
+        packages = await catalog_service.list_active_packages(db)
+        match = next((p for p in packages if p.name.lower() == package_name.lower()), None)
+        if match is None:
+            match = next((p for p in packages if package_name.lower() in p.name.lower()), None)
+        if match is not None:
+            package_id = match.id
+
+    center_id = None
+    raw_center_id = (arguments.get("center_id") or "").strip()
+    if raw_center_id:
+        try:
+            center_id = uuid.UUID(raw_center_id)
+        except ValueError:
+            center_id = None
+    if center_id is None and collection_type == "center" and location is not None:
+        lat, lng = location
+        nearest = await catalog_service.nearest_centers(db, lat=lat, lng=lng, limit=1)
+        if nearest:
+            center_id = nearest[0].id
+
+    if collection_type == "home" and not (arguments.get("collection_address") or "").strip():
+        raise ValueError("collection_address is required for home collection")
+    if collection_type == "center" and center_id is None:
+        raise ValueError("A center could not be determined — call find_nearest_centers first")
+
+    return {
+        "patient_name": arguments["patient_name"],
+        "patient_phone": arguments["patient_phone"],
+        "patient_email": arguments.get("patient_email") or None,
+        "patient_age": arguments.get("patient_age"),
+        "patient_gender": arguments.get("patient_gender") or None,
+        "test_name": arguments.get("test_name") or None,
+        "package_id": package_id,
+        "center_id": center_id,
+        "collection_type": collection_type,
+        "collection_address": arguments.get("collection_address") or None,
+        "preferred_date": arguments.get("preferred_date") or None,
+        "preferred_time": arguments.get("preferred_time") or None,
+        "notes": arguments.get("notes") or None,
+        "is_urgent": bool(arguments.get("is_urgent") or False),
+    }

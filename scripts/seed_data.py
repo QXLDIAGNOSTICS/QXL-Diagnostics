@@ -49,10 +49,34 @@ TESTS = [
 ]
 
 DOCTORS = [
-    {"name": "Dr. Shantakumar Muruda", "qualification": "MD, BIOCHEMISTRY", "image_url": "/image/dr_shantakumar_v4.jpg"},
-    {"name": "Dr. Pritilata Rout", "qualification": "MD, PATHOLOGY", "image_url": "/image/dr_pritilata_v4.jpg"},
-    {"name": "Dr. Ajitha Pillai", "qualification": "MD, MICROBIOLOGY", "image_url": "/image/dr_ajitha_latest.jpg"},
-    {"name": "Dr. Naveen Kumar N", "qualification": "DCP, DNB PATHOLOGY", "image_url": "/image/dr_naveen_latest.jpg"},
+    {
+        "name": "Dr. Shantakumar Muruda",
+        "qualification": "MD, BIOCHEMISTRY",
+        "specialization": "Clinical Biochemistry, Laboratory Operations & Management, Diabetology",
+        "bio": "Founder & CEO of QXL Diagnostics with over two decades of experience as a Clinical Biochemist, Laboratory Director, and NABL Lead Assessor, having completed over 150 NABL assessments. PHFI-certified Diabetologist.",
+        "image_url": "/image/dr_shantakumar_v4.jpg",
+    },
+    {
+        "name": "Dr. Pritilata Rout",
+        "qualification": "MD, PATHOLOGY, PDF (NEUROPATH)",
+        "specialization": "Neuropathology, Cytopathology, Endocrine Pathology, Onco-Pathology",
+        "bio": "Senior Consultant Histopathologist with 28+ years of experience (since 1996) and a post-doctoral fellowship in Neuropathology from NIMHANS. Provides expert diagnostic interpretation for complex histopathology, cytology, and oncology cases.",
+        "image_url": "/image/dr_pritilata_v4.jpg",
+    },
+    {
+        "name": "Dr. Ajitha Pillai",
+        "qualification": "MD, MICROBIOLOGY",
+        "specialization": "Clinical Microbiology, Molecular Biology, Infection & Autoimmune Serology",
+        "bio": "Senior Consultant Clinical Microbiologist with extensive expertise in Microbiology, Molecular Biology, Infection Serology, Autoimmune Serology, and Infection Control across premium tertiary care hospitals in Bengaluru.",
+        "image_url": "/image/dr_ajitha_latest.jpg",
+    },
+    {
+        "name": "Dr. Naveen Kumar N",
+        "qualification": "DCP, DNB PATHOLOGY",
+        "specialization": "Pathology, Histopathology, Hematology, Laboratory Quality Management",
+        "bio": "Consultant Pathologist and hematology specialist with 8+ years of diagnostic experience, playing a pivotal role in continuous NABL certification maintenance.",
+        "image_url": "/image/dr_naveen_latest.jpg",
+    },
 ]
 
 FAQS = [

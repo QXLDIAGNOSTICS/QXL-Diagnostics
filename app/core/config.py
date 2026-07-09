@@ -36,19 +36,52 @@ class Settings(BaseSettings):
     # PostgreSQL
     DATABASE_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/appdb"
 
-    # Auth0 (API — validates Bearer access tokens on protected endpoints)
-    AUTH0_DOMAIN: str = ""
-    AUTH0_API_AUDIENCE: str = ""
-    AUTH0_ISSUER: str = ""
-    AUTH0_ALGORITHMS: Annotated[list[str], NoDecode] = Field(default_factory=lambda: ["RS256"])
-
-    # Auth0 (Regular Web App — backend-owned Authorization Code login flow)
-    AUTH0_CLIENT_ID: str = ""
-    AUTH0_CLIENT_SECRET: str = ""
-    AUTH0_CALLBACK_URL: str = "http://localhost:3000/api/v1/auth/callback"
+    # First-party session auth
     FRONTEND_BASE_URL: str = "http://localhost:3000"
     SESSION_COOKIE_NAME: str = "qxl_session"
     SESSION_TTL_DAYS: int = 14
+    # Idle/inactivity timeout: a session cookie is rejected (forcing re-login)
+    # if unused for this many hours, even if the absolute SESSION_TTL_DAYS
+    # ceiling hasn't been reached yet. Refreshed (slides forward) on each
+    # authenticated request.
+    SESSION_IDLE_TIMEOUT_HOURS: int = 24
+    PASSWORD_MIN_LENGTH: int = 8
+    LOGIN_LOCKOUT_THRESHOLD: int = 5
+    LOGIN_LOCKOUT_MINUTES: int = 15
+    OTP_LENGTH: int = 8
+    OTP_TTL_SECONDS: int = 300
+    OTP_MAX_ATTEMPTS: int = 5
+    LOGIN_CHALLENGE_TTL_SECONDS: int = 900
+
+    # SMS (Nettyfish SmartSMS)
+    NETTYFISH_BASE_URL: str = "https://sms.nettyfish.com"
+    NETTYFISH_API_KEY: str = ""
+    NETTYFISH_CLIENT_ID: str = ""
+    NETTYFISH_SENDER_ID: str = ""
+    NETTYFISH_PRINCIPLE_ENTITY_ID: str = ""
+    NETTYFISH_TEMPLATE_ID: str = ""
+    NETTYFISH_SERVICE_ID: str = ""
+    NETTYFISH_VALIDITY_PERIOD: str = "5m"
+
+    # Shared admin key required during admin OTP verification.
+    ADMIN_ACCESS_KEY: str = ""
+    ADMIN_SUPER_IDENTIFIERS: Annotated[list[str], NoDecode] = Field(default_factory=list)
+
+    # Email (SMTP) — used as a secondary channel for OTP/notifications.
+    SMTP_HOST: str = ""
+    SMTP_PORT: int = 587
+    SMTP_USERNAME: str = ""
+    SMTP_PASSWORD: str = ""
+    SMTP_FROM_EMAIL: str = "no-reply@qxldiagnostics.com"
+    SMTP_USE_TLS: bool = True
+
+    # Razorpay
+    RAZORPAY_KEY_ID: str = ""
+    RAZORPAY_KEY_SECRET: str = ""
+    RAZORPAY_WEBHOOK_SECRET: str = ""
+
+    # Prescriptions
+    PRESCRIPTION_MONTHLY_UPLOAD_LIMIT: int = 5
 
     # Supabase
     SUPABASE_URL: str = ""
@@ -63,24 +96,15 @@ class Settings(BaseSettings):
     RAG_TOP_K: int = 5
     CHAT_HISTORY_LIMIT: int = 10
 
-    @field_validator("CORS_ORIGINS", "AUTH0_ALGORITHMS", "ALLOWED_UPLOAD_TYPES", mode="before")
+    @field_validator(
+        "CORS_ORIGINS", "ALLOWED_UPLOAD_TYPES", "ADMIN_SUPER_IDENTIFIERS", mode="before"
+    )
     @classmethod
     def _split_csv(cls, v: object) -> object:
         """Allow comma-separated env strings for list fields."""
         if isinstance(v, str):
             return [item.strip() for item in v.split(",") if item.strip()]
         return v
-
-    @field_validator("AUTH0_ISSUER", mode="before")
-    @classmethod
-    def _default_issuer(cls, v: object, info) -> object:
-        return v
-
-    @property
-    def issuer(self) -> str:
-        if self.AUTH0_ISSUER:
-            return self.AUTH0_ISSUER
-        return f"https://{self.AUTH0_DOMAIN}/"
 
     @property
     def is_production(self) -> bool:

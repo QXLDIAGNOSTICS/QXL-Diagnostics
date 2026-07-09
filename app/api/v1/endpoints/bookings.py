@@ -7,7 +7,7 @@ from fastapi import APIRouter, Depends
 
 from app.api.deps import CurrentUser, CurrentUserOptional, DbSession, require_role
 from app.models.user import User
-from app.schemas.booking import BookingCreate, BookingList, BookingRead, BookingStatusUpdate
+from app.schemas.booking import BookingAdminUpdate, BookingCreate, BookingList, BookingRead, BookingStatusUpdate
 from app.services import booking_service
 
 router = APIRouter(prefix="/bookings", tags=["bookings"])
@@ -53,4 +53,16 @@ async def update_booking_status(
     user: User = Depends(require_role("admin")),
 ) -> BookingRead:
     booking = await booking_service.update_booking_status(db, booking_id, body.status)
+    return BookingRead.model_validate(booking)
+
+
+@router.patch("/{booking_id}", response_model=BookingRead)
+async def update_booking(
+    booking_id: uuid.UUID,
+    body: BookingAdminUpdate,
+    db: DbSession,
+    user: User = Depends(require_role("admin")),
+) -> BookingRead:
+    """General admin update: status, report link, notes, urgency, schedule."""
+    booking = await booking_service.update_booking(db, booking_id, body.model_dump(exclude_unset=True))
     return BookingRead.model_validate(booking)

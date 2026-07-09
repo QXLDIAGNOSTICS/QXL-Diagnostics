@@ -2,9 +2,9 @@
 from __future__ import annotations
 
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 
-from sqlalchemy import select
+from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession as DbAsyncSession
 
 from app.models.session import Session
@@ -41,5 +41,23 @@ class SessionRepository:
         return result.scalar_one_or_none()
 
     async def revoke(self, session: Session) -> None:
-        session.revoked_at = datetime.utcnow()
+        session.revoked_at = datetime.now(timezone.utc)
+        await self.db.flush()
+
+    async def touch(self, session: Session) -> None:
+        """Slide the idle-activity window forward — called on every
+        successful authenticated request so idle timeout is measured from
+        the last request, not from session creation."""
+        session.last_seen_at = datetime.now(timezone.utc)
+        await self.db.flush()
+
+    async def revoke_all_for_user(self, user_id: uuid.UUID) -> None:
+        """Revoke every currently-active session for a user — enforces a
+        single active session per account (a fresh login anywhere signs out
+        all other devices/tabs)."""
+        await self.db.execute(
+            update(Session)
+            .where(Session.user_id == user_id, Session.revoked_at.is_(None))
+            .values(revoked_at=datetime.now(timezone.utc))
+        )
         await self.db.flush()

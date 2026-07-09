@@ -34,6 +34,9 @@ class Booking(Base, TimestampMixin):
 
     # What was booked
     test_name: Mapped[str | None] = mapped_column(String, nullable=True)
+    test_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("test_catalog.id", ondelete="SET NULL"), nullable=True
+    )
     package_id: Mapped[uuid.UUID | None] = mapped_column(
         UUID(as_uuid=True), ForeignKey("health_packages.id", ondelete="SET NULL"), nullable=True
     )
@@ -51,7 +54,19 @@ class Booking(Base, TimestampMixin):
     status: Mapped[str] = mapped_column(String(24), default="pending", nullable=False, index=True)
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
     is_urgent: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    report_url: Mapped[str | None] = mapped_column(Text, nullable=True)
+
+    # Payment (Razorpay) — amount is denormalised here for quick reads; the
+    # `payments` table below is the source of truth for the payment lifecycle.
+    amount_paise: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    payment_status: Mapped[str] = mapped_column(
+        String(16), default="unpaid", nullable=False, index=True
+    )  # unpaid | pending | paid | failed | refunded
 
     user: Mapped["User | None"] = relationship(back_populates="bookings")  # noqa: F821
+    test: Mapped["TestCatalog | None"] = relationship()  # noqa: F821
     package: Mapped["HealthPackage | None"] = relationship(back_populates="bookings")  # noqa: F821
     center: Mapped["Center | None"] = relationship(back_populates="bookings")  # noqa: F821
+    payments: Mapped[list["Payment"]] = relationship(  # noqa: F821
+        back_populates="booking", cascade="all, delete-orphan"
+    )

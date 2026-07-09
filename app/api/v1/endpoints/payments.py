@@ -2,13 +2,15 @@
 from __future__ import annotations
 
 import json
+import uuid
 
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Depends, Request
 
-from app.api.deps import CurrentUserOptional, DbSession
+from app.api.deps import CurrentUserOptional, DbSession, require_role
 from app.core.config import settings
 from app.core.exceptions import NotFoundError, UnauthorizedError
 from app.core.logging import get_logger
+from app.models.user import User
 from app.schemas.payment import (
     CreateOrderRequest,
     CreateOrderResponse,
@@ -63,3 +65,13 @@ async def razorpay_webhook(request: Request, db: DbSession) -> dict:
 
     await payment_service.handle_webhook_event(db, event)
     return {"status": "ok"}
+
+
+@router.post("/{payment_id}/reconcile", response_model=PaymentRead)
+async def reconcile_payment(
+    payment_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))
+) -> PaymentRead:
+    """Admin-triggered reconciliation: re-verify a payment's true status
+    directly against the Razorpay API instead of relying solely on webhooks."""
+    payment = await payment_service.reconcile_payment(db, payment_id=payment_id)
+    return PaymentRead.model_validate(payment)

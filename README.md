@@ -3,7 +3,7 @@
 Production-grade backend for QXL Diagnostics:
 
 - **FastAPI** (async) with a layered architecture (`endpoints → services → repositories → models`)
-- **Auth0** JWT (RS256) authentication + RBAC permission guards
+- First-party **password + OTP + SMS-link 2FA** authentication with secure httpOnly session cookies (no third-party identity provider, no JWTs — opaque tokens hashed at rest)
 - **PostgreSQL** (async SQLAlchemy 2.0 + asyncpg), migrations via **Alembic**
 - **Supabase Storage** for user file uploads (private bucket + short-lived signed URLs)
 - **OpenAI** RAG chatbot with **streaming** responses over SSE, grounded in each user's own documents via **pgvector** similarity search
@@ -24,7 +24,7 @@ cd Backend/qxl-backend
 uv sync --extra dev
 
 # 2) Configure environment
-cp .env.example .env        # fill in Auth0 / Supabase / OpenAI secrets
+cp .env.example .env        # fill in Nettyfish / SMTP / Razorpay / Supabase / OpenAI secrets
 
 # 3) Start Postgres (with pgvector)
 docker compose up -d db
@@ -55,28 +55,71 @@ uv run ruff check .
 uv run mypy app
 ```
 
-## Auth0 setup
+## Authentication setup
 
-1. **Applications → APIs → Create API**
-   - Identifier (audience): `https://api.yourapp.com` → `AUTH0_API_AUDIENCE`
-   - Signing algorithm: **RS256**
-2. Enable **RBAC** and **Add Permissions in the Access Token** on the API settings.
-3. Add permissions: `read:files`, `write:files`, `read:chat`, `read:users`.
-4. Create roles, assign permissions, assign roles to users.
-5. Put your tenant domain in `AUTH0_DOMAIN` (no `https://`).
+Authentication is entirely first-party — no external identity provider:
+
+1. **Register** (`POST /auth/register`) with email, phone, name, password. Passwords are hashed
+   with **bcrypt**; never stored or logged in plaintext.
+2. **Login** (`POST /auth/login`) with identifier (email or phone) + password. On success this
+   creates a `LoginChallenge` and sends:
+   - a one-time **OTP** (via SMS/Nettyfish SmartSMS, falling back to email/SMTP), verified via `POST /auth/login/otp`
+   - a **clickable verification link** containing an opaque token (never a JWT) to the user's phone
+     via SMS, verified server-side via `GET /auth/login/verify-link`
+3. A session (httpOnly, `Secure`, `SameSite=strict` cookie) is only created once **both** the OTP
+   and the link have been verified (`_maybe_complete_login`), giving true two-factor login.
+4. Repeated failed password attempts lock the account for `LOGIN_LOCKOUT_MINUTES` after
+   `LOGIN_LOCKOUT_THRESHOLD` failures.
+5. All identifiers (email/phone) are **masked** (`mask_email`/`mask_phone`) before being returned
+   to the client or written to logs — the raw SMS link is delivered out-of-band via Twilio only.
+6. Configure `NETTYFISH_API_KEY` / `NETTYFISH_CLIENT_ID` / `NETTYFISH_SENDER_ID` and/or
+   `SMTP_HOST`/`SMTP_USERNAME`/`SMTP_PASSWORD` in `.env`. With neither configured, the
+   `notification_service` falls back to logging the (masked) message for local dev.
+
+### Admin step-up ("sudo mode")
+
+Admin accounts (`role == "admin"`) go through the exact same phone+password+OTP+SMS-link
+login as any other user — there is no separate admin login path. What's different is that
+**every admin-role endpoint additionally requires a short-lived step-up verification**:
+
+1. After completing normal login, an admin calls `POST /auth/admin/elevate` with a
+   `secret_key` — a value that lives only in `ADMIN_ACCESS_KEY` (server env) and is shared
+   with admins out-of-band (never emailed/texted, never stored in the DB).
+2. On a match (constant-time compare), the *current session row* is marked elevated for
+   `ADMIN_ELEVATION_MINUTES` (default 30). `GET /auth/admin/elevation-status` reports whether
+   the session is currently elevated.
+3. `require_role("admin")` (used by every admin endpoint) checks both `user.role == "admin"`
+   **and** that the session is currently elevated — otherwise it raises
+   `admin_elevation_required` (403), distinct from a normal `permission_denied`, so the
+   frontend can show a secret-key prompt instead of bouncing the admin back to `/login`.
+
+This means compromising a session cookie alone (e.g. via XSS or a synced device) is not
+enough to perform admin actions — the attacker would also need the out-of-band secret key,
+and even then the window is time-boxed and scoped to that one session.
 
 ## API overview (prefix `/api/v1`)
 
 | Method | Path | Description | Guard |
 |---|---|---|---|
 | GET | `/health` | Liveness + DB ping | public |
-| GET | `/users/me` | Current user (JIT-provisioned) | authenticated |
+| POST | `/auth/register` | Create account (email/phone/password) | public |
+| POST | `/auth/login` | Password check \u2192 issues OTP + SMS link challenge | public (rate-limited) |
+| POST | `/auth/login/otp` | Verify OTP for a login challenge | public |
+| GET | `/auth/login/verify-link` | Verify SMS link token, redirects to frontend | public |
+| GET | `/auth/login/status` | Poll challenge completion (for frontend polling) | public |
+| POST | `/auth/logout` | Revoke current session cookie | authenticated |
+| GET | `/users/me` | Current user | authenticated |
 | PATCH | `/users/me` | Update profile | authenticated |
-| POST | `/files` | Upload file (multipart) → Supabase + RAG ingest | `write:files` |
-| GET | `/files` | List own files | `read:files` |
-| GET | `/files/{id}` | Metadata + signed download URL | `read:files` |
-| DELETE | `/files/{id}` | Delete (storage + DB) | `write:files` |
-| POST | `/chat/stream` | Streaming grounded chat (SSE) | `read:chat` |
+| POST | `/files` | Upload file (multipart) \u2192 Supabase + RAG ingest | authenticated |
+| GET | `/files` | List own files | authenticated |
+| GET | `/files/{id}` | Metadata + signed download URL | authenticated |
+| DELETE | `/files/{id}` | Delete (storage + DB) | authenticated |
+| GET | `/centers` | List centers, optionally sorted by distance (`?lat=&lng=`) | public |
+| GET | `/prescriptions/quota` | Remaining monthly upload quota | authenticated |
+| POST | `/payments/orders` | Create a Razorpay order for a booking | authenticated |
+| POST | `/payments/verify` | Verify client-side Razorpay callback signature | authenticated |
+| POST | `/payments/webhook` | Razorpay server webhook (signature-verified) | public (HMAC-verified) |
+| POST | `/chat/stream` | Streaming grounded chat (SSE), can auto-book via tool calls | authenticated |
 | GET | `/chat/conversations` | List conversations | authenticated |
 | GET | `/chat/conversations/{id}` | Message history | authenticated |
 
@@ -113,7 +156,7 @@ can never receive another user's document chunks.
 
 ```
 app/
-  core/         config, security (Auth0 JWT), logging, exceptions
+  core/         config, security (password hashing, OTP, opaque tokens, masking), logging, exceptions
   db/           async engine/session, declarative base
   models/       SQLAlchemy models (users, files, conversations, messages, doc_chunks)
   schemas/      Pydantic request/response models

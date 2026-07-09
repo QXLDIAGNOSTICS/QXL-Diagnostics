@@ -39,3 +39,9 @@ async def list_contact_inquiries(
     db: AsyncSession, unread_only: bool, limit: int, offset: int
 ) -> tuple[list[ContactInquiry], int]:
     return await ContactInquiryRepository(db).list_all(unread_only=unread_only, limit=limit, offset=offset)
+
+
+async def mark_contact_inquiry_read(db: AsyncSession, inquiry_id: uuid.UUID) -> ContactInquiry | None:
+    inquiry = await ContactInquiryRepository(db).mark_read(inquiry_id)
+    await db.commit()
+    return inquiry
