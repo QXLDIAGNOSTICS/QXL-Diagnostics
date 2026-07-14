@@ -24,3 +24,9 @@ class FileWithUrl(FileRead):
 class FileList(BaseModel):
     items: list[FileRead]
     count: int
+
+
+class ImageUploadResponse(BaseModel):
+    """Returned by POST /uploads/image — the permanent, public Cloudinary URL."""
+
+    url: str

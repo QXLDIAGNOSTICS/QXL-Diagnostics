@@ -88,6 +88,15 @@ class Settings(BaseSettings):
     SUPABASE_SERVICE_ROLE_KEY: str = ""
     SUPABASE_BUCKET: str = "user-files"
 
+    # Cloudinary — used for public, permanent CMS images (doctor photos, banner
+    # art, blog cover images, etc.) uploaded from the admin panel. Supabase
+    # storage above stays reserved for private, per-user files (prescriptions).
+    CLOUDINARY_CLOUD_NAME: str = ""
+    CLOUDINARY_API_KEY: str = ""
+    CLOUDINARY_API_SECRET: str = ""
+    CLOUDINARY_UPLOAD_FOLDER: str = "qxl"
+    MAX_IMAGE_UPLOAD_BYTES: int = 8 * 1024 * 1024  # 8 MB
+
     # OpenAI
     OPENAI_API_KEY: str = ""
     OPENAI_MODEL: str = "gpt-4o-mini"
