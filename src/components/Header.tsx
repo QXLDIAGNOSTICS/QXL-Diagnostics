@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { cmsStore } from '../lib/cmsStore';
 import { useAuth } from '../lib/useAuth';
+import { api } from '../lib/api';
 
 export default function Header() {
   const pathname = usePathname();
@@ -54,8 +55,14 @@ export default function Header() {
     };
     loadSettings();
 
+    // Location selector must reflect real, admin-managed centers (see
+    // /admin/locations, backed by the `centers` API) — not the legacy local
+    // cmsStore mock data, otherwise newly added centers never show up here.
     const loadBranches = () => {
-      setBranches(cmsStore.getAll("locations"));
+      api.centers
+        .list()
+        .then((centers) => setBranches(centers))
+        .catch((err) => console.error("Failed to load centers for location selector", err));
     };
     loadBranches();
 
@@ -64,6 +71,7 @@ export default function Header() {
       loadBranches();
     };
     window.addEventListener("cms-update", onCmsUpdate);
+    window.addEventListener("focus", loadBranches);
 
     const handleClickOutside = (e: MouseEvent) => {
       if (locationMenuRef.current && !locationMenuRef.current.contains(e.target as Node)) {
@@ -74,6 +82,7 @@ export default function Header() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("cms-update", onCmsUpdate);
+      window.removeEventListener("focus", loadBranches);
     };
   }, []);
 
@@ -114,6 +123,30 @@ export default function Header() {
     });
   const userDisplayName = user?.name?.trim() || user?.phone || "Profile";
   const userInitial = (user?.name?.trim()?.[0] || "U").toUpperCase();
+
+  // Group real centers (from the backend, kept in sync with /admin/locations)
+  // by city so any newly added location/city shows up here automatically —
+  // falls back to a static seed list only while the API hasn't loaded yet.
+  const fallbackBranches = [
+    { id: "loc-1", name: "Kengeri – QXL Diagnostics Super Speciality Reference Laboratory (NABL Accredited)", city: "Bengaluru" },
+    { id: "loc-2", name: "Nayandahalli (Mysuru Road) – Spandana Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
+    { id: "loc-3", name: "Nagarabhavi – Astrio Multispeciality Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
+    { id: "loc-4", name: "Chandra Layout – Nandi Diagnostics, Powered by QXL Diagnostics", city: "Bengaluru" },
+    { id: "loc-5", name: "Yelahanka Old Town – Shushrusha Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
+    { id: "loc-6", name: "Yelahanka (Galleria Mall) – North City Specialities Powered by QXL Diagnostics (NABL Accredited)", city: "Bengaluru" },
+    { id: "loc-7", name: "Sanjaynagar – Nisarga Diagnostics, Powered by QXL Diagnostics", city: "Bengaluru" },
+    { id: "loc-8", name: "Vidyaranyapura – Dr. Abhi Kollur's Clinic, Powered by QXL Diagnostics", city: "Bengaluru" },
+  ];
+  const sourceBranches = branches.length > 0 ? branches : fallbackBranches;
+  const groupedByCity: Record<string, any[]> = {};
+  for (const b of sourceBranches) {
+    const city = (b.city || "Bengaluru").trim();
+    if (!groupedByCity[city]) groupedByCity[city] = [];
+    groupedByCity[city].push(b);
+  }
+  const cityNames = Object.keys(groupedByCity).sort((a, b) =>
+    a === "Bengaluru" ? -1 : b === "Bengaluru" ? 1 : a.localeCompare(b)
+  );
 
   return (
     <>
@@ -173,43 +206,25 @@ export default function Header() {
                       transition={{ duration: 0.2 }}
                       className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50 max-h-[350px] overflow-y-auto origin-top-left"
                     >
-                      {/* Bengaluru */}
-                      <div className="px-3 py-1.5 bg-slate-50 text-[10px] font-extrabold text-slate-400 tracking-wider uppercase">Bengaluru Centres</div>
-                      {(branches.filter(b => (b.city || "Bengaluru").toLowerCase() === "bengaluru").length > 0
-                        ? branches.filter(b => (b.city || "Bengaluru").toLowerCase() === "bengaluru")
-                        : [
-                            { id: "loc-1", name: "Kengeri – QXL Diagnostics Super Speciality Reference Laboratory (NABL Accredited)" },
-                            { id: "loc-2", name: "Nayandahalli (Mysuru Road) – Spandana Hospital, Powered by QXL Diagnostics" },
-                            { id: "loc-3", name: "Nagarabhavi – Astrio Multispeciality Hospital, Powered by QXL Diagnostics" },
-                            { id: "loc-4", name: "Chandra Layout – Nandi Diagnostics, Powered by QXL Diagnostics" },
-                            { id: "loc-5", name: "Yelahanka Old Town – Shushrusha Hospital, Powered by QXL Diagnostics" },
-                            { id: "loc-6", name: "Yelahanka (Galleria Mall) – North City Specialities Powered by QXL Diagnostics (NABL Accredited)" },
-                            { id: "loc-7", name: "Sanjaynagar – Nisarga Diagnostics, Powered by QXL Diagnostics" },
-                            { id: "loc-8", name: "Vidyaranyapura – Dr. Abhi Kollur's Clinic, Powered by QXL Diagnostics" }
-                          ]
-                      ).map((branch: any) => (
-                        <div
-                          key={branch.id}
-                          onClick={() => changeLocation(branch.name)}
-                          className={`px-5 py-2 text-[11px] cursor-pointer hover:bg-blue-50 transition-colors flex items-center justify-between ${
-                            location === branch.name ? 'font-extrabold text-[#2563eb]' : 'text-slate-700 font-medium'
-                          }`}
-                        >
-                          <span className="truncate">{getShortLocationName(branch.name)}</span>
-                          {location === branch.name && <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]" />}
+                      {cityNames.map((cityName) => (
+                        <div key={cityName}>
+                          <div className="px-3 py-1.5 bg-slate-50 text-[10px] font-extrabold text-slate-400 tracking-wider uppercase mt-1 first:mt-0">
+                            {cityName} Centres
+                          </div>
+                          {groupedByCity[cityName].map((branch: any) => (
+                            <div
+                              key={branch.id}
+                              onClick={() => changeLocation(branch.name)}
+                              className={`px-5 py-2 text-[11px] cursor-pointer hover:bg-blue-50 transition-colors flex items-center justify-between ${
+                                location === branch.name ? 'font-extrabold text-[#2563eb]' : 'text-slate-700 font-medium'
+                              }`}
+                            >
+                              <span className="truncate">{getShortLocationName(branch.name)}</span>
+                              {location === branch.name && <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]" />}
+                            </div>
+                          ))}
                         </div>
                       ))}
-                      {/* Delhi NCR */}
-                      <div className="px-3 py-1.5 bg-slate-50 text-[10px] font-extrabold text-slate-400 tracking-wider uppercase mt-1">Delhi NCR Centres</div>
-                      <div
-                        onClick={() => changeLocation("Delhi NCR")}
-                        className={`px-5 py-2 text-[11px] cursor-pointer hover:bg-blue-50 transition-colors flex items-center justify-between ${
-                          location === "Delhi NCR" ? 'font-extrabold text-[#2563eb]' : 'text-slate-700 font-medium'
-                        }`}
-                      >
-                        <span className="truncate">Delhi NCR</span>
-                        {location === "Delhi NCR" && <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]" />}
-                      </div>
 
                     </motion.div>
                   )}
@@ -364,19 +379,9 @@ export default function Header() {
             </div>
             
             <div className="p-4 flex flex-col gap-3 overflow-y-auto">
-              {['Bengaluru', 'Delhi NCR'].map((cityKey) => {
+              {cityNames.map((cityKey) => {
                 const isExpanded = expandedCity === cityKey;
-                const cityBranches = (branches.length > 0 ? branches : [
-                  { id: "loc-1", name: "Kengeri – QXL Diagnostics Super Speciality Reference Laboratory (NABL Accredited)", city: "Bengaluru" },
-                  { id: "loc-2", name: "Nayandahalli (Mysuru Road) – Spandana Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
-                  { id: "loc-3", name: "Nagarabhavi – Astrio Multispeciality Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
-                  { id: "loc-4", name: "Chandra Layout – Nandi Diagnostics, Powered by QXL Diagnostics", city: "Bengaluru" },
-                  { id: "loc-5", name: "Yelahanka Old Town – Shushrusha Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
-                  { id: "loc-6", name: "Yelahanka (Galleria Mall) – North City Specialities Powered by QXL Diagnostics (NABL Accredited)", city: "Bengaluru" },
-                  { id: "loc-7", name: "Sanjaynagar – Nisarga Diagnostics, Powered by QXL Diagnostics", city: "Bengaluru" },
-                  { id: "loc-8", name: "Vidyaranyapura – Dr. Abhi Kollur's Clinic, Powered by QXL Diagnostics", city: "Bengaluru" },
-                  { id: "loc-12", name: "QXL Diagnostics Delhi NCR", city: "Delhi NCR" }
-                ]).filter((b: any) => (b.city || "Bengaluru").toLowerCase() === cityKey.toLowerCase());
+                const cityBranches = groupedByCity[cityKey];
                 
                 return (
                   <div key={cityKey} className="border border-gray-100 rounded-2xl overflow-hidden bg-gray-50/50 flex flex-col">

@@ -666,4 +666,13 @@ export const api = {
     },
     remove: (id: string) => del<void>(`/admin/knowledge-base/${id}`),
   },
+  uploads: {
+    /** Uploads an image (doctor photo, banner art, blog cover, etc.) to
+     * Cloudinary and returns its permanent public URL. Admin only. */
+    image: (file: File) => {
+      const form = new FormData();
+      form.append('file', file);
+      return post<{ url: string }>('/uploads/image', form);
+    },
+  },
 };

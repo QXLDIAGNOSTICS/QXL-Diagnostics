@@ -39,19 +39,44 @@ export default function AiChat() {
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState('English');
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [locationStatus, setLocationStatus] = useState<'idle' | 'locating' | 'granted' | 'denied' | 'unavailable'>('idle');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Silently request the user's location once so the assistant can find/rank
-  // the nearest collection centers without asking — the browser still shows
-  // its own native permission prompt; we simply never invent coordinates.
-  useEffect(() => {
-    if (!navigator.geolocation) return;
+  // Request the user's GPS location so the assistant can find/rank the
+  // nearest collection centers automatically — never ask the user to type
+  // coordinates. The browser shows its own native permission prompt; we just
+  // track whether it succeeded so we can offer a one-tap retry button
+  // instead of silently falling back to "please tell me your city".
+  const requestLocation = () => {
+    if (!navigator.geolocation) {
+      setLocationStatus('unavailable');
+      return;
+    }
+    setLocationStatus('locating');
     navigator.geolocation.getCurrentPosition(
-      (pos) => setLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
-      () => setLocation(null),
-      { enableHighAccuracy: false, timeout: 8000 }
+      (pos) => {
+        setLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+        setLocationStatus('granted');
+      },
+      () => setLocationStatus('denied'),
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 5 * 60 * 1000 }
     );
+  };
+
+  // Try once on mount, and again every time the chat window is opened — the
+  // first attempt can fail (slow GPS fix, prompt dismissed) even though the
+  // user would grant it on a second try.
+  useEffect(() => {
+    requestLocation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (isOpen && locationStatus !== 'granted' && locationStatus !== 'locating') {
+      requestLocation();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
 
   const languages = ['English', 'ಕನ್ನಡ (Kannada)', 'हिंदी (Hindi)', 'தமிழ் (Tamil)', 'తెలుగు (Telugu)', 'മലയാളം (Malayalam)'];
 
@@ -488,6 +513,50 @@ export default function AiChat() {
             )}
             <div ref={messagesEndRef} />
           </div>
+
+          {/* Location permission hint — only shown when GPS isn't available yet,
+              so the user can grant it with one tap instead of typing an address
+              every time they ask for nearby centers. */}
+          {locationStatus !== 'granted' && (
+            <div style={{
+              padding: '8px 16px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '8px',
+              backgroundColor: '#fffbeb',
+              borderTop: '1px solid #fde68a',
+              borderBottom: '1px solid #fde68a',
+              fontSize: '11px',
+              color: '#92400e',
+              fontWeight: 600,
+            }}>
+              <span>
+                {locationStatus === 'locating'
+                  ? 'Detecting your location…'
+                  : '📍 Share your location for accurate nearest-center results.'}
+              </span>
+              <button
+                type="button"
+                onClick={requestLocation}
+                disabled={locationStatus === 'locating'}
+                style={{
+                  background: '#2563eb',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '100px',
+                  padding: '4px 10px',
+                  fontSize: '10.5px',
+                  fontWeight: 700,
+                  cursor: locationStatus === 'locating' ? 'default' : 'pointer',
+                  opacity: locationStatus === 'locating' ? 0.6 : 1,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {locationStatus === 'locating' ? 'Locating…' : 'Enable location'}
+              </button>
+            </div>
+          )}
 
           {/* Prebuilt Questions */}
           {messages.length === 1 && (

@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Stethoscope, Plus, Search, Edit2, Trash2, X, Loader2 } from "lucide-react";
 import { api, type Doctor } from "@/lib/api";
+import ImageUploadField from "@/components/admin/ImageUploadField";
 
 export default function DoctorsAdminPage() {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
@@ -225,17 +226,13 @@ export default function DoctorsAdminPage() {
                 />
               </div>
 
-              <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Profile Image URL</label>
-                <input 
-                  type="text" 
-                  required
-                  value={image} 
-                  onChange={(e) => setImage(e.target.value)} 
-                  placeholder="/image/dr_pritilata_v4.jpg" 
-                  className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                />
-              </div>
+              <ImageUploadField
+                label="Profile Image"
+                value={image}
+                onChange={setImage}
+                required
+                placeholder="/image/dr_pritilata_v4.jpg"
+              />
 
               <div className="pt-4 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-800">
                 <button 

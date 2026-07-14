@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Image as ImageIcon, Plus, Search, Edit2, Trash2, Sparkles, X, Eye, Loader2 } from "lucide-react";
 import { api, type Banner } from "@/lib/api";
 import { aiHelper } from "@/lib/aiHelper";
+import ImageUploadField from "@/components/admin/ImageUploadField";
 
 export default function BannerManagementPage() {
   const [banners, setBanners] = useState<Banner[]>([]);
@@ -427,17 +428,13 @@ export default function BannerManagementPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Banner Image URL / Asset Path</label>
-                  <input 
-                    type="text" 
-                    required
-                    value={image} 
-                    onChange={(e) => setImage(e.target.value)} 
-                    placeholder="/image/my_banner.png" 
-                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  />
-                </div>
+                <ImageUploadField
+                  label="Banner Image"
+                  value={image}
+                  onChange={setImage}
+                  required
+                  placeholder="/image/my_banner.png"
+                />
                 
                 <div className="grid grid-cols-2 gap-2">
                   <div>

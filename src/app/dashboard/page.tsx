@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Calendar, FileText, User, Phone, MapPin, Loader2, ShieldCheck } from "lucide-react";
 import { useAuth } from "../../lib/useAuth";
 import { api, Booking, Prescription } from "../../lib/api";
+import RazorpayCheckoutButton from "../../components/RazorpayCheckoutButton";
 
 function StatusBadge({ status }: { status: string }) {
   const styles: Record<string, string> = {
@@ -98,20 +99,43 @@ export default function DashboardPage() {
               </div>
             ) : (
               <ul className="space-y-3">
-                {bookings.map((b) => (
-                  <li key={b.id} className="border border-gray-100 rounded-2xl p-4">
-                    <div className="flex items-start justify-between gap-3 mb-2">
-                      <p className="font-bold text-slate-800 text-sm">{b.test_name || "Health Package"}</p>
-                      <StatusBadge status={b.status} />
-                    </div>
-                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-slate-500 font-medium">
-                      <span className="flex items-center gap-1"><User className="w-3 h-3" /> {b.patient_name}</span>
-                      <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {b.patient_phone}</span>
-                      {b.preferred_date && <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {b.preferred_date}</span>}
-                      <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {b.collection_type === "home" ? "Home Collection" : "Center Visit"}</span>
-                    </div>
-                  </li>
-                ))}
+                {bookings.map((b) => {
+                  const isUnpaid = b.payment_status !== "paid" && b.status !== "cancelled";
+                  return (
+                    <li key={b.id} className="border border-gray-100 rounded-2xl p-4">
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <p className="font-bold text-slate-800 text-sm">{b.test_name || "Health Package"}</p>
+                        <StatusBadge status={b.status} />
+                      </div>
+                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-[11px] text-slate-500 font-medium">
+                        <span className="flex items-center gap-1"><User className="w-3 h-3" /> {b.patient_name}</span>
+                        <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {b.patient_phone}</span>
+                        {b.preferred_date && <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {b.preferred_date}</span>}
+                        <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {b.collection_type === "home" ? "Home Collection" : "Center Visit"}</span>
+                      </div>
+                      {isUnpaid && (
+                        <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600">
+                            {b.payment_status === "pending" ? "Payment pending" : "Awaiting payment"}
+                          </span>
+                          <RazorpayCheckoutButton
+                            bookingIds={[b.id]}
+                            amountRupees={b.amount_paise ? Math.round(b.amount_paise / 100) : undefined}
+                            patientName={b.patient_name}
+                            patientPhone={b.patient_phone}
+                            patientEmail={b.patient_email}
+                            onPaid={() =>
+                              setBookings((prev) =>
+                                prev.map((item) => (item.id === b.id ? { ...item, payment_status: "paid" } : item))
+                              )
+                            }
+                            className="inline-flex items-center justify-center gap-2 bg-[#2563eb] text-white font-bold px-4 py-2 rounded-full text-[11px] uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                          />
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </div>
