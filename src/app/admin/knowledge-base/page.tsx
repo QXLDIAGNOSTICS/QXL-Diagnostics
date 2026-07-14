@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { BrainCircuit, Upload, Trash2, FileText, Loader2 } from "lucide-react";
-import { api, type KnowledgeDocument } from "@/lib/api";
+import { api, ApiError, type KnowledgeDocument } from "@/lib/api";
 
 function formatSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;
@@ -23,8 +23,8 @@ export default function KnowledgeBasePage() {
     try {
       const { items } = await api.knowledgeBase.list();
       setDocuments(items);
-    } catch {
-      setError("Failed to load knowledge base documents.");
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : "Failed to load knowledge base documents.");
     } finally {
       setLoading(false);
     }
@@ -42,8 +42,12 @@ export default function KnowledgeBasePage() {
     try {
       await api.knowledgeBase.upload(file);
       await refreshData();
-    } catch {
-      setError("Failed to upload document — check the file type/size and try again.");
+    } catch (err) {
+      setError(
+        err instanceof ApiError
+          ? err.message
+          : "Failed to upload document — check the file type/size and try again."
+      );
     } finally {
       setUploading(false);
       if (fileInputRef.current) fileInputRef.current.value = "";
@@ -55,8 +59,8 @@ export default function KnowledgeBasePage() {
     try {
       await api.knowledgeBase.remove(id);
       await refreshData();
-    } catch {
-      setError("Failed to delete document.");
+    } catch (err) {
+      setError(err instanceof ApiError ? err.message : "Failed to delete document.");
     }
   };
 

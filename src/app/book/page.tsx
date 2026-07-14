@@ -38,6 +38,10 @@ export default function BookPage() {
   const [createdBookings, setCreatedBookings] = useState<Booking[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Recommended test/package names carried over from an AI prescription
+  // analysis (via /book?tests=...) that we couldn't match to anything in
+  // our bookable catalog — surfaced to the user instead of silently dropped.
+  const [unmatchedRecommended, setUnmatchedRecommended] = useState<string[]>([]);
 
   // ── Geolocation ─────────────────────────────────────────────────────────────
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
@@ -95,17 +99,58 @@ export default function BookPage() {
     };
   }, []);
 
+  // Normalize a name for fuzzy comparison: lowercase, strip punctuation, collapse whitespace.
+  const normalizeName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+
+  // Find the best catalog match for a recommended test/package name. Prefers
+  // an exact (normalized) match, then falls back to a substring match in
+  // either direction, then a significant-word-overlap match — because AI- or
+  // prescription-derived names (e.g. "HbA1c") rarely match our catalog's
+  // exact formatting (e.g. "HbA1c, Glycated Hemoglobin") character-for-character.
+  const findCatalogMatch = (wanted: string, items: CatalogEntry[]): CatalogEntry | undefined => {
+    const nw = normalizeName(wanted);
+    if (!nw) return undefined;
+    let match = items.find((c) => normalizeName(c.name) === nw);
+    if (match) return match;
+    match = items.find((c) => {
+      const nc = normalizeName(c.name);
+      return nc.includes(nw) || nw.includes(nc);
+    });
+    if (match) return match;
+    const wantedTokens = new Set(nw.split(' ').filter((t) => t.length > 2));
+    if (wantedTokens.size === 0) return undefined;
+    let bestOverlap = 0;
+    for (const c of items) {
+      const cTokens = normalizeName(c.name).split(' ').filter((t) => t.length > 2);
+      const overlap = cTokens.filter((t) => wantedTokens.has(t)).length;
+      if (overlap > bestOverlap && overlap >= Math.min(wantedTokens.size, cTokens.length) * 0.5) {
+        bestOverlap = overlap;
+        match = c;
+      }
+    }
+    return match;
+  };
+
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const wanted = [...params.getAll('tests').map(t => t.trim()), params.get('package') || ''].filter(Boolean);
     if (!wanted.length || catalog.length === 0) return;
-    const matches = catalog.filter(c => wanted.some(w => c.name.toLowerCase() === w.toLowerCase()));
+
+    const matches: CatalogEntry[] = [];
+    const unmatched: string[] = [];
+    for (const w of wanted) {
+      const match = findCatalogMatch(w, catalog);
+      if (match) matches.push(match);
+      else unmatched.push(w);
+    }
+
     if (matches.length) {
       setSelectedItems(prev => {
         const existingIds = new Set(prev.map(p => p.id));
         return [...prev, ...matches.filter(m => !existingIds.has(m.id))];
       });
     }
+    setUnmatchedRecommended(unmatched);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [catalog]);
 
@@ -267,21 +312,30 @@ export default function BookPage() {
                     {createdBookings.filter(b => b.amount_paise).map((b) => (
                       <div key={b.id} className="flex items-center justify-between gap-3 bg-white border border-gray-100 rounded-xl p-3">
                         <span className="text-xs font-semibold text-slate-600 text-left">{b.test_name || 'Health Package'}</span>
-                        <RazorpayCheckoutButton
-                          bookingId={b.id}
-                          amountRupees={b.amount_paise ? Math.round(b.amount_paise / 100) : null}
-                          patientName={formData.name}
-                          patientEmail={formData.email}
-                          patientPhone={formData.phone}
-                        />
+                        <span className="text-xs font-bold text-[#0f2d5e]">₹{Math.round((b.amount_paise || 0) / 100)}</span>
                       </div>
                     ))}
-                    <p className="text-[10px] text-slate-400 font-medium">You can also pay later — our coordinator can share a payment link on call.</p>
+                    <div className="flex items-center justify-between gap-3 border-t border-blue-100 pt-3">
+                      <span className="text-xs font-extrabold text-[#0f2d5e] uppercase tracking-wide">Total</span>
+                      <span className="text-sm font-extrabold text-[#0f2d5e]">
+                        ₹{Math.round(createdBookings.reduce((sum, b) => sum + (b.amount_paise || 0), 0) / 100)}
+                      </span>
+                    </div>
+                    <RazorpayCheckoutButton
+                      bookingIds={createdBookings.filter(b => b.amount_paise).map(b => b.id)}
+                      amountRupees={Math.round(createdBookings.reduce((sum, b) => sum + (b.amount_paise || 0), 0) / 100)}
+                      patientName={formData.name}
+                      patientEmail={formData.email}
+                      patientPhone={formData.phone}
+                      className="w-full inline-flex items-center justify-center gap-2 bg-[#2563eb] text-white font-bold px-5 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors disabled:opacity-60"
+                    />
+                    <p className="text-[10px] text-slate-400 font-medium text-center">Pay once for everything above — you can also pay later, our coordinator can share a payment link on call.</p>
                   </div>
                 )}
 
+
                 <button 
-                  onClick={() => { setSubmitted(false); setCreatedBookings([]); setFormData({ name: user?.name || '', phone: user?.phone || '', email: user?.email || '', address: '', date: '', collectionType: 'home' }); setSelectedItems([]); setTestInput(''); }} 
+                  onClick={() => { setSubmitted(false); setCreatedBookings([]); setFormData({ name: user?.name || '', phone: user?.phone || '', email: user?.email || '', address: '', date: '', collectionType: 'home' }); setSelectedItems([]); setTestInput(''); setUnmatchedRecommended([]); }} 
                   className="bg-[#2563eb] text-white font-bold px-8 py-2.5 rounded-full hover:bg-[#1d4ed8] transition-colors text-sm uppercase tracking-wider"
                 >
                   Book Another Test
@@ -341,6 +395,25 @@ export default function BookPage() {
                   <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
                     <Shield className="w-3.5 h-3.5 text-[#0f2d5e]" /> Tests / Packages to Book
                   </label>
+                  {selectedItems.length > 0 && unmatchedRecommended.length === 0 && (
+                    <p className="text-[11px] text-emerald-600 font-semibold mb-2 flex items-center gap-1">
+                      <CheckCircle2 className="w-3.5 h-3.5" /> Added from your prescription analysis — remove any you don&apos;t need.
+                    </p>
+                  )}
+                  {unmatchedRecommended.length > 0 && (
+                    <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2.5 mb-3">
+                      <AlertTriangle className="w-3.5 h-3.5 text-amber-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-[11px] text-amber-800 font-medium leading-relaxed">
+                        {selectedItems.length > 0
+                          ? 'We added what we could match below. '
+                          : ''}
+                        <strong>{unmatchedRecommended.join(', ')}</strong>{' '}
+                        {unmatchedRecommended.length > 1 ? "aren't" : "isn't"} in our online catalog yet — please call{' '}
+                        <a href="tel:+919964639639" className="underline font-bold">+91 99646 39639</a> or WhatsApp us to book{' '}
+                        {unmatchedRecommended.length > 1 ? 'them' : 'it'} directly.
+                      </p>
+                    </div>
+                  )}
                   {selectedItems.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-3">
                       {selectedItems.map((item) => (

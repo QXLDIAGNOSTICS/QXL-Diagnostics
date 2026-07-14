@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { api, ApiError } from '@/lib/api';
 import { useAuth } from '@/lib/useAuth';
+import ChatPaymentCard, { type ChatPaymentOrder } from '@/components/ChatPaymentCard';
 
 type StreamResult = 'streamed' | 'unauthorized' | 'failed';
 
@@ -10,7 +11,7 @@ export default function AiChat() {
   const { user, loading: authLoading, refresh } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string; type?: 'text' | 'file' }[]>([]);
+  const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string; type?: 'text' | 'file' | 'payment'; paymentOrder?: ChatPaymentOrder }[]>([]);
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -158,6 +159,12 @@ export default function AiChat() {
           try {
             const evt = JSON.parse(payload);
             if (evt.conversation_id) setConversationId(evt.conversation_id);
+            if (evt.payment_order) {
+              setMessages(prev => [
+                ...prev,
+                { role: 'assistant', content: '', type: 'payment', paymentOrder: evt.payment_order },
+              ]);
+            }
             if (evt.delta) {
               assistant = `${assistant}${evt.delta}`;
               setMessages(prev => {
@@ -441,17 +448,25 @@ export default function AiChat() {
             {messages.map((msg, idx) => (
               <div key={idx} style={{
                 alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
-                backgroundColor: msg.role === 'user' ? '#2563eb' : 'white',
+                backgroundColor: msg.type === 'payment' ? 'transparent' : msg.role === 'user' ? '#2563eb' : 'white',
                 color: msg.role === 'user' ? 'white' : '#1e293b',
-                padding: '11px 15px',
+                padding: msg.type === 'payment' ? '0' : '11px 15px',
                 borderRadius: msg.role === 'user' ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
                 maxWidth: '85%',
                 fontSize: '13.5px',
                 lineHeight: 1.55,
                 whiteSpace: 'pre-wrap',
-                boxShadow: '0 1px 4px rgba(0,0,0,0.07)'
+                boxShadow: msg.type === 'payment' ? 'none' : '0 1px 4px rgba(0,0,0,0.07)'
               }}>
-                {msg.content}
+                {msg.type === 'payment' && msg.paymentOrder ? (
+                  <ChatPaymentCard
+                    order={msg.paymentOrder}
+                    patientName={user?.name || undefined}
+                    patientPhone={user?.phone || undefined}
+                  />
+                ) : (
+                  msg.content
+                )}
               </div>
             ))}
             {isLoading && (
