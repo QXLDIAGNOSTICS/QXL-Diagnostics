@@ -69,11 +69,22 @@ SYSTEM_PROMPT = (
     "already provided. For home collection, collect a full address. "
     "4) Ask for a preferred date/time. "
     "5) Read back a full summary and get explicit confirmation. "
-    "6) Only then call create_booking. Never claim a booking was made without "
-    "actually calling create_booking and getting a successful result back. If "
+    "6) Only then call create_booking — once per test/package if the user wants "
+    "more than one (e.g. call it twice for two tests). Never claim a booking was made "
+    "without actually calling create_booking and getting a successful result back. If "
     "create_booking returns an error about the test/package not being recognised, "
     "apologize, show valid alternatives via search_tests/search_health_packages, "
     "and ask the user to choose one of those instead. "
+    "7) PAYMENT — once ALL of the bookings the user wants to pay for right now have "
+    "been created, call create_payment_order ONCE with every booking_id together (never "
+    "one payment order per booking) so the user pays a single combined total. After "
+    "calling it, tell them a secure payment button has appeared in the chat for that "
+    "total amount, and that they should complete it there; do not ask them to pay any "
+    "other way, and do not claim the payment succeeded yourself — the system will "
+    "confirm that once they finish the checkout. If create_payment_order fails for any "
+    "reason (e.g. payments not configured), tell the user their booking is still "
+    "confirmed and they can complete payment any time from their booking confirmation "
+    "page, where a Pay button is always available. "
     "If the user mentions uploading a prescription, you may also call "
     "check_prescription_quota to tell them how many uploads they have left this "
     "month (default limit is 5/month) before directing them to the upload option."
@@ -119,14 +130,20 @@ async def _run_tool_loop(
     messages: list[dict],
     *,
     location: tuple[float, float] | None = None,
-) -> list[dict]:
+) -> tuple[list[dict], dict | None]:
     """Resolve backend tool calls in a bounded loop before the final streamed answer.
 
     Runs non-streaming "router" turns: the model may request 0+ tools per hop.
     Each requested tool is executed against the DB (scoped to ``user`` for
     anything personal) and its JSON result is appended as a ``tool`` message.
     Capped at ``MAX_TOOL_HOPS`` so a confused model can never loop forever.
+
+    Returns the updated messages plus, if a ``create_payment_order`` tool call
+    succeeded, its parsed JSON result — the caller emits this as a dedicated
+    SSE event so the frontend can render a real Razorpay payment button
+    instead of relying on the model to describe it accurately in free text.
     """
+    payment_order: dict | None = None
     for _ in range(MAX_TOOL_HOPS):
         response = await client.chat.completions.create(
             model=settings.OPENAI_MODEL,
@@ -165,8 +182,15 @@ async def _run_tool_loop(
                 tool_call.function.name, arguments, db=db, user=user, location=location
             )
             messages.append({"role": "tool", "tool_call_id": tool_call.id, "content": result})
+            if tool_call.function.name == "create_payment_order":
+                try:
+                    parsed = json.loads(result)
+                except json.JSONDecodeError:
+                    parsed = None
+                if isinstance(parsed, dict) and "error" not in parsed:
+                    payment_order = parsed
 
-    return messages
+    return messages, payment_order
 
 
 async def stream_answer(
@@ -206,10 +230,17 @@ async def stream_answer(
 
     client = get_openai_client()
 
+    payment_order: dict | None = None
     try:
-        messages = await _run_tool_loop(client, db, user, messages, location=location)
+        messages, payment_order = await _run_tool_loop(client, db, user, messages, location=location)
     except Exception:  # noqa: BLE001 - tool resolution must never break the chat turn
         logger.exception("Tool resolution failed; answering without tool grounding")
+
+    if payment_order:
+        # Structured event the frontend chat widget listens for to render a
+        # real Razorpay checkout button — never rely on the model to embed
+        # working payment UI in free text.
+        yield f"data: {json.dumps({'payment_order': payment_order})}\n\n"
 
     collected: list[str] = []
     try:

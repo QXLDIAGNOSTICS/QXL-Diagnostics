@@ -191,14 +191,17 @@ async def latest_completed_summaries(db: AsyncSession, user_id: uuid.UUID, limit
 
 def _month_start(now: datetime | None = None) -> datetime:
     now = now or datetime.now(timezone.utc)
-    return now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    # `created_at` columns use TimestampMixin, which stores naive UTC
+    # timestamps (`TIMESTAMP WITHOUT TIME ZONE`). asyncpg refuses to compare
+    # a tz-aware datetime against that column, so strip tzinfo here.
+    return now.replace(day=1, hour=0, minute=0, second=0, microsecond=0, tzinfo=None)
 
 
 def _month_end(now: datetime | None = None) -> datetime:
     now = now or datetime.now(timezone.utc)
     last_day = calendar.monthrange(now.year, now.month)[1]
     return now.replace(
-        day=last_day, hour=23, minute=59, second=59, microsecond=0
+        day=last_day, hour=23, minute=59, second=59, microsecond=0, tzinfo=None
     )
 
 

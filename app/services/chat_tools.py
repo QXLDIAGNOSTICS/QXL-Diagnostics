@@ -10,9 +10,10 @@ import uuid
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.config import settings
 from app.core.exceptions import AppError
 from app.models.user import User
-from app.services import booking_service, catalog_service, content_service, prescription_service
+from app.services import booking_service, catalog_service, content_service, payment_service, prescription_service
 
 TOOL_SPECS: list[dict] = [
     {
@@ -225,6 +226,35 @@ TOOL_SPECS: list[dict] = [
             },
         },
     },
+    {
+        "type": "function",
+        "function": {
+            "name": "create_payment_order",
+            "description": (
+                "Create ONE combined secure Razorpay payment order covering all of the "
+                "booking_ids given, so the user pays a single total instead of paying "
+                "separately for each test/package. Call this immediately after you have "
+                "created ALL the bookings the user wants to pay for right now (call "
+                "create_booking once per test/package first, collecting each returned "
+                "booking_id, then call this ONCE with the full list). After calling this, "
+                "tell the user a secure payment button has appeared in the chat for the "
+                "combined total — never ask them to pay via any other method, and never "
+                "claim payment is complete yourself; the system confirms that separately "
+                "once they finish the Razorpay checkout."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "booking_ids": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "All booking IDs (from create_booking results) to pay for together.",
+                    }
+                },
+                "required": ["booking_ids"],
+            },
+        },
+    },
 ]
 
 
@@ -382,6 +412,36 @@ async def execute_tool(
                     "collection_type": booking.collection_type,
                     "preferred_date": booking.preferred_date,
                     "message": "Booking created successfully.",
+                }
+            )
+
+        if name == "create_payment_order":
+            raw_ids = arguments.get("booking_ids") or []
+            if not raw_ids:
+                return json.dumps(
+                    {"error": "Provide at least one booking_id (returned by create_booking) to pay for."}
+                )
+            try:
+                booking_ids = [uuid.UUID(str(x)) for x in raw_ids]
+            except ValueError:
+                return json.dumps({"error": "One or more booking_ids are not valid IDs."})
+            payment, bookings = await payment_service.create_order(db, booking_ids=booking_ids, user=user)
+            # The frontend chat widget listens for a `payment_order` SSE event
+            # (emitted alongside this tool result — see chat_service.py) and
+            # renders a real, secure Razorpay checkout button from it. This
+            # JSON is also returned to the model so it can describe it in words.
+            return json.dumps(
+                {
+                    "key_id": settings.RAZORPAY_KEY_ID,
+                    "order_id": payment.razorpay_order_id,
+                    "amount": payment.amount,
+                    "currency": payment.currency,
+                    "booking_ids": [str(b.id) for b in bookings],
+                    "total_rupees": round(payment.amount / 100, 2),
+                    "message": (
+                        "Payment order created. A secure 'Pay Now' button has been shown to the "
+                        "user directly in the chat for this combined amount."
+                    ),
                 }
             )
 

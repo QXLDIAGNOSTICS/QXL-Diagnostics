@@ -3,11 +3,14 @@ from __future__ import annotations
 
 import uuid
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class CreateOrderRequest(BaseModel):
-    booking_id: uuid.UUID
+    """One or more booking ids to pay for together in a single order —
+    a single test/package booking is just a list of one."""
+
+    booking_ids: list[uuid.UUID] = Field(min_length=1)
 
 
 class CreateOrderResponse(BaseModel):
@@ -17,7 +20,7 @@ class CreateOrderResponse(BaseModel):
     order_id: str
     amount: int
     currency: str
-    booking_id: uuid.UUID
+    booking_ids: list[uuid.UUID]
     name: str = "QXL Diagnostics"
     description: str = "Diagnostic test / package booking"
 
@@ -33,6 +36,7 @@ class PaymentRead(BaseModel):
 
     id: uuid.UUID
     booking_id: uuid.UUID
+    extra_booking_ids: list[str] | None = None
     razorpay_order_id: str
     razorpay_payment_id: str | None = None
     amount: int

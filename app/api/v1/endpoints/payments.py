@@ -27,13 +27,13 @@ router = APIRouter(prefix="/payments", tags=["payments"])
 async def create_order(
     body: CreateOrderRequest, db: DbSession, user: CurrentUserOptional
 ) -> CreateOrderResponse:
-    payment, booking = await payment_service.create_order(db, booking_id=body.booking_id, user=user)
+    payment, bookings = await payment_service.create_order(db, booking_ids=body.booking_ids, user=user)
     return CreateOrderResponse(
         key_id=settings.RAZORPAY_KEY_ID,
         order_id=payment.razorpay_order_id,
         amount=payment.amount,
         currency=payment.currency,
-        booking_id=booking.id,
+        booking_ids=[b.id for b in bookings],
     )
 
 

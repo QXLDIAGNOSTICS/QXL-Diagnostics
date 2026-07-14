@@ -62,21 +62,37 @@ async def _amount_for_booking(db: AsyncSession, booking: Booking) -> int:
 
 
 async def create_order(
-    db: AsyncSession, *, booking_id: uuid.UUID, user: User | None
-) -> tuple[Payment, Booking]:
+    db: AsyncSession, *, booking_ids: list[uuid.UUID], user: User | None
+) -> tuple[Payment, list[Booking]]:
+    """Create a single Razorpay order covering one or more bookings.
+
+    When a user books several tests/packages together, all of their
+    ``booking_ids`` should be passed here so they pay ONCE for the combined
+    total instead of once per booking.
+    """
     if not settings.RAZORPAY_KEY_ID or not settings.RAZORPAY_KEY_SECRET:
         raise ValidationError("Payments are not configured")
+    if not booking_ids:
+        raise ValidationError("At least one booking is required to create a payment order")
+
+    # De-dupe while preserving order.
+    seen: set[uuid.UUID] = set()
+    unique_ids = [b for b in booking_ids if not (b in seen or seen.add(b))]
 
     booking_repo = BookingRepository(db)
-    booking = await booking_repo.get_by_id(booking_id)
-    if booking is None:
-        raise NotFoundError("Booking not found")
-    # Guest bookings (user_id is None) may be paid by anyone holding the
-    # booking id; bookings tied to an account may only be paid by that account.
-    if booking.user_id is not None and (user is None or booking.user_id != user.id):
-        raise PermissionDeniedError("You do not have access to this booking")
+    bookings: list[Booking] = []
+    for booking_id in unique_ids:
+        booking = await booking_repo.get_by_id(booking_id)
+        if booking is None:
+            raise NotFoundError(f"Booking {booking_id} not found")
+        # Guest bookings (user_id is None) may be paid by anyone holding the
+        # booking id; bookings tied to an account may only be paid by that account.
+        if booking.user_id is not None and (user is None or booking.user_id != user.id):
+            raise PermissionDeniedError("You do not have access to this booking")
+        bookings.append(booking)
 
-    amount = await _amount_for_booking(db, booking)
+    amounts = [await _amount_for_booking(db, booking) for booking in bookings]
+    total_amount = sum(amounts)
 
     async with httpx.AsyncClient(
         auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET), timeout=15.0
@@ -84,10 +100,10 @@ async def create_order(
         resp = await client.post(
             f"{_RAZORPAY_BASE_URL}/orders",
             json={
-                "amount": amount,
+                "amount": total_amount,
                 "currency": "INR",
-                "receipt": str(booking.id),
-                "notes": {"booking_id": str(booking.id)},
+                "receipt": str(bookings[0].id),
+                "notes": {"booking_ids": ",".join(str(b.id) for b in bookings)},
             },
         )
         if resp.status_code in (401, 403):
@@ -100,17 +116,38 @@ async def create_order(
 
     payment_repo = PaymentRepository(db)
     payment = await payment_repo.create(
-        booking_id=booking.id,
-        user_id=booking.user_id,
+        booking_id=bookings[0].id,
+        extra_booking_ids=[str(b.id) for b in bookings[1:]] or None,
+        user_id=user.id if user is not None else bookings[0].user_id,
         razorpay_order_id=order["id"],
-        amount=amount,
+        amount=total_amount,
         currency=order.get("currency", "INR"),
         status="created",
     )
-    await booking_repo.update_payment_status(booking, payment_status="pending", amount_paise=amount)
+    for booking, amount in zip(bookings, amounts, strict=True):
+        await booking_repo.update_payment_status(booking, payment_status="pending", amount_paise=amount)
     await db.commit()
     await db.refresh(payment)
-    return payment, booking
+    return payment, bookings
+
+
+def _payment_booking_ids(payment: Payment) -> list[uuid.UUID]:
+    """All bookings covered by a single payment (primary + any extras)."""
+    ids = [payment.booking_id]
+    for raw in payment.extra_booking_ids or []:
+        ids.append(uuid.UUID(raw))
+    return ids
+
+
+async def _mark_bookings_payment_status(
+    db: AsyncSession, payment: Payment, *, payment_status: str
+) -> None:
+    booking_repo = BookingRepository(db)
+    for booking_id in _payment_booking_ids(payment):
+        booking = await booking_repo.get_by_id(booking_id)
+        if booking is not None:
+            await booking_repo.update_payment_status(booking, payment_status=payment_status)
+
 
 
 def verify_payment_signature(*, order_id: str, payment_id: str, signature: str) -> bool:
@@ -139,10 +176,7 @@ async def verify_payment(
         payment.status = "paid"
         payment.paid_at = datetime.now(timezone.utc)
 
-    booking_repo = BookingRepository(db)
-    booking = await booking_repo.get_by_id(payment.booking_id)
-    if booking is not None:
-        await booking_repo.update_payment_status(booking, payment_status="paid")
+    await _mark_bookings_payment_status(db, payment, payment_status="paid")
 
     await db.commit()
     await db.refresh(payment)
@@ -173,25 +207,19 @@ async def handle_webhook_event(db: AsyncSession, event: dict) -> None:
         logger.warning("Webhook for unknown order_id=%s", order_id)
         return
 
-    booking_repo = BookingRepository(db)
-    booking = await booking_repo.get_by_id(payment.booking_id)
-
     if event_type in {"payment.captured", "order.paid"}:
         payment.razorpay_payment_id = payment_entity.get("id") or payment.razorpay_payment_id
         if payment.status != "paid":
             payment.status = "paid"
             payment.paid_at = datetime.now(timezone.utc)
-        if booking is not None:
-            await booking_repo.update_payment_status(booking, payment_status="paid")
+        await _mark_bookings_payment_status(db, payment, payment_status="paid")
     elif event_type == "payment.failed":
         payment.status = "failed"
         payment.failure_reason = payment_entity.get("error_description")
-        if booking is not None:
-            await booking_repo.update_payment_status(booking, payment_status="failed")
+        await _mark_bookings_payment_status(db, payment, payment_status="failed")
     elif event_type in {"refund.processed", "refund.created"}:
         payment.status = "refunded"
-        if booking is not None:
-            await booking_repo.update_payment_status(booking, payment_status="refunded")
+        await _mark_bookings_payment_status(db, payment, payment_status="refunded")
 
     await db.commit()
 
@@ -231,29 +259,23 @@ async def reconcile_payment(db: AsyncSession, *, payment_id: uuid.UUID) -> Payme
     captured = next((a for a in attempts if a.get("status") == "captured"), None)
     latest = captured or (attempts[-1] if attempts else None)
 
-    booking_repo = BookingRepository(db)
-    booking = await booking_repo.get_by_id(payment.booking_id)
-
     if latest is None:
         # No payment attempts recorded at Razorpay at all — order was never paid.
         if payment.status not in {"paid", "refunded"}:
             payment.status = "failed"
             payment.failure_reason = "No payment attempts found at Razorpay during reconciliation"
-            if booking is not None:
-                await booking_repo.update_payment_status(booking, payment_status="failed")
+            await _mark_bookings_payment_status(db, payment, payment_status="failed")
     elif latest.get("status") == "captured":
         payment.razorpay_payment_id = latest.get("id") or payment.razorpay_payment_id
         if payment.status != "paid":
             payment.status = "paid"
             payment.paid_at = datetime.now(timezone.utc)
-        if booking is not None:
-            await booking_repo.update_payment_status(booking, payment_status="paid")
+        await _mark_bookings_payment_status(db, payment, payment_status="paid")
     elif latest.get("status") in {"failed"}:
         if payment.status not in {"paid", "refunded"}:
             payment.status = "failed"
             payment.failure_reason = latest.get("error_description") or "Payment failed at Razorpay"
-            if booking is not None:
-                await booking_repo.update_payment_status(booking, payment_status="failed")
+            await _mark_bookings_payment_status(db, payment, payment_status="failed")
 
     await db.commit()
     await db.refresh(payment)

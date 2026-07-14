@@ -4,7 +4,7 @@ from __future__ import annotations
 import uuid
 from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey, Integer, String
+from sqlalchemy import JSON, DateTime, ForeignKey, Integer, String
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -21,6 +21,11 @@ class Payment(Base, TimestampMixin):
     booking_id: Mapped[uuid.UUID] = mapped_column(
         UUID(as_uuid=True), ForeignKey("bookings.id", ondelete="CASCADE"), index=True, nullable=False
     )
+    # Additional bookings covered by this SAME payment, when a user pays once
+    # for multiple tests/packages booked together in one checkout/chat
+    # session — stored as a JSON list of booking UUID strings (kept separate
+    # from ``booking_id`` for backward compatibility with existing rows).
+    extra_booking_ids: Mapped[list[str] | None] = mapped_column(JSON, nullable=True)
     user_id: Mapped[uuid.UUID | None] = mapped_column(
         UUID(as_uuid=True), ForeignKey("users.id", ondelete="SET NULL"), nullable=True, index=True
     )
