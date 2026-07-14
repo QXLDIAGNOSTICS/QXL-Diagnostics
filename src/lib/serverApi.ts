@@ -11,7 +11,11 @@
 
 import type { Doctor, Center, ReviewItem, BlogPost } from "./api";
 
-const BACKEND_URL = process.env.BACKEND_INTERNAL_URL || "http://localhost:8000";
+const isDev = process.env.NODE_ENV !== "production";
+const BACKEND_URL =
+  process.env.BACKEND_INTERNAL_URL ||
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  (isDev ? "http://localhost:8000" : "https://qxl-diagnostics-production.up.railway.app");
 
 async function serverGet<T>(path: string): Promise<T | null> {
   try {

@@ -8,7 +8,11 @@
 // straight through without buffering or compression.
 export const dynamic = "force-dynamic";
 
-const BACKEND_URL = process.env.BACKEND_INTERNAL_URL || "http://localhost:8000";
+const isDev = process.env.NODE_ENV !== "production";
+const BACKEND_URL =
+  process.env.BACKEND_INTERNAL_URL ||
+  process.env.NEXT_PUBLIC_API_BASE_URL ||
+  (isDev ? "http://localhost:8000" : "https://qxl-diagnostics-production.up.railway.app");
 
 export async function POST(request: Request): Promise<Response> {
   const body = await request.text();
