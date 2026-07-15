@@ -40,14 +40,8 @@ api_router.include_router(uploads.router)
 
 
 @api_router.get("/health", tags=["system"])
-async def health() -> dict:
-    """Lightweight liveness probe for container health checks."""
-    return {"status": "ok"}
-
-
-@api_router.get("/health/ready", tags=["system"])
-async def health_ready(db: DbSession) -> dict:
-    """Readiness probe with a DB ping for diagnostics."""
+async def health(db: DbSession) -> dict:
+    """Liveness/readiness probe with a DB ping."""
     try:
         await db.execute(text("SELECT 1"))
         db_ok = True
