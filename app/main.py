@@ -6,7 +6,6 @@ from time import perf_counter
 from uuid import uuid4
 
 from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
@@ -82,28 +81,6 @@ def create_app() -> FastAPI:
     @app.get("/", tags=["system"])
     async def root() -> dict:
         return {"name": settings.PROJECT_NAME, "docs": "/docs"}
-
-    # Root-level health aliases keep Railway health checks robust even if
-    # the configured path is "/health" instead of "/api/v1/health".
-    @app.get("/health", tags=["system"])
-    async def health_alias() -> dict:
-        return {"status": "ok"}
-
-    @app.get("/health/ready", tags=["system"])
-    async def health_ready_alias(request: Request):  # noqa: ANN201
-        from sqlalchemy import text
-        from app.db.session import AsyncSessionLocal
-
-        try:
-            async with AsyncSessionLocal() as db:
-                await db.execute(text("SELECT 1"))
-            return {"status": "ok", "database": True}
-        except Exception:
-            # Keep response explicit for diagnostics without crashing probes.
-            return JSONResponse(
-                status_code=200,
-                content={"status": "degraded", "database": False},
-            )
 
     return app
 
