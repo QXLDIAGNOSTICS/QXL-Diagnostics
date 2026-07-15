@@ -62,7 +62,7 @@ export default function HealthConditionsPage() {
             <div className="w-16 h-1 bg-[#2563eb] rounded-full mt-4"></div>
           </div>
           <div className="md:w-1/2 flex justify-center md:justify-end">
-            <img src="/images/banners/health_conditions_set.png" alt="Health Conditions Overview" className="w-full max-w-[360px] h-auto object-contain drop-shadow-md rounded-3xl border border-white/50" />
+            <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150535/Assets-QXL/legacy-assets/images/banners/health_conditions_set.jpg" alt="Health Conditions Overview" className="w-full max-w-[360px] h-auto object-contain drop-shadow-md rounded-3xl border border-white/50" />
           </div>
         </div>
       </section>

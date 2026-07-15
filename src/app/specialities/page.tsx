@@ -4,16 +4,16 @@ import Link from 'next/link';
 
 export default function SpecialitiesPage() {
   const specialities = [
-    { name: "BONE DISORDERS", icon: "/image/spec_bone.png", href: "/specialities/bone-disorders" },
-    { name: "CARDIOLOGY", icon: "/image/spec_cardiology.png", href: "/specialities/cardiology" },
-    { name: "ENDOCRINOLOGY", icon: "/image/spec_endocrinology.png", href: "/specialities/endocrinology" },
-    { name: "GASTROENTEROLOGY", icon: "/image/spec_gastro.png", href: "/specialities/gastroenterology" },
-    { name: "HEMATOLOGY", icon: "/image/spec_hematology.png", href: "/specialities/hematology" },
-    { name: "INFECTIOUS DISEASES", icon: "/image/spec_infectious.png", href: "/specialities/infectious-diseases" },
-    { name: "ONCOLOGY", icon: "/image/spec_oncology.png", href: "/specialities/oncology" },
-    { name: "NEUROLOGY", icon: "/image/spec_neurology.png", href: "/specialities/neurology" },
-    { name: "UROLOGY", icon: "/image/spec_urology.png", href: "/specialities/urology" },
-    { name: "WOMEN'S HEALTH", icon: "/image/spec_womens.png", href: "/specialities/womens-health" },
+    { name: "BONE DISORDERS", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150389/Assets-QXL/legacy-assets/image/spec_bone.png", href: "/specialities/bone-disorders" },
+    { name: "CARDIOLOGY", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png", href: "/specialities/cardiology" },
+    { name: "ENDOCRINOLOGY", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png", href: "/specialities/endocrinology" },
+    { name: "GASTROENTEROLOGY", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png", href: "/specialities/gastroenterology" },
+    { name: "HEMATOLOGY", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150417/Assets-QXL/legacy-assets/image/spec_hematology.png", href: "/specialities/hematology" },
+    { name: "INFECTIOUS DISEASES", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150422/Assets-QXL/legacy-assets/image/spec_infectious.png", href: "/specialities/infectious-diseases" },
+    { name: "ONCOLOGY", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150430/Assets-QXL/legacy-assets/image/spec_oncology.png", href: "/specialities/oncology" },
+    { name: "NEUROLOGY", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png", href: "/specialities/neurology" },
+    { name: "UROLOGY", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png", href: "/specialities/urology" },
+    { name: "WOMEN'S HEALTH", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png", href: "/specialities/womens-health" },
   ];
 
   return (

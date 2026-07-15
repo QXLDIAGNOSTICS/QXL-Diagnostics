@@ -68,7 +68,7 @@ export const metadata: Metadata = {
       "Advanced diagnostic testing in Bengaluru. NABL certified, home collection, 300+ tests, same-day digital reports. Book now at +91 99646 39639.",
     images: [
       {
-        url: "/images/banners/qxl_hero_1_1781507207090.png",
+        url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
         width: 1200,
         height: 630,
         alt: "QXL Diagnostics Lab Bengaluru",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     title: "QXL Diagnostics | NABL Certified Lab Bengaluru",
     description:
       "NABL certified diagnostic lab in Bengaluru. Home collection, 300+ tests, same-day reports.",
-    images: ["/images/banners/qxl_hero_1_1781507207090.png"],
+    images: ["https://res.cloudinary.com/btjglif5/image/upload/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg"],
   },
   robots: {
     index: true,
@@ -109,7 +109,7 @@ const localBusinessSchema = {
   url: "https://qxldiagnostics.com",
   telephone: "+91-99646-39639",
   email: "qxldiagnostics@gmail.com",
-  logo: "https://qxldiagnostics.com/image/Logo (1).png",
+  logo: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   medicalSpecialty: [
     "Neurology", "Hematology", "Cardiology", "Urology", "Endocrinology",
     "Oncology", "Infectious Disease", "Women's Health", "Gastroenterology", "Bone Disorders"
@@ -194,7 +194,7 @@ const organizationSchema = {
   "@id": "https://qxldiagnostics.com/#organization",
   "name": "QXL Diagnostics",
   "url": "https://qxldiagnostics.com",
-  "logo": "https://qxldiagnostics.com/image/Logo (1).png",
+  "logo": "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   "sameAs": [
     "https://www.facebook.com/qxldiagnostics",
     "https://www.linkedin.com/company/qxl-diagnostics",

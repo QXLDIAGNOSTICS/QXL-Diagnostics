@@ -1,50 +1,75 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { ImagePlay, Plus, Search, Trash2, X, Link as LinkIcon, Eye } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { ImagePlay, Plus, Search, Trash2, X, Loader2 } from "lucide-react";
+import { api, type GalleryItem } from "@/lib/api";
+import ImageUploadField from "@/components/admin/ImageUploadField";
 
 export default function GalleryPage() {
-  const [gallery, setGallery] = useState<any[]>([]);
+  const [gallery, setGallery] = useState<GalleryItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   // Form states
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [category, setCategory] = useState("Lab Facilities");
 
-  useEffect(() => {
-    const refreshData = () => {
-      setGallery(cmsStore.getAll("gallery"));
-    };
-    refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const { items } = await api.gallery.adminList(200, 0);
+      setGallery(items);
+    } catch {
+      setError("Failed to load gallery items.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  const handleSave = (e: React.FormEvent) => {
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
+
+  const openAddModal = () => {
+    setTitle("");
+    setImage("");
+    setCategory("Lab Facilities");
+    setIsModalOpen(true);
+  };
+
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title || !image) return;
 
-    cmsStore.addItem("gallery", {
-      title,
-      image,
-      category
-    });
-    
-    setIsModalOpen(false);
-    setTitle("");
-    setImage("");
-  };
-
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this media item?")) {
-      cmsStore.deleteItem("gallery", id);
+    setSaving(true);
+    setError(null);
+    try {
+      await api.gallery.create({ title, image_url: image, category });
+      setIsModalOpen(false);
+      await refreshData();
+    } catch {
+      setError("Failed to save the gallery item.");
+    } finally {
+      setSaving(false);
     }
   };
 
-  const filtered = gallery.filter(item => 
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this media item?")) return;
+    try {
+      await api.gallery.remove(id);
+      await refreshData();
+    } catch {
+      setError("Failed to delete the gallery item.");
+    }
+  };
+
+  const filtered = gallery.filter(item =>
     item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     (item.category || "").toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -63,13 +88,19 @@ export default function GalleryPage() {
         </div>
         
         <button 
-          onClick={() => setIsModalOpen(true)}
+          onClick={openAddModal}
           className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-colors flex items-center gap-2 text-sm font-medium shadow-sm cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           Add Media
         </button>
       </div>
+
+      {error && (
+        <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 text-sm rounded-lg p-3">
+          {error}
+        </div>
+      )}
 
       {/* Action Bar */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm p-4 flex items-center justify-between">
@@ -89,7 +120,11 @@ export default function GalleryPage() {
       </div>
 
       {/* Grid */}
-      {filtered.length === 0 ? (
+      {loading ? (
+        <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm p-12 text-center flex items-center justify-center">
+          <Loader2 className="w-6 h-6 animate-spin text-teal-600" />
+        </div>
+      ) : filtered.length === 0 ? (
         <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm p-12 text-center flex flex-col items-center justify-center">
           <ImagePlay className="w-12 h-12 text-gray-300 mb-3" />
           <h3 className="text-base font-semibold text-gray-955 dark:text-white">No gallery items found</h3>
@@ -101,7 +136,7 @@ export default function GalleryPage() {
             <div key={item.id} className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all group relative">
               <div className="aspect-video w-full bg-slate-100 dark:bg-slate-950 relative overflow-hidden flex items-center justify-center">
                 <img 
-                  src={item.image} 
+                  src={item.image_url} 
                   alt={item.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-350"
                   onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=300&auto=format&fit=crop"; }}
@@ -113,7 +148,7 @@ export default function GalleryPage() {
               <div className="p-4 flex items-center justify-between">
                 <div>
                   <h4 className="font-extrabold text-slate-800 dark:text-white text-xs line-clamp-1">{item.title}</h4>
-                  <p className="text-[10px] text-gray-400 dark:text-gray-500 font-mono mt-0.5 truncate max-w-[140px]">{item.image}</p>
+                  <p className="text-[10px] text-gray-400 dark:text-gray-500 font-mono mt-0.5 truncate max-w-[140px]">{item.image_url}</p>
                 </div>
                 <button 
                   onClick={() => handleDelete(item.id)}
@@ -152,17 +187,13 @@ export default function GalleryPage() {
                 />
               </div>
 
-              <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Media Image URL</label>
-                <input 
-                  type="text" 
-                  required
-                  value={image} 
-                  onChange={(e) => setImage(e.target.value)} 
-                  placeholder="/image/lab_equipment.jpg" 
-                  className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
-                />
-              </div>
+              <ImageUploadField
+                label="Media Image"
+                value={image}
+                onChange={setImage}
+                required
+                placeholder="Media image URL, or upload a file"
+              />
 
               <div>
                 <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Category / Section</label>
@@ -188,8 +219,10 @@ export default function GalleryPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
+                  disabled={saving}
+                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer disabled:opacity-60 flex items-center gap-2"
                 >
+                  {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   Add to Gallery
                 </button>
               </div>

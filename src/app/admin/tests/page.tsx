@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Activity, Plus, Search, Trash2, Edit2, X, FlaskConical, Hourglass, Loader2, Home, Building2 } from "lucide-react";
 import { api, type TestCatalogItem } from "@/lib/api";
+import ImageUploadField from "@/components/admin/ImageUploadField";
 
 export default function TestsPage() {
   const [tests, setTests] = useState<TestCatalogItem[]>([]);
@@ -19,6 +20,7 @@ export default function TestsPage() {
   const [category, setCategory] = useState("");
   const [preparation, setPreparation] = useState("");
   const [turnaroundHours, setTurnaroundHours] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [homeCollectionAvailable, setHomeCollectionAvailable] = useState(true);
 
   const refreshData = useCallback(async () => {
@@ -45,6 +47,7 @@ export default function TestsPage() {
     setCategory("");
     setPreparation("");
     setTurnaroundHours("");
+    setImageUrl("");
     setHomeCollectionAvailable(true);
     setIsModalOpen(true);
   };
@@ -56,6 +59,7 @@ export default function TestsPage() {
     setCategory(tst.category || "");
     setPreparation(tst.preparation || "");
     setTurnaroundHours(tst.turnaround_hours != null ? String(tst.turnaround_hours) : "");
+    setImageUrl(tst.image_url || "");
     setHomeCollectionAvailable(tst.home_collection_available !== false);
     setIsModalOpen(true);
   };
@@ -73,6 +77,7 @@ export default function TestsPage() {
         category: category || null,
         preparation: preparation || null,
         turnaround_hours: turnaroundHours ? Number(turnaroundHours) : null,
+        image_url: imageUrl || null,
         home_collection_available: homeCollectionAvailable,
       };
 
@@ -261,6 +266,12 @@ export default function TestsPage() {
             </div>
 
             <form onSubmit={handleSave} className="p-6 space-y-4">
+              <ImageUploadField
+                label="Test Image"
+                value={imageUrl}
+                onChange={setImageUrl}
+                placeholder="Test image URL, or upload a file"
+              />
               <div>
                 <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Test Name</label>
                 <input 

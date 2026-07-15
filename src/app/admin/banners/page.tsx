@@ -57,7 +57,7 @@ export default function BannerManagementPage() {
   const openAddModal = () => {
     setEditingId(null);
     setImageOnly(false);
-    setImage("/image/food_intolerance_banner.png");
+    setImage("https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg");
     setBgFrom("#eff6ff");
     setBgTo("#dbeafe");
     setBadge("NEW OFFER");

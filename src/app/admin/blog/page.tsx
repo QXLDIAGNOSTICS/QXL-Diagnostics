@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { MessageSquare, Plus, Search, Edit2, Trash2, X, Sparkles, Loader2, Eye, EyeOff } from "lucide-react";
 import { api, type BlogPost } from "@/lib/api";
 import { aiHelper } from "@/lib/aiHelper";
+import ImageUploadField from "@/components/admin/ImageUploadField";
 
 export default function BlogAdminPage() {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
@@ -50,7 +51,7 @@ export default function BlogAdminPage() {
     setExcerpt("");
     setContent("");
     setAuthor("QXL Medical Review Team");
-    setImage("/image/food_intolerance_banner.png");
+    setImage("https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg");
     setIsPublished(true);
     setIsModalOpen(true);
     setShowAiInput(false);
@@ -332,14 +333,12 @@ export default function BlogAdminPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Asset Image URL</label>
-                <input 
-                  type="text" 
+                <ImageUploadField
+                  label="Cover Image"
+                  value={image}
+                  onChange={setImage}
                   required
-                  value={image} 
-                  onChange={(e) => setImage(e.target.value)} 
-                  placeholder="/image/food_intolerance_banner.png" 
-                  className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  placeholder="Cover image URL, or upload a file"
                 />
               </div>
 

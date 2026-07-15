@@ -40,7 +40,7 @@ export default function DoctorsAdminPage() {
     setEditingId(null);
     setName("");
     setQual("");
-    setImage("/image/dr_pritilata_v4.jpg");
+    setImage("https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png");
     setIsModalOpen(true);
   };
 
@@ -231,7 +231,7 @@ export default function DoctorsAdminPage() {
                 value={image}
                 onChange={setImage}
                 required
-                placeholder="/image/dr_pritilata_v4.jpg"
+                placeholder="https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png"
               />
 
               <div className="pt-4 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-800">

@@ -9,7 +9,7 @@ const defaultBanners = [
   {
     id: "banner-1",
     imageOnly: true,
-    image: "/image/food_intolerance_banner.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg",
     bgFrom: "#06558f",
     bgTo: "#128bc7",
     title: "Food Intolerance",
@@ -28,7 +28,7 @@ const defaultBanners = [
   {
     id: "banner-2",
     imageOnly: true,
-    image: "/image/franchise_banner.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150192/Assets-QXL/legacy-assets/image/franchise_banner.png",
     bgFrom: "#ffffff",
     bgTo: "#ffffff",
     title: "Collaborate with us",
@@ -56,7 +56,7 @@ const defaultBanners = [
     ctaLink: "/book",
     ctaSecondary: "Our Specialities",
     ctaSecondaryLink: "/speciality-tests",
-    image: "/image/user_female_microscope.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg",
     imageFit: "cover",
     bgFrom: "#eff6ff",
     bgTo: "#dbeafe",
@@ -74,7 +74,7 @@ const defaultBanners = [
     ctaLink: "/book",
     ctaSecondary: "Learn More",
     ctaSecondaryLink: "/packages",
-    image: "/image/family_clinic_consult.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
     imageFit: "cover",
     bgFrom: "#f0f9ff",
     bgTo: "#e0f2fe",
@@ -83,10 +83,10 @@ const defaultBanners = [
 ];
 
 const defaultDoctors = [
-  { id: "doc-1", name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "/image/dr_shantakumar_v4.jpg" },
-  { id: "doc-2", name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "/image/dr_pritilata_v4.jpg" },
-  { id: "doc-3", name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "/image/dr_ajitha_latest.jpg" },
-  { id: "doc-4", name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "/image/dr_naveen_latest.jpg" }
+  { id: "doc-1", name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
+  { id: "doc-2", name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
+  { id: "doc-3", name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
+  { id: "doc-4", name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" }
 ];
 
 const defaultPackages = [
@@ -226,7 +226,7 @@ const defaultBlogs = [
     content: "Anti-Mullerian Hormone (AMH) is a protein produced by the cells inside the ovarian follicles. Measuring AMH levels in the blood is currently the most accurate way to assess a woman's ovarian reserve—essentially, the number of eggs she has remaining.\n\nUnlike other fertility hormones, AMH levels remain relatively stable throughout the menstrual cycle, meaning the test can be taken on any day. It's an invaluable tool for women planning for pregnancy, those considering IVF, or those experiencing symptoms of PCOS (where AMH is typically elevated).\n\nAt QXL Diagnostics, we use advanced CLIA technology to provide highly accurate AMH results, empowering women with the knowledge they need to make informed family planning decisions.",
     author: "Dr. Pritilata Rout",
     date: "June 15, 2026",
-    image: "/image/slide_womens_wellness.png"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
     id: "blog-3",
@@ -235,7 +235,7 @@ const defaultBlogs = [
     content: "Allergies occur when your immune system overreacts to a foreign substance, such as pollen, pet dander, or specific foods. While symptoms can range from mild sneezing to severe anaphylaxis, identifying the exact trigger is often a frustrating guessing game.\n\nQXL Diagnostics offers comprehensive allergy panels that test for hundreds of common environmental and food allergens specific to the Indian context. Using a single blood sample, we can measure specific IgE antibodies to pinpoint exactly what is causing your symptoms.\n\nArmed with an accurate allergy profile, you and your doctor can develop a targeted avoidance strategy or immunotherapy plan, finally bringing relief from chronic allergic reactions.",
     author: "Dr. Ajitha Pillai",
     date: "June 05, 2026",
-    image: "/image/slide_immunity_test_new.png"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
     id: "blog-4",
@@ -244,7 +244,7 @@ const defaultBlogs = [
     content: "For decades, the standard lipid profile (Total Cholesterol, LDL, HDL) has been the gold standard for assessing heart disease risk. However, up to 50% of heart attacks occur in individuals with 'normal' cholesterol levels. This is where advanced cardiac risk assessment comes in.\n\nAt QXL Diagnostics, we test for deeper risk markers such as High-Sensitivity C-Reactive Protein (hs-CRP), which measures dangerous inflammation in the arteries, and Lipoprotein(a), a genetic lipid particle highly associated with early heart disease.\n\nBy looking beyond basic cholesterol, we provide cardiologists with a comprehensive picture of your cardiovascular health, allowing for truly preventative, personalized heart care.",
     author: "Dr. Shantakumar Muruda",
     date: "May 28, 2026",
-    image: "/image/slide_heart_health.png"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
   },
   {
     id: "blog-5",
@@ -253,7 +253,7 @@ const defaultBlogs = [
     content: "Passing a kidney stone is often described as one of the most painful experiences a person can endure. Unfortunately, if you've had one stone, you are highly likely to develop another. The key to prevention lies in understanding exactly what the stone is made of.\n\nQXL Diagnostics offers advanced Kidney Stone Analysis. If you catch a passed stone, our lab can determine its chemical composition—whether it's calcium oxalate, uric acid, struvite, or cystine.\n\nCoupled with our 24-hour urine metabolic workup and serum kidney function tests, this analysis allows your urologist to prescribe specific dietary changes and medications that effectively stop new stones from forming.",
     author: "Dr. Naveen Kumar N",
     date: "May 15, 2026",
-    image: "/image/slide_liver_kidney.png"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
   },
   {
     id: "blog-6",
@@ -298,7 +298,7 @@ const defaultBlogs = [
     content: "In an era of automated healthcare, it is easy to assume that a blood test is simply a machine printing out numbers. However, context is everything in medicine.\n\nAt QXL Diagnostics, we mandate that all critical and specialized reports are reviewed by our panel of senior medical consultants before they reach your doctor. Our experts look for subtle discrepancies, correlate findings across different tests, and add clinical interpretation notes that guide treatment.\n\nWhen a borderline result could mean the difference between a cancer diagnosis and a benign condition, the trained eye of an expert pathologist is irreplaceable. This is our commitment to precision care.",
     author: "Dr. Naveen Kumar N",
     date: "March 10, 2026",
-    image: "/image/dr_shantakumar_v4.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg"
   },
   {
     id: "blog-11",
@@ -316,7 +316,7 @@ const defaultBlogs = [
     content: "With diagnostic centers on every corner, choosing the best super speciality lab in Bangalore can be challenging. Key factors to look for include NABL certification, automated analytical platforms, trained phlebotomists for home blood collection, and, most importantly, on-site expert consultant reviews. QXL Diagnostics check all these boxes. We are equipped with Beckman Coulter chemistry lines, Sysmex hematology tracks, and specialized molecular diagnostics equipment. Moreover, every critical report undergoes review by our panel of MD Pathologists and Biochemists. This ensures that you don't just get numbers, but accurate, clinically verified answers for your health.",
     author: "Dr. Naveen Kumar N",
     date: "February 18, 2026",
-    image: "/image/dr_shantakumar_v4.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg"
   },
   {
     id: "blog-13",
@@ -332,7 +332,7 @@ const defaultBlogs = [
 const defaultSettings = {
   siteName: "QXL Diagnostics",
   logoText: "QXL",
-  logoImage: "/image/Logo (1).png",
+  logoImage: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   contactPhone: "+91 99646 39639",
   supportEmail: "qxldiagnostics@gmail.com",
   hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
@@ -371,11 +371,11 @@ export const cmsStore = {
           let healed = false;
           const healedDocs = parsed.map((doc: any) => {
             if (doc.image && (doc.image.includes("dr_pritilata_latest.jpg") || doc.image.includes("dr_pritilata_latest_bak.jpg") || doc.image.includes("dr_pritilata_v3.jpg"))) {
-              doc.image = "/image/dr_pritilata_v4.jpg";
+              doc.image = "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png";
               healed = true;
             }
             if (doc.image && (doc.image.includes("dr_shantakumar_latest.jpg") || doc.image.includes("dr_shantakumar_latest_bak.jpg") || doc.image.includes("dr_shantakumar_v3.jpg"))) {
-              doc.image = "/image/dr_shantakumar_v4.jpg";
+              doc.image = "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg";
               healed = true;
             }
             return doc;
@@ -423,9 +423,9 @@ export const cmsStore = {
           const parsed = JSON.parse(data);
           let healed = false;
           const healedBanners = parsed.map((b: any) => {
-            if (b.image === "/image/food_intolerance_banner.png" || b.id === "banner-1") {
-              if (b.image !== "/image/food_intolerance_banner.jpg" || b.bgFrom !== "#06558f" || b.bgTo !== "#128bc7") {
-                b.image = "/image/food_intolerance_banner.jpg";
+            if (b.image === "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg" || b.id === "banner-1") {
+              if (b.image !== "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg" || b.bgFrom !== "#06558f" || b.bgTo !== "#128bc7") {
+                b.image = "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg";
                 b.bgFrom = "#06558f";
                 b.bgTo = "#128bc7";
                 healed = true;

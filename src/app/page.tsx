@@ -21,7 +21,7 @@ const whySlides = [
     titleAccent: "Panel",
     highlight: "Calcium · Phosphorus · Vitamin D · ALP",
     sub: "Detect osteoporosis, fracture risk, and bone density issues early with a targeted bone health assessment.",
-    image: "/image/slide_vitamin_bone_new.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150385/Assets-QXL/legacy-assets/image/slide_vitamin_bone_new.jpg",
     imgBg: "#E8F5E9",
   },
   {
@@ -30,7 +30,7 @@ const whySlides = [
     titleAccent: "Heart Risk Assessment",
     highlight: "Lipids · hs-CRP · NT-proBNP · Homocysteine",
     sub: "Comprehensive cardiac risk profiling — covering lipid disorders, inflammation markers, and heart stress indicators.",
-    image: "/image/nurse_bp_check.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150215/Assets-QXL/legacy-assets/image/nurse_bp_check.png",
     imgBg: "#E3F2FD",
   },
   {
@@ -39,7 +39,7 @@ const whySlides = [
     titleAccent: "Hormone & Thyroid Panel",
     highlight: "TSH · T3 · T4 · Cortisol · Insulin",
     sub: "Full hormonal mapping including thyroid, adrenal, and metabolic hormones — essential for energy and wellness.",
-    image: "/image/slide_thyroid_test.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150380/Assets-QXL/legacy-assets/image/slide_thyroid_test.jpg",
     imgBg: "#E8EAF6",
   },
   {
@@ -48,7 +48,7 @@ const whySlides = [
     titleAccent: "Gut & Liver Panel",
     highlight: "H.pylori · Liver Function · Calprotectin",
     sub: "Identify digestive disorders, liver disease, gut infections, and inflammation from a single comprehensive profile.",
-    image: "/image/gastro_consult.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150203/Assets-QXL/legacy-assets/image/gastro_consult.png",
     imgBg: "#FFF8E1",
   },
   {
@@ -57,7 +57,7 @@ const whySlides = [
     titleAccent: "Complete Blood Analysis",
     highlight: "CBC · ESR · Iron Studies · Peripheral Smear",
     sub: "Detect anaemia, blood cell disorders, clotting abnormalities, and infection through a detailed blood workup.",
-    image: "/image/slide_blood_test.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
     imgBg: "#FCE4EC",
   },
   {
@@ -66,7 +66,7 @@ const whySlides = [
     titleAccent: "Immunity & Infection Panel",
     highlight: "Fever Panel · Dengue · Typhoid · Covid · HIV",
     sub: "From common viral fever to complex infections — early identification for fast, targeted treatment.",
-    image: "/image/slide_immunity_test_new.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg",
     imgBg: "#E0F7FA",
   },
   {
@@ -75,7 +75,7 @@ const whySlides = [
     titleAccent: "Cancer Marker Screening",
     highlight: "AFP · CEA · PSA · CA-125 · CA-19.9",
     sub: "Early cancer marker screening across multiple organs — giving you the best chance for timely intervention.",
-    image: "/image/doctor_patient_consult.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
     imgBg: "#EDE7F6",
   },
   {
@@ -84,7 +84,7 @@ const whySlides = [
     titleAccent: "Brain & Nerve Health",
     highlight: "Homocysteine · B12 · Thyroid · Vitamin D",
     sub: "Nutritional and metabolic factors that drive neurological disorders — identified and addressed proactively.",
-    image: "/image/senior_bp_check.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150236/Assets-QXL/legacy-assets/image/senior_bp_check.png",
     imgBg: "#E8F5E9",
   },
   {
@@ -93,7 +93,7 @@ const whySlides = [
     titleAccent: "Kidney & Urinary Panel",
     highlight: "Creatinine · Urea · BUN · Urine Microscopy",
     sub: "Monitor kidney function, detect urinary tract infections, and assess renal health through precise biomarkers.",
-    image: "/image/doctor_smiling.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150124/Assets-QXL/legacy-assets/image/doctor_smiling.png",
     imgBg: "#E3F2FD",
   },
   {
@@ -102,7 +102,7 @@ const whySlides = [
     titleAccent: "Complete Wellness Panel",
     highlight: "FSH · LH · AMH · Thyroid · CBC · Vit D",
     sub: "From fertility and hormonal health to thyroid and nutrition — a dedicated panel designed for every woman's body.",
-    image: "/image/female_doctor_consult.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150185/Assets-QXL/legacy-assets/image/female_doctor_consult.jpg",
     imgBg: "#FCE4EC",
   },
 ];
@@ -226,7 +226,7 @@ const promoSlides = [
     desc: "A fast, comprehensive metabolic & organ function panel covering blood sugar, lipids, liver, kidney, thyroid and more.",
     includes: ["FBS, HbA1c, eAG, Insulin, HOMA IR", "Lipid Profile, Liver & Kidney Function", "TSH, Vitamin D, CBC, ESR", "Urine Routine & Microscopy"],
     tests: "16+ Tests",
-    image: "/image/family_clinic_consult.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
     imgBg: "#E3F2FD",
     ctaLink: "/packages",
   },
@@ -238,7 +238,7 @@ const promoSlides = [
     desc: "Advanced diabetes monitoring with kidney microalbumin, C-Peptide, and comprehensive metabolic markers.",
     includes: ["FBS, HbA1c, eAG, C-Peptide", "Urine Microalbumin, Protein/Creatinine", "Lipid Profile, Liver & Kidney Function", "TSH, CBC, ESR, Urine Routine"],
     tests: "18+ Tests",
-    image: "/image/home_blood_draw.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
     imgBg: "#E8F5E9",
     ctaLink: "/packages",
   },
@@ -250,7 +250,7 @@ const promoSlides = [
     desc: "Our premium all-in-one health package covering metabolic, cardiac, hormonal, nutritional and inflammatory markers.",
     includes: ["FBS, HbA1c, Lipid + Apo Panel", "Full Thyroid (T3, T4, TSH), Vit D & B12", "Kidney Screen (7 markers), LFT", "H.pylori IgG, hs-CRP, CBC, ESR"],
     tests: "25+ Tests",
-    image: "/image/medical_team_group.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
     imgBg: "#EDE7F6",
     ctaLink: "/packages",
   },
@@ -262,7 +262,7 @@ const promoSlides = [
     desc: "Comprehensive cancer marker panel for early detection across multiple organs, plus blood and stool analysis.",
     includes: ["AFP, CEA, Beta HCG, PSA (Male)", "CA-125 (Female), CA-19.9", "CBC, ESR, Urine Routine", "Calprotectin, FOBT, Protein Electrophoresis"],
     tests: "12+ Markers",
-    image: "/image/doctor_patient_consult.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
     imgBg: "#E8EAF6",
     ctaLink: "/packages",
   },
@@ -274,7 +274,7 @@ const promoSlides = [
     desc: "Targets arthritis, autoimmune and hormonal markers — comprehensive joint and immune function assessment.",
     includes: ["RF, Anti-CCP, ANA Autoimmune Tests", "Bone Health: Calcium, Phosphorus, Vit D", "Iron Studies, Thyroid, DHEA-S, Cortisol", "Lipid, LFT, KFT, CBC, ESR"],
     tests: "30+ Tests",
-    image: "/image/elderly_bp_check.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150166/Assets-QXL/legacy-assets/image/elderly_bp_check.jpg",
     imgBg: "#E3F2FD",
     ctaLink: "/packages",
   },
@@ -286,7 +286,7 @@ const promoSlides = [
     desc: "Advanced cardiovascular risk profiling with inflammation, clotting, heart stress and metabolic biomarkers.",
     includes: ["Lipid + Apo Panel, Lipoprotein(a), hs-CRP", "Fibrinogen, Homocysteine, NT-proBNP", "Kidney Screen, Thyroid (T3, T4, TSH)", "Cortisol, Magnesium, Insulin, CBC"],
     tests: "22+ Tests",
-    image: "/image/doctor_patient_consult.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
     imgBg: "#E8F5E9",
     ctaLink: "/packages",
   },
@@ -607,7 +607,7 @@ export default function Home() {
       ctaLink: "/franchise",
       ctaSecondary: "Contact Us",
       ctaSecondaryLink: "/contact",
-      image: "/image/user_male_professional.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150478/Assets-QXL/legacy-assets/image/user_male_professional.jpg",
       imageFit: "cover",
       bgFrom: "#f0fdf4",
       bgTo: "#dcfce7",
@@ -624,7 +624,7 @@ export default function Home() {
       ctaLink: "/book",
       ctaSecondary: "Our Specialities",
       ctaSecondaryLink: "/speciality-tests",
-      image: "/image/user_female_microscope.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg",
       imageFit: "cover",
       bgFrom: "#eff6ff",
       bgTo: "#dbeafe",
@@ -641,7 +641,7 @@ export default function Home() {
       ctaLink: "/book",
       ctaSecondary: "Our Specialities",
       ctaSecondaryLink: "/specialities",
-      image: "/image/doctor_smiling.png",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150124/Assets-QXL/legacy-assets/image/doctor_smiling.png",
       imageFit: "cover",
       bgFrom: "#eff6ff",
       bgTo: "#dbeafe",
@@ -658,7 +658,7 @@ export default function Home() {
       ctaLink: "/book",
       ctaSecondary: "Learn More",
       ctaSecondaryLink: "/packages",
-      image: "/image/family_clinic_consult.png",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
       imageFit: "cover",
       bgFrom: "#f0f9ff",
       bgTo: "#e0f2fe",
@@ -675,7 +675,7 @@ export default function Home() {
       ctaLink: "/book",
       ctaSecondary: "View Package",
       ctaSecondaryLink: "/packages",
-      image: "/image/doctor_patient_consult.png",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
       imageFit: "cover",
       bgFrom: "#dbeafe",
       bgTo: "#eff6ff",
@@ -692,7 +692,7 @@ export default function Home() {
       ctaLink: "/franchise",
       ctaSecondary: "Learn More",
       ctaSecondaryLink: "/about",
-      image: "/image/franchise_partner_indian.png",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150198/Assets-QXL/legacy-assets/image/franchise_partner_indian.jpg",
       imageFit: "cover",
       bgFrom: "#f0f9ff",
       bgTo: "#e0f2fe",
@@ -709,7 +709,7 @@ export default function Home() {
       ctaLink: "/book",
       ctaSecondary: "Share with Friend",
       ctaSecondaryLink: "#",
-      image: "/image/happy_couple_phone.png",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150205/Assets-QXL/legacy-assets/image/happy_couple_phone.jpg",
       imageFit: "cover",
       bgFrom: "#dbeafe",
       bgTo: "#eff6ff",
@@ -726,7 +726,7 @@ export default function Home() {
       ctaLink: "/book",
       ctaSecondary: "Reports in 6 hours",
       ctaSecondaryLink: "/packages",
-      image: "/image/medical_team_group.png",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
       imageFit: "cover",
       bgFrom: "#eff6ff",
       bgTo: "#e0f2fe",
@@ -762,12 +762,12 @@ export default function Home() {
   const activeSlide = slides[currentSlide];
 
   const bodyOrgans = [
-    { name: "Heart", image: "/image/cardiology.png" },
-    { name: "Thyroid", image: "/image/spec_endocrinology.png" },
-    { name: "Liver", image: "/image/spec_gastro.png" },
-    { name: "Bone & Joint", image: "/image/bone_disorders.png" },
-    { name: "Infertility", image: "/image/spec_womens.png" },
-    { name: "Kidney", image: "/image/spec_urology.png" },
+    { name: "Heart", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150111/Assets-QXL/legacy-assets/image/cardiology.jpg" },
+    { name: "Thyroid", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png" },
+    { name: "Liver", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png" },
+    { name: "Bone & Joint", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150107/Assets-QXL/legacy-assets/image/bone_disorders.jpg" },
+    { name: "Infertility", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png" },
+    { name: "Kidney", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png" },
   ];
 
   return (
@@ -1031,16 +1031,16 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5">
               {[
-                { title: "NEUROLOGY", href: "/specialities/neurology", icon: "/image/spec_neurology.png" },
-                { title: "HEMATOLOGY", href: "/specialities/hematology", icon: "/image/spec_hematology.png" },
-                { title: "CARDIOLOGY", href: "/specialities/cardiology", icon: "/image/spec_cardiology.png" },
-                { title: "UROLOGY", href: "/specialities/urology", icon: "/image/spec_urology.png" },
-                { title: "ENDOCRINOLOGY", href: "/specialities/endocrinology", icon: "/image/spec_endocrinology.png" },
-                { title: "ONCOLOGY", href: "/specialities/oncology", icon: "/image/spec_oncology.png" },
-                { title: "INFECTIOUS DISEASES", href: "/specialities/infectious-diseases", icon: "/image/spec_infectious.png" },
-                { title: "WOMEN'S HEALTH", href: "/specialities/womens-health", icon: "/image/spec_womens.png" },
-                { title: "GASTROENTEROLOGY", href: "/specialities/gastroenterology", icon: "/image/spec_gastro.png" },
-                { title: "BONE DISORDERS", href: "/specialities/bone-disorders", icon: "/image/spec_bone.png" },
+                { title: "NEUROLOGY", href: "/specialities/neurology", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png" },
+                { title: "HEMATOLOGY", href: "/specialities/hematology", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150417/Assets-QXL/legacy-assets/image/spec_hematology.png" },
+                { title: "CARDIOLOGY", href: "/specialities/cardiology", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png" },
+                { title: "UROLOGY", href: "/specialities/urology", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png" },
+                { title: "ENDOCRINOLOGY", href: "/specialities/endocrinology", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png" },
+                { title: "ONCOLOGY", href: "/specialities/oncology", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150430/Assets-QXL/legacy-assets/image/spec_oncology.png" },
+                { title: "INFECTIOUS DISEASES", href: "/specialities/infectious-diseases", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150422/Assets-QXL/legacy-assets/image/spec_infectious.png" },
+                { title: "WOMEN'S HEALTH", href: "/specialities/womens-health", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png" },
+                { title: "GASTROENTEROLOGY", href: "/specialities/gastroenterology", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png" },
+                { title: "BONE DISORDERS", href: "/specialities/bone-disorders", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150389/Assets-QXL/legacy-assets/image/spec_bone.png" },
               ].map((s, idx) => (
                 <motion.div
                   key={s.title}
@@ -1097,10 +1097,10 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "/image/dr_shantakumar_v4.jpg" },
-                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "/image/dr_pritilata_v4.jpg" },
-                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "/image/dr_ajitha_latest.jpg" },
-                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "/image/dr_naveen_latest.jpg" },
+                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
+                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
+                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
+                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
               ].map((doc: any) => (
                 <div key={doc.name} className="bg-white rounded-2xl overflow-hidden flex flex-col items-center p-4 text-center group border border-gray-100 hover:shadow-lg transition-all hover:border-[#2563eb]/20">
                   <div className="w-56 h-56 rounded-2xl overflow-hidden mb-4 bg-[#f8fafc] flex items-center justify-center border border-gray-100">
@@ -1424,16 +1424,16 @@ export default function Home() {
           </div>
           <div className="flex flex-col divide-y divide-gray-100 px-4 pb-4">
             {[
-              { title: "Neurology", desc: "Brain & Nervous System", icon: "/image/spec_neurology.png", href: "/specialities/neurology" },
-              { title: "Hematology", desc: "Blood Disorders & CBC", icon: "/image/spec_hematology.png", href: "/specialities/hematology" },
-              { title: "Cardiology", desc: "Heart & Cardiovascular", icon: "/image/spec_cardiology.png", href: "/specialities/cardiology" },
-              { title: "Urology", desc: "Kidney & Urinary Health", icon: "/image/spec_urology.png", href: "/specialities/urology" },
-              { title: "Endocrinology", desc: "Thyroid, Diabetes & Hormones", icon: "/image/spec_endocrinology.png", href: "/specialities/endocrinology" },
-              { title: "Oncology", desc: "Cancer Markers & Screening", icon: "/image/spec_oncology.png", href: "/specialities/oncology" },
-              { title: "Infectious Diseases", desc: "Viral, Bacterial & Fungal", icon: "/image/spec_infectious.png", href: "/specialities/infectious-diseases" },
-              { title: "Women's Health", desc: "Gynaecology & Fertility", icon: "/image/spec_womens.png", href: "/specialities/womens-health" },
-              { title: "Gastroenterology", desc: "Liver, Gut & Digestive", icon: "/image/spec_gastro.png", href: "/specialities/gastroenterology" },
-              { title: "Bone Disorders", desc: "Calcium, Vitamin D & Joints", icon: "/image/spec_bone.png", href: "/specialities/bone-disorders" },
+              { title: "Neurology", desc: "Brain & Nervous System", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png", href: "/specialities/neurology" },
+              { title: "Hematology", desc: "Blood Disorders & CBC", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150417/Assets-QXL/legacy-assets/image/spec_hematology.png", href: "/specialities/hematology" },
+              { title: "Cardiology", desc: "Heart & Cardiovascular", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png", href: "/specialities/cardiology" },
+              { title: "Urology", desc: "Kidney & Urinary Health", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png", href: "/specialities/urology" },
+              { title: "Endocrinology", desc: "Thyroid, Diabetes & Hormones", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png", href: "/specialities/endocrinology" },
+              { title: "Oncology", desc: "Cancer Markers & Screening", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150430/Assets-QXL/legacy-assets/image/spec_oncology.png", href: "/specialities/oncology" },
+              { title: "Infectious Diseases", desc: "Viral, Bacterial & Fungal", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150422/Assets-QXL/legacy-assets/image/spec_infectious.png", href: "/specialities/infectious-diseases" },
+              { title: "Women's Health", desc: "Gynaecology & Fertility", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png", href: "/specialities/womens-health" },
+              { title: "Gastroenterology", desc: "Liver, Gut & Digestive", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png", href: "/specialities/gastroenterology" },
+              { title: "Bone Disorders", desc: "Calcium, Vitamin D & Joints", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150389/Assets-QXL/legacy-assets/image/spec_bone.png", href: "/specialities/bone-disorders" },
             ].map((spec, i) => (
               <Link
                 key={i}
@@ -1486,10 +1486,10 @@ export default function Home() {
             </div>
             <div className="flex overflow-x-auto gap-4 scrollbar-none pb-4 snap-x snap-mandatory">
               {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "/image/dr_shantakumar_v4.jpg" },
-                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "/image/dr_pritilata_v4.jpg" },
-                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "/image/dr_ajitha_latest.jpg" },
-                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "/image/dr_naveen_latest.jpg" },
+                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
+                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
+                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
+                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
               ].map((doc) => (
                 <div key={doc.name} className="w-[180px] bg-white rounded-2xl overflow-hidden flex flex-col items-center p-3 text-center border border-gray-100 shadow-sm flex-shrink-0 snap-start">
                   <div className="w-36 h-36 rounded-xl overflow-hidden mb-3 bg-[#f8fafc] flex items-center justify-center">

@@ -75,6 +75,7 @@ export interface Center {
   is_nabl: boolean;
   is_active: boolean;
   sort_order: number;
+  image_url: string | null;
 }
 
 export interface HealthPackage {
@@ -95,6 +96,7 @@ export interface HealthPackage {
   is_active: boolean;
   home_collection_available: boolean;
   sort_order: number;
+  image_url: string | null;
 }
 
 export interface TestCatalogItem {
@@ -108,6 +110,7 @@ export interface TestCatalogItem {
   turnaround_hours: number | null;
   is_active: boolean;
   home_collection_available: boolean;
+  image_url: string | null;
 }
 
 export interface Booking {
@@ -174,6 +177,7 @@ export interface CenterCreate {
   is_nabl?: boolean;
   is_active?: boolean;
   sort_order?: number;
+  image_url?: string | null;
 }
 export type CenterUpdate = Partial<CenterCreate>;
 
@@ -194,6 +198,7 @@ export interface HealthPackageCreate {
   is_active?: boolean;
   home_collection_available?: boolean;
   sort_order?: number;
+  image_url?: string | null;
 }
 export type HealthPackageUpdate = Partial<Omit<HealthPackageCreate, 'slug'>>;
 
@@ -207,6 +212,7 @@ export interface TestCatalogCreate {
   turnaround_hours?: number | null;
   is_active?: boolean;
   home_collection_available?: boolean;
+  image_url?: string | null;
 }
 export type TestCatalogUpdate = Partial<Omit<TestCatalogCreate, 'slug'>>;
 
@@ -443,6 +449,24 @@ export interface ReviewCreate {
 }
 export type ReviewUpdate = Partial<ReviewCreate>;
 
+export interface GalleryItem {
+  id: string;
+  title: string;
+  image_url: string;
+  category: string | null;
+  is_active: boolean;
+  sort_order: number;
+}
+
+export interface GalleryItemCreate {
+  title: string;
+  image_url: string;
+  category?: string | null;
+  is_active?: boolean;
+  sort_order?: number;
+}
+export type GalleryItemUpdate = Partial<GalleryItemCreate>;
+
 export interface CollaborationLeadCreate {
   name: string;
   phone: string;
@@ -632,6 +656,14 @@ export const api = {
     create: (data: ReviewCreate) => post<ReviewItem>('/reviews', data),
     update: (id: string, data: ReviewUpdate) => patch<ReviewItem>(`/reviews/${id}`, data),
     remove: (id: string) => del<void>(`/reviews/${id}`),
+  },
+  gallery: {
+    list: () => get<{ items: GalleryItem[]; count: number }>('/gallery'),
+    adminList: (limit = 100, offset = 0) =>
+      get<{ items: GalleryItem[]; count: number }>(`/gallery/admin?limit=${limit}&offset=${offset}`),
+    create: (data: GalleryItemCreate) => post<GalleryItem>('/gallery', data),
+    update: (id: string, data: GalleryItemUpdate) => patch<GalleryItem>(`/gallery/${id}`, data),
+    remove: (id: string) => del<void>(`/gallery/${id}`),
   },
   leads: {
     collaboration: (data: CollaborationLeadCreate) => post('/leads/collaboration', data),

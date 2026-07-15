@@ -9,7 +9,7 @@ export default function Footer() {
   const [settings, setSettings] = useState<any>({
     siteName: "QXL Diagnostics",
     logoText: "QXL",
-    logoImage: "/image/Logo (1).png",
+    logoImage: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
     contactPhone: "+91 99646 39639",
     supportEmail: "qxldiagnostics@gmail.com",
     hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
@@ -51,7 +51,7 @@ export default function Footer() {
           <div>
             <div className="bg-white p-2 rounded-xl inline-block mb-5 shadow-lg">
               <img
-                src={settings.logoImage || "/image/Logo (1).png"}
+                src={settings.logoImage || "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"}
                 alt={`${settings.siteName || "QXL"} Logo`}
                 className="h-14 w-auto object-contain"
                 onError={(e) => {
@@ -70,7 +70,7 @@ export default function Footer() {
             {/* Certifications / Badges */}
             <div className="flex items-center gap-5 bg-white py-3 px-5 rounded-2xl max-w-fit shadow-lg mt-2">
                <img 
-                 src="/image/nabl.png" 
+                 src="https://res.cloudinary.com/btjglif5/image/upload/v1784150212/Assets-QXL/legacy-assets/image/nabl.png" 
                  alt="NABL Accredited and ISO Certified" 
                  className="h-16 w-auto object-contain"
                />

@@ -7,17 +7,17 @@ export default function FounderPage() {
   const [activeSlide, setActiveSlide] = useState(0);
   const slides = [
     {
-      image: "/image/team_panoramic_2.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150467/Assets-QXL/legacy-assets/image/team_panoramic_2.jpg",
       title: "Our Expert Medical Team",
       desc: "Combining over four decades of diagnostic expertise in Pathology, Microbiology, and Biochemistry."
     },
     {
-      image: "/image/team_panoramic_1.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150465/Assets-QXL/legacy-assets/image/team_panoramic_1.jpg",
       title: "State-of-the-Art Laboratory",
       desc: "Working with high-end molecular platforms, automated analysers, and advanced technology to ensure precision."
     },
     {
-      image: "/image/team_medical_board.png",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150462/Assets-QXL/legacy-assets/image/team_medical_board.png",
       title: "QXL Medical Review Board",
       desc: "Every diagnostic report is meticulously reviewed and certified by our panel of expert consultants."
     }
@@ -28,7 +28,7 @@ export default function FounderPage() {
       name: "Dr. Shantakumar Muruda",
       role: "Founder & CEO",
       qualification: "MD (BIOCHEMISTRY)",
-      image: "/image/dr_shantakumar_v4.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg",
       experience: "Over 20 years",
       expertise: "Clinical Biochemistry, Laboratory Operations, Hospital establishment and Management, Diabetology",
       achievements: "NABL Lead Assessor (150+ assessments), PHFI-certified Diabetologist.",
@@ -39,7 +39,7 @@ export default function FounderPage() {
       name: "Dr. Ajitha Pillai",
       role: "Senior Consultant",
       qualification: "MD (MICROBIOLOGY)",
-      image: "/image/dr_ajitha_latest.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg",
       experience: "20+ years",
       expertise: "Clinical Microbiology, Molecular Biology, Infectious and Autoimmune Serology",
       achievements: "Head of Microbiology, Molecular Biology, Immunology, Serology and Infection control to premium tertiary care hospitals in Bengaluru.",
@@ -50,7 +50,7 @@ export default function FounderPage() {
       name: "Dr. Pritilata Rout",
       role: "Senior Consultant Histopathologist",
       qualification: "MD (PATHOLOGY), PDF (NEUROPATH)",
-      image: "/image/dr_pritilata_v4.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png",
       experience: "28+ years (Since 1996)",
       expertise: "Neuropathology, Epilepsy Pathology, Cytopathology, Onco-Pathology",
       achievements: "Post-doctoral fellowship in Neuropathology from the prestigious NIMHANS (2001).",
@@ -61,7 +61,7 @@ export default function FounderPage() {
       name: "Dr. Naveen Kumar N",
       role: "Consultant Pathologist",
       qualification: "DCP, DNB (PATHOLOGY)",
-      image: "/image/dr_naveen_latest.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg",
       experience: "10+ years",
       expertise: "Pathology, Histopathology, Hematology, Laboratory Quality Management",
       achievements: "Pivotal role in continuous NABL certification maintenance.",

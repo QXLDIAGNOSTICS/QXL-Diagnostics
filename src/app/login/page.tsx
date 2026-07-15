@@ -41,7 +41,7 @@ function LoginPageInner() {
       <div className="w-full max-w-140 bg-white border border-gray-150 rounded-3xl p-8 shadow-[0_4px_25px_rgba(0,0,0,0.02)]">
         <div className="text-center mb-6">
           <img
-            src="/image/Logo (1).png"
+            src="https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"
             alt="QXL Diagnostics Logo"
             className="h-12 mx-auto mb-4 object-contain"
           />

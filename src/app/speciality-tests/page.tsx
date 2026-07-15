@@ -7,7 +7,7 @@ const specialities = [
   {
     id: "neurology",
     title: "NEUROLOGY",
-    icon: "/image/spec_neurology.png",
+    icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png",
     color: "#2563eb",
     description:
       "Advanced neurology diagnostic panels covering brain, spinal cord, peripheral nerve, and autoimmune neurological conditions. Our tests support early detection of dementia, encephalitis, multiple sclerosis, myasthenia gravis, and paraneoplastic syndromes.",
@@ -35,7 +35,7 @@ const specialities = [
   {
     id: "hematology",
     title: "HEMATOLOGY",
-    icon: "/image/spec_hematology.png",
+    icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150417/Assets-QXL/legacy-assets/image/spec_hematology.png",
     color: "#c0392b",
     description:
       "Complete blood disorder diagnostics including advanced coagulation studies, bone marrow assessments, hemoglobin electrophoresis, and specialised hematological panels for accurate diagnosis and monitoring of anaemia, thrombosis, bleeding disorders, and haematological malignancies.",
@@ -63,7 +63,7 @@ const specialities = [
   {
     id: "cardiology",
     title: "CARDIOLOGY",
-    icon: "/image/spec_cardiology.png",
+    icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png",
     color: "#e74c3c",
     description:
       "Advanced cardiac risk profiling and biomarker testing for detection and monitoring of heart disease, atherosclerosis, heart failure, and acute myocardial infarction. Our comprehensive cardiology panel goes beyond routine lipids to include inflammation markers, cardiac stress biomarkers, and advanced lipid sub-fractions.",
@@ -91,7 +91,7 @@ const specialities = [
   {
     id: "urology",
     title: "UROLOGY",
-    icon: "/image/spec_urology.png",
+    icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png",
     color: "#2980b9",
     description:
       "Comprehensive urological diagnostics including kidney function assessment, prostate health markers, urinary tract infection panels, kidney stone analysis, and glomerulonephritis workup. Our urology panel supports early detection of chronic kidney disease, prostate disorders, and metabolic stone disease.",
@@ -119,7 +119,7 @@ const specialities = [
   {
     id: "endocrinology",
     title: "ENDOCRINOLOGY",
-    icon: "/image/spec_endocrinology.png",
+    icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png",
     color: "#8e44ad",
     description:
       "Advanced hormonal and metabolic testing for thyroid, adrenal, pituitary, and reproductive endocrine disorders. Comprehensive panels for diabetes monitoring, PCOS evaluation, fertility hormone profiling, metabolic syndrome, and insulin resistance. Including AMH, FSH, LH, Prolactin, Estradiol, Testosterone, Cortisol and more.",
@@ -147,7 +147,7 @@ const specialities = [
   {
     id: "oncology",
     title: "ONCOLOGY",
-    icon: "/image/spec_oncology.png",
+    icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150430/Assets-QXL/legacy-assets/image/spec_oncology.png",
     color: "#16a085",
     description:
       "Comprehensive cancer biomarker panels for early detection support, treatment monitoring, and surveillance. Includes histopathology, cytopathology, immunohistochemistry (IHC), and molecular oncology support. Note: Tumor markers assist clinical decisions — diagnosis requires correlation with imaging, biopsy, and clinical history.",
@@ -175,7 +175,7 @@ const specialities = [
   {
     id: "infectious-diseases",
     title: "INFECTIOUS DISEASES",
-    icon: "/image/spec_infectious.png",
+    icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150422/Assets-QXL/legacy-assets/image/spec_infectious.png",
     color: "#d35400",
     description:
       "Advanced molecular and serological testing for infectious diseases using FilmArray Multiplex PCR, CB-NAAT for TB, BACT/ALERT blood culture, VITEK antimicrobial susceptibility testing, and next-generation immunoassays. Rapid and accurate identification of bacterial, viral, fungal and parasitic pathogens.",
@@ -203,7 +203,7 @@ const specialities = [
   {
     id: "womens-health",
     title: "WOMEN'S HEALTH",
-    icon: "/image/spec_womens.png",
+    icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png",
     color: "#e91e8c",
     description:
       "Specialised diagnostic panels addressing the unique health needs of women across all life stages — from fertility evaluation, PCOS workup, antenatal screening, and pregnancy monitoring, to menopause assessment, thyroid health, hormonal profiling, and cervical cancer prevention.",
@@ -231,7 +231,7 @@ const specialities = [
   {
     id: "gastroenterology",
     title: "GASTROENTEROLOGY",
-    icon: "/image/spec_gastro.png",
+    icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png",
     color: "#27ae60",
     description:
       "Advanced hepatology and gastroenterology panels for liver disease, inflammatory bowel disease, celiac disease, malabsorption, gastrointestinal infections, and GI cancer surveillance. Includes H. pylori testing, stool antigen, fecal calprotectin, bile acids, and comprehensive hepatitis screening.",
@@ -259,7 +259,7 @@ const specialities = [
   {
     id: "bone-disorders",
     title: "BONE DISORDERS",
-    icon: "/image/spec_bone.png",
+    icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150389/Assets-QXL/legacy-assets/image/spec_bone.png",
     color: "#795548",
     description:
       "Comprehensive musculoskeletal, bone metabolism, and rheumatology panels for osteoporosis, arthritis, autoimmune joint disease, and metabolic bone disorders. Includes bone turnover markers, vitamin D, PTH, calcium metabolism, rheumatoid factor, Anti-CCP, ANA, and HLA-B27.",

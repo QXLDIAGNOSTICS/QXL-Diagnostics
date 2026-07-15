@@ -167,7 +167,7 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
               name: "QXL Diagnostics",
               logo: {
                 "@type": "ImageObject",
-                url: "https://qxldiagnostics.com/image/Logo (1).png",
+                url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
               },
             },
             datePublished: new Date(blog.created_at).toISOString(),

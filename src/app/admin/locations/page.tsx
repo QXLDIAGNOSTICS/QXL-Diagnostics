@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { MapPin, Plus, Search, Edit2, Trash2, X, Loader2 } from "lucide-react";
 import { api, type Center } from "@/lib/api";
+import ImageUploadField from "@/components/admin/ImageUploadField";
 
 export default function LocationsAdminPage() {
   const [locations, setLocations] = useState<Center[]>([]);
@@ -21,6 +22,7 @@ export default function LocationsAdminPage() {
   const [hours, setHours] = useState("Mon - Sat: 8:00 AM - 7:00 PM | Sun: Closed");
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   const refreshData = useCallback(async () => {
     setLoading(true);
@@ -48,6 +50,7 @@ export default function LocationsAdminPage() {
     setHours("Mon - Sat: 8:00 AM - 7:00 PM | Sun: Closed");
     setLat("");
     setLng("");
+    setImageUrl("");
     setIsModalOpen(true);
   };
 
@@ -60,6 +63,7 @@ export default function LocationsAdminPage() {
     setHours(loc.hours || "Mon - Sat: 8:00 AM - 7:00 PM | Sun: Closed");
     setLat(loc.lat != null ? String(loc.lat) : "");
     setLng(loc.lng != null ? String(loc.lng) : "");
+    setImageUrl(loc.image_url || "");
     setIsModalOpen(true);
   };
 
@@ -78,6 +82,7 @@ export default function LocationsAdminPage() {
         hours,
         lat: lat ? parseFloat(lat) : null,
         lng: lng ? parseFloat(lng) : null,
+        image_url: imageUrl || null,
       };
 
       if (editingId) {
@@ -208,6 +213,12 @@ export default function LocationsAdminPage() {
             </div>
 
             <form onSubmit={handleSave} className="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
+              <ImageUploadField
+                label="Location Image"
+                value={imageUrl}
+                onChange={setImageUrl}
+                placeholder="Location image URL, or upload a file"
+              />
               <div>
                 <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Location / Hub Name</label>
                 <input 

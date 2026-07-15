@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "res.cloudinary.com" },
+    ],
+  },
   // Next.js's built-in gzip compression buffers streamed responses (Node's
   // zlib doesn't flush per-chunk by default), which breaks real-time SSE
   // delivery for the chat streaming route. Disable it here; in production

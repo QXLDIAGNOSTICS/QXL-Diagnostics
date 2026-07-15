@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Globe, Save, CheckCircle, Navigation, Layout, Info, Plus, Trash2, Edit2, ShieldAlert } from "lucide-react";
 import { cmsStore } from "@/lib/cmsStore";
+import ImageUploadField from "@/components/admin/ImageUploadField";
 
 export default function WebsiteManagementPage() {
   const [settings, setSettings] = useState<any>({
@@ -163,26 +164,18 @@ export default function WebsiteManagementPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5 uppercase">Logo Image URL</label>
-                  <input 
-                    type="text" 
-                    value={settings.logoImage || ""} 
-                    onChange={(e) => handleChange("logoImage", e.target.value)} 
-                    placeholder="/image/Logo (1).png"
-                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1.5 uppercase">Favicon Image URL</label>
-                  <input 
-                    type="text" 
-                    value={settings.faviconImage || ""} 
-                    onChange={(e) => handleChange("faviconImage", e.target.value)} 
-                    placeholder="/favicon.ico"
-                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  />
-                </div>
+                <ImageUploadField
+                  label="Logo Image"
+                  value={settings.logoImage || ""}
+                  onChange={(url) => handleChange("logoImage", url)}
+                  placeholder="Logo image URL, or upload a file"
+                />
+                <ImageUploadField
+                  label="Favicon Image"
+                  value={settings.faviconImage || ""}
+                  onChange={(url) => handleChange("faviconImage", url)}
+                  placeholder="Favicon image URL, or upload a file"
+                />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

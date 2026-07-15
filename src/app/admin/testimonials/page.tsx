@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Star, Plus, Search, Edit2, Trash2, X } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
+import React, { useState, useEffect, useCallback } from "react";
+import { Star, Plus, Search, Edit2, Trash2, X, Loader2 } from "lucide-react";
+import { api, type ReviewItem } from "@/lib/api";
 
 export default function TestimonialsAdminPage() {
-  const [testimonials, setTestimonials] = useState<any[]>([]);
+  const [testimonials, setTestimonials] = useState<ReviewItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -16,14 +19,22 @@ export default function TestimonialsAdminPage() {
   const [feedback, setFeedback] = useState("");
   const [rating, setRating] = useState(5);
 
-  useEffect(() => {
-    const refreshData = () => {
-      setTestimonials(cmsStore.getAll("testimonials"));
-    };
-    refreshData();
-    window.addEventListener("cms-update", refreshData);
-    return () => window.removeEventListener("cms-update", refreshData);
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const { items } = await api.reviews.adminList(200, 0);
+      setTestimonials(items);
+    } catch {
+      setError("Failed to load testimonials.");
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
 
   const openAddModal = () => {
     setEditingId(null);
@@ -34,38 +45,50 @@ export default function TestimonialsAdminPage() {
     setIsModalOpen(true);
   };
 
-  const openEditModal = (t: any) => {
+  const openEditModal = (t: ReviewItem) => {
     setEditingId(t.id);
-    setName(t.name);
-    setRole(t.role);
-    setFeedback(t.feedback);
+    setName(t.author_name);
+    setRole(t.source || "Patient");
+    setFeedback(t.content);
     setRating(t.rating);
     setIsModalOpen(true);
   };
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !feedback) return;
 
-    const payload = { name, role, feedback, rating };
-
-    if (editingId) {
-      cmsStore.updateItem("testimonials", editingId, payload);
-    } else {
-      cmsStore.addItem("testimonials", payload);
+    setSaving(true);
+    setError(null);
+    try {
+      const payload = { author_name: name, source: role, content: feedback, rating };
+      if (editingId) {
+        await api.reviews.update(editingId, payload);
+      } else {
+        await api.reviews.create(payload);
+      }
+      setIsModalOpen(false);
+      await refreshData();
+    } catch {
+      setError("Failed to save the testimonial.");
+    } finally {
+      setSaving(false);
     }
-    setIsModalOpen(false);
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm("Are you sure you want to delete this testimonial?")) {
-      cmsStore.deleteItem("testimonials", id);
+  const handleDelete = async (id: string) => {
+    if (!confirm("Are you sure you want to delete this testimonial?")) return;
+    try {
+      await api.reviews.remove(id);
+      await refreshData();
+    } catch {
+      setError("Failed to delete the testimonial.");
     }
   };
 
   const filtered = testimonials.filter(t =>
-    t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    t.feedback.toLowerCase().includes(searchQuery.toLowerCase())
+    t.author_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    t.content.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -90,6 +113,12 @@ export default function TestimonialsAdminPage() {
         </button>
       </div>
 
+      {error && (
+        <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900 text-red-700 dark:text-red-400 text-sm rounded-lg p-3">
+          {error}
+        </div>
+      )}
+
       {/* Grid */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
         
@@ -107,7 +136,9 @@ export default function TestimonialsAdminPage() {
         </div>
 
         {filtered.length === 0 ? (
-          <div className="p-12 text-center text-gray-400">No testimonials found.</div>
+          <div className="p-12 text-center text-gray-400">
+            {loading ? <Loader2 className="w-6 h-6 animate-spin text-teal-600 mx-auto" /> : "No testimonials found."}
+          </div>
         ) : (
           <div className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((t) => (
@@ -118,13 +149,13 @@ export default function TestimonialsAdminPage() {
                       <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <p className="text-xs text-gray-600 dark:text-gray-350 leading-relaxed font-semibold italic">"{t.feedback}"</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-350 leading-relaxed font-semibold italic">"{t.content}"</p>
                 </div>
 
                 <div className="mt-6 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
                   <div>
-                    <h5 className="font-extrabold text-slate-800 dark:text-white text-xs">{t.name}</h5>
-                    <p className="text-[10px] text-gray-450 dark:text-gray-500 mt-0.5">{t.role}</p>
+                    <h5 className="font-extrabold text-slate-800 dark:text-white text-xs">{t.author_name}</h5>
+                    <p className="text-[10px] text-gray-450 dark:text-gray-500 mt-0.5">{t.source}</p>
                   </div>
 
                   <div className="flex gap-2">
@@ -222,8 +253,10 @@ export default function TestimonialsAdminPage() {
                 </button>
                 <button 
                   type="submit" 
-                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer"
+                  disabled={saving}
+                  className="px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer disabled:opacity-60 flex items-center gap-2"
                 >
+                  {saving && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   Save Testimonial
                 </button>
               </div>

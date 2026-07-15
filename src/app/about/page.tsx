@@ -21,16 +21,16 @@ export default function AboutPage() {
       <section className="w-full relative group">
         <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar">
           <div className="min-w-full flex-none snap-start">
-            <img src="/image/about_banner_final_1.png" alt="Banner 1" className="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover" />
+            <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150040/Assets-QXL/legacy-assets/image/about_banner_final_1.png" alt="Banner 1" className="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover" />
           </div>
           <div className="min-w-full flex-none snap-start">
-            <img src="/image/about_banner_final_2.jpg" alt="Banner 2" className="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover" />
+            <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150042/Assets-QXL/legacy-assets/image/about_banner_final_2.jpg" alt="Banner 2" className="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover" />
           </div>
           <div className="min-w-full flex-none snap-start">
-            <img src="/image/about_banner_final_3.png" alt="Banner 3" className="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover" />
+            <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150045/Assets-QXL/legacy-assets/image/about_banner_final_3.png" alt="Banner 3" className="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover" />
           </div>
           <div className="min-w-full flex-none snap-start">
-            <img src="/image/about_banner_final_4.png" alt="Banner 4" className="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover" />
+            <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150046/Assets-QXL/legacy-assets/image/about_banner_final_4.png" alt="Banner 4" className="w-full h-[300px] md:h-[500px] lg:h-[600px] object-cover" />
           </div>
         </div>
         
@@ -115,10 +115,10 @@ export default function AboutPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
             <div className="rounded-3xl overflow-hidden shadow-sm h-[350px]">
-              <img src="/image/equipment_1.jpg" alt="Lab Technician operating equipment" className="w-full h-full object-cover" />
+              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150168/Assets-QXL/legacy-assets/image/equipment_1.jpg" alt="Lab Technician operating equipment" className="w-full h-full object-cover" />
             </div>
             <div className="rounded-3xl overflow-hidden shadow-sm h-[350px]">
-              <img src="/image/equipment_2.png" alt="Analytical Equipment in use" className="w-full h-full object-cover" />
+              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150172/Assets-QXL/legacy-assets/image/equipment_2.png" alt="Analytical Equipment in use" className="w-full h-full object-cover" />
             </div>
           </div>
           
