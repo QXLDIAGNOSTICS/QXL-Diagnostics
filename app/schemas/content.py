@@ -222,3 +222,36 @@ class ReviewUpdate(BaseModel):
 class ReviewList(BaseModel):
     items: list[ReviewRead]
     count: int
+
+
+# ── Gallery ─────────────────────────────────────────────────────────
+
+class GalleryItemRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: uuid.UUID
+    title: str
+    image_url: str
+    category: str | None = None
+    is_active: bool = True
+    sort_order: int = 0
+
+
+class GalleryItemCreate(BaseModel):
+    title: str
+    image_url: str
+    category: str | None = None
+    is_active: bool = True
+    sort_order: int = 0
+
+
+class GalleryItemUpdate(BaseModel):
+    title: str | None = None
+    image_url: str | None = None
+    category: str | None = None
+    is_active: bool | None = None
+    sort_order: int | None = None
+
+
+class GalleryItemList(BaseModel):
+    items: list[GalleryItemRead]
+    count: int

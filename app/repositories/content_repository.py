@@ -6,7 +6,7 @@ import uuid
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.content import FAQ, Banner, BlogPost, Doctor, Review
+from app.models.content import FAQ, Banner, BlogPost, Doctor, GalleryItem, Review
 
 
 class DoctorRepository:
@@ -246,4 +246,46 @@ class ReviewRepository:
 
     async def delete(self, review: Review) -> None:
         await self.db.delete(review)
+        await self.db.flush()
+
+
+class GalleryItemRepository:
+    def __init__(self, db: AsyncSession) -> None:
+        self.db = db
+
+    async def get_all_active(self) -> list[GalleryItem]:
+        stmt = (
+            select(GalleryItem)
+            .where(GalleryItem.is_active == True)  # noqa: E712
+            .order_by(GalleryItem.sort_order, GalleryItem.created_at.desc())
+        )
+        return list((await self.db.execute(stmt)).scalars().all())
+
+    async def list_all(self, limit: int = 100, offset: int = 0) -> tuple[list[GalleryItem], int]:
+        count = (await self.db.execute(select(func.count()).select_from(GalleryItem))).scalar_one()
+        rows = list(
+            (await self.db.execute(
+                select(GalleryItem).order_by(GalleryItem.sort_order, GalleryItem.created_at.desc()).limit(limit).offset(offset)
+            )).scalars().all()
+        )
+        return rows, count
+
+    async def get_by_id(self, item_id: uuid.UUID) -> GalleryItem | None:
+        return await self.db.get(GalleryItem, item_id)
+
+    async def create(self, **kwargs) -> GalleryItem:  # noqa: ANN003
+        item = GalleryItem(**kwargs)
+        self.db.add(item)
+        await self.db.flush()
+        return item
+
+    async def update(self, item: GalleryItem, **kwargs) -> GalleryItem:  # noqa: ANN003
+        for k, v in kwargs.items():
+            if v is not None:
+                setattr(item, k, v)
+        await self.db.flush()
+        return item
+
+    async def delete(self, item: GalleryItem) -> None:
+        await self.db.delete(item)
         await self.db.flush()

@@ -4,7 +4,7 @@ from __future__ import annotations
 from functools import lru_cache
 from typing import Annotated
 
-from pydantic import Field, field_validator
+from pydantic import Field, field_validator, model_validator
 from pydantic_settings import BaseSettings, NoDecode, SettingsConfigDict
 
 
@@ -91,6 +91,11 @@ class Settings(BaseSettings):
     # Cloudinary — used for public, permanent CMS images (doctor photos, banner
     # art, blog cover images, etc.) uploaded from the admin panel. Supabase
     # storage above stays reserved for private, per-user files (prescriptions).
+    # Either set the three fields below individually, OR set CLOUDINARY_URL to
+    # the single combined value Cloudinary's dashboard shows you
+    # ("cloudinary://<api_key>:<api_secret>@<cloud_name>") — it is parsed
+    # automatically in `_parse_cloudinary_url` below.
+    CLOUDINARY_URL: str = ""
     CLOUDINARY_CLOUD_NAME: str = ""
     CLOUDINARY_API_KEY: str = ""
     CLOUDINARY_API_SECRET: str = ""
@@ -114,6 +119,26 @@ class Settings(BaseSettings):
         if isinstance(v, str):
             return [item.strip() for item in v.split(",") if item.strip()]
         return v
+
+    @model_validator(mode="after")
+    def _parse_cloudinary_url(self) -> "Settings":
+        """Populate CLOUDINARY_CLOUD_NAME/API_KEY/API_SECRET from CLOUDINARY_URL
+        (format: cloudinary://<api_key>:<api_secret>@<cloud_name>) if the
+        individual fields weren't set explicitly.
+        """
+        if self.CLOUDINARY_URL and not (
+            self.CLOUDINARY_CLOUD_NAME and self.CLOUDINARY_API_KEY and self.CLOUDINARY_API_SECRET
+        ):
+            try:
+                without_scheme = self.CLOUDINARY_URL.split("://", 1)[1]
+                creds, cloud_name = without_scheme.split("@", 1)
+                api_key, api_secret = creds.split(":", 1)
+                self.CLOUDINARY_CLOUD_NAME = self.CLOUDINARY_CLOUD_NAME or cloud_name
+                self.CLOUDINARY_API_KEY = self.CLOUDINARY_API_KEY or api_key
+                self.CLOUDINARY_API_SECRET = self.CLOUDINARY_API_SECRET or api_secret
+            except (IndexError, ValueError):
+                pass
+        return self
 
     @property
     def is_production(self) -> bool:

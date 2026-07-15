@@ -18,6 +18,7 @@ class CenterBase(BaseModel):
     is_nabl: bool = False
     is_active: bool = True
     sort_order: int = 0
+    image_url: str | None = None
 
 
 class CenterCreate(CenterBase):
@@ -36,6 +37,7 @@ class CenterUpdate(BaseModel):
     is_nabl: bool | None = None
     is_active: bool | None = None
     sort_order: int | None = None
+    image_url: str | None = None
 
 
 class CenterRead(CenterBase):

@@ -28,6 +28,7 @@ class Center(Base, TimestampMixin):
     is_nabl: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    image_url: Mapped[str | None] = mapped_column(String, nullable=True)
 
     bookings: Mapped[list["Booking"]] = relationship(back_populates="center")  # noqa: F821
 
@@ -57,6 +58,7 @@ class HealthPackage(Base, TimestampMixin):
     # packages require lab-only equipment/collection and are center-visit only.
     home_collection_available: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+    image_url: Mapped[str | None] = mapped_column(String, nullable=True)
 
     bookings: Mapped[list["Booking"]] = relationship(back_populates="package")  # noqa: F821
 
@@ -78,3 +80,4 @@ class TestCatalog(Base, TimestampMixin):
     # Whether this test can be booked for home sample collection (some tests
     # require lab-only equipment/processing and are center-visit only).
     home_collection_available: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    image_url: Mapped[str | None] = mapped_column(String, nullable=True)

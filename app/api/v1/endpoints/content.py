@@ -21,6 +21,10 @@ from app.schemas.content import (
     FAQCreate,
     FAQRead,
     FAQUpdate,
+    GalleryItemCreate,
+    GalleryItemList,
+    GalleryItemRead,
+    GalleryItemUpdate,
     ReviewCreate,
     ReviewList,
     ReviewRead,
@@ -216,3 +220,40 @@ async def update_review(
 @router.delete("/reviews/{review_id}", status_code=204)
 async def delete_review(review_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))) -> None:
     await content_service.delete_review(db, review_id)
+
+
+# ── Gallery ─────────────────────────────────────────────────────────
+
+@router.get("/gallery", response_model=GalleryItemList)
+async def list_gallery_items(db: DbSession) -> GalleryItemList:
+    items = await content_service.list_active_gallery_items(db)
+    return GalleryItemList(items=[GalleryItemRead.model_validate(i) for i in items], count=len(items))
+
+
+@router.get("/gallery/admin", response_model=GalleryItemList)
+async def admin_list_gallery_items(
+    db: DbSession, limit: int = 100, offset: int = 0, user: User = Depends(require_role("admin"))
+) -> GalleryItemList:
+    items, count = await content_service.list_all_gallery_items(db, limit=limit, offset=offset)
+    return GalleryItemList(items=[GalleryItemRead.model_validate(i) for i in items], count=count)
+
+
+@router.post("/gallery", response_model=GalleryItemRead, status_code=201)
+async def create_gallery_item(
+    body: GalleryItemCreate, db: DbSession, user: User = Depends(require_role("admin"))
+) -> GalleryItemRead:
+    item = await content_service.create_gallery_item(db, body.model_dump())
+    return GalleryItemRead.model_validate(item)
+
+
+@router.patch("/gallery/{item_id}", response_model=GalleryItemRead)
+async def update_gallery_item(
+    item_id: uuid.UUID, body: GalleryItemUpdate, db: DbSession, user: User = Depends(require_role("admin"))
+) -> GalleryItemRead:
+    item = await content_service.update_gallery_item(db, item_id, body.model_dump(exclude_unset=True))
+    return GalleryItemRead.model_validate(item)
+
+
+@router.delete("/gallery/{item_id}", status_code=204)
+async def delete_gallery_item(item_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))) -> None:
+    await content_service.delete_gallery_item(db, item_id)

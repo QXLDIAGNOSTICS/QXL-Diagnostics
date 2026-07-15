@@ -6,12 +6,13 @@ import uuid
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.exceptions import NotFoundError
-from app.models.content import FAQ, Banner, BlogPost, Doctor, Review
+from app.models.content import FAQ, Banner, BlogPost, Doctor, GalleryItem, Review
 from app.repositories.content_repository import (
     BannerRepository,
     BlogPostRepository,
     DoctorRepository,
     FAQRepository,
+    GalleryItemRepository,
     ReviewRepository,
 )
 from app.services.catalog_service import slugify
@@ -228,4 +229,41 @@ async def delete_review(db: AsyncSession, review_id: uuid.UUID) -> None:
     if review is None:
         raise NotFoundError("Review not found")
     await repo.delete(review)
+    await db.commit()
+
+
+# ── Gallery ─────────────────────────────────────────────────────────
+
+async def list_active_gallery_items(db: AsyncSession) -> list[GalleryItem]:
+    return await GalleryItemRepository(db).get_all_active()
+
+
+async def list_all_gallery_items(db: AsyncSession, limit: int, offset: int) -> tuple[list[GalleryItem], int]:
+    return await GalleryItemRepository(db).list_all(limit=limit, offset=offset)
+
+
+async def create_gallery_item(db: AsyncSession, data: dict) -> GalleryItem:
+    item = await GalleryItemRepository(db).create(**data)
+    await db.commit()
+    await db.refresh(item)
+    return item
+
+
+async def update_gallery_item(db: AsyncSession, item_id: uuid.UUID, data: dict) -> GalleryItem:
+    repo = GalleryItemRepository(db)
+    item = await repo.get_by_id(item_id)
+    if item is None:
+        raise NotFoundError("Gallery item not found")
+    item = await repo.update(item, **data)
+    await db.commit()
+    await db.refresh(item)
+    return item
+
+
+async def delete_gallery_item(db: AsyncSession, item_id: uuid.UUID) -> None:
+    repo = GalleryItemRepository(db)
+    item = await repo.get_by_id(item_id)
+    if item is None:
+        raise NotFoundError("Gallery item not found")
+    await repo.delete(item)
     await db.commit()

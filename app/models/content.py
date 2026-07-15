@@ -99,3 +99,16 @@ class Review(Base, TimestampMixin):
     source: Mapped[str | None] = mapped_column(String(32), nullable=True)
     is_published: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+
+
+class GalleryItem(Base, TimestampMixin):
+    """Public media gallery item (lab facility photos, equipment, events)."""
+
+    __tablename__ = "gallery_items"
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=new_uuid)
+    title: Mapped[str] = mapped_column(String, nullable=False)
+    image_url: Mapped[str] = mapped_column(String, nullable=False)
+    category: Mapped[str | None] = mapped_column(String, nullable=True, index=True)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
+    sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)

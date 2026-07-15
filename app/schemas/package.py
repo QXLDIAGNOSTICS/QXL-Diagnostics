@@ -23,6 +23,7 @@ class HealthPackageBase(BaseModel):
     is_active: bool = True
     home_collection_available: bool = True
     sort_order: int = 0
+    image_url: str | None = None
 
 
 class HealthPackageCreate(HealthPackageBase):
@@ -45,6 +46,7 @@ class HealthPackageUpdate(BaseModel):
     is_active: bool | None = None
     home_collection_available: bool | None = None
     sort_order: int | None = None
+    image_url: str | None = None
 
 
 class HealthPackageRead(HealthPackageBase):
@@ -67,6 +69,7 @@ class TestCatalogBase(BaseModel):
     turnaround_hours: int | None = None
     is_active: bool = True
     home_collection_available: bool = True
+    image_url: str | None = None
 
 
 class TestCatalogCreate(TestCatalogBase):
@@ -82,6 +85,7 @@ class TestCatalogUpdate(BaseModel):
     turnaround_hours: int | None = None
     is_active: bool | None = None
     home_collection_available: bool | None = None
+    image_url: str | None = None
 
 
 class TestCatalogRead(BaseModel):
@@ -96,6 +100,7 @@ class TestCatalogRead(BaseModel):
     turnaround_hours: int | None = None
     is_active: bool = True
     home_collection_available: bool = True
+    image_url: str | None = None
 
 
 class TestCatalogList(BaseModel):
