@@ -15,7 +15,7 @@ export const SITE_URL = "https://qxldiagnostics.com";
 export const PHONE_DISPLAY = "+91 99646 39639";
 // E.164 format for tel: links and schema.org telephone fields.
 export const PHONE_E164 = "+919964639639";
-export const WHATSAPP_NUMBER = "918105085888";
+export const WHATSAPP_NUMBER = "919964639639";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export const EMAIL = "qxldiagnostics@gmail.com";
