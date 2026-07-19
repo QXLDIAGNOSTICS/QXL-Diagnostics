@@ -1291,7 +1291,7 @@ export default function Home() {
 
           {/* WhatsApp Booking */}
           <a
-            href="https://wa.me/918105085888"
+            href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl p-3.5 shadow-sm active:scale-[0.98] transition-transform"

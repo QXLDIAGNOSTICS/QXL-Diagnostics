@@ -333,14 +333,16 @@ const defaultSettings = {
   siteName: "QXL Diagnostics",
   logoText: "QXL",
   logoImage: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
-  contactPhone: "+91 99646 39639",
   supportEmail: "qxldiagnostics@gmail.com",
   hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
   northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
   workingHours: "Open 24x7",
-  whatsappNumber: "+91 99646 39639",
   copyrightText: "© 2026 QXL Diagnostics. All rights reserved.",
   footerDesc: "QXL Diagnostics is a super speciality diagnostic laboratory in Bengaluru offering advanced pathology, microbiology, immunology, molecular diagnostics, histopathology, cytology and precision diagnostic services for patients, clinicians and hospitals.",
+  // Contact info — now comes from backend API via SiteSettings
+  phone_display: "+91 99646 39639",
+  phone_e164: "+919964639639",
+  whatsapp_number: "919964639639",
   navItems: [
     { label: "Home", href: "/", visible: true },
     { label: "About Us", href: "/about", visible: true },
@@ -564,5 +566,28 @@ export const cmsStore = {
     localStorage.setItem("qxl_cms_settings", JSON.stringify(settings));
     window.dispatchEvent(new CustomEvent("cms-update", { detail: { key: "settings" } }));
     cmsStore.logActivity("Updated general settings");
+  },
+
+  // Sync settings from backend API (admin-configured values)
+  syncSettingsFromAPI: async () => {
+    if (!isClient) return;
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/settings`);
+      if (!response.ok) throw new Error(`API error: ${response.status}`);
+      
+      const apiSettings = await response.json();
+      
+      // Merge API settings with existing settings
+      const currentSettings = cmsStore.getSettings();
+      const mergedSettings = {
+        ...currentSettings,
+        ...apiSettings, // Backend values override local defaults
+      };
+      
+      cmsStore.saveSettings(mergedSettings);
+    } catch (error) {
+      // Silently fail — use cached settings if API is unavailable
+      console.warn("Failed to sync settings from API:", error);
+    }
   }
 };

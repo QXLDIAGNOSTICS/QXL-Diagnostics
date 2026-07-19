@@ -4,6 +4,12 @@
 // everywhere the business is mentioned (site footer, header, structured
 // data, Google Business Profile, directory listings, etc.). Import these
 // constants instead of hardcoding phone/address strings in components.
+//
+// Contact info (phone, WhatsApp) is now admin-configurable via the backend
+// SiteSettings API. These functions fetch from the CMS store which is
+// synchronized with the backend.
+
+import { cmsStore } from './cmsStore';
 
 export const BUSINESS_NAME = "QXL Diagnostics";
 export const BUSINESS_LEGAL_NAME = "QXL Diagnostics Super Speciality Lab";
@@ -11,9 +17,28 @@ export const BUSINESS_PARENT_COMPANY = "Qualitify Healthtech Pvt Ltd";
 
 export const SITE_URL = "https://qxldiagnostics.com";
 
-// Single canonical phone format used everywhere: "+91 99646 39639".
+// Contact info — dynamically fetched from admin settings (SiteSettings API)
+export const getPhoneDisplay = (): string => {
+  const settings = cmsStore.getSettings();
+  return settings?.phone_display || "+91 99646 39639";
+};
+
+export const getPhoneE164 = (): string => {
+  const settings = cmsStore.getSettings();
+  return settings?.phone_e164 || "+919964639639";
+};
+
+export const getWhatsAppNumber = (): string => {
+  const settings = cmsStore.getSettings();
+  return settings?.whatsapp_number || "919964639639";
+};
+
+export const getWhatsAppLink = (): string => {
+  return `https://wa.me/${getWhatsAppNumber()}`;
+};
+
+// Fallback constants for static contexts (structured data, pre-render)
 export const PHONE_DISPLAY = "+91 99646 39639";
-// E.164 format for tel: links and schema.org telephone fields.
 export const PHONE_E164 = "+919964639639";
 export const WHATSAPP_NUMBER = "919964639639";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;

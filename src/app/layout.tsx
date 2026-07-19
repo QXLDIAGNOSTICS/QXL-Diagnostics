@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import InitializeApp from "@/components/InitializeApp";
 import AiChat from "@/components/AiChat";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -326,6 +327,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-full flex flex-col">
+        <InitializeApp />
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
         <Script src="/main.js" strategy="afterInteractive" />
       </body>
