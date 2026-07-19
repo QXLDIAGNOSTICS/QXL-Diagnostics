@@ -28,6 +28,10 @@ logger = get_logger(__name__)
 
 MAX_TOOL_HOPS = 3
 
+# Per-day message limits (enforced in chat_rate_limit service)
+AUTHENTICATED_DAILY_LIMIT = 100
+GUEST_DAILY_LIMIT = 50
+
 SYSTEM_PROMPT = (
     "You are the QXL Diagnostics AI assistant. You ONLY help with QXL Diagnostics "
     "topics: lab tests, health packages, prices, collection centers, bookings, "
@@ -312,3 +316,110 @@ async def get_conversation(
     if conversation is None or conversation.owner_id != user.id:
         raise NotFoundError("Conversation not found")
     return conversation
+
+
+async def stream_answer_guest(
+    db: AsyncSession,
+    question: str,
+    conversation_id: uuid.UUID | None = None,
+    *,
+    lat: float | None = None,
+    lng: float | None = None,
+) -> AsyncGenerator[str, None]:
+    """Streaming chat for unauthenticated (guest) users.
+
+    Identical to ``stream_answer`` except:
+    - No personal tool access (bookings, prescriptions, payment).
+    - No conversation persistence (stateless — each call is independent).
+    - Uses public knowledge retrieval only.
+    """
+    from app.services.chat_tools import GUEST_TOOL_SPECS, execute_tool
+
+    GUEST_SYSTEM_PROMPT = (
+        "You are the QXL Diagnostics AI assistant. You help visitors learn about "
+        "QXL Diagnostics: lab tests, health packages, prices, collection centers, "
+        "home sample collection, and general health education related to our services. "
+        "You can search tests, packages, centers, FAQs, and blog content. "
+        "You do NOT have access to any personal data (bookings, prescriptions) — "
+        "the visitor is not logged in. If they want to check their bookings or book a "
+        "test, politely ask them to log in first. "
+        "OUT-OF-SCOPE: if the user asks something completely unrelated to diagnostics "
+        "or health (e.g. general trivia, coding, electronics), politely decline and "
+        "redirect to QXL-related topics. Be concise, clear, and helpful."
+    )
+
+    location = (lat, lng) if lat is not None and lng is not None else None
+
+    # Public-only history: use conversation_id if provided but don't persist
+    history: list[dict] = []
+    if conversation_id is not None:
+        # Load last few turns if the conversation exists and is publicly readable
+        # (guests can't have DB conversations, so this is a no-op safety guard)
+        history = []
+
+    messages = [
+        {"role": "system", "content": GUEST_SYSTEM_PROMPT},
+        *history,
+        {"role": "user", "content": question},
+    ]
+
+    client = get_openai_client()
+
+    # Tool loop (public tools only)
+    guest_tool_specs = GUEST_TOOL_SPECS
+    for _ in range(MAX_TOOL_HOPS):
+        response = await client.chat.completions.create(
+            model=settings.OPENAI_MODEL,
+            messages=messages,
+            tools=guest_tool_specs,
+            tool_choice="auto",
+            temperature=0.2,
+        )
+        message = response.choices[0].message
+        if not message.tool_calls:
+            break
+        messages.append(
+            {
+                "role": "assistant",
+                "content": message.content,
+                "tool_calls": [
+                    {"id": tc.id, "type": "function", "function": {"name": tc.function.name, "arguments": tc.function.arguments}}
+                    for tc in message.tool_calls
+                ],
+            }
+        )
+        for tool_call in message.tool_calls:
+            import json as _json
+            try:
+                arguments = _json.loads(tool_call.function.arguments or "{}")
+            except _json.JSONDecodeError:
+                arguments = {}
+            result = await execute_tool(
+                tool_call.function.name, arguments, db=db, user=None, location=location
+            )
+            messages.append({"role": "tool", "tool_call_id": tool_call.id, "content": result})
+
+    # Emit a temporary conversation marker so frontend doesn't crash
+    import json as _json2
+    yield f"data: {_json2.dumps({'conversation_id': str(uuid.uuid4())})}\n\n"
+
+    collected: list[str] = []
+    try:
+        stream = await client.chat.completions.create(
+            model=settings.OPENAI_MODEL,
+            messages=messages,
+            stream=True,
+            temperature=0.2,
+        )
+        async for chunk in stream:
+            if not chunk.choices:
+                continue
+            delta = chunk.choices[0].delta.content or ""
+            if delta:
+                collected.append(delta)
+                yield f"data: {_json2.dumps({'delta': delta})}\n\n"
+    except Exception:  # noqa: BLE001
+        logger.exception("Guest chat streaming failed")
+        yield f"data: {_json2.dumps({'error': 'generation_failed'})}\n\n"
+
+    yield "data: [DONE]\n\n"

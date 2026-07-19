@@ -257,13 +257,26 @@ TOOL_SPECS: list[dict] = [
     },
 ]
 
+# Public-only subset: excludes any tool that touches personal user data.
+# Used for unauthenticated (guest) chat sessions.
+_GUEST_PUBLIC_TOOLS = {
+    "search_health_packages",
+    "search_tests",
+    "find_nearest_centers",
+    "search_blog_articles",
+    "list_faqs",
+}
+GUEST_TOOL_SPECS: list[dict] = [
+    spec for spec in TOOL_SPECS if spec["function"]["name"] in _GUEST_PUBLIC_TOOLS
+]
+
 
 async def execute_tool(
     name: str,
     arguments: dict,
     *,
     db: AsyncSession,
-    user: User,
+    user: User | None,
     location: tuple[float, float] | None = None,
 ) -> str:
     """Dispatch a tool call by name and return a JSON string result.
@@ -271,7 +284,16 @@ async def execute_tool(
     ``location`` is the user's browser-shared (lat, lng), threaded in from
     the chat request — never taken from the model's own arguments, so the
     assistant can't fabricate a location.
+
+    ``user`` may be ``None`` for guest sessions — personal tools (bookings,
+    prescriptions, payments) will return a login-required error.
     """
+    # Guard: personal tools require authentication
+    _PERSONAL_TOOLS = {"create_booking", "create_payment_order", "get_my_bookings",
+                       "get_my_prescriptions", "check_prescription_quota"}
+    if user is None and name in _PERSONAL_TOOLS:
+        return json.dumps({"error": "Please log in to use this feature."})
+
     try:
         if name == "search_health_packages":
             query = (arguments.get("query") or "").strip()
