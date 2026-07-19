@@ -43,7 +43,20 @@ export default function AiChat() {
   const [selectedLanguage, setSelectedLanguage] = useState('English');
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
   const [locationStatus, setLocationStatus] = useState<'idle' | 'locating' | 'granted' | 'denied' | 'unavailable'>('idle');
+  const [chatQuota, setChatQuota] = useState<{ remaining: number; limit: number; kind: string } | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Ensure a stable guest chat ID exists in localStorage so the backend
+  // can fingerprint this anonymous browser session consistently across tabs.
+  const getGuestChatId = (): string => {
+    if (typeof window === 'undefined') return '';
+    let id = localStorage.getItem('qxl_guest_chat_id');
+    if (!id) {
+      id = crypto.randomUUID();
+      localStorage.setItem('qxl_guest_chat_id', id);
+    }
+    return id;
+  };
 
   // Request the user's GPS location so the assistant can find/rank the
   // nearest collection centers automatically — never ask the user to type
@@ -153,16 +166,43 @@ export default function AiChat() {
   // local mock reply instead of showing a broken chat.
   const streamFromBackend = async (question: string): Promise<StreamResult> => {
     try {
+      const guestId = getGuestChatId();
       const res = await fetch(`/api/v1/chat/stream`, {
         method: 'POST',
         credentials: 'include',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(guestId ? { 'X-Guest-Chat-Id': guestId } : {}),
+        },
         body: JSON.stringify({
           question,
           conversation_id: conversationId,
           ...(location ? { lat: location.lat, lng: location.lng } : {}),
         }),
       });
+
+      // Read rate-limit headers on every response
+      const rlRemaining = res.headers.get('X-RateLimit-Remaining');
+      const rlLimit = res.headers.get('X-RateLimit-Limit');
+      const rlKind = res.headers.get('X-RateLimit-Kind');
+      if (rlRemaining !== null && rlLimit !== null) {
+        setChatQuota({
+          remaining: parseInt(rlRemaining, 10),
+          limit: parseInt(rlLimit, 10),
+          kind: rlKind || 'guest',
+        });
+      }
+
+      if (res.status === 429) {
+        const data = await res.json().catch(() => ({}));
+        const msg = data?.error?.message ||
+          (user
+            ? 'You\'ve reached your daily chat limit of 100 messages. Your quota resets at midnight UTC.'
+            : 'You\'ve reached your daily chat limit of 50 messages. Log in to get 100 messages/day. Quota resets at midnight UTC.');
+        setMessages(prev => [...prev, { role: 'assistant', content: msg }]);
+        return 'streamed';
+      }
+
       if (res.status === 401) return 'unauthorized';
       if (!res.ok || !res.body) return 'failed';
 
@@ -255,8 +295,8 @@ export default function AiChat() {
       }
     }
 
-    // Prefer the real backend when the user is authenticated; gracefully fall
-    // back to the mock reply otherwise (e.g. logged-out visitors).
+    // Backend is now open to all users (guests get 50/day, logged-in 100/day).
+    // Only fall back to mock if the backend is completely unreachable.
     const streamed = !file ? await streamFromBackend(text) : 'failed';
     if (streamed === 'streamed') {
       setIsLoading(false);
@@ -712,6 +752,31 @@ export default function AiChat() {
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
               </button>
             </div>
+
+            {/* Daily quota indicator */}
+            {chatQuota !== null && (
+              <div style={{
+                marginTop: '7px',
+                fontSize: '10.5px',
+                color: chatQuota.remaining <= 5 ? '#ef4444' : '#94a3b8',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '6px',
+              }}>
+                <span>
+                  {chatQuota.remaining <= 0
+                    ? '⛔ Daily limit reached. Resets at midnight UTC.'
+                    : `💬 ${chatQuota.remaining}/${chatQuota.limit} messages remaining today`
+                  }
+                </span>
+                {chatQuota.kind === 'guest' && !user && (
+                  <a href="/login" style={{ color: '#2563eb', fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                    Log in for 2× limit →
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
         </div>

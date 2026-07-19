@@ -17,13 +17,13 @@ export default function Accreditations() {
                 <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
                   <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
                 </div>
-                <span className="text-white text-sm font-bold">NABL Accredited (MC-6849)</span>
+                <span className="text-white text-sm font-bold">NABL Accredited (MC-10025)</span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
                   <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
                 </div>
-                <span className="text-white text-sm font-bold">ISO 9001:2015 Certified Company</span>
+                <span className="text-white text-sm font-bold">ISO 15189:2022 Certified Medical Lab</span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
@@ -45,7 +45,7 @@ export default function Accreditations() {
             <div className="bg-white p-6 rounded-3xl shadow-xl flex flex-col items-center justify-center w-40 h-40 transform hover:-translate-y-2 transition-transform">
               <span className="text-[#000080] font-black text-4xl tracking-tighter leading-none mb-2">NABL</span>
               <span className="text-black font-extrabold text-[10px] uppercase text-center leading-tight">Accredited Lab</span>
-              <span className="text-black font-extrabold text-[11px] mt-1">MC - 6849</span>
+              <span className="text-black font-extrabold text-[11px] mt-1">MC - 10025</span>
             </div>
             
             {/* ISO Badge */}
@@ -54,7 +54,7 @@ export default function Accreditations() {
                 <div className="absolute inset-[3px] rounded-full border-2 border-[#1b4b8a]"></div>
                 <span className="text-[#1b4b8a] font-extrabold text-[9px] tracking-[0.1em] absolute top-[12px]">CERTIFIED</span>
                 <span className="text-[#1b4b8a] font-black text-3xl tracking-tight leading-none mt-1">ISO</span>
-                <span className="text-[#1b4b8a] font-bold text-[10px] leading-none mt-0.5">9001-2015</span>
+                <span className="text-[#1b4b8a] font-bold text-[10px] leading-none mt-0.5">15189:2022</span>
               </div>
             </div>
           </div>

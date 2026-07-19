@@ -28,7 +28,7 @@ export default function Header() {
   const [settings, setSettings] = useState<any>({
     siteName: "QXL Diagnostics",
     logoText: "QXL",
-    logoImage: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
+    logoImage: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
     contactPhone: "+91 99646 39639",
     whatsappNumber: "+91 99646 39639",
     navItems: [
@@ -161,9 +161,12 @@ export default function Header() {
             {/* Logo & Location */}
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
-                <img
-                  src={settings.logoImage || "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"}
+              <img
+                  src={settings.logoImage || "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"}
                   alt={settings.siteName || "QXL Diagnostics"}
+                  width={302}
+                  height={95}
+                  fetchPriority="high"
                   style={{ height: '95px', width: 'auto', objectFit: 'contain' }}
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
@@ -317,7 +320,7 @@ export default function Header() {
             </button>
             <Link href="/">
               <img
-                src={settings.logoImage || "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"}
+                src={settings.logoImage || "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"}
                 alt={settings.siteName || "QXL Diagnostics"}
                 className="h-16 w-auto object-contain"
                 onError={(e) => {

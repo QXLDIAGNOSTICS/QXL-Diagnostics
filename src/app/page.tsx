@@ -207,6 +207,7 @@ function WhyChooseSlider() {
           {whySlides.map((_, i) => (
             <button key={i} onClick={() => setActive(i)}
               className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-7 bg-[#2563eb]" : "w-2 bg-gray-300 hover:bg-gray-400"}`}
+              aria-label={`Go to speciality ${i + 1}`}
             />
           ))}
         </div>
@@ -432,7 +433,7 @@ function MobileWhyChooseSlider() {
       </div>
       <div className="mx-4 rounded-2xl overflow-hidden shadow-md bg-white flex flex-row min-h-[145px] relative">
         {/* Arrows */}
-        <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 rounded-full bg-white shadow border border-gray-200 flex items-center justify-center">
+        <button onClick={prev} aria-label="Previous speciality" className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 rounded-full bg-white shadow border border-gray-200 flex items-center justify-center">
           <ChevronRight className="w-3.5 h-3.5 rotate-180 text-slate-500" />
         </button>
 
@@ -479,7 +480,7 @@ function MobileWhyChooseSlider() {
             </motion.div>
           </AnimatePresence>
         </div>
-        <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 rounded-full bg-white shadow border border-gray-200 flex items-center justify-center">
+        <button onClick={next} aria-label="Next speciality" className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 rounded-full bg-white shadow border border-gray-200 flex items-center justify-center">
           <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
         </button>
       </div>
@@ -487,6 +488,7 @@ function MobileWhyChooseSlider() {
         {whySlides.map((_, i) => (
           <button key={i} onClick={() => setActive(i)}
             className={`h-1.5 rounded-full transition-all ${i === active ? 'w-5 bg-[#2563eb]' : 'w-1.5 bg-gray-300'}`}
+            aria-label={`Go to speciality ${i + 1}`}
           />
         ))}
       </div>
@@ -558,6 +560,7 @@ function MobilePromoHighlightSlider() {
         {promoSlides.map((_, i) => (
           <button key={i} onClick={() => setActive(i)}
             className={`h-1.5 rounded-full transition-all ${i === active ? 'w-5 bg-[#2563eb]' : 'w-1.5 bg-gray-300'}`}
+            aria-label={`Go to package ${i + 1}`}
           />
         ))}
       </div>
@@ -589,31 +592,12 @@ export default function Home() {
     return () => window.removeEventListener('locationChange', handleLoc);
   }, []);
 
-  // Find selected location details
   const activeLocationObj = locations.find(loc => loc.name === location || loc.city === location);
   const mapSrc = activeLocationObj && activeLocationObj.lat && activeLocationObj.lng
     ? `https://maps.google.com/maps?q=${activeLocationObj.lat},${activeLocationObj.lng}&t=&z=15&ie=UTF8&iwloc=&output=embed`
     : `https://maps.google.com/maps?q=${encodeURIComponent(location + " Diagnostics")}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
   const slides = [
-    {
-      imageOnly: false,
-      badge: "FRANCHISE OPPORTUNITY",
-      title: "Own a Franchise or Collaborate with",
-      titleAccent: "India's Leading Diagnostics Brand",
-      subtitle: "Partner with QXL Diagnostics and build a successful business",
-      subtitleAccent: "in the rapidly growing healthcare sector.",
-      description: "Join our network of diagnostic centers and benefit from our established brand, state-of-the-art technology, and comprehensive support system.",
-      cta: "Enquire Now",
-      ctaLink: "/franchise",
-      ctaSecondary: "Contact Us",
-      ctaSecondaryLink: "/contact",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150478/Assets-QXL/legacy-assets/image/user_male_professional.jpg",
-      imageFit: "cover",
-      bgFrom: "#f0fdf4",
-      bgTo: "#dcfce7",
-      features: ["Proven Business Model", "Marketing Support", "Technical Training", "High ROI"]
-    },
     {
       badge: "SUPER SPECIALITY DIAGNOSTICS",
       title: "DOCTOR DRIVEN SUPER SPECIALITY",
@@ -625,11 +609,11 @@ export default function Home() {
       ctaLink: "/book",
       ctaSecondary: "Our Specialities",
       ctaSecondaryLink: "/speciality-tests",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg",
       imageFit: "cover",
       bgFrom: "#eff6ff",
       bgTo: "#dbeafe",
-      features: ["NABL Certified", "Expert-Reviewed Reports", "AI-Assisted Diagnostics", "Home Collection"],
+      features: ["NABL Accredited (MC-10025)", "Expert-Reviewed Reports", "AI-Assisted Diagnostics", "Home Collection"],
     },
     {
       badge: "AI TECHNOLOGY",
@@ -642,7 +626,7 @@ export default function Home() {
       ctaLink: "/book",
       ctaSecondary: "Our Specialities",
       ctaSecondaryLink: "/specialities",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150124/Assets-QXL/legacy-assets/image/doctor_smiling.png",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150124/Assets-QXL/legacy-assets/image/doctor_smiling.png",
       imageFit: "cover",
       bgFrom: "#eff6ff",
       bgTo: "#dbeafe",
@@ -657,9 +641,9 @@ export default function Home() {
       description: "Get comprehensive insights for two people for the price of one. 86+ Parameters included.",
       cta: "Book Now",
       ctaLink: "/book",
-      ctaSecondary: "Learn More",
+      ctaSecondary: "View Packages",
       ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
       imageFit: "cover",
       bgFrom: "#f0f9ff",
       bgTo: "#e0f2fe",
@@ -676,28 +660,11 @@ export default function Home() {
       ctaLink: "/book",
       ctaSecondary: "View Package",
       ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
       imageFit: "cover",
       bgFrom: "#dbeafe",
       bgTo: "#eff6ff",
       features: ["317 Tests", "₹7999 Only", "Priority Service"],
-    },
-    {
-      badge: "PARTNER WITH US",
-      title: "You too can",
-      titleAccent: "Collaborate with us",
-      subtitle: "Join as a partner of",
-      subtitleAccent: "India’s Leading Diagnostics Chain",
-      description: "Join the QXL Diagnostics network. NABL Accredited Labs with a High Return on Investment.",
-      cta: "Explore Options",
-      ctaLink: "/franchise",
-      ctaSecondary: "Learn More",
-      ctaSecondaryLink: "/about",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150198/Assets-QXL/legacy-assets/image/franchise_partner_indian.jpg",
-      imageFit: "cover",
-      bgFrom: "#f0f9ff",
-      bgTo: "#e0f2fe",
-      features: ["NABL", "High ROI", "Full Training", "Brand Trust"],
     },
     {
       badge: "FRIENDSHIP OFFER",
@@ -708,9 +675,9 @@ export default function Home() {
       description: "Bring a friend and get a Free FATTY LIVER TEST. Starting at just ₹850 ONLY.",
       cta: "Book Offer",
       ctaLink: "/book",
-      ctaSecondary: "Share with Friend",
-      ctaSecondaryLink: "#",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150205/Assets-QXL/legacy-assets/image/happy_couple_phone.jpg",
+      ctaSecondary: "View Packages",
+      ctaSecondaryLink: "/packages",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150205/Assets-QXL/legacy-assets/image/happy_couple_phone.jpg",
       imageFit: "cover",
       bgFrom: "#dbeafe",
       bgTo: "#eff6ff",
@@ -727,11 +694,46 @@ export default function Home() {
       ctaLink: "/book",
       ctaSecondary: "Reports in 6 hours",
       ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
       imageFit: "cover",
       bgFrom: "#eff6ff",
       bgTo: "#e0f2fe",
       features: ["₹5,999 Only", "6-Hour Reports", "Full Body", "Actionable Data"],
+    },
+    {
+      badge: "PARTNER WITH US",
+      title: "You too can",
+      titleAccent: "Collaborate with us",
+      subtitle: "Join as a partner of",
+      subtitleAccent: "India's Leading Diagnostics Chain",
+      description: "Join the QXL Diagnostics network. NABL Accredited Labs with a High Return on Investment.",
+      cta: "Explore Options",
+      ctaLink: "/franchise",
+      ctaSecondary: "Learn More",
+      ctaSecondaryLink: "/about",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150198/Assets-QXL/legacy-assets/image/franchise_partner_indian.jpg",
+      imageFit: "cover",
+      bgFrom: "#f0f9ff",
+      bgTo: "#e0f2fe",
+      features: ["NABL", "High ROI", "Full Training", "Brand Trust"],
+    },
+    {
+      imageOnly: false,
+      badge: "FRANCHISE OPPORTUNITY",
+      title: "Own a Franchise or Collaborate with",
+      titleAccent: "India's Leading Diagnostics Brand",
+      subtitle: "Partner with QXL Diagnostics and build a successful business",
+      subtitleAccent: "in the rapidly growing healthcare sector.",
+      description: "Join our network of diagnostic centers and benefit from our established brand, state-of-the-art technology, and comprehensive support system.",
+      cta: "Enquire Now",
+      ctaLink: "/franchise",
+      ctaSecondary: "Contact Us",
+      ctaSecondaryLink: "/contact",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150478/Assets-QXL/legacy-assets/image/user_male_professional.jpg",
+      imageFit: "cover",
+      bgFrom: "#f0fdf4",
+      bgTo: "#dcfce7",
+      features: ["Proven Business Model", "Marketing Support", "Technical Training", "High ROI"]
     },
   ];
 
@@ -1147,8 +1149,8 @@ export default function Home() {
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Select Service</label>
-                    <select className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all text-slate-600">
+                    <label htmlFor="desktop-service-select" className="block text-xs font-bold text-slate-700 mb-1">Select Service</label>
+                    <select id="desktop-service-select" className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all text-slate-600">
                       <option>Home Collection</option>
                       <option>Lab Visit</option>
                       <option>General Inquiry</option>
@@ -1523,7 +1525,7 @@ export default function Home() {
               <form className="flex flex-col gap-3">
                 <input type="text" placeholder="Full Name" className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
                 <input type="tel" placeholder="Phone Number" className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
-                <select className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all text-slate-600">
+                <select aria-label="Select service type" className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all text-slate-600">
                   <option>Home Collection</option>
                   <option>Lab Visit</option>
                   <option>General Inquiry</option>

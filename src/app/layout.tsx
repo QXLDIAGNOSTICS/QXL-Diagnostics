@@ -20,14 +20,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://qxldiagnostics.com"),
   title: {
-    default: "QXL Diagnostics | NABL Certified Lab in Bengaluru — Advanced Diagnostic Testing",
+    default: "QXL Diagnostics | NABL Certified Lab Bengaluru",
     template: "%s | QXL Diagnostics Bengaluru",
   },
   alternates: {
     canonical: "https://qxldiagnostics.com",
   },
   description:
-    "QXL Diagnostics — AI-powered super speciality diagnostic laboratory in Bengaluru. NABL certified, 300+ tests, expert-reviewed reports, same-day results and home collection. Advanced pathology, microbiology, molecular diagnostics, histopathology, immunology & precision testing.",
+    "QXL Diagnostics — NABL certified super speciality diagnostic lab in Bengaluru. 300+ tests, home collection, same-day reports. Book now.",
   keywords: [
     "diagnostic lab Bengaluru",
     "NABL certified lab Bangalore",
@@ -94,9 +94,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE",
-  },
+  // verification: Google Search Console tag will be added once the real code is obtained
 };
 
 // JSON-LD Structured Data
@@ -296,6 +294,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://res.cloudinary.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
@@ -316,7 +315,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(doctorsSchema) }}
         />
-        {/* Google Analytics - SEO Fix */}
+        {/* Google Analytics — uncomment and replace with real GA4 measurement ID when available
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -325,6 +324,7 @@ export default function RootLayout({
             gtag('config', 'G-XXXXXXXXXX');
           `}
         </Script>
+        */}
       </head>
       <body className="min-h-full flex flex-col">
         <InitializeApp />
