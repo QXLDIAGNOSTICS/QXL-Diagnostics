@@ -5,8 +5,9 @@ import Link from "next/link";
 import { ChevronRight, Calendar } from "lucide-react";
 import { api, type BlogPost } from "../lib/api";
 
-export default function BlogSlider() {
+export default function BlogSlider({ decorativeHeading = false }: { decorativeHeading?: boolean }) {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const Heading = decorativeHeading ? 'p' : 'h2';
 
   useEffect(() => {
     let cancelled = false;
@@ -32,7 +33,7 @@ export default function BlogSlider() {
             <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-2 shadow-sm">
               Health Insights
             </span>
-            <h2 className="text-[#0f2d5e] text-2xl font-extrabold mt-0.5">Latest From Our Blog</h2>
+            <Heading className="text-[#0f2d5e] text-2xl font-extrabold mt-0.5">Latest From Our Blog</Heading>
             <p className="text-slate-500 text-xs font-semibold mt-1">
               Read up on health tips, medical news, and wellness advice from experts.
             </p>

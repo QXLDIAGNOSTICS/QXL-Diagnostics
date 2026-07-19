@@ -3,13 +3,18 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { cmsStore } from '../lib/cmsStore';
+import { SOCIAL_LINKS, ISO_STANDARD } from '../lib/businessInfo';
+import { optimizeCloudinaryUrl } from '../lib/cloudinary';
+
+const FALLBACK_LOGO =
+  "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
 
 export default function Footer() {
   const year = new Date().getFullYear();
   const [settings, setSettings] = useState<any>({
     siteName: "QXL Diagnostics",
     logoText: "QXL",
-    logoImage: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
+    logoImage: FALLBACK_LOGO,
     contactPhone: "+91 99646 39639",
     supportEmail: "qxldiagnostics@gmail.com",
     hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
@@ -51,7 +56,7 @@ export default function Footer() {
           <div>
             <div className="bg-white p-2 rounded-xl inline-block mb-5 shadow-lg">
               <img
-                src={settings.logoImage || "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"}
+                src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 224, h: 56, crop: "fit" })}
                 alt={`${settings.siteName || "QXL"} Logo`}
                 width={224}
                 height={56}
@@ -83,7 +88,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h2 className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Quick Links</h2>
+            <p className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Quick Links</p>
             <ul className="space-y-3">
               {(settings.navItems || []).filter((l: any) => l.visible !== false).map((l: any) => (
                 <li key={l.label}>
@@ -99,7 +104,7 @@ export default function Footer() {
 
           {/* Specialities */}
           <div>
-            <h2 className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Specialities</h2>
+            <p className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Specialities</p>
             <ul className="space-y-3">
               {[
                 { label: "Neurology", href: "/specialities/neurology" },
@@ -126,7 +131,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h2 className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Contact Us</h2>
+            <p className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Contact Us</p>
             <ul className="space-y-4">
               <li className="flex gap-3">
                 <div className="w-9 h-9 rounded-full bg-[#2563eb]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -191,19 +196,19 @@ export default function Footer() {
             {settings.copyrightText || `© ${year} QXL Diagnostics. All rights reserved.`}
           </p>
           <p className="text-slate-400 text-[12px] font-medium">
-            NABL Certified · ISO 15189 · CAP Standards · Bengaluru, Karnataka
+            NABL Certified · {ISO_STANDARD} · Bengaluru, Karnataka
           </p>
           <div className="flex gap-4 items-center">
-            <Link href="https://www.facebook.com/qxldiagnostics" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Facebook">
+            <Link href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
             </Link>
-            <Link href="https://twitter.com/qxldiagnostics" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="X (Twitter)">
+            <Link href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="X (Twitter)">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
             </Link>
-            <Link href="https://www.instagram.com/qxldiagnostics" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Instagram">
+            <Link href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Instagram">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
             </Link>
-            <Link href="https://www.linkedin.com/company/qxl-diagnostics" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
+            <Link href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </Link>
             <div className="w-px h-4 bg-white/20 mx-2"></div>

@@ -11,6 +11,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { cmsStore } from '../lib/cmsStore';
 import { useAuth } from '../lib/useAuth';
 import { api } from '../lib/api';
+import { optimizeCloudinaryUrl } from '../lib/cloudinary';
+
+const FALLBACK_LOGO =
+  "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
 
 export default function Header() {
   const pathname = usePathname();
@@ -28,7 +32,7 @@ export default function Header() {
   const [settings, setSettings] = useState<any>({
     siteName: "QXL Diagnostics",
     logoText: "QXL",
-    logoImage: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
+    logoImage: FALLBACK_LOGO,
     contactPhone: "+91 99646 39639",
     whatsappNumber: "+91 99646 39639",
     navItems: [
@@ -162,7 +166,7 @@ export default function Header() {
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
               <img
-                  src={settings.logoImage || "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"}
+                  src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 302, h: 95, crop: "fit" })}
                   alt={settings.siteName || "QXL Diagnostics"}
                   width={302}
                   height={95}
@@ -320,7 +324,7 @@ export default function Header() {
             </button>
             <Link href="/">
               <img
-                src={settings.logoImage || "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"}
+                src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 204, h: 64, crop: "fit" })}
                 alt={settings.siteName || "QXL Diagnostics"}
                 width={204}
                 height={64}

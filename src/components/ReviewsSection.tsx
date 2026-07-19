@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Star, Quote } from "lucide-react";
 import { api, type ReviewItem } from "../lib/api";
 
-export default function ReviewsSection() {
+export default function ReviewsSection({ decorativeHeading = false }: { decorativeHeading?: boolean }) {
   const [reviews, setReviews] = useState<ReviewItem[]>([]);
+  const Heading = decorativeHeading ? 'p' : 'h2';
 
   useEffect(() => {
     let cancelled = false;
@@ -51,7 +52,7 @@ export default function ReviewsSection() {
           <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2">
             Patient Reviews
           </span>
-          <h2 className="text-[#0f2d5e] text-3xl font-extrabold mb-3">What Our Patients Say</h2>
+          <Heading className="text-[#0f2d5e] text-3xl font-extrabold mb-3">What Our Patients Say</Heading>
           <div className="flex items-center justify-center gap-1.5">
             {[1, 2, 3, 4, 5].map((i) => (
               <Star

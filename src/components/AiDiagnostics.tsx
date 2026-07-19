@@ -436,7 +436,8 @@ interface ChatMessage {
   relatedQuestions?: string[];
 }
 
-export default function AiDiagnostics() {
+export default function AiDiagnostics({ decorativeHeading = false }: { decorativeHeading?: boolean }) {
+  const Heading = decorativeHeading ? 'p' : 'h2';
   const [messages, setMessages] = useState<ChatMessage[]>([
     { text: "👋 Hello! I am the QXL AI Assistant. How can I help you today?\n\nSelect a topic below, choose an FAQ category, or ask about any symptom/test in the chatbox!", isBot: true, time: "09:41 AM", isMenu: true }
   ]);
@@ -603,7 +604,7 @@ export default function AiDiagnostics() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-sm">Next-Gen Technology</span>
-            <h2 className="text-[#0f2d5e] text-3xl md:text-4xl font-extrabold mb-4 leading-tight">AI-Powered Diagnostics</h2>
+            <Heading className="text-[#0f2d5e] text-3xl md:text-4xl font-extrabold mb-4 leading-tight">AI-Powered Diagnostics</Heading>
             <p className="text-slate-500 text-sm font-medium mb-8 leading-relaxed">
               At QXL Diagnostics, we integrate Artificial Intelligence into our core testing processes. This powerful synergy between our expert doctors and advanced AI systems ensures unparalleled precision, faster turnaround times, and deeper clinical insights for every patient.
             </p>

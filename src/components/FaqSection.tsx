@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { api, type FAQItem } from '@/lib/api';
 
-export default function FaqSection() {
+export default function FaqSection({ decorativeHeading = false }: { decorativeHeading?: boolean }) {
   const [faqs, setFaqs] = useState<FAQItem[]>([]);
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+  const Heading = decorativeHeading ? 'p' : 'h2';
 
   useEffect(() => {
     let cancelled = false;
@@ -44,7 +45,7 @@ export default function FaqSection() {
       <div className="max-w-[800px] mx-auto px-4 w-full">
         <div className="text-center mb-10">
           <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2">Help Center</span>
-          <h2 className="text-[#0f2d5e] text-3xl font-extrabold mb-3">Frequently Asked Questions</h2>
+          <Heading className="text-[#0f2d5e] text-3xl font-extrabold mb-3">Frequently Asked Questions</Heading>
           <p className="text-slate-500 text-sm font-medium">Everything you need to know about our testing processes.</p>
         </div>
 

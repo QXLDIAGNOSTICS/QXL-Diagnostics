@@ -255,6 +255,7 @@ export default function AiChat() {
             const evt = JSON.parse(payload);
             if (evt.conversation_id) setConversationId(evt.conversation_id);
             if (evt.payment_order) {
+              // Append as its own bubble so later text deltas never overwrite it.
               setMessages(prev => [
                 ...prev,
                 { role: 'assistant', content: '', type: 'payment', paymentOrder: evt.payment_order },
@@ -264,7 +265,22 @@ export default function AiChat() {
               assistant = `${assistant}${evt.delta}`;
               setMessages(prev => {
                 const next = [...prev];
-                next[next.length - 1] = { role: 'assistant', content: assistant };
+                // Always stream into the last *text* assistant bubble — never into a
+                // payment card. (payment_order is emitted before deltas, so without
+                // this guard the Pay button was briefly appended then immediately
+                // replaced by the streaming confirmation text.)
+                let idx = -1;
+                for (let i = next.length - 1; i >= 0; i--) {
+                  if (next[i].role === 'assistant' && next[i].type !== 'payment') {
+                    idx = i;
+                    break;
+                  }
+                }
+                if (idx >= 0) {
+                  next[idx] = { role: 'assistant', content: assistant };
+                } else {
+                  next.push({ role: 'assistant', content: assistant });
+                }
                 return next;
               });
             }
@@ -514,7 +530,7 @@ export default function AiChat() {
           {/* Messages Area */}
           <div style={{ flex: 1, padding: '16px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px', backgroundColor: '#f0f9ff' }}>
             {messages.map((msg, idx) => (
-              <div key={idx} style={{
+              <div key={msg.type === 'payment' && msg.paymentOrder ? `pay-${msg.paymentOrder.order_id}` : `msg-${idx}`} style={{
                 alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
                 backgroundColor: msg.type === 'payment' ? 'transparent' : msg.role === 'user' ? '#2563eb' : 'white',
                 color: msg.role === 'user' ? 'white' : '#1e293b',
@@ -546,7 +562,12 @@ export default function AiChat() {
                         code: ({ children }) => <code style={{ background: '#e2e8f0', padding: '1px 4px', borderRadius: '4px', fontSize: '12px' }}>{children}</code>,
                       }}
                     >
-                      {msg.content}
+                      {msg.content
+                        // Model sometimes invents markdown "Pay Now" links; the real
+                        // Razorpay button is a separate payment bubble.
+                        .replace(/\[Pay[^\]]*\]\([^)]*\)/gi, '')
+                        .replace(/\bPay Now\b/gi, '')
+                        .trim() || ' '}
                     </ReactMarkdown>
                   </div>
                 ) : (

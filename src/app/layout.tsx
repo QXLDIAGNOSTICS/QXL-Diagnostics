@@ -97,7 +97,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // verification: Google Search Console tag will be added once the real code is obtained
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 // JSON-LD Structured Data

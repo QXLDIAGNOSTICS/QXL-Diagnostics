@@ -3,10 +3,11 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, FileText, Phone, MessageCircle, Droplet, Activity, Heart, Shield, Star, Users, Microscope, CheckCircle, Award, Clock, MapPin } from "lucide-react";
+import { ChevronRight, FileText, MessageCircle, CheckCircle, MapPin } from "lucide-react";
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
 import { WHATSAPP_LINK } from '../lib/businessInfo';
+import { optimizeCloudinaryUrl } from '../lib/cloudinary';
 import BlogSlider from "../components/BlogSlider";
 import AiDiagnostics from "../components/AiDiagnostics";
 import HomeCollectionSection from "../components/HomeCollectionSection";
@@ -125,7 +126,7 @@ function WhyChooseSlider() {
         <div className="text-center mb-7">
           <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-2 shadow-sm">Our Specialities</span>
           <h2 className="text-[#0f2d5e] text-2xl md:text-3xl font-extrabold mb-1">The QXL Difference</h2>
-          <p className="text-slate-500 text-sm font-medium">Excellence in every test, care in every result.</p>
+          <p className="text-slate-600 text-sm font-medium">Excellence in every test, care in every result.</p>
           <div className="w-14 h-1 bg-[#2563eb] mx-auto rounded-full mt-3" />
         </div>
 
@@ -149,7 +150,7 @@ function WhyChooseSlider() {
               transition={{ duration: 0.35 }}
               className="flex-1 flex flex-col justify-center pl-16 pr-6 py-8 bg-[#f7faff] text-left"
             >
-              <span className="inline-block bg-[#2563eb]/10 text-[#2563eb] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2 w-fit">
+              <span className="inline-block bg-[#2563eb]/15 text-[#1d4ed8] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2 w-fit">
                 {slide.specialty}
               </span>
               <h3 className="text-[20px] md:text-[26px] font-extrabold text-[#0d2e42] leading-tight mb-0.5">
@@ -409,12 +410,18 @@ function PromoHighlightSlider() {
         </div>
 
         {/* Dot navigation */}
-        <div className="flex justify-center gap-1.5 mt-4">
+        <div className="flex justify-center gap-0.5 mt-4">
           {promoSlides.map((_, i) => (
-            <button key={i} onClick={() => setActive(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-7 bg-[#2563eb]" : "w-2 bg-gray-300 hover:bg-gray-400"}`}
+            <button
+              key={i}
+              type="button"
+              onClick={() => setActive(i)}
+              className="min-w-11 min-h-11 flex items-center justify-center"
               aria-label={`Go to slide ${i + 1}`}
-            />
+              aria-current={i === active ? "true" : undefined}
+            >
+              <span className={`block h-2 rounded-full transition-all duration-300 ${i === active ? "w-7 bg-[#2563eb]" : "w-2 bg-gray-400"}`} />
+            </button>
           ))}
         </div>
       </div>
@@ -437,7 +444,7 @@ function MobileWhyChooseSlider() {
     <section className="py-5 bg-[#f0f6ff] border-t border-blue-100">
       <div className="px-4 mb-3">
         <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Our Specialities</p>
-        <h2 className="text-[#0d2e42] font-extrabold text-base">The QXL Difference</h2>
+        <p className="text-[#0d2e42] font-extrabold text-base">The QXL Difference</p>
       </div>
       <div className="mx-4 rounded-2xl overflow-hidden shadow-md bg-white flex flex-row min-h-[145px] relative">
         {/* Arrows */}
@@ -526,7 +533,7 @@ function MobilePromoHighlightSlider() {
     <section className="py-5 bg-white border-t border-blue-100">
       <div className="px-4 mb-3">
         <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Our Packages</p>
-        <h2 className="text-[#0d2e42] font-extrabold text-base">Featured Packages</h2>
+        <p className="text-[#0d2e42] font-extrabold text-base">Featured Packages</p>
       </div>
       <div className="mx-4 rounded-2xl overflow-hidden shadow-md bg-white flex flex-row min-h-[155px] relative">
         <AnimatePresence mode="wait">
@@ -813,12 +820,12 @@ export default function Home() {
                         <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3.5 w-fit shadow-sm">
                           {activeSlide.badge}
                         </span>
-                        <h2 className="text-[26px] md:text-[34px] leading-[1.1] font-extrabold text-[#0d2e42] mb-1">
+                        <p className="text-[26px] md:text-[34px] leading-[1.1] font-extrabold text-[#0d2e42] mb-1">
                           {activeSlide.title}
-                        </h2>
-                        <h2 className="text-[26px] md:text-[34px] leading-[1.1] font-extrabold text-[#2563eb] mb-2.5">
+                        </p>
+                        <p className="text-[26px] md:text-[34px] leading-[1.1] font-extrabold text-[#2563eb] mb-2.5">
                           {activeSlide.titleAccent}
-                        </h2>
+                        </p>
                         <p className="text-[14px] md:text-[16px] font-bold text-slate-600 mb-1">
                           {activeSlide.subtitle}{" "}
                           <span className="text-[#2563eb]">{activeSlide.subtitleAccent}</span>
@@ -860,12 +867,15 @@ export default function Home() {
               </AnimatePresence>
     
               {/* Slide dots */}
-              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-0.5 z-20">
                 {slides.map((s, idx) => (
-                  <button key={idx} onClick={() => setCurrentSlide(idx)}
-                    className={`h-2 rounded-full transition-all duration-300 ${idx === currentSlide ? "w-7 bg-[#2563eb]" : "w-2 bg-gray-300 hover:bg-gray-400"}`}
+                  <button key={idx} type="button" onClick={() => setCurrentSlide(idx)}
+                    className="min-w-11 min-h-11 flex items-center justify-center"
                     aria-label={`Slide ${idx + 1}`}
-                  />
+                    aria-current={idx === currentSlide ? "true" : undefined}
+                  >
+                    <span className={`block h-2 rounded-full transition-all duration-300 ${idx === currentSlide ? "w-7 bg-[#2563eb]" : "w-2 bg-gray-400"}`} />
+                  </button>
                 ))}
               </div>
             </div>
@@ -873,10 +883,12 @@ export default function Home() {
     
           {/* Arrows */}
           <button onClick={handlePrev}
+            aria-label="Previous hero slide"
             className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 shadow-md border border-gray-100 flex items-center justify-center text-slate-700 hover:bg-white hover:text-[#2563eb] transition-all z-20 opacity-0 group-hover:opacity-100">
             <ChevronRight className="w-5 h-5 rotate-180" />
           </button>
           <button onClick={handleNext}
+            aria-label="Next hero slide"
             className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 shadow-md border border-gray-100 flex items-center justify-center text-slate-700 hover:bg-white hover:text-[#2563eb] transition-all z-20 opacity-0 group-hover:opacity-100">
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -932,19 +944,8 @@ export default function Home() {
               </a>
 
               <Link href="/franchise"
-                className="bg-white rounded-2xl p-5 border border-gray-150 shadow-sm flex items-center justify-between group hover:shadow-[0_12px_30px_rgba(37,99,235,0.12)] hover:border-blue-400/50 hover:scale-[1.015] transition-all duration-300">
-                <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[#dbeafe] flex items-center justify-center mr-4 flex-shrink-0">
-                    <Users className="w-6 h-6 text-[#2563eb]" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-[14px] mb-0.5">Collaborate with us</h3>
-
-                  </div>
-                </div>
-                <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
-                  <ChevronRight className="w-4 h-4 text-[#2563eb] group-hover:text-white transition-colors" />
-                </div>
+                className="text-center text-[12px] text-slate-500 font-medium hover:text-[#2563eb] transition-colors py-1">
+                Lab partner or franchise? <span className="text-[#2563eb] font-bold">Partner with us →</span>
               </Link>
             </div>
           </div>
@@ -1047,8 +1048,8 @@ export default function Home() {
                   <Link href={s.href} className="group flex flex-col items-center p-4 sm:p-6 h-full">
                     <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto mb-4 rounded-3xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                       <Image 
-                        src={`${s.icon}?v=3`} 
-                        alt={s.title} 
+                        src={optimizeCloudinaryUrl(s.icon, { w: 190, h: 190 })} 
+                        alt="" 
                         width={160} 
                         height={160} 
                         unoptimized
@@ -1083,7 +1084,7 @@ export default function Home() {
             <div className="mb-10 text-center">
               <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2">Our Experts</span>
               <h2 className="text-[#0f2d5e] text-3xl font-extrabold mb-3">Meet Our Team</h2>
-              <p className="text-slate-500 text-sm max-w-2xl mx-auto font-medium">
+              <p className="text-slate-600 text-sm max-w-2xl mx-auto font-medium">
                 Combining over four decades of medical expertise, our team delivers exceptional diagnostic services with a commitment to precision and care.
               </p>
               <div className="w-16 h-1 bg-[#2563eb] mx-auto rounded-full mt-4" />
@@ -1125,7 +1126,7 @@ export default function Home() {
               <div className="bg-[#f0f9ff] p-8 rounded-3xl border border-[#2563eb]/10 shadow-sm">
                 <span className="inline-block bg-white text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-sm">Get in Touch</span>
                 <h2 className="text-[#0f2d5e] text-3xl font-extrabold mb-2">Book a Test / Inquiry</h2>
-                <p className="text-slate-500 text-sm font-medium mb-6">Fill out the form below and our team will contact you shortly.</p>
+                <p className="text-slate-600 text-sm font-medium mb-6">Fill out the form below and our team will contact you shortly.</p>
                 
                 <form className="flex flex-col gap-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1158,7 +1159,7 @@ export default function Home() {
 
               {/* Google Map */}
               <div className="flex flex-col">
-                <span className="inline-block bg-[#dbeafe] text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 w-fit">Our Location</span>
+                <span className="inline-block bg-[#dbeafe] text-[#1d4ed8] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 w-fit">Our Location</span>
 
                 <p className="text-slate-500 text-sm font-medium mb-6">Conveniently located in Bengaluru, providing state-of-the-art diagnostic facilities.</p>
                 
@@ -1216,13 +1217,13 @@ export default function Home() {
                         {slide.badge}
                       </span>
                     )}
-                    <h2 className="text-[13px] font-extrabold text-[#0d2e42] leading-tight mb-0.5">
+                    <p className="text-[13px] font-extrabold text-[#0d2e42] leading-tight mb-0.5">
                       {slide.title}
-                    </h2>
+                    </p>
                     {slide.titleAccent && (
-                      <h2 className="text-[13px] font-extrabold text-[#2563eb] leading-tight mb-1">
+                      <p className="text-[13px] font-extrabold text-[#2563eb] leading-tight mb-1">
                         {slide.titleAccent}
-                      </h2>
+                      </p>
                     )}
                     {slide.subtitle && (
                       <p className="text-[10px] font-bold text-slate-600 mb-0.5">{slide.subtitle}</p>
@@ -1311,37 +1312,20 @@ export default function Home() {
             <ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0" />
           </a>
 
-          {/* Franchise */}
-          <Link
-            href="/franchise"
-            className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl p-3.5 shadow-sm active:scale-[0.98] transition-transform"
-          >
-            <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-              <Users className="w-5 h-5 text-blue-500" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="font-extrabold text-[#0d2e42] text-sm leading-tight">Collaborate with us</p>
-
-            </div>
-            <ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0" />
-          </Link>
+          <p className="text-center text-[11px] text-slate-500 pt-1">
+            Lab partner or franchise?{" "}
+            <Link href="/franchise" className="text-[#2563eb] font-bold underline-offset-2 hover:underline">
+              Partner with us
+            </Link>
+          </p>
         </section>
-
-        {/* ── Accreditation ── */}
-        <Accreditations />
-
-        {/* ── Reviews ── */}
-        <ReviewsSection />
-
-        {/* ── FAQs ── */}
-        <FaqSection />
 
         {/* Recommended Packages — one per screen, full-width snap scroll */}
         <section className="py-4 bg-[#f8faff] border-t border-gray-100">
           <div className="flex items-center justify-between px-4 mb-3">
             <div>
               <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Health Packages</p>
-              <h2 className="text-[#0d2e42] font-extrabold text-base leading-tight">Recommended Packages</h2>
+              <p className="text-[#0d2e42] font-extrabold text-base leading-tight">Recommended Packages</p>
             </div>
             <Link href="/packages" className="text-[#2563eb] text-xs font-bold flex items-center gap-0.5">
               View all packages <ChevronRight className="w-3.5 h-3.5" />
@@ -1371,7 +1355,7 @@ export default function Home() {
                   <h3 className="font-extrabold text-[#0d2e42] text-[15px] leading-snug">{pkg.name}</h3>
 
                   {pkg.includes && (
-                    <p className="text-[11px] text-slate-500 bg-blue-50 px-3 py-2 rounded-xl font-medium leading-relaxed">
+                    <p className="text-[11px] text-slate-600 bg-blue-50 px-3 py-2 rounded-xl font-medium leading-relaxed">
                       {pkg.includes}
                     </p>
                   )}
@@ -1422,7 +1406,7 @@ export default function Home() {
           <div className="flex items-center justify-between px-4 pt-4 pb-2">
             <div>
               <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Our Specialities</p>
-              <h2 className="text-[#0d2e42] font-extrabold text-base leading-tight">Speciality Tests</h2>
+              <p className="text-[#0d2e42] font-extrabold text-base leading-tight">Speciality Tests</p>
             </div>
             <Link href="/speciality-tests" className="text-[#2563eb] text-xs font-bold flex items-center gap-0.5">
               View all speciality tests <ChevronRight className="w-3.5 h-3.5" />
@@ -1448,8 +1432,8 @@ export default function Home() {
               >
                 <div className="w-16 h-16 rounded-xl bg-[#eff6ff] border border-blue-100 flex items-center justify-center flex-shrink-0 overflow-hidden">
                   <Image
-                    src={`${spec.icon}?v=3`}
-                    alt={spec.title}
+                    src={optimizeCloudinaryUrl(spec.icon, { w: 96, h: 96 })}
+                    alt=""
                     width={48}
                     height={48}
                     unoptimized
@@ -1470,21 +1454,21 @@ export default function Home() {
         <MobileWhyChooseSlider />
 
         {/* AI Powered Diagnostics (Mobile is inside the component) */}
-        <AiDiagnostics />
+        <AiDiagnostics decorativeHeading />
 
         {/* Technologies removed */}
 
 
 
         {/* Home Collection */}
-        <HomeCollectionSection />
+        <HomeCollectionSection decorativeHeading />
 
         {/* Meet Our Team */}
         <section className="py-8 bg-[#f0f9ff] border-t border-blue-100">
           <div className="px-4">
             <div className="mb-6 text-center">
               <span className="inline-block bg-blue-50 text-[#2563eb] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-1.5">Our Experts</span>
-              <h2 className="text-[#0f2d5e] text-xl font-extrabold">Meet Our Team</h2>
+              <p className="text-[#0f2d5e] text-xl font-extrabold">Meet Our Team</p>
               <p className="text-slate-600 text-xs mt-2 leading-relaxed">
                 Combining over four decades of medical expertise, our team delivers exceptional diagnostic services with a commitment to precision and care.
               </p>
@@ -1514,7 +1498,7 @@ export default function Home() {
 
         {/* Mobile Promo Highlights Slider */}
         <MobilePromoHighlightSlider />
-        <BlogSlider />
+        <BlogSlider decorativeHeading />
 
         {/* Contact Form and Location Map */}
         <section className="py-8 bg-white border-t border-gray-150">
@@ -1522,7 +1506,7 @@ export default function Home() {
             {/* Form */}
             <div className="bg-[#f0f9ff] p-5 rounded-2xl border border-[#2563eb]/10 shadow-sm">
               <span className="inline-block bg-white text-[#2563eb] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2 shadow-xs">Get in Touch</span>
-              <h2 className="text-[#0f2d5e] text-lg font-extrabold mb-1">Book a Test / Inquiry</h2>
+              <p className="text-[#0f2d5e] text-lg font-extrabold mb-1">Book a Test / Inquiry</p>
               <p className="text-slate-600 text-xs mb-4 leading-relaxed">Fill out the form below and our team will contact you shortly.</p>
               
               <form className="flex flex-col gap-3">
@@ -1560,14 +1544,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Accreditation */}
-        <Accreditations />
+        {/* Accreditation / Reviews / FAQs (mobile — decorative headings; desktop owns real H2s) */}
+        <Accreditations decorativeHeading />
 
         {/* Reviews */}
-        <ReviewsSection />
+        <ReviewsSection decorativeHeading />
 
         {/* FAQs */}
-        <FaqSection />
+        <FaqSection decorativeHeading />
       </div>
 
       <PrescriptionModal isOpen={isPrescriptionModalOpen} onClose={() => setIsPrescriptionModalOpen(false)} />
