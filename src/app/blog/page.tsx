@@ -85,7 +85,8 @@ export default function BlogPage() {
                       href={`/blog/${blog.slug}`} 
                       className="inline-flex items-center gap-2 text-sm font-bold text-[#2563eb] hover:text-[#1d4ed8] transition-colors"
                     >
-                      Read Full Article <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      Read article: {blog.title.length > 48 ? `${blog.title.slice(0, 48)}…` : blog.title}{" "}
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>

@@ -112,14 +112,8 @@ export default function AiChat() {
     );
   };
 
-  // Try once on mount, and again every time the chat window is opened — the
-  // first attempt can fail (slow GPS fix, prompt dismissed) even though the
-  // user would grant it on a second try.
-  useEffect(() => {
-    requestLocation();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+  // Only request GPS when the user opens chat — never on initial page load
+  // (PageSpeed / Best Practices flags geolocation permission prompts on load).
   useEffect(() => {
     if (isOpen && locationStatus !== 'granted' && locationStatus !== 'locating') {
       requestLocation();

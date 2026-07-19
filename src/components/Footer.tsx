@@ -53,6 +53,8 @@ export default function Footer() {
               <img
                 src={settings.logoImage || "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"}
                 alt={`${settings.siteName || "QXL"} Logo`}
+                width={224}
+                height={56}
                 className="h-14 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
@@ -72,6 +74,8 @@ export default function Footer() {
                <img 
                  src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png" 
                  alt="NABL Accredited and ISO Certified" 
+                 width={128}
+                 height={64}
                  className="h-16 w-auto object-contain"
                />
             </div>
@@ -79,7 +83,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Quick Links</h4>
+            <h2 className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Quick Links</h2>
             <ul className="space-y-3">
               {(settings.navItems || []).filter((l: any) => l.visible !== false).map((l: any) => (
                 <li key={l.label}>
@@ -95,7 +99,7 @@ export default function Footer() {
 
           {/* Specialities */}
           <div>
-            <h4 className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Specialities</h4>
+            <h2 className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Specialities</h2>
             <ul className="space-y-3">
               {[
                 { label: "Neurology", href: "/specialities/neurology" },
@@ -122,7 +126,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Contact Us</h4>
+            <h2 className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Contact Us</h2>
             <ul className="space-y-4">
               <li className="flex gap-3">
                 <div className="w-9 h-9 rounded-full bg-[#2563eb]/30 flex items-center justify-center flex-shrink-0 mt-0.5">

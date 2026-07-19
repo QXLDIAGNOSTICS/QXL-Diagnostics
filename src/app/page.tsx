@@ -203,12 +203,20 @@ function WhyChooseSlider() {
         </div>
 
         {/* Dot indicators */}
-        <div className="flex justify-center gap-1.5 mt-4">
+        <div className="flex justify-center gap-0.5 mt-4">
           {whySlides.map((_, i) => (
-            <button key={i} onClick={() => setActive(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-7 bg-[#2563eb]" : "w-2 bg-gray-300 hover:bg-gray-400"}`}
-              aria-label={`Go to speciality ${i + 1}`}
-            />
+            <button
+              key={i}
+              type="button"
+              onClick={() => setActive(i)}
+              className="min-w-11 min-h-11 flex items-center justify-center"
+              aria-label={`Go to speciality slide ${i + 1}`}
+              aria-current={i === active ? "true" : undefined}
+            >
+              <span
+                className={`block h-2 rounded-full transition-all duration-300 ${i === active ? "w-7 bg-[#2563eb]" : "w-2 bg-gray-400"}`}
+              />
+            </button>
           ))}
         </div>
       </div>
@@ -346,7 +354,7 @@ function PromoHighlightSlider() {
               {/* Price */}
               <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-[#2563eb] font-extrabold text-[22px] md:text-[26px]">{slide.price}</span>
-                <span className="text-gray-400 text-[13px] line-through font-medium">{slide.original}</span>
+                <span className="text-slate-500 text-[13px] line-through font-medium">{slide.original}</span>
                 <span className="text-[10px] text-green-600 font-bold bg-green-50 border border-green-200 px-2 py-0.5 rounded-full">Save {Math.round((1 - parseInt(slide.price.replace(/[^\d]/g,'')) / parseInt(slide.original.replace(/[^\d]/g,''))) * 100)}%</span>
               </div>
               {/* Description */}
@@ -446,7 +454,7 @@ function MobileWhyChooseSlider() {
             transition={{ duration: 0.3 }}
             className="flex-1 flex flex-col justify-center pl-9 pr-3 py-4 bg-[#f7faff] text-left"
           >
-            <span className="inline-block bg-[#2563eb]/10 text-[#2563eb] text-[7px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-widest mb-1 w-fit">{slide.specialty}</span>
+            <span className="inline-block bg-[#2563eb]/15 text-[#1d4ed8] text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-widest mb-1 w-fit">{slide.specialty}</span>
             <h3 className="text-[12px] font-extrabold text-[#0d2e42] leading-tight mb-0.5">
               {slide.titlePlain} <span className="text-[#2563eb]">{slide.titleAccent}</span>
             </h3>
@@ -484,12 +492,20 @@ function MobileWhyChooseSlider() {
           <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
         </button>
       </div>
-      <div className="flex justify-center gap-1.5 mt-3">
+      <div className="flex justify-center gap-0.5 mt-3">
         {whySlides.map((_, i) => (
-          <button key={i} onClick={() => setActive(i)}
-            className={`h-1.5 rounded-full transition-all ${i === active ? 'w-5 bg-[#2563eb]' : 'w-1.5 bg-gray-300'}`}
-            aria-label={`Go to speciality ${i + 1}`}
-          />
+          <button
+            key={i}
+            type="button"
+            onClick={() => setActive(i)}
+            className="min-w-11 min-h-11 flex items-center justify-center"
+            aria-label={`Go to speciality slide ${i + 1}`}
+            aria-current={i === active ? "true" : undefined}
+          >
+            <span
+              className={`block h-1.5 rounded-full transition-all ${i === active ? "w-5 bg-[#2563eb]" : "w-1.5 bg-gray-400"}`}
+            />
+          </button>
         ))}
       </div>
     </section>
@@ -522,11 +538,11 @@ function MobilePromoHighlightSlider() {
             transition={{ duration: 0.3 }}
             className="flex-1 flex flex-col justify-center px-4 py-4 bg-[#f7faff] text-left"
           >
-            <span className="inline-block bg-[#2563eb] text-white text-[7px] font-extrabold px-1.5 py-0.5 rounded-full tracking-widest uppercase mb-1.5 w-fit">{slide.tag}</span>
+            <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded-full tracking-widest uppercase mb-1.5 w-fit">{slide.tag}</span>
             <h3 className="text-[12px] font-extrabold text-[#0d2e42] leading-tight mb-0.5">{slide.name}</h3>
             <div className="flex items-baseline gap-1.5 mb-1">
               <span className="text-[#2563eb] font-extrabold text-[15px]">{slide.price}</span>
-              <span className="text-gray-400 text-[10px] line-through">{slide.original}</span>
+              <span className="text-slate-500 text-[10px] line-through">{slide.original}</span>
             </div>
             <div className="flex flex-wrap gap-1 mb-2">
               {slide.includes.slice(0, 2).map(h => (
@@ -556,12 +572,20 @@ function MobilePromoHighlightSlider() {
           </AnimatePresence>
         </div>
       </div>
-      <div className="flex justify-center gap-1.5 mt-3">
+      <div className="flex justify-center gap-0.5 mt-3">
         {promoSlides.map((_, i) => (
-          <button key={i} onClick={() => setActive(i)}
-            className={`h-1.5 rounded-full transition-all ${i === active ? 'w-5 bg-[#2563eb]' : 'w-1.5 bg-gray-300'}`}
-            aria-label={`Go to package ${i + 1}`}
-          />
+          <button
+            key={i}
+            type="button"
+            onClick={() => setActive(i)}
+            className="min-w-11 min-h-11 flex items-center justify-center"
+            aria-label={`Go to package slide ${i + 1}`}
+            aria-current={i === active ? "true" : undefined}
+          >
+            <span
+              className={`block h-1.5 rounded-full transition-all ${i === active ? "w-5 bg-[#2563eb]" : "w-1.5 bg-gray-400"}`}
+            />
+          </button>
         ))}
       </div>
     </section>
@@ -936,7 +960,7 @@ export default function Home() {
                 <p className="text-slate-500 text-xs font-semibold mt-1">Our most popular general health panels — trusted by thousands</p>
               </div>
               <Link href="/packages" className="border border-[#2563eb] text-[#2563eb] font-bold px-6 py-2 rounded-xl text-xs hover:bg-[#dbeafe] transition-colors">
-                View All
+                View all health packages
               </Link>
             </div>
 
@@ -961,12 +985,12 @@ export default function Home() {
                       <div className="flex flex-col gap-1.5 mb-3 h-[45px] overflow-hidden">
                         <span className="bg-[#dbeafe] text-[#2563eb] text-[9px] font-bold px-2 py-1 rounded-md line-clamp-2 overflow-hidden text-ellipsis">{pkg.includes}</span>
                       </div>
-                      <p className="text-[10px] text-slate-400 font-semibold mb-1">🏠 Free Home Collection Available</p>
+                      <p className="text-[10px] text-slate-600 font-semibold mb-1">🏠 Free Home Collection Available</p>
                     </div>
                     <div>
                       <div className="flex items-baseline gap-2 mb-3 mt-2">
                         <span className="text-xl font-black text-slate-900">₹{pkg.price}</span>
-                        <span className="text-xs text-slate-400 line-through">₹{pkg.old_price}</span>
+                        <span className="text-xs text-slate-500 line-through">₹{pkg.old_price}</span>
                         <span className="text-[11px] text-emerald-600 font-extrabold">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
                       </div>
                       <div className="flex gap-2">
@@ -1233,20 +1257,27 @@ export default function Home() {
           </div>
 
           {/* Dots + prev/next */}
-          <div className="flex justify-center items-center gap-1.5 pt-2 pb-1">
+          <div className="flex justify-center items-center gap-0.5 pt-1 pb-1">
             {mobileSlides.map((_, idx) => (
               <button
                 key={idx}
+                type="button"
                 onClick={() => setCurrentMobileSlide(idx)}
-                className={`h-1.5 rounded-full transition-all ${idx === currentMobileSlide ? 'w-5 bg-[#2563eb]' : 'w-1.5 bg-gray-300'}`}
-              />
+                className="min-w-11 min-h-11 flex items-center justify-center"
+                aria-label={`Go to hero banner ${idx + 1}`}
+                aria-current={idx === currentMobileSlide ? "true" : undefined}
+              >
+                <span
+                  className={`block h-1.5 rounded-full transition-all ${idx === currentMobileSlide ? "w-5 bg-[#2563eb]" : "w-1.5 bg-gray-400"}`}
+                />
+              </button>
             ))}
           </div>
         </section>
 
         {/* Action Cards */}
         <section className="px-4 py-3 flex flex-col gap-2.5 bg-white border-t border-gray-100">
-          <p className="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-1">Need help?</p>
+          <p className="text-[11px] font-extrabold text-slate-600 uppercase tracking-widest mb-1">Need help?</p>
 
           {/* Prescription Card */}
           <div
@@ -1258,7 +1289,7 @@ export default function Home() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-extrabold text-[#0d2e42] text-sm leading-tight">Have a Prescription?</p>
-              <p className="text-[11px] text-gray-400 mt-0.5">Upload and book your tests</p>
+              <p className="text-[11px] text-slate-600 mt-0.5">Upload and book your tests</p>
             </div>
             <ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0" />
           </div>
@@ -1275,7 +1306,7 @@ export default function Home() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-extrabold text-[#0d2e42] text-sm leading-tight">WhatsApp Booking</p>
-              <p className="text-[11px] text-gray-400 mt-0.5">Text us on WhatsApp to book a test</p>
+              <p className="text-[11px] text-slate-600 mt-0.5">Text us on WhatsApp to book a test</p>
             </div>
             <ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0" />
           </a>
@@ -1313,7 +1344,7 @@ export default function Home() {
               <h2 className="text-[#0d2e42] font-extrabold text-base leading-tight">Recommended Packages</h2>
             </div>
             <Link href="/packages" className="text-[#2563eb] text-xs font-bold flex items-center gap-0.5">
-              View All <ChevronRight className="w-3.5 h-3.5" />
+              View all packages <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
@@ -1345,13 +1376,13 @@ export default function Home() {
                     </p>
                   )}
 
-                  <p className="text-[11px] text-slate-400 font-semibold">🏠 Free Home Collection Available</p>
+                  <p className="text-[11px] text-slate-600 font-semibold">🏠 Free Home Collection Available</p>
 
                   {/* Price + CTA */}
                   <div className="flex items-center justify-between pt-3 border-t border-gray-100 mt-1">
                     <div>
                       {pkg.old_price && (
-                        <p className="text-[11px] text-gray-400 line-through font-medium">₹{pkg.old_price}</p>
+                        <p className="text-[11px] text-slate-500 line-through font-medium">₹{pkg.old_price}</p>
                       )}
                       <p className="font-black text-[#0d2e42] text-[22px] leading-tight">₹{pkg.price}</p>
                     </div>
@@ -1394,7 +1425,7 @@ export default function Home() {
               <h2 className="text-[#0d2e42] font-extrabold text-base leading-tight">Speciality Tests</h2>
             </div>
             <Link href="/speciality-tests" className="text-[#2563eb] text-xs font-bold flex items-center gap-0.5">
-              View All <ChevronRight className="w-3.5 h-3.5" />
+              View all speciality tests <ChevronRight className="w-3.5 h-3.5" />
             </Link>
           </div>
           <div className="flex flex-col divide-y divide-gray-100 px-4 pb-4">
@@ -1427,7 +1458,7 @@ export default function Home() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-extrabold text-[#0d2e42] text-[13px] leading-tight">{spec.title}</p>
-                  <p className="text-[11px] text-gray-400 font-medium mt-0.5">{spec.desc}</p>
+                  <p className="text-[11px] text-slate-600 font-medium mt-0.5">{spec.desc}</p>
                 </div>
                 <ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0 group-active:text-[#2563eb] transition-colors" />
               </Link>
@@ -1454,7 +1485,7 @@ export default function Home() {
             <div className="mb-6 text-center">
               <span className="inline-block bg-blue-50 text-[#2563eb] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-1.5">Our Experts</span>
               <h2 className="text-[#0f2d5e] text-xl font-extrabold">Meet Our Team</h2>
-              <p className="text-slate-500 text-xs mt-2 leading-relaxed">
+              <p className="text-slate-600 text-xs mt-2 leading-relaxed">
                 Combining over four decades of medical expertise, our team delivers exceptional diagnostic services with a commitment to precision and care.
               </p>
               <div className="w-10 h-0.5 bg-[#2563eb] mx-auto rounded-full mt-3" />
@@ -1492,7 +1523,7 @@ export default function Home() {
             <div className="bg-[#f0f9ff] p-5 rounded-2xl border border-[#2563eb]/10 shadow-sm">
               <span className="inline-block bg-white text-[#2563eb] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2 shadow-xs">Get in Touch</span>
               <h2 className="text-[#0f2d5e] text-lg font-extrabold mb-1">Book a Test / Inquiry</h2>
-              <p className="text-slate-500 text-xs mb-4 leading-relaxed">Fill out the form below and our team will contact you shortly.</p>
+              <p className="text-slate-600 text-xs mb-4 leading-relaxed">Fill out the form below and our team will contact you shortly.</p>
               
               <form className="flex flex-col gap-3">
                 <input type="text" placeholder="Full Name" className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
@@ -1511,8 +1542,8 @@ export default function Home() {
 
             {/* Map */}
             <div className="flex flex-col">
-              <span className="inline-block bg-[#dbeafe] text-[#2563eb] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2 w-fit">Our Location</span>
-              <p className="text-slate-500 text-xs mb-3 leading-relaxed">Conveniently located in Bengaluru, providing state-of-the-art diagnostic facilities.</p>
+              <span className="inline-block bg-[#dbeafe] text-[#1d4ed8] text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2 w-fit">Our Location</span>
+              <p className="text-slate-600 text-xs mb-3 leading-relaxed">Conveniently located in Bengaluru, providing state-of-the-art diagnostic facilities.</p>
               <div className="w-full h-[220px] rounded-2xl overflow-hidden shadow-xs border border-gray-200 mt-1">
                 <iframe 
                   src={mapSrc} 

@@ -322,6 +322,8 @@ export default function Header() {
               <img
                 src={settings.logoImage || "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"}
                 alt={settings.siteName || "QXL Diagnostics"}
+                width={204}
+                height={64}
                 className="h-16 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';

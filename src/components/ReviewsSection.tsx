@@ -79,7 +79,7 @@ export default function ReviewsSection() {
               </div>
               <p className="text-slate-600 text-sm leading-relaxed mb-4">&ldquo;{r.content}&rdquo;</p>
               <p className="font-extrabold text-[#0f2d5e] text-sm">{r.author_name}</p>
-              {r.source && <p className="text-slate-400 text-xs">via {r.source}</p>}
+              {r.source && <p className="text-slate-600 text-xs">via {r.source}</p>}
             </div>
           ))}
         </div>

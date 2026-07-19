@@ -41,7 +41,7 @@ export default function BlogSlider() {
             href="/blog"
             className="hidden sm:inline-flex border border-[#2563eb] text-[#2563eb] font-bold px-6 py-2 rounded-xl text-xs hover:bg-[#dbeafe] transition-colors"
           >
-            View All Articles
+            View all blog articles
           </Link>
         </div>
 
@@ -74,7 +74,8 @@ export default function BlogSlider() {
                     href={`/blog/${blog.slug}`}
                     className="inline-flex items-center justify-center gap-1 text-xs font-bold text-white bg-[#2563eb] hover:bg-[#1d4ed8] transition-colors px-4 py-2.5 rounded-xl w-full"
                   >
-                    Read More <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    Read: {blog.title.length > 42 ? `${blog.title.slice(0, 42)}…` : blog.title}
+                    <ChevronRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
@@ -88,7 +89,7 @@ export default function BlogSlider() {
             href="/blog"
             className="inline-block border border-[#2563eb] text-[#2563eb] font-bold px-6 py-2 rounded-xl text-xs hover:bg-[#dbeafe] transition-colors"
           >
-            View All Articles
+            View all blog articles
           </Link>
         </div>
 

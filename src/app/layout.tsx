@@ -69,7 +69,8 @@ export const metadata: Metadata = {
       "Advanced diagnostic testing in Bengaluru. NABL certified, home collection, 300+ tests, same-day digital reports. Book now at +91 99646 39639.",
     images: [
       {
-        url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
+        // Force 1.91:1 OG crop so crawlers see 1200×630 (not a square logo/asset).
+        url: "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
         width: 1200,
         height: 630,
         alt: "QXL Diagnostics Lab Bengaluru",
@@ -81,7 +82,9 @@ export const metadata: Metadata = {
     title: "QXL Diagnostics | NABL Certified Lab Bengaluru",
     description:
       "NABL certified diagnostic lab in Bengaluru. Home collection, 300+ tests, same-day reports.",
-    images: ["https://res.cloudinary.com/btjglif5/image/upload/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg"],
+    images: [
+      "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
+    ],
   },
   robots: {
     index: true,

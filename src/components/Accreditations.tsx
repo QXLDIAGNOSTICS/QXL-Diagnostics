@@ -8,7 +8,7 @@ export default function Accreditations() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="md:w-1/2">
             <span className="inline-block bg-[#2563eb]/20 text-blue-300 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3">Quality & Trust</span>
-            <h2 className="text-white text-3xl font-extrabold mb-4">Certified for Excellence</h2>
+            <h2 className="text-slate-50 text-3xl font-extrabold mb-4">Certified for Excellence</h2>
             <p className="text-slate-300 text-sm font-medium leading-relaxed mb-6">
               QXL Diagnostics is proud to be accredited by the highest national and international regulatory bodies. Our commitment to stringent quality control ensures that your health is always in safe, reliable hands.
             </p>

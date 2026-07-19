@@ -633,7 +633,7 @@ export default function AiDiagnostics() {
                 <div>
                   <h3 className="font-bold text-[15px] leading-tight flex items-center gap-2">
                     QXL AI Assistant 
-                    <span className="bg-blue-500 text-white text-[9px] px-1.5 py-0.5 rounded-sm uppercase tracking-wider font-extrabold">Beta</span>
+                    <span className="bg-[#1d4ed8] text-white text-[10px] px-1.5 py-0.5 rounded-sm uppercase tracking-wider font-extrabold">Beta</span>
                   </h3>
                   <p className="text-[11px] text-white/90">{isTyping ? 'typing...' : isScanning ? 'analyzing report...' : 'Online'}</p>
                 </div>
@@ -723,7 +723,7 @@ export default function AiDiagnostics() {
                           <button
                             key={idx}
                             onClick={() => handleSend(qText)}
-                            className="bg-white/80 hover:bg-[#128C7E] hover:text-white border border-[#128C7E]/30 text-[#128C7E] px-2.5 py-1 rounded-full text-[11px] font-semibold transition-all shadow-sm"
+                            className="bg-white/80 hover:bg-[#0f766e] hover:text-white border border-[#0f766e] text-[#0f766e] px-2.5 py-1.5 rounded-full text-[11px] font-semibold transition-all shadow-sm"
                           >
                             {qText}
                           </button>
@@ -793,7 +793,7 @@ export default function AiDiagnostics() {
                       handleSend(q);
                     }}
                     disabled={isTyping || isScanning}
-                    className="snap-start shrink-0 bg-white border border-[#128C7E]/30 text-[#128C7E] px-3.5 py-1.5 rounded-full text-[12px] font-medium hover:bg-[#128C7E] hover:text-white transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1.5 font-semibold"
+                    className="snap-start shrink-0 bg-white border border-[#0f766e] text-[#0f766e] px-3.5 py-2.5 rounded-full text-[12px] font-medium hover:bg-[#0f766e] hover:text-white transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1.5 font-semibold"
                   >
                     {q.includes("Back") && <ArrowLeft className="w-3.5 h-3.5" />}
                     {q}
