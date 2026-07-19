@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ChevronRight, FileText, Phone, MessageCircle, Droplet, Activity, Heart, Shield, Star, Users, Microscope, CheckCircle, Award, Clock, MapPin } from "lucide-react";
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
+import { WHATSAPP_LINK } from '../lib/businessInfo';
 import BlogSlider from "../components/BlogSlider";
 import AiDiagnostics from "../components/AiDiagnostics";
 import HomeCollectionSection from "../components/HomeCollectionSection";
