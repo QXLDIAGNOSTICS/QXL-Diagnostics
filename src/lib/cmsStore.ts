@@ -333,7 +333,7 @@ const defaultSettings = {
   siteName: "QXL Diagnostics",
   logoText: "QXL",
   logoImage: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
-  supportEmail: "qxldiagnostics@gmail.com",
+    supportEmail: "qxldiagnostics@gmail.com",
   hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
   northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
   workingHours: "Open 24x7",
@@ -572,7 +572,9 @@ export const cmsStore = {
   syncSettingsFromAPI: async () => {
     if (!isClient) return;
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}/api/v1/settings`);
+      // Same-origin rewrite (next.config.ts) — avoids CORS / wrong-host failures
+      // when NEXT_PUBLIC_API_URL is unset or points at a different origin.
+      const response = await fetch("/api/v1/settings", { credentials: "include" });
       if (!response.ok) throw new Error(`API error: ${response.status}`);
       
       const apiSettings = await response.json();

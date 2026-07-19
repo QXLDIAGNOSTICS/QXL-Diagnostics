@@ -63,7 +63,7 @@ export default function FaqSection() {
                 </div>
               </button>
               <div
-                className={`overflow-hidden transition-all duration-300 px-5 ${openIdx === idx ? 'max-h-40 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
+                className={`overflow-hidden transition-all duration-300 px-5 ${openIdx === idx ? 'max-h-[480px] pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <p className="text-slate-500 text-[13px] leading-relaxed border-t border-gray-100 pt-4">
                   {faq.answer}

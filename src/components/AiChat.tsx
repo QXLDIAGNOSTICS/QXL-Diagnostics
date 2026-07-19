@@ -9,6 +9,39 @@ import ReactMarkdown from 'react-markdown';
 
 type StreamResult = 'streamed' | 'unauthorized' | 'failed';
 
+/** Clean AI-agent mark: chat bubble + spark — matches WhatsApp FAB scale. */
+function QxlAiIcon({ size = 28 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M6.5 7.5C6.5 5.567 8.067 4 10 4h12c1.933 0 3.5 1.567 3.5 3.5v9c0 1.933-1.567 3.5-3.5 3.5h-5.2L12 24.2V20H10c-1.933 0-3.5-1.567-3.5-3.5v-9Z"
+        fill="currentColor"
+        opacity="0.95"
+      />
+      <path
+        d="M23.2 3.2 24.35 6.1l2.9 1.15-2.9 1.15L23.2 11.3l-1.15-2.9-2.9-1.15 2.9-1.15 1.15-2.9Z"
+        fill="currentColor"
+      />
+      <circle cx="12.2" cy="12.2" r="1.35" fill="#2563eb" />
+      <circle cx="16" cy="12.2" r="1.35" fill="#2563eb" />
+      <circle cx="19.8" cy="12.2" r="1.35" fill="#2563eb" />
+    </svg>
+  );
+}
+
+const FAB = {
+  size: 56,
+  right: 24,
+  whatsappBottom: 24,
+  gap: 14,
+} as const;
+
 export default function AiChat() {
   const { user, loading: authLoading, refresh } = useAuth();
   const siteSettings = useSiteSettings();
@@ -323,36 +356,6 @@ export default function AiChat() {
   // button (which is independent of the AI toggle).
   if (!siteSettings.ai_chat_enabled) {
     return (
-      <>
-        {/* Floating WhatsApp Button - always shown regardless of AI chat toggle */}
-        <a
-          href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Chat on WhatsApp"
-          title="Chat on WhatsApp"
-          className="fab-whatsapp-btn"
-          style={{
-            position: 'fixed', bottom: '30px', right: '30px',
-            width: '60px', height: '60px', borderRadius: '50%',
-            backgroundColor: '#25D366', color: 'white', border: 'none',
-            boxShadow: '0 4px 16px rgba(37,211,102,0.4)', cursor: 'pointer',
-            zIndex: 1000, display: 'flex', alignItems: 'center',
-            justifyContent: 'center', textDecoration: 'none',
-            transition: 'transform 0.3s, box-shadow 0.3s'
-          }}
-        >
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-          </svg>
-        </a>
-      </>
-    );
-  }
-
-  return (
-    <>
-      {/* Floating WhatsApp Button - bottom right */}
       <a
         href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
         target="_blank"
@@ -360,114 +363,75 @@ export default function AiChat() {
         aria-label="Chat on WhatsApp"
         title="Chat on WhatsApp"
         className="fab-whatsapp-btn"
-        style={{
-          position: 'fixed',
-          bottom: '30px',
-          right: '30px',
-          width: '60px',
-          height: '60px',
-          borderRadius: '50%',
-          backgroundColor: '#25D366',
-          color: 'white',
-          border: 'none',
-          boxShadow: '0 4px 16px rgba(37,211,102,0.4)',
-          cursor: 'pointer',
-          zIndex: 1000,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textDecoration: 'none',
-          transition: 'transform 0.3s, box-shadow 0.3s'
-        }}
-        onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(37,211,102,0.5)'; }}
-        onMouseOut={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(37,211,102,0.4)'; }}
       >
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+      </a>
+    );
+  }
+
+  const aiBottom = FAB.whatsappBottom + FAB.size + FAB.gap;
+  const scrollTopBottom = aiBottom + FAB.size + FAB.gap;
+
+  return (
+    <>
+      {/* Floating WhatsApp — base of the FAB stack */}
+      <a
+        href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat on WhatsApp"
+        title="Chat on WhatsApp"
+        className="fab-whatsapp-btn"
+      >
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
       </a>
 
-
-
-      {/* Scroll to Top Button - above Book Test button */}
+      {/* Scroll to top — above the AI button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
           title="Back to top"
-          style={{
-            position: 'fixed',
-            bottom: '255px',
-            right: '30px',
-            width: '48px',
-            height: '48px',
-            borderRadius: '50%',
-            backgroundColor: 'white',
-            color: '#2563eb',
-            border: '2px solid #dbeafe',
-            boxShadow: '0 2px 10px rgba(0,0,0,0.12)',
-            cursor: 'pointer',
-            zIndex: 999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            transition: 'transform 0.3s, box-shadow 0.3s'
-          }}
-          onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.backgroundColor = '#dbeafe'; }}
-          onMouseOut={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.backgroundColor = 'white'; }}
+          className="fab-scroll-top-btn"
+          style={{ bottom: scrollTopBottom }}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <polyline points="18 15 12 9 6 15"></polyline>
           </svg>
         </button>
       )}
 
-      {/* Floating AI Chat Button - above WhatsApp */}
+      {/* QXL AI assistant FAB — same size/right edge as WhatsApp */}
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="fab-ai-chat-btn"
-        style={{
-          position: 'fixed',
-          bottom: '105px',
-          right: '30px',
-          width: '60px',
-          height: '60px',
-          borderRadius: '50%',
-          background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
-          color: 'white',
-          border: 'none',
-          boxShadow: '0 4px 16px rgba(16,111,165,0.45)',
-          cursor: 'pointer',
-          zIndex: 1000,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          transition: 'transform 0.3s, box-shadow 0.3s'
-        }}
-        onMouseOver={(e) => { e.currentTarget.style.transform = 'scale(1.08)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(16,111,165,0.55)'; }}
-        onMouseOut={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(16,111,165,0.45)'; }}
-        aria-label="Toggle AI Chat"
+        style={{ bottom: aiBottom }}
+        aria-label={isOpen ? "Close QXL AI chat" : "Open QXL AI assistant"}
         title="QXL AI Assistant"
       >
-        {/* AI Bot Icon */}
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="3" y="11" width="18" height="10" rx="2"></rect>
-          <circle cx="12" cy="5" r="2"></circle>
-          <path d="M12 7v4"></path>
-          <line x1="8" y1="16" x2="8.01" y2="16"></line>
-          <line x1="16" y1="16" x2="16.01" y2="16"></line>
-        </svg>
+        {isOpen ? (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        ) : (
+          <QxlAiIcon size={28} />
+        )}
       </button>
 
-      {/* Chat Window */}
+      {/* Chat Window — mobile-safe positioning using dvh so it never clips off-screen */}
       {isOpen && (
         <div style={{
           position: 'fixed',
-          bottom: '180px',
-          right: '20px',
-          width: '380px',
-          maxWidth: 'calc(100vw - 40px)',
-          height: '580px',
+          bottom: 'calc(var(--chat-bottom, 185px))',
+          right: '12px',
+          width: 'min(380px, calc(100vw - 24px))',
+          height: 'min(580px, calc(100dvh - 200px))',
           background: 'white',
           borderRadius: '20px',
           boxShadow: '0 20px 60px rgba(0,0,0,0.18)',
@@ -479,26 +443,37 @@ export default function AiChat() {
         }}>
           {/* Chat Header */}
           <div style={{
-            background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
+            background: 'linear-gradient(135deg, #1e40af 0%, #2563eb 60%, #1d4ed8 100%)',
             color: 'white',
-            padding: '18px 20px',
+            padding: '14px 16px',
             display: 'flex',
             justifyContent: 'space-between',
-            alignItems: 'center'
+            alignItems: 'center',
+            flexShrink: 0,
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{
-                width: '38px', height: '38px', borderRadius: '50%',
-                background: 'rgba(255,255,255,0.2)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center'
-              }}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 2L13.09 8.26L19 6L14.74 10.91L21 12L14.74 13.09L19 18L13.09 15.74L12 22L10.91 15.74L5 18L9.26 13.09L3 12L9.26 10.91L5 6L10.91 8.26L12 2Z"/>
-                </svg>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ position: 'relative', width: '40px', height: '40px', flexShrink: 0 }}>
+                <div style={{
+                  width: '40px', height: '40px', borderRadius: '50%',
+                  background: 'rgba(255,255,255,0.18)',
+                  border: '2px solid rgba(255,255,255,0.45)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: 'white',
+                }}>
+                  <QxlAiIcon size={22} />
+                </div>
+                <span style={{
+                  position: 'absolute', bottom: '1px', right: '1px',
+                  width: '10px', height: '10px', borderRadius: '50%',
+                  background: '#22c55e', border: '2px solid #1e40af'
+                }} />
               </div>
               <div>
-                <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 700 }}>QXL AI Assistant</h3>
-                <p style={{ margin: '2px 0 0 0', fontSize: '11px', opacity: 0.85 }}>● Online · Healthcare AI</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <h3 style={{ margin: 0, fontSize: '15px', fontWeight: 800, letterSpacing: '-0.01em' }}>QXL AI</h3>
+                  <span style={{ fontSize: '10px', fontWeight: 700, background: 'rgba(255,255,255,0.2)', padding: '1px 6px', borderRadius: '20px', letterSpacing: '0.05em' }}>ASSISTANT</span>
+                </div>
+                <p style={{ margin: '1px 0 0 0', fontSize: '10.5px', opacity: 0.85, fontWeight: 500 }}>● Online · Healthcare agent</p>
               </div>
             </div>
             

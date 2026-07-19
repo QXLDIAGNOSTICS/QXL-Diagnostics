@@ -1,8 +1,117 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { Building2, TrendingUp, ShieldCheck, Users, Briefcase, Award, CheckCircle2, ChevronRight, Activity, Beaker, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { api } from '../../lib/api';
+
+// ── Partnership hero slides (moved from homepage) ─────────────────────────────
+const partnerSlides = [
+  {
+    badge: "PARTNER WITH US",
+    title: "You too can",
+    titleAccent: "Collaborate with us",
+    subtitle: "Join as a partner of",
+    subtitleAccent: "India's Leading Diagnostics Chain",
+    description: "Join the QXL Diagnostics network. NABL Accredited Labs with a High Return on Investment. Full training, brand support, and dedicated relationship managers.",
+    cta: "Explore Options",
+    ctaLink: "#enquire",
+    ctaSecondary: "View Models",
+    ctaSecondaryLink: "#models",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150198/Assets-QXL/legacy-assets/image/franchise_partner_indian.jpg",
+    bgFrom: "#f0f9ff",
+    bgTo: "#e0f2fe",
+    features: ["NABL Accredited", "High ROI", "Full Training", "Brand Trust"],
+  },
+  {
+    badge: "FRANCHISE OPPORTUNITY",
+    title: "Own a Franchise or Collaborate with",
+    titleAccent: "India's Leading Diagnostics Brand",
+    subtitle: "Partner with QXL Diagnostics and build a successful business",
+    subtitleAccent: "in the rapidly growing healthcare sector.",
+    description: "Join our network of diagnostic centers and benefit from our established brand, state-of-the-art technology, and comprehensive support system.",
+    cta: "Enquire Now",
+    ctaLink: "#enquire",
+    ctaSecondary: "Contact Us",
+    ctaSecondaryLink: "/contact",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150478/Assets-QXL/legacy-assets/image/user_male_professional.jpg",
+    bgFrom: "#f0fdf4",
+    bgTo: "#dcfce7",
+    features: ["Proven Business Model", "Marketing Support", "Technical Training", "High ROI"],
+  },
+];
+
+function PartnerSlider() {
+  const [current, setCurrent] = useState(0);
+  const slide = partnerSlides[current];
+
+  useEffect(() => {
+    const t = setInterval(() => setCurrent(p => (p + 1) % partnerSlides.length), 7000);
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <section className="relative overflow-hidden" style={{ background: `linear-gradient(135deg, ${slide.bgFrom}, ${slide.bgTo})`, transition: 'background 0.8s ease' }}>
+      <div className="max-w-[1260px] mx-auto px-4 py-10 md:py-14">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col md:flex-row items-center gap-8"
+          >
+            {/* Left: content */}
+            <div className="flex-1">
+              <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3 shadow-sm">
+                {slide.badge}
+              </span>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-[#0d2e42] leading-tight mb-1">
+                {slide.title}
+              </h2>
+              <h2 className="text-2xl md:text-3xl font-extrabold text-[#2563eb] leading-tight mb-3">
+                {slide.titleAccent}
+              </h2>
+              <p className="text-sm font-bold text-slate-600 mb-1">{slide.subtitle} <span className="text-[#2563eb]">{slide.subtitleAccent}</span></p>
+              <p className="text-[13px] text-slate-500 leading-relaxed mb-5 max-w-lg">{slide.description}</p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                {slide.features.map(f => (
+                  <span key={f} className="bg-white/70 border border-[#2563eb]/20 text-[#2563eb] text-[10.5px] font-bold px-3 py-1 rounded-full shadow-sm">✓ {f}</span>
+                ))}
+              </div>
+              <div className="flex gap-3">
+                <a href={slide.ctaLink} className="bg-[#2563eb] text-white font-bold px-6 py-2.5 rounded-full text-sm hover:bg-[#1d4ed8] transition-all shadow-md">{slide.cta}</a>
+                <a href={slide.ctaSecondaryLink} className="bg-white/80 text-[#2563eb] font-bold px-6 py-2.5 rounded-full text-sm border border-[#2563eb]/20 hover:bg-white transition-all">{slide.ctaSecondary}</a>
+              </div>
+            </div>
+            {/* Right: image */}
+            <div className="w-full md:w-[380px] lg:w-[420px] h-56 md:h-72 rounded-3xl overflow-hidden shadow-2xl flex-shrink-0 border-4 border-white/40 relative">
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 420px"
+                className="object-cover object-center"
+                priority
+              />
+            </div>
+          </motion.div>
+        </AnimatePresence>
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-6">
+          {partnerSlides.map((_, i) => (
+            <button key={i} onClick={() => setCurrent(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-7 bg-[#2563eb]' : 'w-2 bg-slate-300 hover:bg-slate-400'}`}
+              aria-label={`Partner slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function FranchisePage() {
   const [formData, setFormData] = useState({
@@ -142,6 +251,9 @@ export default function FranchisePage() {
         </div>
       </section>
 
+      {/* ── Partnership Highlight Slider ── */}
+      <PartnerSlider />
+
       {/* Why QXL Diagnostics */}
       <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-[1260px] mx-auto px-4">
@@ -218,7 +330,7 @@ export default function FranchisePage() {
       </section>
 
       {/* Franchise Models */}
-      <section className="py-16 bg-[#f8faff]">
+      <section id="models" className="py-16 bg-[#f8faff]">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-[#0f2d5e] text-3xl font-extrabold mb-4">QXL Diagnostics Collaboration Models</h2>

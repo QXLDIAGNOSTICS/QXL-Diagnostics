@@ -700,41 +700,6 @@ export default function Home() {
       bgTo: "#e0f2fe",
       features: ["₹5,999 Only", "6-Hour Reports", "Full Body", "Actionable Data"],
     },
-    {
-      badge: "PARTNER WITH US",
-      title: "You too can",
-      titleAccent: "Collaborate with us",
-      subtitle: "Join as a partner of",
-      subtitleAccent: "India's Leading Diagnostics Chain",
-      description: "Join the QXL Diagnostics network. NABL Accredited Labs with a High Return on Investment.",
-      cta: "Explore Options",
-      ctaLink: "/franchise",
-      ctaSecondary: "Learn More",
-      ctaSecondaryLink: "/about",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150198/Assets-QXL/legacy-assets/image/franchise_partner_indian.jpg",
-      imageFit: "cover",
-      bgFrom: "#f0f9ff",
-      bgTo: "#e0f2fe",
-      features: ["NABL", "High ROI", "Full Training", "Brand Trust"],
-    },
-    {
-      imageOnly: false,
-      badge: "FRANCHISE OPPORTUNITY",
-      title: "Own a Franchise or Collaborate with",
-      titleAccent: "India's Leading Diagnostics Brand",
-      subtitle: "Partner with QXL Diagnostics and build a successful business",
-      subtitleAccent: "in the rapidly growing healthcare sector.",
-      description: "Join our network of diagnostic centers and benefit from our established brand, state-of-the-art technology, and comprehensive support system.",
-      cta: "Enquire Now",
-      ctaLink: "/franchise",
-      ctaSecondary: "Contact Us",
-      ctaSecondaryLink: "/contact",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150478/Assets-QXL/legacy-assets/image/user_male_professional.jpg",
-      imageFit: "cover",
-      bgFrom: "#f0fdf4",
-      bgTo: "#dcfce7",
-      features: ["Proven Business Model", "Marketing Support", "Technical Training", "High ROI"]
-    },
   ];
 
   const [isHovered, setIsHovered] = useState(false);
@@ -748,7 +713,7 @@ export default function Home() {
   }, [slides.length, isHovered]);
 
   const [currentMobileSlide, setCurrentMobileSlide] = useState(0);
-  const mobileSlides = slides.filter(s => !s.imageOnly);
+  const mobileSlides = slides; // all slides are now full slides
 
   const [isMobileHovered, setIsMobileHovered] = useState(false);
   
@@ -798,7 +763,7 @@ export default function Home() {
                   transition={{ duration: 1.0 }}
                   className="absolute inset-0 w-full h-full flex flex-col md:flex-row"
                 >
-                  {activeSlide.imageOnly ? (
+                  {(activeSlide as any).imageOnly ? (
                     <div className="w-full h-full relative z-10">
                       <Image
                         src={activeSlide.image}
@@ -860,6 +825,7 @@ export default function Home() {
                           src={activeSlide.image}
                           alt={activeSlide.title}
                           fill
+                          sizes="(max-width: 1024px) 224px, 450px"
                           className="object-cover"
                           priority
                         />
@@ -1188,6 +1154,11 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ── Accreditation / Reviews / FAQs (desktop) ── */}
+        <Accreditations />
+        <ReviewsSection />
+        <FaqSection />
       </div>
 
       {/* ── MOBILE VIEW (lg:hidden) ── */}
@@ -1250,9 +1221,10 @@ export default function Home() {
                       src={slide.image}
                       alt={slide.title}
                       fill
+                      sizes="130px"
                       className="object-cover object-center"
                       style={{ imageRendering: 'auto' }}
-                      priority
+                      priority={idx === 0}
                     />
                   </div>
                 </div>
