@@ -264,12 +264,6 @@ async def stream_answer(
     except Exception:  # noqa: BLE001 - tool resolution must never break the chat turn
         logger.exception("Tool resolution failed; answering without tool grounding")
 
-    if payment_order:
-        # Structured event the frontend chat widget listens for to render a
-        # real Razorpay checkout button — never rely on the model to embed
-        # working payment UI in free text.
-        yield f"data: {json.dumps({'payment_order': payment_order})}\n\n"
-
     collected: list[str] = []
     try:
         stream = await client.chat.completions.create(
@@ -290,6 +284,11 @@ async def stream_answer(
         yield f"data: {json.dumps({'error': 'generation_failed'})}\n\n"
         # Still persist the user turn below before returning.
         _ = exc
+
+    if payment_order:
+        # Emit *after* the streamed confirmation so the Pay button lands below
+        # the text. The frontend must never overwrite this event with deltas.
+        yield f"data: {json.dumps({'payment_order': payment_order})}\n\n"
 
     answer = "".join(collected)
     await _persist_message(db, conv_id, "user", question)
