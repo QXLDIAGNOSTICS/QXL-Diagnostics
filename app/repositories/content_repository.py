@@ -6,7 +6,7 @@ import uuid
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.content import FAQ, Banner, BlogPost, Doctor, GalleryItem, Review
+from app.models.content import FAQ, Banner, BlogPost, Doctor, GalleryItem, Review, SiteSettings
 
 
 class DoctorRepository:
@@ -289,3 +289,23 @@ class GalleryItemRepository:
     async def delete(self, item: GalleryItem) -> None:
         await self.db.delete(item)
         await self.db.flush()
+
+
+class SiteSettingsRepository:
+    def __init__(self, db: AsyncSession) -> None:
+        self.db = db
+
+    async def get_or_create(self) -> SiteSettings:
+        settings = await self.db.get(SiteSettings, 1)
+        if settings is None:
+            settings = SiteSettings(id=1)
+            self.db.add(settings)
+            await self.db.flush()
+        return settings
+
+    async def update(self, settings: SiteSettings, **kwargs) -> SiteSettings:  # noqa: ANN003
+        for k, v in kwargs.items():
+            if v is not None:
+                setattr(settings, k, v)
+        await self.db.flush()
+        return settings

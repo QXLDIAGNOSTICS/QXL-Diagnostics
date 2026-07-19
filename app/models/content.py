@@ -112,3 +112,27 @@ class GalleryItem(Base, TimestampMixin):
     category: Mapped[str | None] = mapped_column(String, nullable=True, index=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+
+
+class SiteSettings(Base, TimestampMixin):
+    """Singleton row (id always 1) holding site-wide, admin-configurable
+    preferences: theme colors, feature toggles, third-party script embeds,
+    and contact information (phone, WhatsApp). Read publicly (so the storefront
+    can apply it), written only by admins via the Settings screen.
+    """
+
+    __tablename__ = "site_settings"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, default=1)
+    theme_primary: Mapped[str] = mapped_column(String(16), default="#2563eb", nullable=False)
+    theme_secondary: Mapped[str] = mapped_column(String(16), default="#0d2e42", nullable=False)
+    maintenance_mode: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    cookie_banner: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    ai_chat_enabled: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    announcement: Mapped[str | None] = mapped_column(Text, nullable=True)
+    custom_scripts: Mapped[str | None] = mapped_column(Text, nullable=True)
+    live_chat_widget_id: Mapped[str | None] = mapped_column(String, nullable=True)
+    # Contact information — admin-configurable
+    phone_display: Mapped[str] = mapped_column(String(20), default="+91 99646 39639", nullable=False)
+    phone_e164: Mapped[str] = mapped_column(String(20), default="+919964639639", nullable=False)
+    whatsapp_number: Mapped[str] = mapped_column(String(20), default="919964639639", nullable=False)

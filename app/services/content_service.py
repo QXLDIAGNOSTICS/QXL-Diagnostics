@@ -6,7 +6,7 @@ import uuid
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.exceptions import NotFoundError
-from app.models.content import FAQ, Banner, BlogPost, Doctor, GalleryItem, Review
+from app.models.content import FAQ, Banner, BlogPost, Doctor, GalleryItem, Review, SiteSettings
 from app.repositories.content_repository import (
     BannerRepository,
     BlogPostRepository,
@@ -14,6 +14,7 @@ from app.repositories.content_repository import (
     FAQRepository,
     GalleryItemRepository,
     ReviewRepository,
+    SiteSettingsRepository,
 )
 from app.services.catalog_service import slugify
 
@@ -267,3 +268,21 @@ async def delete_gallery_item(db: AsyncSession, item_id: uuid.UUID) -> None:
         raise NotFoundError("Gallery item not found")
     await repo.delete(item)
     await db.commit()
+
+
+# ── Site Settings ─────────────────────────────────────────────────────────────
+
+async def get_site_settings(db: AsyncSession) -> SiteSettings:
+    settings = await SiteSettingsRepository(db).get_or_create()
+    await db.commit()
+    await db.refresh(settings)
+    return settings
+
+
+async def update_site_settings(db: AsyncSession, data: dict) -> SiteSettings:
+    repo = SiteSettingsRepository(db)
+    settings = await repo.get_or_create()
+    settings = await repo.update(settings, **data)
+    await db.commit()
+    await db.refresh(settings)
+    return settings

@@ -255,3 +255,34 @@ class GalleryItemUpdate(BaseModel):
 class GalleryItemList(BaseModel):
     items: list[GalleryItemRead]
     count: int
+
+
+# ── Site Settings ─────────────────────────────────────────────────────────────
+
+class SiteSettingsRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    theme_primary: str = "#2563eb"
+    theme_secondary: str = "#0d2e42"
+    maintenance_mode: bool = False
+    cookie_banner: bool = True
+    ai_chat_enabled: bool = True
+    announcement: str | None = None
+    custom_scripts: str | None = None
+    live_chat_widget_id: str | None = None
+    phone_display: str = "+91 99646 39639"
+    phone_e164: str = "+919964639639"
+    whatsapp_number: str = "919964639639"
+
+
+class SiteSettingsUpdate(BaseModel):
+    theme_primary: str | None = None
+    theme_secondary: str | None = None
+    maintenance_mode: bool | None = None
+    cookie_banner: bool | None = None
+    ai_chat_enabled: bool | None = None
+    announcement: str | None = None
+    custom_scripts: str | None = None
+    live_chat_widget_id: str | None = None
+    phone_display: str | None = None
+    phone_e164: str | None = None
+    whatsapp_number: str | None = None

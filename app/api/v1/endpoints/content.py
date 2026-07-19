@@ -29,6 +29,8 @@ from app.schemas.content import (
     ReviewList,
     ReviewRead,
     ReviewUpdate,
+    SiteSettingsRead,
+    SiteSettingsUpdate,
 )
 from app.services import content_service
 
@@ -257,3 +259,19 @@ async def update_gallery_item(
 @router.delete("/gallery/{item_id}", status_code=204)
 async def delete_gallery_item(item_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))) -> None:
     await content_service.delete_gallery_item(db, item_id)
+
+
+# ── Site Settings ──────────────────────────────────────────────────────────
+
+@router.get("/settings", response_model=SiteSettingsRead)
+async def get_site_settings(db: DbSession) -> SiteSettingsRead:
+    settings = await content_service.get_site_settings(db)
+    return SiteSettingsRead.model_validate(settings)
+
+
+@router.put("/settings", response_model=SiteSettingsRead)
+async def update_site_settings(
+    body: SiteSettingsUpdate, db: DbSession, user: User = Depends(require_role("admin"))
+) -> SiteSettingsRead:
+    settings = await content_service.update_site_settings(db, body.model_dump(exclude_unset=True))
+    return SiteSettingsRead.model_validate(settings)
