@@ -184,6 +184,7 @@ export default function AppointmentsAdminPage() {
             <table className="w-full text-left border-collapse text-slate-800 dark:text-slate-200">
               <thead>
                 <tr className="bg-slate-50/50 dark:bg-slate-950/20 text-gray-400 uppercase text-[10px] font-black tracking-wider border-b border-gray-100 dark:border-gray-800">
+                  <th className="px-6 py-4">Booking ID</th>
                   <th className="px-6 py-4">Patient Name</th>
                   <th className="px-6 py-4">Contact</th>
                   <th className="px-6 py-4">Requested Service</th>
@@ -195,6 +196,7 @@ export default function AppointmentsAdminPage() {
               <tbody className="divide-y divide-gray-100 dark:divide-gray-800 text-xs">
                 {filtered.map((apt) => (
                   <tr key={apt.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-950/10">
+                    <td className="px-6 py-4 font-mono text-[10px] text-gray-500 dark:text-gray-400" title={apt.id}>{apt.id.slice(0, 8)}…</td>
                     <td className="px-6 py-4 font-extrabold text-slate-900 dark:text-white">{apt.patient_name}</td>
                     <td className="px-6 py-4 font-medium">{apt.patient_phone}</td>
                     <td className="px-6 py-4 font-bold text-teal-650 dark:text-teal-400">{apt.test_name || "—"}</td>

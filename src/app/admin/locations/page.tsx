@@ -45,7 +45,7 @@ export default function LocationsAdminPage() {
     setEditingId(null);
     setName("");
     setAddress("");
-    setCity("Bengaluru");
+    setCity("");
     setPhone("+91 99646 39639");
     setHours("Mon - Sat: 8:00 AM - 7:00 PM | Sun: Closed");
     setLat("");
@@ -246,15 +246,42 @@ export default function LocationsAdminPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">City</label>
-                  <select
+                  <input
+                    type="text"
+                    list="city-suggestions"
+                    required
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
+                    placeholder="Enter city name"
                     className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                  >
-                    <option value="Bengaluru">Bengaluru</option>
-                    <option value="Gurgaon">Gurgaon</option>
-                    <option value="Delhi">Delhi</option>
-                  </select>
+                  />
+                  <datalist id="city-suggestions">
+                    <option value="Bengaluru" />
+                    <option value="Delhi" />
+                    <option value="Mumbai" />
+                    <option value="Chennai" />
+                    <option value="Hyderabad" />
+                    <option value="Kolkata" />
+                    <option value="Pune" />
+                    <option value="Ahmedabad" />
+                    <option value="Jaipur" />
+                    <option value="Lucknow" />
+                    <option value="Gurgaon" />
+                    <option value="Noida" />
+                    <option value="Chandigarh" />
+                    <option value="Kochi" />
+                    <option value="Indore" />
+                    <option value="Coimbatore" />
+                    <option value="Mysuru" />
+                    <option value="Visakhapatnam" />
+                    <option value="Nagpur" />
+                    <option value="Bhopal" />
+                    <option value="Patna" />
+                    <option value="Thiruvananthapuram" />
+                    <option value="Surat" />
+                    <option value="Vadodara" />
+                    <option value="Mangaluru" />
+                  </datalist>
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Phone Number</label>

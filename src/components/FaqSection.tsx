@@ -1,32 +1,23 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { api, type FAQItem } from '@/lib/api';
 
 export default function FaqSection() {
-  const faqs = [
-    {
-      q: "How do I book a home sample collection?",
-      a: "You can book a home sample collection directly through our website by clicking 'Book Home Collection', or by calling/WhatsApping our support team at +91 9964 639639."
-    },
-    {
-      q: "Are my reports available online?",
-      a: "Yes, once your tests are completed and reviewed by our expert pathologists, you will receive a secure link to download your digital reports via SMS and WhatsApp."
-    },
-    {
-      q: "Do I need to fast before my blood test?",
-      a: "Some tests (like fasting blood sugar or lipid profiles) require 8-12 hours of fasting. We will provide specific instructions based on the tests you have booked."
-    },
-    {
-      q: "How accurate are your test results?",
-      a: "As an NABL and ISO certified laboratory, we maintain the highest standards of daily internal quality control and external quality assessment to guarantee maximum precision."
-    },
-    {
-      q: "What is your turnaround time for reports?",
-      a: "Most routine blood tests and pathology reports are delivered within 6 to 12 hours on the same day. Specialized molecular or histopathology tests may take slightly longer."
-    }
-  ];
-
+  const [faqs, setFaqs] = useState<FAQItem[]>([]);
   const [openIdx, setOpenIdx] = useState<number | null>(0);
+
+  useEffect(() => {
+    let cancelled = false;
+    api.faqs.list()
+      .then((items) => {
+        if (!cancelled) setFaqs(items);
+      })
+      .catch((err) => console.error('Failed to load FAQs', err));
+    return () => { cancelled = true; };
+  }, []);
+
+  if (faqs.length === 0) return null;
 
   // Page-level FAQPage structured data generated from the FAQs actually
   // rendered below, so schema always matches on-page visible content
@@ -36,10 +27,10 @@ export default function FaqSection() {
     "@type": "FAQPage",
     mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      name: faq.q,
+      name: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.a,
+        text: faq.answer,
       },
     })),
   };
@@ -59,23 +50,23 @@ export default function FaqSection() {
 
         <div className="space-y-3">
           {faqs.map((faq, idx) => (
-            <div key={idx} className={`bg-white rounded-2xl border transition-all duration-300 ${openIdx === idx ? 'border-[#2563eb] shadow-md' : 'border-gray-100 hover:border-blue-200'}`}>
-              <button 
+            <div key={faq.id} className={`bg-white rounded-2xl border transition-all duration-300 ${openIdx === idx ? 'border-[#2563eb] shadow-md' : 'border-gray-100 hover:border-blue-200'}`}>
+              <button
                 onClick={() => setOpenIdx(openIdx === idx ? null : idx)}
                 className="w-full flex items-center justify-between p-5 text-left focus:outline-none"
               >
                 <span className={`font-bold text-[14px] pr-4 ${openIdx === idx ? 'text-[#2563eb]' : 'text-[#0f2d5e]'}`}>
-                  {faq.q}
+                  {faq.question}
                 </span>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${openIdx === idx ? 'bg-blue-50' : 'bg-gray-50'}`}>
                   <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openIdx === idx ? 'rotate-180 text-[#2563eb]' : 'text-gray-400'}`} />
                 </div>
               </button>
-              <div 
+              <div
                 className={`overflow-hidden transition-all duration-300 px-5 ${openIdx === idx ? 'max-h-40 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <p className="text-slate-500 text-[13px] leading-relaxed border-t border-gray-100 pt-4">
-                  {faq.a}
+                  {faq.answer}
                 </p>
               </div>
             </div>

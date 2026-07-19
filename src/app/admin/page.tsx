@@ -113,9 +113,9 @@ export default function AdminDashboard() {
       
       {/* Header */}
       <div>
-        <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
+        <h2 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
           Dashboard Overview
-          <span className="flex items-center gap-1.5 text-xs font-semibold px-2 py-1 rounded-full bg-emerald-100 text-emerald-800">
+          <span className="flex items-center gap-1.5 text-xs font-semibold px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-400">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -123,7 +123,7 @@ export default function AdminDashboard() {
             Live Updates Active
           </span>
         </h2>
-        <p className="text-slate-600">Welcome back, here's what's happening right now.</p>
+        <p className="text-slate-600 dark:text-slate-400">Welcome back, here's what's happening right now.</p>
       </div>
 
       {/* Stats Grid */}
@@ -144,10 +144,10 @@ export default function AdminDashboard() {
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-slate-200 dark:border-gray-800 shadow-sm">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-slate-900">Revenue Overview</h3>
-            <select className="text-sm bg-slate-50 text-slate-800 border border-slate-300 rounded-lg px-3 py-1.5 outline-none cursor-pointer">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Revenue Overview</h3>
+            <select className="text-sm bg-slate-50 dark:bg-gray-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-gray-700 rounded-lg px-3 py-1.5 outline-none cursor-pointer">
               <option>This Year</option>
               <option>Last Year</option>
             </select>
@@ -155,10 +155,10 @@ export default function AdminDashboard() {
           <RevenueChart />
         </div>
         
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-slate-200 dark:border-gray-800 shadow-sm">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-slate-900">Appointments & Tests</h3>
-            <select className="text-sm bg-slate-50 text-slate-800 border border-slate-300 rounded-lg px-3 py-1.5 outline-none cursor-pointer">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Appointments & Tests</h3>
+            <select className="text-sm bg-slate-50 dark:bg-gray-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-gray-700 rounded-lg px-3 py-1.5 outline-none cursor-pointer">
               <option>This Week</option>
               <option>Last Week</option>
             </select>
@@ -171,9 +171,9 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Recent Appointments */}
-        <div className="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <div className="lg:col-span-2 bg-white dark:bg-gray-900 p-6 rounded-2xl border border-slate-200 dark:border-gray-800 shadow-sm">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-slate-900">Recent Appointments</h3>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Recent Appointments</h3>
             <button 
               onClick={() => window.location.href = '/admin/appointments'}
               className="text-sm text-teal-700 font-medium hover:underline px-3 py-1 rounded-md hover:bg-teal-50 transition-colors cursor-pointer"
@@ -182,8 +182,8 @@ export default function AdminDashboard() {
             </button>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-600">
-              <thead className="text-xs text-slate-700 uppercase bg-slate-50">
+            <table className="w-full text-left text-sm text-slate-600 dark:text-slate-300">
+              <thead className="text-xs text-slate-700 dark:text-slate-400 uppercase bg-slate-50 dark:bg-gray-800">
                 <tr>
                   <th className="px-4 py-3 rounded-tl-lg">Patient</th>
                   <th className="px-4 py-3">Test / Package</th>
@@ -201,7 +201,7 @@ export default function AdminDashboard() {
                   </tr>
                 ) : recentAppointments.map((item) => (
                   <tr key={item.id} className="border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
-                    <td className="px-4 py-4 font-medium text-slate-900">{item.name}</td>
+                    <td className="px-4 py-4 font-medium text-slate-900 dark:text-white">{item.name}</td>
                     <td className="px-4 py-4">{item.service}</td>
                     <td className="px-4 py-4">{item.date}</td>
                     <td className="px-4 py-4">
@@ -225,18 +225,18 @@ export default function AdminDashboard() {
         </div>
 
         {/* Top Services */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+        <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-slate-200 dark:border-gray-800 shadow-sm">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-bold text-slate-900">Top Packages</h3>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Top Packages</h3>
           </div>
           <div className="space-y-4">
             {topServices.map((service, idx) => (
               <div key={idx} className="space-y-1">
-                <div className="flex justify-between text-xs font-bold text-slate-700">
+                <div className="flex justify-between text-xs font-bold text-slate-700 dark:text-slate-300">
                   <span className="truncate max-w-50">{service.name}</span>
                   <span>{service.count} bookings</span>
                 </div>
-                <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+                <div className="w-full bg-slate-100 dark:bg-gray-800 h-2 rounded-full overflow-hidden">
                   <div 
                     className="bg-teal-600 h-full rounded-full transition-all duration-500" 
                     style={{ width: `${service.percentage}%` }}

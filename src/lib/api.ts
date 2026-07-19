@@ -58,6 +58,8 @@ const post = <T>(path: string, body?: unknown) =>
   });
 const patch = <T>(path: string, body?: unknown) =>
   request<T>(path, { method: 'PATCH', body: body !== undefined ? JSON.stringify(body) : undefined });
+const put = <T>(path: string, body?: unknown) =>
+  request<T>(path, { method: 'PUT', body: body !== undefined ? JSON.stringify(body) : undefined });
 const del = <T>(path: string) => request<T>(path, { method: 'DELETE' });
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -467,6 +469,18 @@ export interface GalleryItemCreate {
 }
 export type GalleryItemUpdate = Partial<GalleryItemCreate>;
 
+export interface SiteSettings {
+  theme_primary: string;
+  theme_secondary: string;
+  maintenance_mode: boolean;
+  cookie_banner: boolean;
+  ai_chat_enabled: boolean;
+  announcement: string | null;
+  custom_scripts: string | null;
+  live_chat_widget_id: string | null;
+}
+export type SiteSettingsUpdate = Partial<SiteSettings>;
+
 export interface CollaborationLeadCreate {
   name: string;
   phone: string;
@@ -706,5 +720,9 @@ export const api = {
       form.append('file', file);
       return post<{ url: string }>('/uploads/image', form);
     },
+  },
+  settings: {
+    get: () => get<SiteSettings>('/settings'),
+    update: (data: SiteSettingsUpdate) => put<SiteSettings>('/settings', data),
   },
 };

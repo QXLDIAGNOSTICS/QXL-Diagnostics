@@ -64,13 +64,13 @@ export default function AdminSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-64 bg-white border-r border-slate-200 hidden md:flex flex-col h-screen sticky top-0 overflow-hidden shrink-0">
-      <div className="h-16 flex items-center gap-2.5 px-6 border-b border-slate-200">
+    <aside className="w-64 bg-white dark:bg-gray-900 border-r border-slate-200 dark:border-gray-800 hidden md:flex flex-col h-screen sticky top-0 overflow-hidden shrink-0">
+      <div className="h-16 flex items-center gap-2.5 px-6 border-b border-slate-200 dark:border-gray-800">
         <div className="w-8 h-8 rounded-lg bg-linear-to-br from-teal-500 to-emerald-600 flex items-center justify-center text-white font-black text-sm shadow-sm shadow-teal-500/30">
           Q
         </div>
-        <h1 className="text-lg font-bold text-slate-900">
-          QXL <span className="text-teal-700">Admin</span>
+        <h1 className="text-lg font-bold text-slate-900 dark:text-white">
+          QXL <span className="text-teal-700 dark:text-teal-400">Admin</span>
         </h1>
       </div>
       
@@ -84,8 +84,8 @@ export default function AdminSidebar() {
               href={link.href}
               className={`flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
                 isActive
-                  ? "bg-teal-100 text-teal-800 font-semibold"
-                  : "text-slate-700 hover:bg-slate-100 hover:text-teal-700"
+                  ? "bg-teal-100 dark:bg-teal-950/30 text-teal-800 dark:text-teal-300 font-semibold"
+                  : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-gray-800 hover:text-teal-700 dark:hover:text-teal-400"
               }`}
             >
               <Icon className={`w-5 h-5 ${isActive ? "opacity-100" : "opacity-75"}`} />
@@ -100,6 +100,7 @@ export default function AdminSidebar() {
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #374151; }
       `}} />
     </aside>
   );

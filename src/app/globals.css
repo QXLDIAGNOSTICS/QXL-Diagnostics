@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 
 
 @theme inline {
@@ -110,6 +112,9 @@
             --text-muted: #4B5563;
             --border: #E5E7EB;
             --success: #059669;
+            /* Theme variables set by SiteSettingsProvider from admin settings */
+            --theme-primary: #2563eb;
+            --theme-secondary: #0d2e42;
         }
 
         html {
