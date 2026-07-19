@@ -113,7 +113,7 @@ async def list_published_posts(db: AsyncSession, limit: int, offset: int) -> tup
 
 async def get_post_by_slug(db: AsyncSession, slug: str) -> BlogPost:
     post = await BlogPostRepository(db).get_by_slug(slug)
-    if post is None:
+    if post is None or not post.is_published:
         raise NotFoundError("Blog post not found")
     return post
 
@@ -273,7 +273,16 @@ async def delete_gallery_item(db: AsyncSession, item_id: uuid.UUID) -> None:
 # ── Site Settings ─────────────────────────────────────────────────────────────
 
 async def get_site_settings(db: AsyncSession) -> SiteSettings:
-    settings = await SiteSettingsRepository(db).get_or_create()
+    """Return the singleton site settings row, creating it only if missing.
+
+    Public pages hit this on almost every load — avoid an unconditional
+    commit/refresh (extra round-trips that hold pooler slots longer).
+    """
+    repo = SiteSettingsRepository(db)
+    existing = await db.get(SiteSettings, 1)
+    if existing is not None:
+        return existing
+    settings = await repo.get_or_create()
     await db.commit()
     await db.refresh(settings)
     return settings
