@@ -35,7 +35,7 @@ export default function ChatPaymentCard({ order }: ChatPaymentCardProps) {
       
       <div className="bg-slate-50 p-2 rounded-xl border border-slate-100 max-w-[150px]">
         <img
-          src="/images/payment_qr.png"
+          src="/upi.jpg"
           alt="Scan to Pay via UPI"
           className="w-full h-auto object-contain rounded-lg"
         />

@@ -115,7 +115,7 @@ export default function DashboardPage() {
                       {b.status === "pending" && (
                         <div className="mt-4 pt-4 border-t border-dashed border-slate-100 flex flex-col sm:flex-row items-center gap-4 bg-slate-50 p-3.5 rounded-xl">
                           <img 
-                            src="/images/payment_qr.png" 
+                            src="/upi.jpg" 
                             alt="Scan to Pay via UPI" 
                             className="w-16 h-16 object-contain rounded-lg border border-slate-200"
                           />

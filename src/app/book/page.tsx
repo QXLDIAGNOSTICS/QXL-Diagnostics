@@ -485,9 +485,24 @@ export default function BookPage() {
               <div className="text-center py-12">
                 <div className="w-16 h-16 bg-[#dbeafe] text-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-extrabold">✓</div>
                 <h2 className="text-2xl font-bold text-slate-800 mb-2">Booking Request Received!</h2>
-                <p className="text-slate-500 text-sm max-w-md mx-auto mb-8 font-medium">
+                <p className="text-slate-500 text-sm max-w-md mx-auto mb-6 font-medium">
                   Thank you, <strong className="text-slate-700">{formData.name}</strong>. Our clinical coordinator will call you back at <strong className="text-slate-700">{formData.phone}</strong> within 15 minutes to confirm your test slot.
                 </p>
+
+                <div className="bg-slate-50 border border-slate-150 rounded-2xl p-5 max-w-sm mx-auto mb-8 flex flex-col items-center text-center shadow-sm">
+                  <img
+                    src="/upi.jpg"
+                    alt="Scan to Pay via UPI"
+                    className="w-48 h-48 object-contain rounded-xl border border-slate-200 bg-white p-2 shadow-sm mb-3"
+                  />
+                  <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider block mb-0.5">UPI Payment</span>
+                  <p className="text-xs font-semibold text-slate-700 mb-2">
+                    Scan with GPay, PhonePe, Paytm or any UPI app to pay
+                  </p>
+                  <span className="inline-block bg-blue-50 text-[#2563eb] text-xs font-mono font-bold px-3 py-1 rounded-lg border border-blue-100">
+                    qxl-diagnostics@pingpay
+                  </span>
+                </div>
 
 
 
