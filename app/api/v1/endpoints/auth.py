@@ -10,7 +10,7 @@ import uuid as _uuid
 
 from fastapi import APIRouter, Request, Response
 
-from app.api.deps import CurrentUser, DbSession
+from app.api.deps import CurrentUserOptional, DbSession
 from app.core.config import settings
 from app.core.exceptions import ValidationError
 from app.core.rate_limit import limiter
@@ -134,7 +134,15 @@ async def logout(request: Request, response: Response, db: DbSession) -> None:
     response.delete_cookie(settings.SESSION_COOKIE_NAME, path="/")
 
 
-@router.get("/me", response_model=UserMe)
-async def me(user: CurrentUser) -> UserMe:
+@router.get("/me", response_model=UserMe | None)
+async def me(user: CurrentUserOptional) -> UserMe | None:
+    """Session probe used by the site chrome on every page load.
+
+    Returns ``200 null`` when the visitor is a guest (no session cookie / expired
+    session) so browsers and Lighthouse do not log a 401 as a console error.
+    Authenticated callers still receive the full ``UserMe`` payload.
+    """
+    if user is None:
+        return None
     return UserMe.model_validate(user)
 
