@@ -1,0 +1,227 @@
+"use client";
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { ChevronRight, CheckCircle, Activity, Stethoscope, Microscope, Shield, Clock, FlaskConical, Users, FileText, Bone } from 'lucide-react';
+
+const SPECIALITIES = ["Neurology","Hematology","Cardiology","Urology","Endocrinology","Oncology","Infectious Diseases","Women's Health","Gastroenterology","Bone Disorders"];
+
+const faqs = [
+  { q: "What is the Anti-CCP test and why is it useful in arthritis?", a: "The Anti-CCP (anti-cyclic citrullinated peptide) test is a highly specific blood test for diagnosing Rheumatoid Arthritis (RA). Unlike the traditional RA Factor, which can sometimes be positive in other diseases or healthy individuals, Anti-CCP has a specificity of over 95% and can detect RA in its very early stages, even before joint damage occurs." },
+  { q: "Why is PTH (Parathyroid Hormone) measured alongside Calcium and Phosphorus?", a: "PTH is secreted by the parathyroid glands to control calcium levels in the blood. Measuring Intact PTH alongside Calcium and Phosphorus is critical for identifying parathyroid disorders (like hyperparathyroidism), metabolic bone diseases, or secondary bone dysfunction caused by chronic kidney disease or severe Vitamin D deficiency." },
+  { q: "What are Bone Turnover Markers (like P1NP and Beta-CTx) and when are they used?", a: "Bone turnover markers measure the rate of bone formation (P1NP) and bone resorption/breakdown (Beta-CTx). Clinicians use these tests to monitor bone remodeling activity and to verify the clinical efficacy of osteoporosis medications (like bisphosphonates) within 3-6 months, much faster than waiting for a yearly DEXA bone density scan." },
+  { q: "What is the HLA-B27 test and when is it ordered?", a: "HLA-B27 is a genetic marker associated with autoimmune joint diseases known as spondyloarthropathies, most notably Ankylosing Spondylitis. It is ordered when a patient presents with chronic lower back pain, joint stiffness (especially in the morning), or inflammation of the eyes (uveitis) to support diagnosis." }
+];
+
+export default function BoneDisordersPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  return (
+    <div className="bg-gray-50 min-h-screen">
+      {/* Hero Banner */}
+      <section className="glass-panel text-[#0c4a6e] py-16 lg:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1581093450096-2679234857b7?q=80&w=2000')] bg-cover bg-center" />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl">
+            <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">Bone Disorders</span>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#0c4a6e] leading-tight">Advanced Bone Health, Joint &amp; Arthritis Diagnostics in Bengaluru</h1>
+            <p className="text-[#0369a1] text-base md:text-lg mb-8 leading-relaxed">
+              Comprehensive arthritis panels, parathyroid mapping, autoimmune profiles (Anti-CCP, HLA-B27), and advanced bone turnover markers for precision metabolic health.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a href="#test-profiles" className="bg-white text-sky-850 font-bold px-5 py-2.5 rounded-full hover:bg-sky-50 transition-colors text-sm" style={{ color: '#0284c7' }}>View Test Profiles</a>
+              <Link href="/book" className="bg-sky-600 border-2 border-white text-white font-bold px-5 py-2.5 rounded-full hover:bg-sky-500 transition-colors text-sm">Book a Test</Link>
+              <Link href="/upload-prescription" className="border-2 border-white/60 text-white font-bold px-5 py-2.5 rounded-full hover:bg-white/10 transition-colors text-sm">Upload Prescription</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Breadcrumb */}
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex items-center text-xs text-gray-500 flex-wrap gap-1">
+          <Link href="/" className="hover:text-sky-600">Home</Link>
+          <ChevronRight className="w-3 h-3" />
+          <Link href="/specialities" className="hover:text-sky-600">Our Specialities</Link>
+          <ChevronRight className="w-3 h-3" />
+          <span className="text-gray-800 font-semibold">Bone Disorders</span>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-10">
+
+            {/* Intro */}
+            <section>
+              <p className="text-gray-700 text-lg leading-relaxed">
+                Healthy bones and joints are essential for active living. QXL Diagnostics offers advanced bone health profiles and joint panels that measure essential minerals, endocrine controllers, bone metabolism indicators, and autoimmune markers to screen, diagnose, and monitor chronic osteoarticular conditions.
+              </p>
+            </section>
+
+            {/* Who Should Take */}
+            <section className="bg-sky-50 border border-sky-150 rounded-2xl p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Users className="w-5 h-5 text-sky-700" />
+                <h2 className="text-lg font-bold text-sky-950">Who Should Take These Tests?</h2>
+              </div>
+              <ul className="space-y-2 text-sm text-sky-900">
+                {[
+                  "Postmenopausal women at risk of progressive bone mineral loss",
+                  "Elderly individuals experiencing chronic joint pain, swelling, or morning stiffness",
+                  "Patients with suspected autoimmune arthropathies (Rheumatoid Arthritis, Ankylosing Spondylitis)",
+                  "Individuals showing signs of calcium or vitamin D deficiency (muscle weakness, muscle cramps, bone pain)",
+                  "Patients undergoing long-term corticosteroid therapy which accelerates osteoporosis risks",
+                  "Individuals requiring diagnostic monitoring of parathyroid gland or metabolic bone diseases"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-sky-600 mt-0.5 flex-shrink-0" />{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            {/* Test Profiles */}
+            <section id="test-profiles">
+              <h2 className="text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">
+                <Bone className="w-6 h-6 text-sky-600" /> Bone Disorders Test Profiles
+              </h2>
+              <div className="grid gap-5">
+                {[
+                  { name: "Bone Health (Osteoscreen) Panel", tests: "Serum Calcium (Total), Phosphorus, PTH-Intact (Parathyroid Hormone), Vitamin D 25-Hydroxy, Alkaline Phosphatase (ALP)", tat: "Same Day", sample: "Blood (fasting recommended)" },
+                  { name: "Rheumatoid Arthritis Panel", tests: "Rheumatoid Factor (RA), Anti-CCP (Cyclic Citrullinated Peptide), Anti-Nuclear Antibody (ANA) ELISA, C-Reactive Protein (CRP), ESR, C3 & C4 Complement levels", tat: "Same Day", sample: "Blood" },
+                  { name: "Comprehensive Arthritis Profile", tests: "Complete Blood Count (CBC), ESR, CRP, Rheumatoid Factor, Uric Acid, HLA-B27 (by PCR), ANA IFA, ASLO, Serum Calcium, Vitamin D", tat: "1 Day", sample: "Blood" },
+                  { name: "Bone & Mineral Metabolism Profile", tests: "Total Calcium, Ionized Calcium, Phosphorus, Alkaline Phosphatase, Urine Calcium-to-Creatinine Ratio, 24-hr Urine Calcium", tat: "Same Day", sample: "Blood + Urine" },
+                  { name: "Bone Turnover Markers Profile", tests: "P1NP (Procollagen Type 1 N-Terminal Propeptide), Osteocalcin, Beta-CrossLaps (Beta-CTx / bone resorption marker)", tat: "2 Days", sample: "Fasting blood (morning sample)" }
+                ].map((t) => (
+                  <div key={t.name} className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:border-sky-400 hover:shadow-md transition-all">
+                    <div className="flex flex-col md:flex-row justify-between gap-3">
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-gray-900 mb-1">{t.name}</h3>
+                        <p className="text-gray-600 text-sm mb-3">{t.tests}</p>
+                        <div className="flex flex-wrap gap-4 text-xs text-gray-500">
+                          <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> TAT: {t.tat}</span>
+                          <span className="flex items-center gap-1"><FlaskConical className="w-3 h-3" /> Sample: {t.sample}</span>
+                        </div>
+                      </div>
+                      <Link href="/book" className="self-start bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg whitespace-nowrap hover:bg-sky-700 transition-colors text-sm">Book Now</Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Clinical Usefulness */}
+            <section className="bg-white border border-gray-200 rounded-2xl p-6">
+              <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-sky-600" /> For Clinicians</h2>
+              <p className="text-gray-700 text-sm leading-relaxed mb-3">
+                Our bone and joint diagnostics combine metabolic markers with highly specific autoimmune assays (Anti-CCP, HLA-B27 by PCR, ANA Profile by IFA) and bone turnover markers (P1NP, Beta-CTx). This allows clinicians to differentiate between inflammatory arthropathies, crystalline arthropathy (gout), and metabolic bone diseases (osteomalacia, osteoporosis, hyperparathyroidism), optimizing treatment selection and post-treatment monitoring.
+              </p>
+              <p className="text-gray-700 text-sm leading-relaxed">
+                All reports utilize age- and gender-specific reference curves, including menopausal clinical stratifications. Doctor enquiries welcome at +91 99646 39639.
+              </p>
+            </section>
+
+            {/* Why QXL */}
+            <section className="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-6">
+              <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {[
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Laboratory", desc: "Strict adherence to NABL quality assurance programs for metabolic assays." },
+                  { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Autoimmune Assay Experts", desc: "Advanced ANA IFA profiling and molecular PCR screening for joint disorders." },
+                  { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Expert-Reviewed Panels", desc: "Senior biochemists and pathologists review critical and autoimmune markers." },
+                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Comfortable Home Collection", desc: "Expert phlebotomists trained in senior care and gentle blood extraction." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-3">
+                    <div className="mt-0.5 bg-sky-100 p-1.5 rounded-lg flex-shrink-0">{item.icon}</div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-sm">{item.title}</h4>
+                      <p className="text-xs text-gray-600 mt-0.5">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* FAQ */}
+            <section>
+              <h2 className="text-xl font-bold text-gray-900 mb-5">Frequently Asked Questions</h2>
+              <div className="space-y-3">
+                {faqs.map((faq, i) => (
+                  <div key={i} className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                    <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full text-left p-4 flex justify-between items-center font-semibold text-sm text-gray-900 hover:bg-gray-50">
+                      {faq.q}
+                      <ChevronRight className={`w-4 h-4 text-gray-400 flex-shrink-0 transition-transform ${openFaq === i ? 'rotate-90' : ''}`} />
+                    </button>
+                    {openFaq === i && <div className="px-4 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">{faq.a}</div>}
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* CTA Banner */}
+            <section className="glass rounded-2xl p-6 text-white">
+              <h3 className="text-lg font-bold mb-2">Book Your Bone/Arthritis Profile</h3>
+              <p className="text-[#0369a1] text-sm mb-4">Same-day reports. Safe, NABL-certified home sample collection available across Bengaluru.</p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/book" className="bg-white text-sky-700 font-bold px-5 py-2 rounded-full text-sm hover:bg-sky-50 transition-colors">Book a Test</Link>
+                <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="border-2 border-white text-white font-bold px-5 py-2 rounded-full text-sm hover:bg-white/10 transition-colors">WhatsApp Us</a>
+                <a href="tel:+919964639639" className="border-2 border-white/60 text-white font-bold px-5 py-2 rounded-full text-sm hover:bg-white/10 transition-colors">📞 Call Now</a>
+              </div>
+            </section>
+
+          </div>
+
+          {/* Sidebar */}
+          <div className="lg:col-span-1 space-y-5">
+            <div className="glass text-[#0c4a6e] rounded-2xl p-5 shadow-lg">
+              <h3 className="text-lg font-bold mb-2 text-white">Need help choosing the right test?</h3>
+              <p className="text-[#0369a1] text-xs mb-4">Our medical consultant team can guide you to the right diagnostic profile for your symptoms.</p>
+              <a href="tel:+919964639639" className="w-full bg-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-sky-50 transition-colors mb-2 shadow text-sm" style={{ color: '#0284c7' }}>📞 Call +91 99646 39639</a>
+              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="w-full border border-sky-400 bg-sky-800 text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-sky-700 transition-colors text-sm">WhatsApp Us</a>
+              <Link href="/upload-prescription" className="mt-2 w-full border border-sky-400 bg-transparent text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-white/10 transition-colors text-sm"><FileText className="w-4 h-4 mr-2" /> Upload Prescription</Link>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-2xl p-5">
+              <h3 className="text-base font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">Our Specialities</h3>
+              <ul className="space-y-2">
+                {SPECIALITIES.map(spec => (
+                  <li key={spec}>
+                    <Link href={`/specialities/${spec.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="text-gray-600 hover:text-sky-600 text-sm flex items-center justify-between group font-medium">
+                      {spec}<ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-sky-400" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    
+      {/* JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": "Advanced Bone Health, Joint &amp; Arthritis Diagnostics in Bengaluru",
+            "provider": {
+              "@type": "MedicalClinic",
+              "name": "QXL Diagnostics",
+              "image": "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Bengaluru"
+            },
+            "description": "Comprehensive arthritis panels, parathyroid mapping, autoimmune profiles (Anti-CCP, HLA-B27), and advanced bone turnover markers for precision metabolic health.",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock"
+            }
+          })
+        }}
+      />
+    </div>
+  );
+}
