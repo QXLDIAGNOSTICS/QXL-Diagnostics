@@ -329,7 +329,7 @@ export default function BookPage() {
                       patientPhone={formData.phone}
                       className="w-full inline-flex items-center justify-center gap-2 bg-[#2563eb] text-white font-bold px-5 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors disabled:opacity-60"
                     />
-                    <p className="text-[10px] text-slate-400 font-medium text-center">Pay once for everything above — you can also pay later, our coordinator can share a payment link on call.</p>
+                    <p className="text-[10px] text-slate-500 font-medium text-center">Scan the UPI QR above (qxl-diagnostics@pingpay) or pay later — our coordinator can confirm on WhatsApp.</p>
                   </div>
                 )}
 
