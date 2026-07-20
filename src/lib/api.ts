@@ -574,7 +574,7 @@ export const api = {
     loginStatus: (challengeId: string) =>
       get<LoginStatusResponse>(`/auth/login/status?challenge_id=${encodeURIComponent(challengeId)}`),
     logout: () => post<void>('/auth/logout'),
-    me: () => get<AuthMeResponse>('/auth/me'),
+    me: () => get<AuthMeResponse | null>('/auth/me'),
   },
   users: {
     me: () => get<AuthMeResponse>('/users/me'),

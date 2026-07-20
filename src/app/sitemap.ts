@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import { serverApi } from '@/lib/serverApi';
+import { LOCATIONS } from '@/lib/businessInfo';
 
 const BASE_URL = 'https://qxldiagnostics.com';
 
@@ -37,6 +38,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
+      url: `${BASE_URL}/founder`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/packages`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
@@ -60,6 +67,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: `${BASE_URL}/locations`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    ...LOCATIONS.map((loc): MetadataRoute.Sitemap[number] => ({
+      url: `${BASE_URL}/locations/${loc.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    })),
     ...centers
       .filter((c) => c.is_active)
       .map((c): MetadataRoute.Sitemap[number] => ({
@@ -72,7 +91,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${BASE_URL}/home-collection`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/upload-prescription`,
@@ -126,6 +145,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
+    {
+      url: `${BASE_URL}/franchise`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
   ];
 }
-

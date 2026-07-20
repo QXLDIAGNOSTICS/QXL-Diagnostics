@@ -23,11 +23,10 @@ interface AuthState {
 const AuthContext = createContext<AuthState | null>(null);
 
 /**
- * Reads the current session from the backend via /api/v1/auth/me.
- * The request is same-origin (proxied by next.config.ts rewrites), so the
- * httpOnly session cookie set by our first-party login flow (email/phone +
- * password + OTP + SMS link) is sent automatically — no tokens ever touch
- * this code, and there is no Auth0 involved.
+ * Reads the current session from /api/v1/auth/me.
+ * Backend returns 200 + user when signed in, or 200 + null for guests
+ * (never 401), so Lighthouse does not flag console network errors.
+ * Session cookie is httpOnly — JS cannot peek at it before calling.
  */
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);
@@ -36,7 +35,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const refresh = useCallback(async () => {
     try {
       const res = await fetch("/api/v1/auth/me", { credentials: "include", cache: "no-store" });
-      const nextUser = res.ok ? ((await res.json()) as AuthUser) : null;
+      if (!res.ok) {
+        setUser(null);
+        return null;
+      }
+      const body = await res.json();
+      const nextUser = body && typeof body === "object" && body.id ? (body as AuthUser) : null;
       setUser(nextUser);
       return nextUser;
     } catch {

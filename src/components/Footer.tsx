@@ -77,7 +77,7 @@ export default function Footer() {
             {/* Certifications / Badges */}
             <div className="flex items-center gap-5 bg-white py-3 px-5 rounded-2xl max-w-fit shadow-lg mt-2">
                <img 
-                 src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png" 
+                 src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto,w_160,h_160,c_limit/v1784150212/Assets-QXL/legacy-assets/image/nabl.png" 
                  alt="NABL Accredited and ISO Certified" 
                  width={128}
                  height={64}
@@ -117,6 +117,8 @@ export default function Footer() {
                 { label: "Women's Health", href: "/specialities/womens-health" },
                 { label: "Gastroenterology", href: "/specialities/gastroenterology" },
                 { label: "Bone Disorders", href: "/specialities/bone-disorders" },
+                { label: "Kengeri Lab", href: "/locations/kengeri-main-lab" },
+                { label: "Yelahanka Hub", href: "/locations/yelahanka-north-hub" },
               ].map((l) => (
                 <li key={l.label}>
                   <Link href={l.href}

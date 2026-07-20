@@ -20,33 +20,13 @@ export default function FaqSection({ decorativeHeading = false }: { decorativeHe
 
   if (faqs.length === 0) return null;
 
-  // Page-level FAQPage structured data generated from the FAQs actually
-  // rendered below, so schema always matches on-page visible content
-  // (required by Google's structured data guidelines).
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-
   return (
     <section className="py-16 bg-[#f8faff] border-t border-gray-150">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <div className="max-w-[800px] mx-auto px-4 w-full">
         <div className="text-center mb-10">
           <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2">Help Center</span>
           <Heading className="text-[#0f2d5e] text-3xl font-extrabold mb-3">Frequently Asked Questions</Heading>
-          <p className="text-slate-500 text-sm font-medium">Everything you need to know about our testing processes.</p>
+          <p className="text-slate-600 text-sm font-medium">Everything you need to know about our testing processes.</p>
         </div>
 
         <div className="space-y-3">

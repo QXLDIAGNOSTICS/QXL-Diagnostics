@@ -6,15 +6,19 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin', '/api/', '/login', '/private/'],
+        disallow: ['/admin', '/api/', '/login', '/private/', '/dashboard'],
       },
-      // Explicitly welcome known AI/agentic crawlers so ChatGPT, Perplexity,
-      // etc. can browse and cite QXL Diagnostics content directly.
+      // Welcome major AI / answer-engine crawlers for GEO & AEO visibility.
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },
       { userAgent: 'PerplexityBot', allow: '/' },
       { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'anthropic-ai', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'Applebot-Extended', allow: '/' },
+      { userAgent: 'Bytespider', allow: '/' },
+      { userAgent: 'CCBot', allow: '/' },
+      { userAgent: 'meta-externalagent', allow: '/' },
     ],
     sitemap: 'https://qxldiagnostics.com/sitemap.xml',
     host: 'https://qxldiagnostics.com',

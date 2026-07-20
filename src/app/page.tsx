@@ -14,6 +14,7 @@ import HomeCollectionSection from "../components/HomeCollectionSection";
 import Accreditations from "../components/Accreditations";
 import FaqSection from "../components/FaqSection";
 import ReviewsSection from "../components/ReviewsSection";
+import HomepageSeoContent from "../components/HomepageSeoContent";
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
 const whySlides = [
@@ -356,7 +357,7 @@ function PromoHighlightSlider() {
               <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-[#2563eb] font-extrabold text-[22px] md:text-[26px]">{slide.price}</span>
                 <span className="text-slate-500 text-[13px] line-through font-medium">{slide.original}</span>
-                <span className="text-[10px] text-green-600 font-bold bg-green-50 border border-green-200 px-2 py-0.5 rounded-full">Save {Math.round((1 - parseInt(slide.price.replace(/[^\d]/g,'')) / parseInt(slide.original.replace(/[^\d]/g,''))) * 100)}%</span>
+                <span className="text-[10px] text-emerald-800 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">Save {Math.round((1 - parseInt(slide.price.replace(/[^\d]/g,'')) / parseInt(slide.original.replace(/[^\d]/g,''))) * 100)}%</span>
               </div>
               {/* Description */}
               <p className="text-[12px] md:text-[13px] text-[#555] font-medium mb-3 max-w-sm leading-relaxed">{slide.desc}</p>
@@ -905,7 +906,7 @@ export default function Home() {
                     <FileText className="w-6 h-6 text-[#2563eb]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 text-[14px]">Upload Prescription</h3>
+                    <p className="font-bold text-gray-900 text-[14px]">Upload Prescription</p>
                   </div>
                 </div>
                 <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
@@ -920,7 +921,7 @@ export default function Home() {
                     <MapPin className="w-6 h-6 text-[#2563eb]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 text-[14px]">Home Sample Collection</h3>
+                    <p className="font-bold text-gray-900 text-[14px]">Home Sample Collection</p>
                   </div>
                 </div>
                 <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
@@ -935,7 +936,7 @@ export default function Home() {
                     <MessageCircle className="w-6 h-6 text-[#2563eb]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 text-[14px]">Doctor Enquiry</h3>
+                    <p className="font-bold text-gray-900 text-[14px]">Doctor Enquiry</p>
                   </div>
                 </div>
                 <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
@@ -999,6 +1000,7 @@ export default function Home() {
                           Details
                         </Link>
                         <Link href={`/book?package=${encodeURIComponent(pkg.name)}`}
+                          aria-label={`Book ${pkg.name} now`}
                           className="flex-1 text-center bg-[#2563eb] py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors"
                           style={{ color: '#ffffff' }}>
                           Book Now
@@ -1553,6 +1555,9 @@ export default function Home() {
         {/* FAQs */}
         <FaqSection decorativeHeading />
       </div>
+
+      {/* Single SEO/AEO content block (not duplicated in desktop/mobile trees) */}
+      <HomepageSeoContent />
 
       <PrescriptionModal isOpen={isPrescriptionModalOpen} onClose={() => setIsPrescriptionModalOpen(false)} />
 

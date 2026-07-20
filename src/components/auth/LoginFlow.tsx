@@ -50,6 +50,7 @@ export default function LoginFlow({
   const finishIfSessionReady = useCallback(async () => {
     try {
       const me = await api.auth.me();
+      if (!me) return false;
       await refresh();
       onComplete(me);
       return true;
