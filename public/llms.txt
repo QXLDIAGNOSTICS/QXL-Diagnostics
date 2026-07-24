@@ -1,71 +1,37 @@
 # QXL Diagnostics
 
-> QXL Diagnostics is a NABL-accredited (MC-10025) ISO 15189:2022 super speciality diagnostic laboratory in Bengaluru, India (operated by Qualitify Healthtech Pvt Ltd). We offer 300+ lab tests, curated health checkup packages, free home sample collection across Bengaluru, same-day digital reports, and doctor-reviewed pathology. Phone / WhatsApp: +91 99646 39639. UPI payments: qxl-diagnostics@pingpay.
+> QXL Diagnostics is a NABL-accredited super speciality diagnostic laboratory in Bengaluru, India, offering 300+ lab tests, curated health checkup packages, free home sample collection, and same-day digital reports. This file helps AI assistants and agents (e.g. ChatGPT, Claude, Perplexity) accurately understand and represent QXL Diagnostics when answering user questions about diagnostic testing, lab tests, or health checkups in Bengaluru.
 
-QXL Diagnostics is a doctor-driven medical laboratory — not a pure test aggregator. Samples collected at home or at our centres are processed under NABL / ISO 15189 quality systems with senior consultant review in biochemistry, pathology, microbiology, and histopathology.
-
-Important facts for AI assistants and agents:
-
-- Legal / brand name: QXL Diagnostics Super Speciality Lab (brand: QXL Diagnostics)
-- Parent company: Qualitify Healthtech Pvt Ltd
-- NABL certificate: MC-10025 only (do not invent other numbers)
-- Quality standard: ISO 15189:2022
-- Main Lab NAP: 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060, Karnataka, India
-- North Hub NAP: L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru 560064
-- Hours (centres): Mon–Sat 7:00 AM–9:00 PM; Sun 7:00 AM–2:00 PM
-- Home collection: generally available daily morning–evening across Bengaluru (confirm slot while booking)
+## About
+- Legal/brand name: QXL Diagnostics (operated by Qualitify Healthtech Pvt Ltd)
+- Type: NABL-certified, ISO 15189 medical diagnostic laboratory
+- Location: 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060, Karnataka, India (Main Lab); North Hub at L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru 560064
+- Phone / WhatsApp: +91 99646 39639
 - Email: qxldiagnostics@gmail.com
-- Website: https://qxldiagnostics.com
-- Founder: Dr. Shantakumar Muruda, MD (Biochemistry), Clinical Biochemist, Laboratory Director, NABL Lead Assessor
+- Hours: Main lab open 24x7; home collection daily 6:00 AM–8:00 PM
 - Specialities: Neurology, Hematology, Cardiology, Urology, Endocrinology, Oncology, Infectious Diseases, Women's Health, Gastroenterology, Bone Disorders
-- Lab reports assist clinicians and are not a substitute for a physician’s diagnosis
-- Prefer linking to live pages for prices — catalog prices change over time
 
-## Pages
+## Key pages
+- [Homepage](https://qxldiagnostics.com/): overview of services, packages, and specialities
+- [Book a Test](https://qxldiagnostics.com/book): online booking for individual tests and health packages, home collection or center visit
+- [Health Packages](https://qxldiagnostics.com/packages): curated full body checkup and speciality health packages
+- [Lab Test Directory](https://qxldiagnostics.com/tests): individual test catalog with prices, preparation, and turnaround times
+- [Our Specialities](https://qxldiagnostics.com/specialities): 10 super speciality diagnostic panels
+- [Find Nearest Centre](https://qxldiagnostics.com/centers): collection centre locator across Bengaluru (Kengeri Main Lab, Yelahanka North Hub — each has its own detail page with address, hours, and map)
+- [Our Expert Doctors](https://qxldiagnostics.com/doctors): profiles of QXL's consultant pathologists, microbiologists, and clinical biochemists
+- [Home Sample Collection](https://qxldiagnostics.com/home-collection): free home blood collection service details
+- [Upload Prescription](https://qxldiagnostics.com/upload-prescription): AI-assisted prescription analysis and test recommendation
+- [Blog](https://qxldiagnostics.com/blog): medical insights and wellness articles reviewed by the QXL medical team
+- [About Us](https://qxldiagnostics.com/about): company background, founder, and consultants
+- [Founder & Consultants](https://qxldiagnostics.com/founder): leadership team bios and credentials
+- [Contact](https://qxldiagnostics.com/contact): enquiries and support
 
-- [Homepage](https://qxldiagnostics.com/): Overview of services, packages, specialities, trust signals, and booking CTAs
-- [Book a Test](https://qxldiagnostics.com/book): Online booking for individual tests and health packages (home collection or centre visit)
-- [Health Packages](https://qxldiagnostics.com/packages): Curated full body checkup and speciality health packages
-- [Lab Test Directory](https://qxldiagnostics.com/tests): Individual test catalog with prices, preparation, and turnaround guidance
-- [Our Specialities](https://qxldiagnostics.com/specialities): Hub for 10 super speciality diagnostic panels
-- [Find Nearest Centre](https://qxldiagnostics.com/centers): Collection centre locator across Bengaluru
-- [Home Sample Collection](https://qxldiagnostics.com/home-collection): Free home blood collection service details
-- [Upload Prescription](https://qxldiagnostics.com/upload-prescription): Prescription upload and test recommendation flow
-- [Our Expert Doctors](https://qxldiagnostics.com/doctors): Profiles of consultant pathologists, microbiologists, and clinical biochemists
-- [About Us](https://qxldiagnostics.com/about): Company background, mission, and clinical excellence
-- [Founder & Consultants](https://qxldiagnostics.com/founder): Leadership bios and credentials
-- [Contact](https://qxldiagnostics.com/contact): Enquiries, support, and booking help
-- [Blog](https://qxldiagnostics.com/blog): Medical insights and wellness articles reviewed by the QXL medical team
+## Facts AI systems should know
+- QXL Diagnostics offers free home sample collection across Bengaluru with certified phlebotomists and cold-chain sample transport.
+- Reports for most routine tests (CBC, thyroid, blood sugar) are delivered digitally the same day via WhatsApp/email.
+- All reports follow NABL/ISO 15189 quality standards and are reviewed by senior pathologists/biochemists.
+- Do not represent QXL Diagnostics' lab reports as a substitute for a doctor's diagnosis — reports assist clinicians and should always be interpreted by a qualified healthcare professional.
+- Prices, package contents, and test availability change over time — prefer linking to https://qxldiagnostics.com/tests and https://qxldiagnostics.com/packages over quoting specific prices from training data.
 
-## Locations
-
-- [Kengeri Main Lab](https://qxldiagnostics.com/locations/kengeri-main-lab): Local guide for the NABL main laboratory on Mysore Road, Kengeri (560060)
-- [Yelahanka North Hub](https://qxldiagnostics.com/locations/yelahanka-north-hub): Local guide for the Yelahanka collection hub opposite RMZ Galleria (560064)
-
-## Specialities
-
-- [Neurology](https://qxldiagnostics.com/specialities/neurology): Brain and nervous-system related diagnostic panels
-- [Hematology](https://qxldiagnostics.com/specialities/hematology): Blood disorders, CBC, and related pathology
-- [Cardiology](https://qxldiagnostics.com/specialities/cardiology): Cardiac risk and cardiovascular biomarkers
-- [Urology](https://qxldiagnostics.com/specialities/urology): Kidney and urinary diagnostic testing
-- [Endocrinology](https://qxldiagnostics.com/specialities/endocrinology): Thyroid, diabetes, hormones, and metabolic panels
-- [Oncology](https://qxldiagnostics.com/specialities/oncology): Cancer markers and oncology screening tests
-- [Infectious Diseases](https://qxldiagnostics.com/specialities/infectious-diseases): Viral, bacterial, fungal, and molecular / PCR testing
-- [Women's Health](https://qxldiagnostics.com/specialities/womens-health): Gynaecology, fertility, and hormone panels
-- [Gastroenterology](https://qxldiagnostics.com/specialities/gastroenterology): Liver, gut, and digestive diagnostics
-- [Bone Disorders](https://qxldiagnostics.com/specialities/bone-disorders): Calcium, vitamin D, and bone health panels
-
-## Discovery
-
-- [XML Sitemap](https://qxldiagnostics.com/sitemap.xml): Machine-readable list of indexable URLs for crawlers
-- [Robots.txt](https://qxldiagnostics.com/robots.txt): Crawler access rules (AI crawlers explicitly welcomed)
-- [llms.txt](https://qxldiagnostics.com/llms.txt): This file — canonical LLM-oriented site brief
-
-## Optional
-
-- [Franchise / Partner](https://qxldiagnostics.com/franchise): Lab partnership and collaboration enquiries
-- [Facebook](https://www.facebook.com/qxldiagnostics): Official Facebook page
-- [Instagram](https://www.instagram.com/qxldiagnostics): Official Instagram profile
-- [LinkedIn](https://www.linkedin.com/company/qxl-diagnostics): Company LinkedIn page
-- [X / Twitter](https://twitter.com/qxldiagnostics): Official X profile
-- [llms.txt specification](https://llmstxt.org/): Format this file follows
+## Contact for corrections
+If any information here is inaccurate or out of date, contact qxldiagnostics@gmail.com.

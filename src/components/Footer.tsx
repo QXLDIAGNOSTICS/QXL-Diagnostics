@@ -1,15 +1,30 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { cmsStore } from '../lib/cmsStore';
+import { useAuth } from '../lib/useAuth';
 import { SOCIAL_LINKS, ISO_STANDARD } from '../lib/businessInfo';
 import { optimizeCloudinaryUrl } from '../lib/cloudinary';
 
 const FALLBACK_LOGO =
   "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
 
+const specialities = [
+  { label: "Cardiology Biomarkers", href: "/specialities/cardiology" },
+  { label: "Endocrinology", href: "/specialities/endocrinology" },
+  { label: "Neurology Tests", href: "/specialities/neurology" },
+  { label: "Oncology Markers", href: "/specialities/oncology" },
+  { label: "Women's Health", href: "/specialities/womens-health" },
+  { label: "Infectious Diseases", href: "/specialities/infectious-diseases" },
+  { label: "Gastroenterology", href: "/specialities/gastroenterology" },
+  { label: "Haematology", href: "/specialities/hematology" },
+  { label: "Bone Disorders", href: "/specialities/bone-disorders" },
+  { label: "Urology", href: "/specialities/urology" },
+];
+
 export default function Footer() {
+  const { user } = useAuth();
   const year = new Date().getFullYear();
   const [settings, setSettings] = useState<any>({
     siteName: "QXL Diagnostics",
@@ -21,109 +36,126 @@ export default function Footer() {
     northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
     workingHours: "Open 24x7",
     whatsappNumber: "+91 99646 39639",
-    copyrightText: "© 2026 QXL Diagnostics. All rights reserved.",
-    footerDesc: "QXL Diagnostics is a super speciality diagnostic laboratory in Bengaluru offering advanced pathology, microbiology, immunology, molecular diagnostics, histopathology, cytology and precision diagnostic services for patients, clinicians and hospitals.",
+    copyrightText: `© ${year} QXL Diagnostics. All rights reserved.`,
+    footerDesc: "QXL Diagnostics is a NABL-accredited super speciality diagnostic laboratory in Bengaluru offering advanced pathology, molecular diagnostics, histopathology, and AI-assisted precision diagnostics.",
     navItems: [
-      { label: "Home", href: "/", visible: true },
-      { label: "About Us", href: "/about", visible: true },
-      { label: "Founder & Consultants", href: "/founder", visible: true },
-      { label: "Our Specialities", href: "/specialities", visible: true },
-      { label: "Packages", href: "/packages", visible: true },
-      { label: "Book a Test", href: "/book", visible: true },
-      { label: "Find Nearest Centre", href: "/centers", visible: true },
-      { label: "Download Report", href: "/report", visible: true },
-      { label: "Collaborate with us", href: "/franchise", visible: true },
-      { label: "Login", href: "/login", visible: true }
+      {label: "Home", href: "/", visible: true},
+      {label: "About Us", href: "/about", visible: true},
+      {label: "Founder & Consultants", href: "/founder", visible: true},
+      {label: "Our Specialities", href: "/specialities", visible: true},
+      {label: "Packages", href: "/packages", visible: true},
+      {label: "Find Nearest Centre", href: "/centers", visible: true},
+      {label: "My Bookings", href: "/dashboard", visible: true},
+      {label: "My Reports", href: "/report", visible: true},
+      {label: "Login", href: "/login", visible: true}
     ]
   });
 
   useEffect(() => {
-    const loadSettings = () => {
-      setSettings(cmsStore.getSettings());
-    };
+    const loadSettings = () => setSettings(cmsStore.getSettings());
     loadSettings();
     window.addEventListener("cms-update", loadSettings);
     return () => window.removeEventListener("cms-update", loadSettings);
   }, []);
 
   return (
-    <footer className="bg-[#0d2e42] text-white">
+    <footer className="relative overflow-hidden" style={{ zIndex: 1, background: '#0a0a0a' }}>
+      {/* Subtle gradient overlay */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div style={{ position:'absolute', top:'-80px', left:'-60px', width:'400px', height:'400px', borderRadius:'50%', background:'radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%)', filter:'blur(60px)' }} />
+        <div style={{ position:'absolute', bottom:'-60px', right:'-40px', width:'350px', height:'350px', borderRadius:'50%', background:'radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%)', filter:'blur(50px)' }} />
+      </div>
+
+      {/* Book a Test Banner */}
+      <div className="relative z-10" style={{
+        background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%)',
+        backdropFilter: 'blur(24px)',
+        borderBottom: '1px solid rgba(255,255,255,0.08)',
+      }}>
+        <div className="max-w-[1260px] mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 className="text-white font-extrabold text-xl mb-1">Book a Test Today</h3>
+            <p className="text-white/60 text-sm font-medium">Free home sample collection · NABL certified · Same-day digital reports</p>
+          </div>
+          <div className="flex gap-3 flex-wrap justify-center">
+            <a
+              href="https://wa.me/919964639639?text=Hi%2C%20I%20want%20to%20book%20a%20test%20at%20QXL%20Diagnostics"
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-extrabold px-5 py-2.5 rounded-full text-[12px] uppercase tracking-wide transition-all hover:scale-105 text-white"
+              style={{ background: '#25D366', boxShadow: '0 4px 20px rgba(37,211,102,0.35)' }}
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.998-1.417A9.954 9.954 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fillRule="evenodd" clipRule="evenodd"/></svg>
+              WhatsApp
+            </a>
+            <Link href="/book" className="btn-sky gap-2 px-5 py-2.5 text-[12px] shadow-md">
+              Book Now <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      </div>
+
       {/* Main Footer */}
-      <div className="max-w-[1260px] mx-auto px-4 py-14">
+      <div className="relative z-10 max-w-[1260px] mx-auto px-4 pt-14 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand */}
-          <div>
-            <div className="bg-white p-2 rounded-xl inline-block mb-5 shadow-lg">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left">
+            <div className="inline-block mb-5 p-2.5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}>
               <img
                 src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 224, h: 56, crop: "fit" })}
                 alt={`${settings.siteName || "QXL"} Logo`}
-                width={224}
-                height={56}
+                width={224} height={56}
                 className="h-14 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
-                  const fallbackSpan = e.currentTarget.parentElement?.querySelector('.logo-text-footer') as HTMLElement;
-                  if (fallbackSpan) fallbackSpan.classList.remove('hidden');
+                  const fb = e.currentTarget.parentElement?.querySelector('.logo-text-footer') as HTMLElement;
+                  if (fb) fb.classList.remove('hidden');
                 }}
               />
             </div>
-            <span className="logo-text-footer font-extrabold text-2xl text-teal-400 block mb-5 hidden">
-              {settings.logoText || "QXL"}
-            </span>
-            <p className="text-slate-300 text-[13px] leading-relaxed font-medium mb-5">
-              {settings.footerDesc || "QXL Diagnostics is a super speciality diagnostic laboratory in Bengaluru offering advanced pathology, microbiology, immunology, molecular diagnostics, histopathology, cytology and precision diagnostic services for patients, clinicians and hospitals."}
+            <span className="logo-text-footer font-extrabold text-2xl text-white block mb-5 hidden">{settings.logoText || "QXL"}</span>
+            <p className="text-white/50 text-[13px] leading-relaxed font-medium mb-5">
+              {settings.footerDesc}
             </p>
-            {/* Certifications / Badges */}
-            <div className="flex items-center gap-5 bg-white py-3 px-5 rounded-2xl max-w-fit shadow-lg mt-2">
-               <img 
-                 src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto,w_160,h_160,c_limit/v1784150212/Assets-QXL/legacy-assets/image/nabl.png" 
-                 alt="NABL Accredited and ISO Certified" 
-                 width={128}
-                 height={64}
-                 className="h-16 w-auto object-contain"
-               />
+            {/* NABL Badge */}
+            <div className="inline-flex items-center gap-3 py-3 px-4 rounded-2xl" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <img
+                src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png"
+                alt="NABL Accredited ISO Certified"
+                width={100} height={50}
+                className="h-12 w-auto object-contain"
+              />
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <p className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Quick Links</p>
-            <ul className="space-y-3">
-              {(settings.navItems || []).filter((l: any) => l.visible !== false).map((l: any) => (
-                <li key={l.label}>
-                  <Link href={l.href}
-                    className="text-slate-300 hover:text-white text-[13px] font-medium transition-colors flex items-center gap-2 group">
-                    <span className="w-1 h-1 rounded-full bg-[#2563eb] group-hover:w-3 transition-all" />
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
+          <div className="text-center md:text-left">
+            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Quick Links</p>
+            <ul className="space-y-2.5">
+              {(settings.navItems || []).filter((l: any) => l.visible !== false).map((l: any) => {
+                let label = l.label, href = l.href;
+                if (!user && (l.label === "My Bookings" || l.label === "My Reports")) href = `/login?redirect=${encodeURIComponent(l.href)}`;
+                if (String(l.label).toLowerCase() === "login") { label = user ? "Profile" : "Login"; href = user ? "/profile" : "/login"; }
+                return (
+                  <li key={label}>
+                    <Link href={href} className="text-white/50 hover:text-white text-[13px] font-semibold transition-all flex items-center justify-center md:justify-start gap-2 group">
+                      <span className="w-1 h-1 rounded-full bg-white/20 flex-shrink-0 transition-all group-hover:w-2.5 group-hover:bg-white/60" />
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
           {/* Specialities */}
-          <div>
-            <p className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Specialities</p>
-            <ul className="space-y-3">
-              {[
-                { label: "Neurology", href: "/specialities/neurology" },
-                { label: "Hematology", href: "/specialities/hematology" },
-                { label: "Cardiology", href: "/specialities/cardiology" },
-                { label: "Urology", href: "/specialities/urology" },
-                { label: "Endocrinology", href: "/specialities/endocrinology" },
-                { label: "Oncology", href: "/specialities/oncology" },
-                { label: "Infectious Diseases", href: "/specialities/infectious-diseases" },
-                { label: "Women's Health", href: "/specialities/womens-health" },
-                { label: "Gastroenterology", href: "/specialities/gastroenterology" },
-                { label: "Bone Disorders", href: "/specialities/bone-disorders" },
-                { label: "Kengeri Lab", href: "/locations/kengeri-main-lab" },
-                { label: "Yelahanka Hub", href: "/locations/yelahanka-north-hub" },
-              ].map((l) => (
+          <div className="text-center md:text-left">
+            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Specialities</p>
+            <ul className="space-y-2.5">
+              {specialities.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href}
-                    className="text-slate-300 hover:text-white text-[13px] font-medium transition-colors flex items-center gap-2 group">
-                    <span className="w-1 h-1 rounded-full bg-[#2563eb] group-hover:w-3 transition-all" />
+                  <Link href={l.href} className="text-white/50 hover:text-white text-[13px] font-semibold transition-all flex items-center justify-center md:justify-start gap-2 group">
+                    <span className="w-1 h-1 rounded-full bg-white/20 flex-shrink-0 transition-all group-hover:w-2.5 group-hover:bg-white/60" />
                     {l.label}
                   </Link>
                 </li>
@@ -132,59 +164,43 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <p className="font-extrabold text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/10">Contact Us</p>
+          <div className="text-center md:text-left">
+            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Contact Us</p>
             <ul className="space-y-4">
-              <li className="flex gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#2563eb]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <MapPin className="w-4 h-4 text-[#2563eb]" />
+              <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <MapPin className="w-4 h-4 text-white/60" />
                 </div>
                 <div>
-                  <p className="text-white text-[12px] font-bold mb-0.5">Main Lab (Kengeri)</p>
-                  <p className="text-slate-300 text-[12px] font-medium leading-relaxed">
-                    {settings.hqAddress || "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060"}
-                  </p>
+                  <p className="text-white/80 text-[12px] font-bold mb-0.5">Main Lab (Kengeri)</p>
+                  <p className="text-white/40 text-[12px] font-medium leading-relaxed">{settings.hqAddress}</p>
                 </div>
               </li>
               {settings.northHubAddress && (
-                <li className="flex gap-3">
-                  <div className="w-9 h-9 rounded-full bg-[#2563eb]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <MapPin className="w-4 h-4 text-[#2563eb]" />
+                <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <MapPin className="w-4 h-4 text-white/60" />
                   </div>
                   <div>
-                    <p className="text-white text-[12px] font-bold mb-0.5">North Hub (Yelahanka)</p>
-                    <p className="text-slate-300 text-[12px] font-medium leading-relaxed">
-                      {settings.northHubAddress}
-                    </p>
+                    <p className="text-white/80 text-[12px] font-bold mb-0.5">North Hub (Yelahanka)</p>
+                    <p className="text-white/40 text-[12px] font-medium leading-relaxed">{settings.northHubAddress}</p>
                   </div>
                 </li>
               )}
-              <li className="flex gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#2563eb]/30 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-4 h-4 text-[#2563eb]" />
+              <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <Phone className="w-4 h-4 text-white/60" />
                 </div>
-                <div>
-                  <a href={`tel:${settings.contactPhone || '+919964639639'}`} className="text-white text-[13px] font-bold hover:text-blue-300 transition-colors">{settings.contactPhone || '+91 99646 39639'}</a>
-                  <p className="text-slate-400 text-[11px] mt-0.5">{settings.workingHours}</p>
-                </div>
-              </li>
-              <li className="flex gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#2563eb]/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-[#2563eb]"><circle cx="12" cy="12" r="10"></circle><path d="M9 17V7h4a3 3 0 0 1 0 6H9"></path></svg>
-                </div>
-                <div>
-                  <p className="text-white text-[12px] font-bold mb-0.5">Parking Available</p>
-                  <p className="text-slate-400 text-[11px]">Free basement parking for patients at both centers.</p>
+                <div className="flex flex-col items-center md:items-start">
+                  <a href={`tel:${settings.contactPhone || '+919964639639'}`} className="text-white text-[13px] font-extrabold hover:text-white/80 transition-colors">{settings.contactPhone || '+91 99646 39639'}</a>
+                  <p className="text-white/40 text-[11px] font-semibold mt-0.5">{settings.workingHours}</p>
                 </div>
               </li>
-              <li className="flex gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#2563eb]/30 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-4 h-4 text-[#2563eb]" />
+              <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                  <Mail className="w-4 h-4 text-white/60" />
                 </div>
-                <a href={`mailto:${settings.supportEmail}`}
-                  className="text-slate-300 text-[13px] font-medium hover:text-white transition-colors self-center">
-                  {settings.supportEmail}
-                </a>
+                <a href={`mailto:${settings.supportEmail}`} className="text-white/50 text-[13px] font-medium hover:text-white transition-colors self-center">{settings.supportEmail}</a>
               </li>
             </ul>
           </div>
@@ -192,30 +208,38 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="relative z-10 border-t border-white/8">
         <div className="max-w-[1260px] mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-slate-400 text-[12px] font-medium">
+          <p className="text-white/40 text-[12px] font-semibold">
             {settings.copyrightText || `© ${year} QXL Diagnostics. All rights reserved.`}
           </p>
-          <p className="text-slate-400 text-[12px] font-medium">
+          <p className="text-white/40 text-[12px] font-semibold">
             NABL Certified · {ISO_STANDARD} · Bengaluru, Karnataka
           </p>
-          <div className="flex gap-4 items-center">
-            <Link href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-            </Link>
-            <Link href={SOCIAL_LINKS.twitter} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="X (Twitter)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
-            </Link>
-            <Link href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
-            </Link>
-            <Link href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-            </Link>
-            <div className="w-px h-4 bg-white/20 mx-2"></div>
-            <Link href="/privacy-policy" className="text-slate-400 hover:text-white text-[12px] transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-slate-400 hover:text-white text-[12px] transition-colors">Terms of Use</Link>
+          <div className="flex gap-4 items-center flex-wrap">
+            {[
+              { href: SOCIAL_LINKS.facebook, label: "Facebook", path: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" },
+              { href: SOCIAL_LINKS.instagram, label: "Instagram", path: null, isInsta: true },
+              { href: SOCIAL_LINKS.linkedin, label: "LinkedIn", path: null, isLi: true },
+            ].map(s => (
+              <Link key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                className="w-7 h-7 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+                aria-label={s.label}>
+                {s.path && (
+                  <svg className="w-3.5 h-3.5 text-white/50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d={s.path} /></svg>
+                )}
+                {s.isInsta && (
+                  <svg className="w-3.5 h-3.5 text-white/50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                )}
+                {s.isLi && (
+                  <svg className="w-3.5 h-3.5 text-white/50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                )}
+              </Link>
+            ))}
+            <div className="w-px h-4 mx-1 bg-white/10" />
+            <Link href="/privacy-policy" className="text-white/40 hover:text-white/80 text-[12px] font-semibold transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-white/40 hover:text-white/80 text-[12px] font-semibold transition-colors">Terms of Use</Link>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { MapPin, Search, Phone, User, ChevronDown, ChevronRight, Mic, FileText, Menu, X, Home, Layers, Microscope } from 'lucide-react';
+import { MapPin, Search, Phone, User, ChevronDown, ChevronRight, Mic, FileText, Menu, X, Home, Layers, Microscope, ShoppingCart, Calendar } from 'lucide-react';
 import PrescriptionModal from './PrescriptionModal';
 import SmartSearchBar from './SmartSearchBar';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -28,6 +28,8 @@ export default function Header() {
 
   const [branches, setBranches] = useState<any[]>([]);
   const [expandedCity, setExpandedCity] = useState<string | null>("Bengaluru");
+  const [cartCount, setCartCount] = useState(0);
+  const [tickerIndex, setTickerIndex] = useState(0);
 
   const [settings, setSettings] = useState<any>({
     siteName: "QXL Diagnostics",
@@ -41,10 +43,9 @@ export default function Header() {
       { label: "Founder & Consultants", href: "/founder", visible: true },
       { label: "Our Specialities", href: "/specialities", visible: true },
       { label: "Packages", href: "/packages", visible: true },
-      { label: "Book a Test", href: "/book", visible: true },
       { label: "Find Nearest Centre", href: "/centers", visible: true },
-      { label: "Download Report", href: "/report", visible: true },
-      { label: "Collaborate with us", href: "/franchise", visible: true },
+      { label: "My Bookings", href: "/dashboard", visible: true },
+      { label: "My Reports", href: "/report", visible: true },
       { label: "Login", href: "/login", visible: true }
     ]
   });
@@ -53,6 +54,10 @@ export default function Header() {
     setIsMounted(true);
     const saved = localStorage.getItem('qxl_location');
     if (saved) setLocation(saved);
+    
+    const ticker = setInterval(() => {
+      setTickerIndex(prev => (prev + 1) % 2);
+    }, 3500);
 
     const loadSettings = () => {
       setSettings(cmsStore.getSettings());
@@ -77,6 +82,17 @@ export default function Header() {
     window.addEventListener("cms-update", onCmsUpdate);
     window.addEventListener("focus", loadBranches);
 
+    const updateCartCount = () => {
+      try {
+        const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
+        setCartCount(cart.length);
+      } catch {
+        setCartCount(0);
+      }
+    };
+    updateCartCount();
+    window.addEventListener('cartChange', updateCartCount);
+
     const handleClickOutside = (e: MouseEvent) => {
       if (locationMenuRef.current && !locationMenuRef.current.contains(e.target as Node)) {
         setShowLocationModal(false);
@@ -87,6 +103,8 @@ export default function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("cms-update", onCmsUpdate);
       window.removeEventListener("focus", loadBranches);
+      window.removeEventListener('cartChange', updateCartCount);
+      clearInterval(ticker);
     };
   }, []);
 
@@ -111,19 +129,22 @@ export default function Header() {
     { label: "Founder & Consultants", href: "/founder", visible: true },
     { label: "Our Specialities", href: "/specialities", visible: true },
     { label: "Packages", href: "/packages", visible: true },
-    { label: "Book a Test", href: "/book", visible: true },
     { label: "Find Nearest Centre", href: "/centers", visible: true },
-    { label: "Download Report", href: "/report", visible: true },
-    { label: "Collaborate with us", href: "/franchise", visible: true },
+    { label: "My Bookings", href: "/dashboard", visible: true },
+    { label: "My Reports", href: "/report", visible: true },
     { label: "Login", href: "/login", visible: true }
   ];
   const navItems = ((settings.navItems && settings.navItems.length > 0) ? settings.navItems : defaultNavItems)
     .filter((item: any) => item.visible !== false)
     .map((item: any) => {
+      let href = item.href;
+      if (!user && (item.label === "My Bookings" || item.label === "My Reports")) {
+        href = `/login?redirect=${encodeURIComponent(item.href)}`;
+      }
       if (String(item.label).toLowerCase() === "login") {
         return user ? { ...item, label: "Profile", href: "/profile" } : { ...item, label: "Login", href: "/login" };
       }
-      return item;
+      return { ...item, href };
     });
   const userDisplayName = user?.name?.trim() || user?.phone || "Profile";
   const userInitial = (user?.name?.trim()?.[0] || "U").toUpperCase();
@@ -154,12 +175,28 @@ export default function Header() {
 
   return (
     <>
-      <header className="w-full bg-white sticky top-0 z-50 border-b border-gray-200">
+      {/* Spatial liquid glass header — light sky blue palette */}
+      <header
+        className="w-full sticky top-0 z-50"
+        style={{
+          background: 'linear-gradient(135deg, rgba(224,242,254,0.82) 0%, rgba(240,249,255,0.88) 50%, rgba(214,234,253,0.80) 100%)',
+          backdropFilter: 'blur(28px) saturate(200%) brightness(1.05)',
+          WebkitBackdropFilter: 'blur(28px) saturate(200%) brightness(1.05)',
+          borderBottom: '1px solid rgba(125,199,232,0.25)',
+          boxShadow: '0 8px 40px rgba(14,165,233,0.10), 0 1px 0 rgba(255,255,255,0.9) inset, 0 -1px 0 rgba(125,199,232,0.15) inset'
+        }}
+      >
+        {/* Liquid glass orb decorations — spatial depth */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div style={{ position:'absolute', top:'-40px', left:'-60px', width:'200px', height:'200px', borderRadius:'50%', background:'radial-gradient(circle, rgba(186,230,255,0.45) 0%, transparent 70%)', filter:'blur(30px)' }} />
+          <div style={{ position:'absolute', top:'-30px', right:'10%', width:'160px', height:'160px', borderRadius:'50%', background:'radial-gradient(circle, rgba(147,210,255,0.35) 0%, transparent 70%)', filter:'blur(24px)' }} />
+          <div style={{ position:'absolute', bottom:'-20px', left:'40%', width:'220px', height:'80px', borderRadius:'50%', background:'radial-gradient(circle, rgba(186,230,255,0.25) 0%, transparent 70%)', filter:'blur(20px)' }} />
+        </div>
 
       {/* ── DESKTOP HEADER (lg:block) ── */}
-      <div className="hidden lg:block">
+      <div className="hidden lg:block relative z-10">
         {/* Top Row */}
-        <div className="border-b border-gray-100 py-3">
+        <div className="py-2.5" style={{ borderBottom: '1px solid rgba(125,199,232,0.18)' }}>
           <div className="w-full px-4 lg:px-8 flex items-center justify-between">
 
             {/* Logo & Location */}
@@ -182,10 +219,11 @@ export default function Header() {
                   {settings.logoText || "QXL"}
                 </span>
               </Link>
-              <div className="h-8 w-px bg-gray-200 mx-5 hidden md:block"></div>
+              <div className="h-7 w-px mx-5 hidden md:block" style={{ background: 'linear-gradient(to bottom, transparent, rgba(125,199,232,0.4), transparent)' }}></div>
               <div className="relative" ref={locationMenuRef}>
                 <div
-                  className="flex items-center cursor-pointer text-gray-700 hover:text-[#2563eb] transition-colors focus:outline-none focus:ring-2 focus:ring-[#2563eb] rounded-lg p-1"
+                  className="flex items-center cursor-pointer transition-all duration-200 focus:outline-none rounded-2xl p-1.5 pr-3 group"
+                  style={{ background: 'rgba(224,242,254,0.55)', border: '1px solid rgba(125,199,232,0.3)', backdropFilter: 'blur(8px)' }}
                   onClick={() => setShowLocationModal(!showLocationModal)}
                   role="button"
                   tabIndex={0}
@@ -196,13 +234,13 @@ export default function Header() {
                     }
                   }}
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center mr-2">
-                    <MapPin className="w-4 h-4 text-[#2563eb]" />
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center mr-2 flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(147,210,255,0.6) 0%, rgba(186,230,255,0.4) 100%)', boxShadow: '0 2px 8px rgba(14,165,233,0.2), inset 0 1px 0 rgba(255,255,255,0.8)' }}>
+                    <MapPin className="w-3.5 h-3.5 text-[#0284c7]" />
                   </div>
-                  <span className="font-semibold text-sm text-[#4a5568] max-w-[150px] truncate">
+                  <span className="font-semibold text-sm text-[#0369a1] max-w-[150px] truncate">
                     {isMounted ? getShortLocationName(location) : "Bengaluru"}
                   </span>
-                  <ChevronDown className="w-4 h-4 ml-1 text-gray-400 hidden sm:block" />
+                  <ChevronDown className="w-3.5 h-3.5 ml-1 text-[#38bdf8]" />
                 </div>
                 <AnimatePresence>
                   {showLocationModal && (
@@ -211,7 +249,8 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50 max-h-[350px] overflow-y-auto origin-top-left"
+                      className="absolute top-full left-0 mt-2 w-80 rounded-2xl py-2 z-[100] max-h-[420px] overflow-y-auto origin-top-left"
+                      style={{ background: 'rgba(240,249,255,0.95)', backdropFilter: 'blur(24px) saturate(180%)', border: '1px solid rgba(125,199,232,0.3)', boxShadow: '0 20px 60px rgba(14,165,233,0.15), 0 1px 0 rgba(255,255,255,0.9) inset' }}
                     >
                       {cityNames.map((cityName) => (
                         <div key={cityName}>
@@ -239,13 +278,15 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Search Bar */}
-            <div className="flex-1 max-w-[600px] mx-6 hidden md:block">
+            {/* Search Bar — liquid glass input */}
+            <div className="flex-1 max-w-[600px] mx-6 hidden md:block relative z-30">
               <div className="flex items-center w-full relative">
-                <SmartSearchBar placeholder={settings.searchPlaceholder || "Search Tests"} isMobile={false} />
-                <button onClick={() => setIsModalOpen(true)} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-[#1e3a8a] hover:bg-blue-50 rounded-full transition-colors" aria-label="Upload Prescription">
+                <div className="w-full" style={{ borderRadius: '999px', background: 'rgba(224,242,254,0.6)', border: '1px solid rgba(125,199,232,0.35)', backdropFilter: 'blur(12px)', boxShadow: '0 2px 16px rgba(14,165,233,0.08), inset 0 1px 0 rgba(255,255,255,0.85)' }}>
+                  <SmartSearchBar placeholder={settings.searchPlaceholder || "Search Tests"} isMobile={false} />
+                </div>
+                <button onClick={() => setIsModalOpen(true)} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-[#0284c7] hover:bg-sky-100/60 rounded-full transition-colors" aria-label="Upload Prescription">
                   <FileText className="w-5 h-5" />
-                  <div className="absolute bottom-1.5 right-1.5 w-3 h-3 bg-red-500 rounded-full border border-white flex items-center justify-center">
+                  <div className="absolute bottom-1.5 right-1.5 w-3 h-3 bg-rose-500 rounded-full border border-white flex items-center justify-center">
                     <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
                   </div>
                 </button>
@@ -254,116 +295,187 @@ export default function Header() {
 
             {/* Right Actions */}
             <div className="flex items-center gap-4">
-              <div className="hidden sm:flex items-center ml-2 mr-2">
-                <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center mr-2 flex-shrink-0">
-                  <svg className="w-4 h-4 text-[#2563eb]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+              {/* Home Collection — liquid glass pill with ticker */}
+              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-2xl cursor-pointer" style={{ background: 'rgba(224,242,254,0.55)', border: '1px solid rgba(125,199,232,0.28)', backdropFilter: 'blur(8px)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)' }}>
+                <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(147,210,255,0.7) 0%, rgba(186,230,255,0.5) 100%)', boxShadow: '0 2px 8px rgba(14,165,233,0.2), inset 0 1px 0 rgba(255,255,255,0.9)' }}>
+                  <svg className="w-3.5 h-3.5 text-[#0284c7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                 </div>
-                <div className="flex flex-col leading-tight whitespace-nowrap">
-                  <span className="text-[11px] text-gray-500 font-medium">Home Collection</span>
-                  <a href={`tel:+919964639639`} className="text-[#0f2d5e] font-extrabold text-[15px] hover:underline tracking-tight">+91 9964 639639</a>
+                <div className="relative overflow-hidden h-[34px] w-[110px]">
+                  <AnimatePresence mode="wait">
+                    {tickerIndex === 0 ? (
+                      <motion.div key="1" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight">
+                        <span className="text-[10px] text-[#0369a1]/80 font-semibold tracking-wide">Home Collection</span>
+                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 639639</a>
+                      </motion.div>
+                    ) : (
+                      <motion.div key="2" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight">
+                        <span className="text-[10px] text-[#16a34a] font-bold uppercase tracking-wider animate-pulse">Call Now</span>
+                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 639639</a>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
+
               {user && (
                 <Link
                   href="/profile"
-                  className="hidden xl:flex items-center gap-2 max-w-[180px] rounded-full border border-blue-100 bg-blue-50/70 px-3 py-2 hover:bg-blue-50 transition-colors"
+                  className="hidden xl:flex items-center gap-2 max-w-[180px] rounded-full px-3 py-2 transition-all duration-200"
+                  style={{ background: 'rgba(224,242,254,0.6)', border: '1px solid rgba(125,199,232,0.3)', backdropFilter: 'blur(8px)' }}
                   title={userDisplayName}
                 >
-                  <span className="w-7 h-7 rounded-full bg-[#2563eb] text-white flex items-center justify-center text-xs font-extrabold flex-shrink-0">
+                  <span className="w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-extrabold flex-shrink-0" style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)', boxShadow: '0 2px 8px rgba(14,165,233,0.35)' }}>
                     {userInitial}
                   </span>
-                  <span className="text-[12px] font-extrabold text-[#0f2d5e] truncate">
-                    {userDisplayName}
-                  </span>
+                  <span className="text-[12px] font-extrabold text-[#0369a1] truncate">{userDisplayName}</span>
                 </Link>
               )}
-              <Link 
-                href="/book" 
-                className="hidden xl:inline-block bg-[#2563eb] text-white font-extrabold px-6 py-2.5 rounded-full text-xs hover:bg-[#1d4ed8] active:scale-95 transition-all shadow-md uppercase tracking-wider whitespace-nowrap"
-                style={{ color: '#ffffff' }}
+              {/* Cart — spatial glass orb */}
+              <Link
+                href="/cart"
+                className="hidden xl:flex items-center justify-center w-9 h-9 rounded-full relative transition-all duration-200 hover:scale-105"
+                style={{ background: 'rgba(224,242,254,0.65)', border: '1px solid rgba(125,199,232,0.35)', backdropFilter: 'blur(8px)', boxShadow: '0 2px 12px rgba(14,165,233,0.15), inset 0 1px 0 rgba(255,255,255,0.85)' }}
+                title="Cart / Booked Tests"
               >
-                Book a Test
+                <ShoppingCart className="w-4 h-4 text-[#0284c7]" />
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold text-white" style={{ background: 'linear-gradient(135deg, #f87171 0%, #ef4444 100%)', boxShadow: '0 2px 6px rgba(239,68,68,0.4)' }}>
+                    {cartCount}
+                  </span>
+                )}
+              </Link>
+              {/* Book a Test — clean pill button with animated text */}
+              <Link
+                href="/book"
+                className="hidden xl:inline-flex items-center font-extrabold px-6 py-2.5 rounded-full text-[11px] uppercase tracking-wider whitespace-nowrap active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
+                style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%)', color: '#ffffff' }}
+              >
+                <motion.span
+                  animate={{ opacity: [1, 0.75, 1], scale: [1, 1.03, 1] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                  className="!text-white font-black flex items-center gap-1.5"
+                  style={{ color: '#ffffff' }}
+                >
+                  <span>BOOK A TEST</span>
+                  <motion.span
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    →
+                  </motion.span>
+                </motion.span>
               </Link>
             </div>
           </div>
         </div>
 
-        {/* Desktop Nav Row */}
-        <div className="bg-white py-3">
-          <div className="max-w-[1260px] mx-auto px-4 w-full">
-            <nav className="flex items-center justify-center w-full">
-              <div className="flex items-center justify-between w-full max-w-[1260px] text-black text-[11px] xl:text-[12px] font-extrabold gap-2">
-                {navItems.map((item: any) => (
-                  <Link 
-                    key={item.label} 
-                    href={item.href} 
-                    className="text-black font-extrabold hover:text-[#2563eb] transition-colors uppercase tracking-wide whitespace-nowrap relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-0.5 after:bg-[#2563eb] after:transition-all after:duration-300"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+        {/* Desktop Nav Row — spatial liquid glass strip */}
+        <div className="pb-2 pt-1 px-4">
+          <div className="max-w-[1260px] mx-auto">
+            <nav
+              className="flex items-center justify-center rounded-2xl px-3"
+              style={{
+                background: 'linear-gradient(135deg, rgba(224,242,254,0.50) 0%, rgba(186,230,255,0.35) 50%, rgba(224,242,254,0.50) 100%)',
+                border: '1px solid rgba(125,199,232,0.22)',
+                backdropFilter: 'blur(16px) saturate(180%)',
+                boxShadow: '0 1px 0 rgba(255,255,255,0.95) inset, 0 -1px 0 rgba(125,199,232,0.12) inset, 0 4px 20px rgba(14,165,233,0.06)'
+              }}
+            >
+              <div className="flex items-center justify-between w-full text-[11px] xl:text-[12px] font-extrabold gap-0.5 py-1.5">
+                {navItems.map((item: any) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className={`relative px-3 py-1.5 rounded-xl uppercase tracking-wide whitespace-nowrap transition-all duration-250 ${
+                        isActive
+                          ? 'font-extrabold'
+                          : 'text-[#0369a1] hover:text-[#0284c7] font-extrabold'
+                      }`}
+                      style={isActive ? {
+                        background: 'linear-gradient(135deg, rgba(147,210,255,0.80) 0%, rgba(56,189,248,0.65) 100%)',
+                        color: '#0c4a6e',
+                        boxShadow: '0 2px 12px rgba(14,165,233,0.25), inset 0 1px 0 rgba(255,255,255,0.75)'
+                      } : {
+                        transition: 'background 0.2s'
+                      }}
+                      onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(186,230,255,0.45)'; }}
+                      onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </div>
             </nav>
           </div>
         </div>
       </div>
 
-      {/* ── MOBILE HEADER (lg:hidden) ── */}
-      <div className="lg:hidden flex flex-col w-full bg-white">
-        {/* Row 1: Hamburger + Logo | Location + User */}
-        <div className="py-3 px-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+      {/* ── MOBILE HEADER (lg:hidden) — spatial liquid glass ── */}
+      <div className="lg:hidden flex flex-col w-full relative z-10 gap-2 pb-2">
+        {/* Row 1: Menu + Logo + Location + Book Now (All in one line) */}
+        <div className="pt-2.5 px-3 flex items-center justify-between gap-1">
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            {/* Hamburger Menu */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-1.5 hover:bg-slate-100 rounded-xl transition-colors flex-shrink-0"
+              className="p-1.5 rounded-xl transition-all duration-200 flex-shrink-0"
+              style={{ background: 'rgba(224,242,254,0.60)', border: '1px solid rgba(125,199,232,0.3)', backdropFilter: 'blur(8px)' }}
               aria-label="Open menu"
             >
-              <Menu className="w-6 h-6 text-slate-700" />
+              <Menu className="w-4 h-4 text-[#0284c7]" />
             </button>
-            <Link href="/">
+
+            {/* Logo */}
+            <Link href="/" className="flex-shrink-0">
               <img
-                src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 204, h: 64, crop: "fit" })}
+                src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 204, h: 56, crop: "fit" })}
                 alt={settings.siteName || "QXL Diagnostics"}
                 width={204}
-                height={64}
-                className="h-16 w-auto object-contain"
+                height={56}
+                className="h-8 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const fallbackSpan = e.currentTarget.parentElement?.querySelector('.logo-text-mobile') as HTMLElement;
                   if (fallbackSpan) fallbackSpan.classList.remove('hidden');
                 }}
               />
-              <span className="logo-text-mobile font-extrabold text-lg text-[#0f2d5e] hidden">
+              <span className="logo-text-mobile font-extrabold text-sm text-[#0369a1] hidden">
                 {settings.logoText || "QXL"}
               </span>
             </Link>
           </div>
 
-          <div className="flex items-center gap-2">
-            {/* Location → opens centered modal */}
+          <div className="flex items-center gap-1.5 flex-1 justify-end min-w-0">
+            {/* Location Dropdown (Compact) */}
             <button
               onClick={() => setShowLocationModal(true)}
-              className="flex items-center gap-1 bg-blue-50 border border-blue-100 rounded-full px-2.5 py-1.5"
+              className="flex items-center justify-center gap-1 rounded-full px-2.5 py-1.5 transition-all flex-1 min-w-0 max-w-[160px]"
+              style={{ background: 'rgba(224,242,254,0.65)', border: '1px solid rgba(125,199,232,0.35)', backdropFilter: 'blur(8px)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)' }}
               aria-label="Select location"
             >
-              <MapPin className="w-3.5 h-3.5 text-[#2563eb] flex-shrink-0" />
-              <span className="font-extrabold text-[11px] text-[#2563eb] max-w-[70px] truncate">{getShortLocationName(location)}</span>
-              <ChevronDown className="w-3 h-3 text-[#2563eb] flex-shrink-0" />
+              <MapPin className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0" />
+              <span className="font-extrabold text-[10px] text-[#0369a1] truncate pt-0.5 leading-none">{getShortLocationName(location)}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-[#38bdf8] flex-shrink-0" />
             </button>
+
+            {/* Book Now button */}
             <Link
-              href={user ? "/profile" : "/login"}
-              className="w-9 h-9 rounded-full bg-[#dbeafe] flex items-center justify-center text-[#2563eb]"
-              aria-label={user ? "Open profile" : "Log in"}
+              href="/book"
+              className="flex-shrink-0 flex items-center justify-center rounded-full px-3 py-1.5 shadow-md active:scale-95 transition-transform"
+              style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)', border: '1px solid rgba(125,199,232,0.4)' }}
             >
-              <User className="w-4 h-4" />
+              <span className="text-[10px] font-extrabold text-white tracking-wider uppercase leading-none pt-0.5">Book Now</span>
             </Link>
           </div>
         </div>
 
         {/* Row 2: Search Bar */}
-        <div className="px-4 pb-3">
+        <div className="px-4">
           <SmartSearchBar placeholder="Search For Lab Tests/Package" isMobile={true} />
         </div>
       </div>
@@ -519,9 +631,12 @@ export default function Header() {
 
       {/* ── MOBILE BOTTOM NAVIGATION (truly fixed at bottom, 5 tabs) ── */}
       <div
-        className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-[9999] lg:hidden"
+        className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-[9999] lg:hidden flex flex-col"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)', boxShadow: '0 -2px 12px rgba(0,0,0,0.08)' }}
       >
+        <Link href="/book" className="flex items-center justify-center w-full py-2.5 text-white font-extrabold text-xs tracking-wider uppercase shadow-sm" style={{ background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)' }}>
+          BOOK NOW
+        </Link>
         <div className="flex justify-around items-center h-14">
           {[
             { label: "Home", href: "/", icon: Home },

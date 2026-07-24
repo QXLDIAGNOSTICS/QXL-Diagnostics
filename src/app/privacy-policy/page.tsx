@@ -4,6 +4,9 @@ import { Shield } from 'lucide-react';
 export const metadata = {
   title: 'Privacy Policy | QXL Diagnostics',
   description: 'Privacy Policy and data protection guidelines for QXL Diagnostics.',
+  alternates: {
+    canonical: 'https://qxldiagnostics.com/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicyPage() {

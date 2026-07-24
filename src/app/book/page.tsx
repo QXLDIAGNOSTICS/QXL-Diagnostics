@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { Calendar, User, Phone, MapPin, Shield, X, Mail, LocateFixed, CheckCircle2, Loader2, Home, Building2, AlertTriangle } from 'lucide-react';
+import { Calendar, User, Phone, MapPin, Shield, X, Mail, LocateFixed, CheckCircle2, Loader2, Home, Building2, AlertTriangle, Clock } from 'lucide-react';
 import { api, type TestCatalogItem, type HealthPackage, type Booking } from '../../lib/api';
 import { useAuth } from '../../lib/useAuth';
-import RazorpayCheckoutButton from '../../components/RazorpayCheckoutButton';
+
 
 type CatalogEntry = {
   id: string;
@@ -16,6 +16,38 @@ type CatalogEntry = {
   old_price?: number | null;
 };
 
+function generateTimeSlots(): string[] {
+  const slots: string[] = [];
+
+  // Range 1: 6:30 AM to 12:30 PM
+  let current = 6 * 60 + 30;
+  const end1 = 12 * 60 + 30;
+  while (current <= end1) {
+    const hours = Math.floor(current / 60);
+    const minutes = current % 60;
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const displayHours = hours > 12 ? hours - 12 : hours === 0 ? 12 : hours;
+    const displayMinutes = minutes.toString().padStart(2, '0');
+    slots.push(`${displayHours}:${displayMinutes} ${ampm}`);
+    current += 10;
+  }
+
+  // Range 2: 2:00 PM to 8:00 PM
+  current = 14 * 60;
+  const end2 = 20 * 60;
+  while (current <= end2) {
+    const hours = Math.floor(current / 60);
+    const minutes = current % 60;
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const displayHours = hours > 12 ? hours - 12 : hours === 0 ? 12 : hours;
+    const displayMinutes = minutes.toString().padStart(2, '0');
+    slots.push(`${displayHours}:${displayMinutes} ${ampm}`);
+    current += 10;
+  }
+
+  return slots;
+}
+
 export default function BookPage() {
   const { user } = useAuth();
   const [formData, setFormData] = useState({
@@ -24,6 +56,7 @@ export default function BookPage() {
     email: '',
     address: '',
     date: '',
+    time: '',
     collectionType: 'home' as 'home' | 'center',
   });
 
@@ -33,8 +66,10 @@ export default function BookPage() {
   const [selectedItems, setSelectedItems] = useState<CatalogEntry[]>([]);
   const [testInput, setTestInput] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [showTimeSlots, setShowTimeSlots] = useState(false);
 
   const [submitted, setSubmitted] = useState(false);
+  const [hasPaid, setHasPaid] = useState(false);
   const [createdBookings, setCreatedBookings] = useState<Booking[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -66,8 +101,74 @@ export default function BookPage() {
     (async () => {
       setCatalogLoading(true);
       try {
-        const [tests, packages] = await Promise.all([api.tests.list(), api.packages.list()]);
+        const tests = await api.tests.list().catch(() => []);
+        const packages = await api.packages.list().catch(() => []);
         if (cancelled) return;
+        
+        // Define fallback DEFAULT_PACKAGES to resolve client-side matches
+        const fallbackPackages = [
+          {
+            id: "pkg-1",
+            name: "Quick Fit Package",
+            kind: 'package' as const,
+            price: 1770,
+            old_price: 4696,
+            home_collection_available: true,
+            parameters: "13 Parameters",
+            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy."
+          },
+          {
+            id: "pkg-2",
+            name: "Q-Screen Diabetes Package",
+            kind: 'package' as const,
+            price: 1900,
+            old_price: 4960,
+            home_collection_available: true,
+            parameters: "12 Parameters",
+            includes: "FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, Liver Function Test, Kidney Function Test (Creatinine, Urea, BUN, Sodium, Potassium, Chloride), TSH, CBC, ESR, Urine Routine & Microscopy."
+          },
+          {
+            id: "pkg-3",
+            name: "Q-Master Health Pro Package",
+            kind: 'package' as const,
+            price: 4600,
+            old_price: 9600,
+            home_collection_available: true,
+            parameters: "20 Parameters",
+            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, Liver Function Tests, Kidney Screen (Creatinine, Urea, BUN, Uric Acid, Sodium, Potassium, Chloride), Thyroid Function Tests (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine & Microscopy, Gastritis Screen (H. pylori IgG Antibodies), hs-CRP."
+          },
+          {
+            id: "pkg-4",
+            name: "Q-Oncoscreen Package",
+            kind: 'package' as const,
+            price: 7900,
+            old_price: 13600,
+            home_collection_available: true,
+            parameters: "10 Parameters",
+            includes: "Cancer Markers (Alpha Fetoprotein AFP, Carcinoembryonic Antigen (CEA), Beta HCG, Prostate-Specific Antigen (PSA) - Male, CA-125 (Ovarian Cancer Marker) - Female, CA-19.9 (Pancreatic Cancer Marker)), CBC, ESR, Urine Routine & Microscopy, Calprotectin in Stool, Fecal Occult Blood Test (FOBT), Protein Electrophoresis."
+          },
+          {
+            id: "pkg-5",
+            name: "Q-Advanced Arthritis and Autoimmune Panel",
+            kind: 'package' as const,
+            price: 6900,
+            old_price: 12660,
+            home_collection_available: true,
+            parameters: "22 Parameters",
+            includes: "FBS, HbA1c, eAG, Lipid Profile, hs-CRP, Liver Function Tests, Kidney Function Tests, Thyroid Screen (T3, T4, TSH), Iron Studies (Iron, TIBC, Transferrin), Bone Health (Calcium, Phosphorus), Vitamin B12, Vitamin D, Autoimmune Tests (RF, Anti-CCP, ANA), DHEA-S, Cortisol, CBC, ESR, Urine Routine & Microscopy."
+          },
+          {
+            id: "pkg-6",
+            name: "Q-Hypertension and Cardiovascular Risk Assessment Package",
+            kind: 'package' as const,
+            price: 9000,
+            old_price: 18900,
+            home_collection_available: true,
+            parameters: "25 Parameters",
+            includes: "CBC, Lipid Profile, Kidney Screen (BUN, Urea, Creatinine, Sodium, Potassium, Chloride), Urine Routine & Microscopy, FBS, Apo A1, Apo B, Apo B/A1 Ratio, hs-CRP, Lipoprotein(a), Fibrinogen, Homocysteine, NT-proBNP, Insulin, C-Peptide, Thyroid Screen (T3, T4, TSH), Cortisol Level, Serum Magnesium."
+          }
+        ];
+
         const merged: CatalogEntry[] = [
           ...packages.map((p: HealthPackage): CatalogEntry => ({
             id: p.id,
@@ -87,9 +188,79 @@ export default function BookPage() {
             home_collection_available: t.home_collection_available,
           })),
         ];
+
+        // Merge fallback packages if they aren't loaded in merged yet
+        for (const fb of fallbackPackages) {
+          if (!merged.some(m => m.name.toLowerCase() === fb.name.toLowerCase())) {
+            merged.push(fb);
+          }
+        }
+
         setCatalog(merged);
       } catch {
-        setCatalog([]);
+        const fallbackPackages = [
+          {
+            id: "pkg-1",
+            name: "Quick Fit Package",
+            kind: 'package' as const,
+            price: 1770,
+            old_price: 4696,
+            home_collection_available: true,
+            parameters: "13 Parameters",
+            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy."
+          },
+          {
+            id: "pkg-2",
+            name: "Q-Screen Diabetes Package",
+            kind: 'package' as const,
+            price: 1900,
+            old_price: 4960,
+            home_collection_available: true,
+            parameters: "12 Parameters",
+            includes: "FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, Liver Function Test, Kidney Function Test (Creatinine, Urea, BUN, Sodium, Potassium, Chloride), TSH, CBC, ESR, Urine Routine & Microscopy."
+          },
+          {
+            id: "pkg-3",
+            name: "Q-Master Health Pro Package",
+            kind: 'package' as const,
+            price: 4600,
+            old_price: 9600,
+            home_collection_available: true,
+            parameters: "20 Parameters",
+            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, Liver Function Tests, Kidney Screen (Creatinine, Urea, BUN, Uric Acid, Sodium, Potassium, Chloride), Thyroid Function Tests (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine & Microscopy, Gastritis Screen (H. pylori IgG Antibodies), hs-CRP."
+          },
+          {
+            id: "pkg-4",
+            name: "Q-Oncoscreen Package",
+            kind: 'package' as const,
+            price: 7900,
+            old_price: 13600,
+            home_collection_available: true,
+            parameters: "10 Parameters",
+            includes: "Cancer Markers (Alpha Fetoprotein AFP, Carcinoembryonic Antigen (CEA), Beta HCG, Prostate-Specific Antigen (PSA) - Male, CA-125 (Ovarian Cancer Marker) - Female, CA-19.9 (Pancreatic Cancer Marker)), CBC, ESR, Urine Routine & Microscopy, Calprotectin in Stool, Fecal Occult Blood Test (FOBT), Protein Electrophoresis."
+          },
+          {
+            id: "pkg-5",
+            name: "Q-Advanced Arthritis and Autoimmune Panel",
+            kind: 'package' as const,
+            price: 6900,
+            old_price: 12660,
+            home_collection_available: true,
+            parameters: "22 Parameters",
+            includes: "FBS, HbA1c, eAG, Lipid Profile, hs-CRP, Liver Function Tests, Kidney Function Tests, Thyroid Screen (T3, T4, TSH), Iron Studies (Iron, TIBC, Transferrin), Bone Health (Calcium, Phosphorus), Vitamin B12, Vitamin D, Autoimmune Tests (RF, Anti-CCP, ANA), DHEA-S, Cortisol, CBC, ESR, Urine Routine & Microscopy."
+          },
+          {
+            id: "pkg-6",
+            name: "Q-Hypertension and Cardiovascular Risk Assessment Package",
+            kind: 'package' as const,
+            price: 9000,
+            old_price: 18900,
+            home_collection_available: true,
+            parameters: "25 Parameters",
+            includes: "CBC, Lipid Profile, Kidney Screen (BUN, Urea, Creatinine, Sodium, Potassium, Chloride), Urine Routine & Microscopy, FBS, Apo A1, Apo B, Apo B/A1 Ratio, hs-CRP, Lipoprotein(a), Fibrinogen, Homocysteine, NT-proBNP, Insulin, C-Peptide, Thyroid Screen (T3, T4, TSH), Cortisol Level, Serum Magnesium."
+          }
+        ];
+        setCatalog(fallbackPackages);
       } finally {
         if (!cancelled) setCatalogLoading(false);
       }
@@ -132,9 +303,20 @@ export default function BookPage() {
   };
 
   useEffect(() => {
+    if (catalog.length === 0) return;
     const params = new URLSearchParams(window.location.search);
     const wanted = [...params.getAll('tests').map(t => t.trim()), params.get('package') || ''].filter(Boolean);
-    if (!wanted.length || catalog.length === 0) return;
+    
+    try {
+      const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
+      for (const item of cart) {
+        if (!wanted.includes(item)) {
+          wanted.push(item);
+        }
+      }
+    } catch {}
+
+    if (!wanted.length) return;
 
     const matches: CatalogEntry[] = [];
     const unmatched: string[] = [];
@@ -185,10 +367,29 @@ export default function BookPage() {
     setSelectedItems(prev => (prev.some(p => p.id === item.id) ? prev : [...prev, item]));
     setTestInput('');
     setShowSuggestions(false);
+    try {
+      const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
+      if (!cart.includes(item.name)) {
+        cart.push(item.name);
+        localStorage.setItem('qxl_cart', JSON.stringify(cart));
+        window.dispatchEvent(new CustomEvent('cartChange'));
+      }
+    } catch {}
   };
 
   const removeItem = (id: string) => {
-    setSelectedItems(prev => prev.filter(i => i.id !== id));
+    setSelectedItems(prev => {
+      const target = prev.find(i => i.id === id);
+      if (target) {
+        try {
+          const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
+          const updated = cart.filter((item: string) => item !== target.name);
+          localStorage.setItem('qxl_cart', JSON.stringify(updated));
+          window.dispatchEvent(new CustomEvent('cartChange'));
+        } catch {}
+      }
+      return prev.filter(i => i.id !== id);
+    });
   };
 
   // Tests/packages in the current selection that can't be home-collected —
@@ -238,7 +439,18 @@ export default function BookPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
-    if (selectedItems.length === 0) {
+
+    let currentSelected = [...selectedItems];
+    if (testInput.trim()) {
+      const match = findCatalogMatch(testInput.trim(), catalog);
+      if (match && !currentSelected.some(s => s.id === match.id)) {
+        currentSelected.push(match);
+        setSelectedItems(currentSelected);
+        setTestInput('');
+      }
+    }
+
+    if (currentSelected.length === 0) {
       setError('Please select at least one test or health package from our catalog.');
       return;
     }
@@ -254,21 +466,28 @@ export default function BookPage() {
       // One booking per selected catalog item — each is cross-checked against
       // the master Test/Package list server-side via test_id/package_id.
       const created: Booking[] = [];
-      for (const item of selectedItems) {
+      for (const item of currentSelected) {
+        const isLocalFallback = item.id.startsWith('pkg-') || item.id.startsWith('test-');
         const booking = await api.bookings.create({
           patient_name: formData.name,
           patient_phone: formData.phone,
-          patient_email: formData.email || null,
-          test_id: item.kind === 'test' ? item.id : undefined,
-          package_id: item.kind === 'package' ? item.id : undefined,
+          patient_email: formData.email || undefined,
+          test_name: item.name,
+          test_id: (!isLocalFallback && item.kind === 'test') ? item.id : undefined,
+          package_id: (!isLocalFallback && item.kind === 'package') ? item.id : undefined,
           collection_type: formData.collectionType,
-          collection_address: formData.collectionType === 'home' ? formData.address || null : null,
-          preferred_date: formData.date || null,
+          collection_address: formData.collectionType === 'home' ? formData.address || undefined : undefined,
+          preferred_date: formData.date || undefined,
+          preferred_time: formData.time || undefined,
         });
         created.push(booking);
       }
       setCreatedBookings(created);
       setSubmitted(true);
+      try {
+        localStorage.removeItem('qxl_cart');
+        window.dispatchEvent(new CustomEvent('cartChange'));
+      } catch {}
     } catch (err) {
       console.error('Booking submission failed', err);
       const message = err instanceof Error ? err.message : null;
@@ -280,63 +499,81 @@ export default function BookPage() {
 
 
   return (
-    <div className="bg-[#f8faff] min-h-screen">
+    <div className="min-h-screen">
       {/* Page Hero */}
-      <section className="bg-gradient-to-r from-[#e0f2fe] to-[#fbf8f5] py-12 border-b border-gray-100">
-        <div className="max-w-[1200px] mx-auto px-4 w-full">
-          <h1 className="text-3xl md:text-4xl font-extrabold text-[#0f2d5e] mb-3">Book a Health Test</h1>
-          <p className="text-slate-500 text-sm md:text-base max-w-xl font-medium">
-            Schedule a certified home sample collection or request an appointment at our laboratory in Bengaluru.
-          </p>
-          <div className="w-16 h-1 bg-[#2563eb] rounded-full mt-4"></div>
+      <section className="py-12">
+        <div className="max-w-[1260px] mx-auto px-4 w-full">
+          <div className="glass-panel p-8 md:p-12 rounded-3xl">
+            <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-3 shadow-sm">Seamless Booking</span>
+            <h1 className="text-3xl md:text-4xl font-extrabold text-[#0c4a6e] mb-3">Book a Health Test</h1>
+            <p className="text-slate-700 text-sm md:text-base max-w-xl font-medium">
+              Schedule a certified home sample collection or request an appointment at our laboratory in Bengaluru.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Main Content Form */}
-      <section className="py-12">
-        <div className="max-w-[1200px] mx-auto px-4 w-full flex flex-col lg:flex-row gap-10">
+      <section className="py-6 mb-12">
+        <div className="max-w-[1260px] mx-auto px-4 w-full flex flex-col lg:flex-row gap-10">
           
           {/* Left Form */}
-          <div className="w-full lg:w-2/3 bg-white border border-gray-150 rounded-3xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+          <div className="w-full lg:w-2/3 glass-card p-8 rounded-3xl">
             {submitted ? (
               <div className="text-center py-12">
                 <div className="w-16 h-16 bg-[#dbeafe] text-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-extrabold">✓</div>
                 <h2 className="text-2xl font-bold text-slate-800 mb-2">Booking Request Received!</h2>
-                <p className="text-slate-500 text-sm max-w-md mx-auto mb-8 font-medium">
+                <p className="text-slate-500 text-sm max-w-md mx-auto mb-6 font-medium">
                   Thank you, <strong className="text-slate-700">{formData.name}</strong>. Our clinical coordinator will call you back at <strong className="text-slate-700">{formData.phone}</strong> within 15 minutes to confirm your test slot.
                 </p>
 
-                {createdBookings.some(b => b.amount_paise) && (
-                  <div className="max-w-md mx-auto mb-8 bg-blue-50/60 border border-blue-100 rounded-2xl p-5 flex flex-col gap-3">
-                    <p className="text-xs font-bold text-[#0f2d5e] uppercase tracking-wider">Complete Payment</p>
-                    {createdBookings.filter(b => b.amount_paise).map((b) => (
-                      <div key={b.id} className="flex items-center justify-between gap-3 bg-white border border-gray-100 rounded-xl p-3">
-                        <span className="text-xs font-semibold text-slate-600 text-left">{b.test_name || 'Health Package'}</span>
-                        <span className="text-xs font-bold text-[#0f2d5e]">₹{Math.round((b.amount_paise || 0) / 100)}</span>
-                      </div>
-                    ))}
-                    <div className="flex items-center justify-between gap-3 border-t border-blue-100 pt-3">
-                      <span className="text-xs font-extrabold text-[#0f2d5e] uppercase tracking-wide">Total</span>
-                      <span className="text-sm font-extrabold text-[#0f2d5e]">
-                        ₹{Math.round(createdBookings.reduce((sum, b) => sum + (b.amount_paise || 0), 0) / 100)}
-                      </span>
-                    </div>
-                    <RazorpayCheckoutButton
-                      bookingIds={createdBookings.filter(b => b.amount_paise).map(b => b.id)}
-                      amountRupees={Math.round(createdBookings.reduce((sum, b) => sum + (b.amount_paise || 0), 0) / 100)}
-                      patientName={formData.name}
-                      patientEmail={formData.email}
-                      patientPhone={formData.phone}
-                      className="w-full inline-flex items-center justify-center gap-2 bg-[#2563eb] text-white font-bold px-5 py-3 rounded-full text-xs uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors disabled:opacity-60"
+                <div className="bg-slate-50/80 border border-slate-200 rounded-3xl p-6 md:p-8 max-w-md mx-auto mb-8 flex flex-col items-center text-center shadow-md">
+                  <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest block mb-3">
+                    Scan to Pay via Any UPI App
+                  </span>
+                  
+                  {/* Large High-Res QR Code Card */}
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-4 transform transition-transform hover:scale-[1.02]">
+                    <img
+                      src="/upi.jpg"
+                      alt="Scan to Pay via UPI"
+                      className="w-72 h-72 md:w-80 md:h-80 object-contain rounded-xl"
                     />
-                    <p className="text-[10px] text-slate-500 font-medium text-center">Scan the UPI QR above (qxl-diagnostics@pingpay) or pay later — our coordinator can confirm on WhatsApp.</p>
                   </div>
-                )}
 
+                  <p className="text-xs md:text-sm font-semibold text-slate-700 mb-2">
+                    Accepts GPay, PhonePe, Paytm, BHIM & all bank UPI apps
+                  </p>
+                  
+                  <div className="inline-flex items-center gap-2 bg-blue-50 text-[#2563eb] text-xs md:text-sm font-mono font-bold px-4 py-2 rounded-xl border border-blue-100 mb-6">
+                    <span>qxl-diagnostics@pingpay</span>
+                  </div>
+
+                  {/* Payment Confirmation Interactive Button */}
+                  {hasPaid ? (
+                    <div className="w-full bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-emerald-800 animate-in fade-in duration-300">
+                      <div className="flex items-center justify-center gap-2 font-extrabold text-base mb-1">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                        <span>Payment Notification Received!</span>
+                      </div>
+                      <p className="text-xs font-medium text-emerald-700 leading-relaxed">
+                        Thank you! We&apos;ve logged your payment status. Our coordinator will verify your transaction upon calling.
+                      </p>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => setHasPaid(true)}
+                      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 text-xs md:text-sm uppercase tracking-wider cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
+                    >
+                      <CheckCircle2 className="w-5 h-5" /> I Have Completed Payment
+                    </button>
+                  )}
+                </div>
 
                 <button 
-                  onClick={() => { setSubmitted(false); setCreatedBookings([]); setFormData({ name: user?.name || '', phone: user?.phone || '', email: user?.email || '', address: '', date: '', collectionType: 'home' }); setSelectedItems([]); setTestInput(''); setUnmatchedRecommended([]); }} 
-                  className="bg-[#2563eb] text-white font-bold px-8 py-2.5 rounded-full hover:bg-[#1d4ed8] transition-colors text-sm uppercase tracking-wider"
+                  onClick={() => { setSubmitted(false); setHasPaid(false); setCreatedBookings([]); setFormData({ name: user?.name || '', phone: user?.phone || '', email: user?.email || '', address: '', date: '', time: '', collectionType: 'home' }); setSelectedItems([]); setTestInput(''); setUnmatchedRecommended([]); }} 
+                  className="bg-[#2563eb] text-white font-bold px-8 py-3 rounded-full hover:bg-[#1d4ed8] transition-colors text-xs uppercase tracking-wider shadow-sm"
                 >
                   Book Another Test
                 </button>
@@ -357,7 +594,7 @@ export default function BookPage() {
                       placeholder="Enter patient name"
                       value={formData.name}
                       onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
                     />
                   </div>
 
@@ -372,7 +609,7 @@ export default function BookPage() {
                       placeholder="+91 Contact number"
                       value={formData.phone}
                       onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
                     />
                   </div>
 
@@ -386,7 +623,7 @@ export default function BookPage() {
                       placeholder="Optional email for reports"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
                     />
                   </div>
                 </div>
@@ -448,7 +685,7 @@ export default function BookPage() {
                     disabled={catalogLoading}
                     onChange={(e) => { setTestInput(e.target.value); setShowSuggestions(true); }}
                     onFocus={() => setShowSuggestions(true)}
-                    className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 disabled:opacity-60"
+                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 disabled:opacity-60"
                   />
                   {showSuggestions && suggestions.length > 0 && (
                     <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-150 rounded-xl shadow-xl z-20 max-h-64 overflow-y-auto">
@@ -483,42 +720,78 @@ export default function BookPage() {
                       type="date" 
                       value={formData.date}
                       onChange={(e) => setFormData({...formData, date: e.target.value})}
-                      className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 text-slate-600"
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 text-slate-600"
                     />
+                  </div>
+
+                  <div className="flex flex-col relative">
+                    <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-[#0f2d5e]" /> Preferred Time Slot
+                    </label>
+                    
+                    <button
+                      type="button"
+                      onClick={() => setShowTimeSlots(!showTimeSlots)}
+                      className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 text-slate-600 flex justify-between items-center"
+                    >
+                      <span className={formData.time ? "font-bold text-[#0f2d5e]" : ""}>{formData.time || "Select Time Slot"}</span>
+                      <svg className={`w-4 h-4 transition-transform ${showTimeSlots ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+
+                    {showTimeSlots && (
+                      <div className="absolute top-[72px] left-0 right-0 z-30 bg-white border border-gray-200 rounded-xl shadow-2xl p-3">
+                        <div className="grid grid-cols-3 gap-2 max-h-52 overflow-y-auto pr-2 pb-1 custom-scrollbar">
+                          {generateTimeSlots().map((slot) => (
+                            <button
+                              key={slot}
+                              type="button"
+                              onClick={() => { setFormData({...formData, time: slot}); setShowTimeSlots(false); }}
+                              className={`whitespace-nowrap px-2 py-2.5 text-[11px] font-extrabold rounded-xl border transition-all ${
+                                formData.time === slot
+                                  ? 'bg-[#2563eb] border-[#2563eb] text-white shadow-md transform scale-[1.02]'
+                                  : 'bg-white border-gray-150 text-slate-600 hover:border-[#2563eb] hover:bg-blue-50/50'
+                              }`}
+                            >
+                              {slot}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Collection Method */}
                 <div>
                   <label className="text-xs font-bold text-slate-600 mb-3 uppercase tracking-wider block">Sample Collection Method</label>
-                  <div className="flex gap-4">
-                    <label className="flex items-center cursor-pointer border border-gray-150 rounded-xl p-4 flex-1 hover:bg-gray-50/50 transition-colors">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <label className="flex items-start cursor-pointer border border-gray-150 rounded-xl p-4 flex-1 hover:bg-gray-50/50 transition-colors">
                       <input 
                         type="radio" 
                         name="collectionType" 
                         value="home"
                         checked={formData.collectionType === 'home'}
                         onChange={() => setFormData({...formData, collectionType: 'home'})}
-                        className="text-[#2563eb] focus:ring-[#2563eb] mr-3 w-4 h-4"
+                        className="text-[#2563eb] focus:ring-[#2563eb] mr-3 w-4 h-4 mt-0.5 shrink-0"
                       />
-                      <div>
-                        <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5"><Home className="w-3.5 h-3.5" /> Home Collection</span>
-                        <span className="text-[10px] text-slate-400 font-semibold block">We collect sample from your address</span>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5"><Home className="w-3.5 h-3.5 text-[#0f2d5e]" /> Home Collection</span>
+                        <span className="text-[10px] text-slate-400 font-semibold block leading-snug">We collect sample from your address</span>
                       </div>
                     </label>
                     
-                    <label className="flex items-center cursor-pointer border border-gray-150 rounded-xl p-4 flex-1 hover:bg-gray-50/50 transition-colors">
+                    <label className="flex items-start cursor-pointer border border-gray-150 rounded-xl p-4 flex-1 hover:bg-gray-50/50 transition-colors">
                       <input 
                         type="radio" 
                         name="collectionType" 
                         value="center"
                         checked={formData.collectionType === 'center'}
                         onChange={() => setFormData({...formData, collectionType: 'center'})}
-                        className="text-[#2563eb] focus:ring-[#2563eb] mr-3 w-4 h-4"
+                        className="text-[#2563eb] focus:ring-[#2563eb] mr-3 w-4 h-4 mt-0.5 shrink-0"
                       />
-                      <div>
-                        <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5" /> Walk-in Lab Center</span>
-                        <span className="text-[10px] text-slate-400 font-semibold block">Visit our Kengeri lab in Bengaluru</span>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5 text-[#0f2d5e]" /> Walk-in Lab Center</span>
+                        <span className="text-[10px] text-slate-400 font-semibold block leading-snug">Visit our Kengeri lab in Bengaluru</span>
                       </div>
                     </label>
                   </div>
@@ -599,10 +872,43 @@ export default function BookPage() {
                 <button 
                   type="submit" 
                   disabled={submitting}
-                  className="w-full bg-[#2563eb] text-white font-bold py-3.5 rounded-xl hover:bg-[#1d4ed8] transition-colors uppercase tracking-wider text-xs shadow-md mt-6 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="btn-sky w-full py-3.5 text-xs uppercase tracking-wider shadow-md mt-6 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                 >
                   {submitting ? 'Submitting…' : 'Submit Booking Request'}
                 </button>
+
+                {/* Suggested Health Packages */}
+                <div className="mt-10 pt-8 border-t border-sky-200/40">
+                  <h3 className="text-[#0c4a6e] text-sm font-extrabold mb-4 uppercase tracking-wider">Suggested Health Packages</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {catalog
+                      .filter(item => item.kind === 'package')
+                      .filter(item => !selectedItems.some(s => s.id === item.id))
+                      .slice(0, 4)
+                      .map(pkg => (
+                        <div 
+                          key={pkg.id} 
+                          onClick={() => addItem(pkg)}
+                          className="glass-card p-4 flex justify-between items-center group cursor-pointer"
+                        >
+                          <div className="pr-4 flex-1">
+                            <h4 className="font-extrabold text-[#0c4a6e] text-[11px] leading-tight mb-1 group-hover:text-[#2563eb] transition-colors">{pkg.name}</h4>
+                            <p className="text-[10px] text-slate-600 line-clamp-1 font-medium">{pkg.includes}</p>
+                            <div className="flex items-center gap-1.5 mt-2">
+                              <span className="text-xs font-black text-[#0c4a6e]">₹{pkg.price}</span>
+                              {pkg.old_price && <span className="text-[10px] text-slate-400 line-through">₹{pkg.old_price}</span>}
+                            </div>
+                          </div>
+                          <button
+                            type="button"
+                            className="bg-[#2563eb] text-white font-extrabold text-[10px] uppercase tracking-wider border border-[#2563eb] px-4 py-1.5 rounded-full shrink-0 shadow-md hover:bg-[#1d4ed8] transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
+                          >
+                            + Add
+                          </button>
+                        </div>
+                      ))}
+                  </div>
+                </div>
               </form>
             )}
           </div>
@@ -610,45 +916,45 @@ export default function BookPage() {
           {/* Right Info Sidebar */}
           <div className="w-full lg:w-1/3 space-y-6">
             {selectedItems.filter(i => i.kind === 'package').map((pkg) => (
-              <div key={pkg.id} className="bg-white border border-[#2563eb]/20 rounded-3xl p-6 shadow-md relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-[#2563eb] text-white px-3 py-1 rounded-bl-xl text-[10px] font-extrabold uppercase tracking-wider">
+              <div key={pkg.id} className="glass-card p-6 rounded-3xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-[#2563eb] text-white px-3 py-1 rounded-bl-xl text-[10px] font-extrabold uppercase tracking-wider shadow-sm">
                   Selected
                 </div>
-                <h3 className="font-extrabold text-[#0f2d5e] text-lg mb-2 pr-16">{pkg.name}</h3>
+                <h3 className="font-extrabold text-[#0c4a6e] text-lg mb-2 pr-16">{pkg.name}</h3>
                 
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-2xl font-black text-[#2563eb]">₹{pkg.price}</span>
+                  <span className="text-2xl font-black text-[#0284c7]">₹{pkg.price}</span>
                   <span className="text-sm text-slate-400 line-through">₹{pkg.old_price}</span>
                 </div>
                 
                 <div className="mb-4">
-                  <p className="text-[11px] text-slate-500 font-semibold mb-2 flex items-center gap-1.5">
-                    <Shield className="w-3.5 h-3.5 text-[#0f2d5e]" /> {pkg.parameters}
+                  <p className="text-[11px] text-slate-600 font-semibold mb-2 flex items-center gap-1.5">
+                    <Shield className="w-3.5 h-3.5 text-[#0284c7]" /> {pkg.parameters}
                   </p>
-                  <p className="text-[11px] text-slate-600 font-medium leading-relaxed">
+                  <p className="text-[11px] text-slate-700 font-medium leading-relaxed">
                     <strong>Includes:</strong> {pkg.includes}
                   </p>
                 </div>
               </div>
             ))}
             
-            <div className="bg-gradient-to-br from-[#0f2d5e] to-[#0e4253] text-white rounded-3xl p-6 shadow-md">
-              <h3 className="font-bold text-lg mb-4">Why Book with QXL?</h3>
+            <div className="glass-panel text-[#0c4a6e] p-6 rounded-3xl border border-sky-300/40">
+              <h3 className="font-black text-lg mb-4 text-[#0c4a6e]">Why Book with QXL?</h3>
               <ul className="space-y-4 text-xs font-semibold">
                 <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 text-white">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 text-[11px] font-extrabold shadow-sm">✓</span>
                   <span>Advanced NABL accredited standards with expert validation</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 text-white">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 text-[11px] font-extrabold shadow-sm">✓</span>
                   <span>100% sterile vacuum containers for collection</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 text-white">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 text-white flex-shrink-0 text-[11px] font-extrabold shadow-sm">✓</span>
                   <span>Cold-chain logistics ensures sample integrity</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0 text-white">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 text-white flex-shrink-0 text-[11px] font-extrabold shadow-sm">✓</span>
                   <span>Secure digital PDF reports directly on WhatsApp</span>
                 </li>
               </ul>

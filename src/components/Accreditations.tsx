@@ -12,7 +12,7 @@ export default function Accreditations({ decorativeHeading = false }: Props) {
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="md:w-1/2">
             <span className="inline-block bg-[#2563eb]/20 text-blue-300 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3">Quality & Trust</span>
-            <Heading className="text-white text-3xl font-extrabold mb-4 drop-shadow-sm">Certified for Excellence</Heading>
+            <Heading className="text-white !text-white text-4xl md:text-5xl font-black mb-4 leading-tight" style={{ color: '#ffffff' }}>Certified for Excellence</Heading>
             <p className="text-slate-300 text-sm font-medium leading-relaxed mb-6">
               QXL Diagnostics is proud to be accredited by the highest national and international regulatory bodies. Our commitment to stringent quality control ensures that your health is always in safe, reliable hands.
             </p>
@@ -44,22 +44,13 @@ export default function Accreditations({ decorativeHeading = false }: Props) {
             </ul>
           </div>
           
-          <div className="md:w-1/2 flex items-center justify-center md:justify-end gap-6">
-            {/* NABL Badge */}
-            <div className="bg-white p-6 rounded-3xl shadow-xl flex flex-col items-center justify-center w-40 h-40 transform hover:-translate-y-2 transition-transform">
-              <span className="text-[#000080] font-black text-4xl tracking-tighter leading-none mb-2">NABL</span>
-              <span className="text-black font-extrabold text-[10px] uppercase text-center leading-tight">Accredited Lab</span>
-              <span className="text-black font-extrabold text-[11px] mt-1">{NABL_CERTIFICATE.replace('-', ' - ')}</span>
-            </div>
-            
-            {/* ISO Badge */}
-            <div className="bg-white p-6 rounded-3xl shadow-xl flex items-center justify-center w-40 h-40 transform hover:-translate-y-2 transition-transform delay-75">
-              <div className="w-[100px] h-[100px] rounded-full border-[6px] border-[#1b4b8a] flex flex-col items-center justify-center relative">
-                <div className="absolute inset-[3px] rounded-full border-2 border-[#1b4b8a]"></div>
-                <span className="text-[#1b4b8a] font-extrabold text-[9px] tracking-[0.1em] absolute top-[12px]">CERTIFIED</span>
-                <span className="text-[#1b4b8a] font-black text-3xl tracking-tight leading-none mt-1">ISO</span>
-                <span className="text-[#1b4b8a] font-bold text-[10px] leading-none mt-0.5">15189:2022</span>
-              </div>
+          <div className="md:w-1/2 flex items-center justify-center md:justify-end">
+            <div className="bg-white p-4 rounded-3xl shadow-xl transform hover:-translate-y-1 transition-transform overflow-hidden max-w-md">
+              <img
+                src="/images/nabl_certified.png"
+                alt="NABL Accredited Lab and ISO Certified Company"
+                className="w-full h-auto object-contain max-h-[180px] rounded-2xl"
+              />
             </div>
           </div>
         </div>

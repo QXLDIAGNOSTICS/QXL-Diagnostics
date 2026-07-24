@@ -1,13 +1,11 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { MessageCircle, FileText } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 
 export default function FloatingActions() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Show buttons after scrolling down a bit
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
         setIsVisible(true);
@@ -22,7 +20,15 @@ export default function FloatingActions() {
   return (
     <div className={`fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
 
-      
+      {/* Call Me Button */}
+      <a
+        href="tel:+919964639639"
+        className="bg-[#2563eb] text-white p-4 rounded-full shadow-lg shadow-blue-500/30 flex items-center justify-center hover:bg-[#1d4ed8] hover:scale-110 transition-all"
+        aria-label="Call QXL Diagnostics"
+      >
+        <Phone className="w-6 h-6" />
+      </a>
+
       {/* WhatsApp Button */}
       <a 
         href="https://api.whatsapp.com/send?phone=919964639639" 

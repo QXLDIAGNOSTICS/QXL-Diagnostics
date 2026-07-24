@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import StatCard from "@/components/admin/StatCard";
 import { RevenueChart, BookingChart } from "@/components/admin/Charts";
-import { Users, CalendarDays, Stethoscope, Activity, DollarSign, Clock3, X, Loader2 } from "lucide-react";
-import { api, type Booking, type HealthPackage } from "@/lib/api";
+import { Users, CalendarDays, Stethoscope, Activity, Clock3, X, Loader2 } from "lucide-react";
+import { api, type HealthPackage } from "@/lib/api";
 
 interface RecentAppointment {
   id: string;
@@ -27,7 +27,6 @@ export default function AdminDashboard() {
     bookings: 0,
     doctors: 0,
     tests: 0,
-    revenue: 0,
     pending: 0,
   });
   const [loading, setLoading] = useState(true);
@@ -36,14 +35,11 @@ export default function AdminDashboard() {
   const [recentAppointments, setRecentAppointments] = useState<RecentAppointment[]>([]);
   const [topServices, setTopServices] = useState<TopService[]>([]);
 
-  const formatCurrency = (val: number) => {
-    return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
-  };
 
   const loadStats = useCallback(async () => {
     setLoading(true);
     try {
-      const [adminStats, doctors, tests, bookingsRes, packages] = await Promise.all([
+      const [adminStats, doctors, tests, { items: bookings }, packages] = await Promise.all([
         api.admin.stats(),
         api.doctors.list(),
         api.tests.list(),
@@ -51,17 +47,11 @@ export default function AdminDashboard() {
         api.packages.list(),
       ]);
 
-      const bookings: Booking[] = bookingsRes.items;
-      const revenue = bookings
-        .filter((b) => b.payment_status === "paid" && b.amount_paise)
-        .reduce((sum, b) => sum + (b.amount_paise || 0) / 100, 0);
-
       setStats({
         patients: adminStats.total_users,
         bookings: adminStats.total_bookings,
         doctors: doctors.length,
         tests: tests.length,
-        revenue,
         pending: adminStats.pending_bookings,
       });
 
@@ -132,12 +122,11 @@ export default function AdminDashboard() {
           <Loader2 className="w-6 h-6 animate-spin" />
         </div>
       ) : (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         <StatCard title="Total Patients" value={stats.patients.toString()} icon={Users} color="blue" trend="Live" trendUp={true} />
         <StatCard title="Total Bookings" value={stats.bookings.toString()} icon={CalendarDays} color="teal" trend="Live" trendUp={true} />
         <StatCard title="Total Doctors" value={stats.doctors.toString()} icon={Stethoscope} color="purple" trend="" trendUp={true} />
         <StatCard title="Total Tests" value={stats.tests.toString()} icon={Activity} color="orange" trend="" trendUp={true} />
-        <StatCard title="Revenue (Paid)" value={formatCurrency(stats.revenue)} icon={DollarSign} color="rose" trend="Live" trendUp={true} />
         <StatCard title="Pending Bookings" value={stats.pending.toString()} icon={Clock3} color="blue" trend="Live" trendUp={true} />
       </div>
       )}

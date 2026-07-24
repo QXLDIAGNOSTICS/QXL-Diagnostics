@@ -17,19 +17,20 @@ export default function GastroenterologyPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <section className="bg-gradient-to-r from-emerald-600 to-emerald-900 text-white py-16 lg:py-24 relative overflow-hidden">
+      {/* Hero Banner */}
+      <section className="glass-panel text-[#0c4a6e] py-16 lg:py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2000')] bg-cover bg-center" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">Gastroenterology</span>
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">Advanced Gastroenterology &amp; Liver Disease Testing in Bengaluru</h1>
-            <p className="text-emerald-100 text-base md:text-lg mb-8 leading-relaxed">
+            <span className="inline-block bg-[#2563eb] text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">Gastroenterology</span>
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-[#0c4a6e] leading-tight">Advanced Gastroenterology &amp; Liver Disease Testing in Bengaluru</h1>
+            <p className="text-slate-700 text-base md:text-lg mb-8 leading-relaxed font-medium">
               Liver function, IBD markers, celiac disease, H. pylori, malabsorption workup, viral hepatitis, autoimmune liver panels, and pancreatic assessment — with expert-reviewed reports and home sample collection.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="#test-profiles" className="bg-white text-emerald-700 font-bold px-5 py-2.5 rounded-full hover:bg-emerald-50 transition-colors text-sm">View Test Profiles</a>
-              <Link href="/book" className="bg-emerald-500 border-2 border-white text-white font-bold px-5 py-2.5 rounded-full hover:bg-emerald-400 transition-colors text-sm">Book a Test</Link>
-              <Link href="/upload-prescription" className="border-2 border-white/60 text-white font-bold px-5 py-2.5 rounded-full hover:bg-white/10 transition-colors text-sm">Upload Prescription</Link>
+              <a href="#test-profiles" className="bg-[#2563eb] text-white font-extrabold px-6 py-3 rounded-full hover:bg-[#1d4ed8] transition-all text-sm shadow-md">View Test Profiles</a>
+              <Link href="/book" className="bg-white border-2 border-[#2563eb] text-[#2563eb] font-extrabold px-6 py-3 rounded-full hover:bg-sky-50 transition-all text-sm shadow-sm" style={{ color: '#2563eb' }}>Book a Test</Link>
+              <Link href="/upload-prescription" className="border-2 border-slate-300 text-slate-700 font-bold px-6 py-3 rounded-full hover:bg-slate-100 transition-all text-sm">Upload Prescription</Link>
             </div>
           </div>
         </div>
@@ -54,21 +55,21 @@ export default function GastroenterologyPage() {
               </p>
             </section>
 
-            <section className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
+            <section className="bg-sky-50 border border-sky-200 rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-4">
-                <Users className="w-5 h-5 text-blue-600" />
-                <h2 className="text-lg font-bold text-blue-900">Who Should Take These Tests?</h2>
+                <Users className="w-5 h-5 text-sky-600" />
+                <h2 className="text-lg font-bold text-sky-900">Who Should Take These Tests?</h2>
               </div>
-              <ul className="space-y-2 text-sm text-blue-800">
+              <ul className="space-y-2 text-sm text-sky-800">
                 {["Patients with chronic abdominal pain, bloating, or altered bowel habits","Those with jaundice, elevated liver enzymes, or fatty liver on ultrasound","Patients with suspected celiac disease, gluten intolerance, or malabsorption","Individuals with chronic diarrhea, weight loss, or blood in stools","Those with suspected H. pylori, peptic ulcer, or chronic gastritis","Patients with viral hepatitis B or C requiring monitoring","Individuals with IBD (Crohn's or Ulcerative Colitis) requiring disease monitoring"].map((item, i) => (
-                  <li key={i} className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />{item}</li>
+                  <li key={i} className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-sky-500 mt-0.5 flex-shrink-0" />{item}</li>
                 ))}
               </ul>
             </section>
 
             <section id="test-profiles">
               <h2 className="text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">
-                <Activity className="w-6 h-6 text-emerald-600" /> Gastroenterology Test Profiles
+                <Activity className="w-6 h-6 text-sky-600" /> Gastroenterology Test Profiles
               </h2>
               <div className="grid gap-5">
                 {[
@@ -81,7 +82,7 @@ export default function GastroenterologyPage() {
                   { name: "Malabsorption Profile", tests: "Iron, TIBC, Ferritin, Vitamin B12, Folate, Vitamin D, Calcium, Magnesium, Zinc, Phosphorus, Albumin, Stool Elastase", tat: "1–2 Days", sample: "Blood + Stool" },
                   { name: "Pancreatic Wellness Panel", tests: "Serum Amylase, Serum Lipase, Fasting Blood Sugar, HbA1c, CA 19-9 (if indicated)", tat: "Same Day", sample: "Blood (fasting for glucose)" },
                 ].map((t) => (
-                  <div key={t.name} className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:border-emerald-400 hover:shadow-md transition-all">
+                  <div key={t.name} className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:border-sky-400 hover:shadow-md transition-all">
                     <div className="flex flex-col md:flex-row justify-between gap-3">
                       <div className="flex-1">
                         <h3 className="text-base font-bold text-gray-900 mb-1">{t.name}</h3>
@@ -91,7 +92,7 @@ export default function GastroenterologyPage() {
                           <span className="flex items-center gap-1"><FlaskConical className="w-3 h-3" /> Sample: {t.sample}</span>
                         </div>
                       </div>
-                      <Link href="/book" className="self-start bg-emerald-600 text-white font-semibold px-4 py-2 rounded-lg whitespace-nowrap hover:bg-emerald-700 transition-colors text-sm">Book Now</Link>
+                      <Link href="/book" className="self-start bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg whitespace-nowrap hover:bg-sky-700 transition-colors text-sm">Book Now</Link>
                     </div>
                   </div>
                 ))}
@@ -99,21 +100,21 @@ export default function GastroenterologyPage() {
             </section>
 
             <section className="bg-white border border-gray-200 rounded-2xl p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-emerald-600" /> For Clinicians</h2>
+              <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-sky-600" /> For Clinicians</h2>
               <p className="text-gray-700 text-sm leading-relaxed">Our gastroenterology panel supports accurate diagnosis and monitoring of liver disease, IBD, malabsorption syndromes, and H. pylori. Fecal calprotectin helps differentiate IBD from IBS non-invasively. Quantitative PCR for HBV/HCV DNA supports treatment decisions. Our autoimmune liver panel aids diagnosis of AIH, PBC, and PSC. All reports include interpretation notes. Doctor enquiries: +91 99646 39639.</p>
             </section>
 
-            <section className="bg-gradient-to-br from-emerald-50 to-white border border-emerald-100 rounded-2xl p-6">
+            <section className="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-emerald-600" />, title: "NABL Certified Laboratory", desc: "Quality-assured testing for all GI and hepatology markers." },
-                  { icon: <Microscope className="w-5 h-5 text-emerald-600" />, title: "Expert-Reviewed Reports", desc: "Consultant pathologists review all super speciality gastroenterology panels." },
-                  { icon: <Activity className="w-5 h-5 text-emerald-600" />, title: "Stool & Molecular Testing", desc: "Fecal calprotectin, HpSA, and PCR-based quantitative hepatitis panels." },
-                  { icon: <CheckCircle className="w-5 h-5 text-emerald-600" />, title: "Home Sample Collection", desc: "Certified phlebotomists collect blood and stool samples at your home across Bengaluru." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Laboratory", desc: "Quality-assured testing for all GI and hepatology markers." },
+                  { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Expert-Reviewed Reports", desc: "Consultant pathologists review all super speciality gastroenterology panels." },
+                  { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Stool & Molecular Testing", desc: "Fecal calprotectin, HpSA, and PCR-based quantitative hepatitis panels." },
+                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Sample Collection", desc: "Certified phlebotomists collect blood and stool samples at your home across Bengaluru." },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-3">
-                    <div className="mt-0.5 bg-emerald-100 p-1.5 rounded-lg flex-shrink-0">{item.icon}</div>
+                    <div className="mt-0.5 bg-sky-100 p-1.5 rounded-lg flex-shrink-0">{item.icon}</div>
                     <div>
                       <h4 className="font-bold text-gray-900 text-sm">{item.title}</h4>
                       <p className="text-xs text-gray-600 mt-0.5">{item.desc}</p>
@@ -138,31 +139,31 @@ export default function GastroenterologyPage() {
               </div>
             </section>
 
-            <section className="bg-gradient-to-r from-emerald-600 to-emerald-900 rounded-2xl p-6 text-white">
+            <section className="bg-gradient-to-r from-sky-600 to-sky-900 rounded-2xl p-6 text-white">
               <h3 className="text-lg font-bold mb-2">Book Your Gastroenterology Profile</h3>
-              <p className="text-emerald-100 text-sm mb-4">Home collection available for blood and stool samples. Reports via email and WhatsApp.</p>
+              <p className="text-[#0369a1] text-sm mb-4">Home collection available for blood and stool samples. Reports via email and WhatsApp.</p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/book" className="bg-white text-emerald-700 font-bold px-5 py-2 rounded-full text-sm hover:bg-emerald-50">Book a Test</Link>
+                <Link href="/book" className="bg-white text-sky-700 font-bold px-5 py-2 rounded-full text-sm hover:bg-sky-50">Book a Test</Link>
                 <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="border-2 border-white text-white font-bold px-5 py-2 rounded-full text-sm hover:bg-white/10">WhatsApp Us</a>
               </div>
             </section>
           </div>
 
           <div className="lg:col-span-1 space-y-5">
-            <div className="bg-gradient-to-br from-emerald-600 to-emerald-900 text-white rounded-2xl p-5 shadow-lg">
+            <div className="bg-gradient-to-br from-sky-600 to-sky-900 text-white rounded-2xl p-5 shadow-lg">
               <h3 className="text-lg font-bold mb-2 text-white">Need help choosing the right GI test?</h3>
-              <p className="text-emerald-100 text-xs mb-4">Our consultants guide you to the right gastroenterology profile.</p>
-              <a href="tel:+919964639639" className="w-full bg-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-emerald-50 transition-colors mb-2 shadow text-sm" style={{ color: '#065f46' }}>📞 Call +91 99646 39639</a>
-              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="w-full border border-emerald-400 bg-emerald-800 text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-emerald-700 transition-colors text-sm">WhatsApp Us</a>
-              <Link href="/upload-prescription" className="mt-2 w-full border border-emerald-400 text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-white/10 transition-colors text-sm"><FileText className="w-4 h-4 mr-2" /> Upload Prescription</Link>
+              <p className="text-[#0369a1] text-xs mb-4">Our consultants guide you to the right gastroenterology profile.</p>
+              <a href="tel:+919964639639" className="w-full bg-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-sky-50 transition-colors mb-2 shadow text-sm" style={{ color: '#0284c7' }}>📞 Call +91 99646 39639</a>
+              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="w-full border border-sky-400 bg-sky-800 text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-sky-700 transition-colors text-sm">WhatsApp Us</a>
+              <Link href="/upload-prescription" className="mt-2 w-full border border-sky-400 text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-white/10 transition-colors text-sm"><FileText className="w-4 h-4 mr-2" /> Upload Prescription</Link>
             </div>
             <div className="bg-white border border-gray-200 rounded-2xl p-5">
               <h3 className="text-base font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">Our Specialities</h3>
               <ul className="space-y-2">
                 {SPECIALITIES.map(spec => (
                   <li key={spec}>
-                    <Link href={`/specialities/${spec.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="text-gray-600 hover:text-emerald-600 text-sm flex items-center justify-between group font-medium">
-                      {spec}<ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-emerald-400" />
+                    <Link href={`/specialities/${spec.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="text-gray-600 hover:text-sky-600 text-sm flex items-center justify-between group font-medium">
+                      {spec}<ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-sky-400" />
                     </Link>
                   </li>
                 ))}

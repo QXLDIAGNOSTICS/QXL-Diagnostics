@@ -668,7 +668,7 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
                       {msg.isBot && <div className="absolute -left-[9px] top-0 w-0 h-0 border-t-[10px] border-t-white border-l-[10px] border-l-transparent drop-shadow-sm"></div>}
                       {!msg.isBot && <div className="absolute -right-[9px] top-0 w-0 h-0 border-t-[10px] border-t-[#dcf8c6] border-r-[10px] border-r-transparent drop-shadow-sm"></div>}
                       
-                      <p className="text-[13px] text-gray-800 whitespace-pre-wrap leading-relaxed">{msg.text}</p>
+                      <p className="text-[13px] text-gray-800 whitespace-pre-wrap leading-relaxed">{msg.text ? msg.text.replace(/\*/g, '') : ''}</p>
                       <p className={`text-[9px] text-right mt-1 ${msg.isBot ? 'text-gray-400' : 'text-[#6ca553]'}`}>{msg.time} {!msg.isBot && '✓✓'}</p>
                     </motion.div>
 
