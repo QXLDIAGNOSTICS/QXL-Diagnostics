@@ -408,44 +408,49 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
               Thank you, <strong className="text-slate-700">{formData.name}</strong>. Our clinical coordinator will call you back at <strong className="text-slate-700">{formData.phone}</strong> within 15 minutes to confirm your test slot.
             </p>
 
-            <div className="bg-slate-50/80 border border-slate-200 rounded-3xl p-6 md:p-8 max-w-md mx-auto mb-8 flex flex-col items-center text-center shadow-md">
-              <span className="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest block mb-3">
+            <div className="bg-slate-50/80 border border-slate-200 rounded-3xl p-4 md:p-5 max-w-[340px] mx-auto mb-6 flex flex-col items-center text-center shadow-md">
+              <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest block mb-2">
                 Scan to Pay via Any UPI App
               </span>
               
-              <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-4 transform transition-transform hover:scale-[1.02]">
+              <div className="bg-white p-2 rounded-2xl border border-slate-200 shadow-sm mb-3 transform transition-transform hover:scale-[1.02] w-full">
                 <img
                   src="/upi.jpg"
                   alt="Scan to Pay via UPI"
-                  className="w-72 h-72 md:w-80 md:h-80 object-contain rounded-xl"
+                  className="w-full h-auto object-contain rounded-xl"
+                  style={{ minHeight: '260px' }}
                 />
               </div>
 
-              <p className="text-xs md:text-sm font-semibold text-slate-700 mb-2">
+              <p className="text-[11px] font-semibold text-slate-700 mb-2">
                 Accepts GPay, PhonePe, Paytm, BHIM & all bank UPI apps
               </p>
               
-              <div className="inline-flex items-center gap-2 bg-blue-50 text-[#2563eb] text-xs md:text-sm font-mono font-bold px-4 py-2 rounded-xl border border-blue-100 mb-6">
+              <div className="inline-flex items-center gap-2 bg-blue-50 text-[#2563eb] text-[11px] font-mono font-bold px-3 py-1.5 rounded-xl border border-blue-100 mb-4">
                 <span>qxl-diagnostics@pingpay</span>
               </div>
 
+              <p className="text-[10px] text-slate-500 mb-5 px-2">
+                By making a payment, you agree to our <a href="/payment-terms" target="_blank" className="text-[#2563eb] hover:underline font-bold">Payment Terms & Conditions</a>.
+              </p>
+
               {hasPaid ? (
                 <div className="w-full bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-emerald-800 animate-in fade-in duration-300">
-                  <div className="flex items-center justify-center gap-2 font-extrabold text-base mb-1">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                  <div className="flex items-center justify-center gap-2 font-extrabold text-sm mb-1">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                     <span>Payment Notification Received!</span>
                   </div>
-                  <p className="text-xs font-medium text-emerald-700 leading-relaxed">
-                    Thank you! We&apos;ve logged your payment status. Our coordinator will verify your transaction upon calling.
+                  <p className="text-[10px] font-medium text-emerald-700 leading-relaxed">
+                    Thank you! We've logged your payment status. Our coordinator will verify your transaction upon calling.
                   </p>
                 </div>
               ) : (
                 <button
                   type="button"
                   onClick={() => setHasPaid(true)}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 text-xs md:text-sm uppercase tracking-wider cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-wider cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
                 >
-                  <CheckCircle2 className="w-5 h-5" /> I Have Completed Payment
+                  <CheckCircle2 className="w-4 h-4" /> I Have Completed Payment
                 </button>
               )}
             </div>
