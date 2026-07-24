@@ -1,5 +1,1 @@
-import AppointmentPage from "../appointment/page";
-
-export default function AppointmentsPage() {
-  return <AppointmentPage />;
-}
+export { default } from "@/app/appointment/page";

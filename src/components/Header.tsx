@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { MapPin, Search, Phone, User, ChevronDown, ChevronRight, Mic, FileText, Menu, X, Home, Layers, Microscope, ShoppingCart } from 'lucide-react';
+import { MapPin, Search, Phone, User, ChevronDown, ChevronRight, Mic, FileText, Menu, X, Home, Layers, Microscope, ShoppingCart, Calendar } from 'lucide-react';
 import PrescriptionModal from './PrescriptionModal';
 import SmartSearchBar from './SmartSearchBar';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -279,7 +279,7 @@ export default function Header() {
             </div>
 
             {/* Search Bar — liquid glass input */}
-            <div className="flex-1 max-w-[600px] mx-6 hidden md:block">
+            <div className="flex-1 max-w-[600px] mx-6 hidden md:block relative z-30">
               <div className="flex items-center w-full relative">
                 <div className="w-full" style={{ borderRadius: '999px', background: 'rgba(224,242,254,0.6)', border: '1px solid rgba(125,199,232,0.35)', backdropFilter: 'blur(12px)', boxShadow: '0 2px 16px rgba(14,165,233,0.08), inset 0 1px 0 rgba(255,255,255,0.85)' }}>
                   <SmartSearchBar placeholder={settings.searchPlaceholder || "Search Tests"} isMobile={false} />
@@ -346,13 +346,26 @@ export default function Header() {
                   </span>
                 )}
               </Link>
-              {/* Book a Test — liquid glass CTA */}
+              {/* Book a Test — clean pill button with animated text */}
               <Link
                 href="/book"
-                className="hidden xl:inline-flex items-center font-extrabold px-5 py-2.5 rounded-full text-[11px] uppercase tracking-wider whitespace-nowrap active:scale-95 transition-all duration-200"
-                style={{ background: 'linear-gradient(135deg, #7dd3fc 0%, #38bdf8 50%, #0ea5e9 100%)', color: '#fff', boxShadow: '0 4px 20px rgba(14,165,233,0.45), 0 1px 0 rgba(255,255,255,0.35) inset', textShadow: '0 1px 2px rgba(2,132,199,0.4)' }}
+                className="hidden xl:inline-flex items-center font-extrabold px-6 py-2.5 rounded-full text-[11px] uppercase tracking-wider whitespace-nowrap active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
+                style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%)', color: '#ffffff' }}
               >
-                Book a Test
+                <motion.span
+                  animate={{ opacity: [1, 0.75, 1], scale: [1, 1.03, 1] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                  className="!text-white font-black flex items-center gap-1.5"
+                  style={{ color: '#ffffff' }}
+                >
+                  <span>BOOK A TEST</span>
+                  <motion.span
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+                  >
+                    →
+                  </motion.span>
+                </motion.span>
               </Link>
             </div>
           </div>
@@ -403,77 +416,66 @@ export default function Header() {
       </div>
 
       {/* ── MOBILE HEADER (lg:hidden) — spatial liquid glass ── */}
-      <div className="lg:hidden flex flex-col w-full relative z-10">
-        {/* Row 1: Hamburger + Logo | Location + User */}
-        <div className="py-2.5 px-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+      <div className="lg:hidden flex flex-col w-full relative z-10 gap-2 pb-2">
+        {/* Row 1: Menu + Logo + Location + Book Now (All in one line) */}
+        <div className="pt-2.5 px-3 flex items-center justify-between gap-1">
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            {/* Hamburger Menu */}
             <button
               onClick={() => setMobileMenuOpen(true)}
               className="p-1.5 rounded-xl transition-all duration-200 flex-shrink-0"
               style={{ background: 'rgba(224,242,254,0.60)', border: '1px solid rgba(125,199,232,0.3)', backdropFilter: 'blur(8px)' }}
               aria-label="Open menu"
             >
-              <Menu className="w-5 h-5 text-[#0284c7]" />
+              <Menu className="w-4 h-4 text-[#0284c7]" />
             </button>
-            <Link href="/">
+
+            {/* Logo */}
+            <Link href="/" className="flex-shrink-0">
               <img
                 src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 204, h: 56, crop: "fit" })}
                 alt={settings.siteName || "QXL Diagnostics"}
                 width={204}
                 height={56}
-                className="h-14 w-auto object-contain"
+                className="h-8 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const fallbackSpan = e.currentTarget.parentElement?.querySelector('.logo-text-mobile') as HTMLElement;
                   if (fallbackSpan) fallbackSpan.classList.remove('hidden');
                 }}
               />
-              <span className="logo-text-mobile font-extrabold text-lg text-[#0369a1] hidden">
+              <span className="logo-text-mobile font-extrabold text-sm text-[#0369a1] hidden">
                 {settings.logoText || "QXL"}
               </span>
             </Link>
           </div>
 
-          <div className="flex items-center gap-2">
-            {/* Location pill */}
+          <div className="flex items-center gap-1.5 flex-1 justify-end min-w-0">
+            {/* Location Dropdown (Compact) */}
             <button
               onClick={() => setShowLocationModal(true)}
-              className="flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-all"
+              className="flex items-center justify-center gap-1 rounded-full px-2.5 py-1.5 transition-all flex-1 min-w-0 max-w-[160px]"
               style={{ background: 'rgba(224,242,254,0.65)', border: '1px solid rgba(125,199,232,0.35)', backdropFilter: 'blur(8px)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)' }}
               aria-label="Select location"
             >
               <MapPin className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0" />
-              <span className="font-extrabold text-[11px] text-[#0369a1] max-w-[70px] truncate">{getShortLocationName(location)}</span>
-              <ChevronDown className="w-3 h-3 text-[#38bdf8] flex-shrink-0" />
+              <span className="font-extrabold text-[10px] text-[#0369a1] truncate pt-0.5 leading-none">{getShortLocationName(location)}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-[#38bdf8] flex-shrink-0" />
             </button>
-            {/* Cart orb */}
+
+            {/* Book Now button */}
             <Link
-              href="/cart"
-              className="w-9 h-9 rounded-full flex items-center justify-center relative"
-              style={{ background: 'rgba(224,242,254,0.65)', border: '1px solid rgba(125,199,232,0.35)', backdropFilter: 'blur(8px)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)' }}
-              aria-label="View Cart"
+              href="/book"
+              className="flex-shrink-0 flex items-center justify-center rounded-full px-3 py-1.5 shadow-md active:scale-95 transition-transform"
+              style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)', border: '1px solid rgba(125,199,232,0.4)' }}
             >
-              <ShoppingCart className="w-4 h-4 text-[#0284c7]" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 rounded-full text-[8px] w-3.5 h-3.5 flex items-center justify-center font-bold text-white" style={{ background: 'linear-gradient(135deg,#f87171,#ef4444)', boxShadow: '0 2px 6px rgba(239,68,68,0.4)' }}>
-                  {cartCount}
-                </span>
-              )}
-            </Link>
-            {/* User orb */}
-            <Link
-              href={user ? "/profile" : "/login"}
-              className="w-9 h-9 rounded-full flex items-center justify-center"
-              style={{ background: 'linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%)', boxShadow: '0 2px 10px rgba(14,165,233,0.35)', border: '1px solid rgba(125,199,232,0.4)' }}
-              aria-label={user ? "Open profile" : "Log in"}
-            >
-              <User className="w-4 h-4 text-white" />
+              <span className="text-[10px] font-extrabold text-white tracking-wider uppercase leading-none pt-0.5">Book Now</span>
             </Link>
           </div>
         </div>
 
         {/* Row 2: Search Bar */}
-        <div className="px-4 pb-3">
+        <div className="px-4">
           <SmartSearchBar placeholder="Search For Lab Tests/Package" isMobile={true} />
         </div>
       </div>
@@ -629,9 +631,12 @@ export default function Header() {
 
       {/* ── MOBILE BOTTOM NAVIGATION (truly fixed at bottom, 5 tabs) ── */}
       <div
-        className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-[9999] lg:hidden"
+        className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-[9999] lg:hidden flex flex-col"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)', boxShadow: '0 -2px 12px rgba(0,0,0,0.08)' }}
       >
+        <Link href="/book" className="flex items-center justify-center w-full py-2.5 text-white font-extrabold text-xs tracking-wider uppercase shadow-sm" style={{ background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)' }}>
+          BOOK NOW
+        </Link>
         <div className="flex justify-around items-center h-14">
           {[
             { label: "Home", href: "/", icon: Home },

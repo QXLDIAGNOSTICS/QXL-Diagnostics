@@ -1,34 +1,16 @@
 "use client";
-import React, { useState } from 'react';
-import { Award, Users, Star, GraduationCap, Briefcase, Trophy, Target, Lightbulb, ChevronLeft, ChevronRight } from 'lucide-react';
-import FaqSection from '@/components/FaqSection';
+import React from 'react';
+import { Award, Star, Briefcase, Trophy, Target, Lightbulb } from 'lucide-react';
 
 export default function FounderPage() {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const slides = [
-    {
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150467/Assets-QXL/legacy-assets/image/team_panoramic_2.jpg",
-      title: "Our Expert Medical Team",
-      desc: "Combining over four decades of diagnostic expertise in Pathology, Microbiology, and Biochemistry."
-    },
-    {
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150465/Assets-QXL/legacy-assets/image/team_panoramic_1.jpg",
-      title: "State-of-the-Art Laboratory",
-      desc: "Working with high-end molecular platforms, automated analysers, and advanced technology to ensure precision."
-    },
-    {
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150462/Assets-QXL/legacy-assets/image/team_medical_board.png",
-      title: "QXL Medical Review Board",
-      desc: "Every diagnostic report is meticulously reviewed and certified by our panel of expert consultants."
-    }
-  ];
-
   const doctors = [
     {
       name: "Dr. Shantakumar Muruda",
       role: "Founder & CEO",
       qualification: "MD (BIOCHEMISTRY)",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg",
+      imagePosition: "center 20%",
+      imageScale: 1.35,
       experience: "Over 20 years",
       expertise: "Clinical Biochemistry, Laboratory Operations, Hospital establishment and Management, Diabetology",
       achievements: "NABL Lead Assessor (150+ assessments), PHFI-certified Diabetologist.",
@@ -74,40 +56,45 @@ export default function FounderPage() {
   const consultants = doctors.filter(d => !d.isFounder);
 
   return (
-    <div className="bg-[#f8faff] min-h-screen">
+    <div className="min-h-screen">
       {/* Page Hero */}
-      <section className="bg-gradient-to-r from-[#e0f2fe] to-[#eff6ff] py-14 border-b border-gray-100">
+      <section className="py-12">
         <div className="max-w-[1260px] mx-auto px-4 w-full">
-          <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-4 shadow-sm">
-            Leadership & Expertise
-          </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-[#0f2d5e] mb-3 leading-tight uppercase">
-            FOUNDER AND CONSULTANTS
-          </h1>
-          <p className="text-slate-600 text-sm md:text-base max-w-3xl font-medium leading-relaxed">
-            Meet the visionary leadership and the highly qualified panel of Consultants who drive QXL Diagnostics' commitment to unparalleled accuracy and precision.
-          </p>
+          <div className="glass-panel p-8 md:p-12 rounded-3xl">
+            <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-4 shadow-sm">
+              Leadership &amp; Expertise
+            </span>
+            <h1 className="text-3xl md:text-5xl font-extrabold text-[#0c4a6e] mb-3 leading-tight uppercase">
+              FOUNDER AND CONSULTANTS
+            </h1>
+            <p className="text-slate-700 text-sm md:text-base max-w-3xl font-medium leading-relaxed">
+              Meet the visionary leadership and the highly qualified panel of Consultants who drive QXL Diagnostics' commitment to unparalleled accuracy and precision.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Founder Section */}
-      <section className="py-14 bg-white">
+      <section className="py-8">
         <div className="max-w-[1260px] mx-auto px-4 w-full">
           <div className="flex items-center gap-3 mb-8">
-            <Star className="w-6 h-6 text-[#2563eb]" />
-            <h2 className="text-2xl font-extrabold text-[#0f2d5e] uppercase tracking-wider">Founder & CEO</h2>
+            <Star className="w-6 h-6 text-[#0284c7]" />
+            <h2 className="text-2xl font-extrabold text-[#0c4a6e] uppercase tracking-wider">Founder &amp; CEO</h2>
           </div>
-          {founder && <DoctorProfile doc={founder} isHero={true} />}
+          {founder && (
+            <div className="max-w-4xl mx-auto">
+              <DoctorProfile doc={founder} isHero={true} />
+            </div>
+          )}
         </div>
       </section>
 
-
       {/* Senior Consultants */}
-      <section className="py-14 bg-[#f8faff] border-t border-gray-100">
+      <section className="py-8">
         <div className="max-w-[1260px] mx-auto px-4 w-full">
           <div className="flex items-center gap-3 mb-8">
-            <Award className="w-6 h-6 text-[#2563eb]" />
-            <h2 className="text-2xl font-extrabold text-[#0f2d5e] uppercase tracking-wider">Our Consultants</h2>
+            <Award className="w-6 h-6 text-[#0284c7]" />
+            <h2 className="text-2xl font-extrabold text-[#0c4a6e] uppercase tracking-wider">Our Consultants</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {consultants.map((doc, idx) => (
@@ -117,24 +104,24 @@ export default function FounderPage() {
         </div>
       </section>
 
-
-
       {/* CTA */}
-      <section className="py-16 bg-[#0d2e42] border-t border-blue-900">
-        <div className="max-w-[1260px] mx-auto px-4 w-full text-center">
-          <h2 className="text-3xl font-extrabold text-white mb-4">Consult with our Experts</h2>
-          <p className="text-blue-100 text-sm font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-            Every test performed at QXL Diagnostics is reviewed by our panel of specialists to ensure you receive clinically meaningful answers.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <a href="tel:+919964639639"
-              className="inline-block bg-[#2563eb] text-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-[#1d4ed8] transition-all transform hover:-translate-y-0.5 shadow-md text-sm">
-              Call Support
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer"
-              className="inline-block bg-[#25D366] text-white font-extrabold px-8 py-3.5 rounded-xl hover:bg-[#1ebe57] transition-all text-sm shadow-md">
-              WhatsApp Enquiry
-            </a>
+      <section className="py-14">
+        <div className="max-w-[1260px] mx-auto px-4 w-full">
+          <div className="glass-panel p-10 text-center rounded-3xl">
+            <h2 className="text-3xl font-black text-[#0c4a6e] mb-4">Consult with our Experts</h2>
+            <p className="text-slate-700 text-sm md:text-base font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
+              Every test performed at QXL Diagnostics is reviewed by our panel of specialists to ensure you receive clinically meaningful answers.
+            </p>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <a href="tel:+919964639639"
+                className="btn-sky shadow-md">
+                Call Support
+              </a>
+              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer"
+                className="glass-pill text-[#0284c7] font-extrabold px-8 py-3.5 hover:bg-sky-100/50 transition-all text-xs uppercase tracking-wider shadow-sm">
+                WhatsApp Enquiry
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -145,10 +132,10 @@ export default function FounderPage() {
 
 const DoctorProfile = ({ doc, isHero = false }: { doc: any, isHero?: boolean }) => {
   return (
-    <div className={`bg-white border border-gray-150 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col ${isHero ? 'md:flex-row' : ''}`}>
-      <div className={`overflow-hidden ${isHero ? 'w-full md:w-1/3 min-h-[300px]' : 'h-64'} bg-[#f8fafc]`}>
+    <div className={`glass-card p-2 rounded-3xl flex flex-col ${isHero ? 'md:flex-row' : ''}`}>
+      <div className={`overflow-hidden rounded-2xl ${isHero ? 'w-full md:w-1/3 min-h-[300px]' : 'h-64'} bg-sky-50/50`}>
         <img src={doc.image} alt={doc.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-2xl"
           style={{ 
             objectPosition: doc.imagePosition || 'top',
             transform: doc.imageScale ? `scale(${doc.imageScale})` : 'none',
@@ -156,42 +143,42 @@ const DoctorProfile = ({ doc, isHero = false }: { doc: any, isHero?: boolean }) 
           onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=400&auto=format&fit=crop"; }} />
       </div>
       <div className={`p-6 md:p-8 flex flex-col flex-1 ${isHero ? 'justify-center' : ''}`}>
-        <h3 className={`${isHero ? 'text-3xl' : 'text-xl'} font-extrabold text-[#0f2d5e] mb-2`}>{doc.name}</h3>
+        <h3 className={`${isHero ? 'text-3xl' : 'text-xl'} font-extrabold text-[#0c4a6e] mb-2`}>{doc.name}</h3>
         <div className="flex flex-wrap gap-2 mb-6">
           <span className="bg-[#2563eb] text-white text-[11px] font-extrabold px-3 py-1 rounded-full">{doc.role}</span>
-          <span className="bg-blue-50 text-[#2563eb] border border-blue-100 text-[11px] font-extrabold px-3 py-1 rounded-full">{doc.qualification}</span>
+          <span className="glass-pill text-[#0284c7] text-[11px] font-extrabold px-3 py-1">{doc.qualification}</span>
         </div>
         
         <div className="grid grid-cols-1 gap-4 text-[13px]">
           <div className="flex items-start gap-3">
-            <Briefcase className="w-4 h-4 text-[#2563eb] flex-shrink-0 mt-0.5" />
+            <Briefcase className="w-4 h-4 text-[#0284c7] flex-shrink-0 mt-0.5" />
             <div>
-              <span className="font-bold text-slate-800 block mb-0.5">Experience</span>
-              <span className="text-slate-600 leading-relaxed">{doc.experience}</span>
+              <span className="font-bold text-[#0c4a6e] block mb-0.5">Experience</span>
+              <span className="text-slate-700 leading-relaxed font-medium">{doc.experience}</span>
             </div>
           </div>
           
           <div className="flex items-start gap-3">
-            <Target className="w-4 h-4 text-[#2563eb] flex-shrink-0 mt-0.5" />
+            <Target className="w-4 h-4 text-[#0284c7] flex-shrink-0 mt-0.5" />
             <div>
-              <span className="font-bold text-slate-800 block mb-0.5">Expertise</span>
-              <span className="text-slate-600 leading-relaxed">{doc.expertise}</span>
+              <span className="font-bold text-[#0c4a6e] block mb-0.5">Expertise</span>
+              <span className="text-slate-700 leading-relaxed font-medium">{doc.expertise}</span>
             </div>
           </div>
           
           <div className="flex items-start gap-3">
-            <Trophy className="w-4 h-4 text-[#2563eb] flex-shrink-0 mt-0.5" />
+            <Trophy className="w-4 h-4 text-[#0284c7] flex-shrink-0 mt-0.5" />
             <div>
-              <span className="font-bold text-slate-800 block mb-0.5">Achievements</span>
-              <span className="text-slate-600 leading-relaxed">{doc.achievements}</span>
+              <span className="font-bold text-[#0c4a6e] block mb-0.5">Achievements</span>
+              <span className="text-slate-700 leading-relaxed font-medium">{doc.achievements}</span>
             </div>
           </div>
           
           <div className="flex items-start gap-3">
-            <Lightbulb className="w-4 h-4 text-[#2563eb] flex-shrink-0 mt-0.5" />
+            <Lightbulb className="w-4 h-4 text-[#0284c7] flex-shrink-0 mt-0.5" />
             <div>
-              <span className="font-bold text-slate-800 block mb-0.5">Contribution to QXL</span>
-              <span className="text-slate-600 leading-relaxed">{doc.contribution}</span>
+              <span className="font-bold text-[#0c4a6e] block mb-0.5">Contribution to QXL</span>
+              <span className="text-slate-700 leading-relaxed font-medium">{doc.contribution}</span>
             </div>
           </div>
         </div>

@@ -87,8 +87,7 @@ export default function Footer() {
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.998-1.417A9.954 9.954 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fillRule="evenodd" clipRule="evenodd"/></svg>
               WhatsApp
             </a>
-            <Link href="/book" className="inline-flex items-center gap-2 font-extrabold px-5 py-2.5 rounded-full text-[12px] uppercase tracking-wide transition-all hover:scale-105 text-white"
-              style={{ background: '#2563eb', boxShadow: '0 4px 20px rgba(37,99,235,0.4)' }}>
+            <Link href="/book" className="btn-sky gap-2 px-5 py-2.5 text-[12px] shadow-md">
               Book Now <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -100,7 +99,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand */}
-          <div>
+          <div className="flex flex-col items-center text-center md:items-start md:text-left">
             <div className="inline-block mb-5 p-2.5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}>
               <img
                 src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 224, h: 56, crop: "fit" })}
@@ -130,8 +129,8 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
-            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10">Quick Links</p>
+          <div className="text-center md:text-left">
+            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Quick Links</p>
             <ul className="space-y-2.5">
               {(settings.navItems || []).filter((l: any) => l.visible !== false).map((l: any) => {
                 let label = l.label, href = l.href;
@@ -139,7 +138,7 @@ export default function Footer() {
                 if (String(l.label).toLowerCase() === "login") { label = user ? "Profile" : "Login"; href = user ? "/profile" : "/login"; }
                 return (
                   <li key={label}>
-                    <Link href={href} className="text-white/50 hover:text-white text-[13px] font-semibold transition-all flex items-center gap-2 group">
+                    <Link href={href} className="text-white/50 hover:text-white text-[13px] font-semibold transition-all flex items-center justify-center md:justify-start gap-2 group">
                       <span className="w-1 h-1 rounded-full bg-white/20 flex-shrink-0 transition-all group-hover:w-2.5 group-hover:bg-white/60" />
                       {label}
                     </Link>
@@ -150,12 +149,12 @@ export default function Footer() {
           </div>
 
           {/* Specialities */}
-          <div>
-            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10">Specialities</p>
+          <div className="text-center md:text-left">
+            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Specialities</p>
             <ul className="space-y-2.5">
               {specialities.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-white/50 hover:text-white text-[13px] font-semibold transition-all flex items-center gap-2 group">
+                  <Link href={l.href} className="text-white/50 hover:text-white text-[13px] font-semibold transition-all flex items-center justify-center md:justify-start gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-white/20 flex-shrink-0 transition-all group-hover:w-2.5 group-hover:bg-white/60" />
                     {l.label}
                   </Link>
@@ -165,10 +164,10 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10">Contact Us</p>
+          <div className="text-center md:text-left">
+            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Contact Us</p>
             <ul className="space-y-4">
-              <li className="flex gap-3">
+              <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
                 <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
                   <MapPin className="w-4 h-4 text-white/60" />
                 </div>
@@ -178,7 +177,7 @@ export default function Footer() {
                 </div>
               </li>
               {settings.northHubAddress && (
-                <li className="flex gap-3">
+                <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
                     <MapPin className="w-4 h-4 text-white/60" />
                   </div>
@@ -188,16 +187,16 @@ export default function Footer() {
                   </div>
                 </li>
               )}
-              <li className="flex gap-3">
+              <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
                 <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
                   <Phone className="w-4 h-4 text-white/60" />
                 </div>
-                <div>
+                <div className="flex flex-col items-center md:items-start">
                   <a href={`tel:${settings.contactPhone || '+919964639639'}`} className="text-white text-[13px] font-extrabold hover:text-white/80 transition-colors">{settings.contactPhone || '+91 99646 39639'}</a>
                   <p className="text-white/40 text-[11px] font-semibold mt-0.5">{settings.workingHours}</p>
                 </div>
               </li>
-              <li className="flex gap-3">
+              <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
                 <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
                   <Mail className="w-4 h-4 text-white/60" />
                 </div>

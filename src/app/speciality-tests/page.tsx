@@ -407,6 +407,11 @@ export default function SpecialityTestsPage() {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-4 pt-4 border-t border-gray-100">
+                    <Link href="/tests" className="inline-flex items-center text-xs font-bold text-[#2563eb] hover:underline">
+                      View A-Z Test Directory <ChevronRight className="w-3.5 h-3.5 ml-1" />
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Benefits + Packages */}

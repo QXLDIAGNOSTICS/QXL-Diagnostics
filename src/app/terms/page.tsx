@@ -4,6 +4,9 @@ import { FileText } from 'lucide-react';
 export const metadata = {
   title: 'Terms of Use | QXL Diagnostics',
   description: 'Terms of Use and service conditions for QXL Diagnostics.',
+  alternates: {
+    canonical: 'https://qxldiagnostics.com/terms',
+  },
 };
 
 export default function TermsOfUsePage() {

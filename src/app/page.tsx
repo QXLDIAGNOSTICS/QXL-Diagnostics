@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, FileText, MessageCircle, CheckCircle, MapPin, Building2 } from "lucide-react";
+import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2 } from "lucide-react";
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
 import { WHATSAPP_LINK } from '../lib/businessInfo';
@@ -14,6 +14,7 @@ import HomeCollectionSection from "../components/HomeCollectionSection";
 import Accreditations from "../components/Accreditations";
 import FaqSection from "../components/FaqSection";
 import ReviewsSection from "../components/ReviewsSection";
+import { api } from "../lib/api";
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
 const whySlides = [
@@ -95,7 +96,7 @@ const whySlides = [
     titleAccent: "Kidney & Urinary Panel",
     highlight: "Creatinine · Urea · BUN · Urine Microscopy",
     sub: "Monitor kidney function, detect urinary tract infections, and assess renal health through precise biomarkers.",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150124/Assets-QXL/legacy-assets/image/doctor_smiling.png",
+    image: "/images/doctor_smiling_new.png",
     imgBg: "#E3F2FD",
   },
   {
@@ -130,15 +131,15 @@ function WhyChooseSlider() {
           <div className="w-14 h-1 bg-[#2563eb] mx-auto rounded-full mt-3" />
         </div>
 
-        {/* Slide Card */}
-        <div className="relative rounded-2xl overflow-hidden shadow-md bg-white flex flex-row" style={{ minHeight: 220 }}>
-          {/* Left arrow — always on the far left edge of the card */}
+        {/* Spatial Liquid Glass Slide Card */}
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-sky-50/90 via-white/85 to-blue-50/90 backdrop-blur-2xl border border-sky-200/60 shadow-[0_20px_60px_rgba(14,165,233,0.12)] flex flex-row transition-all duration-300" style={{ minHeight: 230 }}>
+          {/* Left arrow — spatial liquid glass */}
           <button
             onClick={prev}
             aria-label="Previous"
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-[#2563eb] hover:text-white transition-all group"
+            className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-xl border border-white/30 shadow-xl shadow-sky-500/30 hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group"
           >
-            <ChevronRight className="w-4 h-4 rotate-180 text-slate-500 group-hover:text-white" />
+            <ChevronLeft className="w-5 h-5 text-white" />
           </button>
 
           <AnimatePresence mode="wait">
@@ -148,30 +149,34 @@ function WhyChooseSlider() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 15 }}
               transition={{ duration: 0.35 }}
-              className="flex-1 flex flex-col justify-center pl-16 pr-6 py-8 bg-[#f7faff] text-left"
+              className="flex-1 flex flex-col justify-center pl-16 sm:pl-20 pr-6 py-8 bg-gradient-to-r from-sky-50/80 via-white/70 to-transparent backdrop-blur-md text-left z-10"
             >
-              <span className="inline-block bg-[#2563eb]/15 text-[#1d4ed8] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2 w-fit">
+              <span className="inline-block bg-gradient-to-r from-sky-500 to-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2.5 w-fit shadow-md shadow-sky-500/20">
                 {slide.specialty}
               </span>
-              <h3 className="text-[20px] md:text-[26px] font-extrabold text-[#0d2e42] leading-tight mb-0.5">
+              <h3 className="text-[20px] md:text-[26px] font-black text-[#0f2d5e] leading-tight mb-1">
                 {slide.titlePlain}{" "}<span className="text-[#2563eb]">{slide.titleAccent}</span>
               </h3>
-              <p className="text-[#2563eb] font-bold text-[12px] md:text-[13px] mb-2">{slide.highlight}</p>
-              <p className="text-[#555] text-[13px] md:text-[14px] font-medium leading-relaxed mb-5 max-w-sm">{slide.sub}</p>
+              <p className="text-[#0284c7] font-extrabold text-[12px] md:text-[13px] mb-2">{slide.highlight}</p>
+              <p className="text-slate-600 text-[13px] md:text-[14px] font-medium leading-relaxed mb-5 max-w-sm">{slide.sub}</p>
               <Link
                 href="/book"
-                className="inline-block bg-[#2563eb] text-white font-bold px-6 py-2.5 rounded-full text-[13px] hover:bg-[#1d4ed8] transition-all w-fit shadow-sm"
+                className="inline-block bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 !text-white font-black px-7 py-3 rounded-full text-[13px] hover:shadow-[0_0_20px_rgba(56,189,248,0.6)] hover:scale-105 transition-all w-fit shadow-md border border-white/40"
+                style={{ color: '#ffffff' }}
               >
-                Book Now →
+                <span className="!text-white font-black" style={{ color: '#ffffff' }}>Book Now →</span>
               </Link>
             </motion.div>
           </AnimatePresence>
 
-          {/* Right Image Panel */}
+          {/* Right Image Panel with Spatial Glass Blend */}
           <div
-            className="w-[38%] md:w-[40%] flex-shrink-0 relative overflow-hidden rounded-r-2xl bg-white/10"
-            style={{ minHeight: 220 }}
+            className="w-[38%] md:w-[42%] flex-shrink-0 relative overflow-hidden rounded-r-3xl bg-white/10"
+            style={{ minHeight: 230 }}
           >
+            {/* Spatial Gradient Blend Overlay */}
+            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white/90 via-white/40 to-transparent z-10 pointer-events-none" />
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -193,13 +198,13 @@ function WhyChooseSlider() {
             </AnimatePresence>
           </div>
 
-          {/* Right arrow — on the boundary between text and image */}
+          {/* Right arrow — spatial liquid glass */}
           <button
             onClick={next}
             aria-label="Next"
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-[#2563eb] hover:text-white transition-all group"
+            className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-xl border border-white/30 shadow-xl shadow-sky-500/30 hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group"
           >
-            <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-white" />
+            <ChevronRight className="w-5 h-5 text-white" />
           </button>
         </div>
 
@@ -257,24 +262,12 @@ const promoSlides = [
     name: "Q-Master Health Pro",
     price: "₹4,600",
     original: "₹9,600",
-    tag: "BEST SELLER",
+    tag: "MOST BOOKED",
     desc: "Our premium all-in-one health package covering metabolic, cardiac, hormonal, nutritional and inflammatory markers.",
     includes: ["FBS, HbA1c, Lipid + Apo Panel", "Full Thyroid (T3, T4, TSH), Vit D & B12", "Kidney Screen (7 markers), LFT", "H.pylori IgG, hs-CRP, CBC, ESR"],
     tests: "25+ Tests",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
     imgBg: "#EDE7F6",
-    ctaLink: "/packages",
-  },
-  {
-    name: "Q-Oncoscreen Package",
-    price: "₹7,900",
-    original: "₹13,600",
-    tag: "CANCER SCREENING",
-    desc: "Comprehensive cancer marker panel for early detection across multiple organs, plus blood and stool analysis.",
-    includes: ["AFP, CEA, Beta HCG, PSA (Male)", "CA-125 (Female), CA-19.9", "CBC, ESR, Urine Routine", "Calprotectin, FOBT, Protein Electrophoresis"],
-    tests: "12+ Markers",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
-    imgBg: "#E8EAF6",
     ctaLink: "/packages",
   },
   {
@@ -287,6 +280,18 @@ const promoSlides = [
     tests: "30+ Tests",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150166/Assets-QXL/legacy-assets/image/elderly_bp_check.jpg",
     imgBg: "#E3F2FD",
+    ctaLink: "/packages",
+  },
+  {
+    name: "Q-Oncoscreen Package",
+    price: "₹7,900",
+    original: "₹13,600",
+    tag: "CANCER SCREENING",
+    desc: "Comprehensive cancer marker panel for early detection across multiple organs, plus blood and stool analysis.",
+    includes: ["AFP, CEA, Beta HCG, PSA (Male)", "CA-125 (Female), CA-19.9", "CBC, ESR, Urine Routine", "Calprotectin, FOBT, Protein Electrophoresis"],
+    tests: "12+ Markers",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
+    imgBg: "#E8EAF6",
     ctaLink: "/packages",
   },
   {
@@ -323,12 +328,12 @@ function PromoHighlightSlider() {
           <div className="w-14 h-1 bg-[#2563eb] mx-auto rounded-full mt-3" />
         </div>
 
-        {/* Package Card */}
-        <div className="relative rounded-2xl overflow-hidden shadow-md bg-white flex flex-row border border-blue-50 hover:shadow-lg transition-shadow duration-300" style={{ minHeight: 210 }}>
-          {/* Left arrow */}
+        {/* Spatial Liquid Glass Package Card */}
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-sky-50/90 via-white/85 to-blue-50/90 backdrop-blur-2xl border border-sky-200/60 shadow-[0_20px_60px_rgba(14,165,233,0.12)] flex flex-row transition-all duration-300" style={{ minHeight: 230 }}>
+          {/* Left arrow — spatial liquid glass */}
           <button onClick={prev2} aria-label="Previous package"
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-[#2563eb] hover:text-white transition-all group">
-            <ChevronRight className="w-4 h-4 rotate-180 text-slate-500 group-hover:text-white" />
+            className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-xl border border-white/30 shadow-xl shadow-sky-500/30 hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group">
+            <ChevronLeft className="w-5 h-5 text-white" />
           </button>
 
           {/* Left: Package Info */}
@@ -339,49 +344,53 @@ function PromoHighlightSlider() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 15 }}
               transition={{ duration: 0.35 }}
-              className="flex-1 flex flex-col justify-center pl-16 pr-6 py-8 bg-[#f7faff]"
+              className="flex-1 flex flex-col justify-center pl-16 sm:pl-20 pr-6 py-8 bg-gradient-to-r from-sky-50/80 via-white/70 to-transparent backdrop-blur-md z-10"
             >
               {/* Tag + Tests count */}
               <div className="flex items-center gap-2 mb-2">
-                <span className="inline-block bg-[#2563eb] text-white text-[9px] font-extrabold px-2.5 py-1 rounded-full tracking-widest uppercase shadow-sm">
+                <span className="inline-block bg-gradient-to-r from-sky-500 to-[#2563eb] text-white text-[9px] font-extrabold px-3 py-1 rounded-full tracking-widest uppercase shadow-md shadow-sky-500/20">
                   {slide.tag}
                 </span>
-                <span className="inline-block bg-blue-50 text-[#2563eb] text-[9px] font-bold px-2.5 py-1 rounded-full border border-blue-200">
+                <span className="inline-block bg-sky-100/80 text-[#0284c7] text-[9px] font-extrabold px-2.5 py-1 rounded-full border border-sky-200">
                   {slide.tests}
                 </span>
               </div>
               {/* Package name */}
-              <h3 className="text-[18px] md:text-[22px] font-extrabold text-[#0d2e42] leading-tight mb-2">{slide.name}</h3>
+              <h3 className="text-[18px] md:text-[22px] font-black text-[#0f2d5e] leading-tight mb-2">{slide.name}</h3>
               {/* Price */}
               <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-[#2563eb] font-extrabold text-[22px] md:text-[26px]">{slide.price}</span>
-                <span className="text-slate-500 text-[13px] line-through font-medium">{slide.original}</span>
-                <span className="text-[10px] text-green-600 font-bold bg-green-50 border border-green-200 px-2 py-0.5 rounded-full">Save {Math.round((1 - parseInt(slide.price.replace(/[^\d]/g,'')) / parseInt(slide.original.replace(/[^\d]/g,''))) * 100)}%</span>
+                <span className="text-[#2563eb] font-black text-[22px] md:text-[26px]">{slide.price}</span>
+                <span className="text-slate-400 text-[13px] line-through font-medium">{slide.original}</span>
+                <span className="text-[10px] text-emerald-700 font-extrabold bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">Save {Math.round((1 - parseInt(slide.price.replace(/[^\d]/g,'')) / parseInt(slide.original.replace(/[^\d]/g,''))) * 100)}%</span>
               </div>
               {/* Description */}
-              <p className="text-[12px] md:text-[13px] text-[#555] font-medium mb-3 max-w-sm leading-relaxed">{slide.desc}</p>
+              <p className="text-[12px] md:text-[13px] text-slate-600 font-medium mb-3 max-w-sm leading-relaxed">{slide.desc}</p>
               {/* Includes list */}
               <div className="flex flex-col gap-1 mb-5">
                 {slide.includes.map((inc, idx) => (
-                  <span key={idx} className="flex items-start gap-1.5 text-[11px] text-[#444] font-medium">
-                    <CheckCircle className="w-3 h-3 text-[#2563eb] flex-shrink-0 mt-0.5" />
+                  <span key={idx} className="flex items-start gap-1.5 text-[11px] text-slate-700 font-semibold">
+                    <CheckCircle className="w-3.5 h-3.5 text-[#2563eb] flex-shrink-0 mt-0.5" />
                     {inc}
                   </span>
                 ))}
               </div>
               {/* CTA */}
               <Link href={slide.ctaLink}
-                className="inline-block bg-[#2563eb] text-white font-bold px-7 py-2.5 rounded-full shadow-md hover:bg-[#1d4ed8] transition-all text-sm w-fit">
-                Book Now →
+                className="inline-block bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 !text-white font-black px-7 py-3 rounded-full shadow-md hover:shadow-[0_0_20px_rgba(56,189,248,0.6)] hover:scale-105 transition-all text-sm w-fit border border-white/40"
+                style={{ color: '#ffffff' }}>
+                <span className="!text-white font-black" style={{ color: '#ffffff' }}>Book Now →</span>
               </Link>
             </motion.div>
           </AnimatePresence>
 
-          {/* Right: Image Panel */}
+          {/* Right: Image Panel with Spatial Glass Blend */}
           <div
-            className="w-[36%] md:w-[38%] flex-shrink-0 relative overflow-hidden rounded-r-2xl"
-            style={{ backgroundColor: slide.imgBg, minHeight: 210 }}
+            className="w-[36%] md:w-[40%] flex-shrink-0 relative overflow-hidden rounded-r-3xl bg-white/10"
+            style={{ backgroundColor: slide.imgBg, minHeight: 230 }}
           >
+            {/* Spatial Gradient Blend Overlay */}
+            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white/90 via-white/40 to-transparent z-10 pointer-events-none" />
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -402,10 +411,10 @@ function PromoHighlightSlider() {
             </AnimatePresence>
           </div>
 
-          {/* Right arrow */}
+          {/* Right arrow — spatial liquid glass */}
           <button onClick={next2} aria-label="Next package"
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white shadow-md border border-gray-200 flex items-center justify-center hover:bg-[#2563eb] hover:text-white transition-all group">
-            <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-white" />
+            className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-xl border border-white/30 shadow-xl shadow-sky-500/30 hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group">
+            <ChevronRight className="w-5 h-5 text-white" />
           </button>
         </div>
 
@@ -446,10 +455,10 @@ function MobileWhyChooseSlider() {
         <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Our Specialities</p>
         <p className="text-[#0d2e42] font-extrabold text-base">The QXL Difference</p>
       </div>
-      <div className="mx-4 rounded-2xl overflow-hidden shadow-md bg-white flex flex-row min-h-[145px] relative">
+      <div className="mx-4 rounded-3xl overflow-hidden bg-gradient-to-r from-sky-50/90 via-white/85 to-blue-50/90 backdrop-blur-2xl border border-sky-200/60 shadow-[0_12px_36px_rgba(14,165,233,0.10)] flex flex-row min-h-[155px] relative">
         {/* Arrows */}
-        <button onClick={prev} aria-label="Previous speciality" className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 rounded-full bg-white shadow border border-gray-200 flex items-center justify-center">
-          <ChevronRight className="w-3.5 h-3.5 rotate-180 text-slate-500" />
+        <button onClick={prev} aria-label="Previous speciality" className="absolute left-2 top-1/2 -translate-y-1/2 z-40 w-8 h-8 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-md border border-white/30 shadow-md hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer">
+          <ChevronLeft className="w-4 h-4 text-white" />
         </button>
 
         <AnimatePresence mode="wait">
@@ -459,22 +468,24 @@ function MobileWhyChooseSlider() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 10 }}
             transition={{ duration: 0.3 }}
-            className="flex-1 flex flex-col justify-center pl-9 pr-3 py-4 bg-[#f7faff] text-left"
+            className="flex-1 flex flex-col justify-center pl-11 pr-3 py-4 bg-gradient-to-r from-sky-50/80 via-white/70 to-transparent backdrop-blur-md text-left z-10"
           >
-            <span className="inline-block bg-[#2563eb]/15 text-[#1d4ed8] text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-widest mb-1 w-fit">{slide.specialty}</span>
-            <h3 className="text-[12px] font-extrabold text-[#0d2e42] leading-tight mb-0.5">
+            <span className="inline-block bg-gradient-to-r from-sky-500 to-[#2563eb] text-white text-[9px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-widest mb-1.5 w-fit shadow-xs">{slide.specialty}</span>
+            <h3 className="text-[13px] font-black text-[#0f2d5e] leading-tight mb-0.5">
               {slide.titlePlain} <span className="text-[#2563eb]">{slide.titleAccent}</span>
             </h3>
-            <p className="text-[#2563eb] font-bold text-[9px] mb-1">{slide.highlight}</p>
-            <p className="text-[10px] text-[#555] font-medium mb-3 leading-snug">{slide.sub}</p>
-            <Link href="/book" className="inline-block bg-[#2563eb] text-white font-bold px-3 py-1.5 rounded-full text-[10px] w-fit shadow-sm active:scale-95 transition-transform">
-              Book Now →
+            <p className="text-[#0284c7] font-extrabold text-[9px] mb-1">{slide.highlight}</p>
+            <p className="text-[10px] text-slate-600 font-medium mb-3 leading-snug">{slide.sub}</p>
+            <Link href="/book" className="inline-block bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 !text-white font-black px-3.5 py-1.5 rounded-full text-[10px] w-fit shadow-sm active:scale-95 transition-transform" style={{ color: '#ffffff' }}>
+              <span className="!text-white font-black" style={{ color: '#ffffff' }}>Book Now →</span>
             </Link>
           </motion.div>
         </AnimatePresence>
 
         {/* Right image */}
-        <div className="w-[110px] flex-shrink-0 relative overflow-hidden bg-white/10" style={{ minHeight: '145px' }}>
+        <div className="w-[115px] flex-shrink-0 relative overflow-hidden rounded-r-3xl bg-white/10" style={{ minHeight: '155px' }}>
+          <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white/90 via-white/40 to-transparent z-10 pointer-events-none" />
+
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -489,14 +500,14 @@ function MobileWhyChooseSlider() {
                 src={slide.image}
                 alt={slide.specialty}
                 fill
-                sizes="110px"
+                sizes="115px"
                 className="object-cover object-center"
               />
             </motion.div>
           </AnimatePresence>
         </div>
-        <button onClick={next} aria-label="Next speciality" className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-7 h-7 rounded-full bg-white shadow border border-gray-200 flex items-center justify-center">
-          <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
+        <button onClick={next} aria-label="Next speciality" className="absolute right-2 top-1/2 -translate-y-1/2 z-40 w-8 h-8 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-md border border-white/30 shadow-md hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer">
+          <ChevronRight className="w-4 h-4 text-white" />
         </button>
       </div>
       <div className="flex justify-center gap-0.5 mt-3">
@@ -602,26 +613,121 @@ function MobilePromoHighlightSlider() {
 
 
 
+import { BookingFormWidget } from '../components/BookingFormWidget';
+
+function QuickBookingForm({ formState, setFormState, handleContactSubmit, formStatus }: any) {
+  return (
+    <div className="bg-white p-8 rounded-[2.5rem] border border-blue-100 shadow-[0_8px_30px_rgba(37,99,235,0.08)] relative z-10">
+      <div className="mb-6">
+        <h3 className="text-xl font-bold text-[#0f2d5e] mb-1">Request a Call Back</h3>
+        <p className="text-sm text-slate-500 font-medium">Leave your number and we'll call you right away.</p>
+      </div>
+      
+      <form className="flex flex-col gap-5" onSubmit={handleContactSubmit}>
+        <div>
+          <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Full Name <span className="text-red-500">*</span></label>
+          <input type="text" required placeholder="Enter your name" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-2xl px-5 py-4 text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-sm" />
+        </div>
+        <div>
+          <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Phone Number <span className="text-red-500">*</span></label>
+          <input type="tel" required placeholder="+91 Contact number" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-2xl px-5 py-4 text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-sm" />
+        </div>
+        
+        <div className="pt-2">
+          <button type="submit" disabled={formStatus === 'loading'} className="w-full bg-[#2563eb] text-white font-black px-6 py-4 rounded-2xl shadow-lg hover:bg-[#1d4ed8] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm uppercase tracking-widest flex items-center justify-center gap-2">
+            {formStatus === 'loading' ? 'Submitting...' : 'Request Call'}
+          </button>
+        </div>
+        
+        {formStatus === 'success' && (
+          <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-xl text-center mt-2">
+            <p className="text-emerald-600 text-sm font-bold">Request received! We'll call you shortly.</p>
+          </div>
+        )}
+        {formStatus === 'error' && (
+          <div className="bg-red-50 border border-red-100 p-4 rounded-xl text-center mt-2">
+            <p className="text-red-600 text-sm font-bold">Error submitting request. Please try again.</p>
+          </div>
+        )}
+      </form>
+    </div>
+  );
+}
+
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [location, setLocation] = useState("Bengaluru");
   const [isPrescriptionModalOpen, setIsPrescriptionModalOpen] = useState(false);
   const [locations, setLocations] = useState<any[]>([]);
   const [recommendedPackages, setRecommendedPackages] = useState<any[]>([]);
+  const [cartItems, setCartItems] = useState<string[]>([]);
+  const [selectedPackage, setSelectedPackage] = useState<any | null>(null);
+  const [formState, setFormState] = useState({ name: '', phone: '', service: 'Home Collection', message: '' });
+  const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [showContactServiceDropdown, setShowContactServiceDropdown] = useState(false);
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formState.name || !formState.phone) return;
+    setFormStatus('loading');
+    try {
+      await api.leads.contact({
+        name: formState.name,
+        phone: formState.phone,
+        inquiry_type: formState.service,
+        message: formState.message
+      });
+      setFormStatus('success');
+      setFormState({ name: '', phone: '', service: 'Home Collection', message: '' });
+      setTimeout(() => setFormStatus('idle'), 3000);
+    } catch (err) {
+      console.error(err);
+      setFormStatus('error');
+    }
+  };
 
   useEffect(() => {
     const saved = localStorage.getItem('qxl_location');
     if (saved) setLocation(saved);
     
+    try {
+      setCartItems(JSON.parse(localStorage.getItem('qxl_cart') || '[]'));
+    } catch {}
+
     const handleLoc = (e: any) => setLocation(e.detail);
+    const handleCart = () => {
+      try {
+        setCartItems(JSON.parse(localStorage.getItem('qxl_cart') || '[]'));
+      } catch {}
+    };
+
     window.addEventListener('locationChange', handleLoc);
+    window.addEventListener('cartChange', handleCart);
     
     // Load dynamic locations for map rendering
     setLocations(cmsStore.getAll("locations"));
-    setRecommendedPackages(cmsStore.getAll("packages"));
+    setRecommendedPackages(cmsStore.getAll("packages").sort((a, b) => Number(a.price) - Number(b.price)));
     
-    return () => window.removeEventListener('locationChange', handleLoc);
+    return () => {
+      window.removeEventListener('locationChange', handleLoc);
+      window.removeEventListener('cartChange', handleCart);
+    };
   }, []);
+
+  const handleToggleCart = (name: string) => {
+    let updated: string[];
+    if (cartItems.includes(name)) {
+      updated = cartItems.filter(item => item !== name);
+    } else {
+      updated = [...cartItems, name];
+    }
+    try {
+      localStorage.setItem('qxl_cart', JSON.stringify(updated));
+    } catch {}
+    setCartItems(updated);
+    window.dispatchEvent(new CustomEvent('cartChange'));
+  };
 
   const activeLocationObj = locations.find(loc => loc.name === location || loc.city === location);
   const mapSrc = activeLocationObj && activeLocationObj.lat && activeLocationObj.lng
@@ -644,7 +750,7 @@ export default function Home() {
       imageFit: "cover",
       bgFrom: "#eff6ff",
       bgTo: "#dbeafe",
-      features: ["NABL Accredited (MC-10025)", "Expert-Reviewed Reports", "AI-Assisted Diagnostics", "Home Collection"],
+      features: ["NABL Accredited (MC-6849)", "Expert-Reviewed Reports", "AI-Assisted Diagnostics", "Home Collection"],
     },
     {
       badge: "AI TECHNOLOGY",
@@ -770,7 +876,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#f8faff]">
+    <div className="flex flex-col min-h-screen">
       {/* SEO H1 Tag - Visually Hidden */}
       <h1 className="sr-only">QXL Diagnostics | NABL Certified Diagnostic Lab in Bengaluru</h1>
 
@@ -881,16 +987,16 @@ export default function Home() {
             </div>
           </div>
     
-          {/* Arrows */}
+          {/* Spatial Liquid Glass Arrow Buttons */}
           <button onClick={handlePrev}
             aria-label="Previous hero slide"
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 shadow-md border border-gray-100 flex items-center justify-center text-slate-700 hover:bg-white hover:text-[#2563eb] transition-all z-20 opacity-0 group-hover:opacity-100">
-            <ChevronRight className="w-5 h-5 rotate-180" />
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-xl border border-white/30 shadow-xl shadow-sky-500/30 hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group">
+            <ChevronLeft className="w-5 h-5 text-white" />
           </button>
           <button onClick={handleNext}
             aria-label="Next hero slide"
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 shadow-md border border-gray-100 flex items-center justify-center text-slate-700 hover:bg-white hover:text-[#2563eb] transition-all z-20 opacity-0 group-hover:opacity-100">
-            <ChevronRight className="w-5 h-5" />
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-xl border border-white/30 shadow-xl shadow-sky-500/30 hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group">
+            <ChevronRight className="w-5 h-5 text-white" />
           </button>
         </section>
 
@@ -980,53 +1086,117 @@ export default function Home() {
               {recommendedPackages.map((pkg, idx) => (
                 <motion.div
                   key={pkg.name}
-                  initial={{ opacity: 0, y: 25 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.4, delay: idx * 0.05 }}
-                  whileHover={{ y: -6 }}
-                  className="w-[85vw] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] flex-shrink-0 snap-start bg-white border border-gray-150 rounded-2xl overflow-hidden shadow-sm hover:shadow-[0_12px_30px_rgba(37,99,235,0.15)] hover:border-blue-400/50 hover:scale-[1.015] transition-all flex flex-col group h-[320px] text-left duration-300"
+                  transition={{ duration: 0.35, delay: idx * 0.05 }}
+                  whileHover={{ y: -4 }}
+                  className="w-[85vw] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] flex-shrink-0 snap-start bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:border-[#2563eb]/40 transition-all flex flex-col group h-[355px] text-left duration-300 relative z-10"
                 >
-                  <div className="w-full bg-gradient-to-r from-[#dbeafe] to-[#eff6ff] px-4 py-3 flex justify-between items-center border-b border-[#bfdbfe]">
-                    <div className="flex items-center gap-2">
-                      <span className="bg-[#2563eb] text-white px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-wider shadow-sm">{pkg.tag || "PACKAGE"}</span>
-                      {pkg.most_booked && (
-                        <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-2.5 py-1 rounded-full text-[10px] font-extrabold shadow-sm flex items-center gap-1">
+                  <div className="w-full bg-[#f0f9ff] px-4 py-3 flex justify-between items-center border-b border-sky-100">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      {pkg.most_booked ? (
+                        <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-2.5 py-1 rounded-full text-[10px] font-extrabold shadow-xs flex items-center gap-1">
                           <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                           Most Booked
                         </span>
+                      ) : (
+                        <span className="bg-[#2563eb] text-white px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-wider shadow-xs">{pkg.tag || "PACKAGE"}</span>
                       )}
                     </div>
-                    <span className="bg-white text-emerald-600 px-2.5 py-1 rounded-full text-[10px] font-extrabold shadow-sm border border-emerald-100">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
+                    <span className="bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full text-[10px] font-extrabold shadow-xs border border-emerald-200">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
                   </div>
+
                   <div className="p-4 flex flex-col flex-1 justify-between">
-                    <div>
-                      <h3 className="font-extrabold text-slate-800 text-[14px] leading-tight mb-2">{pkg.name}</h3>
-                      <div className="flex flex-col gap-1.5 mb-3 h-[45px] overflow-hidden">
-                        <span className="bg-[#dbeafe] text-[#2563eb] text-[9px] font-bold px-2 py-1 rounded-md line-clamp-2 overflow-hidden text-ellipsis">{pkg.includes}</span>
+                    <div className="cursor-pointer" onClick={() => setSelectedPackage(pkg)}>
+                      <div className="flex justify-between items-start mb-2 gap-2">
+                        <h3 className="font-extrabold text-[#0c4a6e] text-[15px] leading-tight hover:text-[#2563eb] transition-colors">{pkg.name}</h3>
+                        <span className="text-[9px] font-extrabold text-[#0284c7] bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0 hover:bg-sky-100 transition-colors">Details 🔍</span>
                       </div>
-                      <p className="text-[10px] text-slate-600 font-semibold mb-1">🏠 Free Home Collection Available</p>
+                      <div className="mb-2">
+                        <div className="bg-sky-50/70 text-[#0284c7] border border-sky-200/50 text-[10px] font-bold px-2.5 py-1.5 rounded-lg h-[38px] flex items-center overflow-hidden">
+                          <p className="line-clamp-2 leading-tight">{pkg.includes}</p>
+                        </div>
+                      </div>
+                      <p className="text-[10px] text-[#0c4a6e] font-extrabold mb-1 flex items-center gap-1">
+                        🏠 Free Home Collection Available
+                      </p>
                     </div>
-                    <div>
-                      <div className="flex items-baseline gap-2 mb-3 mt-2">
-                        <span className="text-xl font-black text-slate-900">₹{pkg.price}</span>
-                        <span className="text-xs text-slate-500 line-through">₹{pkg.old_price}</span>
-                        <span className="text-[11px] text-emerald-600 font-extrabold">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
+
+                    <div className="pt-2 border-t border-slate-100">
+                      <div className="flex items-baseline gap-2 mb-3 mt-1">
+                        <span className="text-2xl font-black text-[#0c4a6e]">₹{pkg.price}</span>
+                        <span className="text-xs text-slate-400 line-through font-semibold">₹{pkg.old_price}</span>
+                        <span className="text-[11px] text-emerald-600 font-black">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
                       </div>
-                      <div className="flex gap-2">
-                        <Link href="/packages" className="flex-1 text-center border border-gray-200 text-slate-600 py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider hover:bg-slate-50 transition-colors">
-                          Details
-                        </Link>
-                        <Link href={`/book?package=${encodeURIComponent(pkg.name)}`}
-                          className="flex-1 text-center bg-[#2563eb] py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors"
-                          style={{ color: '#ffffff' }}>
-                          Book Now
-                        </Link>
+                      <div className="flex gap-2 items-center">
+                        <button
+                          type="button"
+                          onClick={() => handleToggleCart(pkg.name)}
+                          className={`flex-1 h-9 rounded-xl text-[10px] font-extrabold uppercase tracking-wider transition-all border cursor-pointer flex items-center justify-center ${
+                            cartItems.includes(pkg.name)
+                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
+                              : 'bg-slate-100 text-slate-800 border-slate-200 hover:bg-slate-200'
+                          }`}
+                        >
+                          {cartItems.includes(pkg.name) ? "✓ Added" : "+ Cart"}
+                        </button>
+
+                        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
+                          <Link href={`/book?package=${encodeURIComponent(pkg.name)}`}
+                            className="btn-sky w-full h-9 rounded-xl text-[10px] shadow-sm uppercase tracking-wider flex items-center justify-center gap-1 font-extrabold">
+                            <span>BOOK NOW</span>
+                            <span>→</span>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Quick Booking Form (Full Details, 2-Column Desktop) ── */}
+        <section className="hidden lg:block py-16 bg-[#f0f9ff] border-y border-blue-100 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/50 to-sky-200/30 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+          
+          <div className="max-w-[1260px] mx-auto px-4 w-full relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              {/* Left Column: Text & Features */}
+              <div className="lg:col-span-7 lg:pr-8">
+                <span className="inline-block bg-white text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-4 shadow-sm border border-blue-100">Quick Booking</span>
+                <h2 className="text-[#0f2d5e] text-4xl lg:text-5xl font-black mb-5 leading-tight">Book a Test at Home</h2>
+                <p className="text-slate-600 text-lg font-medium leading-relaxed mb-8 max-w-xl">
+                  Safe, hygienic, and incredibly fast. Search for your tests, choose a time slot, and our expert phlebotomists will arrive at your doorstep. Get accurate reports digitally within 24 hours.
+                </p>
+                <ul className="space-y-4 text-sm font-semibold text-slate-700">
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-extrabold">✓</span>
+                    <span>NABL Accredited accuracy and reliability</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-extrabold">✓</span>
+                    <span>100% sterile vacuum containers used for collection</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-extrabold">✓</span>
+                    <span>Strict cold-chain logistics ensures sample integrity</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-extrabold">✓</span>
+                    <span>Secure digital reports delivered straight to WhatsApp</span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Right Column: Booking Widget */}
+              <div className="lg:col-span-5 relative">
+                {/* Add a subtle highlight behind the form */}
+                <div className="absolute inset-0 bg-blue-100/50 blur-2xl transform scale-105 rounded-[3rem] -z-10"></div>
+                <QuickBookingForm formState={formState} setFormState={setFormState} handleContactSubmit={handleContactSubmit} formStatus={formStatus} />
+              </div>
             </div>
           </div>
         </section>
@@ -1081,8 +1251,8 @@ export default function Home() {
               ))}
             </div>
             <div className="text-center mt-8">
-              <Link href="/speciality-tests" className="inline-block bg-[#2563eb] text-white font-extrabold px-10 py-3 rounded-full hover:bg-[#1d4ed8] transition-colors shadow-md text-sm">
-                View All Speciality Tests
+              <Link href="/speciality-tests" className="inline-block bg-[#2563eb] !text-white font-extrabold px-10 py-3 rounded-full hover:bg-[#1d4ed8] transition-colors shadow-md text-sm" style={{ color: '#ffffff' }}>
+                <span className="!text-white font-black" style={{ color: '#ffffff' }}>View All Speciality Tests</span>
               </Link>
             </div>
           </div>
@@ -1110,7 +1280,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
+                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg", imagePosition: "center 20%", imageScale: 1.35 },
                 { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
                 { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
                 { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
@@ -1147,31 +1317,50 @@ export default function Home() {
                 <h2 className="text-[#0f2d5e] text-3xl font-extrabold mb-2">Book a Test / Inquiry</h2>
                 <p className="text-slate-600 text-sm font-medium mb-6">Fill out the form below and our team will contact you shortly.</p>
                 
-                <form className="flex flex-col gap-4">
+                <form className="flex flex-col gap-4" onSubmit={handleContactSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
-                      <input type="text" placeholder="John Doe" className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
+                      <label className="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
+                      <input type="text" required placeholder="John Doe" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
                     </div>
                     <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
-                      <input type="tel" placeholder="+91 9964 639639" className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
+                      <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+                      <input type="tel" required placeholder="+91 9964 639639" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
                     </div>
                   </div>
-                  <div>
-                    <label htmlFor="desktop-service-select" className="block text-xs font-bold text-slate-700 mb-1">Select Service</label>
-                    <select id="desktop-service-select" className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all text-slate-600">
-                      <option>Home Collection</option>
-                      <option>Lab Visit</option>
-                      <option>General Inquiry</option>
-                    </select>
+                  <div className="relative">
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Select Service</label>
+                    <button
+                      type="button"
+                      onClick={() => setShowContactServiceDropdown(!showContactServiceDropdown)}
+                      className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all text-left flex justify-between items-center text-slate-700"
+                    >
+                      {formState.service}
+                      <svg className={`w-4 h-4 transition-transform ${showContactServiceDropdown ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                    </button>
+                    {showContactServiceDropdown && (
+                      <div className="absolute top-[68px] left-0 right-0 bg-white border border-gray-200 rounded-xl shadow-lg z-30 flex flex-col py-2 overflow-hidden">
+                        {['Home Collection', 'Lab Visit', 'General Inquiry'].map(opt => (
+                          <button
+                            key={opt}
+                            type="button"
+                            onClick={() => { setFormState({...formState, service: opt}); setShowContactServiceDropdown(false); }}
+                            className={`text-left px-4 py-3 text-sm hover:bg-blue-50 transition-colors ${formState.service === opt ? 'font-bold text-[#2563eb] bg-blue-50/50' : 'text-slate-600'}`}
+                          >
+                            {opt}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">Message</label>
-                    <textarea rows={3} placeholder="How can we help you?" className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all resize-none"></textarea>
+                    <textarea rows={3} placeholder="How can we help you?" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all resize-none"></textarea>
                   </div>
-                  <button type="button" className="w-full bg-[#2563eb] text-white font-extrabold px-6 py-3.5 rounded-xl shadow-md hover:bg-[#1d4ed8] transition-all mt-2 text-sm uppercase tracking-wider">
-                    Submit Inquiry
+                  {formStatus === 'success' && <p className="text-green-600 text-xs font-bold">Your inquiry has been submitted successfully!</p>}
+                  {formStatus === 'error' && <p className="text-red-600 text-xs font-bold">There was an error submitting your inquiry. Please try again or contact us via WhatsApp.</p>}
+                  <button type="submit" disabled={formStatus === 'loading'} className="w-full bg-[#2563eb] text-white font-extrabold px-6 py-3.5 rounded-xl shadow-md hover:bg-[#1d4ed8] transition-all mt-2 text-sm uppercase tracking-wider disabled:opacity-70">
+                    {formStatus === 'loading' ? 'Submitting...' : 'Submit Inquiry'}
                   </button>
                 </form>
               </div>
@@ -1225,7 +1414,7 @@ export default function Home() {
                 <div
                   className="mx-3 mt-2 rounded-2xl overflow-hidden flex flex-row items-stretch"
                   style={{
-                    minHeight: '160px',
+                    minHeight: '260px',
                     background: `linear-gradient(135deg, ${slide.bgFrom} 0%, ${slide.bgTo} 100%)`
                   }}
                 >
@@ -1236,11 +1425,11 @@ export default function Home() {
                         {slide.badge}
                       </span>
                     )}
-                    <p className="text-[13px] font-extrabold text-[#0d2e42] leading-tight mb-0.5">
+                    <p className="text-[14px] font-extrabold text-[#0d2e42] leading-tight mb-0.5">
                       {slide.title}
                     </p>
                     {slide.titleAccent && (
-                      <p className="text-[13px] font-extrabold text-[#2563eb] leading-tight mb-1">
+                      <p className="text-[14px] font-extrabold text-[#2563eb] leading-tight mb-1">
                         {slide.titleAccent}
                       </p>
                     )}
@@ -1260,12 +1449,12 @@ export default function Home() {
                     )}
                   </div>
                   {/* Right: Image */}
-                  <div className="w-[130px] flex-shrink-0 relative overflow-hidden rounded-r-2xl bg-white/20">
+                  <div className="w-[125px] flex-shrink-0 relative overflow-hidden rounded-r-2xl bg-white/20">
                     <Image
                       src={slide.image}
                       alt={slide.title}
                       fill
-                      sizes="130px"
+                      sizes="125px"
                       className="object-cover object-center"
                       style={{ imageRendering: 'auto' }}
                       priority={idx === 0}
@@ -1379,15 +1568,20 @@ export default function Home() {
 
                 {/* Card body */}
                 <div className="p-4 flex flex-col gap-3">
-                  <h3 className="font-extrabold text-[#0d2e42] text-[15px] leading-snug">{pkg.name}</h3>
+                  <div className="cursor-pointer flex flex-col gap-3" onClick={() => setSelectedPackage(pkg)}>
+                    <div className="flex justify-between items-start gap-2">
+                      <h3 className="font-extrabold text-[#0d2e42] text-[15px] leading-snug">{pkg.name}</h3>
+                      <span className="text-[9px] font-extrabold text-[#0284c7] bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">Details 🔍</span>
+                    </div>
 
-                  {pkg.includes && (
-                    <p className="text-[11px] text-slate-600 bg-blue-50 px-3 py-2 rounded-xl font-medium leading-relaxed">
-                      {pkg.includes}
-                    </p>
-                  )}
+                    {pkg.includes && (
+                      <p className="text-[11px] text-slate-600 bg-blue-50 px-3 py-2 rounded-xl font-medium leading-relaxed">
+                        {pkg.includes}
+                      </p>
+                    )}
 
-                  <p className="text-[11px] text-slate-600 font-semibold">🏠 Free Home Collection Available</p>
+                    <p className="text-[11px] text-slate-600 font-semibold">🏠 Free Home Collection Available</p>
+                  </div>
 
                   {/* Price + CTA */}
                   <div className="flex items-center justify-between pt-3 border-t border-gray-100 mt-1">
@@ -1397,16 +1591,21 @@ export default function Home() {
                       )}
                       <p className="font-black text-[#0d2e42] text-[22px] leading-tight">₹{pkg.price}</p>
                     </div>
-                    <div className="flex gap-2">
-                      <Link
-                        href="/packages"
-                        className="border border-gray-200 text-slate-600 text-[11px] font-bold px-3 py-2.5 rounded-xl active:scale-95 transition-transform"
+                    <div className="flex gap-2 items-center">
+                      <button
+                        type="button"
+                        onClick={() => handleToggleCart(pkg.name)}
+                        className={`h-9 px-4 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all border cursor-pointer flex items-center justify-center ${
+                          cartItems.includes(pkg.name)
+                            ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
+                            : 'bg-slate-100 text-slate-800 border-slate-200 hover:bg-slate-200'
+                        }`}
                       >
-                        Details
-                      </Link>
+                        {cartItems.includes(pkg.name) ? "✓ Added" : "+ Cart"}
+                      </button>
                       <Link
                         href={`/book?package=${encodeURIComponent(pkg.name)}`}
-                        className="bg-[#2563eb] text-white text-[12px] font-extrabold px-5 py-2.5 rounded-xl active:scale-95 transition-transform shadow-md"
+                        className="bg-[#2563eb] text-white text-[12px] font-extrabold px-5 py-2.5 rounded-xl active:scale-95 transition-transform shadow-md h-9 flex items-center justify-center"
                       >
                         Book Now
                       </Link>
@@ -1427,6 +1626,18 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+          {/* ── Quick Booking Form (Mobile - Full Details) ── */}
+          <div className="lg:hidden bg-[#f0f9ff] py-8 border-y border-blue-100">
+            <div className="px-4 mb-6">
+              <span className="inline-block bg-white text-[#2563eb] text-[9px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2 shadow-sm border border-blue-100">Quick Booking</span>
+              <h2 className="text-[#0f2d5e] text-2xl font-black leading-tight mb-2">Book a Test at Home</h2>
+              <p className="text-slate-600 text-xs font-medium leading-relaxed">Search your tests, pick a time slot, and we'll collect the sample right from your home safely.</p>
+            </div>
+            <div className="px-4">
+              <QuickBookingForm formState={formState} setFormState={setFormState} handleContactSubmit={handleContactSubmit} formStatus={formStatus} />
+            </div>
+          </div>
 
         {/* Speciality Tests — full vertical list */}
         <section className="bg-white border-t border-gray-100">
@@ -1503,16 +1714,19 @@ export default function Home() {
             </div>
             <div className="flex overflow-x-auto gap-4 scrollbar-none pb-4 snap-x snap-mandatory">
               {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
+                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg", imagePosition: "center 20%", imageScale: 1.35 },
                 { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
                 { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
                 { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
-              ].map((doc) => (
+              ].map((doc: any) => (
                 <div key={doc.name} className="w-[180px] bg-white rounded-2xl overflow-hidden flex flex-col items-center p-3 text-center border border-gray-100 shadow-sm flex-shrink-0 snap-start">
                   <div className="w-36 h-36 rounded-xl overflow-hidden mb-3 bg-[#f8fafc] flex items-center justify-center">
                     <Image src={doc.image} alt={doc.name} width={144} height={144}
                       className="w-full h-full object-cover"
-                      style={{ objectPosition: 'top' }}
+                      style={{ 
+                        objectPosition: doc.imagePosition || 'top',
+                        transform: doc.imageScale ? `scale(${doc.imageScale})` : 'none',
+                      }}
                       onError={(e) => { e.currentTarget.srcset = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"; }} />
                   </div>
                   <h3 className="font-extrabold text-slate-800 text-[12px] mb-0.5">{doc.name}</h3>
@@ -1536,17 +1750,42 @@ export default function Home() {
               <p className="text-[#0f2d5e] text-lg font-extrabold mb-1">Book a Test / Inquiry</p>
               <p className="text-slate-600 text-xs mb-4 leading-relaxed">Fill out the form below and our team will contact you shortly.</p>
               
-              <form className="flex flex-col gap-3">
-                <input type="text" placeholder="Full Name" className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
-                <input type="tel" placeholder="Phone Number" className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
-                <select aria-label="Select service type" className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all text-slate-600">
-                  <option>Home Collection</option>
-                  <option>Lab Visit</option>
-                  <option>General Inquiry</option>
-                </select>
-                <textarea rows={3} placeholder="Message" className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all resize-none"></textarea>
-                <button type="button" className="w-full bg-[#2563eb] text-white font-extrabold py-3 rounded-xl shadow-sm hover:bg-[#1d4ed8] transition-all text-xs uppercase tracking-wider mt-1">
-                  Submit Inquiry
+              <form className="flex flex-col gap-3" onSubmit={handleContactSubmit}>
+                <input type="text" required placeholder="Full Name" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
+                <input type="tel" required placeholder="Phone Number" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
+                
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setShowContactServiceDropdown(!showContactServiceDropdown)}
+                    className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all text-left flex justify-between items-center text-slate-700"
+                  >
+                    {formState.service}
+                    <svg className={`w-3.5 h-3.5 transition-transform ${showContactServiceDropdown ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                  </button>
+                  {showContactServiceDropdown && (
+                    <div className="absolute top-[42px] left-0 right-0 bg-white border border-gray-200 rounded-xl shadow-lg z-30 flex flex-col py-1.5 overflow-hidden">
+                      {['Home Collection', 'Lab Visit', 'General Inquiry'].map(opt => (
+                        <button
+                          key={opt}
+                          type="button"
+                          onClick={() => { setFormState({...formState, service: opt}); setShowContactServiceDropdown(false); }}
+                          className={`text-left px-3 py-2.5 text-xs hover:bg-blue-50 transition-colors ${formState.service === opt ? 'font-bold text-[#2563eb] bg-blue-50/50' : 'text-slate-600'}`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <textarea rows={3} placeholder="Message" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all resize-none"></textarea>
+                
+                {formStatus === 'success' && <p className="text-green-600 text-[10px] font-bold">Inquiry submitted successfully!</p>}
+                {formStatus === 'error' && <p className="text-red-600 text-[10px] font-bold">Error submitting. Try again.</p>}
+                
+                <button type="submit" disabled={formStatus === 'loading'} className="w-full bg-[#2563eb] text-white font-extrabold py-3 rounded-xl shadow-sm hover:bg-[#1d4ed8] transition-all text-xs uppercase tracking-wider mt-1 disabled:opacity-70">
+                  {formStatus === 'loading' ? 'Submitting...' : 'Submit Inquiry'}
                 </button>
               </form>
             </div>
@@ -1582,6 +1821,116 @@ export default function Home() {
       </div>
 
       <PrescriptionModal isOpen={isPrescriptionModalOpen} onClose={() => setIsPrescriptionModalOpen(false)} />
+
+      {selectedPackage && (
+        <div className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="bg-white rounded-3xl max-w-xl w-full shadow-2xl relative border border-blue-100 max-h-[85vh] flex flex-col my-auto overflow-hidden"
+          >
+            {/* Header */}
+            <div className="p-6 pb-4 border-b border-slate-100 flex items-start justify-between bg-white sticky top-0 z-10">
+              <div>
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="bg-[#2563eb] text-white px-3 py-0.5 rounded-full text-[10px] font-extrabold tracking-wider uppercase shadow-sm">
+                    {selectedPackage.tag || "HEALTH PACKAGE"}
+                  </span>
+                  {selectedPackage.most_booked && (
+                    <span className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-2.5 py-0.5 rounded-full text-[10px] font-extrabold shadow-sm">
+                      ⭐ Most Booked
+                    </span>
+                  )}
+                </div>
+                <h2 className="text-xl md:text-2xl font-black text-slate-900 leading-tight">
+                  {selectedPackage.name}
+                </h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelectedPackage(null)}
+                className="w-9 h-9 rounded-full bg-slate-100 text-slate-500 hover:bg-rose-50 hover:text-rose-600 flex items-center justify-center font-black text-base cursor-pointer transition-colors shadow-sm shrink-0 ml-3"
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Scrollable Content */}
+            <div className="p-6 space-y-4 overflow-y-auto flex-1">
+              <div className="flex items-baseline gap-3 bg-sky-50/70 p-4 rounded-2xl border border-sky-100">
+                <span className="text-3xl font-black text-slate-900">₹{selectedPackage.price}</span>
+                <span className="text-sm text-slate-400 line-through">₹{selectedPackage.old_price}</span>
+                <span className="bg-emerald-100 text-emerald-700 text-xs font-extrabold px-3 py-1 rounded-full">
+                  Save ₹{Number(selectedPackage.old_price) - Number(selectedPackage.price)} ({Math.round((1 - Number(selectedPackage.price) / Number(selectedPackage.old_price)) * 100)}% OFF)
+                </span>
+              </div>
+
+              <div>
+                <h4 className="font-extrabold text-slate-800 text-xs uppercase tracking-wider mb-1">Included Diagnostic Tests</h4>
+                <p className="text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-200/80 leading-relaxed font-semibold text-xs md:text-sm">
+                  {selectedPackage.includes}
+                </p>
+              </div>
+
+              {selectedPackage.who_should_take && (
+                <div>
+                  <h4 className="font-extrabold text-slate-800 text-xs uppercase tracking-wider mb-1">Ideal For</h4>
+                  <p className="text-slate-600 font-medium text-xs md:text-sm">
+                    {selectedPackage.who_should_take} ({selectedPackage.age || "All ages"}, {selectedPackage.gender || "Both"})
+                  </p>
+                </div>
+              )}
+
+              {selectedPackage.benefits && selectedPackage.benefits.length > 0 && (
+                <div>
+                  <h4 className="font-extrabold text-slate-800 text-xs uppercase tracking-wider mb-2">Key Highlights</h4>
+                  <ul className="space-y-1.5">
+                    {selectedPackage.benefits.map((b: string, i: number) => (
+                      <li key={i} className="flex items-center gap-2 text-slate-700 font-medium text-xs">
+                        <span className="text-emerald-500 font-extrabold">✓</span> {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <div className="pt-2 text-xs text-slate-500 flex items-center gap-4 font-semibold">
+                <span>🏠 Free Home Collection</span>
+                <span>📋 NABL Accredited (MC-6849)</span>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="p-4 border-t border-slate-100 bg-slate-50 flex gap-3 shrink-0">
+              <button
+                type="button"
+                onClick={() => {
+                  handleToggleCart(selectedPackage.name);
+                  setSelectedPackage(null);
+                }}
+                className={`flex-1 py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all border cursor-pointer ${
+                  cartItems.includes(selectedPackage.name)
+                    ? 'bg-green-50 text-green-700 border-green-200'
+                    : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                }`}
+              >
+                {cartItems.includes(selectedPackage.name) ? "✓ Added to Cart" : "+ Add to Cart"}
+              </button>
+
+              <Link
+                href={`/book?package=${encodeURIComponent(selectedPackage.name)}`}
+                onClick={() => setSelectedPackage(null)}
+                className="flex-1 text-center bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 !text-white font-black py-3 rounded-xl text-xs uppercase tracking-wider hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-md border border-white/30"
+                style={{ color: '#ffffff' }}
+              >
+                <span className="!text-white font-black" style={{ color: '#ffffff' }}>BOOK NOW</span>
+                <span className="animate-pulse !text-white font-black" style={{ color: '#ffffff' }}>→</span>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      )}
 
       <style>{`
         @keyframes fadeInSlide {

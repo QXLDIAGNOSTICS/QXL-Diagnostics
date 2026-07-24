@@ -254,7 +254,7 @@ export const packagesData: PackageData[] = [
   {
     slug: "q-master-health-pro-package",
     name: "Q-Master Health Pro Package",
-    tag: "PRO",
+    tag: "MOST BOOKED",
     description:
       "An advanced full-body health screening with 25+ parameters including apolipoproteins, H. pylori gastritis screen, hs-CRP inflammation marker, and comprehensive metabolic and organ-function panels.",
     overview:

@@ -21,15 +21,15 @@ export default function NeurologyPage() {
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2000')] bg-cover bg-center" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">Neurology</span>
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#0c4a6e] leading-tight">Advanced Neurology &amp; Autoimmune Neurology Testing in Bengaluru</h1>
-            <p className="text-[#0369a1] text-base md:text-lg mb-8 leading-relaxed">
+            <span className="inline-block bg-[#2563eb] text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">Neurology</span>
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-[#0c4a6e] leading-tight">Advanced Neurology &amp; Autoimmune Neurology Testing in Bengaluru</h1>
+            <p className="text-slate-700 text-base md:text-lg mb-8 leading-relaxed font-medium">
               Neuropathy panels, autoimmune encephalitis workup, CSF analysis, myasthenia gravis testing, and paraneoplastic antibody profiling — with expert-reviewed reports and home sample collection.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="#test-profiles" className="bg-white text-sky-700 font-bold px-5 py-2.5 rounded-full hover:bg-sky-50 transition-colors text-sm">View Test Profiles</a>
-              <Link href="/book" className="bg-sky-500 border-2 border-white text-white font-bold px-5 py-2.5 rounded-full hover:bg-sky-400 transition-colors text-sm">Book a Test</Link>
-              <Link href="/upload-prescription" className="border-2 border-white/60 text-white font-bold px-5 py-2.5 rounded-full hover:bg-white/10 transition-colors text-sm">Upload Prescription</Link>
+              <a href="#test-profiles" className="bg-[#2563eb] text-white font-extrabold px-6 py-3 rounded-full hover:bg-[#1d4ed8] transition-all text-sm shadow-md">View Test Profiles</a>
+              <Link href="/book" className="bg-white border-2 border-[#2563eb] text-[#2563eb] font-extrabold px-6 py-3 rounded-full hover:bg-sky-50 transition-all text-sm shadow-sm" style={{ color: '#2563eb' }}>Book a Test</Link>
+              <Link href="/upload-prescription" className="border-2 border-slate-300 text-slate-700 font-bold px-6 py-3 rounded-full hover:bg-slate-100 transition-all text-sm">Upload Prescription</Link>
             </div>
           </div>
         </div>
@@ -138,23 +138,27 @@ export default function NeurologyPage() {
               </div>
             </section>
 
-            <section className="glass rounded-2xl p-6 text-white">
-              <h3 className="text-lg font-bold mb-2">Book Your Neurology Profile Today</h3>
-              <p className="text-[#0369a1] text-sm mb-4">Home collection available. Doctor referral required for CSF-based tests. Reports reviewed by consultant pathologist.</p>
+            <section className="bg-gradient-to-r from-sky-600 to-sky-800 rounded-2xl p-6 md:p-8 text-white shadow-xl">
+              <h3 className="text-xl md:text-2xl font-extrabold mb-2 text-white">Book Your Neurology Profile Today</h3>
+              <p className="text-sky-100 text-sm md:text-base mb-6 font-medium leading-relaxed">Home collection available. Doctor referral required for CSF-based tests. Reports reviewed by consultant pathologist.</p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/book" className="bg-white text-sky-700 font-bold px-5 py-2 rounded-full text-sm hover:bg-sky-50">Book a Test</Link>
-                <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="border-2 border-white text-white font-bold px-5 py-2 rounded-full text-sm hover:bg-white/10">WhatsApp Us</a>
+                <Link href="/book" className="bg-white font-extrabold px-6 py-3 rounded-full text-sm hover:bg-sky-50 transition-all shadow-md cursor-pointer flex items-center gap-1.5" style={{ color: '#0369a1' }}>
+                  Book a Test
+                </Link>
+                <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="bg-white/15 hover:bg-white/25 border-2 border-white text-white font-extrabold px-6 py-3 rounded-full text-sm transition-all shadow-sm">
+                  WhatsApp Us
+                </a>
               </div>
             </section>
           </div>
 
           <div className="lg:col-span-1 space-y-5">
-            <div className="glass text-[#0c4a6e] rounded-2xl p-5 shadow-lg">
+            <div className="bg-gradient-to-br from-sky-600 to-sky-800 text-white rounded-2xl p-6 shadow-xl">
               <h3 className="text-lg font-bold mb-2 text-white">Need help with neurology testing?</h3>
-              <p className="text-[#0369a1] text-xs mb-4">Our consultants are available for guidance on panel selection and result interpretation.</p>
-              <a href="tel:+919964639639" className="w-full bg-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-sky-50 transition-colors mb-2 shadow text-sm" style={{ color: '#0284c7' }}>📞 Call +91 99646 39639</a>
-              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="w-full border border-sky-400 bg-sky-800 text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-sky-700 transition-colors text-sm">WhatsApp Us</a>
-              <Link href="/upload-prescription" className="mt-2 w-full border border-sky-400 text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-white/10 transition-colors text-sm"><FileText className="w-4 h-4 mr-2" /> Upload Prescription</Link>
+              <p className="text-sky-100 text-xs mb-5 font-medium leading-relaxed">Our consultants are available for guidance on panel selection and result interpretation.</p>
+              <a href="tel:+919964639639" className="w-full bg-white font-extrabold py-3 rounded-xl flex justify-center hover:bg-sky-50 transition-colors mb-3 shadow text-sm cursor-pointer" style={{ color: '#0369a1' }}>📞 Call +91 99646 39639</a>
+              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="w-full border border-sky-300 bg-sky-700/80 text-white font-bold py-3 rounded-xl flex justify-center hover:bg-sky-600 transition-colors text-sm shadow-sm mb-3">WhatsApp Us</a>
+              <Link href="/upload-prescription" className="w-full border border-sky-300/60 bg-transparent text-white font-bold py-3 rounded-xl flex justify-center hover:bg-white/10 transition-colors text-sm"><FileText className="w-4 h-4 mr-2" /> Upload Prescription</Link>
             </div>
             <div className="bg-white border border-gray-200 rounded-2xl p-5">
               <h3 className="text-base font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">Our Specialities</h3>

@@ -42,7 +42,7 @@ const DEFAULT_PACKAGES = [
   {
     id: "pkg-3",
     name: "Q-Master Health Pro Package",
-    tag: "PRO",
+    tag: "MOST BOOKED",
     price: 4600,
     old_price: 9600,
     save_amount: 5000,
@@ -53,6 +53,7 @@ const DEFAULT_PACKAGES = [
     gender: "Both",
     doctor_recommended: true,
     home_collection_available: true,
+    most_booked: true,
     benefits: ["Apolipoproteins assessment", "Gastritis & H. pylori screen"]
   },
   {
@@ -106,7 +107,8 @@ const DEFAULT_PACKAGES = [
 ];
 
 export default function PackagesPage() {
-  const [packages, setPackages] = useState<any[]>(DEFAULT_PACKAGES);
+  const sortedDefault = [...DEFAULT_PACKAGES].sort((a, b) => Number(a.price) - Number(b.price));
+  const [packages, setPackages] = useState<any[]>(sortedDefault);
   const [cartItems, setCartItems] = useState<string[]>([]);
 
   useEffect(() => {
@@ -119,13 +121,25 @@ export default function PackagesPage() {
     let cancelled = false;
     api.packages
       .list()
-      .then((data) => {
+      .then((res: any) => {
         if (cancelled) return;
-        const fetched = data.map((p) => ({
-          ...p,
-          age: p.age_group,
-          benefits: p.benefits ? JSON.parse(p.benefits) : [],
-        }));
+        // Handle both direct array and paginated { items: [] } structures
+        const data = Array.isArray(res) ? res : (res?.items || []);
+        
+        const fetched = data.map((p: any) => {
+          let parsedBenefits = [];
+          try {
+            parsedBenefits = typeof p.benefits === 'string' ? JSON.parse(p.benefits) : (p.benefits || []);
+          } catch (e) {
+            // fallback if benefits is just a comma separated string
+            parsedBenefits = typeof p.benefits === 'string' ? p.benefits.split(',').map((s: string) => s.trim()) : [];
+          }
+          return {
+            ...p,
+            age: p.age_group || p.age,
+            benefits: parsedBenefits,
+          };
+        });
         
         // Merge fetched packages into defaults, keeping defaults as baseline
         const merged: any[] = [...DEFAULT_PACKAGES];
@@ -134,10 +148,13 @@ export default function PackagesPage() {
             merged.push(f);
           }
         }
+        merged.sort((a, b) => Number(a.price) - Number(b.price));
         setPackages(merged);
       })
       .catch((err) => {
         console.error("Failed to load packages, using defaults", err);
+        // Ensure we always render the default packages on failure
+        setPackages([...DEFAULT_PACKAGES].sort((a, b) => Number(a.price) - Number(b.price)));
       });
     return () => {
       cancelled = true;
@@ -191,7 +208,9 @@ export default function PackagesPage() {
         
         <div>
           <div className="mb-3 pr-12">
-            {tag && <span className="inline-block bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider mb-2 border border-blue-100">{tag}</span>}
+            {tag && (!most_booked || tag.toUpperCase() !== "MOST BOOKED") && (
+              <span className="inline-block bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider mb-2 border border-blue-100">{tag}</span>
+            )}
             <h3 className="font-bold text-slate-800 text-base leading-snug">{name}</h3>
           </div>
 

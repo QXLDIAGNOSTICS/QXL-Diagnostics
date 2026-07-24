@@ -21,7 +21,7 @@ export const packagesData = [
     old_price: "9600",
     includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, Liver Function Tests, Kidney Screen (Creatinine, Urea, BUN, Uric Acid, Sodium, Potassium, Chloride), Thyroid Function Tests (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine & Microscopy, Gastritis Screen (H. pylori IgG Antibodies), hs-CRP.",
     parameters: "25+ Parameters",
-    tag: "PRO"
+    tag: "MOST BOOKED"
   },
   {
     name: "Q-Oncoscreen Package",

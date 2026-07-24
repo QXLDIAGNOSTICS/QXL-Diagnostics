@@ -55,6 +55,53 @@ const SAMPLE_PROMPTS = [
 
 export default function AiPage() {
   const [activeTab, setActiveTab] = useState<"chat" | "overview">("chat");
+  const [messages, setMessages] = useState<Array<{ sender: "user" | "ai"; text: string; time: string; action?: { text: string; link: string } }>>([
+    {
+      sender: "ai",
+      text: "Welcome to QXL Medical Intelligence. I can help you analyze symptoms, recommend lab test panels, explain fasting rules, or suggest full body packages.",
+      time: "Now",
+    },
+  ]);
+  const [inputQuery, setInputQuery] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+
+  const handleSendMessage = (textToSend?: string) => {
+    const query = textToSend || inputQuery;
+    if (!query.trim()) return;
+
+    const newMsg = { sender: "user" as const, text: query, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) };
+    setMessages((prev) => [...prev, newMsg]);
+    if (!textToSend) setInputQuery("");
+    setIsTyping(true);
+
+    setTimeout(() => {
+      let aiReply = "Based on your query, we recommend consulting our specialist lab panels. For accurate evaluation, an expert-reviewed blood profile is recommended.";
+      let actionObj = { text: "Book Recommended Test", link: "/book" };
+
+      const lower = query.toLowerCase();
+      if (lower.includes("fatigue") || lower.includes("tired") || lower.includes("joint")) {
+        aiReply = "For chronic fatigue and joint discomfort, we recommend checking complete blood counts, thyroid levels, vitamin D, B12, and inflammatory markers like hs-CRP.";
+        actionObj = { text: "View Q-Master Health Pro", link: "/packages" };
+      } else if (lower.includes("cbc") || lower.includes("hemoglobin") || lower.includes("blood count")) {
+        aiReply = "Complete Blood Count (CBC) evaluates red blood cells, white blood cells, and platelets. Normal hemoglobin ranges are 13.8–17.2 g/dL (men) and 12.1–15.1 g/dL (women).";
+        actionObj = { text: "Book CBC Test (₹350)", link: "/book" };
+      } else if (lower.includes("diabetic") || lower.includes("sugar") || lower.includes("hba1c")) {
+        aiReply = "For diabetes assessment, HbA1c provides a 3-month average glucose picture. Fasting Blood Sugar measures current baseline levels. Fasting of 10–12 hours is required.";
+        actionObj = { text: "View Q-Screen Diabetes Panel", link: "/packages" };
+      }
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "ai",
+          text: aiReply,
+          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          action: actionObj,
+        },
+      ]);
+      setIsTyping(false);
+    }, 800);
+  };
 
   return (
     <div className="min-h-screen bg-[#f8faff] text-[#0f2d5e] relative overflow-hidden">
@@ -149,6 +196,7 @@ export default function AiPage() {
                   {SAMPLE_PROMPTS.map((prompt, idx) => (
                     <div
                       key={idx}
+                      onClick={() => handleSendMessage(prompt)}
                       className="p-3 rounded-2xl bg-sky-50/60 border border-sky-100 hover:border-sky-300 hover:bg-sky-100/50 text-xs font-semibold text-[#0369a1] cursor-pointer transition-all flex items-center justify-between group"
                     >
                       <span className="line-clamp-2">{prompt}</span>
@@ -195,7 +243,7 @@ export default function AiPage() {
                 </Link>
                 <Link
                   href="/book"
-                  className="w-full py-3.5 px-6 rounded-2xl bg-[#0ea5e9] text-white font-extrabold text-xs uppercase tracking-wider hover:bg-[#0284c7] transition-all text-center shadow-lg shadow-sky-500/25 flex items-center justify-center gap-2"
+                  className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-sky-400 to-sky-600 text-white font-extrabold text-xs uppercase tracking-wider hover:shadow-lg transition-all text-center shadow-md flex items-center justify-center gap-2"
                 >
                   Book Recommended Test <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -203,7 +251,7 @@ export default function AiPage() {
             </div>
 
             {/* AI Chat Window Panel */}
-            <div className="lg:col-span-2 rounded-3xl bg-white/80 backdrop-blur-2xl border border-sky-200/60 p-6 shadow-2xl shadow-sky-500/10 min-h-[600px] flex flex-col justify-between">
+            <div className="lg:col-span-2 rounded-3xl bg-white/90 backdrop-blur-2xl border border-sky-200/60 p-6 shadow-2xl shadow-sky-500/10 min-h-[550px] flex flex-col justify-between">
               <div className="mb-4 pb-4 border-b border-sky-100 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#38bdf8] to-[#0ea5e9] flex items-center justify-center text-white shadow-md shadow-sky-500/30">
@@ -225,35 +273,72 @@ export default function AiPage() {
                 </span>
               </div>
 
-              {/* Embedded Floating AI Chat Trigger / Direct Chat container */}
-              <div className="flex-1 bg-sky-50/40 rounded-2xl border border-sky-100 p-6 flex flex-col items-center justify-center text-center relative overflow-hidden min-h-[440px]">
-                <div className="w-20 h-20 rounded-3xl bg-gradient-to-tr from-[#38bdf8] to-[#0ea5e9] text-white flex items-center justify-center text-3xl mb-4 shadow-xl shadow-sky-500/30">
-                  <Sparkles className="w-10 h-10 animate-bounce" />
-                </div>
-                <h3 className="text-xl font-extrabold text-[#0f2d5e] mb-2">
-                  Ready to assist your diagnostic journey
-                </h3>
-                <p className="text-slate-600 text-xs sm:text-sm max-w-md mb-6 font-medium leading-relaxed">
-                  Use the persistent AI Chat Widget at the bottom-right of your screen for interactive streaming diagnosis, voice input, and instant report summaries!
-                </p>
+              {/* Chat Message Stream */}
+              <div className="flex-1 bg-sky-50/40 rounded-2xl border border-sky-100 p-4 space-y-4 overflow-y-auto max-h-[380px] min-h-[320px] mb-4">
+                {messages.map((msg, index) => (
+                  <div
+                    key={index}
+                    className={`flex flex-col ${
+                      msg.sender === "user" ? "items-end" : "items-start"
+                    }`}
+                  >
+                    <div
+                      className={`max-w-[85%] p-4 rounded-2xl text-xs sm:text-sm font-medium leading-relaxed ${
+                        msg.sender === "user"
+                          ? "bg-gradient-to-r from-sky-400 to-sky-600 text-white rounded-br-none shadow-sm"
+                          : "bg-white text-slate-800 border border-sky-100 rounded-bl-none shadow-sm"
+                      }`}
+                    >
+                      <p>{msg.text}</p>
+                      {msg.action && (
+                        <div className="mt-3 pt-2 border-t border-sky-100">
+                          <Link
+                            href={msg.action.link}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50 text-[#0284c7] font-extrabold text-xs hover:bg-sky-100 transition-colors"
+                          >
+                            <span>{msg.action.text}</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                    <span className="text-[9px] font-bold text-slate-400 mt-1 px-1">
+                      {msg.time}
+                    </span>
+                  </div>
+                ))}
 
-                <div className="flex flex-wrap justify-center gap-3 max-w-lg">
-                  <a
-                    href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20have%20an%20AI%20query"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-6 py-3 rounded-full bg-[#25D366] text-white font-extrabold text-xs uppercase tracking-wider hover:bg-[#1ebe57] transition-all shadow-md"
-                  >
-                    WhatsApp Assistant
-                  </a>
-                  <Link
-                    href="/packages"
-                    className="px-6 py-3 rounded-full bg-[#0284c7] text-white font-extrabold text-xs uppercase tracking-wider hover:bg-[#0369a1] transition-all shadow-md"
-                  >
-                    Explore Health Packages
-                  </Link>
-                </div>
+                {isTyping && (
+                  <div className="flex items-center gap-2 p-3 rounded-2xl bg-white border border-sky-100 text-slate-500 text-xs w-fit">
+                    <Bot className="w-4 h-4 text-[#0ea5e9] animate-spin" />
+                    <span className="font-semibold">AI is analyzing clinical data...</span>
+                  </div>
+                )}
               </div>
+
+              {/* Input Box */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSendMessage();
+                }}
+                className="flex gap-2 bg-white p-2 rounded-2xl border border-sky-200/80 shadow-inner"
+              >
+                <input
+                  type="text"
+                  value={inputQuery}
+                  onChange={(e) => setInputQuery(e.target.value)}
+                  placeholder="Ask a medical question, e.g. What is included in Q-Master Health Pro?"
+                  className="flex-1 px-4 py-2.5 bg-transparent text-xs sm:text-sm text-[#0f2d5e] font-semibold outline-none"
+                />
+                <button
+                  type="submit"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-sky-400 to-sky-600 text-white font-extrabold text-xs uppercase tracking-wider hover:shadow-md transition-all cursor-pointer flex items-center gap-1.5"
+                >
+                  <span>Ask AI</span>
+                  <Sparkles className="w-3.5 h-3.5" />
+                </button>
+              </form>
             </div>
           </motion.div>
         ) : (

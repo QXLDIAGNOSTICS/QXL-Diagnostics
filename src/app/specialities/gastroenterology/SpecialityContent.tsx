@@ -17,19 +17,20 @@ export default function GastroenterologyPage() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
+      {/* Hero Banner */}
       <section className="glass-panel text-[#0c4a6e] py-16 lg:py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2000')] bg-cover bg-center" />
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
-            <span className="inline-block bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">Gastroenterology</span>
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-[#0c4a6e] leading-tight">Advanced Gastroenterology &amp; Liver Disease Testing in Bengaluru</h1>
-            <p className="text-[#0369a1] text-base md:text-lg mb-8 leading-relaxed">
+            <span className="inline-block bg-[#2563eb] text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">Gastroenterology</span>
+            <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-[#0c4a6e] leading-tight">Advanced Gastroenterology &amp; Liver Disease Testing in Bengaluru</h1>
+            <p className="text-slate-700 text-base md:text-lg mb-8 leading-relaxed font-medium">
               Liver function, IBD markers, celiac disease, H. pylori, malabsorption workup, viral hepatitis, autoimmune liver panels, and pancreatic assessment — with expert-reviewed reports and home sample collection.
             </p>
             <div className="flex flex-wrap gap-3">
-              <a href="#test-profiles" className="bg-white text-sky-700 font-bold px-5 py-2.5 rounded-full hover:bg-sky-50 transition-colors text-sm">View Test Profiles</a>
-              <Link href="/book" className="bg-sky-500 border-2 border-white text-white font-bold px-5 py-2.5 rounded-full hover:bg-sky-400 transition-colors text-sm">Book a Test</Link>
-              <Link href="/upload-prescription" className="border-2 border-white/60 text-white font-bold px-5 py-2.5 rounded-full hover:bg-white/10 transition-colors text-sm">Upload Prescription</Link>
+              <a href="#test-profiles" className="bg-[#2563eb] text-white font-extrabold px-6 py-3 rounded-full hover:bg-[#1d4ed8] transition-all text-sm shadow-md">View Test Profiles</a>
+              <Link href="/book" className="bg-white border-2 border-[#2563eb] text-[#2563eb] font-extrabold px-6 py-3 rounded-full hover:bg-sky-50 transition-all text-sm shadow-sm" style={{ color: '#2563eb' }}>Book a Test</Link>
+              <Link href="/upload-prescription" className="border-2 border-slate-300 text-slate-700 font-bold px-6 py-3 rounded-full hover:bg-slate-100 transition-all text-sm">Upload Prescription</Link>
             </div>
           </div>
         </div>
