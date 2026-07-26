@@ -2,15 +2,33 @@
 from __future__ import annotations
 
 import uuid
+from datetime import datetime
 
-from sqlalchemy import Boolean, ForeignKey, Integer, String, Text
+from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base, TimestampMixin, new_uuid
 
-# Status lifecycle: pending → confirmed → sample_collected → report_ready → completed | cancelled
-BOOKING_STATUSES = ("pending", "confirmed", "sample_collected", "report_ready", "completed", "cancelled")
+# Status lifecycle: pending → confirmed → checked_in → in_progress → sample_collected
+#                   → report_ready → completed | cancelled | no_show
+# `checked_in` / `in_progress` power the front-desk "live" board (waiting room vs
+# with-doctor). `was_rescheduled` and `is_delayed` are independent flags, not
+# statuses, so history (e.g. "this was rescheduled") survives status changes.
+BOOKING_STATUSES = (
+    "pending",
+    "confirmed",
+    "checked_in",
+    "in_progress",
+    "sample_collected",
+    "report_ready",
+    "completed",
+    "cancelled",
+    "no_show",
+)
+
+# How the visit was initiated — feeds the walk-in / emergency dashboard tiles.
+VISIT_TYPES = ("scheduled", "walk_in", "emergency")
 
 
 class Booking(Base, TimestampMixin):
@@ -27,7 +45,7 @@ class Booking(Base, TimestampMixin):
 
     # Patient details (denormalised for guest bookings)
     patient_name: Mapped[str] = mapped_column(String, nullable=False)
-    patient_phone: Mapped[str] = mapped_column(String, nullable=False)
+    patient_phone: Mapped[str] = mapped_column(String, nullable=False, index=True)
     patient_email: Mapped[str | None] = mapped_column(String, nullable=True)
     patient_age: Mapped[int | None] = mapped_column(Integer, nullable=True)
     patient_gender: Mapped[str | None] = mapped_column(String(8), nullable=True)
@@ -50,14 +68,28 @@ class Booking(Base, TimestampMixin):
     preferred_date: Mapped[str | None] = mapped_column(String, nullable=True)   # ISO date string
     preferred_time: Mapped[str | None] = mapped_column(String, nullable=True)
 
+    # How the visit came in — scheduled online, walked in, or an emergency case.
+    visit_type: Mapped[str] = mapped_column(String(16), default="scheduled", nullable=False, index=True)
+
     # Lifecycle
     status: Mapped[str] = mapped_column(String(24), default="pending", nullable=False, index=True)
     notes: Mapped[str | None] = mapped_column(Text, nullable=True)
     is_urgent: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    is_delayed: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    was_rescheduled: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     report_url: Mapped[str | None] = mapped_column(Text, nullable=True)
 
-    # Payment (Razorpay) — amount is denormalised here for quick reads; the
-    # `payments` table below is the source of truth for the payment lifecycle.
+    # Timestamps for the front-desk "live" board (waiting time / consult time).
+    checked_in_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    in_progress_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    completed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False
+    )
+
+    # Payment — amount is denormalised here for quick reads; the `payments`
+    # table below is the source of truth for the payment lifecycle.
     amount_paise: Mapped[int | None] = mapped_column(Integer, nullable=True)
     payment_status: Mapped[str] = mapped_column(
         String(16), default="unpaid", nullable=False, index=True
@@ -68,5 +100,8 @@ class Booking(Base, TimestampMixin):
     package: Mapped["HealthPackage | None"] = relationship(back_populates="bookings")  # noqa: F821
     center: Mapped["Center | None"] = relationship(back_populates="bookings")  # noqa: F821
     payments: Mapped[list["Payment"]] = relationship(  # noqa: F821
+        back_populates="booking", cascade="all, delete-orphan"
+    )
+    notifications: Mapped[list["BookingNotification"]] = relationship(  # noqa: F821
         back_populates="booking", cascade="all, delete-orphan"
     )

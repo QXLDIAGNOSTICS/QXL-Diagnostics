@@ -2,14 +2,18 @@
 from __future__ import annotations
 
 import uuid
+from datetime import datetime, timezone
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.exceptions import NotFoundError, ValidationError
+from app.core.logging import get_logger
 from app.models.booking import Booking
 from app.models.user import User
 from app.repositories.booking_repository import BookingRepository
 from app.repositories.package_repository import HealthPackageRepository, TestCatalogRepository
+
+logger = get_logger(__name__)
 
 
 async def _resolve_catalog_selection(db: AsyncSession, data: dict) -> dict:
@@ -86,6 +90,18 @@ async def create_booking(db: AsyncSession, data: dict, user: User | None) -> Boo
     booking = await repo.create(**data, user_id=user.id if user else None)
     await db.commit()
     await db.refresh(booking)
+
+    # Best-effort booking confirmation — never blocks/fails the booking itself.
+    try:
+        from app.services.booking_notification_service import queue_notification
+
+        channel = "both" if booking.patient_email else "sms"
+        await queue_notification(
+            db, booking=booking, channel=channel, notification_type="confirmation", created_by="system"
+        )
+    except Exception:  # noqa: BLE001
+        logger.exception("Failed to queue booking confirmation for booking=%s", booking.id)
+
     return booking
 
 
@@ -124,9 +140,106 @@ async def update_booking(db: AsyncSession, booking_id: uuid.UUID, data: dict) ->
     return booking
 
 
+async def delete_booking(db: AsyncSession, booking_id: uuid.UUID) -> None:
+    repo = BookingRepository(db)
+    booking = await repo.get_by_id(booking_id)
+    if booking is None:
+        raise NotFoundError("Booking not found")
+    await repo.delete(booking)
+    await db.commit()
+
+
 async def get_booking_for_user(db: AsyncSession, booking_id: uuid.UUID, user: User) -> Booking:
     repo = BookingRepository(db)
     booking = await repo.get_by_id(booking_id)
     if booking is None or booking.user_id != user.id:
         raise NotFoundError("Booking not found")
+    return booking
+
+
+# ── Front-desk lifecycle actions ────────────────────────────────────────────
+
+async def _get_or_404(repo: BookingRepository, booking_id: uuid.UUID) -> Booking:
+    booking = await repo.get_by_id(booking_id)
+    if booking is None:
+        raise NotFoundError("Booking not found")
+    return booking
+
+
+async def check_in(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
+    repo = BookingRepository(db)
+    booking = await _get_or_404(repo, booking_id)
+    booking = await repo.update(booking, status="checked_in", checked_in_at=datetime.now(timezone.utc))
+    await db.commit()
+    await db.refresh(booking)
+    return booking
+
+
+async def start_consultation(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
+    repo = BookingRepository(db)
+    booking = await _get_or_404(repo, booking_id)
+    booking = await repo.update(booking, status="in_progress", in_progress_at=datetime.now(timezone.utc))
+    await db.commit()
+    await db.refresh(booking)
+    return booking
+
+
+async def complete_booking(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
+    repo = BookingRepository(db)
+    booking = await _get_or_404(repo, booking_id)
+    booking = await repo.update(booking, status="completed", completed_at=datetime.now(timezone.utc))
+    await db.commit()
+    await db.refresh(booking)
+    return booking
+
+
+async def mark_no_show(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
+    repo = BookingRepository(db)
+    booking = await _get_or_404(repo, booking_id)
+    booking = await repo.update(booking, status="no_show")
+    await db.commit()
+    await db.refresh(booking)
+    return booking
+
+
+async def toggle_delay(db: AsyncSession, booking_id: uuid.UUID, is_delayed: bool) -> Booking:
+    repo = BookingRepository(db)
+    booking = await _get_or_404(repo, booking_id)
+    booking = await repo.update(booking, is_delayed=is_delayed)
+    await db.commit()
+    await db.refresh(booking)
+    return booking
+
+
+async def reschedule(
+    db: AsyncSession,
+    booking_id: uuid.UUID,
+    *,
+    preferred_date: str,
+    preferred_time: str,
+    notify: bool = True,
+    channel: str = "sms",
+) -> Booking:
+    repo = BookingRepository(db)
+    booking = await _get_or_404(repo, booking_id)
+    booking = await repo.update(
+        booking,
+        preferred_date=preferred_date,
+        preferred_time=preferred_time,
+        status="confirmed",
+        was_rescheduled=True,
+    )
+    await db.commit()
+    await db.refresh(booking)
+
+    if notify:
+        try:
+            from app.services.booking_notification_service import queue_notification
+
+            await queue_notification(
+                db, booking=booking, channel=channel, notification_type="reschedule", created_by="staff"
+            )
+        except Exception:  # noqa: BLE001
+            logger.exception("Failed to queue reschedule notification for booking=%s", booking.id)
+
     return booking

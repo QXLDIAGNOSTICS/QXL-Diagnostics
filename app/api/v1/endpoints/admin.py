@@ -8,7 +8,8 @@ from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.deps import DbSession, require_role
-from app.core.exceptions import NotFoundError, ValidationError
+from app.core import roles as R
+from app.core.exceptions import NotFoundError, PermissionDeniedError, ValidationError
 from app.core.security import hash_password
 from app.models.booking import Booking
 from app.models.lead import CollaborationLead, ContactInquiry
@@ -28,6 +29,7 @@ async def list_users(
     role: str | None = None,
     current: User = Depends(require_role("admin")),
 ) -> UserList:
+    _ = current
     items, count = await UserRepository(db).list_all(limit=limit, offset=offset, role=role)
     return UserList(items=[UserRead.model_validate(u) for u in items], count=count)
 
@@ -37,12 +39,24 @@ async def update_user_role(
     user_id: uuid.UUID,
     body: UserRoleUpdate,
     db: DbSession,
-    current: User = Depends(require_role("super_admin")),
+    current: User = Depends(require_role("admin")),
 ) -> UserRead:
+    if not R.can_assign_role(current.role, body.role):
+        raise PermissionDeniedError(
+            f"Your role ({current.role}) cannot assign role '{body.role}'"
+        )
+    if body.role == R.ROLE_SUPER_ADMIN:
+        raise PermissionDeniedError("super_admin cannot be assigned via API")
+
     repo = UserRepository(db)
     target = await repo.get_by_id(user_id)
     if target is None:
         raise NotFoundError("User not found")
+    if target.id == current.id:
+        raise ValidationError("You cannot change your own role")
+    if target.role == R.ROLE_SUPER_ADMIN and not R.is_super_admin(current.role):
+        raise PermissionDeniedError("Only a super admin can modify another super admin")
+
     target = await repo.set_role(target, body.role)
     await db.commit()
     await db.refresh(target)
@@ -53,9 +67,13 @@ async def update_user_role(
 async def create_user(
     body: AdminUserCreate,
     db: DbSession,
-    current: User = Depends(require_role("super_admin")),
+    current: User = Depends(require_role("admin")),
 ) -> UserRead:
-    _ = current
+    if not R.can_assign_role(current.role, body.role):
+        raise PermissionDeniedError(
+            f"Your role ({current.role}) cannot create users with role '{body.role}'"
+        )
+
     repo = UserRepository(db)
     if await repo.get_by_email(body.email):
         raise ValidationError("A user with this email already exists")
@@ -73,7 +91,7 @@ async def create_user(
     return UserRead.model_validate(user)
 
 
-async def _count(db: AsyncSession, model, **filters) -> int:
+async def _count(db: AsyncSession, model, **filters) -> int:  # noqa: ANN001
     stmt = select(func.count()).select_from(model)
     for key, value in filters.items():
         stmt = stmt.where(getattr(model, key) == value)
@@ -81,7 +99,8 @@ async def _count(db: AsyncSession, model, **filters) -> int:
 
 
 @router.get("/stats")
-async def dashboard_stats(db: DbSession, current: User = Depends(require_role("admin"))) -> dict:
+async def dashboard_stats(db: DbSession, current: User = Depends(require_role("staff"))) -> dict:
+    _ = current
     return {
         "total_users": await _count(db, User),
         "total_bookings": await _count(db, Booking),

@@ -26,6 +26,21 @@ class PaymentRepository:
         result = await self.db.execute(select(Payment).where(Payment.razorpay_order_id == order_id))
         return result.scalar_one_or_none()
 
+    async def list_for_booking(self, booking_id: uuid.UUID) -> list[Payment]:
+        """Payments where this booking is either the primary or an extra
+        (multi-booking single-checkout) booking on the payment."""
+        from sqlalchemy import cast, String
+
+        result = await self.db.execute(
+            select(Payment)
+            .where(
+                (Payment.booking_id == booking_id)
+                | (cast(Payment.extra_booking_ids, String).ilike(f"%{booking_id}%"))
+            )
+            .order_by(Payment.created_at.desc())
+        )
+        return list(result.scalars().all())
+
     async def save(self, payment: Payment) -> Payment:
         await self.db.flush()
         return payment

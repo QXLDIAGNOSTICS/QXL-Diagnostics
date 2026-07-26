@@ -1,14 +1,27 @@
-"""Booking endpoints: guest + authenticated test/package bookings, admin management."""
+"""Booking endpoints: guest + authenticated test/package bookings, staff management."""
 from __future__ import annotations
 
+import csv
+import io
 import uuid
 
 from fastapi import APIRouter, Depends
+from fastapi.responses import StreamingResponse
 
 from app.api.deps import CurrentUser, CurrentUserOptional, DbSession, require_role
 from app.models.user import User
-from app.schemas.booking import BookingAdminUpdate, BookingCreate, BookingList, BookingRead, BookingStatusUpdate
-from app.services import booking_service
+from app.schemas.booking import (
+    BookingAdminUpdate,
+    BookingCreate,
+    BookingList,
+    BookingReceipt,
+    BookingRead,
+    BookingRescheduleRequest,
+    BookingStatusUpdate,
+    ReceiptPaymentEntry,
+)
+from app.schemas.notification import NotificationList, NotifyRequest, NotificationRead
+from app.services import appointment_stats_service, booking_notification_service, booking_service
 
 router = APIRouter(prefix="/bookings", tags=["bookings"])
 
@@ -27,6 +40,76 @@ async def list_my_bookings(db: DbSession, user: CurrentUser, limit: int = 50, of
     return BookingList(items=[BookingRead.model_validate(b) for b in items], count=count)
 
 
+@router.get("/stats")
+async def appointment_stats(db: DbSession, user: User = Depends(require_role("staff"))) -> dict:
+    """Appointment dashboard + live front-desk stats — powers the Appointments page."""
+    _ = user
+    return await appointment_stats_service.get_dashboard_stats(db)
+
+
+@router.get("/export")
+async def export_bookings_csv(
+    db: DbSession,
+    status: str | None = None,
+    user: User = Depends(require_role("admin")),
+) -> StreamingResponse:
+    """CSV export of appointments — administrators only."""
+    _ = user
+    items, _count = await booking_service.list_all_bookings(db, status=status, limit=5000, offset=0)
+
+    buf = io.StringIO()
+    writer = csv.writer(buf)
+    writer.writerow(
+        [
+            "id",
+            "patient_name",
+            "patient_phone",
+            "patient_email",
+            "test_or_package",
+            "collection_type",
+            "visit_type",
+            "preferred_date",
+            "preferred_time",
+            "status",
+            "is_delayed",
+            "was_rescheduled",
+            "payment_status",
+            "amount_paise",
+            "notes",
+            "created_at",
+        ]
+    )
+    for b in items:
+        writer.writerow(
+            [
+                str(b.id),
+                b.patient_name,
+                b.patient_phone,
+                b.patient_email or "",
+                b.test_name or "",
+                b.collection_type,
+                b.visit_type,
+                b.preferred_date or "",
+                b.preferred_time or "",
+                b.status,
+                b.is_delayed,
+                b.was_rescheduled,
+                b.payment_status,
+                b.amount_paise or "",
+                (b.notes or "").replace("\n", " "),
+                b.created_at.isoformat() if getattr(b, "created_at", None) else "",
+            ]
+        )
+
+    buf.seek(0)
+    filename = "qxl-appointments.csv"
+    return StreamingResponse(
+        iter([buf.getvalue()]),
+        media_type="text/csv",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
 @router.get("/{booking_id}", response_model=BookingRead)
 async def get_my_booking(booking_id: uuid.UUID, db: DbSession, user: CurrentUser) -> BookingRead:
     booking = await booking_service.get_booking_for_user(db, booking_id, user)
@@ -39,8 +122,9 @@ async def admin_list_bookings(
     status: str | None = None,
     limit: int = 100,
     offset: int = 0,
-    user: User = Depends(require_role("admin")),
+    user: User = Depends(require_role("staff")),
 ) -> BookingList:
+    _ = user
     items, count = await booking_service.list_all_bookings(db, status=status, limit=limit, offset=offset)
     return BookingList(items=[BookingRead.model_validate(b) for b in items], count=count)
 
@@ -50,10 +134,139 @@ async def update_booking_status(
     booking_id: uuid.UUID,
     body: BookingStatusUpdate,
     db: DbSession,
-    user: User = Depends(require_role("admin")),
+    user: User = Depends(require_role("staff")),
 ) -> BookingRead:
+    _ = user
     booking = await booking_service.update_booking_status(db, booking_id, body.status)
     return BookingRead.model_validate(booking)
+
+
+@router.post("/{booking_id}/checkin", response_model=BookingRead)
+async def checkin_booking(
+    booking_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("staff"))
+) -> BookingRead:
+    _ = user
+    booking = await booking_service.check_in(db, booking_id)
+    return BookingRead.model_validate(booking)
+
+
+@router.post("/{booking_id}/start", response_model=BookingRead)
+async def start_booking(
+    booking_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("staff"))
+) -> BookingRead:
+    """Marks the patient as now with the doctor / technician."""
+    _ = user
+    booking = await booking_service.start_consultation(db, booking_id)
+    return BookingRead.model_validate(booking)
+
+
+@router.post("/{booking_id}/complete", response_model=BookingRead)
+async def complete_booking(
+    booking_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("staff"))
+) -> BookingRead:
+    _ = user
+    booking = await booking_service.complete_booking(db, booking_id)
+    return BookingRead.model_validate(booking)
+
+
+@router.post("/{booking_id}/no-show", response_model=BookingRead)
+async def no_show_booking(
+    booking_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("staff"))
+) -> BookingRead:
+    _ = user
+    booking = await booking_service.mark_no_show(db, booking_id)
+    return BookingRead.model_validate(booking)
+
+
+@router.post("/{booking_id}/reschedule", response_model=BookingRead)
+async def reschedule_booking(
+    booking_id: uuid.UUID,
+    body: BookingRescheduleRequest,
+    db: DbSession,
+    user: User = Depends(require_role("staff")),
+) -> BookingRead:
+    _ = user
+    booking = await booking_service.reschedule(
+        db,
+        booking_id,
+        preferred_date=body.preferred_date,
+        preferred_time=body.preferred_time,
+        notify=body.notify,
+        channel=body.channel,
+    )
+    return BookingRead.model_validate(booking)
+
+
+@router.patch("/{booking_id}/delay", response_model=BookingRead)
+async def toggle_delay(
+    booking_id: uuid.UUID,
+    is_delayed: bool,
+    db: DbSession,
+    user: User = Depends(require_role("staff")),
+) -> BookingRead:
+    _ = user
+    booking = await booking_service.toggle_delay(db, booking_id, is_delayed)
+    return BookingRead.model_validate(booking)
+
+
+@router.post("/{booking_id}/notify", response_model=NotificationRead, status_code=201)
+async def notify_patient(
+    booking_id: uuid.UUID,
+    body: NotifyRequest,
+    db: DbSession,
+    user: User = Depends(require_role("staff")),
+) -> NotificationRead:
+    """Send (or schedule) an SMS/email to the patient — confirmations, reminders,
+    reschedule/cancellation notices, offers, or a fully custom message."""
+    notification = await booking_notification_service.queue_for_booking_id(
+        db,
+        booking_id=booking_id,
+        channel=body.channel,
+        notification_type=body.type,
+        subject=body.subject,
+        message=body.message,
+        scheduled_at=body.scheduled_at,
+        created_by=user.name or user.email or user.phone,
+    )
+    return NotificationRead.model_validate(notification)
+
+
+@router.get("/{booking_id}/notifications", response_model=NotificationList)
+async def list_booking_notifications(
+    booking_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("staff"))
+) -> NotificationList:
+    _ = user
+    items, count = await booking_notification_service.list_notifications(db, booking_id)
+    return NotificationList(items=[NotificationRead.model_validate(n) for n in items], count=count)
+
+
+@router.get("/{booking_id}/receipt", response_model=BookingReceipt)
+async def get_booking_receipt(
+    booking_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("staff"))
+) -> BookingReceipt:
+    _ = user
+    from app.core.exceptions import NotFoundError
+    from app.repositories.booking_repository import BookingRepository
+    from app.repositories.payment_repository import PaymentRepository
+
+    booking = await BookingRepository(db).get_by_id(booking_id)
+    if booking is None:
+        raise NotFoundError("Booking not found")
+    payments = await PaymentRepository(db).list_for_booking(booking_id)
+
+    return BookingReceipt(
+        booking_id=booking.id,
+        patient_name=booking.patient_name,
+        patient_phone=booking.patient_phone,
+        patient_email=booking.patient_email,
+        item_name=booking.test_name,
+        collection_type=booking.collection_type,
+        preferred_date=booking.preferred_date,
+        preferred_time=booking.preferred_time,
+        payment_status=booking.payment_status,
+        amount_paise=booking.amount_paise,
+        payments=[ReceiptPaymentEntry.model_validate(p) for p in payments],
+    )
 
 
 @router.patch("/{booking_id}", response_model=BookingRead)
@@ -61,8 +274,20 @@ async def update_booking(
     booking_id: uuid.UUID,
     body: BookingAdminUpdate,
     db: DbSession,
-    user: User = Depends(require_role("admin")),
+    user: User = Depends(require_role("staff")),
 ) -> BookingRead:
-    """General admin update: status, report link, notes, urgency, schedule."""
+    """Staff update: patient details, status, schedule, notes, report link."""
+    _ = user
     booking = await booking_service.update_booking(db, booking_id, body.model_dump(exclude_unset=True))
     return BookingRead.model_validate(booking)
+
+
+@router.delete("/{booking_id}", status_code=204)
+async def delete_booking(
+    booking_id: uuid.UUID,
+    db: DbSession,
+    user: User = Depends(require_role("admin")),
+) -> None:
+    """Permanently remove an appointment — administrators only."""
+    _ = user
+    await booking_service.delete_booking(db, booking_id)

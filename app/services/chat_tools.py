@@ -231,16 +231,14 @@ TOOL_SPECS: list[dict] = [
         "function": {
             "name": "create_payment_order",
             "description": (
-                "Create ONE combined secure Razorpay payment order covering all of the "
-                "booking_ids given, so the user pays a single total instead of paying "
-                "separately for each test/package. Call this immediately after you have "
+                "Create ONE combined payment order covering all of the "
+                "booking_ids given, so the user pays a single total. Call this immediately after you have "
                 "created ALL the bookings the user wants to pay for right now (call "
                 "create_booking once per test/package first, collecting each returned "
                 "booking_id, then call this ONCE with the full list). After calling this, "
-                "tell the user a secure payment button has appeared in the chat for the "
-                "combined total — never ask them to pay via any other method, and never "
-                "claim payment is complete yourself; the system confirms that separately "
-                "once they finish the Razorpay checkout."
+                "tell the user a UPI QR code has appeared in the chat for the "
+                "combined total (UPI ID qxl-diagnostics@pingpay) — never invent payment links, and never "
+                "claim payment is complete yourself."
             ),
             "parameters": {
                 "type": "object",
@@ -461,7 +459,7 @@ async def execute_tool(
                     "booking_ids": [str(b.id) for b in bookings],
                     "total_rupees": round(payment.amount / 100, 2),
                     "message": (
-                        "Payment order created. A secure 'Pay Now' button has been shown to the "
+                        "Payment order created. A UPI QR payment card has been shown to the "
                         "user directly in the chat for this combined amount."
                     ),
                 }

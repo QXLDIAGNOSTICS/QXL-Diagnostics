@@ -8,6 +8,7 @@ from app.models.doc_chunk import DocChunk
 from app.models.file import FileRecord
 from app.models.lead import CollaborationLead, ContactInquiry
 from app.models.login_challenge import LoginChallenge
+from app.models.notification import BookingNotification
 from app.models.payment import Payment
 from app.models.prescription import Prescription
 from app.models.session import Session
@@ -23,6 +24,7 @@ __all__ = [
     "Session",
     "LoginChallenge",
     "Payment",
+    "BookingNotification",
     "Center",
     "HealthPackage",
     "TestCatalog",

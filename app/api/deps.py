@@ -6,6 +6,7 @@ from typing import Annotated
 from fastapi import Depends, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core import roles as R
 from app.core.config import settings
 from app.core.exceptions import PermissionDeniedError, UnauthorizedError
 from app.db.session import get_db
@@ -52,16 +53,28 @@ CurrentUserOptional = Annotated[User | None, Depends(get_current_user_optional)]
 
 def require_role(role: str):
     """Dependency factory enforcing our own DB-owned authorization role.
+
+    Special cases:
+    - ``"admin"`` accepts admin **or** super_admin (legacy CMS guard).
+    - ``"staff"`` accepts front_office, admin, or super_admin (panel access).
+    - ``"super_admin"`` is exact-match only.
     """
 
     async def _checker(user: CurrentUser) -> User:
+        if role == "staff":
+            if not R.is_staff(user.role):
+                raise PermissionDeniedError("Requires staff access")
+            return user
         if role == "admin":
-            if user.role not in {"admin", "super_admin"}:
+            if not R.is_admin(user.role):
                 raise PermissionDeniedError("Requires role: admin")
+            return user
+        if role == "super_admin":
+            if not R.is_super_admin(user.role):
+                raise PermissionDeniedError("Requires role: super_admin")
             return user
         if user.role != role:
             raise PermissionDeniedError(f"Requires role: {role}")
         return user
 
     return _checker
-

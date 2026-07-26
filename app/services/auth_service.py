@@ -13,6 +13,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import settings
 from app.core.exceptions import UnauthorizedError, ValidationError
+from app.core.roles import SECRET_GATED_ROLES
 from app.core.security import (
     constant_time_equals,
     generate_opaque_token,
@@ -168,11 +169,11 @@ async def verify_otp(
         user = await UserRepository(db).get_by_id(challenge.user_id)
         if user is None:
             raise UnauthorizedError("Account no longer exists")
-        if user.role in {"admin", "super_admin"}:
+        if user.role in SECRET_GATED_ROLES:
             if not settings.ADMIN_ACCESS_KEY or not admin_secret_key:
-                raise UnauthorizedError("Admin secret key is required")
+                raise UnauthorizedError("Staff secret key is required")
             if not constant_time_equals(admin_secret_key, settings.ADMIN_ACCESS_KEY):
-                raise UnauthorizedError("Incorrect admin secret key")
+                raise UnauthorizedError("Incorrect staff secret key")
 
             # Promote configured admin identifiers to super-admin automatically.
             super_identifiers = {item.lower() for item in settings.ADMIN_SUPER_IDENTIFIERS}

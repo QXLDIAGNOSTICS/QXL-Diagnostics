@@ -147,6 +147,21 @@ async def _mark_bookings_payment_status(
         booking = await booking_repo.get_by_id(booking_id)
         if booking is not None:
             await booking_repo.update_payment_status(booking, payment_status=payment_status)
+            if payment_status == "paid":
+                await _queue_payment_notification(db, booking)
+
+
+async def _queue_payment_notification(db: AsyncSession, booking: Booking) -> None:
+    """Best-effort payment confirmation SMS/email — never blocks the payment flow."""
+    try:
+        from app.services.booking_notification_service import queue_notification
+
+        channel = "both" if booking.patient_email else "sms"
+        await queue_notification(
+            db, booking=booking, channel=channel, notification_type="payment", created_by="system"
+        )
+    except Exception:  # noqa: BLE001
+        logger.exception("Failed to queue payment notification for booking=%s", booking.id)
 
 
 

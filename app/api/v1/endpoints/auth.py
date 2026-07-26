@@ -14,6 +14,7 @@ from app.api.deps import CurrentUserOptional, DbSession
 from app.core.config import settings
 from app.core.exceptions import ValidationError
 from app.core.rate_limit import limiter
+from app.core.roles import SECRET_GATED_ROLES
 from app.core.security import mask_email, mask_phone
 from app.schemas.auth import (
     LoginChallengeResponse,
@@ -43,7 +44,7 @@ def _set_session_cookie(response: Response, raw_token: str) -> None:
 
 
 def _challenge_response(challenge) -> LoginChallengeResponse:  # noqa: ANN001
-    requires_admin_secret = bool(challenge.user and challenge.user.role in {"admin", "super_admin"})
+    requires_admin_secret = bool(challenge.user and challenge.user.role in SECRET_GATED_ROLES)
     return LoginChallengeResponse(
         challenge_id=challenge.id,
         masked_email=mask_email(challenge.user.email) if challenge.user else "***",

@@ -1,6 +1,7 @@
 """FastAPI application factory: middleware, routers, exception handlers."""
 from __future__ import annotations
 
+import asyncio
 from contextlib import asynccontextmanager
 from time import perf_counter
 from uuid import uuid4
@@ -19,11 +20,36 @@ from app.core.rate_limit import limiter
 configure_logging()
 logger = get_logger(__name__)
 
+_NOTIFICATION_POLL_SECONDS = 60
+
+
+async def _notification_scheduler_loop() -> None:
+    """Dispatches any "send later" booking notifications whose time has come.
+
+    Simple in-process poller — sufficient for a single-instance deployment.
+    If you scale to multiple backend instances, move this to a dedicated
+    worker/cron so notifications aren't attempted redundantly.
+    """
+    from app.db.session import AsyncSessionLocal
+    from app.services.booking_notification_service import run_due_notifications
+
+    while True:
+        try:
+            async with AsyncSessionLocal() as db:
+                processed = await run_due_notifications(db)
+                if processed:
+                    logger.info("Dispatched %d scheduled booking notification(s)", processed)
+        except Exception:  # noqa: BLE001
+            logger.exception("Notification scheduler tick failed")
+        await asyncio.sleep(_NOTIFICATION_POLL_SECONDS)
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting %s (%s)", settings.PROJECT_NAME, settings.ENVIRONMENT)
+    scheduler_task = asyncio.create_task(_notification_scheduler_loop())
     yield
+    scheduler_task.cancel()
     from app.db.session import engine
 
     await engine.dispose()

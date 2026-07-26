@@ -6,6 +6,7 @@ from datetime import date, datetime
 
 from pydantic import BaseModel, ConfigDict, EmailStr, field_validator
 
+from app.core.roles import ALL_ROLES, ROLE_PATIENT
 from app.core.security import normalize_phone_number
 
 
@@ -43,8 +44,8 @@ class UserRoleUpdate(BaseModel):
     @field_validator("role")
     @classmethod
     def _valid_role(cls, v: str) -> str:
-        if v not in {"patient", "admin", "super_admin"}:
-            raise ValueError("role must be 'patient', 'admin', or 'super_admin'")
+        if v not in ALL_ROLES:
+            raise ValueError(f"role must be one of {sorted(ALL_ROLES)}")
         return v
 
 
@@ -53,7 +54,7 @@ class AdminUserCreate(BaseModel):
     phone: str
     name: str | None = None
     password: str
-    role: str = "patient"
+    role: str = ROLE_PATIENT
 
     @field_validator("phone")
     @classmethod
@@ -72,6 +73,8 @@ class AdminUserCreate(BaseModel):
     @field_validator("role")
     @classmethod
     def _valid_create_role(cls, v: str) -> str:
-        if v not in {"patient", "admin"}:
-            raise ValueError("role must be 'patient' or 'admin'")
+        # Final allow-list is enforced against the actor in the endpoint
+        # (admin may only mint front_office; super_admin may mint more).
+        if v not in ALL_ROLES - {"super_admin"}:
+            raise ValueError("role must be 'patient', 'front_office', or 'admin'")
         return v
