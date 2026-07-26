@@ -726,7 +726,8 @@ export interface AdminUserCreate {
   phone: string;
   name?: string | null;
   password: string;
-  role?: 'patient' | StaffRole;
+  /** Built-in or super-admin-defined custom role key. */
+  role?: string;
 }
 
 // ── API surface ───────────────────────────────────────────────────────────────
@@ -885,7 +886,7 @@ export const api = {
       get<{ items: AdminUser[]; count: number }>(
         `/admin/users?limit=${limit}&offset=${offset}${role ? `&role=${encodeURIComponent(role)}` : ''}`
       ),
-    createUser: (data: AdminUserCreate) => post<AdminUser>('/users', data),
+    createUser: (data: AdminUserCreate) => post<AdminUser>('/admin/users', data),
     updateUserRole: (id: string, role: string) => patch<AdminUser>(`/admin/users/${id}/role`, { role }),
     stats: () => get<AdminStats>('/stats'),
   },

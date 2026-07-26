@@ -101,7 +101,7 @@ export default function UsersPage() {
         email: newEmail,
         phone: newPhone,
         password: newPassword,
-        role: newRole as "patient" | "front_office" | "staff" | "reception" | "marketing" | "sales" | "admin",
+        role: newRole,
       });
       setNewName("");
       setNewEmail("");
@@ -109,8 +109,12 @@ export default function UsersPage() {
       setNewPassword("");
       setNewRole(allowCreate[0] || ROLE_FRONT_OFFICE);
       await refreshData();
-    } catch {
-      setError("Failed to create user. Check email/phone are unique and password has letters + numbers.");
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to create user. Check email/phone are unique and password has letters + numbers."
+      );
     } finally {
       setCreating(false);
     }
