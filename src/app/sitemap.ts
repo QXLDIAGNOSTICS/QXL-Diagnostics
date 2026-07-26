@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 import { serverApi } from '@/lib/serverApi';
+import { LOCATIONS } from '@/lib/businessInfo';
+import { homeCollectionAreas } from '@/lib/locationsData';
 
 const BASE_URL = 'https://qxldiagnostics.com';
 
@@ -160,6 +162,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const slug of locationSlugs) {
     entries.push({
       url: `${BASE_URL}/centers/${slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    });
+  }
+
+  // Physical lab location SEO pages
+  for (const loc of LOCATIONS) {
+    entries.push({
+      url: `${BASE_URL}/locations/${loc.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    });
+  }
+
+  // Home-collection coverage area pages
+  entries.push({
+    url: `${BASE_URL}/locations`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.8,
+  });
+  for (const area of homeCollectionAreas) {
+    entries.push({
+      url: `${BASE_URL}/locations/areas/${area.slug}`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.7,

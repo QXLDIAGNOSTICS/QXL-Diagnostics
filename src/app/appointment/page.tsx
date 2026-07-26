@@ -48,7 +48,7 @@ const statusColors: Record<string, string> = {
 };
 
 export default function AppointmentPage() {
-  const [viewMode, setViewMode] = useState<"admin">("admin");
+  const [viewMode, setViewMode] = useState<"admin" | "book">("admin");
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -62,7 +62,7 @@ export default function AppointmentPage() {
   const [selectedTest, setSelectedTest] = useState("Q-Master Health Pro Package");
   const [preferredDate, setPreferredDate] = useState(new Date().toISOString().split("T")[0]);
   const [preferredTime, setPreferredTime] = useState("08:00 AM - 10:00 AM");
-  const [collectionType, setCollectionType] = useState("home");
+  const [collectionType, setCollectionType] = useState<"home" | "center">("home");
   const [address, setAddress] = useState("");
   const [bookingSuccess, setBookingSuccess] = useState<Booking | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -112,12 +112,12 @@ export default function AppointmentPage() {
           phone: b.patient_phone,
           email: b.patient_email || "",
           test_name: b.test_name || "",
-          package_name: b.package_name || "",
+          package_name: "",
           preferred_date: b.preferred_date || "",
           collection_type: b.collection_type === "home" ? "Home Collection" : "Center Visit",
           address: b.collection_address || "",
           status: b.status,
-          created_at: b.created_at,
+          created_at: b.created_at || "",
         }));
         setAppointments(mapped);
         setFetching(false);

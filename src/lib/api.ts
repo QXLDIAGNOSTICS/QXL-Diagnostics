@@ -137,6 +137,8 @@ export interface Booking {
   report_url: string | null;
   amount_paise: number | null;
   payment_status: string;
+  created_at?: string;
+  updated_at?: string;
 }
 
 export interface BookingCreate {

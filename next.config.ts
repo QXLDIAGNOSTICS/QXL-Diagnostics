@@ -58,7 +58,51 @@ const nextConfig: NextConfig = {
         source: '/tests',
         destination: '/speciality-tests',
         permanent: true,
-      }
+      },
+      // Home-collection area pages used to live at /locations/[area], which
+      // collided with physical-lab pages at /locations/[slug]. Area pages now
+      // live under /locations/areas/[area]. Lab centre slugs
+      // (kengeri-main-lab, yelahanka-north-hub) stay at /locations/[slug].
+      {
+        source: '/locations/kengeri',
+        destination: '/locations/areas/kengeri',
+        permanent: true,
+      },
+      {
+        source: '/locations/rajarajeshwari-nagar',
+        destination: '/locations/areas/rajarajeshwari-nagar',
+        permanent: true,
+      },
+      {
+        source: '/locations/yelahanka',
+        destination: '/locations/areas/yelahanka',
+        permanent: true,
+      },
+      {
+        source: '/locations/hebbal',
+        destination: '/locations/areas/hebbal',
+        permanent: true,
+      },
+      {
+        source: '/locations/banashankari',
+        destination: '/locations/areas/banashankari',
+        permanent: true,
+      },
+      {
+        source: '/locations/jayanagar',
+        destination: '/locations/areas/jayanagar',
+        permanent: true,
+      },
+      {
+        source: '/locations/whitefield',
+        destination: '/locations/areas/whitefield',
+        permanent: true,
+      },
+      {
+        source: '/locations/electronic-city',
+        destination: '/locations/areas/electronic-city',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

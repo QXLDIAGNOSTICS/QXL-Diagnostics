@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: { area: string } })
     title: `Blood Test at Home in ${location.name} | QXL Diagnostics`,
     description: `Book a blood test with home collection in ${location.name}, Bengaluru. NABL certified lab, same-day reports, and safe sample transport.`,
     alternates: {
-      canonical: `https://qxldiagnostics.com/locations/${area}`,
+      canonical: `https://qxldiagnostics.com/locations/areas/${area}`,
     }
   };
 }
@@ -31,7 +31,7 @@ export default async function LocationAreaPage({ params }: { params: { area: str
     "@type": "MedicalClinic",
     "name": `QXL Diagnostics Home Collection - ${location.name}`,
     "description": location.description,
-    "url": `https://qxldiagnostics.com/locations/${area}`,
+    "url": `https://qxldiagnostics.com/locations/areas/${area}`,
     "telephone": "+91-99646-39639",
     "areaServed": {
       "@type": "Place",

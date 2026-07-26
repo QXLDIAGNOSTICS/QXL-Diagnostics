@@ -68,7 +68,7 @@ export default function LocationsDirectoryPage() {
                   </div>
                 </div>
                 <Link 
-                  href={`/locations/${loc.slug}`} 
+                  href={`/locations/areas/${loc.slug}`} 
                   className="w-full bg-[#f0f9ff] text-[#2563eb] font-extrabold py-2.5 rounded-xl flex items-center justify-center gap-2 group-hover:bg-[#2563eb] group-hover:text-white transition-colors text-xs uppercase tracking-wider"
                 >
                   Book Here <ArrowRight className="w-3.5 h-3.5" />
