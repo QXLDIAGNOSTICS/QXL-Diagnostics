@@ -156,10 +156,9 @@ function StatCard({
 
 export default function AppointmentsPage() {
   const { user } = useAuth();
-  const role = user?.role;
-  const canDelete = canDeleteAppointments(role);
-  const canExport = canExportAppointments(role);
-  const showAnalytics = isAdmin(role);
+  const canDelete = canDeleteAppointments(user);
+  const canExport = canExportAppointments(user);
+  const showAnalytics = isAdmin(user);
 
   const [appointments, setAppointments] = useState<Booking[]>([]);
   const [packages, setPackages] = useState<HealthPackage[]>([]);

@@ -674,6 +674,10 @@ export interface AuthMeResponse {
   role: string;
   is_email_verified: boolean;
   is_phone_verified: boolean;
+  /** DB-aware role-tier flags — account for super-admin-created custom roles. */
+  is_staff: boolean;
+  is_admin: boolean;
+  is_super_admin: boolean;
 }
 
 export interface UserProfileUpdate {

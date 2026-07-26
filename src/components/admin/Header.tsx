@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import NotificationCenter from "@/components/admin/NotificationCenter";
 
 export default function AdminHeader() {
-  const { user } = useAuth();
+  const { user, refresh } = useAuth();
   const router = useRouter();
   const [isDark, setIsDark] = useState(false);
 
@@ -45,6 +45,10 @@ export default function AdminHeader() {
     } catch {
       // Even if the request fails, force the client back to login.
     }
+    // Clear the cached session in AuthProvider — otherwise the login page's
+    // "already signed in" redirect fires on the stale in-memory user and
+    // bounces straight back into the admin panel, making logout look broken.
+    await refresh();
     router.push("/login");
   };
 

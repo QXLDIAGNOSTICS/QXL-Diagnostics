@@ -35,28 +35,54 @@ export const ROLE_LABELS: Record<string, string> = {
 
 export type NavAccess = "staff" | "admin" | "super_admin";
 
-export function isStaff(role: string | null | undefined): boolean {
-  return !!role && STAFF_ROLES.has(role);
+/** Anything with a `role` field (the full `AuthUser`), optionally carrying
+ * the server-computed, DB-aware tier booleans. Accepting either a plain role
+ * string or this shape keeps old call sites working while new ones get
+ * correct behaviour for super-admin-created custom roles. */
+export interface RoleAware {
+  role?: string | null;
+  is_staff?: boolean;
+  is_admin?: boolean;
+  is_super_admin?: boolean;
 }
 
-export function isAdmin(role: string | null | undefined): boolean {
-  return !!role && ADMIN_ROLES.has(role);
+type RoleInput = RoleAware | string | null | undefined;
+
+/** Custom roles (created on the Roles page) aren't in the static sets above,
+ * so prefer the server-computed booleans on the `AuthUser` object whenever
+ * they're available — only fall back to the static role-string sets when a
+ * bare role string is passed in (e.g. code that hasn't been updated yet). */
+export function isStaff(input: RoleInput): boolean {
+  if (input == null) return false;
+  if (typeof input === "string") return STAFF_ROLES.has(input);
+  if (typeof input.is_staff === "boolean") return input.is_staff;
+  return !!input.role && STAFF_ROLES.has(input.role);
 }
 
-export function isSuperAdmin(role: string | null | undefined): boolean {
-  return role === ROLE_SUPER_ADMIN;
+export function isAdmin(input: RoleInput): boolean {
+  if (input == null) return false;
+  if (typeof input === "string") return ADMIN_ROLES.has(input);
+  if (typeof input.is_admin === "boolean") return input.is_admin;
+  return !!input.role && ADMIN_ROLES.has(input.role);
 }
 
-export function canManageUsers(role: string | null | undefined): boolean {
-  return isAdmin(role);
+export function isSuperAdmin(input: RoleInput): boolean {
+  if (input == null) return false;
+  if (typeof input === "string") return input === ROLE_SUPER_ADMIN;
+  if (typeof input.is_super_admin === "boolean") return input.is_super_admin;
+  return input.role === ROLE_SUPER_ADMIN;
 }
 
-export function canDeleteAppointments(role: string | null | undefined): boolean {
-  return isAdmin(role);
+export function canManageUsers(input: RoleInput): boolean {
+  return isAdmin(input);
 }
 
-export function canExportAppointments(role: string | null | undefined): boolean {
-  return isAdmin(role);
+export function canDeleteAppointments(input: RoleInput): boolean {
+  return isAdmin(input);
+}
+
+export function canExportAppointments(input: RoleInput): boolean {
+  return isAdmin(input);
 }
 
 /** Roles the current actor may assign when creating / updating staff. */
@@ -70,9 +96,9 @@ export function creatableRolesFor(actorRole: string | null | undefined): string[
   return [];
 }
 
-export function canAccessNav(role: string | null | undefined, access: NavAccess): boolean {
-  if (access === "staff") return isStaff(role);
-  if (access === "admin") return isAdmin(role);
-  if (access === "super_admin") return isSuperAdmin(role);
+export function canAccessNav(input: RoleInput, access: NavAccess): boolean {
+  if (access === "staff") return isStaff(input);
+  if (access === "admin") return isAdmin(input);
+  if (access === "super_admin") return isSuperAdmin(input);
   return false;
 }

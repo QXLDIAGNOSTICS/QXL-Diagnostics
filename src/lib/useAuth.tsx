@@ -12,6 +12,12 @@ export interface AuthUser {
   role: string;
   is_email_verified: boolean;
   is_phone_verified: boolean;
+  /** Resolved server-side (DB-aware — includes super-admin-defined custom
+   * roles), so the frontend never needs to re-derive access from a
+   * hardcoded role list. Always prefer these over string-matching `role`. */
+  is_staff: boolean;
+  is_admin: boolean;
+  is_super_admin: boolean;
 }
 
 interface AuthState {

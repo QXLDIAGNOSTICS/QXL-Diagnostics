@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import AdminSidebar from "@/components/admin/Sidebar";
 import AdminHeader from "@/components/admin/Header";
 import { useAuth } from "@/lib/useAuth";
-import { isStaff } from "@/lib/roles";
+import { isAdmin, isStaff } from "@/lib/roles";
 
 export default function AdminShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -16,11 +16,11 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
 
   useEffect(() => {
     if (loading) return;
-    if (!isStaff(user?.role) && !isLoginPage) {
+    if (!isStaff(user) && !isLoginPage) {
       router.push("/login");
     }
     // Front-office staff landing on the CMS dashboard → send them to appointments.
-    if (user?.role === "front_office" && pathname === "/") {
+    if (user && !isAdmin(user) && isStaff(user) && pathname === "/") {
       router.replace("/appointments");
       return;
     }
@@ -31,7 +31,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
     return <>{children}</>;
   }
 
-  if (loading || !checked || !isStaff(user?.role)) {
+  if (loading || !checked || !isStaff(user)) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#f4f8ff] dark:bg-gray-950">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-sky-600" />

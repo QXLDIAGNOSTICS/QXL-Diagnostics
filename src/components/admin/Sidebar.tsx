@@ -76,7 +76,7 @@ export default function AdminSidebar() {
   const pathname = usePathname();
   const { user } = useAuth();
   const role = user?.role;
-  const visible = sidebarLinks.filter((link) => canAccessNav(role, link.access));
+  const visible = sidebarLinks.filter((link) => canAccessNav(user, link.access));
 
   return (
     <aside className="w-64 bg-white dark:bg-gray-900 border-r border-slate-200 dark:border-gray-800 hidden md:flex flex-col h-screen sticky top-0 overflow-hidden shrink-0">

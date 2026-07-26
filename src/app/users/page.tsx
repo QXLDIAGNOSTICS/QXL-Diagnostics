@@ -15,7 +15,7 @@ import {
 
 export default function UsersPage() {
   const { user } = useAuth();
-  const canManage = canManageUsers(user?.role);
+  const canManage = canManageUsers(user);
   const [roleDefs, setRoleDefs] = useState<RoleRecord[]>([]);
   const staticAllow = creatableRolesFor(user?.role);
   // Prefer live roles from the API (includes any super-admin-created custom
@@ -23,7 +23,7 @@ export default function UsersPage() {
   const allowCreate =
     roleDefs.length > 0
       ? roleDefs
-          .filter((r) => r.key !== ROLE_SUPER_ADMIN && (isSuperAdmin(user?.role) || r.tier === "staff"))
+          .filter((r) => r.key !== ROLE_SUPER_ADMIN && (isSuperAdmin(user) || r.tier === "staff"))
           .map((r) => r.key)
       : staticAllow;
   const roleLabels: Record<string, string> = {
@@ -149,7 +149,7 @@ export default function UsersPage() {
         </h1>
         <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm max-w-2xl">
           Create Front Office, Staff, Reception, Marketing, or Sales accounts for the appointments desk
-          {isSuperAdmin(user?.role) ? ", or promote Administrators" : ""}. Patients who register on
+          {isSuperAdmin(user) ? ", or promote Administrators" : ""}. Patients who register on
           the public site appear below but usually stay as Patient.
         </p>
       </div>

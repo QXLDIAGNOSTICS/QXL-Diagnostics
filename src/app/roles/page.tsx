@@ -30,7 +30,7 @@ interface DraftState {
 
 export default function RolesPage() {
   const { user } = useAuth();
-  const canManage = isSuperAdmin(user?.role);
+  const canManage = isSuperAdmin(user);
 
   const [catalog, setCatalog] = useState<PermissionCatalogItem[]>([]);
   const [roles, setRoles] = useState<RoleRecord[]>([]);

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import LoginFlow from "@/components/auth/LoginFlow";
 import { useAuth } from "@/lib/useAuth";
-import { isStaff, ROLE_FRONT_OFFICE } from "@/lib/roles";
+import { isAdmin, isStaff } from "@/lib/roles";
 
 const inputClass =
   "w-full border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500";
@@ -18,8 +18,8 @@ export default function AdminLogin() {
 
   useEffect(() => {
     if (loading) return;
-    if (!isStaff(user?.role)) return;
-    router.replace(user?.role === ROLE_FRONT_OFFICE ? "/appointments" : "/");
+    if (!isStaff(user)) return;
+    router.replace(isAdmin(user) ? "/" : "/appointments");
   }, [loading, user, router]);
 
   return (
@@ -36,7 +36,7 @@ export default function AdminLogin() {
         </div>
 
         <div className="p-8 space-y-4">
-          {isStaff(user?.role) ? (
+          {isStaff(user) ? (
             <div className="text-sm text-gray-500 dark:text-gray-400 text-center space-y-3">
               <p>You&apos;re signed in. Continuing…</p>
             </div>
@@ -49,9 +49,7 @@ export default function AdminLogin() {
               </p>
               <LoginFlow
                 loginVariant="password_otp"
-                onComplete={(u) =>
-                  router.push(u?.role === ROLE_FRONT_OFFICE ? "/appointments" : "/")
-                }
+                onComplete={(u) => router.push(u && isAdmin(u) ? "/" : "/appointments")}
                 inputClassName={inputClass}
                 primaryButtonClassName={buttonClass}
               />
