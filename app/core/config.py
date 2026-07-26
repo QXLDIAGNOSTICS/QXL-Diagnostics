@@ -59,9 +59,24 @@ class Settings(BaseSettings):
     NETTYFISH_CLIENT_ID: str = ""
     NETTYFISH_SENDER_ID: str = ""
     NETTYFISH_PRINCIPLE_ENTITY_ID: str = ""
-    NETTYFISH_TEMPLATE_ID: str = ""
+    NETTYFISH_TEMPLATE_ID: str = ""  # used for OTP SMS
     NETTYFISH_SERVICE_ID: str = ""
     NETTYFISH_VALIDITY_PERIOD: str = "5m"
+
+    # Per-notification-type DLT template IDs (India TRAI/DLT requires each
+    # distinct SMS wording to be pre-registered and approved with its own
+    # template ID — see NETTYFISH_DLT_TEMPLATES.md for the exact copy to
+    # submit for approval). Leave blank to skip sending that type of SMS
+    # (falls back to a dev log) until the template is approved.
+    NETTYFISH_TEMPLATE_ID_CONFIRMATION: str = ""
+    NETTYFISH_TEMPLATE_ID_PAYMENT: str = ""
+    NETTYFISH_TEMPLATE_ID_REMINDER: str = ""
+    NETTYFISH_TEMPLATE_ID_RESCHEDULE: str = ""
+    NETTYFISH_TEMPLATE_ID_CANCELLATION: str = ""
+    NETTYFISH_TEMPLATE_ID_OFFER: str = ""
+    # Generic free-text template for ad-hoc staff messages, e.g. a DLT
+    # template registered as "Dear Customer, {#var#} - QXL Diagnostics".
+    NETTYFISH_TEMPLATE_ID_CUSTOM: str = ""
 
     # Shared admin key required during admin OTP verification.
     ADMIN_ACCESS_KEY: str = ""

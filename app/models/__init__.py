@@ -11,6 +11,7 @@ from app.models.login_challenge import LoginChallenge
 from app.models.notification import BookingNotification
 from app.models.payment import Payment
 from app.models.prescription import Prescription
+from app.models.role import CustomRole
 from app.models.session import Session
 from app.models.user import User
 
@@ -25,6 +26,7 @@ __all__ = [
     "LoginChallenge",
     "Payment",
     "BookingNotification",
+    "CustomRole",
     "Center",
     "HealthPackage",
     "TestCatalog",

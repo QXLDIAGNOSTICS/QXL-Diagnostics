@@ -41,7 +41,7 @@ async def update_user_role(
     db: DbSession,
     current: User = Depends(require_role("admin")),
 ) -> UserRead:
-    if not R.can_assign_role(current.role, body.role):
+    if not await R.can_assign_role_async(db, current.role, body.role):
         raise PermissionDeniedError(
             f"Your role ({current.role}) cannot assign role '{body.role}'"
         )
@@ -69,7 +69,7 @@ async def create_user(
     db: DbSession,
     current: User = Depends(require_role("admin")),
 ) -> UserRead:
-    if not R.can_assign_role(current.role, body.role):
+    if not await R.can_assign_role_async(db, current.role, body.role):
         raise PermissionDeniedError(
             f"Your role ({current.role}) cannot create users with role '{body.role}'"
         )

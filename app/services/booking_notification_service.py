@@ -22,12 +22,14 @@ from app.models.notification import BookingNotification
 from app.repositories.booking_repository import BookingRepository
 from app.repositories.notification_repository import NotificationRepository
 from app.services import notification_service
-from app.services.notification_templates import build_default
+from app.services.notification_templates import build_default, get_template_id
 
 logger = get_logger(__name__)
 
 
-async def _dispatch(booking: Booking, *, channel: str, subject: str, message: str) -> tuple[bool, bool, list[str]]:
+async def _dispatch(
+    booking: Booking, *, channel: str, subject: str, message: str, notification_type: str
+) -> tuple[bool, bool, list[str]]:
     """Sends via the requested channel(s). Returns (sms_ok, email_ok, errors)."""
     sms_ok = True
     email_ok = True
@@ -38,9 +40,15 @@ async def _dispatch(booking: Booking, *, channel: str, subject: str, message: st
             sms_ok = False
             errors.append("No phone number on file")
         else:
-            sms_ok = await notification_service.send_sms(booking.patient_phone, message)
+            template_id = get_template_id(notification_type)
+            sms_ok = await notification_service.send_sms(
+                booking.patient_phone, message, template_id=template_id
+            )
             if not sms_ok:
-                errors.append("SMS delivery failed or not configured")
+                errors.append(
+                    "SMS delivery failed, or no DLT-approved template ID configured for "
+                    f"'{notification_type}' (see NETTYFISH_DLT_TEMPLATES.md)"
+                )
 
     if channel in {"email", "both"}:
         if not booking.patient_email:
@@ -99,7 +107,11 @@ async def _send_and_record(db: AsyncSession, notification: BookingNotification, 
     repo = NotificationRepository(db)
     try:
         sms_ok, email_ok, errors = await _dispatch(
-            booking, channel=notification.channel, subject=notification.subject or "", message=notification.message
+            booking,
+            channel=notification.channel,
+            subject=notification.subject or "",
+            message=notification.message,
+            notification_type=notification.type,
         )
     except Exception as exc:  # noqa: BLE001
         logger.exception("Notification dispatch crashed for booking=%s", booking.id)

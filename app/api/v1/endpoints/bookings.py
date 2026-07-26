@@ -4,15 +4,19 @@ from __future__ import annotations
 import csv
 import io
 import uuid
+from datetime import datetime, timedelta, timezone
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
 from fastapi.responses import StreamingResponse
 
 from app.api.deps import CurrentUser, CurrentUserOptional, DbSession, require_role
 from app.models.user import User
+from app.repositories.booking_repository import BookingRepository
 from app.schemas.booking import (
     BookingAdminUpdate,
     BookingCreate,
+    BookingFeed,
+    BookingFeedItem,
     BookingList,
     BookingReceipt,
     BookingRead,
@@ -45,6 +49,26 @@ async def appointment_stats(db: DbSession, user: User = Depends(require_role("st
     """Appointment dashboard + live front-desk stats — powers the Appointments page."""
     _ = user
     return await appointment_stats_service.get_dashboard_stats(db)
+
+
+@router.get("/notifications-feed", response_model=BookingFeed)
+async def booking_notifications_feed(
+    db: DbSession,
+    since: datetime | None = Query(None, description="ISO timestamp; only bookings created after this are returned"),
+    limit: int = Query(20, le=50),
+    user: User = Depends(require_role("staff")),
+) -> BookingFeed:
+    """Powers the admin bell icon — new-booking alerts, desktop notifications & sound."""
+    _ = user
+    cutoff = since or (datetime.now(timezone.utc) - timedelta(minutes=20))
+    if cutoff.tzinfo is None:
+        cutoff = cutoff.replace(tzinfo=timezone.utc)
+    repo = BookingRepository(db)
+    rows = await repo.list_created_after(cutoff, limit=limit)
+    return BookingFeed(
+        items=[BookingFeedItem.model_validate(row) for row in rows],
+        server_time=datetime.now(timezone.utc),
+    )
 
 
 @router.get("/export")

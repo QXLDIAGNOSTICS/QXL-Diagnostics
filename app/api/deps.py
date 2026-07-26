@@ -60,13 +60,13 @@ def require_role(role: str):
     - ``"super_admin"`` is exact-match only.
     """
 
-    async def _checker(user: CurrentUser) -> User:
+    async def _checker(user: CurrentUser, db: DbSession) -> User:
         if role == "staff":
-            if not R.is_staff(user.role):
+            if not await R.is_staff_async(db, user.role):
                 raise PermissionDeniedError("Requires staff access")
             return user
         if role == "admin":
-            if not R.is_admin(user.role):
+            if not await R.is_admin_async(db, user.role):
                 raise PermissionDeniedError("Requires role: admin")
             return user
         if role == "super_admin":

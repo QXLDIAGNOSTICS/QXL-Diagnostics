@@ -44,6 +44,20 @@ class BookingRepository:
         )
         return rows, count
 
+    async def list_created_after(self, since: datetime, limit: int = 20) -> list[Booking]:
+        """Bookings created after ``since`` — powers the admin notification bell feed."""
+        rows = list(
+            (
+                await self.db.execute(
+                    select(Booking)
+                    .where(Booking.created_at > since)
+                    .order_by(Booking.created_at.desc())
+                    .limit(limit)
+                )
+            ).scalars().all()
+        )
+        return rows
+
     async def list_all(
         self, status: str | None = None, limit: int = 100, offset: int = 0
     ) -> tuple[list[Booking], int]:

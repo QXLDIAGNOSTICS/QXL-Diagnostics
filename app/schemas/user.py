@@ -1,13 +1,19 @@
 """User schemas."""
 from __future__ import annotations
 
+import re
 import uuid
 from datetime import date, datetime
 
 from pydantic import BaseModel, ConfigDict, EmailStr, field_validator
 
-from app.core.roles import ALL_ROLES, ROLE_PATIENT
+from app.core.roles import ROLE_PATIENT, ROLE_SUPER_ADMIN
 from app.core.security import normalize_phone_number
+
+# Role values are validated for *shape* only here; the actual allow-list
+# (built-in + super-admin-defined custom roles) is enforced against the
+# actor in the endpoint layer via ``app.core.roles.can_assign_role_async``.
+_ROLE_KEY_RE = re.compile(r"^[a-z][a-z0-9_]{1,39}$")
 
 
 class UserBase(BaseModel):
@@ -44,8 +50,10 @@ class UserRoleUpdate(BaseModel):
     @field_validator("role")
     @classmethod
     def _valid_role(cls, v: str) -> str:
-        if v not in ALL_ROLES:
-            raise ValueError(f"role must be one of {sorted(ALL_ROLES)}")
+        if v == ROLE_SUPER_ADMIN:
+            raise ValueError("super_admin cannot be assigned via API")
+        if not _ROLE_KEY_RE.match(v):
+            raise ValueError("role must be a lowercase slug (letters, numbers, underscores)")
         return v
 
 
@@ -74,7 +82,9 @@ class AdminUserCreate(BaseModel):
     @classmethod
     def _valid_create_role(cls, v: str) -> str:
         # Final allow-list is enforced against the actor in the endpoint
-        # (admin may only mint front_office; super_admin may mint more).
-        if v not in ALL_ROLES - {"super_admin"}:
-            raise ValueError("role must be 'patient', 'front_office', or 'admin'")
+        # (admin may only mint front-desk roles; super_admin may mint more).
+        if v == ROLE_SUPER_ADMIN:
+            raise ValueError("super_admin cannot be assigned via API")
+        if not _ROLE_KEY_RE.match(v):
+            raise ValueError("role must be a lowercase slug (letters, numbers, underscores)")
         return v

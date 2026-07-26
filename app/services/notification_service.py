@@ -22,12 +22,12 @@ logger = get_logger(__name__)
 _NETTYFISH_SEND_SMS_PATH = "/api/v2/SendSMS"
 
 
-def _nettyfish_configured() -> bool:
+def _nettyfish_configured(template_id: str) -> bool:
     return bool(
         settings.NETTYFISH_API_KEY
         and settings.NETTYFISH_CLIENT_ID
         and settings.NETTYFISH_SENDER_ID
-        and settings.NETTYFISH_TEMPLATE_ID
+        and template_id
         and settings.NETTYFISH_PRINCIPLE_ENTITY_ID
     )
 
@@ -50,11 +50,18 @@ def _to_nettyfish_mobile(phone: str) -> str:
     raise ValueError(f"Invalid Indian mobile number: {phone}")
 
 
-async def send_sms(to_phone: str, body: str) -> bool:
-    """Send an SMS via Nettyfish SmartSMS. Returns True if a real send succeeded."""
-    if not _nettyfish_configured():
+async def send_sms(to_phone: str, body: str, *, template_id: str | None = None) -> bool:
+    """Send an SMS via Nettyfish SmartSMS. Returns True if a real send succeeded.
+
+    ``template_id`` should be the DLT-approved template ID whose registered
+    wording matches ``body`` (see NETTYFISH_DLT_TEMPLATES.md). Defaults to the
+    OTP template for backward compatibility with existing OTP call sites.
+    """
+    resolved_template_id = template_id or settings.NETTYFISH_TEMPLATE_ID
+    if not _nettyfish_configured(resolved_template_id):
         logger.warning(
-            "SMS not sent (Nettyfish not configured) — dev fallback log only. to=%s",
+            "SMS not sent (Nettyfish not configured, or no DLT template ID set for this "
+            "message type) — dev fallback log only. to=%s",
             _mask_for_log(to_phone),
         )
         return False
@@ -79,7 +86,7 @@ async def send_sms(to_phone: str, body: str) -> bool:
         "CoRelator": "",
         "LinkId": "",
         "PrincipleEntityId": settings.NETTYFISH_PRINCIPLE_ENTITY_ID,
-        "TemplateId": settings.NETTYFISH_TEMPLATE_ID,
+        "TemplateId": resolved_template_id,
         "ApiKey": settings.NETTYFISH_API_KEY,
         "ClientId": settings.NETTYFISH_CLIENT_ID,
     }

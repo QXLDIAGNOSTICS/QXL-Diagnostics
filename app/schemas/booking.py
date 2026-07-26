@@ -196,3 +196,18 @@ class BookingReceipt(BaseModel):
     payment_status: str
     amount_paise: int | None = None
     payments: list[ReceiptPaymentEntry] = []
+
+
+class BookingFeedItem(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: uuid.UUID
+    patient_name: str
+    test_name: str | None = None
+    status: str
+    visit_type: str | None = None
+    created_at: datetime
+
+
+class BookingFeed(BaseModel):
+    items: list[BookingFeedItem]
+    server_time: datetime
