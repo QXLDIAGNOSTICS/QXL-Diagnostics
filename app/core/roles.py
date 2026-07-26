@@ -41,8 +41,11 @@ STAFF_ROLES: frozenset[str] = frozenset(FRONT_DESK_ROLES | {ROLE_ADMIN, ROLE_SUP
 # Full CMS managers (everything except some super-admin-only user ops).
 ADMIN_ROLES: frozenset[str] = frozenset({ROLE_ADMIN, ROLE_SUPER_ADMIN})
 
-# Roles that require the shared ADMIN_ACCESS_KEY during OTP login.
-SECRET_GATED_ROLES: frozenset[str] = frozenset(STAFF_ROLES)
+# Roles that require the shared ADMIN_ACCESS_KEY during OTP login. Only the
+# platform owner (super_admin) is gated — every other staff role (admin,
+# front office, staff, reception, marketing, sales) logs in with just
+# identifier + password + OTP.
+SECRET_GATED_ROLES: frozenset[str] = frozenset({ROLE_SUPER_ADMIN})
 
 # Roles an administrator may assign when creating / updating users.
 # super_admin may assign any non-patient staff role; admin may only mint

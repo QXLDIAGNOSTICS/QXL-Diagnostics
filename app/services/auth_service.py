@@ -169,23 +169,29 @@ async def verify_otp(
         user = await UserRepository(db).get_by_id(challenge.user_id)
         if user is None:
             raise UnauthorizedError("Account no longer exists")
+
+        # Promote configured super-admin identifiers automatically. Evaluated
+        # before the secret-key gate below so the very first super-admin
+        # login can complete without requiring a pre-existing super_admin
+        # account — the identifier allowlist itself is the authorization.
+        super_identifiers = {item.lower() for item in settings.ADMIN_SUPER_IDENTIFIERS}
+        if (
+            super_identifiers
+            and user.role != "super_admin"
+            and (
+                (user.email or "").lower() in super_identifiers
+                or user.phone.lower() in super_identifiers
+            )
+        ):
+            user.role = "super_admin"
+
+        # Only the super-admin role needs the shared secret key — every
+        # other staff role signs in with identifier + password + OTP alone.
         if user.role in SECRET_GATED_ROLES:
             if not settings.ADMIN_ACCESS_KEY or not admin_secret_key:
-                raise UnauthorizedError("Staff secret key is required")
+                raise UnauthorizedError("Super Admin secret key is required")
             if not constant_time_equals(admin_secret_key, settings.ADMIN_ACCESS_KEY):
-                raise UnauthorizedError("Incorrect staff secret key")
-
-            # Promote configured admin identifiers to super-admin automatically.
-            super_identifiers = {item.lower() for item in settings.ADMIN_SUPER_IDENTIFIERS}
-            if (
-                super_identifiers
-                and (
-                    (user.email or "").lower() in super_identifiers
-                    or user.phone.lower() in super_identifiers
-                )
-                and user.role != "super_admin"
-            ):
-                user.role = "super_admin"
+                raise UnauthorizedError("Incorrect Super Admin secret key")
 
         challenge.otp_verified_at = datetime.now(timezone.utc)
         user.is_phone_verified = True

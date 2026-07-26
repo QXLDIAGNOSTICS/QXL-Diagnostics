@@ -31,6 +31,21 @@ from app.services import auth_service, session_service
 router = APIRouter(prefix="/auth", tags=["auth"])
 
 
+def _requires_admin_secret(user) -> bool:  # noqa: ANN001
+    """Only the super-admin needs the shared secret key at login. Identifiers
+    configured in ``ADMIN_SUPER_IDENTIFIERS`` are flagged too (even before
+    they're promoted) so the field shows up on that account's very first
+    login, when the promotion itself happens during OTP verification."""
+    if user is None:
+        return False
+    if user.role in SECRET_GATED_ROLES:
+        return True
+    super_identifiers = {item.lower() for item in settings.ADMIN_SUPER_IDENTIFIERS}
+    if not super_identifiers:
+        return False
+    return (user.email or "").lower() in super_identifiers or user.phone.lower() in super_identifiers
+
+
 def _set_session_cookie(response: Response, raw_token: str) -> None:
     response.set_cookie(
         settings.SESSION_COOKIE_NAME,
@@ -44,7 +59,7 @@ def _set_session_cookie(response: Response, raw_token: str) -> None:
 
 
 def _challenge_response(challenge) -> LoginChallengeResponse:  # noqa: ANN001
-    requires_admin_secret = bool(challenge.user and challenge.user.role in SECRET_GATED_ROLES)
+    requires_admin_secret = _requires_admin_secret(challenge.user)
     return LoginChallengeResponse(
         challenge_id=challenge.id,
         masked_email=mask_email(challenge.user.email) if challenge.user else "***",

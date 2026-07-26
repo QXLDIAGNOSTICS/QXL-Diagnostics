@@ -1,7 +1,9 @@
 """Schemas for the backend-owned auth/session endpoints.
 
 Patient login is phone + OTP only.
-Admin login is identifier + password, then OTP + admin secret key.
+Staff login is identifier + password, then OTP. Only the super_admin role is
+additionally asked for the shared secret key — ``requires_admin_secret`` on
+the challenge response tells the client whether to show that field.
 """
 from __future__ import annotations
 
