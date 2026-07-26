@@ -369,11 +369,11 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Desktop Nav Row — spatial liquid glass strip */}
-        <div className="pb-2 pt-1 px-4">
-          <div className="max-w-[1260px] mx-auto">
+        {/* Desktop Nav Row — single-line glass strip (never wraps) */}
+        <div className="pb-2 pt-1 px-3 xl:px-4">
+          <div className="max-w-[1400px] mx-auto">
             <nav
-              className="flex items-center justify-center rounded-2xl px-3"
+              className="rounded-2xl px-2 xl:px-3"
               style={{
                 background: 'linear-gradient(135deg, rgba(224,242,254,0.50) 0%, rgba(186,230,255,0.35) 50%, rgba(224,242,254,0.50) 100%)',
                 border: '1px solid rgba(125,199,232,0.22)',
@@ -381,26 +381,20 @@ export default function Header() {
                 boxShadow: '0 1px 0 rgba(255,255,255,0.95) inset, 0 -1px 0 rgba(125,199,232,0.12) inset, 0 4px 20px rgba(14,165,233,0.06)'
               }}
             >
-              <div className="flex items-center justify-between w-full text-[11px] xl:text-[12px] font-extrabold gap-0.5 py-1.5">
+              <div className="flex flex-nowrap items-center justify-between w-full gap-0 py-1.5 text-[9.5px] lg:text-[10px] xl:text-[11px] 2xl:text-[12px] font-extrabold">
                 {navItems.map((item: any) => {
                   const isActive = pathname === item.href;
                   return (
                     <Link
                       key={item.label}
                       href={item.href}
-                      className={`relative px-3 py-1.5 rounded-xl uppercase tracking-wide whitespace-nowrap transition-all duration-250 ${
-                        isActive
-                          ? 'font-extrabold'
-                          : 'text-[#0369a1] hover:text-[#0284c7] font-extrabold'
-                      }`}
+                      className="relative shrink-0 inline-flex items-center justify-center px-1.5 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg uppercase tracking-wide whitespace-nowrap leading-none transition-colors duration-200 text-[#0369a1] hover:text-[#0284c7]"
                       style={isActive ? {
-                        background: 'linear-gradient(135deg, rgba(147,210,255,0.80) 0%, rgba(56,189,248,0.65) 100%)',
-                        color: '#0c4a6e',
-                        boxShadow: '0 2px 12px rgba(14,165,233,0.25), inset 0 1px 0 rgba(255,255,255,0.75)'
-                      } : {
-                        transition: 'background 0.2s'
-                      }}
-                      onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(186,230,255,0.45)'; }}
+                        background: 'rgba(186,230,255,0.55)',
+                        color: '#0369a1',
+                        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.7)'
+                      } : undefined}
+                      onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(186,230,255,0.35)'; }}
                       onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
                     >
                       {item.label}
@@ -627,48 +621,76 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* ── MOBILE BOTTOM NAVIGATION (truly fixed at bottom) ── */}
+      {/* ── MOBILE BOTTOM NAVIGATION — frosted glass ── */}
       <div
-        className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-[9999] lg:hidden flex flex-col"
-        style={{ paddingBottom: 'env(safe-area-inset-bottom)', boxShadow: '0 -2px 12px rgba(0,0,0,0.08)' }}
+        className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col"
+        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
-        {/* Book Now strip */}
-        <Link href="/book" className="flex items-center justify-center w-full py-2.5 text-white font-extrabold text-xs tracking-wider uppercase shadow-sm" style={{ background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)' }}>
-          BOOK NOW
-        </Link>
-        <div className="flex justify-around items-center h-14">
-          {[
-            { label: "Home", href: "/", icon: Home },
-            { label: "Book a Test", href: "/book", icon: Microscope },
-            { label: "Packages", href: "/packages", icon: Layers },
-            { label: "Reports", href: "/report", icon: FileText },
-            { label: user ? "Profile" : "Login", href: user ? "/profile" : "/login", icon: User },
-          ].map((tab) => {
-            const TabIcon = tab.icon;
-            const isActive = tab.href === '/' ? pathname === '/' : pathname?.startsWith(tab.href);
-            return (
-              <Link
-                key={tab.href}
-                href={tab.href}
-                className="flex flex-col items-center justify-center gap-0.5 flex-1 h-full"
-              >
-                <TabIcon
-                  className={`w-[22px] h-[22px] transition-all ${
-                    isActive ? 'text-[#0ea5e9]' : 'text-gray-900'
-                  }`}
-                  strokeWidth={isActive ? 2.5 : 1.8}
-                />
-                <span
-                  className={`text-[9px] font-bold tracking-wide uppercase leading-none ${
-                    isActive ? 'text-[#0ea5e9]' : 'text-gray-900'
-                  }`}
-                >
-                  {tab.label}
-                </span>
-              </Link>
-            );
-          })}
+        {/* Book Now — glass sky pill strip */}
+        <div className="px-3 pb-1.5">
+          <Link
+            href="/book"
+            className="flex items-center justify-center gap-2 w-full py-2.5 rounded-2xl text-white font-extrabold text-[11px] tracking-[0.14em] uppercase transition-transform active:scale-[0.98]"
+            style={{
+              background: 'linear-gradient(135deg, rgba(56,189,248,0.95) 0%, rgba(2,132,199,0.98) 100%)',
+              boxShadow: '0 6px 20px rgba(14,165,233,0.35), inset 0 1px 0 rgba(255,255,255,0.35)',
+              border: '1px solid rgba(255,255,255,0.35)',
+              backdropFilter: 'blur(12px)',
+            }}
+          >
+            Book Now
+            <span aria-hidden className="text-sm leading-none">→</span>
+          </Link>
         </div>
+
+        <nav
+          className="mx-2 mb-2 rounded-[22px] overflow-hidden"
+          style={{
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(224,242,254,0.78) 100%)',
+            backdropFilter: 'blur(24px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+            border: '1px solid rgba(125,199,232,0.35)',
+            boxShadow: '0 -4px 24px rgba(14,165,233,0.12), inset 0 1px 0 rgba(255,255,255,0.9)',
+          }}
+          aria-label="Mobile navigation"
+        >
+          <div className="flex justify-around items-stretch h-[60px] px-1">
+            {[
+              { label: "Home", href: "/", icon: Home },
+              { label: "Book", href: "/book", icon: Microscope },
+              { label: "Packages", href: "/packages", icon: Layers },
+              { label: "Reports", href: "/report", icon: FileText },
+              { label: user ? "Profile" : "Login", href: user ? "/profile" : "/login", icon: User },
+            ].map((tab) => {
+              const TabIcon = tab.icon;
+              const isActive = tab.href === '/' ? pathname === '/' : pathname?.startsWith(tab.href);
+              return (
+                <Link
+                  key={tab.href}
+                  href={tab.href}
+                  className="relative flex flex-col items-center justify-center gap-0.5 flex-1 h-full rounded-xl mx-0.5 transition-colors"
+                  style={isActive ? {
+                    background: 'rgba(186,230,255,0.55)',
+                  } : undefined}
+                >
+                  <TabIcon
+                    className={`w-5 h-5 transition-colors ${
+                      isActive ? 'text-[#0284c7]' : 'text-slate-500'
+                    }`}
+                    strokeWidth={isActive ? 2.4 : 1.9}
+                  />
+                  <span
+                    className={`text-[9px] font-bold tracking-wide uppercase leading-none ${
+                      isActive ? 'text-[#0284c7]' : 'text-slate-500'
+                    }`}
+                  >
+                    {tab.label}
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
       </div>
 
       {/* Prescription Modal */}

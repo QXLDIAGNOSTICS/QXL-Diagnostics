@@ -1025,7 +1025,7 @@ export default function Home() {
               </p>
               <div className="w-16 h-1 bg-[#2563eb] mx-auto rounded-full mt-4" />
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-5">
               {[
                 { title: "NEUROLOGY", href: "/specialities/neurology", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png" },
                 { title: "HEMATOLOGY", href: "/specialities/hematology", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150417/Assets-QXL/legacy-assets/image/spec_hematology.png" },
@@ -1044,11 +1044,22 @@ export default function Home() {
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true, margin: "-30px" }}
                   transition={{ duration: 0.35, delay: idx * 0.04 }}
-                  whileHover={{ scale: 1.05, y: -4 }}
-                  className="bg-white rounded-2xl border border-gray-100 hover:border-blue-400/50 hover:shadow-[0_12px_30px_rgba(37,99,235,0.15)] hover:scale-[1.03] transition-all duration-300"
+                  whileHover={{ y: -6 }}
+                  className="rounded-3xl transition-all duration-300"
+                  style={{
+                    background: 'linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%)',
+                    border: '1px solid rgba(125,199,232,0.3)',
+                    boxShadow: '0 8px 28px rgba(14,165,233,0.08)',
+                  }}
                 >
-                  <Link href={s.href} className="group flex flex-col items-center p-4 sm:p-6 h-full">
-                    <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 mx-auto mb-4 rounded-3xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                  <Link href={s.href} className="group flex flex-col items-center p-4 sm:p-5 h-full">
+                    <div
+                      className="w-24 h-24 sm:w-28 sm:h-28 lg:w-36 lg:h-36 mx-auto mb-4 rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 overflow-hidden"
+                      style={{
+                        background: 'linear-gradient(145deg, rgba(224,242,254,0.95) 0%, rgba(186,230,255,0.5) 100%)',
+                        border: '1px solid rgba(125,199,232,0.25)',
+                      }}
+                    >
                       <Image 
                         src={optimizeCloudinaryUrl(s.icon, { w: 190, h: 190 })} 
                         alt="" 
@@ -1058,7 +1069,7 @@ export default function Home() {
                         className={`w-full h-full object-contain mix-blend-multiply ${s.title === "GASTROENTEROLOGY" ? "scale-[1.4]" : "scale-110"}`} 
                       />
                     </div>
-                    <h3 className="font-extrabold text-[#0f2d5e] group-hover:text-[#2563eb] text-[11px] tracking-wider leading-tight transition-colors">{s.title}</h3>
+                    <h3 className="font-extrabold text-[#0c4a6e] group-hover:text-[#0284c7] text-[11px] tracking-wider leading-tight transition-colors text-center">{s.title}</h3>
                   </Link>
                 </motion.div>
               ))}
@@ -1093,24 +1104,39 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
-                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
-                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
-                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
+                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", role: "Founder & CEO", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
+                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", role: "Senior Consultant", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
+                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", role: "Senior Consultant", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
+                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", role: "Consultant Pathologist", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
               ].map((doc: any) => (
-                <div key={doc.name} className="bg-white rounded-2xl overflow-hidden flex flex-col items-center p-4 text-center group border border-gray-100 hover:shadow-lg transition-all hover:border-[#2563eb]/20">
-                  <div className="w-56 h-56 rounded-2xl overflow-hidden mb-4 bg-[#f8fafc] flex items-center justify-center border border-gray-100">
-                    <Image src={doc.image} alt={doc.name} width={224} height={224}
-                      className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                      style={{ 
-                        objectPosition: doc.imagePosition || 'top',
-                        transform: doc.imageScale ? `scale(${doc.imageScale})` : 'none',
-                      }}
+                <Link
+                  href="/founder"
+                  key={doc.name}
+                  className="group rounded-3xl overflow-hidden flex flex-col text-center transition-all duration-300 hover:-translate-y-1"
+                  style={{
+                    background: 'linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%)',
+                    border: '1px solid rgba(125,199,232,0.3)',
+                    boxShadow: '0 8px 28px rgba(14,165,233,0.08)',
+                  }}
+                >
+                  <div className="relative aspect-square overflow-hidden bg-sky-50">
+                    <Image src={doc.image} alt={doc.name} width={280} height={280}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={{ objectPosition: doc.imagePosition || 'top' }}
                       onError={(e) => { e.currentTarget.srcset = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"; }} />
+                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
                   </div>
-                  <h3 className="font-extrabold text-slate-800 text-[15px] mb-1">{doc.name}</h3>
-                  <p className="text-[11px] font-bold text-[#2563eb] uppercase tracking-wider">({doc.qual})</p>
-                </div>
+                  <div className="px-4 pb-5 pt-1">
+                    <h3 className="font-extrabold text-[#0c4a6e] text-[15px] mb-1.5 leading-snug">{doc.name}</h3>
+                    <span
+                      className="inline-block text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full mb-2"
+                      style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)' }}
+                    >
+                      {doc.role}
+                    </span>
+                    <p className="text-[11px] font-bold text-[#0284c7] uppercase tracking-wider">{doc.qual}</p>
+                  </div>
+                </Link>
               ))}
             </div>
           </div>

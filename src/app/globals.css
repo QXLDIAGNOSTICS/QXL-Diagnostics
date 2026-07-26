@@ -1383,8 +1383,8 @@ img { max-width: 100%; }
         .fab-scroll-top-btn {
             position: fixed;
             right: 24px;
-            width: 56px;
-            height: 56px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             border: none;
             display: flex;
@@ -1409,15 +1409,21 @@ img { max-width: 100%; }
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
         }
 
+        .fab-whatsapp-btn svg {
+            width: 30px;
+            height: 30px;
+        }
+
         .fab-ai-chat-btn {
-            background: linear-gradient(145deg, #3b82f6 0%, #1d4ed8 100%);
+            background: linear-gradient(145deg, #38bdf8 0%, #0284c7 55%, #0369a1 100%);
             color: #fff;
-            box-shadow: 0 4px 18px rgba(37, 99, 235, 0.45);
+            box-shadow: 0 6px 22px rgba(14, 165, 233, 0.45);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
         }
 
         .fab-ai-chat-btn:hover {
             transform: scale(1.06);
-            box-shadow: 0 6px 22px rgba(37, 99, 235, 0.55);
+            box-shadow: 0 8px 26px rgba(14, 165, 233, 0.55);
         }
 
         .fab-scroll-top-btn {
@@ -1438,22 +1444,26 @@ img { max-width: 100%; }
         /* Lift FABs above sticky bottom nav on mobile (includes "Book Now" strip) */
         @media (max-width: 1023px) {
             body {
-                padding-bottom: 128px !important;
+                padding-bottom: 140px !important;
             }
             .fab-whatsapp-btn {
-                bottom: 136px !important;
+                bottom: 148px !important;
                 right: 16px !important;
+                width: 58px;
+                height: 58px;
             }
             .fab-ai-chat-btn {
-                bottom: 206px !important;
+                bottom: 220px !important;
                 right: 16px !important;
+                width: 58px;
+                height: 58px;
             }
             .fab-cart-btn {
-                bottom: 276px !important;
+                bottom: 292px !important;
                 right: 16px !important;
             }
             .fab-scroll-top-btn {
-                bottom: 346px !important;
+                bottom: 364px !important;
                 right: 20px !important;
             }
         }

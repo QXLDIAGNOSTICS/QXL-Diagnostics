@@ -22,6 +22,12 @@ const specialities = [
   { label: "Urology", href: "/specialities/urology" },
 ];
 
+/** Near-black navy base + frosted glass panels (no color gradients). */
+const BASE = "#060a12";
+const GLASS = "rgba(255, 255, 255, 0.04)";
+const GLASS_BORDER = "1px solid rgba(255, 255, 255, 0.08)";
+const GLASS_SOFT = "rgba(148, 163, 184, 0.06)";
+
 export default function Footer() {
   const year = new Date().getFullYear();
   const [settings, setSettings] = useState<any>({
@@ -58,35 +64,62 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="relative overflow-hidden" style={{ zIndex: 1, background: '#0a0a0a' }}>
-      {/* Subtle gradient overlay */}
+    <footer className="relative overflow-hidden" style={{ zIndex: 1, background: BASE }}>
+      {/* Subtle glass skin — faint highlights only, no color wash */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div style={{ position:'absolute', top:'-80px', left:'-60px', width:'400px', height:'400px', borderRadius:'50%', background:'radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%)', filter:'blur(60px)' }} />
-        <div style={{ position:'absolute', bottom:'-60px', right:'-40px', width:'350px', height:'350px', borderRadius:'50%', background:'radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%)', filter:'blur(50px)' }} />
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'radial-gradient(ellipse 80% 50% at 20% 0%, rgba(255,255,255,0.045) 0%, transparent 55%), radial-gradient(ellipse 60% 40% at 90% 100%, rgba(255,255,255,0.03) 0%, transparent 50%)',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 18%, transparent 100%)',
+          }}
+        />
       </div>
 
-      {/* Book a Test Banner */}
-      <div className="relative z-10" style={{
-        background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%)',
-        backdropFilter: 'blur(24px)',
-        borderBottom: '1px solid rgba(255,255,255,0.08)',
-      }}>
+      {/* Book a Test — frosted glass strip */}
+      <div
+        className="relative z-10"
+        style={{
+          background: GLASS,
+          backdropFilter: 'blur(24px) saturate(140%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(140%)',
+          borderBottom: GLASS_BORDER,
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06)',
+        }}
+      >
         <div className="max-w-[1260px] mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-white font-extrabold text-xl mb-1">Book a Test Today</h3>
-            <p className="text-white/60 text-sm font-medium">Free home sample collection · NABL certified · Same-day digital reports</p>
+            <h3 className="text-white font-extrabold text-xl mb-1 tracking-tight">Book a Test Today</h3>
+            <p className="text-white/45 text-sm font-medium">Free home sample collection · NABL certified · Same-day digital reports</p>
           </div>
           <div className="flex gap-3 flex-wrap justify-center">
             <a
               href="https://wa.me/919964639639?text=Hi%2C%20I%20want%20to%20book%20a%20test%20at%20QXL%20Diagnostics"
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-extrabold px-5 py-2.5 rounded-full text-[12px] uppercase tracking-wide transition-all hover:scale-105 text-white"
-              style={{ background: '#25D366', boxShadow: '0 4px 20px rgba(37,211,102,0.35)' }}
+              style={{ background: '#25D366', boxShadow: '0 4px 20px rgba(37,211,102,0.3)' }}
             >
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.998-1.417A9.954 9.954 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" fillRule="evenodd" clipRule="evenodd"/></svg>
               WhatsApp
             </a>
-            <Link href="/book" className="btn-sky gap-2 px-5 py-2.5 text-[12px] shadow-md">
+            <Link
+              href="/book"
+              className="inline-flex items-center gap-2 font-extrabold px-5 py-2.5 rounded-full text-[12px] uppercase tracking-wide text-white transition-all hover:scale-105"
+              style={{
+                background: 'rgba(255,255,255,0.1)',
+                border: '1px solid rgba(255,255,255,0.18)',
+                backdropFilter: 'blur(12px)',
+                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.12)',
+              }}
+            >
               Book Now <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -97,9 +130,11 @@ export default function Footer() {
       <div className="relative z-10 max-w-[1260px] mx-auto px-4 pt-14 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-          {/* Brand */}
           <div className="flex flex-col items-center text-center md:items-start md:text-left">
-            <div className="inline-block mb-5 p-2.5 rounded-2xl" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div
+              className="inline-block mb-5 p-2.5 rounded-2xl"
+              style={{ background: GLASS, border: GLASS_BORDER, backdropFilter: 'blur(16px)' }}
+            >
               <img
                 src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 224, h: 56, crop: "fit" })}
                 alt={`${settings.siteName || "QXL"} Logo`}
@@ -113,11 +148,13 @@ export default function Footer() {
               />
             </div>
             <span className="logo-text-footer font-extrabold text-2xl text-white block mb-5 hidden">{settings.logoText || "QXL"}</span>
-            <p className="text-white/50 text-[13px] leading-relaxed font-medium mb-5">
+            <p className="text-white/40 text-[13px] leading-relaxed font-medium mb-5">
               {settings.footerDesc}
             </p>
-            {/* NABL Badge */}
-            <div className="inline-flex items-center gap-3 py-3 px-4 rounded-2xl" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div
+              className="inline-flex items-center gap-3 py-3 px-4 rounded-2xl"
+              style={{ background: GLASS, border: GLASS_BORDER, backdropFilter: 'blur(16px)' }}
+            >
               <img
                 src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png"
                 alt="NABL Accredited ISO Certified"
@@ -127,17 +164,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div className="text-center md:text-left">
-            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Quick Links</p>
+            <p className="font-extrabold text-white/90 text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Quick Links</p>
             <ul className="space-y-2.5">
               {(settings.navItems || []).filter((l: any) => l.visible !== false).map((l: any) => {
                 let label = l.label, href = l.href;
                 if (String(l.label).toLowerCase() === "login") { label = "Login"; href = "/login"; }
                 return (
                   <li key={label}>
-                    <Link href={href} className="text-white/50 hover:text-white text-[13px] font-semibold transition-all flex items-center justify-center md:justify-start gap-2 group">
-                      <span className="w-1 h-1 rounded-full bg-white/20 flex-shrink-0 transition-all group-hover:w-2.5 group-hover:bg-white/60" />
+                    <Link href={href} className="text-white/40 hover:text-white text-[13px] font-semibold transition-all flex items-center justify-center md:justify-start gap-2 group">
+                      <span className="w-1 h-1 rounded-full bg-white/25 flex-shrink-0 transition-all group-hover:w-2.5 group-hover:bg-white/60" />
                       {label}
                     </Link>
                   </li>
@@ -146,14 +182,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Specialities */}
           <div className="text-center md:text-left">
-            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Specialities</p>
+            <p className="font-extrabold text-white/90 text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Specialities</p>
             <ul className="space-y-2.5">
               {specialities.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-white/50 hover:text-white text-[13px] font-semibold transition-all flex items-center justify-center md:justify-start gap-2 group">
-                    <span className="w-1 h-1 rounded-full bg-white/20 flex-shrink-0 transition-all group-hover:w-2.5 group-hover:bg-white/60" />
+                  <Link href={l.href} className="text-white/40 hover:text-white text-[13px] font-semibold transition-all flex items-center justify-center md:justify-start gap-2 group">
+                    <span className="w-1 h-1 rounded-full bg-white/25 flex-shrink-0 transition-all group-hover:w-2.5 group-hover:bg-white/60" />
                     {l.label}
                   </Link>
                 </li>
@@ -161,57 +196,63 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="text-center md:text-left">
-            <p className="font-extrabold text-white text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Contact Us</p>
+            <p className="font-extrabold text-white/90 text-[11px] uppercase tracking-[0.12em] mb-5 pb-2 border-b border-white/10 w-fit mx-auto md:mx-0">Contact Us</p>
             <ul className="space-y-4">
               <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
-                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                  <MapPin className="w-4 h-4 text-white/60" />
+                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: GLASS_SOFT, border: GLASS_BORDER }}>
+                  <MapPin className="w-4 h-4 text-white/55" />
                 </div>
                 <div>
-                  <p className="text-white/80 text-[12px] font-bold mb-0.5">Main Lab (Kengeri)</p>
-                  <p className="text-white/40 text-[12px] font-medium leading-relaxed">{settings.hqAddress}</p>
+                  <p className="text-white/85 text-[12px] font-bold mb-0.5">Main Lab (Kengeri)</p>
+                  <p className="text-white/35 text-[12px] font-medium leading-relaxed">{settings.hqAddress}</p>
                 </div>
               </li>
               {settings.northHubAddress && (
                 <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <MapPin className="w-4 h-4 text-white/60" />
+                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: GLASS_SOFT, border: GLASS_BORDER }}>
+                    <MapPin className="w-4 h-4 text-white/55" />
                   </div>
                   <div>
-                    <p className="text-white/80 text-[12px] font-bold mb-0.5">North Hub (Yelahanka)</p>
-                    <p className="text-white/40 text-[12px] font-medium leading-relaxed">{settings.northHubAddress}</p>
+                    <p className="text-white/85 text-[12px] font-bold mb-0.5">North Hub (Yelahanka)</p>
+                    <p className="text-white/35 text-[12px] font-medium leading-relaxed">{settings.northHubAddress}</p>
                   </div>
                 </li>
               )}
               <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
-                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                  <Phone className="w-4 h-4 text-white/60" />
+                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: GLASS_SOFT, border: GLASS_BORDER }}>
+                  <Phone className="w-4 h-4 text-white/55" />
                 </div>
                 <div className="flex flex-col items-center md:items-start">
                   <a href={`tel:${settings.contactPhone || '+919964639639'}`} className="text-white text-[13px] font-extrabold hover:text-white/80 transition-colors">{settings.contactPhone || '+91 99646 39639'}</a>
-                  <p className="text-white/40 text-[11px] font-semibold mt-0.5">{settings.workingHours}</p>
+                  <p className="text-white/35 text-[11px] font-semibold mt-0.5">{settings.workingHours}</p>
                 </div>
               </li>
               <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
-                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                  <Mail className="w-4 h-4 text-white/60" />
+                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: GLASS_SOFT, border: GLASS_BORDER }}>
+                  <Mail className="w-4 h-4 text-white/55" />
                 </div>
-                <a href={`mailto:${settings.supportEmail}`} className="text-white/50 text-[13px] font-medium hover:text-white transition-colors self-center">{settings.supportEmail}</a>
+                <a href={`mailto:${settings.supportEmail}`} className="text-white/40 text-[13px] font-medium hover:text-white transition-colors self-center">{settings.supportEmail}</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="relative z-10 border-t border-white/8">
+      {/* Bottom bar — slightly deeper glass */}
+      <div
+        className="relative z-10"
+        style={{
+          borderTop: GLASS_BORDER,
+          background: 'rgba(0,0,0,0.35)',
+          backdropFilter: 'blur(16px)',
+        }}
+      >
         <div className="max-w-[1260px] mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-white/40 text-[12px] font-semibold">
+          <p className="text-white/35 text-[12px] font-semibold">
             {settings.copyrightText || `© ${year} QXL Diagnostics. All rights reserved.`}
           </p>
-          <p className="text-white/40 text-[12px] font-semibold">
+          <p className="text-white/35 text-[12px] font-semibold">
             NABL Certified · {ISO_STANDARD} · Bengaluru, Karnataka
           </p>
           <div className="flex gap-4 items-center flex-wrap">
@@ -221,8 +262,8 @@ export default function Footer() {
               { href: SOCIAL_LINKS.linkedin, label: "LinkedIn", path: null, isLi: true },
             ].map(s => (
               <Link key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                className="w-7 h-7 rounded-full flex items-center justify-center transition-all hover:scale-110"
-                style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                style={{ background: GLASS, border: GLASS_BORDER }}
                 aria-label={s.label}>
                 {s.path && (
                   <svg className="w-3.5 h-3.5 text-white/50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d={s.path} /></svg>
@@ -236,8 +277,8 @@ export default function Footer() {
               </Link>
             ))}
             <div className="w-px h-4 mx-1 bg-white/10" />
-            <Link href="/privacy-policy" className="text-white/40 hover:text-white/80 text-[12px] font-semibold transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-white/40 hover:text-white/80 text-[12px] font-semibold transition-colors">Terms of Use</Link>
+            <Link href="/privacy-policy" className="text-white/35 hover:text-white/80 text-[12px] font-semibold transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-white/35 hover:text-white/80 text-[12px] font-semibold transition-colors">Terms of Use</Link>
           </div>
         </div>
       </div>

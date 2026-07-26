@@ -9,8 +9,8 @@ import ReactMarkdown from 'react-markdown';
 
 type StreamResult = 'streamed' | 'unauthorized' | 'failed';
 
-/** Clean AI-agent mark: chat bubble + spark — matches WhatsApp FAB scale. */
-function QxlAiIcon({ size = 28 }: { size?: number }) {
+/** Clean AI-agent mark: chat bubble + spark — high-contrast on blue FAB. */
+function QxlAiIcon({ size = 32 }: { size?: number }) {
   return (
     <svg
       width={size}
@@ -20,23 +20,24 @@ function QxlAiIcon({ size = 28 }: { size?: number }) {
       aria-hidden="true"
     >
       <path
-        d="M6.5 7.5C6.5 5.567 8.067 4 10 4h12c1.933 0 3.5 1.567 3.5 3.5v9c0 1.933-1.567 3.5-3.5 3.5h-5.2L12 24.2V20H10c-1.933 0-3.5-1.567-3.5-3.5v-9Z"
+        d="M5.5 8C5.5 5.515 7.515 3.5 10 3.5h12c2.485 0 4.5 2.015 4.5 4.5v8.5c0 2.485-2.015 4.5-4.5 4.5h-5.4L11.2 26.2a1 1 0 0 1-1.7-.72V20.5H10c-2.485 0-4.5-2.015-4.5-4.5V8Z"
+        fill="currentColor"
+      />
+      <path
+        d="M24.1 2.4 25.45 5.8l3.4 1.35-3.4 1.35L24.1 11.9l-1.35-3.4-3.4-1.35 3.4-1.35L24.1 2.4Z"
         fill="currentColor"
         opacity="0.95"
       />
-      <path
-        d="M23.2 3.2 24.35 6.1l2.9 1.15-2.9 1.15L23.2 11.3l-1.15-2.9-2.9-1.15 2.9-1.15 1.15-2.9Z"
-        fill="currentColor"
-      />
-      <circle cx="12.2" cy="12.2" r="1.35" fill="#2563eb" />
-      <circle cx="16" cy="12.2" r="1.35" fill="#2563eb" />
-      <circle cx="19.8" cy="12.2" r="1.35" fill="#2563eb" />
+      {/* Eyes — white so they stay visible on the blue FAB */}
+      <circle cx="12" cy="12.2" r="1.55" fill="#fff" />
+      <circle cx="16" cy="12.2" r="1.55" fill="#fff" />
+      <circle cx="20" cy="12.2" r="1.55" fill="#fff" />
     </svg>
   );
 }
 
 const FAB = {
-  size: 56,
+  size: 60,
   right: 24,
   whatsappBottom: 24,
   gap: 14,
@@ -395,7 +396,7 @@ export default function AiChat() {
         title="Chat on WhatsApp"
         className="fab-whatsapp-btn"
       >
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
       </a>
@@ -425,12 +426,12 @@ export default function AiChat() {
         title="QXL AI Assistant"
       >
         {isOpen ? (
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18" />
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         ) : (
-          <QxlAiIcon size={28} />
+          <QxlAiIcon size={34} />
         )}
       </button>
 
