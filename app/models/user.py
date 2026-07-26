@@ -31,7 +31,8 @@ class User(Base, TimestampMixin):
     locked_until: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
     # Authorization lives in our own DB: role drives what a session can do.
-    role: Mapped[str] = mapped_column(String(20), server_default="patient", nullable=False)
+    # Length matches custom role keys (up to 40 chars).
+    role: Mapped[str] = mapped_column(String(40), server_default="patient", nullable=False)
     updated_at: Mapped[datetime] = mapped_column(
         server_default=func.now(), onupdate=func.now(), nullable=False
     )
