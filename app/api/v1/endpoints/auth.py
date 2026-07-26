@@ -11,6 +11,7 @@ import uuid as _uuid
 from fastapi import APIRouter, Request, Response
 
 from app.api.deps import CurrentUserOptional, DbSession
+from app.core import roles as R
 from app.core.config import settings
 from app.core.exceptions import ValidationError
 from app.core.rate_limit import limiter
@@ -151,14 +152,21 @@ async def logout(request: Request, response: Response, db: DbSession) -> None:
 
 
 @router.get("/me", response_model=UserMe | None)
-async def me(user: CurrentUserOptional) -> UserMe | None:
+async def me(user: CurrentUserOptional, db: DbSession) -> UserMe | None:
     """Session probe used by the site chrome on every page load.
 
     Returns ``200 null`` when the visitor is a guest (no session cookie / expired
     session) so browsers and Lighthouse do not log a 401 as a console error.
-    Authenticated callers still receive the full ``UserMe`` payload.
+    Authenticated callers still receive the full ``UserMe`` payload, including
+    DB-aware role-tier booleans so the frontend never has to re-derive access
+    from a hardcoded role list (which would break for super-admin-created
+    custom roles).
     """
     if user is None:
         return None
-    return UserMe.model_validate(user)
+    payload = UserMe.model_validate(user)
+    payload.is_staff = await R.is_staff_async(db, user.role)
+    payload.is_admin = await R.is_admin_async(db, user.role)
+    payload.is_super_admin = R.is_super_admin(user.role)
+    return payload
 

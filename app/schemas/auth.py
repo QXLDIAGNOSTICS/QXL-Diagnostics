@@ -33,6 +33,12 @@ class UserMe(BaseModel):
     role: str
     is_email_verified: bool
     is_phone_verified: bool
+    # Resolved server-side (DB-aware — recognises super-admin-defined custom
+    # roles too) so the frontend never has to re-implement role-tier logic
+    # against a hardcoded role list.
+    is_staff: bool = False
+    is_admin: bool = False
+    is_super_admin: bool = False
 
 
 class RegisterRequest(BaseModel):
