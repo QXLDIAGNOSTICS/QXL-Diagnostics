@@ -7,11 +7,16 @@ type Props = { decorativeHeading?: boolean };
 export default function Accreditations({ decorativeHeading = false }: Props) {
   const Heading = decorativeHeading ? 'p' : 'h2';
   return (
-    <section className="py-16 bg-[#0d2e42] border-t border-blue-900">
-      <div className="max-w-[1260px] mx-auto px-4 w-full">
+    <section className="py-16 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #075985 100%)' }}>
+      {/* Glass orb decorations */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div style={{ position:'absolute', top:'-60px', right:'-40px', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle, rgba(56,189,248,0.15) 0%, transparent 70%)', filter:'blur(40px)' }} />
+        <div style={{ position:'absolute', bottom:'-40px', left:'-30px', width:'250px', height:'250px', borderRadius:'50%', background:'radial-gradient(circle, rgba(147,210,255,0.12) 0%, transparent 70%)', filter:'blur(30px)' }} />
+      </div>
+      <div className="max-w-[1260px] mx-auto px-4 w-full relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="md:w-1/2">
-            <span className="inline-block bg-[#2563eb]/20 text-blue-300 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3">Quality & Trust</span>
+            <span className="inline-block bg-[#38bdf8]/20 text-sky-200 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3">Quality & Trust</span>
             <Heading className="text-white text-3xl font-extrabold mb-4 drop-shadow-sm">Certified for Excellence</Heading>
             <p className="text-slate-300 text-sm font-medium leading-relaxed mb-6">
               QXL Diagnostics is proud to be accredited by the highest national and international regulatory bodies. Our commitment to stringent quality control ensures that your health is always in safe, reliable hands.
