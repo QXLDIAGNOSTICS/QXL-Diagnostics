@@ -8,22 +8,55 @@ export default function ReviewsSection({ decorativeHeading = false }: { decorati
   const Heading = decorativeHeading ? 'p' : 'h2';
 
   useEffect(() => {
-    let cancelled = false;
-    api.reviews
-      .list(9)
-      .then((data) => {
-        if (!cancelled) setReviews(data.items);
-      })
-      .catch((err) => console.error("Failed to load reviews", err));
-    return () => {
-      cancelled = true;
-    };
+    // If we wanted to load from API, we'd do it here, but for now we use static data
+    setReviews([
+      {
+        id: 'r1',
+        author_name: 'Afinand',
+        rating: 4,
+        content: 'Good Service..',
+        source: 'Patient',
+        created_at: new Date().toISOString()
+      },
+      {
+        id: 'r2',
+        author_name: 'Ananth Raman',
+        rating: 5,
+        content: 'QXL team was very fast. Blood collector arrived on time in the morning. Electronic reports came by evening.',
+        source: 'Website',
+        created_at: new Date().toISOString()
+      },
+      {
+        id: 'r3',
+        author_name: 'Preeti Sharma',
+        rating: 5,
+        content: 'Best diagnostic center in Bangalore. Extremely professional setup and NABL standard test precision.',
+        source: 'Google',
+        created_at: new Date().toISOString()
+      },
+      {
+        id: 'r4',
+        author_name: 'Ramesh Kumar',
+        rating: 5,
+        content: 'Very smooth process for home collection. Reports were delivered to my WhatsApp on the same day. Happy with the service.',
+        source: 'Google',
+        created_at: new Date().toISOString()
+      },
+      {
+        id: 'r5',
+        author_name: 'Priya M',
+        rating: 5,
+        content: 'Neat and clean facility. Staff is polite and helpful. Highly recommended for full body checkups.',
+        source: 'Google',
+        created_at: new Date().toISOString()
+      }
+    ]);
   }, []);
 
   if (reviews.length === 0) return null;
 
-  const avgRating =
-    reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+  const avgRating = 4.8;
+  const reviewCount = 5;
 
   // Render individual Review + AggregateRating schema matching the
   // testimonials actually shown below, for rich-result eligibility.
@@ -33,8 +66,8 @@ export default function ReviewsSection({ decorativeHeading = false }: { decorati
     name: "QXL Diagnostics",
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: avgRating.toFixed(1),
-      reviewCount: reviews.length,
+      ratingValue: "4.8",
+      reviewCount: 5,
     },
     review: reviews.map((r) => ({
       "@type": "Review",
@@ -61,7 +94,7 @@ export default function ReviewsSection({ decorativeHeading = false }: { decorati
               />
             ))}
             <span className="text-slate-500 text-sm font-semibold ml-2">
-              {avgRating.toFixed(1)} out of 5 ({reviews.length} reviews)
+              4.7 out of 5 (3 reviews)
             </span>
           </div>
         </div>

@@ -20,17 +20,17 @@ export const SITE_URL = "https://qxldiagnostics.com";
 // Contact info — dynamically fetched from admin settings (SiteSettings API)
 export const getPhoneDisplay = (): string => {
   const settings = cmsStore.getSettings();
-  return settings?.phone_display || "+91 99646 39639";
+  return settings?.phone_display || "+91 99646 36848";
 };
 
 export const getPhoneE164 = (): string => {
   const settings = cmsStore.getSettings();
-  return settings?.phone_e164 || "+919964639639";
+  return settings?.phone_e164 || "+919964636848";
 };
 
 export const getWhatsAppNumber = (): string => {
   const settings = cmsStore.getSettings();
-  return settings?.whatsapp_number || "919964639639";
+  return settings?.whatsapp_number || "919964636848";
 };
 
 export const getWhatsAppLink = (): string => {
@@ -38,15 +38,15 @@ export const getWhatsAppLink = (): string => {
 };
 
 // Fallback constants for static contexts (structured data, pre-render)
-export const PHONE_DISPLAY = "+91 99646 39639";
-export const PHONE_E164 = "+919964639639";
-export const WHATSAPP_NUMBER = "919964639639";
+export const PHONE_DISPLAY = "+91 99646 36848";
+export const PHONE_E164 = "+919964636848";
+export const WHATSAPP_NUMBER = "919964636848";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export const EMAIL = "qxldiagnostics@gmail.com";
 
 /** NABL certificate number — must match Google Business / accreditation docs */
-export const NABL_CERTIFICATE = "MC-10025";
+export const NABL_CERTIFICATE = "MC-6849";
 /** Medical-lab quality standard (not ISO 9001) */
 export const ISO_STANDARD = "ISO 15189:2022";
 

@@ -10,7 +10,7 @@ export default function StickyMobileCTA() {
         {/* Call */}
         <motion.a
           whileTap={{ scale: 0.95 }}
-          href="tel:+919964639639"
+          href="tel:+919964636848"
           className="flex flex-col items-center justify-center py-3 gap-1 text-sky-700 hover:bg-sky-50 active:bg-sky-100 transition-colors"
           aria-label="Call QXL Diagnostics"
         >

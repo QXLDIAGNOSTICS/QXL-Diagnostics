@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { cmsStore } from '../lib/cmsStore';
+import { useAuth } from '../lib/useAuth';
 import { SOCIAL_LINKS, ISO_STANDARD } from '../lib/businessInfo';
 import { optimizeCloudinaryUrl } from '../lib/cloudinary';
 
@@ -29,30 +30,30 @@ const GLASS_BORDER = "1px solid rgba(255, 255, 255, 0.08)";
 const GLASS_SOFT = "rgba(148, 163, 184, 0.06)";
 
 export default function Footer() {
+  const { user } = useAuth();
   const year = new Date().getFullYear();
   const [settings, setSettings] = useState<any>({
     siteName: "QXL Diagnostics",
     logoText: "QXL",
     logoImage: FALLBACK_LOGO,
-    contactPhone: "+91 99646 39639",
+    contactPhone: "+91 99646 36848",
     supportEmail: "qxldiagnostics@gmail.com",
     hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
     northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
     workingHours: "Open 24x7",
-    whatsappNumber: "+91 99646 39639",
+    whatsappNumber: "+91 99646 36848",
     copyrightText: `© ${year} QXL Diagnostics. All rights reserved.`,
     footerDesc: "QXL Diagnostics is a NABL-accredited super speciality diagnostic laboratory in Bengaluru offering advanced pathology, molecular diagnostics, histopathology, and AI-assisted precision diagnostics.",
     navItems: [
-      { label: "Home", href: "/", visible: true },
-      { label: "About Us", href: "/about", visible: true },
-      { label: "Founder & Consultants", href: "/founder", visible: true },
-      { label: "Our Specialities", href: "/specialities", visible: true },
-      { label: "Packages", href: "/packages", visible: true },
-      { label: "Book a Test", href: "/book", visible: true },
-      { label: "Find Nearest Centre", href: "/centers", visible: true },
-      { label: "Download Report", href: "/report", visible: true },
-      { label: "Collaborate with us", href: "/franchise", visible: true },
-      { label: "Login", href: "/login", visible: true }
+      {label: "Home", href: "/", visible: true},
+      {label: "About Us", href: "/about", visible: true},
+      {label: "Founder & Consultants", href: "/founder", visible: true},
+      {label: "Our Specialities", href: "/specialities", visible: true},
+      {label: "Packages", href: "/packages", visible: true},
+      {label: "Find Nearest Centre", href: "/centers", visible: true},
+      {label: "My Bookings", href: "/dashboard", visible: true},
+      {label: "My Reports", href: "/report", visible: true},
+      {label: "Login", href: "/login", visible: true}
     ]
   });
 
@@ -102,7 +103,7 @@ export default function Footer() {
           </div>
           <div className="flex gap-3 flex-wrap justify-center">
             <a
-              href="https://wa.me/919964639639?text=Hi%2C%20I%20want%20to%20book%20a%20test%20at%20QXL%20Diagnostics"
+              href="https://wa.me/919964636848?text=Hi%2C%20I%20want%20to%20book%20a%20test%20at%20QXL%20Diagnostics"
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-extrabold px-5 py-2.5 rounded-full text-[12px] uppercase tracking-wide transition-all hover:scale-105 text-white"
               style={{ background: '#25D366', boxShadow: '0 4px 20px rgba(37,211,102,0.3)' }}
@@ -139,7 +140,7 @@ export default function Footer() {
                 src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 224, h: 56, crop: "fit" })}
                 alt={`${settings.siteName || "QXL"} Logo`}
                 width={224} height={56}
-                className="h-14 w-auto object-contain"
+                className="h-20 md:h-24 w-auto object-contain brightness-0 invert opacity-90"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const fb = e.currentTarget.parentElement?.querySelector('.logo-text-footer') as HTMLElement;
@@ -159,7 +160,7 @@ export default function Footer() {
                 src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png"
                 alt="NABL Accredited ISO Certified"
                 width={100} height={50}
-                className="h-12 w-auto object-contain"
+                className="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-90"
               />
             </div>
           </div>
@@ -169,7 +170,8 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {(settings.navItems || []).filter((l: any) => l.visible !== false).map((l: any) => {
                 let label = l.label, href = l.href;
-                if (String(l.label).toLowerCase() === "login") { label = "Login"; href = "/login"; }
+                if (!user && (l.label === "My Bookings" || l.label === "My Reports")) href = `/login?redirect=${encodeURIComponent(l.href)}`;
+                if (String(l.label).toLowerCase() === "login") { label = user ? "Profile" : "Login"; href = user ? "/profile" : "/login"; }
                 return (
                   <li key={label}>
                     <Link href={href} className="text-white/40 hover:text-white text-[13px] font-semibold transition-all flex items-center justify-center md:justify-start gap-2 group">
@@ -224,7 +226,7 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-white/55" />
                 </div>
                 <div className="flex flex-col items-center md:items-start">
-                  <a href={`tel:${settings.contactPhone || '+919964639639'}`} className="text-white text-[13px] font-extrabold hover:text-white/80 transition-colors">{settings.contactPhone || '+91 99646 39639'}</a>
+                  <a href={`tel:${settings.contactPhone || '+919964636848'}`} className="text-white text-[13px] font-extrabold hover:text-white/80 transition-colors">{settings.contactPhone || '+91 99646 36848'}</a>
                   <p className="text-white/35 text-[11px] font-semibold mt-0.5">{settings.workingHours}</p>
                 </div>
               </li>
@@ -266,13 +268,13 @@ export default function Footer() {
                 style={{ background: GLASS, border: GLASS_BORDER }}
                 aria-label={s.label}>
                 {s.path && (
-                  <svg className="w-3.5 h-3.5 text-white/50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d={s.path} /></svg>
+                  <svg className="w-4 h-4 text-white/50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d={s.path} /></svg>
                 )}
                 {s.isInsta && (
-                  <svg className="w-3.5 h-3.5 text-white/50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                  <svg className="w-4 h-4 text-white/50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                 )}
                 {s.isLi && (
-                  <svg className="w-3.5 h-3.5 text-white/50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                  <svg className="w-4 h-4 text-white/50" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                 )}
               </Link>
             ))}

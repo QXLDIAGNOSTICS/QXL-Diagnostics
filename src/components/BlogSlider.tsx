@@ -9,14 +9,52 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const Heading = decorativeHeading ? 'p' : 'h2';
 
+  const fallbackBlogs: BlogPost[] = [
+    {
+      id: 'b1',
+      title: 'The Future is Now: AI-Assisted Diagnostics at QXL',
+      slug: 'ai-assisted-diagnostics',
+      excerpt: 'Discover how QXL Diagnostics integrates artificial intelligence to deliver faster, more accurate pathology reports.',
+      created_at: '2026-07-20T00:00:00.000Z'
+    },
+    {
+      id: 'b2',
+      title: 'Understanding AMH: Your Guide to Fertility Testing',
+      slug: 'understanding-amh-fertility-testing',
+      excerpt: 'Anti-Mullerian Hormone (AMH) testing is crucial for understanding ovarian reserve. Learn who needs it and why.',
+      created_at: '2026-07-20T00:00:00.000Z'
+    },
+    {
+      id: 'b3',
+      title: 'Allergy Testing: Identifying Your Hidden Triggers',
+      slug: 'allergy-testing-hidden-triggers',
+      excerpt: 'Chronic sneezing, rashes, or digestive issues? Learn how comprehensive allergy testing can pinpoint the exact cause.',
+      created_at: '2026-07-20T00:00:00.000Z'
+    },
+    {
+      id: 'b4',
+      title: 'Beyond Cholesterol: Advanced Cardiac Risk Assessment',
+      slug: 'beyond-cholesterol-cardiac-risk',
+      excerpt: 'A standard lipid profile isn\'t always enough. Learn about hs-CRP, Lp(a), and advanced markers for heart health.',
+      created_at: '2026-07-20T00:00:00.000Z'
+    }
+  ];
+
   useEffect(() => {
     let cancelled = false;
     api.blog
       .list(8, 0)
       .then(({ items }) => {
-        if (!cancelled) setBlogs(items);
+        if (!cancelled && items && items.length > 0) {
+          setBlogs(items);
+        } else if (!cancelled) {
+          setBlogs(fallbackBlogs);
+        }
       })
-      .catch((err) => console.error("Failed to load blog posts", err));
+      .catch((err) => {
+        console.error("Failed to load blog posts, using fallback", err);
+        if (!cancelled) setBlogs(fallbackBlogs);
+      });
     return () => {
       cancelled = true;
     };

@@ -135,7 +135,7 @@ Thank you for reaching out to QXL Diagnostics regarding "${subject}".
 
 We have received your message: "${message.substring(0, 60)}..." 
 
-One of our certified medical coordinators will contact you shortly on your provided phone number to assist with scheduling, collection timings, and test requirements. If this is an urgent inquiry, you can connect directly with our WhatsApp Support at +91 9964 639639.
+One of our certified medical coordinators will contact you shortly on your provided phone number to assist with scheduling, collection timings, and test requirements. If this is an urgent inquiry, you can connect directly with our WhatsApp Support at +91 9964 636848.
 
 Warm regards,
 Patient Care Team

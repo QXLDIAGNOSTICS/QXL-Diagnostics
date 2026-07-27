@@ -4,6 +4,9 @@ import { Shield } from 'lucide-react';
 export const metadata = {
   title: 'Privacy Policy | QXL Diagnostics',
   description: 'Privacy Policy and data protection guidelines for QXL Diagnostics.',
+  alternates: {
+    canonical: 'https://qxldiagnostics.com/privacy-policy',
+  },
 };
 
 export default function PrivacyPolicyPage() {
@@ -60,7 +63,7 @@ export default function PrivacyPolicyPage() {
             <p className="mb-4 font-medium">
               QXL Diagnostics<br />
               Email: qxldiagnostics@gmail.com<br />
-              Phone: +91 9964 639639
+              Phone: +91 9964 636848
             </p>
           </div>
         </div>

@@ -1,5 +1,14 @@
 import type { NextConfig } from "next";
 import path from "path";
+// import withPWAInit from "@ducanh2912/next-pwa";
+//
+// const withPWA = withPWAInit({
+//   dest: "public",
+//   disable: false, // Ensure PWA works even in dev server for testing
+//   workboxOptions: {
+//     disableDevLogs: true,
+//   },
+// });
 
 const isDev = process.env.NODE_ENV !== "production";
 const backendUrl =
@@ -22,6 +31,45 @@ const nextConfig: NextConfig = {
   // this should sit behind a reverse proxy/CDN (nginx, Cloudflare, etc.)
   // that handles compression for non-streaming responses instead.
   compress: false,
+  async redirects() {
+    return [
+      {
+        source: '/womens-health',
+        destination: '/specialities/womens-health',
+        permanent: true,
+      },
+      {
+        source: '/speciality-tests/womens-health',
+        destination: '/specialities/womens-health',
+        permanent: true,
+      },
+      {
+        source: '/about-us',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/contact-us',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/services',
+        destination: '/specialities',
+        permanent: true,
+      },
+      {
+        source: '/health-checkup-packages',
+        destination: '/packages',
+        permanent: true,
+      },
+      {
+        source: '/tests',
+        destination: '/speciality-tests',
+        permanent: true,
+      }
+    ];
+  },
   async rewrites() {
     return [
       {
@@ -33,3 +81,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+// export default withPWA(nextConfig);

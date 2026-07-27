@@ -58,12 +58,12 @@ export default function NotFound() {
   };
 
   return (
-    <div className="min-h-screen" style={{ background: 'linear-gradient(160deg, #e0f2fe 0%, #f0f9ff 30%, #e8f4fd 60%, #dbeafe 100%)' }}>
+    <div className="bg-[#f8faff] min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden px-4 pt-16 pb-20 md:pt-24 md:pb-28">
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[#0ea5e9]/8 blur-3xl" />
-          <div className="absolute bottom-[-80px] right-[-60px] w-[300px] h-[300px] rounded-full bg-[#38bdf8]/8 blur-3xl" />
+          <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-[#2563eb]/5 blur-3xl" />
+          <div className="absolute bottom-[-80px] right-[-60px] w-[300px] h-[300px] rounded-full bg-[#2563eb]/5 blur-3xl" />
         </div>
 
         <div className="mx-auto max-w-3xl text-center">
@@ -72,7 +72,7 @@ export default function NotFound() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <span className="inline-block text-[100px] sm:text-[140px] md:text-[180px] font-black leading-none bg-gradient-to-br from-[#0ea5e9] via-[#38bdf8] to-[#7dd3fc] bg-clip-text text-transparent select-none">
+            <span className="inline-block text-[100px] sm:text-[140px] md:text-[180px] font-black leading-none bg-gradient-to-br from-[#2563eb] via-[#3b82f6] to-[#60a5fa] bg-clip-text text-transparent select-none">
               404
             </span>
           </motion.div>
@@ -81,8 +81,7 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-3xl md:text-4xl font-extrabold mb-4"
-            style={{ color: '#0c4a6e' }}
+            className="text-3xl md:text-4xl font-extrabold text-[#0f2d5e] mb-4"
           >
             Page Not Found
           </motion.h1>
@@ -91,8 +90,7 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-sm md:text-base max-w-md mx-auto mb-10 leading-relaxed"
-            style={{ color: '#0369a1' }}
+            className="text-slate-500 text-sm md:text-base max-w-md mx-auto mb-10 leading-relaxed"
           >
             The page you&apos;re looking for doesn&apos;t exist or may have been
             moved. Try searching below or explore our popular tests and packages.
@@ -106,23 +104,18 @@ export default function NotFound() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="mx-auto max-w-lg"
           >
-            <div
-              className="relative flex items-center overflow-hidden"
-              style={{ borderRadius: '999px', background: 'rgba(240,249,255,0.80)', backdropFilter: 'blur(20px) saturate(180%)', border: '1px solid rgba(125,199,232,0.35)', boxShadow: '0 8px 32px rgba(14,165,233,0.10), inset 0 1px 0 rgba(255,255,255,0.9)' }}
-            >
-              <Search className="ml-5 h-5 w-5 flex-shrink-0" style={{ color: '#0284c7' }} />
+            <div className="relative flex items-center rounded-full bg-white/80 backdrop-blur-md border border-white shadow-lg shadow-[#2563eb]/5 ring-1 ring-black/5 overflow-hidden">
+              <Search className="ml-5 h-5 w-5 text-slate-400 shrink-0" />
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search QXL Diagnostics..."
-                className="flex-1 bg-transparent px-4 py-4 text-sm outline-none"
-                style={{ color: '#0c4a6e' }}
+                className="flex-1 bg-transparent px-4 py-4 text-sm text-[#0f2d5e] placeholder:text-slate-400 outline-none"
               />
               <button
                 type="submit"
-                className="mr-2 inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white shrink-0"
-                style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)', boxShadow: '0 4px 16px rgba(14,165,233,0.35)' }}
+                className="mr-2 inline-flex items-center gap-2 rounded-full bg-[#2563eb] px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-[#1d4ed8] transition-colors shrink-0"
               >
                 <Search className="h-4 w-4" />
                 <span className="hidden sm:inline">Search</span>
@@ -142,13 +135,13 @@ export default function NotFound() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="glass-card p-6"
+            className="rounded-2xl bg-white/70 backdrop-blur-md border border-white shadow-md shadow-[#2563eb]/5 ring-1 ring-black/5 p-6"
           >
             <div className="flex items-center gap-3 mb-5">
-              <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl" style={{ background: 'rgba(14,165,233,0.12)' }}>
-                <FlaskConical className="h-5 w-5 text-[#0284c7]" />
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#2563eb]/10">
+                <FlaskConical className="h-5 w-5 text-[#2563eb]" />
               </span>
-              <h2 className="text-sm font-bold uppercase tracking-wider" style={{ color: '#0c4a6e' }}>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-[#0f2d5e]">
                 Popular Tests
               </h2>
             </div>
@@ -157,13 +150,10 @@ export default function NotFound() {
                 <li key={test.name}>
                   <Link
                     href={test.href}
-                    className="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors"
-                    style={{ color: '#0369a1' }}
-                    onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = 'rgba(14,165,233,0.08)'}
-                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = 'transparent'}
+                    className="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-slate-600 hover:bg-[#2563eb]/5 hover:text-[#2563eb] transition-colors"
                   >
                     {test.name}
-                    <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#0284c7]" />
+                    <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                   </Link>
                 </li>
               ))}
@@ -177,13 +167,13 @@ export default function NotFound() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="glass-card p-6"
+            className="rounded-2xl bg-white/70 backdrop-blur-md border border-white shadow-md shadow-[#2563eb]/5 ring-1 ring-black/5 p-6"
           >
             <div className="flex items-center gap-3 mb-5">
-              <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl" style={{ background: 'rgba(14,165,233,0.12)' }}>
-                <Package className="h-5 w-5 text-[#0284c7]" />
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#2563eb]/10">
+                <Package className="h-5 w-5 text-[#2563eb]" />
               </span>
-              <h2 className="text-sm font-bold uppercase tracking-wider" style={{ color: '#0c4a6e' }}>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-[#0f2d5e]">
                 Popular Packages
               </h2>
             </div>
@@ -192,13 +182,10 @@ export default function NotFound() {
                 <li key={pkg.name}>
                   <Link
                     href={pkg.href}
-                    className="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors"
-                    style={{ color: '#0369a1' }}
-                    onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = 'rgba(14,165,233,0.08)'}
-                    onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = 'transparent'}
+                    className="group flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-slate-600 hover:bg-[#2563eb]/5 hover:text-[#2563eb] transition-colors"
                   >
                     {pkg.name}
-                    <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#0284c7]" />
+                    <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                   </Link>
                 </li>
               ))}
@@ -212,13 +199,13 @@ export default function NotFound() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="glass-card p-6"
+            className="rounded-2xl bg-white/70 backdrop-blur-md border border-white shadow-md shadow-[#2563eb]/5 ring-1 ring-black/5 p-6"
           >
             <div className="flex items-center gap-3 mb-5">
-              <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl" style={{ background: 'rgba(14,165,233,0.12)' }}>
-                <Shield className="h-5 w-5 text-[#0284c7]" />
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#2563eb]/10">
+                <Shield className="h-5 w-5 text-[#2563eb]" />
               </span>
-              <h2 className="text-sm font-bold uppercase tracking-wider" style={{ color: '#0c4a6e' }}>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-[#0f2d5e]">
                 Quick Links
               </h2>
             </div>
@@ -229,14 +216,11 @@ export default function NotFound() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors"
-                      style={{ color: '#0369a1' }}
-                      onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = 'rgba(14,165,233,0.08)'}
-                      onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = 'transparent'}
+                      className="group flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-600 hover:bg-[#2563eb]/5 hover:text-[#2563eb] transition-colors"
                     >
-                      <Icon className="h-4 w-4 transition-colors text-[#0284c7]" />
+                      <Icon className="h-4 w-4 text-slate-400 group-hover:text-[#2563eb] transition-colors" />
                       {link.name}
-                      <ArrowRight className="ml-auto h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#0284c7]" />
+                      <ArrowRight className="ml-auto h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                     </Link>
                   </li>
                 );
@@ -249,25 +233,23 @@ export default function NotFound() {
       {/* Floating Action Buttons */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <motion.a
-          href="https://wa.me/919964639639"
+          href="https://wa.me/919964636848"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1, type: "spring", stiffness: 200 }}
-          className="inline-flex items-center justify-center w-14 h-14 rounded-full text-white shadow-lg hover:scale-110 transition-transform"
-          style={{ background: '#25D366', boxShadow: '0 4px 20px rgba(37,211,102,0.4)' }}
+          className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 hover:scale-110 transition-transform"
           aria-label="Chat on WhatsApp"
         >
           <MessageCircle className="h-6 w-6" />
         </motion.a>
         <motion.a
-          href="tel:+919964639639"
+          href="tel:+919964636848"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.15, type: "spring", stiffness: 200 }}
-          className="inline-flex items-center justify-center w-14 h-14 rounded-full text-white shadow-lg hover:scale-110 transition-transform"
-          style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)', boxShadow: '0 4px 20px rgba(14,165,233,0.45)' }}
+          className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#2563eb] text-white shadow-lg shadow-[#2563eb]/30 hover:scale-110 transition-transform"
           aria-label="Call us"
         >
           <Phone className="h-6 w-6" />

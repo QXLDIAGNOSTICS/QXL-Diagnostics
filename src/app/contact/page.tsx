@@ -45,7 +45,7 @@ export default function ContactUsPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-[#0f2d5e] mb-1">Phone & WhatsApp</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">+91 99646 39639</p>
+                    <p className="text-slate-600 text-sm leading-relaxed">+91 99646 36848</p>
                   </div>
                 </div>
                 <div className="flex gap-4">

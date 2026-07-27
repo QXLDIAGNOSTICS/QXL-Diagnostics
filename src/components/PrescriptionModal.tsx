@@ -81,49 +81,49 @@ export default function PrescriptionModal({ isOpen, onClose }: PrescriptionModal
   };
 
   return createPortal(
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-lg overflow-hidden flex flex-col max-h-[90vh]">
-        <div className="p-4 border-b flex items-center justify-between bg-blue-50">
-          <h2 className="text-xl font-bold text-[#0f2d5e] flex items-center gap-2">
-            <FileText className="text-blue-600" />
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0c4a6e]/40 backdrop-blur-md p-4">
+      <div className="glass-panel border border-sky-300/40 rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden flex flex-col max-h-[90vh]">
+        <div className="p-5 border-b border-sky-200/40 flex items-center justify-between bg-sky-50/60">
+          <h2 className="text-xl font-extrabold text-[#0c4a6e] flex items-center gap-2">
+            <FileText className="text-[#0284c7]" />
             Upload Prescription
           </h2>
-          <button onClick={handleClose} className="p-2 text-gray-500 hover:bg-white rounded-full transition-colors">
+          <button onClick={handleClose} className="p-2 glass-pill text-[#0c4a6e] hover:bg-sky-100/60 transition-colors">
             <X className="w-5 h-5" />
           </button>
         </div>
 
         <div className="p-6 flex-1 overflow-y-auto">
           {!authLoading && user && (
-            <div className="mb-4 bg-blue-50 border border-blue-100 rounded-xl px-4 py-3 text-xs font-semibold text-[#0f2d5e]">
+            <div className="mb-4 glass-pill px-4 py-3 text-xs font-bold text-[#0c4a6e]">
               Uploading as {user.name || user.phone || 'QXL patient'}.
             </div>
           )}
 
           {!authLoading && !user ? (
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 flex flex-col items-center text-center gap-3">
+            <div className="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-6 flex flex-col items-center text-center gap-3">
               <AlertCircle className="w-8 h-8 text-amber-600" />
-              <p className="text-sm text-amber-800 font-semibold">
+              <p className="text-sm text-amber-900 font-semibold">
                 Please log in to upload and get an AI analysis of your prescription.
               </p>
               <Link
                 href="/login"
                 onClick={handleClose}
-                className="inline-block bg-[#2563eb] text-white font-bold px-6 py-2.5 rounded-full text-sm uppercase tracking-wider"
+                className="btn-sky px-6 py-2.5 text-xs shadow-md"
               >
                 Login
               </Link>
             </div>
           ) : !file ? (
             <div
-              className="border-2 border-dashed border-blue-200 rounded-xl p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-blue-50 transition-colors"
+              className="glass-card border-2 border-dashed border-sky-300/60 rounded-3xl p-8 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-sky-100/40 transition-all"
               onClick={handleUploadClick}
             >
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                <Upload className="w-8 h-8 text-blue-600" />
+              <div className="w-16 h-16 glass-pill flex items-center justify-center mb-4">
+                <Upload className="w-8 h-8 text-[#0284c7]" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Click to Upload or Drag & Drop</h3>
-              <p className="text-gray-500 text-sm">Supported formats: PDF, JPG, PNG (Max 5MB)</p>
+              <h3 className="text-lg font-extrabold text-[#0c4a6e] mb-2">Click to Upload or Drag &amp; Drop</h3>
+              <p className="text-slate-600 text-sm font-medium">Supported formats: PDF, JPG, PNG (Max 5MB)</p>
               <input
                 type="file"
                 ref={fileInputRef}
@@ -134,14 +134,14 @@ export default function PrescriptionModal({ isOpen, onClose }: PrescriptionModal
             </div>
           ) : (
             <div className="flex flex-col gap-6">
-              <div className="bg-gray-50 p-4 rounded-xl border flex items-center justify-between">
+              <div className="glass-card p-4 rounded-2xl flex items-center justify-between">
                 <div className="flex items-center gap-3 overflow-hidden">
-                  <FileText className="text-blue-500 shrink-0" />
-                  <span className="font-medium text-gray-700 truncate">{file.name}</span>
+                  <FileText className="text-[#0284c7] shrink-0" />
+                  <span className="font-bold text-[#0c4a6e] truncate">{file.name}</span>
                 </div>
                 <button
                   onClick={() => { setFile(null); setPrescription(null); setError(null); }}
-                  className="text-red-500 text-sm font-semibold hover:underline shrink-0"
+                  className="text-rose-600 text-xs font-bold hover:underline shrink-0"
                 >
                   Remove
                 </button>
@@ -150,7 +150,7 @@ export default function PrescriptionModal({ isOpen, onClose }: PrescriptionModal
               {!isAnalyzing && !prescription && (
                 <button
                   onClick={handleAnalyze}
-                  className="w-full bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700 transition-colors shadow-md"
+                  className="btn-sky w-full py-3.5 text-xs uppercase tracking-wider shadow-md"
                 >
                   Analyze with AI
                 </button>
@@ -158,45 +158,45 @@ export default function PrescriptionModal({ isOpen, onClose }: PrescriptionModal
 
               {isAnalyzing && (
                 <div className="flex flex-col items-center justify-center py-8 gap-4">
-                  <Loader2 className="w-10 h-10 text-blue-600 animate-spin" />
-                  <p className="text-gray-600 font-medium">AI is reading your prescription...</p>
+                  <Loader2 className="w-10 h-10 text-[#0284c7] animate-spin" />
+                  <p className="text-[#0c4a6e] font-extrabold text-sm">AI is reading your prescription...</p>
                 </div>
               )}
 
               {error && (
-                <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-start gap-2">
-                  <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                  <p className="text-sm text-red-700 font-medium">{error}</p>
+                <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 flex items-start gap-2">
+                  <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
+                  <p className="text-sm text-rose-700 font-semibold">{error}</p>
                 </div>
               )}
 
               {prescription?.analysis_status === 'completed' && prescription.analysis && (
-                <div className="bg-green-50 border border-green-200 rounded-xl p-5">
-                  <div className="flex items-center gap-2 text-green-700 mb-3">
-                    <CheckCircle2 className="w-6 h-6" />
-                    <h3 className="font-bold text-lg">Analysis Report</h3>
+                <div className="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-5">
+                  <div className="flex items-center gap-2 text-emerald-800 mb-3">
+                    <CheckCircle2 className="w-6 h-6 text-emerald-600" />
+                    <h3 className="font-extrabold text-lg">Analysis Report</h3>
                   </div>
-                  <p className="text-gray-700 text-sm leading-relaxed mb-3">{prescription.analysis.summary}</p>
+                  <p className="text-slate-700 text-sm leading-relaxed mb-3 font-medium">{prescription.analysis.summary}</p>
                   {prescription.analysis.tests.length > 0 && (
                     <div className="mb-3">
-                      <p className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-1">Recommended Tests</p>
-                      <ul className="list-disc list-inside text-sm text-gray-700 space-y-0.5">
+                      <p className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-1">Recommended Tests</p>
+                      <ul className="list-disc list-inside text-sm text-slate-800 font-semibold space-y-0.5">
                         {prescription.analysis.tests.map((t, i) => (
                           <li key={i}>{t}</li>
                         ))}
                       </ul>
                     </div>
                   )}
-                  <p className="text-[11px] text-gray-400 leading-relaxed">{prescription.analysis.disclaimer}</p>
+                  <p className="text-[11px] text-slate-500 leading-relaxed font-medium">{prescription.analysis.disclaimer}</p>
                   <div className="mt-5 flex gap-3">
                     <Link
                       href={`/book?${prescription.analysis.tests.map((t) => `tests=${encodeURIComponent(t)}`).join('&')}`}
                       onClick={handleClose}
-                      className="flex-1 text-center bg-green-600 text-white font-bold py-2 rounded-lg hover:bg-green-700 transition-colors"
+                      className="flex-1 text-center bg-emerald-600 text-white font-extrabold py-2.5 rounded-full text-xs hover:bg-emerald-700 transition-colors shadow-sm"
                     >
                       Book These Tests
                     </Link>
-                    <button onClick={handleClose} className="flex-1 bg-white border border-gray-300 text-gray-700 font-bold py-2 rounded-lg hover:bg-gray-50 transition-colors">
+                    <button onClick={handleClose} className="flex-1 glass-pill text-[#0c4a6e] font-extrabold py-2.5 text-xs hover:bg-sky-100/60 transition-colors">
                       Close
                     </button>
                   </div>

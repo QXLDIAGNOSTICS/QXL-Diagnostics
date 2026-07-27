@@ -32,9 +32,8 @@ function LoginVerifyPageInner() {
 
     async function check() {
       try {
-        const me = await api.auth.me();
+        await api.auth.me();
         if (cancelled) return;
-        if (!me) throw new Error("not authenticated");
         await refresh();
         setStatus("done");
         if (interval) clearInterval(interval);
