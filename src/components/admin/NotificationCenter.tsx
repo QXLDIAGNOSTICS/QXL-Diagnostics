@@ -1,6 +1,6 @@
 "use client";
 
-import { Bell, BellOff, CalendarClock, CheckCheck, User as UserIcon, X } from "lucide-react";
+import { Bell, BellOff, CalendarClock, CheckCheck, IndianRupee, User as UserIcon, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
 import { api, type BookingFeedItem } from "@/lib/api";
 
@@ -89,11 +89,11 @@ export default function NotificationCenter() {
   const poll = useCallback(async () => {
     try {
       const res = await api.bookings.notificationsFeed(sinceRef.current || undefined, 20);
-      const fresh = res.items.filter((it) => !seenIdsRef.current.has(it.id));
+      const fresh = res.items.filter((it) => !seenIdsRef.current.has(it.id + it.kind));
       sinceRef.current = res.server_time;
 
       if (fresh.length > 0) {
-        fresh.forEach((it) => seenIdsRef.current.add(it.id));
+        fresh.forEach((it) => seenIdsRef.current.add(it.id + it.kind));
         setItems((prev) => [...fresh, ...prev].slice(0, 30));
 
         if (!firstLoadRef.current) {
@@ -102,9 +102,15 @@ export default function NotificationCenter() {
             pushToast(it);
             if (typeof window !== "undefined" && "Notification" in window && Notification.permission === "granted") {
               try {
-                const n = new Notification("New appointment booked", {
+                const isPayment = it.kind === "payment";
+                const title = isPayment
+                  ? it.payment_status === "failed"
+                    ? "Payment failed"
+                    : "Payment received"
+                  : "New appointment booked";
+                const n = new Notification(title, {
                   body: `${it.patient_name} · ${it.test_name || "Booking"}`,
-                  tag: `qxl-booking-${it.id}`,
+                  tag: `qxl-${it.kind}-${it.id}`,
                   silent: true,
                 });
                 n.onclick = () => {
@@ -196,25 +202,40 @@ export default function NotificationCenter() {
               {items.length === 0 ? (
                 <div className="py-10 text-center text-xs text-slate-400 dark:text-slate-500">No new bookings yet</div>
               ) : (
-                items.map((it) => (
-                  <div
-                    key={it.id}
-                    className="flex items-start gap-3 px-4 py-3 border-b border-slate-50 dark:border-gray-800/60 hover:bg-slate-50 dark:hover:bg-gray-800/40"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-sky-50 dark:bg-sky-950/30 text-blue-600 dark:text-sky-400 flex items-center justify-center shrink-0">
-                      <UserIcon className="w-4 h-4" />
+                items.map((it) => {
+                  const isPayment = it.kind === "payment";
+                  const failed = isPayment && it.payment_status === "failed";
+                  return (
+                    <div
+                      key={`${it.id}-${it.kind}`}
+                      className="flex items-start gap-3 px-4 py-3 border-b border-slate-50 dark:border-gray-800/60 hover:bg-slate-50 dark:hover:bg-gray-800/40"
+                    >
+                      <div
+                        className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
+                          failed
+                            ? "bg-rose-50 dark:bg-rose-950/30 text-rose-600 dark:text-rose-400"
+                            : isPayment
+                              ? "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400"
+                              : "bg-sky-50 dark:bg-sky-950/30 text-blue-600 dark:text-sky-400"
+                        }`}
+                      >
+                        {isPayment ? <IndianRupee className="w-4 h-4" /> : <UserIcon className="w-4 h-4" />}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs font-bold text-slate-800 dark:text-white truncate">
+                          {isPayment ? (failed ? "Payment failed" : "Payment received") : it.patient_name}
+                        </p>
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                          {isPayment ? `${it.patient_name} · ${it.test_name || "Booking"}` : it.test_name || "New booking"}
+                        </p>
+                        <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1">
+                          <CalendarClock className="w-3 h-3" /> {timeAgo(it.event_at || it.created_at)}
+                          {it.assigned_to_name && <span className="ml-1">· Assigned: {it.assigned_to_name}</span>}
+                        </p>
+                      </div>
                     </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs font-bold text-slate-800 dark:text-white truncate">{it.patient_name}</p>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
-                        {it.test_name || "New booking"}
-                      </p>
-                      <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1">
-                        <CalendarClock className="w-3 h-3" /> {timeAgo(it.created_at)}
-                      </p>
-                    </div>
-                  </div>
-                ))
+                  );
+                })
               )}
             </div>
             {items.length > 0 && (
@@ -248,28 +269,42 @@ export default function NotificationCenter() {
 
       {/* Toast stack */}
       <div className="fixed top-4 right-4 z-9999 flex flex-col gap-2 items-end pointer-events-none">
-        {toasts.map((t) => (
-          <div
-            key={t.toastKey}
-            className="pointer-events-auto w-72 flex items-start gap-3 rounded-xl border border-white/10 bg-[#0b1424]/95 backdrop-blur-md shadow-2xl shadow-black/30 px-4 py-3 animate-[toast-in_0.25s_ease-out]"
-          >
-            <div className="w-8 h-8 rounded-full bg-linear-to-br from-sky-400 to-blue-600 flex items-center justify-center shrink-0">
-              <UserIcon className="w-4 h-4 text-white" />
-            </div>
-            <div className="min-w-0 flex-1">
-              <p className="text-xs font-bold text-white truncate">New appointment booked</p>
-              <p className="text-[11px] text-slate-300 truncate">
-                {t.patient_name} {t.test_name ? `· ${t.test_name}` : ""}
-              </p>
-            </div>
-            <button
-              onClick={() => dismissToast(t.toastKey)}
-              className="text-slate-400 hover:text-white cursor-pointer shrink-0"
+        {toasts.map((t) => {
+          const isPayment = t.kind === "payment";
+          const failed = isPayment && t.payment_status === "failed";
+          const title = isPayment ? (failed ? "Payment failed" : "Payment received") : "New appointment booked";
+          const iconBg = failed
+            ? "bg-linear-to-br from-rose-400 to-rose-600"
+            : isPayment
+              ? "bg-linear-to-br from-emerald-400 to-emerald-600"
+              : "bg-linear-to-br from-sky-400 to-blue-600";
+          return (
+            <div
+              key={t.toastKey}
+              className="pointer-events-auto w-72 flex items-start gap-3 rounded-xl border border-white/10 bg-[#0b1424]/95 backdrop-blur-md shadow-2xl shadow-black/30 px-4 py-3 animate-[toast-in_0.25s_ease-out]"
             >
-              <X className="w-3.5 h-3.5" />
-            </button>
-          </div>
-        ))}
+              <div className={`w-8 h-8 rounded-full ${iconBg} flex items-center justify-center shrink-0`}>
+                {isPayment ? (
+                  <IndianRupee className="w-4 h-4 text-white" />
+                ) : (
+                  <UserIcon className="w-4 h-4 text-white" />
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-xs font-bold text-white truncate">{title}</p>
+                <p className="text-[11px] text-slate-300 truncate">
+                  {t.patient_name} {t.test_name ? `· ${t.test_name}` : ""}
+                </p>
+              </div>
+              <button
+                onClick={() => dismissToast(t.toastKey)}
+                className="text-slate-400 hover:text-white cursor-pointer shrink-0"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          );
+        })}
       </div>
     </>
   );

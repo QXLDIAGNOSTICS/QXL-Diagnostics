@@ -26,6 +26,7 @@ import {
   X,
   Pencil,
   ArrowUpDown,
+  UserCheck,
 } from "lucide-react";
 import {
   api,
@@ -852,15 +853,29 @@ export default function AppointmentsPage() {
                         )}
                       </p>
                       <p className="text-[10px] font-mono text-gray-400 mt-0.5">{apt.id.slice(0, 8)}…</p>
-                      {apt.visit_type !== "scheduled" && (
-                        <span
-                          className={`inline-block mt-1 text-[9px] font-bold uppercase px-1.5 py-0.5 rounded ${
-                            apt.visit_type === "emergency" ? "bg-red-100 text-red-700" : "bg-amber-100 text-amber-700"
-                          }`}
-                        >
-                          {VISIT_TYPE_LABELS[apt.visit_type]}
-                        </span>
-                      )}
+                      <div className="flex items-center gap-1 flex-wrap mt-1">
+                        {apt.visit_type !== "scheduled" && (
+                          <span
+                            className={`inline-block text-[9px] font-bold uppercase px-1.5 py-0.5 rounded ${
+                              apt.visit_type === "emergency" ? "bg-red-100 text-red-700" : "bg-amber-100 text-amber-700"
+                            }`}
+                          >
+                            {VISIT_TYPE_LABELS[apt.visit_type]}
+                          </span>
+                        )}
+                        {apt.assigned_to_name ? (
+                          <span
+                            title="Auto-assigned appointments staff"
+                            className="inline-flex items-center gap-1 text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-sky-100 text-sky-700 dark:bg-sky-950/40 dark:text-sky-400"
+                          >
+                            <UserCheck className="w-2.5 h-2.5" /> {apt.assigned_to_name}
+                          </span>
+                        ) : (
+                          <span className="inline-block text-[9px] font-bold uppercase px-1.5 py-0.5 rounded bg-gray-100 text-gray-500 dark:bg-gray-800 dark:text-gray-400">
+                            Unassigned
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="px-4 py-3">
                       <a
@@ -987,6 +1002,10 @@ export default function AppointmentsPage() {
                 <p className="text-[11px] font-bold uppercase tracking-wide text-sky-600">Appointment</p>
                 <h2 className="text-xl font-bold text-slate-900 dark:text-white mt-0.5">{detail.patient_name}</h2>
                 <p className="text-xs text-gray-400 font-mono mt-1">{detail.id}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+                  <UserCheck className="w-3.5 h-3.5" />
+                  {detail.assigned_to_name ? `Assigned to ${detail.assigned_to_name}` : "Not yet assigned"}
+                </p>
               </div>
               <button type="button" onClick={() => setDetail(null)} className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer">
                 <X className="w-5 h-5 text-gray-400" />

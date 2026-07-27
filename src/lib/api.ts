@@ -120,6 +120,8 @@ export type VisitType = 'scheduled' | 'walk_in' | 'emergency';
 export interface Booking {
   id: string;
   user_id: string | null;
+  assigned_to_id: string | null;
+  assigned_to_name: string | null;
   patient_name: string;
   patient_phone: string;
   patient_email: string | null;
@@ -313,11 +315,17 @@ export interface ReceiptPaymentEntry {
 
 export interface BookingFeedItem {
   id: string;
+  kind: 'new_booking' | 'payment';
   patient_name: string;
   test_name: string | null;
   status: string;
   visit_type: string | null;
+  payment_status: string | null;
+  amount_paise: number | null;
+  assigned_to_id: string | null;
+  assigned_to_name: string | null;
   created_at: string;
+  event_at: string | null;
 }
 
 export interface BookingFeed {
