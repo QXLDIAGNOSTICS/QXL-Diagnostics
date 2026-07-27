@@ -62,7 +62,7 @@ export default function AppointmentPage() {
   const [selectedTest, setSelectedTest] = useState("Q-Master Health Pro Package");
   const [preferredDate, setPreferredDate] = useState(new Date().toISOString().split("T")[0]);
   const [preferredTime, setPreferredTime] = useState("08:00 AM - 10:00 AM");
-  const [collectionType, setCollectionType] = useState("home");
+  const [collectionType, setCollectionType] = useState<"home" | "center">("home");
   const [address, setAddress] = useState("");
   const [bookingSuccess, setBookingSuccess] = useState<Booking | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
