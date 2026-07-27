@@ -7,6 +7,7 @@ import ChatPaymentCard, { type ChatPaymentOrder } from '@/components/ChatPayment
 import { useSiteSettings } from '@/lib/useSiteSettings';
 import ReactMarkdown from 'react-markdown';
 import { ShoppingCart, Phone } from 'lucide-react';
+import { getPhoneE164 } from '@/lib/businessInfo';
 
 type StreamResult = 'streamed' | 'unauthorized' | 'failed';
 
@@ -404,7 +405,7 @@ export default function AiChat() {
 
         {/* Floating Call Now Button */}
         <a
-          href={`tel:${siteSettings.contactPhone || '+919964636848'}`}
+          href={`tel:${getPhoneE164()}`}
           style={{
             position: 'fixed',
             right: '24px',
@@ -462,7 +463,7 @@ export default function AiChat() {
 
       {/* Floating Call Now Button */}
       <a
-        href={`tel:${siteSettings.contactPhone || '+919964636848'}`}
+        href={`tel:${getPhoneE164()}`}
         style={{
           position: 'fixed',
           right: '24px',

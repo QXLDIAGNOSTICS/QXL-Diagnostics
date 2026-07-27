@@ -48,7 +48,7 @@ const statusColors: Record<string, string> = {
 };
 
 export default function AppointmentPage() {
-  const [viewMode, setViewMode] = useState<"admin">("admin");
+  const [viewMode, setViewMode] = useState<"admin" | "book">("admin");
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

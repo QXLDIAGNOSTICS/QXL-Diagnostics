@@ -676,7 +676,7 @@ export default function Home() {
       await api.leads.contact({
         name: formState.name,
         phone: formState.phone,
-        inquiry_type: formState.service,
+        subject: formState.service,
         message: formState.message
       });
       setFormStatus('success');

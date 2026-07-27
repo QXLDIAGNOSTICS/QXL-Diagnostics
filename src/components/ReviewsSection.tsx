@@ -50,7 +50,11 @@ export default function ReviewsSection({ decorativeHeading = false }: { decorati
         source: 'Google',
         created_at: new Date().toISOString()
       }
-    ]);
+    ].map(r => ({
+      is_published: true,
+      sort_order: 0,
+      ...r
+    })));
   }, []);
 
   if (reviews.length === 0) return null;

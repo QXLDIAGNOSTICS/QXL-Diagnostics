@@ -14,33 +14,37 @@ export default function FaqSection({ decorativeHeading = false }: { decorativeHe
         id: 'faq1',
         question: 'How do I book a home collection?',
         answer: 'Simply fill out our Home Collection form, message us on WhatsApp (+91 9964 636848), or select a health package and complete the check-out.',
-        order: 1
+        sort_order: 1
       },
       {
         id: 'faq2',
         question: 'How long does it take to receive reports?',
         answer: 'QXL Diagnostics provides same-day digital reports for most routine tests such as CBC, thyroid, and blood sugar. Reports are shared by email and WhatsApp and can be downloaded from the patient portal.',
-        order: 2
+        sort_order: 2
       },
       {
         id: 'faq3',
         question: 'Do I need to fast before my blood test?',
         answer: 'It depends on the test. For instance, tests like Fasting Blood Sugar and Lipid Profile typically require 10-12 hours of overnight fasting. Only water is permitted. Our team will provide specific instructions based on your selected package.',
-        order: 3
+        sort_order: 3
       },
       {
         id: 'faq4',
         question: 'Are your phlebotomists trained and certified?',
         answer: 'Absolutely. We ensure all our phlebotomists are highly trained, NABL-certified professionals with extensive experience in safe and painless blood collection.',
-        order: 4
+        sort_order: 4
       },
       {
         id: 'faq5',
         question: 'Can I access my medical reports online?',
         answer: 'Yes, you can easily view and download your reports securely through our online patient portal by logging in with your registered mobile number.',
-        order: 5
+        sort_order: 5
       }
-    ]);
+    ].map(f => ({
+      is_active: true,
+      category: null,
+      ...f
+    })));
   }, []);
 
   if (faqs.length === 0) return null;

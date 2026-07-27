@@ -38,7 +38,16 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
       excerpt: 'A standard lipid profile isn\'t always enough. Learn about hs-CRP, Lp(a), and advanced markers for heart health.',
       created_at: '2026-07-20T00:00:00.000Z'
     }
-  ];
+  ].map(b => ({
+    content: null,
+    author: null,
+    category: null,
+    image_url: null,
+    tags: null,
+    is_published: true,
+    sort_order: 0,
+    ...b
+  }));
 
   useEffect(() => {
     let cancelled = false;
