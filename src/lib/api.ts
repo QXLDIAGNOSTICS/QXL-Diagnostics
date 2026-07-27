@@ -167,6 +167,33 @@ export interface BookingAdminUpdate {
   preferred_time?: string | null;
 }
 
+export interface CreateOrderResponse {
+  key_id: string;
+  order_id: string;
+  amount: number;
+  currency: string;
+  booking_ids: string[];
+  name: string;
+  description: string;
+}
+
+export interface VerifyPaymentRequest {
+  razorpay_order_id: string;
+  razorpay_payment_id: string;
+  razorpay_signature: string;
+}
+
+export interface PaymentRead {
+  id: string;
+  booking_id: string;
+  extra_booking_ids: string[] | null;
+  razorpay_order_id: string;
+  razorpay_payment_id: string | null;
+  amount: number;
+  currency: string;
+  status: string;
+}
+
 export interface CenterCreate {
   name: string;
   slug?: string | null;
@@ -619,6 +646,11 @@ export const api = {
       ).catch(() => ({ items: [], count: 0 })),
     updateStatus: (id: string, status: string) => patch<Booking>(`/bookings/${id}/status`, { status }),
     update: (id: string, data: BookingAdminUpdate) => patch<Booking>(`/bookings/${id}`, data),
+  },
+  payments: {
+    createOrder: (bookingIds: string[]) =>
+      post<CreateOrderResponse>('/payments/orders', { booking_ids: bookingIds }),
+    verify: (data: VerifyPaymentRequest) => post<PaymentRead>('/payments/verify', data),
   },
 
   prescriptions: {
