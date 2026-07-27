@@ -145,13 +145,20 @@ def _payment_booking_ids(payment: Payment) -> list[uuid.UUID]:
 
 
 async def _mark_bookings_payment_status(
-    db: AsyncSession, payment: Payment, *, payment_status: str
+    db: AsyncSession, payment: Payment, *, payment_status: str, notify: bool = True
 ) -> None:
+    """Updates each covered booking's payment_status. ``notify`` should be
+    False when this is a repeat confirmation of a state we already recorded
+    (e.g. a Razorpay webhook retry, or the webhook arriving after the
+    client-side ``/verify`` callback already handled the same payment) —
+    otherwise the patient gets duplicate "payment successful" emails/SMS."""
     booking_repo = BookingRepository(db)
     for booking_id in _payment_booking_ids(payment):
         booking = await booking_repo.get_by_id(booking_id)
         if booking is not None:
             await booking_repo.update_payment_status(booking, payment_status=payment_status)
+            if not notify:
+                continue
             if payment_status == "paid":
                 await _queue_payment_notification(db, booking, notification_type="payment")
             elif payment_status == "failed":
@@ -201,13 +208,14 @@ async def verify_payment(
     if payment is None:
         raise NotFoundError("Payment order not found")
 
+    already_paid = payment.status == "paid"
     payment.razorpay_payment_id = payment_id
     payment.razorpay_signature = signature
-    if payment.status != "paid":
+    if not already_paid:
         payment.status = "paid"
         payment.paid_at = datetime.now(timezone.utc)
 
-    await _mark_bookings_payment_status(db, payment, payment_status="paid")
+    await _mark_bookings_payment_status(db, payment, payment_status="paid", notify=not already_paid)
 
     await db.commit()
     await db.refresh(payment)
@@ -217,6 +225,10 @@ async def verify_payment(
 def verify_webhook_signature(*, raw_body: bytes, signature: str) -> bool:
     """Per Razorpay docs: HMAC-SHA256 of the raw (unparsed) request body."""
     if not settings.RAZORPAY_WEBHOOK_SECRET:
+        logger.warning(
+            "Razorpay webhook received but RAZORPAY_WEBHOOK_SECRET is not configured — "
+            "rejecting. See RAZORPAY_WEBHOOK_SETUP.md."
+        )
         return False
     expected = hmac.new(
         settings.RAZORPAY_WEBHOOK_SECRET.encode("utf-8"), raw_body, hashlib.sha256
@@ -239,20 +251,27 @@ async def handle_webhook_event(db: AsyncSession, event: dict) -> None:
         return
 
     if event_type in {"payment.captured", "order.paid"}:
+        already_paid = payment.status == "paid"
         payment.razorpay_payment_id = payment_entity.get("id") or payment.razorpay_payment_id
-        if payment.status != "paid":
+        if not already_paid:
             payment.status = "paid"
             payment.paid_at = datetime.now(timezone.utc)
-        await _mark_bookings_payment_status(db, payment, payment_status="paid")
+        # Webhooks are retried by Razorpay and can also arrive after the
+        # client-side /verify callback already confirmed the same payment —
+        # only notify on the first time we record it as paid.
+        await _mark_bookings_payment_status(db, payment, payment_status="paid", notify=not already_paid)
     elif event_type == "payment.failed":
+        already_failed = payment.status == "failed"
         payment.status = "failed"
         payment.failure_reason = payment_entity.get("error_description")
-        await _mark_bookings_payment_status(db, payment, payment_status="failed")
+        await _mark_bookings_payment_status(db, payment, payment_status="failed", notify=not already_failed)
     elif event_type in {"refund.processed", "refund.created"}:
+        already_refunded = payment.status == "refunded"
         payment.status = "refunded"
-        await _mark_bookings_payment_status(db, payment, payment_status="refunded")
+        await _mark_bookings_payment_status(db, payment, payment_status="refunded", notify=not already_refunded)
 
     await db.commit()
+    logger.info("Razorpay webhook processed: event=%s order_id=%s", event_type, order_id)
 
 
 async def reconcile_payment(db: AsyncSession, *, payment_id: uuid.UUID) -> Payment:
@@ -292,18 +311,19 @@ async def reconcile_payment(db: AsyncSession, *, payment_id: uuid.UUID) -> Payme
 
     if latest is None:
         # No payment attempts recorded at Razorpay at all — order was never paid.
-        if payment.status not in {"paid", "refunded"}:
+        if payment.status not in {"paid", "refunded", "failed"}:
             payment.status = "failed"
             payment.failure_reason = "No payment attempts found at Razorpay during reconciliation"
             await _mark_bookings_payment_status(db, payment, payment_status="failed")
     elif latest.get("status") == "captured":
+        already_paid = payment.status == "paid"
         payment.razorpay_payment_id = latest.get("id") or payment.razorpay_payment_id
-        if payment.status != "paid":
+        if not already_paid:
             payment.status = "paid"
             payment.paid_at = datetime.now(timezone.utc)
-        await _mark_bookings_payment_status(db, payment, payment_status="paid")
+        await _mark_bookings_payment_status(db, payment, payment_status="paid", notify=not already_paid)
     elif latest.get("status") in {"failed"}:
-        if payment.status not in {"paid", "refunded"}:
+        if payment.status not in {"paid", "refunded", "failed"}:
             payment.status = "failed"
             payment.failure_reason = latest.get("error_description") or "Payment failed at Razorpay"
             await _mark_bookings_payment_status(db, payment, payment_status="failed")

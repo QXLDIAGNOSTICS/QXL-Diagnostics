@@ -29,6 +29,10 @@ PERMISSION_CATALOG: list[dict[str, str]] = [
 
 PERMISSION_KEYS: frozenset[str] = frozenset(p["key"] for p in PERMISSION_CATALOG)
 
+# Referenced directly by app.services.staff_assignment_service to decide who
+# is eligible for booking auto-assignment.
+PERMISSION_APPOINTMENTS_MANAGE = "appointments.manage"
+
 # Default permission sets seeded for built-in roles (kept in sync with the
 # legacy static behaviour in ``app.core.roles`` at the time custom roles
 # shipped).

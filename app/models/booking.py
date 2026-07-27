@@ -43,6 +43,14 @@ class Booking(Base, TimestampMixin):
         UUID(as_uuid=True), ForeignKey("users.id", ondelete="SET NULL"), nullable=True, index=True
     )
 
+    # Auto-assigned front-desk/appointments staff member who "owns" this
+    # booking — set once at creation (see app.services.staff_assignment_service)
+    # so exactly one staff member is alerted/emailed, not the whole team, and
+    # so workload spreads evenly instead of everyone chasing the same ticket.
+    assigned_to_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="SET NULL"), nullable=True, index=True
+    )
+
     # Patient details (denormalised for guest bookings)
     patient_name: Mapped[str] = mapped_column(String, nullable=False)
     patient_phone: Mapped[str] = mapped_column(String, nullable=False, index=True)
@@ -95,7 +103,8 @@ class Booking(Base, TimestampMixin):
         String(16), default="unpaid", nullable=False, index=True
     )  # unpaid | pending | paid | failed | refunded
 
-    user: Mapped["User | None"] = relationship(back_populates="bookings")  # noqa: F821
+    user: Mapped["User | None"] = relationship(foreign_keys=[user_id], back_populates="bookings")  # noqa: F821
+    assigned_staff: Mapped["User | None"] = relationship(foreign_keys=[assigned_to_id])  # noqa: F821
     test: Mapped["TestCatalog | None"] = relationship()  # noqa: F821
     package: Mapped["HealthPackage | None"] = relationship(back_populates="bookings")  # noqa: F821
     center: Mapped["Center | None"] = relationship(back_populates="bookings")  # noqa: F821
@@ -105,3 +114,11 @@ class Booking(Base, TimestampMixin):
     notifications: Mapped[list["BookingNotification"]] = relationship(  # noqa: F821
         back_populates="booking", cascade="all, delete-orphan"
     )
+
+    @property
+    def assigned_to_name(self) -> str | None:
+        """Convenience read used by ``BookingRead``/``BookingFeedItem`` —
+        relies on ``assigned_staff`` being eagerly loaded by the repository
+        (``selectinload``); never triggers lazy IO itself."""
+        staff = self.assigned_staff
+        return staff.name or staff.email or staff.phone if staff else None

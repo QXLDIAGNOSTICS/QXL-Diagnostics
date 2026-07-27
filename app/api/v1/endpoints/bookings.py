@@ -10,6 +10,7 @@ from fastapi import APIRouter, Depends, Query
 from fastapi.responses import StreamingResponse
 
 from app.api.deps import CurrentUser, CurrentUserOptional, DbSession, require_role
+from app.core import roles as R
 from app.models.user import User
 from app.repositories.booking_repository import BookingRepository
 from app.schemas.booking import (
@@ -58,17 +59,40 @@ async def booking_notifications_feed(
     limit: int = Query(20, le=50),
     user: User = Depends(require_role("staff")),
 ) -> BookingFeed:
-    """Powers the admin bell icon — new-booking alerts, desktop notifications & sound."""
-    _ = user
+    """Powers the admin bell icon — new-booking alerts + payment-confirmed
+    alerts, desktop notifications & sound.
+
+    Non-admin staff only see items for bookings assigned to *them* (or still
+    unassigned) so one new appointment doesn't page the whole team; admins/
+    super-admins see everything for oversight.
+    """
     cutoff = since or (datetime.now(timezone.utc) - timedelta(minutes=20))
     if cutoff.tzinfo is None:
         cutoff = cutoff.replace(tzinfo=timezone.utc)
     repo = BookingRepository(db)
-    rows = await repo.list_created_after(cutoff, limit=limit)
-    return BookingFeed(
-        items=[BookingFeedItem.model_validate(row) for row in rows],
-        server_time=datetime.now(timezone.utc),
-    )
+    is_admin = await R.is_admin_async(db, user.role)
+
+    new_rows = await repo.list_created_after(cutoff, limit=limit)
+    paid_rows = await repo.list_payment_updated_after(cutoff, limit=limit)
+
+    if not is_admin:
+        new_rows = [b for b in new_rows if b.assigned_to_id in (None, user.id)]
+        paid_rows = [b for b in paid_rows if b.assigned_to_id in (None, user.id)]
+
+    def _aware(dt: datetime) -> datetime:
+        return dt if dt.tzinfo is not None else dt.replace(tzinfo=timezone.utc)
+
+    def _feed_item(row, kind: str, event_at: datetime) -> BookingFeedItem:
+        item = BookingFeedItem.model_validate(row)
+        item.kind = kind
+        item.event_at = _aware(event_at)
+        return item
+
+    items = [_feed_item(row, "new_booking", row.created_at) for row in new_rows]
+    items += [_feed_item(row, "payment", row.updated_at) for row in paid_rows]
+    items.sort(key=lambda it: it.event_at or it.created_at, reverse=True)
+
+    return BookingFeed(items=items[:limit], server_time=datetime.now(timezone.utc))
 
 
 @router.get("/export")
@@ -99,6 +123,7 @@ async def export_bookings_csv(
             "was_rescheduled",
             "payment_status",
             "amount_paise",
+            "assigned_to",
             "notes",
             "created_at",
         ]
@@ -120,6 +145,7 @@ async def export_bookings_csv(
                 b.was_rescheduled,
                 b.payment_status,
                 b.amount_paise or "",
+                b.assigned_to_name or "",
                 (b.notes or "").replace("\n", " "),
                 b.created_at.isoformat() if getattr(b, "created_at", None) else "",
             ]

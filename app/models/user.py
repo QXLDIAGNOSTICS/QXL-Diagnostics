@@ -47,7 +47,7 @@ class User(Base, TimestampMixin):
         back_populates="user", cascade="all, delete-orphan"
     )
     bookings: Mapped[list["Booking"]] = relationship(  # noqa: F821
-        back_populates="user", cascade="all, delete-orphan"
+        back_populates="user", cascade="all, delete-orphan", foreign_keys="Booking.user_id"
     )
     prescriptions: Mapped[list["Prescription"]] = relationship(  # noqa: F821
         back_populates="user", cascade="all, delete-orphan"

@@ -10,12 +10,14 @@ from __future__ import annotations
 
 import asyncio
 import smtplib
+from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 import httpx
 
 from app.core.config import settings
 from app.core.logging import get_logger
+from app.services.email_html import render_html_email
 
 logger = get_logger(__name__)
 
@@ -136,8 +138,23 @@ async def send_sms(to_phone: str, body: str, *, template_id: str | None = None) 
         return False
 
 
-async def send_email(to_email: str, subject: str, body: str) -> bool:
-    """Send a plain-text email via SMTP. Returns True if a real send was attempted/succeeded."""
+async def send_email(
+    to_email: str,
+    subject: str,
+    body: str,
+    *,
+    html_body: str | None = None,
+    cta_label: str | None = None,
+    cta_url: str | None = None,
+) -> bool:
+    """Send an email via SMTP. Returns True if a real send was attempted/succeeded.
+
+    Always sends a proper branded HTML page (with the original plain text as
+    the ``text/plain`` fallback part) — ``body`` alone is never sent raw.
+    Pass ``html_body`` to override the auto-generated HTML entirely (e.g. for
+    a template that needs bespoke layout); otherwise one is rendered from
+    ``body`` via :func:`app.services.email_html.render_html_email`.
+    """
     if not _smtp_configured():
         logger.warning(
             "Email not sent (SMTP not configured) — dev fallback log only. to=%s subject=%s",
@@ -146,11 +163,15 @@ async def send_email(to_email: str, subject: str, body: str) -> bool:
         )
         return False
     try:
+        resolved_html = html_body or render_html_email(subject, body, cta_label=cta_label, cta_url=cta_url)
+
         def _send() -> None:
-            msg = MIMEText(body)
+            msg = MIMEMultipart("alternative")
             msg["Subject"] = subject
             msg["From"] = settings.SMTP_FROM_EMAIL
             msg["To"] = to_email
+            msg.attach(MIMEText(body, "plain"))
+            msg.attach(MIMEText(resolved_html, "html"))
             with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT, timeout=10) as server:
                 if settings.SMTP_USE_TLS:
                     server.starttls()

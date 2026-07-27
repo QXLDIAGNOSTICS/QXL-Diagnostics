@@ -102,6 +102,12 @@ async def create_booking(db: AsyncSession, data: dict, user: User | None) -> Boo
     except Exception:  # noqa: BLE001
         logger.exception("Failed to queue booking confirmation for booking=%s", booking.id)
 
+    # Auto-assign to exactly one appointments staff member (least-loaded) and
+    # email just them — best-effort, never blocks/fails the booking itself.
+    from app.services.staff_assignment_service import assign_booking
+
+    await assign_booking(db, booking)
+
     return booking
 
 
@@ -112,9 +118,16 @@ async def list_my_bookings(
 
 
 async def list_all_bookings(
-    db: AsyncSession, status: str | None, limit: int, offset: int
+    db: AsyncSession,
+    status: str | None,
+    limit: int,
+    offset: int,
+    *,
+    assigned_to_id: uuid.UUID | None = None,
 ) -> tuple[list[Booking], int]:
-    return await BookingRepository(db).list_all(status=status, limit=limit, offset=offset)
+    return await BookingRepository(db).list_all(
+        status=status, limit=limit, offset=offset, assigned_to_id=assigned_to_id
+    )
 
 
 async def update_booking_status(db: AsyncSession, booking_id: uuid.UUID, status: str) -> Booking:

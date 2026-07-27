@@ -134,6 +134,8 @@ class BookingRead(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: uuid.UUID
     user_id: uuid.UUID | None = None
+    assigned_to_id: uuid.UUID | None = None
+    assigned_to_name: str | None = None
     patient_name: str
     patient_phone: str
     patient_email: str | None = None
@@ -201,11 +203,17 @@ class BookingReceipt(BaseModel):
 class BookingFeedItem(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: uuid.UUID
+    kind: str = "new_booking"  # 'new_booking' | 'payment'
     patient_name: str
     test_name: str | None = None
     status: str
     visit_type: str | None = None
+    payment_status: str | None = None
+    amount_paise: int | None = None
+    assigned_to_id: uuid.UUID | None = None
+    assigned_to_name: str | None = None
     created_at: datetime
+    event_at: datetime | None = None  # when this specific event happened (defaults to created_at)
 
 
 class BookingFeed(BaseModel):

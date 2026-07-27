@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 from app.models.booking import Booking
 
@@ -21,7 +22,7 @@ class BookingRepository:
         return booking
 
     async def get_by_id(self, booking_id: uuid.UUID) -> Booking | None:
-        return await self.db.get(Booking, booking_id)
+        return await self.db.get(Booking, booking_id, options=[selectinload(Booking.assigned_staff)])
 
     async def list_for_user(
         self, user_id: uuid.UUID, limit: int = 50, offset: int = 0
@@ -59,8 +60,33 @@ class BookingRepository:
             (
                 await self.db.execute(
                     select(Booking)
+                    .options(selectinload(Booking.assigned_staff))
                     .where(Booking.created_at > since)
                     .order_by(Booking.created_at.desc())
+                    .limit(limit)
+                )
+            ).scalars().all()
+        )
+        return rows
+
+    async def list_payment_updated_after(self, since: datetime, limit: int = 20) -> list[Booking]:
+        """Bookings whose ``updated_at`` moved past ``since`` AND are
+        currently paid/failed — feeds the admin "payment done" bell alert
+        (webhook or client-verified payments both touch ``updated_at``).
+        Unlike ``created_at``, ``updated_at`` is a timezone-aware column, so
+        ``since`` is compared as-is (must be tz-aware)."""
+        if since.tzinfo is None:
+            since = since.replace(tzinfo=timezone.utc)
+        rows = list(
+            (
+                await self.db.execute(
+                    select(Booking)
+                    .options(selectinload(Booking.assigned_staff))
+                    .where(
+                        Booking.updated_at > since,
+                        Booking.payment_status.in_(["paid", "failed"]),
+                    )
+                    .order_by(Booking.updated_at.desc())
                     .limit(limit)
                 )
             ).scalars().all()
@@ -114,13 +140,21 @@ class BookingRepository:
         return rows
 
     async def list_all(
-        self, status: str | None = None, limit: int = 100, offset: int = 0
+        self,
+        status: str | None = None,
+        limit: int = 100,
+        offset: int = 0,
+        *,
+        assigned_to_id: uuid.UUID | None = None,
     ) -> tuple[list[Booking], int]:
-        base = select(Booking)
+        base = select(Booking).options(selectinload(Booking.assigned_staff))
         count_q = select(func.count()).select_from(Booking)
         if status:
             base = base.where(Booking.status == status)
             count_q = count_q.where(Booking.status == status)
+        if assigned_to_id is not None:
+            base = base.where(Booking.assigned_to_id == assigned_to_id)
+            count_q = count_q.where(Booking.assigned_to_id == assigned_to_id)
         count = (await self.db.execute(count_q)).scalar_one()
         rows = list(
             (
