@@ -40,6 +40,7 @@ import {
 } from "@/lib/api";
 import { useAuth } from "@/lib/useAuth";
 import { canDeleteAppointments, canExportAppointments, isAdmin } from "@/lib/roles";
+import AutomationRules from "@/components/admin/AutomationRules";
 
 const STATUS_OPTIONS = [
   "pending",
@@ -86,10 +87,12 @@ const VISIT_TYPE_LABELS: Record<VisitType, string> = {
 const NOTIFY_TYPE_LABELS: Record<NotificationType, string> = {
   confirmation: "Booking confirmation",
   payment: "Payment confirmation",
+  payment_reminder: "Payment reminder",
   reminder: "Appointment reminder",
   reschedule: "Reschedule notice",
   cancellation: "Cancellation notice",
   offer: "Offer / book-again",
+  marketing: "Marketing / offers",
   custom: "Custom message",
 };
 
@@ -169,7 +172,7 @@ export default function AppointmentsPage() {
   const [saving, setSaving] = useState(false);
   const [showDashboard, setShowDashboard] = useState(true);
   const [dashboardTab, setDashboardTab] = useState<"overview" | "live">("overview");
-  const [pageTab, setPageTab] = useState<"dashboard" | "list">("dashboard");
+  const [pageTab, setPageTab] = useState<"dashboard" | "list" | "automation">("dashboard");
 
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
@@ -614,13 +617,20 @@ export default function AppointmentsPage() {
         </div>
       )}
 
-      {/* Page-level tabs: Dashboard slides into the appointment list */}
-      <div className="relative flex bg-slate-100 dark:bg-gray-800 rounded-xl p-1 max-w-md">
+      {/* Page-level tabs: Dashboard slides into the appointment list / automations */}
+      <div className="relative flex bg-slate-100 dark:bg-gray-800 rounded-xl p-1 max-w-xl">
         <div
-          className="absolute top-1 bottom-1 w-[calc(50%-4px)] rounded-lg bg-white dark:bg-gray-700 shadow-sm transition-transform duration-300 ease-out"
-          style={{ transform: pageTab === "dashboard" ? "translateX(0%)" : "translateX(calc(100% + 8px))" }}
+          className="absolute top-1 bottom-1 w-[calc(33.333%-5.33px)] rounded-lg bg-white dark:bg-gray-700 shadow-sm transition-transform duration-300 ease-out"
+          style={{
+            transform:
+              pageTab === "dashboard"
+                ? "translateX(0%)"
+                : pageTab === "list"
+                ? "translateX(calc(100% + 8px))"
+                : "translateX(calc(200% + 16px))",
+          }}
         />
-        {(["dashboard", "list"] as const).map((tab) => (
+        {(["dashboard", "list", "automation"] as const).map((tab) => (
           <button
             key={tab}
             type="button"
@@ -631,7 +641,7 @@ export default function AppointmentsPage() {
                 : "text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"
             }`}
           >
-            {tab === "dashboard" ? "Dashboard" : "Appointments list"}
+            {tab === "dashboard" ? "Dashboard" : tab === "list" ? "Appointments list" : "Automation"}
           </button>
         ))}
       </div>
@@ -963,6 +973,8 @@ export default function AppointmentsPage() {
       </div>
       </>
       )}
+
+      {pageTab === "automation" && <AutomationRules canManage={showAnalytics} />}
       </div>
 
       {/* Detail / edit drawer */}

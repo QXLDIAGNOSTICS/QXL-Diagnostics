@@ -236,11 +236,46 @@ export type NotificationChannel = 'sms' | 'email' | 'both';
 export type NotificationType =
   | 'confirmation'
   | 'payment'
+  | 'payment_reminder'
   | 'reminder'
   | 'reschedule'
   | 'cancellation'
   | 'offer'
+  | 'marketing'
   | 'custom';
+
+export type AutomationRuleType = 'payment_reminder' | 'marketing';
+
+export interface NotificationRule {
+  id: string;
+  name: string;
+  rule_type: AutomationRuleType;
+  channel: NotificationChannel;
+  interval_days: number;
+  start_date: string | null;
+  end_date: string | null;
+  is_active: boolean;
+  subject: string | null;
+  message: string | null;
+  last_run_at: string | null;
+  created_by: string | null;
+  created_at: string | null;
+  updated_at: string | null;
+}
+
+export interface NotificationRuleCreate {
+  name: string;
+  rule_type: AutomationRuleType;
+  channel: NotificationChannel;
+  interval_days: number;
+  start_date?: string | null;
+  end_date?: string | null;
+  is_active?: boolean;
+  subject?: string | null;
+  message?: string | null;
+}
+
+export type NotificationRuleUpdate = Partial<Omit<NotificationRuleCreate, 'rule_type'>>;
 
 export interface NotifyRequest {
   channel: NotificationChannel;
@@ -814,6 +849,13 @@ export const api = {
       post<CreateOrderResponse>('/payments/orders', { booking_ids: bookingIds }),
     verify: (data: VerifyPaymentRequest) => post<PaymentRead>('/payments/verify', data),
     reconcile: (paymentId: string) => post<PaymentRead>(`/payments/${paymentId}/reconcile`),
+  },
+  notificationRules: {
+    list: () => get<{ items: NotificationRule[]; count: number }>('/notification-rules'),
+    create: (data: NotificationRuleCreate) => post<NotificationRule>('/notification-rules', data),
+    update: (id: string, data: NotificationRuleUpdate) =>
+      patch<NotificationRule>(`/notification-rules/${id}`, data),
+    remove: (id: string) => del<void>(`/notification-rules/${id}`),
   },
   prescriptions: {
     upload: (file: File) => {
