@@ -540,6 +540,7 @@ export default function BookPage() {
                       className="w-full h-auto object-contain rounded-xl"
                       style={{ minHeight: '260px' }}
                     />
+                    <p className="text-[10px] text-slate-500 font-medium text-center">Secure payment powered by Razorpay — cards, UPI, netbanking &amp; wallets accepted. Prefer to pay later? Our coordinator can also confirm on WhatsApp.</p>
                   </div>
 
                   <p className="text-[11px] font-semibold text-slate-700 mb-2">
