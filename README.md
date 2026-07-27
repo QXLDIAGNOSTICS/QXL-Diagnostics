@@ -1,6 +1,6 @@
 # QXL Backend
 
-Production-grade backend for QXL Diagnostics:
+Production backend for QXL Diagnostics:
 
 - **FastAPI** (async) with a layered architecture (`endpoints → services → repositories → models`)
 - First-party **password + OTP + SMS-link 2FA** authentication with secure httpOnly session cookies (no third-party identity provider, no JWTs — opaque tokens hashed at rest)
