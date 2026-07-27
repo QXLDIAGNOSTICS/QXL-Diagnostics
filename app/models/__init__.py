@@ -9,6 +9,7 @@ from app.models.file import FileRecord
 from app.models.lead import CollaborationLead, ContactInquiry
 from app.models.login_challenge import LoginChallenge
 from app.models.notification import BookingNotification
+from app.models.notification_rule import NotificationRule
 from app.models.payment import Payment
 from app.models.prescription import Prescription
 from app.models.role import CustomRole
@@ -26,6 +27,7 @@ __all__ = [
     "LoginChallenge",
     "Payment",
     "BookingNotification",
+    "NotificationRule",
     "CustomRole",
     "Center",
     "HealthPackage",

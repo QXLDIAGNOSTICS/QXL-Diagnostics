@@ -25,7 +25,8 @@ out until it's configured.
 
 ## 3. Create an App Password
 
-1. Go to https://myaccount.google.com/apppasswords (you may need to sign in
+1. Go to https://myaccount.
+google.com/apppasswords (you may need to sign in
    again).
    - If that link 404s, it usually means 2-Step Verification isn't fully
      enabled yet, or your Workspace admin has disabled App Passwords —

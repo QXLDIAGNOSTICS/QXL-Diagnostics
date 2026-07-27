@@ -236,8 +236,8 @@ TOOL_SPECS: list[dict] = [
                 "created ALL the bookings the user wants to pay for right now (call "
                 "create_booking once per test/package first, collecting each returned "
                 "booking_id, then call this ONCE with the full list). After calling this, "
-                "tell the user a UPI QR code has appeared in the chat for the "
-                "combined total (UPI ID qxl-diagnostics@pingpay) — never invent payment links, and never "
+                "tell the user a secure Razorpay payment button has appeared in the chat for the "
+                "combined total — never invent payment links, and never "
                 "claim payment is complete yourself."
             ),
             "parameters": {
@@ -459,7 +459,7 @@ async def execute_tool(
                     "booking_ids": [str(b.id) for b in bookings],
                     "total_rupees": round(payment.amount / 100, 2),
                     "message": (
-                        "Payment order created. A UPI QR payment card has been shown to the "
+                        "Payment order created. A Razorpay 'Pay Now' card has been shown to the "
                         "user directly in the chat for this combined amount."
                     ),
                 }

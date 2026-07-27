@@ -20,10 +20,13 @@ NOTIFICATION_CHANNELS = ("sms", "email", "both")
 NOTIFICATION_TYPES = (
     "confirmation",
     "payment",
+    "payment_failed",
+    "payment_reminder",
     "reminder",
     "reschedule",
     "cancellation",
     "offer",
+    "marketing",
     "custom",
 )
 NOTIFICATION_STATUSES = ("pending", "scheduled", "sent", "failed", "partial")

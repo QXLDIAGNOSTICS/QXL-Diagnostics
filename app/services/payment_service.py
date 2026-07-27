@@ -128,6 +128,11 @@ async def create_order(
         await booking_repo.update_payment_status(booking, payment_status="pending", amount_paise=amount)
     await db.commit()
     await db.refresh(payment)
+
+    # Intentionally no notification here: an order being *created* just means
+    # the checkout modal is about to open — the user hasn't paid (or even
+    # tried) yet. Only genuine outcomes (paid / failed, below) should ever
+    # reach the patient's inbox/phone.
     return payment, bookings
 
 
@@ -148,20 +153,31 @@ async def _mark_bookings_payment_status(
         if booking is not None:
             await booking_repo.update_payment_status(booking, payment_status=payment_status)
             if payment_status == "paid":
-                await _queue_payment_notification(db, booking)
+                await _queue_payment_notification(db, booking, notification_type="payment")
+            elif payment_status == "failed":
+                await _queue_payment_notification(db, booking, notification_type="payment_failed")
 
 
-async def _queue_payment_notification(db: AsyncSession, booking: Booking) -> None:
-    """Best-effort payment confirmation SMS/email — never blocks the payment flow."""
+async def _queue_payment_notification(
+    db: AsyncSession, booking: Booking, *, notification_type: str = "payment"
+) -> None:
+    """Best-effort payment SMS/email (success, failed, or pending/processing)
+    — never blocks the payment flow."""
     try:
         from app.services.booking_notification_service import queue_notification
 
         channel = "both" if booking.patient_email else "sms"
         await queue_notification(
-            db, booking=booking, channel=channel, notification_type="payment", created_by="system"
+            db,
+            booking=booking,
+            channel=channel,
+            notification_type=notification_type,
+            created_by="system",
         )
     except Exception:  # noqa: BLE001
-        logger.exception("Failed to queue payment notification for booking=%s", booking.id)
+        logger.exception(
+            "Failed to queue %s notification for booking=%s", notification_type, booking.id
+        )
 
 
 

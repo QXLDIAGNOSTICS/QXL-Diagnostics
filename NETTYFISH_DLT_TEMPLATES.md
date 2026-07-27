@@ -8,11 +8,16 @@ approved template gets silently dropped by the carrier (or rejected by
 Nettyfish with an error code) — it does not "just work" with a single OTP
 template like we currently use for login.
 
-The appointments desk now sends 6 automatic message types + 1 generic
+The appointments desk now sends 10 automatic message types + 1 generic
 message staff can use for ad-hoc notes. **Each needs its own DLT template
 ID**, submitted and approved separately. This document has the exact copy
 to submit for each one, plus where to plug the resulting template ID into
 the backend once approved.
+
+> Note: there is deliberately **no** "payment initiated / processing"
+> message — a Razorpay order being created just means the checkout modal is
+> about to open, not that the patient has actually attempted to pay. Only
+> real outcomes (paid or failed) ever reach the patient.
 
 ## How to register a template with Nettyfish/your DLT operator
 
@@ -95,7 +100,46 @@ Variable: patient first name. (This one may need to go under the
 **Promotional** category depending on your operator's classification —
 if so, it can only be sent to numbers that haven't opted out via NDNC/DND.)
 
-### 7. Custom staff message — `NETTYFISH_TEMPLATE_ID_CUSTOM`
+### 7. Welcome / account created — `NETTYFISH_TEMPLATE_ID_WELCOME`
+
+```
+Dear {#var#}, welcome to QXL Diagnostics! Your account is ready - you can now book tests, track reports, and manage appointments anytime. - QXL Diagnostics
+```
+
+Variable: patient first name. Sent once, right after a new account is created
+(self-registration or first phone-OTP login).
+
+### 8. Payment unsuccessful — `NETTYFISH_TEMPLATE_ID_PAYMENT_FAILED`
+
+```
+Dear {#var#}, your payment for {#var#} at QXL Diagnostics could not be completed. Please try again or contact us for help. - QXL Diagnostics
+```
+
+Variables in order: patient first name, test/package name.
+
+### 9. Payment reminder (unpaid booking) — `NETTYFISH_TEMPLATE_ID_PAYMENT_REMINDER`
+
+```
+Dear {#var#}, your payment of Rs.{#var#} for {#var#} at QXL Diagnostics is still pending. Please complete it to confirm your slot. - QXL Diagnostics
+```
+
+Variables in order: patient first name, amount, test/package name. Sent
+automatically by the "Payment reminder" automation rule (Appointments →
+Automation tab) on whatever interval the admin configures, until the
+booking is paid.
+
+### 10. Marketing / offers broadcast — `NETTYFISH_TEMPLATE_ID_MARKETING`
+
+```
+Dear {#var#}, QXL Diagnostics has new health checkup packages and offers this month. Call us or visit our website to book. - QXL Diagnostics
+```
+
+Variable: patient first name. Sent automatically by "Marketing campaign"
+automation rules (weekly/monthly/custom interval, set by the admin). This
+should almost certainly be registered as **Promotional**, not Transactional
+— confirm with your DLT operator.
+
+### 11. Custom staff message — `NETTYFISH_TEMPLATE_ID_CUSTOM`
 
 ```
 Dear {#var#}, {#var#} - QXL Diagnostics
@@ -124,7 +168,11 @@ NETTYFISH_TEMPLATE_ID_REMINDER=<id from step 3>
 NETTYFISH_TEMPLATE_ID_RESCHEDULE=<id from step 4>
 NETTYFISH_TEMPLATE_ID_CANCELLATION=<id from step 5>
 NETTYFISH_TEMPLATE_ID_OFFER=<id from step 6>
-NETTYFISH_TEMPLATE_ID_CUSTOM=<id from step 7, optional>
+NETTYFISH_TEMPLATE_ID_WELCOME=<id from step 7>
+NETTYFISH_TEMPLATE_ID_PAYMENT_FAILED=<id from step 8>
+NETTYFISH_TEMPLATE_ID_PAYMENT_REMINDER=<id from step 9>
+NETTYFISH_TEMPLATE_ID_MARKETING=<id from step 10>
+NETTYFISH_TEMPLATE_ID_CUSTOM=<id from step 11, optional>
 ```
 
 Until a given type's ID is filled in, that notification type is skipped for

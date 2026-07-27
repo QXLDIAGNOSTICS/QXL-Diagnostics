@@ -15,6 +15,7 @@ from app.api.v1.endpoints import (
     files,
     knowledge_base,
     leads,
+    notification_rules,
     packages,
     payments,
     prescriptions,
@@ -37,6 +38,7 @@ api_router.include_router(leads.router)
 api_router.include_router(content.router)
 api_router.include_router(admin.router)
 api_router.include_router(roles.router)
+api_router.include_router(notification_rules.router)
 api_router.include_router(knowledge_base.router)
 api_router.include_router(uploads.router)
 

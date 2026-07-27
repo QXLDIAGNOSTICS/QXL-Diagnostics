@@ -25,6 +25,10 @@ _TEMPLATE_ID_BY_TYPE: dict[str, str] = {
     "reschedule": "NETTYFISH_TEMPLATE_ID_RESCHEDULE",
     "cancellation": "NETTYFISH_TEMPLATE_ID_CANCELLATION",
     "offer": "NETTYFISH_TEMPLATE_ID_OFFER",
+    "welcome": "NETTYFISH_TEMPLATE_ID_WELCOME",
+    "payment_failed": "NETTYFISH_TEMPLATE_ID_PAYMENT_FAILED",
+    "payment_reminder": "NETTYFISH_TEMPLATE_ID_PAYMENT_REMINDER",
+    "marketing": "NETTYFISH_TEMPLATE_ID_MARKETING",
 }
 
 
@@ -97,8 +101,39 @@ def build_default(notification_type: str, booking: Booking) -> tuple[str, str]:
             f"Dear {name}, {_BRAND} has a special offer on health checkup packages this month. "
             f"Call us to book. - {_BRAND}"
         )
+    elif notification_type == "payment_failed":
+        subject = f"{_BRAND}: Payment unsuccessful"
+        message = (
+            f"Dear {name}, your payment for {_item(booking)} at {_BRAND} could not be completed. "
+            f"Please try again or contact us for help. - {_BRAND}"
+        )
+    elif notification_type == "payment_reminder":
+        amount = f"{booking.amount_paise / 100:.0f}" if booking.amount_paise else "0"
+        subject = f"{_BRAND}: Payment pending"
+        message = (
+            f"Dear {name}, your payment of Rs.{amount} for {_item(booking)} at {_BRAND} is still "
+            f"pending. Please complete it to confirm your slot. - {_BRAND}"
+        )
+    elif notification_type == "marketing":
+        subject = f"{_BRAND}: Something for you"
+        message = (
+            f"Dear {name}, {_BRAND} has new health checkup packages and offers this month. "
+            f"Call us or visit our website to book. - {_BRAND}"
+        )
     else:  # custom — caller must supply message; this is just a safe fallback.
         subject = f"{_BRAND}: Update"
         message = f"Dear {name}, this is an update from {_BRAND} regarding your recent visit. - {_BRAND}"
 
+    return subject, message
+
+
+def build_welcome(name: str | None) -> tuple[str, str]:
+    """Account-creation welcome message — not tied to any booking, so it's
+    built separately from ``build_default`` (which requires one)."""
+    first = (name or "").split(" ")[0] or "there"
+    subject = f"Welcome to {_BRAND}!"
+    message = (
+        f"Dear {first}, welcome to {_BRAND}! Your account is ready — you can now book tests, "
+        f"track reports, and manage appointments anytime. - {_BRAND}"
+    )
     return subject, message

@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -45,13 +45,68 @@ class BookingRepository:
         return rows, count
 
     async def list_created_after(self, since: datetime, limit: int = 20) -> list[Booking]:
-        """Bookings created after ``since`` — powers the admin notification bell feed."""
+        """Bookings created after ``since`` — powers the admin notification bell feed.
+
+        ``Booking.created_at`` is stored as a naive UTC timestamp (via
+        ``TimestampMixin`` / ``func.now()``), so a tz-aware ``since`` must be
+        normalised to naive UTC first — asyncpg raises a ``DataError`` if you
+        try to bind an offset-aware datetime against a
+        ``TIMESTAMP WITHOUT TIME ZONE`` column.
+        """
+        if since.tzinfo is not None:
+            since = since.astimezone(timezone.utc).replace(tzinfo=None)
         rows = list(
             (
                 await self.db.execute(
                     select(Booking)
                     .where(Booking.created_at > since)
                     .order_by(Booking.created_at.desc())
+                    .limit(limit)
+                )
+            ).scalars().all()
+        )
+        return rows
+
+    async def list_unpaid_older_than(self, cutoff: datetime, limit: int = 500) -> list[Booking]:
+        """Bookings with money outstanding, created before ``cutoff`` — feeds
+        the ``payment_reminder`` automation rule. Naive-UTC comparison, same
+        caveat as :meth:`list_created_after`."""
+        if cutoff.tzinfo is not None:
+            cutoff = cutoff.astimezone(timezone.utc).replace(tzinfo=None)
+        rows = list(
+            (
+                await self.db.execute(
+                    select(Booking)
+                    .where(
+                        Booking.payment_status.in_(["unpaid", "pending"]),
+                        Booking.amount_paise.isnot(None),
+                        Booking.status.notin_(["cancelled", "no_show"]),
+                        Booking.created_at <= cutoff,
+                    )
+                    .order_by(Booking.created_at.asc())
+                    .limit(limit)
+                )
+            ).scalars().all()
+        )
+        return rows
+
+    async def list_latest_booking_per_patient(self, limit: int = 2000) -> list[Booking]:
+        """One (most recent) booking per distinct patient phone — used as the
+        marketing-broadcast audience/contact list."""
+        latest_ids_subq = (
+            select(func.max(Booking.created_at).label("max_created"), Booking.patient_phone)
+            .group_by(Booking.patient_phone)
+            .subquery()
+        )
+        rows = list(
+            (
+                await self.db.execute(
+                    select(Booking)
+                    .join(
+                        latest_ids_subq,
+                        (Booking.patient_phone == latest_ids_subq.c.patient_phone)
+                        & (Booking.created_at == latest_ids_subq.c.max_created),
+                    )
                     .limit(limit)
                 )
             ).scalars().all()

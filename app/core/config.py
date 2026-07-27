@@ -74,6 +74,10 @@ class Settings(BaseSettings):
     NETTYFISH_TEMPLATE_ID_RESCHEDULE: str = ""
     NETTYFISH_TEMPLATE_ID_CANCELLATION: str = ""
     NETTYFISH_TEMPLATE_ID_OFFER: str = ""
+    NETTYFISH_TEMPLATE_ID_WELCOME: str = ""
+    NETTYFISH_TEMPLATE_ID_PAYMENT_FAILED: str = ""
+    NETTYFISH_TEMPLATE_ID_PAYMENT_REMINDER: str = ""
+    NETTYFISH_TEMPLATE_ID_MARKETING: str = ""
     # Generic free-text template for ad-hoc staff messages, e.g. a DLT
     # template registered as "Dear Customer, {#var#} - QXL Diagnostics".
     NETTYFISH_TEMPLATE_ID_CUSTOM: str = ""

@@ -7,13 +7,19 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 NOTIFICATION_CHANNELS = {"sms", "email", "both"}
+# "payment_failed"/"welcome" are system-triggered only (not
+# offered in the staff "message this patient" picker) — they don't make sense
+# as an ad-hoc manual send. "payment_reminder" and "marketing" ARE staff
+# triggerable here too, in addition to being driven by NotificationRule.
 NOTIFICATION_TYPES = {
     "confirmation",
     "payment",
+    "payment_reminder",
     "reminder",
     "reschedule",
     "cancellation",
     "offer",
+    "marketing",
     "custom",
 }
 

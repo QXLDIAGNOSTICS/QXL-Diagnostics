@@ -48,6 +48,25 @@ class NotificationRepository:
         )
         return rows, count
 
+    async def get_latest_for_type(
+        self, booking_id: uuid.UUID, notification_type: str
+    ) -> BookingNotification | None:
+        """Most recent notification of a given type sent/queued for a booking —
+        used by rule-based automations (e.g. payment reminders) to avoid
+        re-sending before the configured interval has elapsed."""
+        row = (
+            await self.db.execute(
+                select(BookingNotification)
+                .where(
+                    BookingNotification.booking_id == booking_id,
+                    BookingNotification.type == notification_type,
+                )
+                .order_by(BookingNotification.created_at.desc())
+                .limit(1)
+            )
+        ).scalar_one_or_none()
+        return row
+
     async def list_due(self, *, now: datetime, limit: int = 100) -> list[BookingNotification]:
         rows = (
             await self.db.execute(

@@ -47,6 +47,10 @@ async def register_user(
     )
     await db.commit()
     await db.refresh(user)
+
+    from app.services.user_notification_service import send_welcome_notification
+
+    await send_welcome_notification(user)
     return user
 
 
@@ -101,6 +105,10 @@ async def authenticate_phone_otp_user(db: AsyncSession, *, phone: str) -> User:
     user = await repo.create(phone=phone, role="patient")
     await db.commit()
     await db.refresh(user)
+
+    from app.services.user_notification_service import send_welcome_notification
+
+    await send_welcome_notification(user)
     return user
 
 

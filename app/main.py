@@ -32,6 +32,7 @@ async def _notification_scheduler_loop() -> None:
     """
     from app.db.session import AsyncSessionLocal
     from app.services.booking_notification_service import run_due_notifications
+    from app.services.notification_rule_service import run_due_rules
 
     while True:
         try:
@@ -41,6 +42,13 @@ async def _notification_scheduler_loop() -> None:
                     logger.info("Dispatched %d scheduled booking notification(s)", processed)
         except Exception:  # noqa: BLE001
             logger.exception("Notification scheduler tick failed")
+        try:
+            async with AsyncSessionLocal() as db:
+                queued = await run_due_rules(db)
+                if queued:
+                    logger.info("Queued %d automation-rule notification(s)", queued)
+        except Exception:  # noqa: BLE001
+            logger.exception("Automation rule scheduler tick failed")
         await asyncio.sleep(_NOTIFICATION_POLL_SECONDS)
 
 
