@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Calendar, FileText, User, Phone, MapPin, Loader2, ShieldCheck } from "lucide-react";
 import { useAuth } from "../../lib/useAuth";
 import { api, Booking, Prescription } from "../../lib/api";
+import RazorpayCheckoutButton from "../../components/RazorpayCheckoutButton";
 
 
 function StatusBadge({ status }: { status: string }) {
@@ -28,6 +29,7 @@ export default function DashboardPage() {
   const [prescriptions, setPrescriptions] = useState<Prescription[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [justPaidIds, setJustPaidIds] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     if (authLoading || !user) return;
@@ -112,22 +114,31 @@ export default function DashboardPage() {
                         <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {b.collection_type === "home" ? "Home Collection" : "Center Visit"}</span>
                       </div>
                       
-                      {b.status === "pending" && (
+                      {b.payment_status !== "paid" && b.payment_status !== "refunded" && b.status !== "cancelled" && (
                         <div className="mt-4 pt-4 border-t border-dashed border-slate-100 flex flex-col sm:flex-row items-center gap-4 bg-slate-50 p-3.5 rounded-xl">
-                          <img 
-                            src="/upi.jpg" 
-                            alt="Scan to Pay via UPI" 
-                            className="w-16 h-16 object-contain rounded-lg border border-slate-200"
-                          />
-                          <div className="flex-1 text-center sm:text-left">
-                            <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider block mb-0.5">UPI Payment Required</span>
-                            <p className="text-[11px] font-bold text-slate-700 leading-normal mb-1.5">
-                              Scan using any UPI app to pay and confirm.
+                          {justPaidIds.has(b.id) ? (
+                            <p className="flex-1 text-center sm:text-left text-[11px] font-bold text-emerald-700">
+                              ✓ Payment successful — thank you!
                             </p>
-                            <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-mono font-bold px-2 py-0.5 rounded border border-blue-100/50">
-                              qxl-diagnostics@pingpay
-                            </span>
-                          </div>
+                          ) : (
+                            <>
+                              <div className="flex-1 text-center sm:text-left">
+                                <span className="text-[9px] font-extrabold text-slate-400 uppercase tracking-wider block mb-0.5">Payment Pending</span>
+                                <p className="text-[11px] font-bold text-slate-700 leading-normal">
+                                  Pay securely online via Razorpay — cards, UPI, netbanking &amp; wallets accepted.
+                                </p>
+                              </div>
+                              <RazorpayCheckoutButton
+                                bookingIds={[b.id]}
+                                amountRupees={b.amount_paise ? b.amount_paise / 100 : null}
+                                patientName={b.patient_name}
+                                patientEmail={b.patient_email}
+                                patientPhone={b.patient_phone}
+                                onPaid={() => setJustPaidIds((prev) => new Set(prev).add(b.id))}
+                                className="shrink-0 inline-flex items-center justify-center gap-1.5 bg-[#2563eb] text-white font-extrabold px-4 py-2 rounded-full text-[11px] uppercase tracking-wider hover:bg-[#1d4ed8] transition-colors"
+                              />
+                            </>
+                          )}
                         </div>
                       )}
                     </li>
