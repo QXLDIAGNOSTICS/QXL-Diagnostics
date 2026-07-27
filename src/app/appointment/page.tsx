@@ -112,12 +112,12 @@ export default function AppointmentPage() {
           phone: b.patient_phone,
           email: b.patient_email || "",
           test_name: b.test_name || "",
-          package_name: b.package_name || "",
+          package_name: (b as any).package_name || b.package_id || "",
           preferred_date: b.preferred_date || "",
           collection_type: b.collection_type === "home" ? "Home Collection" : "Center Visit",
           address: b.collection_address || "",
           status: b.status,
-          created_at: b.created_at,
+          created_at: (b as any).created_at || new Date().toISOString(),
         }));
         setAppointments(mapped);
         setFetching(false);
