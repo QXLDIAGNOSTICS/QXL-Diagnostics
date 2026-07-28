@@ -15,6 +15,16 @@ import Accreditations from "../components/Accreditations";
 import FaqSection from "../components/FaqSection";
 import ReviewsSection from "../components/ReviewsSection";
 import HomepageSeoContent from "../components/HomepageSeoContent";
+import TeamCarousel from "../components/TeamCarousel";
+
+// ── Meet Our Team roster — carousel handles any number of members, so
+// growing the team just means adding entries here. ─────────────────────────
+const TEAM_MEMBERS = [
+  { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", role: "Founder & CEO", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
+  { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", role: "Senior Consultant", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
+  { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", role: "Senior Consultant", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
+  { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", role: "Consultant Pathologist", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
+];
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
 const whySlides = [
@@ -1102,17 +1112,13 @@ export default function Home() {
               </p>
               <div className="w-16 h-1 bg-[#2563eb] mx-auto rounded-full mt-4" />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-              {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", role: "Founder & CEO", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
-                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", role: "Senior Consultant", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
-                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", role: "Senior Consultant", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
-                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", role: "Consultant Pathologist", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
-              ].map((doc: any) => (
+            <TeamCarousel
+              items={TEAM_MEMBERS}
+              ariaLabel="Meet our team"
+              renderItem={(doc) => (
                 <Link
                   href="/founder"
-                  key={doc.name}
-                  className="group rounded-3xl overflow-hidden flex flex-col text-center transition-all duration-300 hover:-translate-y-1"
+                  className="group rounded-3xl overflow-hidden flex flex-col text-center transition-all duration-300 hover:-translate-y-1 w-[240px] sm:w-[260px]"
                   style={{
                     background: 'linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%)',
                     border: '1px solid rgba(125,199,232,0.3)',
@@ -1122,7 +1128,7 @@ export default function Home() {
                   <div className="relative aspect-square overflow-hidden bg-sky-50">
                     <Image src={doc.image} alt={doc.name} width={280} height={280}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      style={{ objectPosition: doc.imagePosition || 'top' }}
+                      style={{ objectPosition: (doc as any).imagePosition || 'top' }}
                       onError={(e) => { e.currentTarget.srcset = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"; }} />
                     <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
                   </div>
@@ -1137,8 +1143,8 @@ export default function Home() {
                     <p className="text-[11px] font-bold text-[#0284c7] uppercase tracking-wider">{doc.qual}</p>
                   </div>
                 </Link>
-              ))}
-            </div>
+              )}
+            />
           </div>
         </section>
 
@@ -1502,14 +1508,12 @@ export default function Home() {
               </p>
               <div className="w-10 h-0.5 bg-[#2563eb] mx-auto rounded-full mt-3" />
             </div>
-            <div className="flex overflow-x-auto gap-4 scrollbar-none pb-4 snap-x snap-mandatory">
-              {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
-                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
-                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
-                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
-              ].map((doc) => (
-                <div key={doc.name} className="w-[180px] bg-white rounded-2xl overflow-hidden flex flex-col items-center p-3 text-center border border-gray-100 shadow-sm flex-shrink-0 snap-start">
+            <TeamCarousel
+              items={TEAM_MEMBERS}
+              ariaLabel="Meet our team"
+              arrowClassName="w-8 h-8"
+              renderItem={(doc) => (
+                <div className="w-[180px] bg-white rounded-2xl overflow-hidden flex flex-col items-center p-3 text-center border border-gray-100 shadow-sm">
                   <div className="w-36 h-36 rounded-xl overflow-hidden mb-3 bg-[#f8fafc] flex items-center justify-center">
                     <Image src={doc.image} alt={doc.name} width={144} height={144}
                       className="w-full h-full object-cover"
@@ -1519,8 +1523,8 @@ export default function Home() {
                   <h3 className="font-extrabold text-slate-800 text-[12px] mb-0.5">{doc.name}</h3>
                   <p className="text-[9px] font-bold text-[#2563eb] uppercase tracking-wider">({doc.qual})</p>
                 </div>
-              ))}
-            </div>
+              )}
+            />
           </div>
         </section>
 

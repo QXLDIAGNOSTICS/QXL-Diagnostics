@@ -48,27 +48,13 @@ export default function AiChat() {
   const siteSettings = useSiteSettings();
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  // No auto-injected greeting bubble: the assistant already opens the
+  // conversation naturally once the user says something, so a canned
+  // "Good morning! ..." message followed by the AI's own greeting felt
+  // like two greetings stacked on top of each other. Instead we show a
+  // lightweight empty-state (see `messages.length === 0` below) that
+  // disappears the moment the first message is sent.
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string; type?: 'text' | 'file' | 'payment'; paymentOrder?: ChatPaymentOrder }[]>([]);
-
-  useEffect(() => {
-    const hour = new Date().getHours();
-    let greeting = "Good evening!";
-    if (hour < 12) greeting = "Good morning!";
-    else if (hour < 18) greeting = "Good afternoon!";
-
-    const signedInLine = user
-      ? `\n\nYou're signed in as ${user.name || user.phone || 'a QXL patient'}, so I can help with your bookings and prescriptions.`
-      : "\n\nYou can ask me questions or upload your medical report for a quick summary.";
-    const greetingMessage = {
-      role: 'assistant' as const,
-      content: `${greeting} I am the QXL AI Assistant. How can I help you today?${signedInLine}`,
-    };
-
-    setMessages(prev => {
-      if (prev.length > 1) return prev;
-      return [greetingMessage];
-    });
-  }, [user?.name, user?.phone]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState<string | null>(null);
@@ -530,6 +516,19 @@ export default function AiChat() {
 
           {/* Messages Area */}
           <div style={{ flex: 1, padding: '16px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px', backgroundColor: '#f0f9ff' }}>
+            {messages.length === 0 && (
+              <div style={{ textAlign: 'center', padding: '28px 12px 8px', color: '#475569' }}>
+                <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'linear-gradient(135deg,#2563eb,#0ea5e9)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px', color: 'white' }}>
+                  <QxlAiIcon size={30} />
+                </div>
+                <p style={{ fontSize: '13.5px', fontWeight: 700, color: '#0f2d5e', margin: '0 0 4px' }}>
+                  Hi{user?.name ? `, ${user.name.split(' ')[0]}` : ''}! How can I help?
+                </p>
+                <p style={{ fontSize: '12px', color: '#64748b', margin: 0, lineHeight: 1.5 }}>
+                  Ask about tests, packages, prices or centers — or upload a prescription/report for a quick summary.
+                </p>
+              </div>
+            )}
             {messages.map((msg, idx) => (
               <div key={msg.type === 'payment' && msg.paymentOrder ? `pay-${msg.paymentOrder.order_id}` : `msg-${idx}`} style={{
                 alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
@@ -641,7 +640,7 @@ export default function AiChat() {
           )}
 
           {/* Prebuilt Questions */}
-          {messages.length === 1 && (
+          {messages.length === 0 && (
             <div style={{ padding: '10px 16px', display: 'flex', flexWrap: 'wrap', gap: '7px', backgroundColor: '#f0f9ff', borderTop: '1px solid #dbeafe' }}>
               {prebuiltQuestions.map((q, idx) => (
                 <button

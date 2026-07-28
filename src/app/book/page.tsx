@@ -1,9 +1,14 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import { Calendar, User, Phone, MapPin, Shield, X, Mail, LocateFixed, CheckCircle2, Loader2, Home, Building2, AlertTriangle, Clock } from 'lucide-react';
 import { api, type TestCatalogItem, type HealthPackage, type Booking } from '../../lib/api';
 import { useAuth } from '../../lib/useAuth';
 import RazorpayCheckoutButton from '../../components/RazorpayCheckoutButton';
+
+// Non-identity booking preferences (never PII) saved just before redirecting
+// a guest to login, so their in-progress selections survive the round trip.
+const BOOK_PREFS_KEY = 'qxl_book_prefs';
 
 
 type CatalogEntry = {
@@ -50,7 +55,8 @@ function generateTimeSlots(): string[] {
 }
 
 export default function BookPage() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -62,12 +68,21 @@ export default function BookPage() {
   });
 
   // ── Master catalog (the only source of truth for bookable items) ──────────
+  // NOTE: We never fabricate local placeholder catalog entries here. Every
+  // bookable item MUST come from the backend with a real id, otherwise
+  // submission fails server-side with a confusing "not recognised" error.
+  // If the catalog fails to load we surface a clear retry state instead.
   const [catalog, setCatalog] = useState<CatalogEntry[]>([]);
   const [catalogLoading, setCatalogLoading] = useState(true);
+  const [catalogError, setCatalogError] = useState(false);
   const [selectedItems, setSelectedItems] = useState<CatalogEntry[]>([]);
   const [testInput, setTestInput] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showTimeSlots, setShowTimeSlots] = useState(false);
+  // Slot capacity for the currently-picked date — { "6:30 AM": 2, ... } —
+  // used to grey out full slots and past-time slots for today.
+  const [slotBooked, setSlotBooked] = useState<Record<string, number>>({});
+  const [slotMax, setSlotMax] = useState(3);
 
   const [submitted, setSubmitted] = useState(false);
   const [hasPaid, setHasPaid] = useState(false);
@@ -97,179 +112,69 @@ export default function BookPage() {
     );
   }, []);
 
-  useEffect(() => {
+  const loadCatalog = React.useCallback(async () => {
     let cancelled = false;
-    (async () => {
-      setCatalogLoading(true);
+    setCatalogLoading(true);
+    setCatalogError(false);
+    // One retry with a short backoff before giving up — production cold
+    // starts / transient network blips shouldn't force users to hit a
+    // manual "Retry" button on every visit.
+    const fetchWithRetry = async <T,>(fn: () => Promise<T>): Promise<T> => {
       try {
-        const tests = await api.tests.list().catch(() => []);
-        const packages = await api.packages.list().catch(() => []);
-        if (cancelled) return;
-        
-        // Define fallback DEFAULT_PACKAGES to resolve client-side matches
-        const fallbackPackages = [
-          {
-            id: "pkg-1",
-            name: "Quick Fit Package",
-            kind: 'package' as const,
-            price: 1770,
-            old_price: 4696,
-            home_collection_available: true,
-            parameters: "13 Parameters",
-            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy."
-          },
-          {
-            id: "pkg-2",
-            name: "Q-Screen Diabetes Package",
-            kind: 'package' as const,
-            price: 1900,
-            old_price: 4960,
-            home_collection_available: true,
-            parameters: "12 Parameters",
-            includes: "FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, Liver Function Test, Kidney Function Test (Creatinine, Urea, BUN, Sodium, Potassium, Chloride), TSH, CBC, ESR, Urine Routine & Microscopy."
-          },
-          {
-            id: "pkg-3",
-            name: "Q-Master Health Pro Package",
-            kind: 'package' as const,
-            price: 4600,
-            old_price: 9600,
-            home_collection_available: true,
-            parameters: "20 Parameters",
-            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, Liver Function Tests, Kidney Screen (Creatinine, Urea, BUN, Uric Acid, Sodium, Potassium, Chloride), Thyroid Function Tests (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine & Microscopy, Gastritis Screen (H. pylori IgG Antibodies), hs-CRP."
-          },
-          {
-            id: "pkg-4",
-            name: "Q-Oncoscreen Package",
-            kind: 'package' as const,
-            price: 7900,
-            old_price: 13600,
-            home_collection_available: true,
-            parameters: "10 Parameters",
-            includes: "Cancer Markers (Alpha Fetoprotein AFP, Carcinoembryonic Antigen (CEA), Beta HCG, Prostate-Specific Antigen (PSA) - Male, CA-125 (Ovarian Cancer Marker) - Female, CA-19.9 (Pancreatic Cancer Marker)), CBC, ESR, Urine Routine & Microscopy, Calprotectin in Stool, Fecal Occult Blood Test (FOBT), Protein Electrophoresis."
-          },
-          {
-            id: "pkg-5",
-            name: "Q-Advanced Arthritis and Autoimmune Panel",
-            kind: 'package' as const,
-            price: 6900,
-            old_price: 12660,
-            home_collection_available: true,
-            parameters: "22 Parameters",
-            includes: "FBS, HbA1c, eAG, Lipid Profile, hs-CRP, Liver Function Tests, Kidney Function Tests, Thyroid Screen (T3, T4, TSH), Iron Studies (Iron, TIBC, Transferrin), Bone Health (Calcium, Phosphorus), Vitamin B12, Vitamin D, Autoimmune Tests (RF, Anti-CCP, ANA), DHEA-S, Cortisol, CBC, ESR, Urine Routine & Microscopy."
-          },
-          {
-            id: "pkg-6",
-            name: "Q-Hypertension and Cardiovascular Risk Assessment Package",
-            kind: 'package' as const,
-            price: 9000,
-            old_price: 18900,
-            home_collection_available: true,
-            parameters: "25 Parameters",
-            includes: "CBC, Lipid Profile, Kidney Screen (BUN, Urea, Creatinine, Sodium, Potassium, Chloride), Urine Routine & Microscopy, FBS, Apo A1, Apo B, Apo B/A1 Ratio, hs-CRP, Lipoprotein(a), Fibrinogen, Homocysteine, NT-proBNP, Insulin, C-Peptide, Thyroid Screen (T3, T4, TSH), Cortisol Level, Serum Magnesium."
-          }
-        ];
-
-        const merged: CatalogEntry[] = [
-          ...packages.map((p: HealthPackage): CatalogEntry => ({
-            id: p.id,
-            name: p.name,
-            kind: 'package',
-            price: p.price,
-            old_price: p.old_price,
-            home_collection_available: p.home_collection_available,
-            parameters: p.parameters,
-            includes: p.includes,
-          })),
-          ...tests.map((t: TestCatalogItem): CatalogEntry => ({
-            id: t.id,
-            name: t.name,
-            kind: 'test',
-            price: t.price,
-            home_collection_available: t.home_collection_available,
-          })),
-        ];
-
-        // Merge fallback packages if they aren't loaded in merged yet
-        for (const fb of fallbackPackages) {
-          if (!merged.some(m => m.name.toLowerCase() === fb.name.toLowerCase())) {
-            merged.push(fb);
-          }
-        }
-
-        setCatalog(merged);
+        return await fn();
       } catch {
-        const fallbackPackages = [
-          {
-            id: "pkg-1",
-            name: "Quick Fit Package",
-            kind: 'package' as const,
-            price: 1770,
-            old_price: 4696,
-            home_collection_available: true,
-            parameters: "13 Parameters",
-            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy."
-          },
-          {
-            id: "pkg-2",
-            name: "Q-Screen Diabetes Package",
-            kind: 'package' as const,
-            price: 1900,
-            old_price: 4960,
-            home_collection_available: true,
-            parameters: "12 Parameters",
-            includes: "FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, Liver Function Test, Kidney Function Test (Creatinine, Urea, BUN, Sodium, Potassium, Chloride), TSH, CBC, ESR, Urine Routine & Microscopy."
-          },
-          {
-            id: "pkg-3",
-            name: "Q-Master Health Pro Package",
-            kind: 'package' as const,
-            price: 4600,
-            old_price: 9600,
-            home_collection_available: true,
-            parameters: "20 Parameters",
-            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, Liver Function Tests, Kidney Screen (Creatinine, Urea, BUN, Uric Acid, Sodium, Potassium, Chloride), Thyroid Function Tests (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine & Microscopy, Gastritis Screen (H. pylori IgG Antibodies), hs-CRP."
-          },
-          {
-            id: "pkg-4",
-            name: "Q-Oncoscreen Package",
-            kind: 'package' as const,
-            price: 7900,
-            old_price: 13600,
-            home_collection_available: true,
-            parameters: "10 Parameters",
-            includes: "Cancer Markers (Alpha Fetoprotein AFP, Carcinoembryonic Antigen (CEA), Beta HCG, Prostate-Specific Antigen (PSA) - Male, CA-125 (Ovarian Cancer Marker) - Female, CA-19.9 (Pancreatic Cancer Marker)), CBC, ESR, Urine Routine & Microscopy, Calprotectin in Stool, Fecal Occult Blood Test (FOBT), Protein Electrophoresis."
-          },
-          {
-            id: "pkg-5",
-            name: "Q-Advanced Arthritis and Autoimmune Panel",
-            kind: 'package' as const,
-            price: 6900,
-            old_price: 12660,
-            home_collection_available: true,
-            parameters: "22 Parameters",
-            includes: "FBS, HbA1c, eAG, Lipid Profile, hs-CRP, Liver Function Tests, Kidney Function Tests, Thyroid Screen (T3, T4, TSH), Iron Studies (Iron, TIBC, Transferrin), Bone Health (Calcium, Phosphorus), Vitamin B12, Vitamin D, Autoimmune Tests (RF, Anti-CCP, ANA), DHEA-S, Cortisol, CBC, ESR, Urine Routine & Microscopy."
-          },
-          {
-            id: "pkg-6",
-            name: "Q-Hypertension and Cardiovascular Risk Assessment Package",
-            kind: 'package' as const,
-            price: 9000,
-            old_price: 18900,
-            home_collection_available: true,
-            parameters: "25 Parameters",
-            includes: "CBC, Lipid Profile, Kidney Screen (BUN, Urea, Creatinine, Sodium, Potassium, Chloride), Urine Routine & Microscopy, FBS, Apo A1, Apo B, Apo B/A1 Ratio, hs-CRP, Lipoprotein(a), Fibrinogen, Homocysteine, NT-proBNP, Insulin, C-Peptide, Thyroid Screen (T3, T4, TSH), Cortisol Level, Serum Magnesium."
-          }
-        ];
-        setCatalog(fallbackPackages);
-      } finally {
-        if (!cancelled) setCatalogLoading(false);
+        await new Promise((r) => setTimeout(r, 900));
+        return fn();
       }
-    })();
+    };
+    try {
+      const [tests, packages] = await Promise.all([
+        fetchWithRetry(() => api.tests.list()),
+        fetchWithRetry(() => api.packages.list()),
+      ]);
+      if (cancelled) return;
+
+      const merged: CatalogEntry[] = [
+        ...packages.map((p: HealthPackage): CatalogEntry => ({
+          id: p.id,
+          name: p.name,
+          kind: 'package',
+          price: p.price,
+          old_price: p.old_price,
+          home_collection_available: p.home_collection_available,
+          parameters: p.parameters,
+          includes: p.includes,
+        })),
+        ...tests.map((t: TestCatalogItem): CatalogEntry => ({
+          id: t.id,
+          name: t.name,
+          kind: 'test',
+          price: t.price,
+          home_collection_available: t.home_collection_available,
+        })),
+      ];
+      setCatalog(merged);
+    } catch {
+      // Deliberately no fake local packages here — every bookable item must
+      // carry a real backend id, otherwise submission fails later with a
+      // confusing "not recognised" error. Show a clear retry state instead.
+      if (!cancelled) {
+        setCatalog([]);
+        setCatalogError(true);
+      }
+    } finally {
+      if (!cancelled) setCatalogLoading(false);
+    }
     return () => {
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    let cleanup: (() => void) | undefined;
+    loadCatalog().then((c) => { cleanup = c; });
+    return () => cleanup?.();
+  }, [loadCatalog]);
 
   // Normalize a name for fuzzy comparison: lowercase, strip punctuation, collapse whitespace.
   const normalizeName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -345,6 +250,24 @@ export default function BookPage() {
       phone: prev.phone || user.phone || '',
       email: prev.email || user.email || '',
     }));
+
+    // Just logged in (e.g. redirected here from /book after the login-gate
+    // on submit) — restore whatever booking preferences were in progress.
+    try {
+      const raw = localStorage.getItem(BOOK_PREFS_KEY);
+      if (raw) {
+        const prefs = JSON.parse(raw) as Partial<typeof formData>;
+        setFormData(prev => ({
+          ...prev,
+          date: prefs.date || prev.date,
+          time: prefs.time || prev.time,
+          collectionType: prefs.collectionType || prev.collectionType,
+          address: prefs.address || prev.address,
+        }));
+        localStorage.removeItem(BOOK_PREFS_KEY);
+      }
+    } catch {}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   useEffect(() => {
@@ -357,12 +280,48 @@ export default function BookPage() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const suggestions = testInput.trim()
-    ? catalog
-        .filter(c => c.name.toLowerCase().includes(testInput.trim().toLowerCase()))
-        .filter(c => !selectedItems.some(s => s.id === c.id))
-        .slice(0, 8)
-    : [];
+  // Fetch how many bookings already exist per time slot for the picked date,
+  // so we can grey out full slots (and, combined with `isPastSlot` below,
+  // slots earlier than "now" when the date is today).
+  useEffect(() => {
+    if (!formData.date) {
+      setSlotBooked({});
+      return;
+    }
+    let cancelled = false;
+    api.bookings
+      .slotAvailability(formData.date)
+      .then((res) => {
+        if (cancelled) return;
+        setSlotBooked(res.booked || {});
+        setSlotMax(res.max_per_slot || 3);
+      })
+      .catch(() => { if (!cancelled) setSlotBooked({}); });
+    return () => { cancelled = true; };
+  }, [formData.date]);
+
+  const todayIso = new Date().toISOString().slice(0, 10);
+
+  const isPastSlot = (slot: string): boolean => {
+    if (formData.date !== todayIso) return false;
+    const [time, ampm] = slot.split(' ');
+    const [h, m] = time.split(':').map(Number);
+    let hour = h % 12;
+    if (ampm === 'PM') hour += 12;
+    const slotDate = new Date();
+    slotDate.setHours(hour, m, 0, 0);
+    return slotDate.getTime() < Date.now();
+  };
+
+  const isFullSlot = (slot: string): boolean => (slotBooked[slot] || 0) >= slotMax;
+
+  // Acts like a real dropdown: with no query typed yet we still show a
+  // browsable list of catalog items (so users can pick without typing),
+  // and narrow it down as they type.
+  const suggestions = catalog
+    .filter(c => !testInput.trim() || c.name.toLowerCase().includes(testInput.trim().toLowerCase()))
+    .filter(c => !selectedItems.some(s => s.id === c.id))
+    .slice(0, 8);
 
   const addItem = (item: CatalogEntry) => {
     setSelectedItems(prev => (prev.some(p => p.id === item.id) ? prev : [...prev, item]));
@@ -379,18 +338,22 @@ export default function BookPage() {
   };
 
   const removeItem = (id: string) => {
-    setSelectedItems(prev => {
-      const target = prev.find(i => i.id === id);
-      if (target) {
-        try {
-          const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
-          const updated = cart.filter((item: string) => item !== target.name);
-          localStorage.setItem('qxl_cart', JSON.stringify(updated));
-          window.dispatchEvent(new CustomEvent('cartChange'));
-        } catch {}
-      }
-      return prev.filter(i => i.id !== id);
-    });
+    // Side effects (localStorage + event dispatch) must stay OUTSIDE the
+    // setState updater — React may invoke updater functions during its
+    // render phase, and synchronously dispatching an event that another
+    // component (Header) listens to would trigger a cross-component
+    // "Cannot update a component while rendering a different component"
+    // warning/error.
+    const target = selectedItems.find(i => i.id === id);
+    setSelectedItems(prev => prev.filter(i => i.id !== id));
+    if (target) {
+      try {
+        const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
+        const updated = cart.filter((item: string) => item !== target.name);
+        localStorage.setItem('qxl_cart', JSON.stringify(updated));
+        window.dispatchEvent(new CustomEvent('cartChange'));
+      } catch {}
+    }
   };
 
   // Tests/packages in the current selection that can't be home-collected —
@@ -439,6 +402,25 @@ export default function BookPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Guests must sign in before we create a booking — this keeps every
+    // booking tied to a real account (for status updates, receipts,
+    // reminders) instead of anonymous rows. Their selections/preferences
+    // (items live in `qxl_cart`, everything else in BOOK_PREFS_KEY) survive
+    // the round trip and are restored automatically once they're back here.
+    if (!user) {
+      try {
+        localStorage.setItem(BOOK_PREFS_KEY, JSON.stringify({
+          date: formData.date,
+          time: formData.time,
+          collectionType: formData.collectionType,
+          address: formData.address,
+        }));
+      } catch {}
+      router.push(`/login?return_to=${encodeURIComponent('/book')}`);
+      return;
+    }
+
     if (!formData.name || !formData.phone) return;
 
     let currentSelected = [...selectedItems];
@@ -468,14 +450,13 @@ export default function BookPage() {
       // the master Test/Package list server-side via test_id/package_id.
       const created: Booking[] = [];
       for (const item of currentSelected) {
-        const isLocalFallback = item.id.startsWith('pkg-') || item.id.startsWith('test-');
         const booking = await api.bookings.create({
           patient_name: formData.name,
           patient_phone: formData.phone,
           patient_email: formData.email || undefined,
           test_name: item.name,
-          test_id: (!isLocalFallback && item.kind === 'test') ? item.id : undefined,
-          package_id: (!isLocalFallback && item.kind === 'package') ? item.id : undefined,
+          test_id: item.kind === 'test' ? item.id : undefined,
+          package_id: item.kind === 'package' ? item.id : undefined,
           collection_type: formData.collectionType,
           collection_address: formData.collectionType === 'home' ? formData.address || undefined : undefined,
           preferred_date: formData.date || undefined,
@@ -674,15 +655,39 @@ export default function BookPage() {
                       ))}
                     </div>
                   )}
-                  <input
-                    type="text"
-                    placeholder={catalogLoading ? 'Loading catalog\u2026' : 'Search our test/package catalog, e.g. Complete Blood Count'}
-                    value={testInput}
-                    disabled={catalogLoading}
-                    onChange={(e) => { setTestInput(e.target.value); setShowSuggestions(true); }}
-                    onFocus={() => setShowSuggestions(true)}
-                    className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 disabled:opacity-60"
-                  />
+                  <div className="relative">
+                    <input
+                      type="text"
+                      placeholder={catalogLoading ? 'Loading catalog\u2026' : catalogError ? 'Catalog unavailable — see below' : 'Search our test/package catalog, e.g. Complete Blood Count'}
+                      value={testInput}
+                      disabled={catalogLoading || catalogError}
+                      onChange={(e) => { setTestInput(e.target.value); setShowSuggestions(true); }}
+                      onFocus={() => setShowSuggestions(true)}
+                      className="w-full border border-gray-200 rounded-xl pl-4 pr-10 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 disabled:opacity-60"
+                    />
+                    <svg
+                      onClick={() => !catalogLoading && !catalogError && setShowSuggestions(v => !v)}
+                      className={`w-4 h-4 absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 transition-transform pointer-events-none ${showSuggestions ? 'rotate-180' : ''}`}
+                      fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                  {catalogError && (
+                    <div className="flex items-center justify-between gap-3 bg-red-50 border border-red-100 rounded-xl px-4 py-3 mt-2">
+                      <p className="text-[11px] font-semibold text-red-600">
+                        We couldn&apos;t load our test/package catalog. Please retry, or call{' '}
+                        <a href="tel:+919964639639" className="underline">+91 9964 639639</a> to book directly.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => loadCatalog()}
+                        className="shrink-0 bg-red-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-full hover:bg-red-700 transition-colors"
+                      >
+                        Retry
+                      </button>
+                    </div>
+                  )}
                   {showSuggestions && suggestions.length > 0 && (
                     <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-150 rounded-xl shadow-xl z-20 max-h-64 overflow-y-auto">
                       {suggestions.map((s) => (
@@ -715,7 +720,8 @@ export default function BookPage() {
                     <input 
                       type="date" 
                       value={formData.date}
-                      onChange={(e) => setFormData({...formData, date: e.target.value})}
+                      min={todayIso}
+                      onChange={(e) => setFormData({...formData, date: e.target.value, time: ''})}
                       className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 text-slate-600"
                     />
                   </div>
@@ -737,21 +743,31 @@ export default function BookPage() {
                     {showTimeSlots && (
                       <div className="absolute top-[72px] left-0 right-0 z-30 bg-white border border-gray-200 rounded-xl shadow-2xl p-3">
                         <div className="grid grid-cols-3 gap-2 max-h-52 overflow-y-auto pr-2 pb-1 custom-scrollbar">
-                          {generateTimeSlots().map((slot) => (
-                            <button
-                              key={slot}
-                              type="button"
-                              onClick={() => { setFormData({...formData, time: slot}); setShowTimeSlots(false); }}
-                              className={`whitespace-nowrap px-2 py-2.5 text-[11px] font-extrabold rounded-xl border transition-all ${
-                                formData.time === slot
-                                  ? 'bg-[#2563eb] border-[#2563eb] text-white shadow-md transform scale-[1.02]'
-                                  : 'bg-white border-gray-150 text-slate-600 hover:border-[#2563eb] hover:bg-blue-50/50'
-                              }`}
-                            >
-                              {slot}
-                            </button>
-                          ))}
+                          {generateTimeSlots().map((slot) => {
+                            const disabled = isPastSlot(slot) || isFullSlot(slot);
+                            return (
+                              <button
+                                key={slot}
+                                type="button"
+                                disabled={disabled}
+                                title={disabled ? (isFullSlot(slot) ? 'Slot fully booked' : 'Slot has already passed') : undefined}
+                                onClick={() => { if (disabled) return; setFormData({...formData, time: slot}); setShowTimeSlots(false); }}
+                                className={`whitespace-nowrap px-2 py-2.5 text-[11px] font-extrabold rounded-xl border transition-all ${
+                                  disabled
+                                    ? 'bg-gray-50 border-gray-100 text-slate-300 cursor-not-allowed line-through'
+                                    : formData.time === slot
+                                    ? 'bg-[#2563eb] border-[#2563eb] text-white shadow-md transform scale-[1.02]'
+                                    : 'bg-white border-gray-150 text-slate-600 hover:border-[#2563eb] hover:bg-blue-50/50'
+                                }`}
+                              >
+                                {slot}
+                              </button>
+                            );
+                          })}
                         </div>
+                        <p className="text-[10px] text-slate-400 font-medium mt-2 px-1">
+                          Greyed-out slots are already full or have passed for today.
+                        </p>
                       </div>
                     )}
                   </div>
@@ -867,11 +883,16 @@ export default function BookPage() {
 
                 <button 
                   type="submit" 
-                  disabled={submitting}
+                  disabled={submitting || authLoading}
                   className="btn-sky w-full py-3.5 text-xs uppercase tracking-wider shadow-md mt-6 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
                 >
-                  {submitting ? 'Submitting…' : 'Submit Booking Request'}
+                  {submitting ? 'Submitting…' : !authLoading && !user ? 'Sign In to Submit Booking Request' : 'Submit Booking Request'}
                 </button>
+                {!authLoading && !user && (
+                  <p className="text-[11px] text-slate-400 text-center -mt-3 font-medium">
+                    You&apos;ll be asked to sign in with your phone/OTP first — your selections are saved.
+                  </p>
+                )}
 
                 {/* Suggested Health Packages */}
                 <div className="mt-10 pt-8 border-t border-sky-200/40">

@@ -616,6 +616,10 @@ export const api = {
       ),
     updateStatus: (id: string, status: string) => patch<Booking>(`/bookings/${id}/status`, { status }),
     update: (id: string, data: BookingAdminUpdate) => patch<Booking>(`/bookings/${id}`, data),
+    slotAvailability: (date: string) =>
+      get<{ date: string; max_per_slot: number; booked: Record<string, number> }>(
+        `/bookings/slot-availability?date=${encodeURIComponent(date)}`
+      ),
   },
   payments: {
     createOrder: (bookingIds: string[]) =>
