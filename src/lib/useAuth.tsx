@@ -18,6 +18,11 @@ export interface AuthUser {
   is_staff: boolean;
   is_admin: boolean;
   is_super_admin: boolean;
+  /** Fine-grained feature permissions resolved from this user's role (see
+   * app.core.permissions on the backend) — admin-tier roles get every key.
+   * Use `hasPermission()` from `lib/roles` rather than checking this array
+   * directly. */
+  permissions: string[];
 }
 
 interface AuthState {

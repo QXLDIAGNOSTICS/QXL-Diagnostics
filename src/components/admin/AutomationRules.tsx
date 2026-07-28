@@ -18,6 +18,7 @@ import {
   api,
   ApiError,
   type AutomationRuleType,
+  type MessageTemplateOption,
   type NotificationChannel,
   type NotificationRule,
   type NotificationRuleCreate,
@@ -25,12 +26,15 @@ import {
 
 const RULE_TYPE_LABELS: Record<AutomationRuleType, string> = {
   payment_reminder: "Payment reminder",
+  booking_reminder: "Booking reminder",
   marketing: "Marketing campaign",
 };
 
 const RULE_TYPE_HELP: Record<AutomationRuleType, string> = {
   payment_reminder:
     "Automatically nudges any patient with an unpaid/pending booking, repeating every N days until they pay (or the booking is cancelled).",
+  booking_reminder:
+    "Resends appointment details (test, date, time) to patients with an upcoming, still-active booking — repeats every N days until the visit date.",
   marketing:
     "Broadcasts a message to every patient on file, once every N days — e.g. weekly offers or a monthly check-up reminder.",
 };
@@ -58,6 +62,7 @@ function emptyForm(): NotificationRuleCreate {
     // moment it's active, so review the wording first and switch it on
     // deliberately rather than as a side effect of saving.
     is_active: false,
+    template: "",
     subject: "",
     message: "",
   };
@@ -95,6 +100,18 @@ export default function AutomationRules({ canManage }: { canManage: boolean }) {
   const [form, setForm] = useState<NotificationRuleCreate>(emptyForm());
   const [saving, setSaving] = useState(false);
   const [formError, setFormError] = useState<string | null>(null);
+  const [templatesByType, setTemplatesByType] = useState<Record<string, MessageTemplateOption[]>>({});
+
+  useEffect(() => {
+    api.notificationRules
+      .messageTemplates()
+      .then((res) => setTemplatesByType(res as unknown as Record<string, MessageTemplateOption[]>))
+      .catch(() => {});
+  }, []);
+
+  const applyTemplate = (tpl: MessageTemplateOption) => {
+    setForm((f) => ({ ...f, template: tpl.key, subject: tpl.subject_preview, message: tpl.message_preview }));
+  };
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -130,6 +147,7 @@ export default function AutomationRules({ canManage }: { canManage: boolean }) {
       start_date: rule.start_date || "",
       end_date: rule.end_date || "",
       is_active: rule.is_active,
+      template: rule.template || "",
       subject: rule.subject || "",
       message: rule.message || "",
     });
@@ -149,6 +167,7 @@ export default function AutomationRules({ canManage }: { canManage: boolean }) {
         ...form,
         start_date: form.start_date || null,
         end_date: form.end_date || null,
+        template: form.template || null,
         subject: form.subject || null,
         message: form.message || null,
       };
@@ -332,13 +351,13 @@ export default function AutomationRules({ canManage }: { canManage: boolean }) {
 
               <div>
                 <label className="block text-xs font-bold mb-1 text-slate-700 dark:text-slate-300">Automation type</label>
-                <div className="grid grid-cols-2 gap-2">
-                  {(["payment_reminder", "marketing"] as AutomationRuleType[]).map((t) => (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  {(["payment_reminder", "booking_reminder", "marketing"] as AutomationRuleType[]).map((t) => (
                     <button
                       key={t}
                       type="button"
                       disabled={!!editingId}
-                      onClick={() => setForm((f) => ({ ...f, rule_type: t }))}
+                      onClick={() => setForm((f) => ({ ...f, rule_type: t, template: "" }))}
                       className={`px-3 py-2.5 text-xs font-bold rounded-lg cursor-pointer text-left border transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${
                         form.rule_type === t
                           ? "bg-sky-600 text-white border-sky-600"
@@ -351,6 +370,31 @@ export default function AutomationRules({ canManage }: { canManage: boolean }) {
                 </div>
                 <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1.5">{RULE_TYPE_HELP[form.rule_type]}</p>
               </div>
+
+              {!!templatesByType[form.rule_type]?.length && (
+                <div>
+                  <label className="block text-xs font-bold mb-1 text-slate-700 dark:text-slate-300">
+                    Message template <span className="font-normal text-slate-400">(pick a starting point, then edit below)</span>
+                  </label>
+                  <div className="flex flex-wrap gap-1.5">
+                    {templatesByType[form.rule_type].map((tpl) => (
+                      <button
+                        key={tpl.key}
+                        type="button"
+                        onClick={() => applyTemplate(tpl)}
+                        title={tpl.message_preview}
+                        className={`px-2.5 py-1.5 text-[11px] font-bold rounded-full cursor-pointer border ${
+                          form.template === tpl.key
+                            ? "bg-sky-600 text-white border-sky-600"
+                            : "bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-slate-600 dark:text-slate-300"
+                        }`}
+                      >
+                        {tpl.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               <div>
                 <label className="block text-xs font-bold mb-1 text-slate-700 dark:text-slate-300">Channel</label>
@@ -461,6 +505,8 @@ export default function AutomationRules({ canManage }: { canManage: boolean }) {
                     This will message{" "}
                     {form.rule_type === "marketing"
                       ? "every patient on file"
+                      : form.rule_type === "booking_reminder"
+                      ? "every patient with an upcoming, active booking"
                       : "every patient with an unpaid/pending booking"}{" "}
                     on the very next automation check (within ~60s), and again every {form.interval_days || 7}{" "}
                     day(s) after that. Double-check the wording above before saving as Active.

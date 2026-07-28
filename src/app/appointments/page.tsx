@@ -12,6 +12,7 @@ import {
   Clock,
   Download,
   Eye,
+  Info,
   Loader2,
   Mail,
   MessageSquare,
@@ -40,7 +41,7 @@ import {
   type VisitType,
 } from "@/lib/api";
 import { useAuth } from "@/lib/useAuth";
-import { canDeleteAppointments, canExportAppointments, isAdmin } from "@/lib/roles";
+import { canDeleteAppointments, canExportAppointments, hasPermission, isAdmin } from "@/lib/roles";
 import AutomationRules from "@/components/admin/AutomationRules";
 
 const STATUS_OPTIONS = [
@@ -163,6 +164,12 @@ export default function AppointmentsPage() {
   const canDelete = canDeleteAppointments(user);
   const canExport = canExportAppointments(user);
   const showAnalytics = isAdmin(user);
+  // Automation (payment reminders, marketing, booking reminders) is gated by
+  // a specific feature permission rather than admin tier, so a super-admin
+  // can hand this off to e.g. a marketing-role account without granting
+  // full admin access.
+  const canManageAutomation = hasPermission(user, "automation.manage");
+  const [showInfo, setShowInfo] = useState(false);
 
   const [appointments, setAppointments] = useState<Booking[]>([]);
   const [packages, setPackages] = useState<HealthPackage[]>([]);
@@ -573,6 +580,15 @@ export default function AppointmentsPage() {
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
             <CalendarDays className="w-6 h-6 text-sky-600 dark:text-sky-400" />
             Appointments
+            <button
+              type="button"
+              onClick={() => setShowInfo(true)}
+              title="What can I do on this page?"
+              aria-label="What can I do on this page?"
+              className="text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 cursor-pointer"
+            >
+              <Info className="w-5 h-5" />
+            </button>
           </h1>
           <p className="text-gray-500 dark:text-gray-400 mt-1 text-sm max-w-xl">
             Review booking requests, confirm visits, update status, message patients, and manage the
@@ -989,8 +1005,61 @@ export default function AppointmentsPage() {
       </>
       )}
 
-      {pageTab === "automation" && <AutomationRules canManage={showAnalytics} />}
+      {pageTab === "automation" && <AutomationRules canManage={canManageAutomation} />}
       </div>
+
+      {/* "What is this page?" info modal */}
+      {showInfo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/55 backdrop-blur-xs p-4">
+          <button type="button" className="absolute inset-0 cursor-default" aria-label="Close" onClick={() => setShowInfo(false)} />
+          <div className="relative bg-white dark:bg-gray-900 rounded-2xl max-w-lg w-full shadow-2xl border border-gray-200 dark:border-gray-800 max-h-[85vh] overflow-y-auto">
+            <div className="p-5 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between sticky top-0 bg-white dark:bg-gray-900">
+              <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                <Info className="w-4.5 h-4.5 text-sky-600" /> About this page
+              </h3>
+              <button type="button" onClick={() => setShowInfo(false)} className="p-2 text-gray-400 rounded-lg cursor-pointer">
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="p-5 space-y-4 text-sm text-slate-600 dark:text-slate-300">
+              <div>
+                <p className="font-bold text-slate-800 dark:text-slate-100 mb-1">Dashboard</p>
+                <p>
+                  A live snapshot of today&apos;s booking volume, patient counts, and status breakdown, plus a
+                  &quot;Live&quot; tab with real-time queue stats (waiting, with doctor, avg. wait/consult time).
+                </p>
+              </div>
+              <div>
+                <p className="font-bold text-slate-800 dark:text-slate-100 mb-1">Appointments list</p>
+                <p>
+                  Search, filter, and sort every booking. Click a row to view/edit patient &amp; test details,
+                  update status (confirm, check-in, complete, cancel, no-show, reschedule), view the payment
+                  receipt, or send a custom SMS/email. The list scrolls independently so the page header and
+                  filters stay in view.
+                </p>
+              </div>
+              <div>
+                <p className="font-bold text-slate-800 dark:text-slate-100 mb-1">Automation</p>
+                <p>
+                  Set up recurring, self-running messages: payment reminders for unpaid bookings, booking
+                  reminders for upcoming visits, and marketing campaigns to your patient list. Pick a channel
+                  (SMS/email/both), an interval, an optional date window, and a starting message template.
+                  Only accounts with the &quot;Configure automated reminders &amp; marketing rules&quot;
+                  permission can create or edit automations — ask a super admin to grant it from the Roles page
+                  if you need access.
+                </p>
+              </div>
+              <div>
+                <p className="font-bold text-slate-800 dark:text-slate-100 mb-1">Notification bell</p>
+                <p>
+                  New bookings and payment confirmations for appointments assigned to you appear here instantly,
+                  with an optional sound and desktop alert. Right-click the bell to mute/unmute sound.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Detail / edit drawer */}
       {detail && (

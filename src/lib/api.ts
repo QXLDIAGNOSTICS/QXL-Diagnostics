@@ -246,7 +246,7 @@ export type NotificationType =
   | 'marketing'
   | 'custom';
 
-export type AutomationRuleType = 'payment_reminder' | 'marketing';
+export type AutomationRuleType = 'payment_reminder' | 'booking_reminder' | 'marketing';
 
 export interface NotificationRule {
   id: string;
@@ -257,6 +257,7 @@ export interface NotificationRule {
   start_date: string | null;
   end_date: string | null;
   is_active: boolean;
+  template: string | null;
   subject: string | null;
   message: string | null;
   last_run_at: string | null;
@@ -273,11 +274,19 @@ export interface NotificationRuleCreate {
   start_date?: string | null;
   end_date?: string | null;
   is_active?: boolean;
+  template?: string | null;
   subject?: string | null;
   message?: string | null;
 }
 
 export type NotificationRuleUpdate = Partial<Omit<NotificationRuleCreate, 'rule_type'>>;
+
+export interface MessageTemplateOption {
+  key: string;
+  label: string;
+  subject_preview: string;
+  message_preview: string;
+}
 
 export interface NotifyRequest {
   channel: NotificationChannel;
@@ -864,6 +873,8 @@ export const api = {
     update: (id: string, data: NotificationRuleUpdate) =>
       patch<NotificationRule>(`/notification-rules/${id}`, data),
     remove: (id: string) => del<void>(`/notification-rules/${id}`),
+    messageTemplates: () =>
+      get<Record<AutomationRuleType, MessageTemplateOption[]>>('/notification-rules/message-templates'),
   },
   prescriptions: {
     upload: (file: File) => {

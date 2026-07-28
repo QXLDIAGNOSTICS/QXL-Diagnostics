@@ -44,6 +44,7 @@ export interface RoleAware {
   is_staff?: boolean;
   is_admin?: boolean;
   is_super_admin?: boolean;
+  permissions?: string[];
 }
 
 type RoleInput = RoleAware | string | null | undefined;
@@ -71,6 +72,17 @@ export function isSuperAdmin(input: RoleInput): boolean {
   if (typeof input === "string") return input === ROLE_SUPER_ADMIN;
   if (typeof input.is_super_admin === "boolean") return input.is_super_admin;
   return input.role === ROLE_SUPER_ADMIN;
+}
+
+/** Fine-grained feature check (see backend `app.core.permissions`) — a
+ * super-admin can grant a specific capability (e.g. `automation.manage`) to
+ * any role, staff-tier or admin-tier, from the Roles screen. Falls back to
+ * `false` for plain role strings (no permissions array available) so callers
+ * that only have a bare role should prefer `isAdmin`/`isStaff` instead. */
+export function hasPermission(input: RoleInput, permission: string): boolean {
+  if (input == null || typeof input === "string") return false;
+  if (input.is_admin) return true;
+  return !!input.permissions?.includes(permission);
 }
 
 export function canManageUsers(input: RoleInput): boolean {
