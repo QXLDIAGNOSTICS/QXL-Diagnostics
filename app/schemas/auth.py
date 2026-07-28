@@ -39,6 +39,12 @@ class UserMe(BaseModel):
     is_staff: bool = False
     is_admin: bool = False
     is_super_admin: bool = False
+    # Fine-grained feature permissions resolved from this user's role (see
+    # app.core.permissions) — admin-tier roles get every known key so
+    # existing admin accounts are never retroactively locked out of a
+    # newly-added permission. Lets the frontend gate a specific feature
+    # (e.g. "automation.manage") without hardcoding a role-tier check.
+    permissions: list[str] = []
 
 
 class RegisterRequest(BaseModel):

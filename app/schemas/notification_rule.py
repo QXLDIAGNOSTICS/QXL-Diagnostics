@@ -6,8 +6,11 @@ from datetime import date, datetime
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
 
-RULE_TYPES = {"payment_reminder", "marketing"}
+from app.models.notification_rule import TEMPLATE_CHOICES_BY_RULE_TYPE
+
+RULE_TYPES = {"payment_reminder", "booking_reminder", "marketing"}
 RULE_CHANNELS = {"sms", "email", "both"}
+ALL_TEMPLATE_KEYS = {t for choices in TEMPLATE_CHOICES_BY_RULE_TYPE.values() for t in choices}
 
 
 class NotificationRuleBase(BaseModel):
@@ -21,6 +24,9 @@ class NotificationRuleBase(BaseModel):
     # patient on file the moment it's active, so staff must explicitly flip
     # it on after reviewing the wording — never as a side effect of saving.
     is_active: bool = False
+    # Which canned copy style to use when subject/message are blank — see
+    # TEMPLATE_CHOICES_BY_RULE_TYPE. None means "use the rule type's default".
+    template: str | None = None
     subject: str | None = Field(None, max_length=200)
     message: str | None = Field(None, max_length=2000)
 
@@ -38,6 +44,13 @@ class NotificationRuleBase(BaseModel):
             raise ValueError(f"channel must be one of {RULE_CHANNELS}")
         return v
 
+    @field_validator("template")
+    @classmethod
+    def _valid_template(cls, v: str | None) -> str | None:
+        if v is not None and v not in ALL_TEMPLATE_KEYS:
+            raise ValueError(f"template must be one of {sorted(ALL_TEMPLATE_KEYS)}")
+        return v
+
 
 class NotificationRuleCreate(NotificationRuleBase):
     pass
@@ -50,6 +63,7 @@ class NotificationRuleUpdate(BaseModel):
     start_date: date | None = None
     end_date: date | None = None
     is_active: bool | None = None
+    template: str | None = None
     subject: str | None = Field(None, max_length=200)
     message: str | None = Field(None, max_length=2000)
 
@@ -58,6 +72,13 @@ class NotificationRuleUpdate(BaseModel):
     def _valid_channel(cls, v: str | None) -> str | None:
         if v is not None and v not in RULE_CHANNELS:
             raise ValueError(f"channel must be one of {RULE_CHANNELS}")
+        return v
+
+    @field_validator("template")
+    @classmethod
+    def _valid_template(cls, v: str | None) -> str | None:
+        if v is not None and v not in ALL_TEMPLATE_KEYS:
+            raise ValueError(f"template must be one of {sorted(ALL_TEMPLATE_KEYS)}")
         return v
 
 
@@ -71,6 +92,7 @@ class NotificationRuleRead(BaseModel):
     start_date: date | None = None
     end_date: date | None = None
     is_active: bool
+    template: str | None = None
     subject: str | None = None
     message: str | None = None
     last_run_at: datetime | None = None
@@ -82,3 +104,12 @@ class NotificationRuleRead(BaseModel):
 class NotificationRuleList(BaseModel):
     items: list[NotificationRuleRead]
     count: int
+
+
+class MessageTemplateOption(BaseModel):
+    """One selectable canned-copy style for the automation "Template" picker."""
+
+    key: str
+    label: str
+    subject_preview: str
+    message_preview: str

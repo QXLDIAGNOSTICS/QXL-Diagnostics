@@ -78,3 +78,19 @@ def require_role(role: str):
         return user
 
     return _checker
+
+
+def require_permission(permission: str):
+    """Dependency factory enforcing a fine-grained feature permission (see
+    ``app.core.permissions``), so a super-admin-defined staff-tier custom
+    role can be granted a specific capability (e.g. ``automation.manage``)
+    without needing full admin tier. Admin-tier roles always pass — see
+    :func:`app.core.roles.has_permission_async`.
+    """
+
+    async def _checker(user: CurrentUser, db: DbSession) -> User:
+        if not await R.has_permission_async(db, user.role, permission):
+            raise PermissionDeniedError(f"Requires permission: {permission}")
+        return user
+
+    return _checker

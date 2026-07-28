@@ -28,6 +28,15 @@ class HealthPackageRepository:
         stmt = select(HealthPackage).where(HealthPackage.slug == slug)
         return (await self.db.execute(stmt)).scalars().first()
 
+    async def search(self, q: str, limit: int = 20) -> list[HealthPackage]:
+        stmt = (
+            select(HealthPackage)
+            .where(HealthPackage.is_active == True, HealthPackage.name.ilike(f"%{q}%"))  # noqa: E712
+            .order_by(HealthPackage.name)
+            .limit(limit)
+        )
+        return list((await self.db.execute(stmt)).scalars().all())
+
     async def list_all(self, limit: int = 100, offset: int = 0) -> tuple[list[HealthPackage], int]:
         count = (await self.db.execute(select(func.count()).select_from(HealthPackage))).scalar_one()
         rows = list(

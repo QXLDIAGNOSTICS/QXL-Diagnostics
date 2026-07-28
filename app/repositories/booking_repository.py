@@ -116,6 +116,26 @@ class BookingRepository:
         )
         return rows
 
+    async def list_upcoming_active(self, *, from_date: str, limit: int = 1000) -> list[Booking]:
+        """Bookings with a scheduled visit on/after ``from_date`` that are
+        still pending/confirmed — the audience for the ``booking_reminder``
+        automation (resending appointment details to already-booked people)."""
+        rows = list(
+            (
+                await self.db.execute(
+                    select(Booking)
+                    .where(
+                        Booking.preferred_date.isnot(None),
+                        Booking.preferred_date >= from_date,
+                        Booking.status.in_(["pending", "confirmed"]),
+                    )
+                    .order_by(Booking.preferred_date.asc())
+                    .limit(limit)
+                )
+            ).scalars().all()
+        )
+        return rows
+
     async def list_latest_booking_per_patient(self, limit: int = 2000) -> list[Booking]:
         """One (most recent) booking per distinct patient phone — used as the
         marketing-broadcast audience/contact list."""
@@ -253,6 +273,23 @@ class BookingRepository:
         )
         avg_seconds = result.scalar_one_or_none()
         return round(avg_seconds / 60, 1) if avg_seconds is not None else None
+
+    async def counts_by_time_for_date(self, date_str: str) -> dict[str, int]:
+        """Active (non-cancelled) booking counts per ``preferred_time`` on a
+        given ``preferred_date`` — powers slot-capacity checks so a single
+        popular 10-minute slot can't be overbooked."""
+        rows = (
+            await self.db.execute(
+                select(Booking.preferred_time, func.count())
+                .where(
+                    Booking.preferred_date == date_str,
+                    Booking.preferred_time.isnot(None),
+                    Booking.status.notin_(["cancelled", "no_show"]),
+                )
+                .group_by(Booking.preferred_time)
+            )
+        ).all()
+        return {time: cnt for time, cnt in rows if time}
 
     async def upcoming_today_count(self, date_str: str) -> int:
         return (

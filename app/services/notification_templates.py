@@ -127,6 +127,22 @@ def build_default(notification_type: str, booking: Booking) -> tuple[str, str]:
     return subject, message
 
 
+def preview_default(notification_type: str) -> tuple[str, str]:
+    """Same copy as :func:`build_default` but rendered against a fake sample
+    booking — powers the admin "Template" picker preview without needing a
+    real booking on hand."""
+    import types
+
+    sample = types.SimpleNamespace(
+        patient_name="Priya",
+        test_name="Complete Blood Count",
+        amount_paise=99900,
+        preferred_date="2026-08-05",
+        preferred_time="10:30 AM",
+    )
+    return build_default(notification_type, sample)  # type: ignore[arg-type]
+
+
 def build_welcome(name: str | None) -> tuple[str, str]:
     """Account-creation welcome message — not tied to any booking, so it's
     built separately from ``build_default`` (which requires one)."""

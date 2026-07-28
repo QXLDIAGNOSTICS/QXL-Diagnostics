@@ -26,7 +26,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.exceptions import NotFoundError
 from app.core.logging import get_logger
-from app.models.notification_rule import NotificationRule
+from app.models.notification_rule import DEFAULT_TEMPLATE_BY_RULE_TYPE, NotificationRule
 from app.repositories.booking_repository import BookingRepository
 from app.repositories.notification_repository import NotificationRepository
 from app.repositories.notification_rule_repository import NotificationRuleRepository
@@ -37,6 +37,12 @@ logger = get_logger(__name__)
 # Don't remind about a booking created less than this long ago — give the
 # patient (and any manual staff follow-up) a chance before automation kicks in.
 _PAYMENT_REMINDER_GRACE_HOURS = 3
+
+
+def _template_for(rule: NotificationRule) -> str:
+    """Which notification_type's canned copy to render for this rule's
+    per-recipient messages (see NotificationRule.template docstring)."""
+    return rule.template or DEFAULT_TEMPLATE_BY_RULE_TYPE.get(rule.rule_type, rule.rule_type)
 
 _IST = ZoneInfo("Asia/Kolkata")
 
@@ -105,7 +111,40 @@ async def _run_payment_reminder_rule(db: AsyncSession, rule: NotificationRule) -
             db,
             booking=booking,
             channel=rule.channel,
-            notification_type="payment_reminder",
+            notification_type=_template_for(rule),
+            subject=rule.subject,
+            message=rule.message,
+            created_by=f"automation:{rule.name}",
+        )
+        sent += 1
+    return sent
+
+
+async def _run_booking_reminder_rule(db: AsyncSession, rule: NotificationRule) -> int:
+    """Resends appointment details to patients with an upcoming, still-active
+    booking — e.g. "see you tomorrow for your CBC test" — repeating every
+    ``interval_days`` for as long as the visit date hasn't passed."""
+    booking_repo = BookingRepository(db)
+    notif_repo = NotificationRepository(db)
+    now = datetime.now(timezone.utc)
+    today_ist = datetime.now(_IST).date().isoformat()
+
+    candidates = await booking_repo.list_upcoming_active(from_date=today_ist)
+    template = _template_for(rule)
+    sent = 0
+    for booking in candidates:
+        last = await notif_repo.get_latest_for_type(booking.id, template)
+        if last is not None:
+            last_at = last.created_at
+            if last_at.tzinfo is None:
+                last_at = last_at.replace(tzinfo=timezone.utc)
+            if now - last_at < timedelta(days=rule.interval_days):
+                continue
+        await queue_notification(
+            db,
+            booking=booking,
+            channel=rule.channel,
+            notification_type=template,
             subject=rule.subject,
             message=rule.message,
             created_by=f"automation:{rule.name}",
@@ -131,7 +170,7 @@ async def _run_marketing_rule(db: AsyncSession, rule: NotificationRule) -> int:
             db,
             booking=booking,
             channel=rule.channel,
-            notification_type="marketing",
+            notification_type=_template_for(rule),
             subject=rule.subject,
             message=rule.message,
             created_by=f"automation:{rule.name}",
@@ -162,6 +201,8 @@ async def run_due_rules(db: AsyncSession) -> int:
             try:
                 if rule.rule_type == "payment_reminder":
                     total += await _run_payment_reminder_rule(db, rule)
+                elif rule.rule_type == "booking_reminder":
+                    total += await _run_booking_reminder_rule(db, rule)
                 elif rule.rule_type == "marketing":
                     total += await _run_marketing_rule(db, rule)
             except Exception:  # noqa: BLE001

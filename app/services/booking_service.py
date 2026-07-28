@@ -3,9 +3,11 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.config import settings
 from app.core.exceptions import NotFoundError, ValidationError
 from app.core.logging import get_logger
 from app.models.booking import Booking
@@ -14,6 +16,43 @@ from app.repositories.booking_repository import BookingRepository
 from app.repositories.package_repository import HealthPackageRepository, TestCatalogRepository
 
 logger = get_logger(__name__)
+
+_IST = ZoneInfo("Asia/Kolkata")
+
+
+def _parse_slot_datetime(date_str: str, time_str: str) -> datetime | None:
+    """Best-effort parse of preferred_date ('YYYY-MM-DD') + preferred_time
+    ('6:30 AM' / '3:10 PM') into an IST-aware datetime. Returns None if either
+    value is missing/unparseable — callers should skip validation in that case
+    rather than reject an otherwise-valid booking."""
+    try:
+        d = datetime.strptime(date_str, "%Y-%m-%d").date()
+        t = datetime.strptime(time_str.strip().upper(), "%I:%M %p").time()
+        return datetime.combine(d, t, tzinfo=_IST)
+    except (ValueError, AttributeError):
+        return None
+
+
+async def _validate_slot(db: AsyncSession, data: dict) -> None:
+    """Reject bookings for a slot that has already passed, or that's already
+    at capacity (see ``MAX_BOOKINGS_PER_SLOT``) — prevents everyone piling
+    into the same popular 10-minute window."""
+    date_str = data.get("preferred_date")
+    time_str = data.get("preferred_time")
+    if not date_str or not time_str:
+        return
+
+    slot_dt = _parse_slot_datetime(date_str, time_str)
+    if slot_dt is not None and slot_dt < datetime.now(_IST):
+        raise ValidationError(
+            "That time slot has already passed. Please choose a later slot."
+        )
+
+    counts = await BookingRepository(db).counts_by_time_for_date(date_str)
+    if counts.get(time_str, 0) >= settings.MAX_BOOKINGS_PER_SLOT:
+        raise ValidationError(
+            f"The {time_str} slot on {date_str} is fully booked. Please choose another time."
+        )
 
 
 async def _resolve_catalog_selection(db: AsyncSession, data: dict) -> dict:
@@ -64,19 +103,39 @@ async def _resolve_catalog_selection(db: AsyncSession, data: dict) -> dict:
         match = next((t for t in matches if t.name.lower() == test_name.lower()), None)
         if match is None:
             match = next(iter(matches), None)
-        if match is None:
-            raise ValidationError(
-                f"'{test_name}' is not a recognised test. Please choose a test from our catalog."
-            )
-        if collection_type == "home" and not match.home_collection_available:
-            raise ValidationError(
-                f"'{match.name}' is only available as a center visit, not home collection."
-            )
-        data["test_id"] = match.id
-        data["test_name"] = match.name
-        if match.price is not None:
-            data["amount_paise"] = int(match.price) * 100
-        return data
+        if match is not None:
+            if collection_type == "home" and not match.home_collection_available:
+                raise ValidationError(
+                    f"'{match.name}' is only available as a center visit, not home collection."
+                )
+            data["test_id"] = match.id
+            data["test_name"] = match.name
+            if match.price is not None:
+                data["amount_paise"] = int(match.price) * 100
+            return data
+
+        # Not a test — the client may have sent a health package's name
+        # instead of its id (e.g. a stale/offline catalog on the frontend).
+        # Try to resolve it against packages before giving up, so bookings
+        # don't fail just because the frontend couldn't map name -> id.
+        pkg_matches = await HealthPackageRepository(db).search(test_name, limit=10)
+        pkg_match = next((p for p in pkg_matches if p.name.lower() == test_name.lower()), None)
+        if pkg_match is None:
+            pkg_match = next(iter(pkg_matches), None)
+        if pkg_match is not None:
+            if collection_type == "home" and not pkg_match.home_collection_available:
+                raise ValidationError(
+                    f"'{pkg_match.name}' is only available as a center visit, not home collection."
+                )
+            data["package_id"] = pkg_match.id
+            data["test_name"] = pkg_match.name
+            if pkg_match.price is not None:
+                data["amount_paise"] = int(pkg_match.price) * 100
+            return data
+
+        raise ValidationError(
+            f"'{test_name}' is not a recognised test or package. Please choose one from our catalog."
+        )
 
     if package_id is None:
         raise ValidationError("Please select a test or health package to book")
@@ -87,6 +146,7 @@ async def _resolve_catalog_selection(db: AsyncSession, data: dict) -> dict:
 async def create_booking(db: AsyncSession, data: dict, user: User | None) -> Booking:
     repo = BookingRepository(db)
     data = await _resolve_catalog_selection(db, dict(data))
+    await _validate_slot(db, data)
     booking = await repo.create(**data, user_id=user.id if user else None)
     await db.commit()
     await db.refresh(booking)

@@ -39,6 +39,16 @@ async def create_booking(
     return BookingRead.model_validate(booking)
 
 
+@router.get("/slot-availability")
+async def slot_availability(date: str, db: DbSession) -> dict:
+    """Public endpoint the booking form polls when a date is picked, so it
+    can grey out slots that are already full or in the past."""
+    from app.core.config import settings
+
+    counts = await BookingRepository(db).counts_by_time_for_date(date)
+    return {"date": date, "max_per_slot": settings.MAX_BOOKINGS_PER_SLOT, "booked": counts}
+
+
 @router.get("/me", response_model=BookingList)
 async def list_my_bookings(db: DbSession, user: CurrentUser, limit: int = 50, offset: int = 0) -> BookingList:
     items, count = await booking_service.list_my_bookings(db, user, limit=limit, offset=offset)

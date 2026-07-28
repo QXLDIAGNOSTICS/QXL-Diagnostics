@@ -40,6 +40,9 @@ class Settings(BaseSettings):
     FRONTEND_BASE_URL: str = "http://localhost:3000"
     # Used only to build a "View appointment" link in staff assignment emails.
     ADMIN_BASE_URL: str = "https://admin.qxldiagnostics.com"
+    # Max concurrent bookings allowed for the same preferred_date + time slot
+    # before it's considered full (spreads load, avoids over-promising the lab).
+    MAX_BOOKINGS_PER_SLOT: int = 3
     SESSION_COOKIE_NAME: str = "qxl_session"
     SESSION_TTL_DAYS: int = 14
     # Idle/inactivity timeout: a session cookie is rejected (forcing re-login)

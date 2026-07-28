@@ -108,6 +108,31 @@ async def is_admin_async(db, role: str | None) -> bool:
     return tier == "admin"
 
 
+async def has_permission_async(db, role: str | None, permission: str) -> bool:
+    """Fine-grained feature check used by backend guards (not just frontend
+    nav hiding) — e.g. so a super-admin-defined staff-tier role can be
+    granted access to a specific feature like automation rules without
+    needing full admin tier.
+
+    admin-tier roles (built-in ``admin``/``super_admin`` or any custom role
+    with ``tier == "admin"``) always pass, mirroring :func:`is_admin_async`,
+    so newly-added permission keys don't retroactively lock existing admins
+    out until someone remembers to re-tick a checkbox.
+    """
+    if await is_admin_async(db, role):
+        return True
+    if not role:
+        return False
+    from sqlalchemy import select
+
+    from app.models.role import CustomRole
+
+    row = (await db.execute(select(CustomRole).where(CustomRole.key == role))).scalar_one_or_none()
+    if row is None:
+        return False
+    return permission in (row.permissions or [])
+
+
 def can_manage_cms(role: str | None) -> bool:
     """Website / catalog / content management."""
     return role in ADMIN_ROLES

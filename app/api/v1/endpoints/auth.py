@@ -168,5 +168,16 @@ async def me(user: CurrentUserOptional, db: DbSession) -> UserMe | None:
     payload.is_staff = await R.is_staff_async(db, user.role)
     payload.is_admin = await R.is_admin_async(db, user.role)
     payload.is_super_admin = R.is_super_admin(user.role)
+    if payload.is_admin:
+        from app.core.permissions import PERMISSION_KEYS
+
+        payload.permissions = sorted(PERMISSION_KEYS)
+    elif payload.is_staff:
+        from sqlalchemy import select
+
+        from app.models.role import CustomRole
+
+        row = (await db.execute(select(CustomRole).where(CustomRole.key == user.role))).scalar_one_or_none()
+        payload.permissions = sorted(row.permissions or []) if row else []
     return payload
 
