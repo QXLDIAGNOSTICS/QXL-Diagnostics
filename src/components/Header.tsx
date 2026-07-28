@@ -35,8 +35,8 @@ export default function Header() {
     siteName: "QXL Diagnostics",
     logoText: "QXL",
     logoImage: FALLBACK_LOGO,
-    contactPhone: "+91 99646 39639",
-    whatsappNumber: "+91 99646 39639",
+    contactPhone: "+91 9964 639639",
+    whatsappNumber: "+91 9964 639639",
     navItems: [
       { label: "Home", href: "/", visible: true },
       { label: "About Us", href: "/about", visible: true },
