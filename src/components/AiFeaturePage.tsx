@@ -97,7 +97,7 @@ export default function AiFeaturePage({
       } else if (featureKey.includes("symptom")) {
         aiOutput = `Triage Risk Assessment: Low to Moderate Risk\n\nIdentified Symptoms: ${inputText || "General Fatigue"}\n\nSuggested Diagnostics: Full Body Checkup, Vitamin D Assessment, Thyroid Panel. Please consult a doctor if fever exceeds 101°F.`;
       } else if (featureKey.includes("voice")) {
-        aiOutput = `Voice Input Processed Successfully: "${inputText}"\n\nAssistant Response: You can book your blood test online for home sample collection across Bengaluru. Call +91 99646 36848 for instant assistance.`;
+        aiOutput = `Voice Input Processed Successfully: "${inputText}"\n\nAssistant Response: You can book your blood test online for home sample collection across Bengaluru. Call +91 9964 639639 for instant assistance.`;
       } else if (featureKey.includes("risk")) {
         aiOutput = `10-Year Cardiovascular Risk Score: 4.2% (Low Risk Category)\n\nKey Markers Evaluated: Apo-B, hs-CRP, Lipid Ratio, HbA1c. We recommend maintaining regular aerobic exercise and low saturated fat intake.`;
       } else if (featureKey.includes("nutrition")) {

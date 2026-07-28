@@ -85,7 +85,7 @@ export default async function ConditionHubPage({ params }: { params: { slug: str
                 {condition.relatedPackages.map((pkg, idx) => (
                   <div key={idx} className="bg-[#f0f9ff] border border-[#e0f2fe] p-4 rounded-xl flex items-center justify-between gap-4">
                     <span className="font-extrabold text-[#0f2d5e] text-sm">{pkg}</span>
-                    <a href={`https://api.whatsapp.com/send?phone=919964636848&text=Hi%2C%20I%20want%20to%20book%20${encodeURIComponent(pkg)}`} target="_blank" rel="noreferrer" className="bg-[#2563eb] text-white text-[10px] font-extrabold px-4 py-2 rounded-lg hover:bg-[#1d4ed8] transition-colors whitespace-nowrap uppercase tracking-wider">
+                    <a href={`https://api.whatsapp.com/send?phone=919964639639&text=Hi%2C%20I%20want%20to%20book%20${encodeURIComponent(pkg)}`} target="_blank" rel="noreferrer" className="bg-[#2563eb] text-white text-[10px] font-extrabold px-4 py-2 rounded-lg hover:bg-[#1d4ed8] transition-colors whitespace-nowrap uppercase tracking-wider">
                       Book Now
                     </a>
                   </div>
@@ -102,10 +102,10 @@ export default async function ConditionHubPage({ params }: { params: { slug: str
               </p>
               
               <div className="space-y-4">
-                <a href="tel:+919964636848" className="w-full flex items-center justify-center gap-2 bg-white text-[#0f2d5e] font-extrabold py-3.5 rounded-xl hover:bg-sky-50 transition-colors text-sm shadow-md">
-                  <Phone className="w-4 h-4" /> Call +91 99646 36848
+                <a href="tel:+919964639639" className="w-full flex items-center justify-center gap-2 bg-white text-[#0f2d5e] font-extrabold py-3.5 rounded-xl hover:bg-sky-50 transition-colors text-sm shadow-md">
+                  <Phone className="w-4 h-4" /> Call +91 9964 639639
                 </a>
-                <a href="https://api.whatsapp.com/send?phone=919964636848" target="_blank" rel="noreferrer" className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-white/20 text-white font-extrabold py-3 rounded-xl hover:bg-white/10 transition-colors text-sm">
+                <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-white/20 text-white font-extrabold py-3 rounded-xl hover:bg-white/10 transition-colors text-sm">
                   WhatsApp Us
                 </a>
               </div>

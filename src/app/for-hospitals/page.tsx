@@ -18,7 +18,7 @@ export default function Page() {
                 <a href="#team-preview">Founder & Consultants</a>
                 <a href="#specialities">Our Specialities</a>
                 <a href="/login" class="btn btn-outline" style="padding: 10px 24px; border-radius: 100px; font-weight: 700; margin-right: 15px;">Login</a>
-                <a href="https://api.whatsapp.com/send?phone=919964636848&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test" target="_blank" class="btn btn-primary" style="padding: 10px 24px; border-radius: 100px; font-weight: 700;">Book a Test</a>
+                <a href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test" target="_blank" class="btn btn-primary" style="padding: 10px 24px; border-radius: 100px; font-weight: 700;">Book a Test</a>
             </nav>
         </div>
     </header>
@@ -58,7 +58,7 @@ export default function Page() {
                     <h4>Contact Us</h4>
                     <ul class="footer-links">
                         <li>3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru</li>
-                        <li><a href="tel:+919964636848">+91 99646 36848</a></li>
+                        <li><a href="tel:+919964639639">+91 9964 639639</a></li>
                         <li><a href="mailto:qxldiagnostics@gmail.com">qxldiagnostics@gmail.com</a></li>
                     </ul>
                 </div>

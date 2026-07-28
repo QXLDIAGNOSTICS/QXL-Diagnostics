@@ -36,12 +36,12 @@ export default function Footer() {
     siteName: "QXL Diagnostics",
     logoText: "QXL",
     logoImage: FALLBACK_LOGO,
-    contactPhone: "+91 99646 36848",
+    contactPhone: "+91 9964 639639",
     supportEmail: "qxldiagnostics@gmail.com",
     hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
     northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
     workingHours: "Open 24x7",
-    whatsappNumber: "+91 99646 36848",
+    whatsappNumber: "+91 9964 639639",
     copyrightText: `© ${year} QXL Diagnostics. All rights reserved.`,
     footerDesc: "QXL Diagnostics is a NABL-accredited super speciality diagnostic laboratory in Bengaluru offering advanced pathology, molecular diagnostics, histopathology, and AI-assisted precision diagnostics.",
     navItems: [
@@ -103,7 +103,7 @@ export default function Footer() {
           </div>
           <div className="flex gap-3 flex-wrap justify-center">
             <a
-              href="https://wa.me/919964636848?text=Hi%2C%20I%20want%20to%20book%20a%20test%20at%20QXL%20Diagnostics"
+              href="https://wa.me/919964639639?text=Hi%2C%20I%20want%20to%20book%20a%20test%20at%20QXL%20Diagnostics"
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-extrabold px-5 py-2.5 rounded-full text-[12px] uppercase tracking-wide transition-all hover:scale-105 text-white"
               style={{ background: '#25D366', boxShadow: '0 4px 20px rgba(37,211,102,0.3)' }}
@@ -226,7 +226,7 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-white/55" />
                 </div>
                 <div className="flex flex-col items-center md:items-start">
-                  <a href={`tel:${settings.contactPhone || '+919964636848'}`} className="text-white text-[13px] font-extrabold hover:text-white/80 transition-colors">{settings.contactPhone || '+91 99646 36848'}</a>
+                  <a href={`tel:${settings.phone_e164 || settings.contactPhone || '+919964639639'}`} className="text-white text-[13px] font-extrabold hover:text-white/80 transition-colors">{settings.phone_display || settings.contactPhone || '+91 9964 639639'}</a>
                   <p className="text-white/35 text-[11px] font-semibold mt-0.5">{settings.workingHours}</p>
                 </div>
               </li>

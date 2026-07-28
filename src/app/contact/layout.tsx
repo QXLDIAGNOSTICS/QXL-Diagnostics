@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Get in touch with QXL Diagnostics for lab test bookings, home sample collection queries, corporate enquiries, or support. Call +91 99646 36848.",
+    "Get in touch with QXL Diagnostics for lab test bookings, home sample collection queries, corporate enquiries, or support. Call +91 9964 639639.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact QXL Diagnostics",

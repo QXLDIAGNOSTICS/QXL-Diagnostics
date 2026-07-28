@@ -157,15 +157,15 @@ export default function AiChat() {
   };
 
   const getMockReply = (text: string, file: File | null): string => {
-    let replyMessage = "Thank you for your query! For accurate information, please call us at +91 99646 36848 or WhatsApp us. Our team will be happy to assist you.";
+    let replyMessage = "Thank you for your query! For accurate information, please call us at +91 9964 639639 or WhatsApp us. Our team will be happy to assist you.";
     if ((text.toLowerCase().includes('booking') || text.toLowerCase().includes('bookings')) && text.toLowerCase().includes('my')) {
       replyMessage = user
         ? "I can see you're signed in, but I couldn't reach your account data right now. Please open Profile > Bookings, or try again in a moment."
         : "Please log in to your QXL account to view your bookings.";
     } else if (text.toLowerCase().includes('package') || text.toLowerCase().includes('checkup')) {
-      replyMessage = "We offer a range of health packages starting from ₹1,899. Our popular ones include Full Body Checkup (86+ parameters), Senior Citizen Packages, and Women's Health Packages. Visit our Packages page or call +91 99646 36848 to book!";
+      replyMessage = "We offer a range of health packages starting from ₹1,899. Our popular ones include Full Body Checkup (86+ parameters), Senior Citizen Packages, and Women's Health Packages. Visit our Packages page or call +91 9964 639639 to book!";
     } else if (text.toLowerCase().includes('home') || text.toLowerCase().includes('collection')) {
-      replyMessage = "Yes! We provide free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 99646 36848.";
+      replyMessage = "Yes! We provide free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 9964 639639.";
     } else if (text.toLowerCase().includes('location') || text.toLowerCase().includes('lab') || text.toLowerCase().includes('where')) {
       replyMessage = "We have two centers in Bengaluru:\n1. Main Lab: SLN Complex, Mysore Road, Kengeri – 560 060\n2. North Hub: L Square, opposite RMZ Galleria Mall, Yelahanka – 560064\nBoth are Open 24x7.";
     } else if (text.toLowerCase().includes('cbc') || text.toLowerCase().includes('blood')) {
@@ -391,7 +391,7 @@ export default function AiChat() {
     return (
       <>
         <a
-          href="https://api.whatsapp.com/send?phone=919964636848&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
+          href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
           target="_blank"
           rel="noreferrer"
           aria-label="Chat on WhatsApp"
@@ -449,7 +449,7 @@ export default function AiChat() {
   return (
     <>
       <a
-        href="https://api.whatsapp.com/send?phone=919964636848&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
+        href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"

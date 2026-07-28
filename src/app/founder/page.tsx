@@ -130,7 +130,7 @@ export default function FounderPage() {
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a
-              href="tel:+919964636848"
+              href="tel:+919964639639"
               className="inline-flex items-center gap-2 font-extrabold px-8 py-3.5 rounded-full text-sm text-white transition-all hover:scale-105"
               style={{
                 background: 'rgba(255,255,255,0.1)',
@@ -141,7 +141,7 @@ export default function FounderPage() {
               <Phone className="w-4 h-4" /> Call Support
             </a>
             <a
-              href="https://api.whatsapp.com/send?phone=919964636848"
+              href="https://api.whatsapp.com/send?phone=919964639639"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 font-extrabold px-8 py-3.5 rounded-full text-sm text-white transition-all hover:scale-105"

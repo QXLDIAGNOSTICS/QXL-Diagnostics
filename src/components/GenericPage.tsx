@@ -21,7 +21,7 @@ export default function GenericPage({
   contentParagraphs = [
     "QXL Diagnostics is a NABL-accredited super speciality diagnostic laboratory in Bengaluru offering 300+ advanced pathology, molecular diagnostic, and histopathology tests with same-day digital report delivery.",
     "Our certified phlebotomists provide free home sample collection across Bengaluru. All samples are analyzed in automated ISO 15189 standard analyzers with dual pathologically verified Quality Control checks.",
-    "For inquiries, test bookings, or clinical assistance, please call our 24x7 customer desk at +91 99646 36848 or book online.",
+    "For inquiries, test bookings, or clinical assistance, please call our 24x7 customer desk at +91 9964 639639 or book online.",
   ],
   ctaText = "Book a Diagnostic Test",
   ctaLink = "/book",
@@ -54,7 +54,7 @@ export default function GenericPage({
               <CheckCircle className="w-4 h-4 text-emerald-600" /> NABL Certified Laboratory Standards
             </h3>
             <p className="text-xs text-slate-600 font-semibold leading-relaxed">
-              Main Lab: 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560060 · Call: +91 99646 36848
+              Main Lab: 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560060 · Call: +91 9964 639639
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
               <Link

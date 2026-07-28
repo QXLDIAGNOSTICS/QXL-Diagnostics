@@ -123,7 +123,7 @@ export default function DashboardSubPage({ title, subtitle, tabKey }: DashboardS
                     </div>
                     <div>
                       <h2 className="text-xl font-extrabold text-[#0f2d5e]">{user?.name || "QXL Patient"}</h2>
-                      <p className="text-xs font-semibold text-slate-500">{user?.phone || "+91 99646 36848"}</p>
+                      <p className="text-xs font-semibold text-slate-500">{user?.phone || "+91 9964 639639"}</p>
                       <p className="text-xs font-semibold text-slate-500">{user?.email || "qxldiagnostics@gmail.com"}</p>
                     </div>
                   </div>

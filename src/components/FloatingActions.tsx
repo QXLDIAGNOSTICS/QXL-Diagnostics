@@ -22,7 +22,7 @@ export default function FloatingActions() {
 
       {/* Call Me Button */}
       <a
-        href="tel:+919964636848"
+        href="tel:+919964639639"
         className="bg-[#2563eb] text-white p-4 rounded-full shadow-lg shadow-blue-500/30 flex items-center justify-center hover:bg-[#1d4ed8] hover:scale-110 transition-all"
         aria-label="Call QXL Diagnostics"
       >
@@ -31,7 +31,7 @@ export default function FloatingActions() {
 
       {/* WhatsApp Button */}
       <a 
-        href="https://api.whatsapp.com/send?phone=919964636848" 
+        href="https://api.whatsapp.com/send?phone=919964639639" 
         target="_blank" 
         rel="noreferrer"
         className="bg-[#25D366] text-white p-4 rounded-full shadow-lg shadow-green-500/30 flex items-center justify-center hover:bg-[#1ebe57] hover:scale-110 transition-all animate-bounce"

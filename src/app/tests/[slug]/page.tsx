@@ -104,7 +104,7 @@ export default async function TestDetailPage({ params }: { params: { slug: strin
                 <Link href="/book" className="flex-1 sm:flex-none bg-[#2563eb] text-white font-extrabold px-8 py-3.5 rounded-xl text-sm hover:bg-[#1d4ed8] shadow-md transition-all text-center uppercase tracking-wider">
                   Book Now
                 </Link>
-                <a href="https://api.whatsapp.com/send?phone=919964636848" target="_blank" rel="noreferrer" className="flex-1 sm:flex-none bg-green-500 text-white font-extrabold px-6 py-3.5 rounded-xl text-sm hover:bg-green-600 shadow-md transition-all text-center flex items-center justify-center gap-2">
+                <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="flex-1 sm:flex-none bg-green-500 text-white font-extrabold px-6 py-3.5 rounded-xl text-sm hover:bg-green-600 shadow-md transition-all text-center flex items-center justify-center gap-2">
                   <Phone className="w-4 h-4" /> WhatsApp
                 </a>
               </div>

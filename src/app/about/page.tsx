@@ -217,7 +217,7 @@ export default function AboutPage() {
              <div className="glass-card p-8 rounded-2xl flex flex-col items-center text-center">
                <div className="glass-pill p-4 rounded-full mb-4 shadow-sm"><Phone className="text-[#0284c7] w-6 h-6" /></div>
                <h4 className="text-[#0c4a6e] font-extrabold mb-2">Phone</h4>
-               <p className="text-slate-700 text-xs font-medium">+91 9964 636848</p>
+               <p className="text-slate-700 text-xs font-medium">+91 9964 639639</p>
              </div>
           </div>
         </div>

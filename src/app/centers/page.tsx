@@ -25,7 +25,7 @@ const DEFAULT_CENTERS = [
     slug: "kengeri-main-lab",
     address: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560060",
     city: "Bengaluru",
-    phone: "+91 99646 36848",
+    phone: "+91 9964 639639",
     hours: "Open 24x7",
     lat: 12.9113827,
     lng: 77.4850301,
@@ -37,7 +37,7 @@ const DEFAULT_CENTERS = [
     slug: "yelahanka-north-hub",
     address: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560064",
     city: "Bengaluru",
-    phone: "+91 99646 36848",
+    phone: "+91 9964 639639",
     hours: "Mon - Sun: 7:00 AM - 9:00 PM",
     lat: 13.0991,
     lng: 77.5968,
@@ -49,7 +49,7 @@ const DEFAULT_CENTERS = [
     slug: "jayanagar-south-hub",
     address: "4th Block, 11th Main Rd, Near Maiya Hotel, Jayanagar, Bengaluru – 560011",
     city: "Bengaluru",
-    phone: "+91 99646 36848",
+    phone: "+91 9964 639639",
     hours: "Mon - Sun: 7:00 AM - 8:30 PM",
     lat: 12.9250,
     lng: 77.5838,
@@ -61,7 +61,7 @@ const DEFAULT_CENTERS = [
     slug: "indiranagar-hub",
     address: "100 Feet Road, Near HAL 2nd Stage, Indiranagar, Bengaluru – 560038",
     city: "Bengaluru",
-    phone: "+91 99646 36848",
+    phone: "+91 9964 639639",
     hours: "Mon - Sun: 7:00 AM - 9:00 PM",
     lat: 12.9719,
     lng: 77.6412,
@@ -73,7 +73,7 @@ const DEFAULT_CENTERS = [
     slug: "whitefield-tech-hub",
     address: "ITPB Main Road, Near Forum Shantiniketan, Whitefield, Bengaluru – 560066",
     city: "Bengaluru",
-    phone: "+91 99646 36848",
+    phone: "+91 9964 639639",
     hours: "Mon - Sun: 7:00 AM - 8:30 PM",
     lat: 12.9863,
     lng: 77.7337,
@@ -302,7 +302,7 @@ export default function CentersPage() {
                           </div>
                           <div className="flex items-center gap-2">
                             <Phone className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0" />
-                            <a href={`tel:${(center.phone || "+91 99646 36848").replace(/ /g, '')}`} className="hover:underline">{center.phone || "+91 99646 36848"}</a>
+                            <a href={`tel:${(center.phone || "+91 9964 639639").replace(/ /g, '')}`} className="hover:underline">{center.phone || "+91 9964 639639"}</a>
                           </div>
                         </div>
                       </div>

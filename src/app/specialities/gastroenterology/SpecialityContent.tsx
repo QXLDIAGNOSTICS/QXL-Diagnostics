@@ -101,7 +101,7 @@ export default function GastroenterologyPage() {
 
             <section className="bg-white border border-gray-200 rounded-2xl p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-sky-600" /> For Clinicians</h2>
-              <p className="text-gray-700 text-sm leading-relaxed">Our gastroenterology panel supports accurate diagnosis and monitoring of liver disease, IBD, malabsorption syndromes, and H. pylori. Fecal calprotectin helps differentiate IBD from IBS non-invasively. Quantitative PCR for HBV/HCV DNA supports treatment decisions. Our autoimmune liver panel aids diagnosis of AIH, PBC, and PSC. All reports include interpretation notes. Doctor enquiries: +91 99646 36848.</p>
+              <p className="text-gray-700 text-sm leading-relaxed">Our gastroenterology panel supports accurate diagnosis and monitoring of liver disease, IBD, malabsorption syndromes, and H. pylori. Fecal calprotectin helps differentiate IBD from IBS non-invasively. Quantitative PCR for HBV/HCV DNA supports treatment decisions. Our autoimmune liver panel aids diagnosis of AIH, PBC, and PSC. All reports include interpretation notes. Doctor enquiries: +91 9964 639639.</p>
             </section>
 
             <section className="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-6">
@@ -144,7 +144,7 @@ export default function GastroenterologyPage() {
               <p className="text-[#0369a1] text-sm mb-4">Home collection available for blood and stool samples. Reports via email and WhatsApp.</p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/book" className="bg-white text-sky-700 font-bold px-5 py-2 rounded-full text-sm hover:bg-sky-50">Book a Test</Link>
-                <a href="https://api.whatsapp.com/send?phone=919964636848" target="_blank" rel="noreferrer" className="border-2 border-white text-white font-bold px-5 py-2 rounded-full text-sm hover:bg-white/10">WhatsApp Us</a>
+                <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="border-2 border-white text-white font-bold px-5 py-2 rounded-full text-sm hover:bg-white/10">WhatsApp Us</a>
               </div>
             </section>
           </div>
@@ -153,8 +153,8 @@ export default function GastroenterologyPage() {
             <div className="bg-gradient-to-br from-sky-600 to-sky-900 text-white rounded-2xl p-5 shadow-lg">
               <h3 className="text-lg font-bold mb-2 text-white">Need help choosing the right GI test?</h3>
               <p className="text-[#0369a1] text-xs mb-4">Our consultants guide you to the right gastroenterology profile.</p>
-              <a href="tel:+919964636848" className="w-full bg-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-sky-50 transition-colors mb-2 shadow text-sm" style={{ color: '#0284c7' }}>📞 Call +91 99646 36848</a>
-              <a href="https://api.whatsapp.com/send?phone=919964636848" target="_blank" rel="noreferrer" className="w-full border border-sky-400 bg-sky-800 text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-sky-700 transition-colors text-sm">WhatsApp Us</a>
+              <a href="tel:+919964639639" className="w-full bg-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-sky-50 transition-colors mb-2 shadow text-sm" style={{ color: '#0284c7' }}>📞 Call +91 9964 639639</a>
+              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="w-full border border-sky-400 bg-sky-800 text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-sky-700 transition-colors text-sm">WhatsApp Us</a>
               <Link href="/upload-prescription" className="mt-2 w-full border border-sky-400 text-white font-bold py-2.5 rounded-xl flex justify-center hover:bg-white/10 transition-colors text-sm"><FileText className="w-4 h-4 mr-2" /> Upload Prescription</Link>
             </div>
             <div className="bg-white border border-gray-200 rounded-2xl p-5">

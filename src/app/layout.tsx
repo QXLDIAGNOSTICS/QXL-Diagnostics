@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: "QXL Diagnostics",
     title: "QXL Diagnostics | NABL Certified Diagnostic Lab Bengaluru",
     description:
-      "Advanced diagnostic testing in Bengaluru. NABL certified, home collection, 300+ tests, same-day digital reports. Book now at +91 99646 36848.",
+      "Advanced diagnostic testing in Bengaluru. NABL certified, home collection, 300+ tests, same-day digital reports. Book now at +91 9964 639639.",
     images: [
       {
         // Force 1.91:1 OG crop so crawlers see 1200×630 (not a square logo/asset).
@@ -109,7 +109,7 @@ const localBusinessSchema = {
   description:
     "NABL certified diagnostic super speciality lab in Bengaluru offering 300+ tests, home sample collection, and same-day digital reports.",
   url: "https://qxldiagnostics.com",
-  telephone: "+91-99646-36848",
+  telephone: "+91-9964-639639",
   email: "qxldiagnostics@gmail.com",
   logo: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   medicalSpecialty: [
@@ -160,7 +160,7 @@ const faqSchema = {
       name: "Does QXL Diagnostics provide home sample collection?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, QXL Diagnostics provides free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 99646 36848.",
+        text: "Yes, QXL Diagnostics provides free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 9964 639639.",
       },
     },
     {
@@ -205,7 +205,7 @@ const organizationSchema = {
   ],
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+91-99646-36848",
+    "telephone": "+91-9964-639639",
     "contactType": "customer service",
     "areaServed": "IN",
     "availableLanguage": ["en", "hi", "kn"]

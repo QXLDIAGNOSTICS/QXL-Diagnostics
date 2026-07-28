@@ -36,8 +36,8 @@ export default function Header() {
     siteName: "QXL Diagnostics",
     logoText: "QXL",
     logoImage: FALLBACK_LOGO,
-    contactPhone: "+91 99646 36848",
-    whatsappNumber: "+91 99646 36848",
+    contactPhone: "+91 9964 639639",
+    whatsappNumber: "+91 9964 639639",
     navItems: [
       { label: "Home", href: "/", visible: true },
       { label: "About Us", href: "/about", visible: true },
@@ -308,12 +308,12 @@ export default function Header() {
                     {tickerIndex === 0 ? (
                       <motion.div key="1" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight">
                         <span className="text-[10px] text-[#0369a1]/80 font-semibold tracking-wide">Home Collection</span>
-                        <a href="tel:+919964636848" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 636848</a>
+                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 639639</a>
                       </motion.div>
                     ) : (
                       <motion.div key="2" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight">
                         <span className="text-[10px] text-[#16a34a] font-bold uppercase tracking-wider animate-pulse">Call Now</span>
-                        <a href="tel:+919964636848" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 636848</a>
+                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 639639</a>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -419,9 +419,9 @@ export default function Header() {
             <span className="truncate max-w-[140px] pt-0.5">{getShortLocationName(location) || "Select Location"}</span>
             <ChevronDown className="w-3 h-3 text-[#bae6fd] opacity-70" />
           </button>
-          <a href={`tel:${settings.contactPhone || '+919964636848'}`} className="flex items-center gap-1 text-[11px] font-bold tracking-wide">
+          <a href={`tel:${settings.phone_e164 || settings.contactPhone || '+919964639639'}`} className="flex items-center gap-1 text-[11px] font-bold tracking-wide">
             <Phone className="w-3 h-3 text-[#bae6fd]" />
-            <span className="pt-0.5">{settings.contactPhone || '99646 36848'}</span>
+            <span className="pt-0.5">{(settings.phone_display || settings.contactPhone || '9964 639639').replace(/^\+91\s*/, '')}</span>
           </a>
         </div>
         {/* Row 1: Menu + Logo + Cart */}

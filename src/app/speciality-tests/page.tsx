@@ -306,11 +306,11 @@ export default function SpecialityTestsPage() {
             Advanced diagnostic testing across 10 medical specialities — reviewed by expert consultants. AI-assisted processing, precision reporting, and home sample collection across Bengaluru.
           </p>
           <div className="flex gap-3 flex-wrap">
-            <a href="tel:+919964636848"
+            <a href="tel:+919964639639"
               className="inline-flex items-center gap-2 bg-[#2563eb] text-white font-bold px-6 py-3 rounded-full hover:bg-[#1d4ed8] transition-all text-sm shadow-md">
               <Phone className="w-4 h-4" /> Book a Test
             </a>
-            <a href="https://api.whatsapp.com/send?phone=919964636848" target="_blank" rel="noreferrer"
+            <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-2 border-2 border-[#25d366] text-[#25d366] font-bold px-6 py-3 rounded-full hover:bg-green-50 transition-all text-sm">
               <MessageCircle className="w-4 h-4" /> WhatsApp Us
             </a>
@@ -440,7 +440,7 @@ export default function SpecialityTestsPage() {
                       {active.packages.map((pkg, i) => (
                         <div key={i} className="flex items-center justify-between bg-white rounded-xl p-3 shadow-sm border border-gray-100">
                           <span className="text-[12px] font-bold text-slate-700">{pkg}</span>
-                          <a href={`https://api.whatsapp.com/send?phone=919964636848&text=Hi%2C%20I%20want%20to%20book%20${encodeURIComponent(pkg)}`}
+                          <a href={`https://api.whatsapp.com/send?phone=919964639639&text=Hi%2C%20I%20want%20to%20book%20${encodeURIComponent(pkg)}`}
                             target="_blank" rel="noreferrer"
                             className="bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-xl hover:bg-[#1d4ed8] transition-colors flex-shrink-0 ml-3">
                             Book
@@ -452,17 +452,17 @@ export default function SpecialityTestsPage() {
 
                   {/* CTAs */}
                   <div className="space-y-2">
-                    <a href="tel:+919964636848"
+                    <a href="tel:+919964639639"
                       className="w-full flex items-center justify-center gap-2 bg-[#2563eb] text-white font-bold py-3.5 rounded-xl hover:bg-[#1d4ed8] transition-colors text-sm shadow-md">
                       <Phone className="w-4 h-4" /> Book This Test
                     </a>
-                    <a href={`https://api.whatsapp.com/send?phone=919964636848&text=Hi%2C%20I%20want%20to%20know%20about%20${encodeURIComponent(active.title)}%20tests`}
+                    <a href={`https://api.whatsapp.com/send?phone=919964639639&text=Hi%2C%20I%20want%20to%20know%20about%20${encodeURIComponent(active.title)}%20tests`}
                       target="_blank" rel="noreferrer"
                       className="w-full flex items-center justify-center gap-2 border-2 border-[#25d366] text-[#25d366] font-bold py-3 rounded-xl hover:bg-green-50 transition-colors text-sm">
                       <MessageCircle className="w-4 h-4" /> Enquire on WhatsApp
                     </a>
                     <div className="text-center pt-1">
-                      <span className="text-[11px] text-slate-400 font-medium">📞 +91 99646 36848 · 🕐 Open 24x7</span>
+                      <span className="text-[11px] text-slate-400 font-medium">📞 +91 9964 639639 · 🕐 Open 24x7</span>
                     </div>
                   </div>
                 </div>

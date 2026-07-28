@@ -105,12 +105,12 @@ export default function PaymentTermsPage() {
               <h2 className="text-xl font-bold text-slate-800 mb-2">10. Contact & Support</h2>
               <p className="mb-2">For payment issues, refunds, or booking assistance, reach out to us:</p>
               <ul className="space-y-1 font-medium">
-                <li><strong>📞 Phone / WhatsApp:</strong> +91 99646 36848 (Open 24x7)</li>
+                <li><strong>📞 Phone / WhatsApp:</strong> +91 9964 639639 (Open 24x7)</li>
                 <li><strong>📧 Email:</strong> qxldiagnostics@gmail.com</li>
                 <li><strong>📍 Main Lab (Kengeri):</strong> 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560060</li>
                 <li><strong>📍 North Hub (Yelahanka):</strong> L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560064</li>
                 <li><strong>🌐 Website:</strong> <a href="https://qxldiagnostics.com" className="text-[#2563eb] hover:underline">qxldiagnostics.com</a></li>
-                <li><strong>💬 WhatsApp Booking:</strong> <a href="https://wa.me/919964636848" className="text-[#2563eb] hover:underline">wa.me/919964636848</a></li>
+                <li><strong>💬 WhatsApp Booking:</strong> <a href="https://wa.me/919964639639" className="text-[#2563eb] hover:underline">wa.me/919964639639</a></li>
               </ul>
             </section>
 

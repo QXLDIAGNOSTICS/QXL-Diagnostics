@@ -16,7 +16,7 @@ export function buildOrganizationSchema() {
     alternateName: 'QXL Diagnostics Super Speciality Lab',
     url: BASE_URL,
     logo: ORG_LOGO,
-    telephone: '+91-99646-36848',
+    telephone: '+91-9964-639639',
     email: 'qxldiagnostics@gmail.com',
     foundingDate: '2019',
     description:
@@ -33,7 +33,7 @@ export function buildOrganizationSchema() {
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        telephone: '+91-99646-36848',
+        telephone: '+91-9964-639639',
         contactType: 'customer service',
         areaServed: 'IN',
         availableLanguage: ['en', 'hi', 'kn'],
@@ -41,7 +41,7 @@ export function buildOrganizationSchema() {
       },
       {
         '@type': 'ContactPoint',
-        telephone: '+91-99646-36848',
+        telephone: '+91-9964-639639',
         contactType: 'sales',
         areaServed: 'IN',
       },
@@ -82,7 +82,7 @@ export function buildLocalBusinessSchema(opts?: {
     '@type': ['MedicalClinic', 'LocalBusiness'],
     name: opts?.name ?? 'QXL Diagnostics Super Speciality Lab',
     url: BASE_URL,
-    telephone: opts?.phone ?? '+91-99646-36848',
+    telephone: opts?.phone ?? '+91-9964-639639',
     logo: ORG_LOGO,
     image: 'https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg',
     priceRange: '₹₹',

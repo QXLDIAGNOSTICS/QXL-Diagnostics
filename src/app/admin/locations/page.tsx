@@ -18,7 +18,7 @@ export default function LocationsAdminPage() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("Bengaluru");
-  const [phone, setPhone] = useState("+91 99646 36848");
+  const [phone, setPhone] = useState("+91 9964 639639");
   const [hours, setHours] = useState("Mon - Sat: 8:00 AM - 7:00 PM | Sun: Closed");
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
@@ -46,7 +46,7 @@ export default function LocationsAdminPage() {
     setName("");
     setAddress("");
     setCity("");
-    setPhone("+91 99646 36848");
+    setPhone("+91 9964 639639");
     setHours("Mon - Sat: 8:00 AM - 7:00 PM | Sun: Closed");
     setLat("");
     setLng("");
@@ -59,7 +59,7 @@ export default function LocationsAdminPage() {
     setName(loc.name);
     setAddress(loc.address);
     setCity(loc.city || "Bengaluru");
-    setPhone(loc.phone || "+91 99646 36848");
+    setPhone(loc.phone || "+91 9964 639639");
     setHours(loc.hours || "Mon - Sat: 8:00 AM - 7:00 PM | Sun: Closed");
     setLat(loc.lat != null ? String(loc.lat) : "");
     setLng(loc.lng != null ? String(loc.lng) : "");

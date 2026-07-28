@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
             <p className="mb-4 font-medium">
               QXL Diagnostics<br />
               Email: qxldiagnostics@gmail.com<br />
-              Phone: +91 9964 636848
+              Phone: +91 9964 639639
             </p>
           </div>
         </div>

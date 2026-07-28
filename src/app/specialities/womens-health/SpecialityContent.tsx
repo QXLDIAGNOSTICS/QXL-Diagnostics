@@ -101,7 +101,7 @@ export default function WomensHealthPage() {
 
             <section className="bg-white border border-gray-200 rounded-2xl p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-sky-600" /> For Clinicians</h2>
-              <p className="text-gray-700 text-sm leading-relaxed">Our women's health panels support gynaecologists, fertility specialists, and endocrinologists. AMH is available any day of cycle. Hormone panels (FSH, LH, E2) are time-sensitive — Day 2/3 collection recommended for baseline. ROMA index (CA 125 + HE4) supports malignancy risk stratification. Prenatal screening reports include risk calculation and are formatted for clinical use. Doctor enquiries: +91 99646 36848.</p>
+              <p className="text-gray-700 text-sm leading-relaxed">Our women's health panels support gynaecologists, fertility specialists, and endocrinologists. AMH is available any day of cycle. Hormone panels (FSH, LH, E2) are time-sensitive — Day 2/3 collection recommended for baseline. ROMA index (CA 125 + HE4) supports malignancy risk stratification. Prenatal screening reports include risk calculation and are formatted for clinical use. Doctor enquiries: +91 9964 639639.</p>
             </section>
 
             <section className="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-6">
@@ -147,7 +147,7 @@ export default function WomensHealthPage() {
                 <Link href="/book" className="bg-white font-extrabold px-6 py-3 rounded-full text-sm hover:bg-sky-50 transition-all shadow-md cursor-pointer flex items-center gap-1.5" style={{ color: '#0369a1' }}>
                   Book a Test
                 </Link>
-                <a href="https://api.whatsapp.com/send?phone=919964636848" target="_blank" rel="noreferrer" className="bg-white/15 hover:bg-white/25 border-2 border-white text-white font-extrabold px-6 py-3 rounded-full text-sm transition-all shadow-sm">
+                <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="bg-white/15 hover:bg-white/25 border-2 border-white text-white font-extrabold px-6 py-3 rounded-full text-sm transition-all shadow-sm">
                   WhatsApp Us
                 </a>
               </div>
@@ -159,8 +159,8 @@ export default function WomensHealthPage() {
             <div className="bg-gradient-to-br from-sky-600 to-sky-800 text-white rounded-2xl p-6 shadow-xl">
               <h3 className="text-lg font-bold mb-2 text-white">Fertility or Women's Health Query?</h3>
               <p className="text-sky-100 text-xs mb-5 font-medium leading-relaxed">Our team guides you to the right panel based on your clinical requirement.</p>
-              <a href="tel:+919964636848" className="w-full bg-white font-extrabold py-3 rounded-xl flex justify-center hover:bg-sky-50 transition-colors mb-3 shadow text-sm cursor-pointer" style={{ color: '#0369a1' }}>📞 Call +91 99646 36848</a>
-              <a href="https://api.whatsapp.com/send?phone=919964636848" target="_blank" rel="noreferrer" className="w-full border border-sky-300 bg-sky-700/80 text-white font-bold py-3 rounded-xl flex justify-center hover:bg-sky-600 transition-colors text-sm shadow-sm mb-3">WhatsApp Us</a>
+              <a href="tel:+919964639639" className="w-full bg-white font-extrabold py-3 rounded-xl flex justify-center hover:bg-sky-50 transition-colors mb-3 shadow text-sm cursor-pointer" style={{ color: '#0369a1' }}>📞 Call +91 9964 639639</a>
+              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="w-full border border-sky-300 bg-sky-700/80 text-white font-bold py-3 rounded-xl flex justify-center hover:bg-sky-600 transition-colors text-sm shadow-sm mb-3">WhatsApp Us</a>
               <Link href="/upload-prescription" className="w-full border border-sky-300/60 bg-transparent text-white font-bold py-3 rounded-xl flex justify-center hover:bg-white/10 transition-colors text-sm"><FileText className="w-4 h-4 mr-2" /> Upload Prescription</Link>
             </div>
             <div className="bg-white border border-gray-200 rounded-2xl p-5">

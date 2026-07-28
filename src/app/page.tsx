@@ -1035,7 +1035,7 @@ export default function Home() {
                 </div>
               </Link>
 
-              <a href="https://api.whatsapp.com/send?phone=919964636848" target="_blank" rel="noreferrer"
+              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer"
                 className="bg-white rounded-2xl p-5 border border-gray-150 shadow-sm flex items-center justify-between group hover:shadow-[0_12px_30px_rgba(37,99,235,0.12)] hover:border-blue-400/50 hover:scale-[1.015] transition-all duration-300">
                 <div className="flex items-center">
                   <div className="w-12 h-12 rounded-2xl bg-[#dbeafe] flex items-center justify-center mr-4 flex-shrink-0">
@@ -1352,7 +1352,7 @@ export default function Home() {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
-                      <input type="tel" required placeholder="+91 9964 636848" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
+                      <input type="tel" required placeholder="+91 9964 639639" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
                     </div>
                   </div>
                   <div className="relative">

@@ -207,7 +207,7 @@ const defaultTestimonials = [
 ];
 
 const defaultFaqs = [
-  { id: "faq-1", question: "How do I book a home collection?", answer: "Simply fill out our Home Collection form, message us on WhatsApp (+91 9964 636848), or select a health package and complete the check-out." },
+  { id: "faq-1", question: "How do I book a home collection?", answer: "Simply fill out our Home Collection form, message us on WhatsApp (+91 9964 639639), or select a health package and complete the check-out." },
   { id: "faq-2", question: "How long does it take to receive reports?", answer: "Most routine report cards (like blood sugar, lipid profiles, and CBC) are delivered via email and WhatsApp within 6 to 12 hours." }
 ];
 
@@ -342,9 +342,9 @@ const defaultSettings = {
   copyrightText: "© 2026 QXL Diagnostics. All rights reserved.",
   footerDesc: "QXL Diagnostics is a super speciality diagnostic laboratory in Bengaluru offering advanced pathology, microbiology, immunology, molecular diagnostics, histopathology, cytology and precision diagnostic services for patients, clinicians and hospitals.",
   // Contact info — now comes from backend API via SiteSettings
-  phone_display: "+91 99646 36848",
-  phone_e164: "+919964636848",
-  whatsapp_number: "919964636848",
+  phone_display: "+91 9964 639639",
+  phone_e164: "+919964639639",
+  whatsapp_number: "919964639639",
   navItems: [
     { label: "Home", href: "/", visible: true },
     { label: "About Us", href: "/about", visible: true },
@@ -447,6 +447,23 @@ export const cmsStore = {
         const defVal = (defaultSettings as any)[k];
         if (val === undefined || val === null || val === "" || (Array.isArray(defVal) && (!val || val.length === 0))) {
           parsed[k] = defVal;
+          healed = true;
+        }
+      }
+      // Keep legacy Header/Footer keys in sync with the API phone fields.
+      if (parsed.phone_display && parsed.contactPhone !== parsed.phone_display) {
+        parsed.contactPhone = parsed.phone_display;
+        healed = true;
+      }
+      if (parsed.phone_display && parsed.whatsappNumber !== parsed.phone_display) {
+        parsed.whatsappNumber = parsed.phone_display;
+        healed = true;
+      }
+      // Force-migrate any cached copy of the retired number.
+      const stale = /99646\s*36848|9964\s*636848|9964636848/;
+      for (const key of ["phone_display", "contactPhone", "whatsappNumber", "phone_e164", "whatsapp_number"]) {
+        if (typeof parsed[key] === "string" && stale.test(parsed[key])) {
+          parsed[key] = (defaultSettings as any)[key] || defaultSettings.phone_display;
           healed = true;
         }
       }
@@ -559,11 +576,15 @@ export const cmsStore = {
       
       const apiSettings = await response.json();
       
-      // Merge API settings with existing settings
+      // Merge API settings with existing settings. Also mirror the
+      // phone_display / whatsapp_number fields onto the legacy
+      // contactPhone / whatsappNumber keys that Header/Footer still read.
       const currentSettings = cmsStore.getSettings();
       const mergedSettings = {
         ...currentSettings,
         ...apiSettings, // Backend values override local defaults
+        contactPhone: apiSettings.phone_display || currentSettings.contactPhone,
+        whatsappNumber: apiSettings.phone_display || currentSettings.whatsappNumber,
       };
       
       cmsStore.saveSettings(mergedSettings);

@@ -233,7 +233,7 @@ export default function NotFound() {
       {/* Floating Action Buttons */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <motion.a
-          href="https://wa.me/919964636848"
+          href="https://wa.me/919964639639"
           target="_blank"
           rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0 }}
@@ -245,7 +245,7 @@ export default function NotFound() {
           <MessageCircle className="h-6 w-6" />
         </motion.a>
         <motion.a
-          href="tel:+919964636848"
+          href="tel:+919964639639"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.15, type: "spring", stiffness: 200 }}

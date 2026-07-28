@@ -220,7 +220,7 @@ export default async function CombinedLocationPage({ params }: Props) {
       "name": `QXL Diagnostics Home Collection - ${areaLoc.name}`,
       "description": areaLoc.description,
       "url": `https://qxldiagnostics.com/locations/${slug}`,
-      "telephone": "+91-99646-36848",
+      "telephone": "+91-9964-639639",
       "areaServed": {
         "@type": "Place",
         "name": areaLoc.name
@@ -248,7 +248,7 @@ export default async function CombinedLocationPage({ params }: Props) {
               <Link href="/book" className="bg-[#2563eb] text-white font-extrabold px-8 py-3.5 rounded-full hover:bg-[#1d4ed8] transition-all shadow-md text-sm">
                 Book Home Collection
               </Link>
-              <a href="https://api.whatsapp.com/send?phone=919964636848" target="_blank" rel="noreferrer" className="border-2 border-[#25d366] text-[#25d366] bg-white font-extrabold px-8 py-3.5 rounded-full hover:bg-green-50 transition-all shadow-sm text-sm flex items-center gap-2">
+              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="border-2 border-[#25d366] text-[#25d366] bg-white font-extrabold px-8 py-3.5 rounded-full hover:bg-green-50 transition-all shadow-sm text-sm flex items-center gap-2">
                 <Phone className="w-4 h-4" /> WhatsApp Us
               </a>
             </div>
@@ -363,13 +363,13 @@ export default async function CombinedLocationPage({ params }: Props) {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/10">
-                  <a href="tel:+919964636848" className="flex items-center gap-3 text-white hover:text-sky-200 transition-colors">
+                  <a href="tel:+919964639639" className="flex items-center gap-3 text-white hover:text-sky-200 transition-colors">
                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
                       <span className="text-[10px] uppercase font-bold tracking-wider block">Call For Booking</span>
-                      <span className="font-extrabold text-base">+91 99646 36848</span>
+                      <span className="font-extrabold text-base">+91 9964 639639</span>
                     </div>
                   </a>
                 </div>

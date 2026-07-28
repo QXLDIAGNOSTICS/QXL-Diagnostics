@@ -13,7 +13,7 @@ export default function FaqSection({ decorativeHeading = false }: { decorativeHe
       {
         id: 'faq1',
         question: 'How do I book a home collection?',
-        answer: 'Simply fill out our Home Collection form, message us on WhatsApp (+91 9964 636848), or select a health package and complete the check-out.',
+        answer: 'Simply fill out our Home Collection form, message us on WhatsApp (+91 9964 639639), or select a health package and complete the check-out.',
         sort_order: 1
       },
       {
