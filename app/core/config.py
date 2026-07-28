@@ -73,6 +73,7 @@ class Settings(BaseSettings):
     # template ID — see NETTYFISH_DLT_TEMPLATES.md for the exact copy to
     # submit for approval). Leave blank to skip sending that type of SMS
     # (falls back to a dev log) until the template is approved.
+    NETTYFISH_TEMPLATE_ID_BOOKING_RECEIVED: str = ""
     NETTYFISH_TEMPLATE_ID_CONFIRMATION: str = ""
     NETTYFISH_TEMPLATE_ID_PAYMENT: str = ""
     NETTYFISH_TEMPLATE_ID_REMINDER: str = ""

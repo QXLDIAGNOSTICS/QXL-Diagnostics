@@ -17,6 +17,7 @@ is configured to grant, including newly created custom roles (e.g.
 """
 from __future__ import annotations
 
+import asyncio
 import random
 import uuid
 
@@ -33,6 +34,17 @@ from app.services import notification_service
 from app.services.email_html import render_html_email
 
 logger = get_logger(__name__)
+
+# See booking_notification_service._pending_dispatches for why this exists —
+# same "don't let a slow SMTP call block the HTTP response" issue applies to
+# the staff-assignment email.
+_pending_emails: set[asyncio.Task] = set()
+
+
+def _fire_and_forget(coro) -> None:  # noqa: ANN001
+    task = asyncio.create_task(coro)
+    _pending_emails.add(task)
+    task.add_done_callback(_pending_emails.discard)
 
 _OPEN_STATUSES_EXCLUDED = ("completed", "cancelled", "no_show")
 
@@ -126,7 +138,10 @@ async def assign_booking(db: AsyncSession, booking: Booking) -> User | None:
                 cta_label="Open appointments dashboard",
                 cta_url=f"{settings.ADMIN_BASE_URL.rstrip('/')}/appointments",
             )
-            await notification_service.send_email(assignee.email, subject, body, html_body=html)
+            # Fire-and-forget: the assignment itself (above) is already
+            # committed, so a slow/hanging SMTP call here must never delay
+            # the booking API's response back to the patient.
+            _fire_and_forget(notification_service.send_email(assignee.email, subject, body, html_body=html))
         return assignee
     except Exception:  # noqa: BLE001
         logger.exception("Failed to auto-assign booking=%s", booking.id)

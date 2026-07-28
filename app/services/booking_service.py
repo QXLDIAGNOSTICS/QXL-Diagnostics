@@ -1,8 +1,9 @@
 """Booking service: business logic for booking a test/package/home-collection."""
 from __future__ import annotations
 
+import asyncio
 import uuid
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -17,7 +18,30 @@ from app.repositories.package_repository import HealthPackageRepository, TestCat
 
 logger = get_logger(__name__)
 
+# See booking_notification_service._pending_dispatches docstring — same
+# rationale applies here: the acknowledgement notification, payment-reminder
+# scheduling and staff auto-assignment below are all best-effort side
+# effects that each cost a DB round trip (or more); running them
+# synchronously in the request was measured to add ~15-20s on top of the
+# booking insert itself in production, comfortably enough to trip the
+# frontend dev proxy's socket timeout even after SMTP sending was already
+# made non-blocking.
+_pending_side_effects: set[asyncio.Task] = set()
+
+
+def _fire_and_forget(coro) -> None:  # noqa: ANN001
+    task = asyncio.create_task(coro)
+    _pending_side_effects.add(task)
+    task.add_done_callback(_pending_side_effects.discard)
+
 _IST = ZoneInfo("Asia/Kolkata")
+
+# How long to wait after an unpaid booking is created before nudging the
+# patient to complete payment — gives them (and any quick manual staff
+# follow-up) a chance first. Matches the grace window used by the
+# `payment_reminder` automation rule, so its recurring cadence (if the admin
+# also activates one) picks up seamlessly from this first reminder.
+_PAYMENT_REMINDER_DELAY_HOURS = 3
 
 
 def _parse_slot_datetime(date_str: str, time_str: str) -> datetime | None:
@@ -36,14 +60,24 @@ def _parse_slot_datetime(date_str: str, time_str: str) -> datetime | None:
 async def _validate_slot(db: AsyncSession, data: dict) -> None:
     """Reject bookings for a slot that has already passed, or that's already
     at capacity (see ``MAX_BOOKINGS_PER_SLOT``) — prevents everyone piling
-    into the same popular 10-minute window."""
-    date_str = data.get("preferred_date")
-    time_str = data.get("preferred_time")
+    into the same popular 10-minute window.
+
+    A preferred date AND time are mandatory for every booking — this is the
+    one choke point every creation path funnels through (the public API's
+    ``BookingCreate`` schema, and the chat assistant's ``create_booking``
+    tool, which calls this service directly with a raw dict and so never
+    goes through that schema's own validation)."""
+    date_str = (data.get("preferred_date") or "").strip()
+    time_str = (data.get("preferred_time") or "").strip()
     if not date_str or not time_str:
-        return
+        raise ValidationError("Please select a preferred date and time slot for your booking.")
 
     slot_dt = _parse_slot_datetime(date_str, time_str)
-    if slot_dt is not None and slot_dt < datetime.now(_IST):
+    if slot_dt is None:
+        raise ValidationError(
+            "Preferred date/time could not be understood. Please pick a date and time slot again."
+        )
+    if slot_dt < datetime.now(_IST):
         raise ValidationError(
             "That time slot has already passed. Please choose a later slot."
         )
@@ -151,24 +185,71 @@ async def create_booking(db: AsyncSession, data: dict, user: User | None) -> Boo
     await db.commit()
     await db.refresh(booking)
 
-    # Best-effort booking confirmation — never blocks/fails the booking itself.
-    try:
-        from app.services.booking_notification_service import queue_notification
-
-        channel = "both" if booking.patient_email else "sms"
-        await queue_notification(
-            db, booking=booking, channel=channel, notification_type="confirmation", created_by="system"
-        )
-    except Exception:  # noqa: BLE001
-        logger.exception("Failed to queue booking confirmation for booking=%s", booking.id)
-
-    # Auto-assign to exactly one appointments staff member (least-loaded) and
-    # email just them — best-effort, never blocks/fails the booking itself.
-    from app.services.staff_assignment_service import assign_booking
-
-    await assign_booking(db, booking)
+    # Everything below (acknowledgement message, payment-reminder scheduling,
+    # staff auto-assignment + its email) is best-effort and deliberately NOT
+    # awaited here — see `_fire_and_forget` above. `booking.assigned_to_id`
+    # is still None at this point, which SQLAlchemy's lazy loader resolves
+    # to `assigned_staff = None` without a DB call, so returning `booking`
+    # immediately is safe to serialize (no MissingGreenlet risk).
+    _fire_and_forget(_post_booking_side_effects(booking.id))
 
     return booking
+
+
+async def _post_booking_side_effects(booking_id: uuid.UUID) -> None:
+    """Runs after ``create_booking`` has already returned to its caller.
+    Opens its own DB session/transaction, independent of the request's
+    (which may already be closed by the time this actually executes)."""
+    from app.db.session import AsyncSessionLocal
+    from app.services.booking_notification_service import queue_notification
+    from app.services.staff_assignment_service import assign_booking
+
+    async with AsyncSessionLocal() as db:
+        booking = await BookingRepository(db).get_by_id(booking_id)
+        if booking is None:
+            logger.warning("Booking %s vanished before background side-effects ran", booking_id)
+            return
+
+        # Best-effort "we got your request" acknowledgement — deliberately
+        # NOT a "confirmed" message: nothing about the visit is confirmed
+        # until payment succeeds (see app.services.payment_service, which
+        # sends the real confirmation/"payment received" notice once
+        # Razorpay verifies payment).
+        channel = "both" if booking.patient_email else "sms"
+        try:
+            await queue_notification(
+                db, booking=booking, channel=channel, notification_type="booking_received", created_by="system"
+            )
+        except Exception:  # noqa: BLE001
+            logger.exception("Failed to queue booking-received notice for booking=%s", booking.id)
+
+        # If money is owed and hasn't been paid, schedule a one-time reminder
+        # in case the patient closes the tab before paying (common: they
+        # book, get distracted, never complete checkout). If the admin also
+        # activates a recurring `payment_reminder` automation rule, its
+        # cadence check (latest `payment_reminder` notification already
+        # logged) picks up seamlessly from this first one instead of
+        # double-sending.
+        if booking.amount_paise and booking.payment_status == "unpaid":
+            try:
+                await queue_notification(
+                    db,
+                    booking=booking,
+                    channel=channel,
+                    notification_type="payment_reminder",
+                    scheduled_at=datetime.now(timezone.utc) + timedelta(hours=_PAYMENT_REMINDER_DELAY_HOURS),
+                    created_by="system",
+                )
+            except Exception:  # noqa: BLE001
+                logger.exception("Failed to schedule payment reminder for booking=%s", booking.id)
+
+        # Auto-assign to exactly one appointments staff member (least-loaded)
+        # and email just them — best-effort, never blocks/fails the booking
+        # itself (assign_booking already has its own internal try/except).
+        try:
+            await assign_booking(db, booking)
+        except Exception:  # noqa: BLE001
+            logger.exception("Failed to auto-assign booking=%s", booking.id)
 
 
 async def list_my_bookings(
@@ -197,8 +278,7 @@ async def update_booking_status(db: AsyncSession, booking_id: uuid.UUID, status:
         raise NotFoundError("Booking not found")
     booking = await repo.update_status(booking, status)
     await db.commit()
-    await db.refresh(booking)
-    return booking
+    return await _reload(repo, booking)
 
 
 async def update_booking(db: AsyncSession, booking_id: uuid.UUID, data: dict) -> Booking:
@@ -209,8 +289,7 @@ async def update_booking(db: AsyncSession, booking_id: uuid.UUID, data: dict) ->
         raise NotFoundError("Booking not found")
     booking = await repo.update(booking, **data)
     await db.commit()
-    await db.refresh(booking)
-    return booking
+    return await _reload(repo, booking)
 
 
 async def delete_booking(db: AsyncSession, booking_id: uuid.UUID) -> None:
@@ -239,13 +318,23 @@ async def _get_or_404(repo: BookingRepository, booking_id: uuid.UUID) -> Booking
     return booking
 
 
+async def _reload(repo: BookingRepository, booking: Booking) -> Booking:
+    """Re-fetches ``booking`` via ``get_by_id`` (selectinload-eager) instead
+    of ``db.refresh(booking)``: a plain refresh expires — but does NOT
+    reload — the ``assigned_staff`` relationship, so any later synchronous
+    read of it (e.g. Pydantic's ``BookingRead.assigned_to_name``) would
+    trigger an async lazy-load outside a valid greenlet context and crash
+    with ``MissingGreenlet``."""
+    reloaded = await repo.get_by_id(booking.id)
+    return reloaded if reloaded is not None else booking
+
+
 async def check_in(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
     repo = BookingRepository(db)
     booking = await _get_or_404(repo, booking_id)
     booking = await repo.update(booking, status="checked_in", checked_in_at=datetime.now(timezone.utc))
     await db.commit()
-    await db.refresh(booking)
-    return booking
+    return await _reload(repo, booking)
 
 
 async def start_consultation(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
@@ -253,8 +342,7 @@ async def start_consultation(db: AsyncSession, booking_id: uuid.UUID) -> Booking
     booking = await _get_or_404(repo, booking_id)
     booking = await repo.update(booking, status="in_progress", in_progress_at=datetime.now(timezone.utc))
     await db.commit()
-    await db.refresh(booking)
-    return booking
+    return await _reload(repo, booking)
 
 
 async def complete_booking(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
@@ -262,8 +350,7 @@ async def complete_booking(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
     booking = await _get_or_404(repo, booking_id)
     booking = await repo.update(booking, status="completed", completed_at=datetime.now(timezone.utc))
     await db.commit()
-    await db.refresh(booking)
-    return booking
+    return await _reload(repo, booking)
 
 
 async def mark_no_show(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
@@ -271,8 +358,7 @@ async def mark_no_show(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
     booking = await _get_or_404(repo, booking_id)
     booking = await repo.update(booking, status="no_show")
     await db.commit()
-    await db.refresh(booking)
-    return booking
+    return await _reload(repo, booking)
 
 
 async def toggle_delay(db: AsyncSession, booking_id: uuid.UUID, is_delayed: bool) -> Booking:
@@ -280,8 +366,7 @@ async def toggle_delay(db: AsyncSession, booking_id: uuid.UUID, is_delayed: bool
     booking = await _get_or_404(repo, booking_id)
     booking = await repo.update(booking, is_delayed=is_delayed)
     await db.commit()
-    await db.refresh(booking)
-    return booking
+    return await _reload(repo, booking)
 
 
 async def reschedule(
@@ -303,7 +388,7 @@ async def reschedule(
         was_rescheduled=True,
     )
     await db.commit()
-    await db.refresh(booking)
+    booking = await _reload(repo, booking)
 
     if notify:
         try:

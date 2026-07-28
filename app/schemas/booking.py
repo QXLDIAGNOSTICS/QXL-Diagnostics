@@ -35,11 +35,19 @@ class BookingCreate(BaseModel):
 
     collection_type: str = "home"   # 'home' | 'center'
     collection_address: str | None = None
-    preferred_date: str | None = None
-    preferred_time: str | None = None
+    preferred_date: str = Field(..., min_length=4)
+    preferred_time: str = Field(..., min_length=1)
     notes: str | None = None
     is_urgent: bool = False
     visit_type: str = "scheduled"
+
+    @field_validator("preferred_date", "preferred_time")
+    @classmethod
+    def _not_blank(cls, v: str) -> str:
+        v = (v or "").strip()
+        if not v:
+            raise ValueError("Please select a preferred date and time slot for your booking.")
+        return v
 
     @field_validator("collection_type")
     @classmethod

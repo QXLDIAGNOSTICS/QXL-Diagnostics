@@ -185,8 +185,10 @@ TOOL_SPECS: list[dict] = [
                 "required patient details with the user (name, phone, and either a package name "
                 "or test name), the collection type (home or center), and — for home collection "
                 "— a full address, or — for center visit — a center (use find_nearest_centers "
-                "first and confirm which one). Always read back a summary and get explicit "
-                "confirmation from the user before calling this tool."
+                "first and confirm which one). A preferred date AND time slot are ALSO mandatory "
+                "— always ask the user which date and time they want and pass both; the booking "
+                "will be rejected if either is missing. Always read back a summary and get "
+                "explicit confirmation from the user before calling this tool."
             ),
             "parameters": {
                 "type": "object",
@@ -217,12 +219,24 @@ TOOL_SPECS: list[dict] = [
                         "type": "string",
                         "description": "Full address, required when collection_type is 'home'.",
                     },
-                    "preferred_date": {"type": "string", "description": "ISO date, e.g. 2025-04-01."},
-                    "preferred_time": {"type": "string", "description": "Preferred time slot, e.g. '9:00 AM'."},
+                    "preferred_date": {
+                        "type": "string",
+                        "description": "REQUIRED. ISO date, e.g. 2025-04-01. Ask the user which date they'd like before calling this tool — never guess or omit it.",
+                    },
+                    "preferred_time": {
+                        "type": "string",
+                        "description": "REQUIRED. Preferred time slot, e.g. '9:00 AM'. Ask the user which time they'd like before calling this tool — never guess or omit it.",
+                    },
                     "notes": {"type": "string", "description": "Optional notes."},
                     "is_urgent": {"type": "boolean", "description": "Optional, default false."},
                 },
-                "required": ["patient_name", "patient_phone", "collection_type"],
+                "required": [
+                    "patient_name",
+                    "patient_phone",
+                    "collection_type",
+                    "preferred_date",
+                    "preferred_time",
+                ],
             },
         },
     },

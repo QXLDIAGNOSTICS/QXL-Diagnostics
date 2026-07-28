@@ -19,6 +19,7 @@ _BRAND = "QXL Diagnostics"
 
 # Maps a notification type to the env var holding its DLT-approved template ID.
 _TEMPLATE_ID_BY_TYPE: dict[str, str] = {
+    "booking_received": "NETTYFISH_TEMPLATE_ID_BOOKING_RECEIVED",
     "confirmation": "NETTYFISH_TEMPLATE_ID_CONFIRMATION",
     "payment": "NETTYFISH_TEMPLATE_ID_PAYMENT",
     "reminder": "NETTYFISH_TEMPLATE_ID_REMINDER",
@@ -64,7 +65,13 @@ def build_default(notification_type: str, booking: Booking) -> tuple[str, str]:
     """
     name = booking.patient_name.split(" ")[0] if booking.patient_name else "there"
 
-    if notification_type == "confirmation":
+    if notification_type == "booking_received":
+        subject = f"{_BRAND}: Booking request received"
+        message = (
+            f"Dear {name}, we've received your {_item(booking)} booking request with {_BRAND} for "
+            f"{_slot(booking)}. We'll confirm shortly. - {_BRAND}"
+        )
+    elif notification_type == "confirmation":
         subject = f"{_BRAND}: Appointment confirmed"
         message = (
             f"Dear {name}, your {_item(booking)} appointment with {_BRAND} is confirmed for "

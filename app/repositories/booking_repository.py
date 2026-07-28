@@ -22,7 +22,22 @@ class BookingRepository:
         return booking
 
     async def get_by_id(self, booking_id: uuid.UUID) -> Booking | None:
-        return await self.db.get(Booking, booking_id, options=[selectinload(Booking.assigned_staff)])
+        """Deliberately uses ``select()`` + ``execute()`` rather than
+        ``Session.get()``: when the booking is already resident in this
+        session's identity map (e.g. right after ``repo.create()`` in the
+        same request), ``Session.get()`` short-circuits and returns the
+        cached object WITHOUT applying ``options`` — leaving
+        ``assigned_staff`` unloaded and crashing any later synchronous
+        access (e.g. Pydantic's ``BookingRead.assigned_to_name``) with
+        ``MissingGreenlet``. A ``select()`` always executes the eager-load
+        query and populates the relationship regardless of identity-map
+        state.
+        """
+        return (
+            await self.db.execute(
+                select(Booking).options(selectinload(Booking.assigned_staff)).where(Booking.id == booking_id)
+            )
+        ).scalar_one_or_none()
 
     async def list_for_user(
         self, user_id: uuid.UUID, limit: int = 50, offset: int = 0
@@ -36,6 +51,7 @@ class BookingRepository:
             (
                 await self.db.execute(
                     select(Booking)
+                    .options(selectinload(Booking.assigned_staff))
                     .where(Booking.user_id == user_id)
                     .order_by(Booking.created_at.desc())
                     .limit(limit)

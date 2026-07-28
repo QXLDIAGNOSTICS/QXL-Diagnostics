@@ -1,6 +1,7 @@
 """Booking model: patient appointment or home-collection request."""
 from __future__ import annotations
 
+import secrets
 import uuid
 from datetime import datetime
 
@@ -9,6 +10,10 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base, TimestampMixin, new_uuid
+
+
+def _new_unsubscribe_token() -> str:
+    return secrets.token_urlsafe(24)
 
 # Status lifecycle: pending → confirmed → checked_in → in_progress → sample_collected
 #                   → report_ready → completed | cancelled | no_show
@@ -102,6 +107,13 @@ class Booking(Base, TimestampMixin):
     payment_status: Mapped[str] = mapped_column(
         String(16), default="unpaid", nullable=False, index=True
     )  # unpaid | pending | paid | failed | refunded
+
+    # One-click unsubscribe link identity (see app.api.v1.endpoints.unsubscribe).
+    # Generated once at creation; used to resolve the patient's contact
+    # details from an email footer link without requiring them to log in.
+    unsubscribe_token: Mapped[str] = mapped_column(
+        String(40), nullable=False, unique=True, index=True, default=_new_unsubscribe_token
+    )
 
     user: Mapped["User | None"] = relationship(foreign_keys=[user_id], back_populates="bookings")  # noqa: F821
     assigned_staff: Mapped["User | None"] = relationship(foreign_keys=[assigned_to_id])  # noqa: F821

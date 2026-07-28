@@ -8,7 +8,7 @@ approved template gets silently dropped by the carrier (or rejected by
 Nettyfish with an error code) — it does not "just work" with a single OTP
 template like we currently use for login.
 
-The appointments desk now sends 10 automatic message types + 1 generic
+The appointments desk now sends 11 automatic message types + 1 generic
 message staff can use for ad-hoc notes. **Each needs its own DLT template
 ID**, submitted and approved separately. This document has the exact copy
 to submit for each one, plus where to plug the resulting template ID into
@@ -17,7 +17,17 @@ the backend once approved.
 > Note: there is deliberately **no** "payment initiated / processing"
 > message — a Razorpay order being created just means the checkout modal is
 > about to open, not that the patient has actually attempted to pay. Only
-> real outcomes (paid or failed) ever reach the patient.
+> real outcomes (paid or failed) ever reach the patient. Likewise, submitting
+> a booking request only ever triggers the "Booking request received"
+> message below — never the "Appointment confirmed" one, which is reserved
+> for after payment succeeds.
+
+> **Unsubscribe:** the "Appointment reminder", "Payment reminder", "Offer",
+> and "Marketing" message types (the automated/recurring ones) are
+> suppressed for any contact who unsubscribes via the public
+> `/unsubscribe` page — see `app/repositories/contact_optout_repository.py`.
+> One-off transactional messages (booking received, payment success/failure,
+> reschedule, cancellation, welcome, custom) are never suppressed.
 
 ## How to register a template with Nettyfish/your DLT operator
 
@@ -50,13 +60,25 @@ the backend once approved.
 > Sender ID: `QUALHE` — Principal Entity ID: `1701172958278856319`
 > (reuse your existing registered values; only the template text below is new)
 
-### 1. Appointment confirmation — `NETTYFISH_TEMPLATE_ID_CONFIRMATION`
+### 1. Booking request received — `NETTYFISH_TEMPLATE_ID_BOOKING_RECEIVED`
+
+```
+Dear {#var#}, we've received your {#var#} booking request with QXL Diagnostics for {#var#}. We'll confirm shortly. - QXL Diagnostics
+```
+
+Variables in order: patient first name, test/package name, date & time slot.
+Sent immediately on booking submission — **before** any payment. Deliberately
+does not say "confirmed".
+
+### 1b. Appointment confirmation — `NETTYFISH_TEMPLATE_ID_CONFIRMATION`
 
 ```
 Dear {#var#}, your {#var#} appointment with QXL Diagnostics is confirmed for {#var#}. For changes, call us. - QXL Diagnostics
 ```
 
 Variables in order: patient first name, test/package name, date & time slot.
+Sent only after payment succeeds (see template 2), or when staff manually
+confirms/resends confirmation from the Appointments page.
 
 ### 2. Payment received — `NETTYFISH_TEMPLATE_ID_PAYMENT`
 
@@ -162,7 +184,8 @@ apply to email.
 `qxl-backend/.env`:
 
 ```bash
-NETTYFISH_TEMPLATE_ID_CONFIRMATION=<id from step 1>
+NETTYFISH_TEMPLATE_ID_BOOKING_RECEIVED=<id from step 1>
+NETTYFISH_TEMPLATE_ID_CONFIRMATION=<id from step 1b>
 NETTYFISH_TEMPLATE_ID_PAYMENT=<id from step 2>
 NETTYFISH_TEMPLATE_ID_REMINDER=<id from step 3>
 NETTYFISH_TEMPLATE_ID_RESCHEDULE=<id from step 4>

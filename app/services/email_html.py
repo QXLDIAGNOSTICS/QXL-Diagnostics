@@ -21,11 +21,21 @@ _WEBSITE = "https://qxldiagnostics.com"
 _SUPPORT_PHONE = "+91 90370 90838"
 
 
-def render_html_email(subject: str, body: str, *, cta_label: str | None = None, cta_url: str | None = None) -> str:
+def render_html_email(
+    subject: str,
+    body: str,
+    *,
+    cta_label: str | None = None,
+    cta_url: str | None = None,
+    unsubscribe_url: str | None = None,
+) -> str:
     """Builds a self-contained (inline-styled) HTML email from plain text.
 
     Blank lines in ``body`` become paragraph breaks. Optionally renders a
-    single call-to-action button (e.g. "View my booking").
+    single call-to-action button (e.g. "View my booking"). Pass
+    ``unsubscribe_url`` for automated/marketing-style emails (reminders,
+    offers) to add a footer opt-out link — never set for one-off
+    transactional emails (booking received, payment success/failure, etc.).
     """
     paragraphs = [line.strip() for line in body.split("\n") if line.strip()]
     body_html = "".join(
@@ -82,6 +92,7 @@ def render_html_email(subject: str, body: str, *, cta_label: str | None = None, 
                   <a href="{_WEBSITE}" style="color:{_ACCENT};text-decoration:none;">{_WEBSITE.replace("https://", "")}</a>
                   &nbsp;·&nbsp; {_SUPPORT_PHONE}
                 </p>
+                {f'<p style="margin:10px 0 0 0;font-size:11px;color:#b0b9c9;">Don&#39;t want reminders/offers like this? <a href="{escape(unsubscribe_url)}" style="color:#94a3b8;text-decoration:underline;">Unsubscribe</a></p>' if unsubscribe_url else ""}
               </td>
             </tr>
           </table>

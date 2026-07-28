@@ -56,10 +56,15 @@ async def send_sms(to_phone: str, body: str, *, template_id: str | None = None) 
     """Send an SMS via Nettyfish SmartSMS. Returns True if a real send succeeded.
 
     ``template_id`` should be the DLT-approved template ID whose registered
-    wording matches ``body`` (see NETTYFISH_DLT_TEMPLATES.md). Defaults to the
-    OTP template for backward compatibility with existing OTP call sites.
+    wording matches ``body`` (see NETTYFISH_DLT_TEMPLATES.md). Omitting it
+    entirely (``None``) falls back to the OTP template, for backward
+    compatibility with the login/OTP call site. Passing an explicit empty
+    string (as ``notification_templates.get_template_id`` does when a
+    notification type's template hasn't been registered/approved yet) is
+    NOT treated the same as omitting it — it must skip the send rather than
+    silently reusing the unrelated OTP template with mismatched body text.
     """
-    resolved_template_id = template_id or settings.NETTYFISH_TEMPLATE_ID
+    resolved_template_id = settings.NETTYFISH_TEMPLATE_ID if template_id is None else template_id
     if not _nettyfish_configured(resolved_template_id):
         logger.warning(
             "SMS not sent (Nettyfish not configured, or no DLT template ID set for this "
@@ -146,6 +151,7 @@ async def send_email(
     html_body: str | None = None,
     cta_label: str | None = None,
     cta_url: str | None = None,
+    unsubscribe_url: str | None = None,
 ) -> bool:
     """Send an email via SMTP. Returns True if a real send was attempted/succeeded.
 
@@ -153,7 +159,8 @@ async def send_email(
     the ``text/plain`` fallback part) — ``body`` alone is never sent raw.
     Pass ``html_body`` to override the auto-generated HTML entirely (e.g. for
     a template that needs bespoke layout); otherwise one is rendered from
-    ``body`` via :func:`app.services.email_html.render_html_email`.
+    ``body`` via :func:`app.services.email_html.render_html_email`. Pass
+    ``unsubscribe_url`` for automated/marketing-style emails only.
     """
     if not _smtp_configured():
         logger.warning(
@@ -163,7 +170,9 @@ async def send_email(
         )
         return False
     try:
-        resolved_html = html_body or render_html_email(subject, body, cta_label=cta_label, cta_url=cta_url)
+        resolved_html = html_body or render_html_email(
+            subject, body, cta_label=cta_label, cta_url=cta_url, unsubscribe_url=unsubscribe_url
+        )
 
         def _send() -> None:
             msg = MIMEMultipart("alternative")

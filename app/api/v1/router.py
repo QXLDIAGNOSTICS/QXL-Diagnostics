@@ -20,6 +20,7 @@ from app.api.v1.endpoints import (
     payments,
     prescriptions,
     roles,
+    unsubscribe,
     uploads,
     users,
 )
@@ -41,6 +42,7 @@ api_router.include_router(roles.router)
 api_router.include_router(notification_rules.router)
 api_router.include_router(knowledge_base.router)
 api_router.include_router(uploads.router)
+api_router.include_router(unsubscribe.router)
 
 
 @api_router.get("/health", tags=["system"])
