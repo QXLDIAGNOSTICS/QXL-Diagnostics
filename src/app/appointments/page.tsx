@@ -376,7 +376,7 @@ export default function AppointmentsPage() {
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!patientName || !phone || !date) return;
+    if (!patientName || !phone || !date || !time) return;
     if (bookingType === "package" && !selectedPackageId) return;
     if (bookingType === "test" && !selectedTestId) return;
     if (collectionType === "home" && !collectionAddress) return;

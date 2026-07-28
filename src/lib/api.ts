@@ -163,8 +163,8 @@ export interface BookingCreate {
   center_id?: string | null;
   collection_type: 'home' | 'center';
   collection_address?: string | null;
-  preferred_date?: string | null;
-  preferred_time?: string | null;
+  preferred_date: string;
+  preferred_time: string;
   notes?: string | null;
   is_urgent?: boolean;
   visit_type?: VisitType;

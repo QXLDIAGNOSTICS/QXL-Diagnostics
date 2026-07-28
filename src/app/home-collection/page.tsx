@@ -31,6 +31,7 @@ export default function HomeCollectionPage() {
   const [selectedTestId, setSelectedTestId] = useState("");
   const [selectedPackageId, setSelectedPackageId] = useState("");
   const [date, setDate] = useState("");
+  const [time, setTime] = useState("09:00 AM");
 
   const refreshData = useCallback(async () => {
     setLoading(true);
@@ -63,12 +64,13 @@ export default function HomeCollectionPage() {
     setSelectedPackageId(packages[0]?.id || "");
     setSelectedTestId("");
     setDate(new Date().toISOString().split("T")[0]);
+    setTime("09:00 AM");
     setIsModalOpen(true);
   };
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !phone || !address) return;
+    if (!name || !phone || !address || !date || !time) return;
     if (bookingType === "package" && !selectedPackageId) return;
     if (bookingType === "test" && !selectedTestId) return;
 
@@ -83,6 +85,7 @@ export default function HomeCollectionPage() {
         collection_type: "home",
         collection_address: address,
         preferred_date: date,
+        preferred_time: time,
       });
       setIsModalOpen(false);
       await refreshData();
@@ -328,15 +331,28 @@ export default function HomeCollectionPage() {
                 )}
               </div>
 
-              <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Visit Date</label>
-                <input 
-                  type="date" 
-                  required
-                  value={date} 
-                  onChange={(e) => setDate(e.target.value)} 
-                  className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
-                />
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Visit Date</label>
+                  <input
+                    type="date"
+                    required
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Visit Time</label>
+                  <input
+                    type="text"
+                    required
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    placeholder="9:00 AM"
+                    className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
+                  />
+                </div>
               </div>
 
               <div className="pt-4 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-800">
