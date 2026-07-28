@@ -151,8 +151,8 @@ export interface BookingCreate {
   center_id?: string | null;
   collection_type: 'home' | 'center';
   collection_address?: string | null;
-  preferred_date?: string | null;
-  preferred_time?: string | null;
+  preferred_date: string;
+  preferred_time: string;
   notes?: string | null;
   is_urgent?: boolean;
 }
@@ -356,6 +356,25 @@ export interface PaymentRead {
   amount: number;
   currency: string;
   status: string;
+}
+
+export interface UnsubscribeLookup {
+  masked_email: string | null;
+  masked_phone: string | null;
+  already_opted_out_email: boolean;
+  already_opted_out_sms: boolean;
+}
+
+export interface UnsubscribeRequest {
+  token?: string | null;
+  email?: string | null;
+  phone?: string | null;
+  channel: 'email' | 'sms' | 'both';
+}
+
+export interface UnsubscribeResult {
+  ok: boolean;
+  message: string;
 }
 
 export interface KnowledgeDocument {
@@ -626,6 +645,12 @@ export const api = {
       post<CreateOrderResponse>('/payments/orders', { booking_ids: bookingIds }),
     verify: (data: VerifyPaymentRequest) => post<PaymentRead>('/payments/verify', data),
     reconcile: (paymentId: string) => post<PaymentRead>(`/payments/${paymentId}/reconcile`),
+  },
+  unsubscribe: {
+    lookup: (token: string) =>
+      get<UnsubscribeLookup>(`/unsubscribe/lookup?token=${encodeURIComponent(token)}`),
+    submit: (data: UnsubscribeRequest) => post<UnsubscribeResult>('/unsubscribe', data),
+    resubscribe: (data: UnsubscribeRequest) => post<UnsubscribeResult>('/unsubscribe/resubscribe', data),
   },
   prescriptions: {
     upload: (file: File) => {

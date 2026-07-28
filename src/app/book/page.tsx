@@ -437,6 +437,10 @@ export default function BookPage() {
       setError('Please select at least one test or health package from our catalog.');
       return;
     }
+    if (!formData.date || !formData.time) {
+      setError('Please select a preferred date and time slot before submitting your booking.');
+      return;
+    }
     if (formData.collectionType === 'home' && centerOnlyItems.length > 0) {
       setError(
         `${centerOnlyItems.map(i => i.name).join(', ')} ${centerOnlyItems.length > 1 ? 'are' : 'is'} only available as a center visit. Please remove ${centerOnlyItems.length > 1 ? 'them' : 'it'} or switch to "Walk-in Lab Center".`
@@ -459,8 +463,8 @@ export default function BookPage() {
           package_id: item.kind === 'package' ? item.id : undefined,
           collection_type: formData.collectionType,
           collection_address: formData.collectionType === 'home' ? formData.address || undefined : undefined,
-          preferred_date: formData.date || undefined,
-          preferred_time: formData.time || undefined,
+          preferred_date: formData.date,
+          preferred_time: formData.time,
         });
         created.push(booking);
       }
