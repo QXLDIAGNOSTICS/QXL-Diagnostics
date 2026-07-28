@@ -269,7 +269,7 @@ class SiteSettingsRead(BaseModel):
     announcement: str | None = None
     custom_scripts: str | None = None
     live_chat_widget_id: str | None = None
-    phone_display: str = "+91 99646 39639"
+    phone_display: str = "+91 9964 639639"
     phone_e164: str = "+919964639639"
     whatsapp_number: str = "919964639639"
 

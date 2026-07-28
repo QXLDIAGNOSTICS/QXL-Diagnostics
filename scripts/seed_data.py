@@ -20,14 +20,14 @@ from app.models.content import FAQ, Banner, BlogPost, Doctor, Review
 from app.services.catalog_service import slugify
 
 CENTERS = [
-    {"name": "Kengeri – QXL Diagnostics Super Speciality Reference Laboratory (NABL Accredited)", "address": "Kengeri, Bengaluru", "city": "Bengaluru", "phone": "+91 99646 39639", "hours": "Open 24x7", "lat": 12.9175, "lng": 77.4836, "is_nabl": True},
-    {"name": "Nayandahalli (Mysuru Road) – Spandana Hospital, Powered by QXL Diagnostics", "address": "Nayandahalli (Mysuru Road), Bengaluru", "city": "Bengaluru", "phone": "+91 99646 39639", "hours": "Open 24x7", "lat": 12.9469, "lng": 77.5255},
-    {"name": "Nagarabhavi – Astrio Multispeciality Hospital, Powered by QXL Diagnostics", "address": "Nagarabhavi, Bengaluru", "city": "Bengaluru", "phone": "+91 99646 39639", "hours": "Open 24x7", "lat": 12.9669, "lng": 77.5110},
-    {"name": "Chandra Layout – Nandi Diagnostics, Powered by QXL Diagnostics", "address": "Chandra Layout, Bengaluru", "city": "Bengaluru", "phone": "+91 99646 39639", "hours": "Mon - Sat: 7:00 AM - 9:00 PM", "lat": 12.9602, "lng": 77.5246},
-    {"name": "Yelahanka Old Town – Shushrusha Hospital, Powered by QXL Diagnostics", "address": "Yelahanka Old Town, Bengaluru", "city": "Bengaluru", "phone": "+91 99646 39639", "hours": "Open 24x7", "lat": 13.0970, "lng": 77.5954},
-    {"name": "Yelahanka (Galleria Mall) – North City Specialities Powered by QXL Diagnostics (NABL Accredited)", "address": "Yelahanka (Galleria Mall), Bengaluru", "city": "Bengaluru", "phone": "+91 99646 39639", "hours": "Mon - Sat: 7:00 AM - 9:00 PM", "lat": 13.1007, "lng": 77.5963, "is_nabl": True},
-    {"name": "Sanjaynagar – Nisarga Diagnostics, Powered by QXL Diagnostics", "address": "Sanjaynagar, Bengaluru", "city": "Bengaluru", "phone": "+91 99646 39639", "hours": "Mon - Sat: 7:00 AM - 9:00 PM", "lat": 13.0333, "lng": 77.5794},
-    {"name": "Vidyaranyapura – Dr. Abhi Kollur's Clinic, Powered by QXL Diagnostics", "address": "Vidyaranyapura, Bengaluru", "city": "Bengaluru", "phone": "+91 99646 39639", "hours": "Mon - Sat: 7:00 AM - 9:00 PM", "lat": 13.0805, "lng": 77.5562},
+    {"name": "Kengeri – QXL Diagnostics Super Speciality Reference Laboratory (NABL Accredited)", "address": "Kengeri, Bengaluru", "city": "Bengaluru", "phone": "+91 9964 639639", "hours": "Open 24x7", "lat": 12.9175, "lng": 77.4836, "is_nabl": True},
+    {"name": "Nayandahalli (Mysuru Road) – Spandana Hospital, Powered by QXL Diagnostics", "address": "Nayandahalli (Mysuru Road), Bengaluru", "city": "Bengaluru", "phone": "+91 9964 639639", "hours": "Open 24x7", "lat": 12.9469, "lng": 77.5255},
+    {"name": "Nagarabhavi – Astrio Multispeciality Hospital, Powered by QXL Diagnostics", "address": "Nagarabhavi, Bengaluru", "city": "Bengaluru", "phone": "+91 9964 639639", "hours": "Open 24x7", "lat": 12.9669, "lng": 77.5110},
+    {"name": "Chandra Layout – Nandi Diagnostics, Powered by QXL Diagnostics", "address": "Chandra Layout, Bengaluru", "city": "Bengaluru", "phone": "+91 9964 639639", "hours": "Mon - Sat: 7:00 AM - 9:00 PM", "lat": 12.9602, "lng": 77.5246},
+    {"name": "Yelahanka Old Town – Shushrusha Hospital, Powered by QXL Diagnostics", "address": "Yelahanka Old Town, Bengaluru", "city": "Bengaluru", "phone": "+91 9964 639639", "hours": "Open 24x7", "lat": 13.0970, "lng": 77.5954},
+    {"name": "Yelahanka (Galleria Mall) – North City Specialities Powered by QXL Diagnostics (NABL Accredited)", "address": "Yelahanka (Galleria Mall), Bengaluru", "city": "Bengaluru", "phone": "+91 9964 639639", "hours": "Mon - Sat: 7:00 AM - 9:00 PM", "lat": 13.1007, "lng": 77.5963, "is_nabl": True},
+    {"name": "Sanjaynagar – Nisarga Diagnostics, Powered by QXL Diagnostics", "address": "Sanjaynagar, Bengaluru", "city": "Bengaluru", "phone": "+91 9964 639639", "hours": "Mon - Sat: 7:00 AM - 9:00 PM", "lat": 13.0333, "lng": 77.5794},
+    {"name": "Vidyaranyapura – Dr. Abhi Kollur's Clinic, Powered by QXL Diagnostics", "address": "Vidyaranyapura, Bengaluru", "city": "Bengaluru", "phone": "+91 9964 639639", "hours": "Mon - Sat: 7:00 AM - 9:00 PM", "lat": 13.0805, "lng": 77.5562},
 ]
 
 PACKAGES = [

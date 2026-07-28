@@ -133,6 +133,6 @@ class SiteSettings(Base, TimestampMixin):
     custom_scripts: Mapped[str | None] = mapped_column(Text, nullable=True)
     live_chat_widget_id: Mapped[str | None] = mapped_column(String, nullable=True)
     # Contact information — admin-configurable
-    phone_display: Mapped[str] = mapped_column(String(20), default="+91 99646 39639", nullable=False)
+    phone_display: Mapped[str] = mapped_column(String(20), default="+91 9964 639639", nullable=False)
     phone_e164: Mapped[str] = mapped_column(String(20), default="+919964639639", nullable=False)
     whatsapp_number: Mapped[str] = mapped_column(String(20), default="919964639639", nullable=False)
