@@ -642,7 +642,7 @@ export default function BookPage() {
                           : ''}
                         <strong>{unmatchedRecommended.join(', ')}</strong>{' '}
                         {unmatchedRecommended.length > 1 ? "aren't" : "isn't"} in our online catalog yet — please call{' '}
-                        <a href="tel:+919964636848" className="underline font-bold">+91 99646 36848</a> or WhatsApp us to book{' '}
+                        <a href="tel:+919964639639" className="underline font-bold">+91 9964 639639</a> or WhatsApp us to book{' '}
                         {unmatchedRecommended.length > 1 ? 'them' : 'it'} directly.
                       </p>
                     </div>
@@ -959,8 +959,8 @@ export default function BookPage() {
             <div className="bg-white border border-gray-150 rounded-3xl p-6 shadow-[0_2px_10px_rgba(0,0,0,0.01)] text-center">
               <h3 className="font-bold text-slate-800 text-sm mb-2">Need Instant Help?</h3>
               <p className="text-slate-500 text-xs mb-4 font-semibold">Speak directly with our test booking coordinators</p>
-              <a href="tel:+919964636848" className="inline-flex items-center gap-2 bg-[#dbeafe] text-[#2563eb] font-extrabold px-6 py-2.5 rounded-full text-xs hover:bg-[#d5e8ed] transition-colors">
-                <Phone className="w-4 h-4" /> Call +91 9964 636848
+              <a href="tel:+919964639639" className="inline-flex items-center gap-2 bg-[#dbeafe] text-[#2563eb] font-extrabold px-6 py-2.5 rounded-full text-xs hover:bg-[#d5e8ed] transition-colors">
+                <Phone className="w-4 h-4" /> Call +91 9964 639639
               </a>
             </div>
           </div>
