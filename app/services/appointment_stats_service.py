@@ -58,6 +58,10 @@ async def get_dashboard_stats(db: AsyncSession) -> dict:
         "rescheduled_appointments": await repo.count_where(was_rescheduled=True),
         "walk_in_patients": await repo.count_where(visit_type="walk_in"),
         "emergency_patients": await repo.count_where(visit_type="emergency"),
+        "revenue_paid_paise": await repo.sum_paid_amount_paise(),
+        "revenue_today_paise": await repo.sum_paid_amount_paise_for_preferred_date(today_s),
+        "outstanding_paise": await repo.sum_unpaid_amount_paise(),
+        "paid_bookings": await repo.count_paid(),
     }
 
     today_count = await repo.distinct_patient_count_for_date(today_s)

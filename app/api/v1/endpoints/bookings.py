@@ -69,25 +69,41 @@ async def booking_notifications_feed(
     limit: int = Query(20, le=50),
     user: User = Depends(require_role("staff")),
 ) -> BookingFeed:
-    """Powers the admin bell icon — new-booking alerts + payment-confirmed
-    alerts, desktop notifications & sound.
+    """Powers the admin bell icon — new-booking alerts + payment alerts.
 
-    Non-admin staff only see items for bookings assigned to *them* (or still
-    unassigned) so one new appointment doesn't page the whole team; admins/
-    super-admins see everything for oversight.
+    Audience rules:
+    - **New appointments**: only the assigned appointments staff member sees
+      them (or any appointments.manage staff if still unassigned). Admins do
+      NOT get appointment pings — those belong to front-desk roles like
+      ``front_staff_appointment``.
+    - **Payments**: admins see every paid/failed update; appointments staff
+      still see payment updates for bookings assigned to them.
     """
     cutoff = since or (datetime.now(timezone.utc) - timedelta(minutes=20))
     if cutoff.tzinfo is None:
         cutoff = cutoff.replace(tzinfo=timezone.utc)
     repo = BookingRepository(db)
     is_admin = await R.is_admin_async(db, user.role)
+    can_manage_appts = await R.has_permission_async(db, user.role, "appointments.manage")
 
     new_rows = await repo.list_created_after(cutoff, limit=limit)
     paid_rows = await repo.list_payment_updated_after(cutoff, limit=limit)
 
-    if not is_admin:
+    # Appointment alerts → appointments staff only (never admin-tier).
+    if is_admin:
+        new_rows = []
+    elif can_manage_appts:
         new_rows = [b for b in new_rows if b.assigned_to_id in (None, user.id)]
+    else:
+        new_rows = []
+
+    # Payment alerts → admins see all; appointments staff see their own.
+    if is_admin:
+        pass  # keep all paid_rows
+    elif can_manage_appts:
         paid_rows = [b for b in paid_rows if b.assigned_to_id in (None, user.id)]
+    else:
+        paid_rows = []
 
     def _aware(dt: datetime) -> datetime:
         return dt if dt.tzinfo is not None else dt.replace(tzinfo=timezone.utc)

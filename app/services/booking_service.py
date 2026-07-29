@@ -271,11 +271,31 @@ async def list_all_bookings(
     )
 
 
+# Statuses that imply the visit is locked in / finished — require payment
+# first when money is owed on the booking.
+_PAYMENT_REQUIRED_STATUSES = frozenset({"confirmed", "completed"})
+
+
+def _require_paid_if_owed(booking: Booking, *, next_status: str) -> None:
+    """Block confirm/complete when the booking has an amount and isn't paid."""
+    if next_status not in _PAYMENT_REQUIRED_STATUSES:
+        return
+    if not booking.amount_paise:
+        return
+    if booking.payment_status == "paid":
+        return
+    raise ValidationError(
+        f"Cannot mark this booking as '{next_status}' while payment is "
+        f"{booking.payment_status or 'unpaid'}. Collect payment first."
+    )
+
+
 async def update_booking_status(db: AsyncSession, booking_id: uuid.UUID, status: str) -> Booking:
     repo = BookingRepository(db)
     booking = await repo.get_by_id(booking_id)
     if booking is None:
         raise NotFoundError("Booking not found")
+    _require_paid_if_owed(booking, next_status=status)
     booking = await repo.update_status(booking, status)
     await db.commit()
     return await _reload(repo, booking)
@@ -287,6 +307,8 @@ async def update_booking(db: AsyncSession, booking_id: uuid.UUID, data: dict) ->
     booking = await repo.get_by_id(booking_id)
     if booking is None:
         raise NotFoundError("Booking not found")
+    if "status" in data and data["status"] is not None:
+        _require_paid_if_owed(booking, next_status=str(data["status"]))
     booking = await repo.update(booking, **data)
     await db.commit()
     return await _reload(repo, booking)
@@ -348,6 +370,7 @@ async def start_consultation(db: AsyncSession, booking_id: uuid.UUID) -> Booking
 async def complete_booking(db: AsyncSession, booking_id: uuid.UUID) -> Booking:
     repo = BookingRepository(db)
     booking = await _get_or_404(repo, booking_id)
+    _require_paid_if_owed(booking, next_status="completed")
     booking = await repo.update(booking, status="completed", completed_at=datetime.now(timezone.utc))
     await db.commit()
     return await _reload(repo, booking)

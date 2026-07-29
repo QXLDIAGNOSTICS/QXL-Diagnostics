@@ -14,6 +14,11 @@ permission that already gates the booking-management UI/API) rather than a
 hardcoded role list — so it automatically follows whatever the Roles screen
 is configured to grant, including newly created custom roles (e.g.
 "front_staff_appointment").
+
+Admins / super-admins are deliberately excluded from auto-assignment even
+when their role also grants ``appointments.manage``: appointment work goes
+to front-desk staff (staff-tier roles), while payment alerts stay available
+to admins via the notification feed.
 """
 from __future__ import annotations
 
@@ -27,6 +32,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.config import settings
 from app.core.logging import get_logger
 from app.core.permissions import PERMISSION_APPOINTMENTS_MANAGE
+from app.core.roles import ADMIN_ROLES
 from app.models.booking import Booking
 from app.models.role import CustomRole
 from app.models.user import User
@@ -50,16 +56,27 @@ _OPEN_STATUSES_EXCLUDED = ("completed", "cancelled", "no_show")
 
 
 async def _eligible_role_keys(db: AsyncSession) -> set[str]:
-    rows = (await db.execute(select(CustomRole.key, CustomRole.permissions))).all()
+    """Staff-tier roles only that grant ``appointments.manage``.
+
+    Built-in admin/super_admin keys and any custom role with ``tier ==
+    "admin"`` are excluded so appointment ownership stays with front-desk
+    roles like ``front_staff_appointment``.
+    """
+    rows = (await db.execute(select(CustomRole.key, CustomRole.tier, CustomRole.permissions))).all()
     return {
         key
-        for key, perms in rows
-        if isinstance(perms, list) and PERMISSION_APPOINTMENTS_MANAGE in perms
+        for key, tier, perms in rows
+        if (
+            key not in ADMIN_ROLES
+            and (tier or "staff") == "staff"
+            and isinstance(perms, list)
+            and PERMISSION_APPOINTMENTS_MANAGE in perms
+        )
     }
 
 
 async def list_eligible_assignees(db: AsyncSession) -> list[User]:
-    """Every staff account whose role currently grants ``appointments.manage``."""
+    """Every staff-tier account whose role currently grants ``appointments.manage``."""
     role_keys = await _eligible_role_keys(db)
     if not role_keys:
         return []

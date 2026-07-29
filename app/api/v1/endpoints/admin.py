@@ -101,6 +101,9 @@ async def _count(db: AsyncSession, model, **filters) -> int:  # noqa: ANN001
 @router.get("/stats")
 async def dashboard_stats(db: DbSession, current: User = Depends(require_role("staff"))) -> dict:
     _ = current
+    from app.repositories.booking_repository import BookingRepository
+
+    booking_repo = BookingRepository(db)
     return {
         "total_users": await _count(db, User),
         "total_bookings": await _count(db, Booking),
@@ -108,4 +111,7 @@ async def dashboard_stats(db: DbSession, current: User = Depends(require_role("s
         "total_prescriptions": await _count(db, Prescription),
         "unread_collaboration_leads": await _count(db, CollaborationLead, is_read=False),
         "unread_contact_inquiries": await _count(db, ContactInquiry, is_read=False),
+        "revenue_paid_paise": await booking_repo.sum_paid_amount_paise(),
+        "outstanding_paise": await booking_repo.sum_unpaid_amount_paise(),
+        "paid_bookings": await booking_repo.count_paid(),
     }

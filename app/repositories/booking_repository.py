@@ -252,6 +252,50 @@ class BookingRepository:
     async def total_count(self) -> int:
         return (await self.db.execute(select(func.count()).select_from(Booking))).scalar_one()
 
+    async def sum_paid_amount_paise(self) -> int:
+        """Total collected revenue across all paid bookings (paise)."""
+        result = (
+            await self.db.execute(
+                select(func.coalesce(func.sum(Booking.amount_paise), 0)).where(
+                    Booking.payment_status == "paid",
+                    Booking.amount_paise.isnot(None),
+                )
+            )
+        ).scalar_one()
+        return int(result or 0)
+
+    async def sum_paid_amount_paise_for_preferred_date(self, date_str: str) -> int:
+        result = (
+            await self.db.execute(
+                select(func.coalesce(func.sum(Booking.amount_paise), 0)).where(
+                    Booking.payment_status == "paid",
+                    Booking.amount_paise.isnot(None),
+                    Booking.preferred_date == date_str,
+                )
+            )
+        ).scalar_one()
+        return int(result or 0)
+
+    async def sum_unpaid_amount_paise(self) -> int:
+        """Outstanding amount still owed on unpaid/pending bookings."""
+        result = (
+            await self.db.execute(
+                select(func.coalesce(func.sum(Booking.amount_paise), 0)).where(
+                    Booking.payment_status.in_(["unpaid", "pending"]),
+                    Booking.amount_paise.isnot(None),
+                    Booking.status.notin_(["cancelled", "no_show"]),
+                )
+            )
+        ).scalar_one()
+        return int(result or 0)
+
+    async def count_paid(self) -> int:
+        return (
+            await self.db.execute(
+                select(func.count()).select_from(Booking).where(Booking.payment_status == "paid")
+            )
+        ).scalar_one()
+
     async def distinct_patient_count(self) -> int:
         return (
             await self.db.execute(select(func.count(func.distinct(Booking.patient_phone))))
