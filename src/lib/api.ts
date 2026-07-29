@@ -209,6 +209,10 @@ export interface AppointmentDashboardStats {
   rescheduled_appointments: number;
   walk_in_patients: number;
   emergency_patients: number;
+  revenue_paid_paise?: number;
+  revenue_today_paise?: number;
+  outstanding_paise?: number;
+  paid_bookings?: number;
 }
 
 export interface AppointmentLiveStats {
@@ -518,6 +522,9 @@ export interface AdminStats {
   total_prescriptions: number;
   unread_collaboration_leads: number;
   unread_contact_inquiries: number;
+  revenue_paid_paise?: number;
+  outstanding_paise?: number;
+  paid_bookings?: number;
 }
 
 export interface PermissionCatalogItem {

@@ -1,10 +1,11 @@
 "use client";
 
-import { Bell, BellOff, CalendarClock, CheckCheck, IndianRupee, User as UserIcon, X } from "lucide-react";
-import { useCallback, useEffect, useRef, useState, type MouseEvent as ReactMouseEvent } from "react";
+import { Bell, BellOff, CalendarClock, CheckCheck, IndianRupee, User as UserIcon, Volume2, VolumeX, X } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { api, type BookingFeedItem } from "@/lib/api";
 
 const SOUND_PREF_KEY = "qxl_admin_notif_sound";
+const SEEN_PREF_KEY = "qxl_admin_notif_seen";
 const POLL_MS = 15000;
 const TOAST_MS = 6000;
 
@@ -42,6 +43,38 @@ function timeAgo(iso: string): string {
   return `${Math.round(hrs / 24)}d ago`;
 }
 
+function formatAmount(paise: number | null | undefined): string | null {
+  if (paise == null || paise <= 0) return null;
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0,
+  }).format(paise / 100);
+}
+
+function feedKey(it: BookingFeedItem): string {
+  return `${it.id}-${it.kind}`;
+}
+
+function loadSeenIds(): Set<string> {
+  try {
+    const raw = localStorage.getItem(SEEN_PREF_KEY);
+    if (!raw) return new Set();
+    const arr = JSON.parse(raw) as string[];
+    return new Set(Array.isArray(arr) ? arr.slice(-200) : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveSeenIds(ids: Set<string>) {
+  try {
+    localStorage.setItem(SEEN_PREF_KEY, JSON.stringify([...ids].slice(-200)));
+  } catch {
+    // ignore quota / private mode
+  }
+}
+
 interface ToastItem extends BookingFeedItem {
   toastKey: string;
 }
@@ -52,13 +85,12 @@ export default function NotificationCenter() {
   const [open, setOpen] = useState(false);
   const [toasts, setToasts] = useState<ToastItem[]>([]);
   const [soundOn, setSoundOn] = useState(true);
-  const [menuPos, setMenuPos] = useState<{ x: number; y: number } | null>(null);
 
   const sinceRef = useRef<string | null>(null);
   const seenIdsRef = useRef<Set<string>>(new Set());
   const soundOnRef = useRef(true);
+  const openRef = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
   const firstLoadRef = useRef(true);
 
   useEffect(() => {
@@ -66,12 +98,16 @@ export default function NotificationCenter() {
     const enabled = saved !== "off";
     setSoundOn(enabled);
     soundOnRef.current = enabled;
+    seenIdsRef.current = loadSeenIds();
 
-    // Ask every device for permission up front — no extra "enable" click needed.
     if (typeof window !== "undefined" && "Notification" in window && Notification.permission === "default") {
       Notification.requestPermission().catch(() => {});
     }
   }, []);
+
+  useEffect(() => {
+    openRef.current = open;
+  }, [open]);
 
   const dismissToast = useCallback((key: string) => {
     setToasts((prev) => prev.filter((t) => t.toastKey !== key));
@@ -88,28 +124,40 @@ export default function NotificationCenter() {
 
   const poll = useCallback(async () => {
     try {
-      const res = await api.bookings.notificationsFeed(sinceRef.current || undefined, 20);
-      const fresh = res.items.filter((it) => !seenIdsRef.current.has(it.id + it.kind));
+      const res = await api.bookings.notificationsFeed(sinceRef.current || undefined, 30);
+      const fresh = res.items.filter((it) => !seenIdsRef.current.has(feedKey(it)));
       sinceRef.current = res.server_time;
 
       if (fresh.length > 0) {
-        fresh.forEach((it) => seenIdsRef.current.add(it.id + it.kind));
-        setItems((prev) => [...fresh, ...prev].slice(0, 30));
+        fresh.forEach((it) => seenIdsRef.current.add(feedKey(it)));
+        saveSeenIds(seenIdsRef.current);
+        setItems((prev) => {
+          const map = new Map(prev.map((it) => [feedKey(it), it]));
+          fresh.forEach((it) => map.set(feedKey(it), it));
+          return [...map.values()]
+            .sort((a, b) => new Date(b.event_at || b.created_at).getTime() - new Date(a.event_at || a.created_at).getTime())
+            .slice(0, 50);
+        });
 
         if (!firstLoadRef.current) {
-          setUnread((n) => n + fresh.length);
+          if (!openRef.current) {
+            setUnread((n) => n + fresh.length);
+          }
           fresh.forEach((it) => {
             pushToast(it);
             if (typeof window !== "undefined" && "Notification" in window && Notification.permission === "granted") {
               try {
                 const isPayment = it.kind === "payment";
+                const amount = formatAmount(it.amount_paise);
                 const title = isPayment
                   ? it.payment_status === "failed"
                     ? "Payment failed"
                     : "Payment received"
                   : "New appointment booked";
+                const bodyParts = [it.patient_name, it.test_name || "Booking"];
+                if (amount) bodyParts.push(amount);
                 const n = new Notification(title, {
-                  body: `${it.patient_name} · ${it.test_name || "Booking"}`,
+                  body: bodyParts.join(" · "),
                   tag: `qxl-${it.kind}-${it.id}`,
                   silent: true,
                 });
@@ -122,7 +170,10 @@ export default function NotificationCenter() {
               }
             }
           });
-          if (soundOnRef.current && fresh.length > 0) playChime();
+          if (soundOnRef.current) playChime();
+        } else {
+          // First load: seed the list but keep unread at 0 (already "caught up").
+          setUnread(0);
         }
       }
     } catch {
@@ -143,9 +194,6 @@ export default function NotificationCenter() {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
         setOpen(false);
       }
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setMenuPos(null);
-      }
     }
     document.addEventListener("mousedown", onClickOutside);
     return () => document.removeEventListener("mousedown", onClickOutside);
@@ -156,58 +204,83 @@ export default function NotificationCenter() {
     setSoundOn(next);
     soundOnRef.current = next;
     localStorage.setItem(SOUND_PREF_KEY, next ? "on" : "off");
-    setMenuPos(null);
   };
 
   const openBell = () => {
-    setOpen((v) => !v);
-    setMenuPos(null);
-    setUnread(0);
+    setOpen((v) => {
+      const next = !v;
+      if (next) setUnread(0);
+      return next;
+    });
   };
 
-  const onBellContextMenu = (e: ReactMouseEvent) => {
-    e.preventDefault();
-    setOpen(false);
-    const x = Math.min(e.clientX, window.innerWidth - 220);
-    setMenuPos({ x, y: e.clientY });
-  };
+  const markAllRead = () => setUnread(0);
 
   return (
     <>
       <div className="relative" ref={containerRef}>
         <button
+          type="button"
           onClick={openBell}
-          onContextMenu={onBellContextMenu}
           className="relative p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-gray-800 rounded-full transition-colors cursor-pointer"
-          title="Notifications (right-click to mute)"
+          title={soundOn ? "Notifications" : "Notifications (sound muted)"}
+          aria-label={unread > 0 ? `Notifications, ${unread} unread` : "Notifications"}
         >
           {soundOn ? <Bell className="w-5 h-5" /> : <BellOff className="w-5 h-5" />}
           {unread > 0 && (
-            <span className="absolute top-0.5 right-0.5 min-w-4 h-4 px-1 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center leading-none">
-              {unread > 9 ? "9+" : unread}
+            <span className="absolute -top-0.5 -right-0.5 min-w-4 h-4 px-1 rounded-full bg-blue-600 text-white text-[10px] font-bold flex items-center justify-center leading-none ring-2 ring-white dark:ring-gray-900">
+              {unread > 99 ? "99+" : unread}
             </span>
           )}
         </button>
 
         {open && (
-          <div className="absolute right-0 mt-2 w-80 max-h-104 overflow-hidden flex flex-col rounded-2xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl shadow-slate-900/10 z-50">
-            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 dark:border-gray-800">
-              <p className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-1.5">
-                <Bell className="w-4 h-4 text-blue-600" /> Notifications
+          <div className="absolute right-0 mt-2 w-[min(22rem,calc(100vw-1.5rem))] max-h-[min(26rem,70vh)] overflow-hidden flex flex-col rounded-2xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl shadow-slate-900/10 z-50">
+            <div className="flex items-center justify-between gap-2 px-4 py-3 border-b border-slate-100 dark:border-gray-800 shrink-0">
+              <p className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-1.5 min-w-0">
+                <Bell className="w-4 h-4 text-blue-600 shrink-0" />
+                <span className="truncate">Notifications</span>
+                {unread > 0 && (
+                  <span className="ml-1 text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-blue-600 text-white">
+                    {unread}
+                  </span>
+                )}
               </p>
-              <span className="text-[10px] text-slate-400 dark:text-slate-500">Right-click bell to mute</span>
+              <div className="flex items-center gap-1 shrink-0">
+                <button
+                  type="button"
+                  onClick={toggleSound}
+                  className="p-1.5 rounded-lg text-slate-500 hover:text-slate-800 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-gray-800 cursor-pointer"
+                  title={soundOn ? "Mute notification sound" : "Unmute notification sound"}
+                  aria-label={soundOn ? "Mute notification sound" : "Unmute notification sound"}
+                >
+                  {soundOn ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+                </button>
+                {unread > 0 && (
+                  <button
+                    type="button"
+                    onClick={markAllRead}
+                    className="px-2 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wide text-blue-600 hover:bg-blue-50 dark:hover:bg-sky-950/30 cursor-pointer"
+                  >
+                    Mark read
+                  </button>
+                )}
+              </div>
             </div>
 
-            <div className="overflow-y-auto custom-scrollbar flex-1">
+            <div className="overflow-y-auto overscroll-contain custom-scrollbar flex-1 min-h-0">
               {items.length === 0 ? (
-                <div className="py-10 text-center text-xs text-slate-400 dark:text-slate-500">No new bookings yet</div>
+                <div className="py-10 text-center text-xs text-slate-400 dark:text-slate-500 px-4">
+                  No notifications yet
+                </div>
               ) : (
                 items.map((it) => {
                   const isPayment = it.kind === "payment";
                   const failed = isPayment && it.payment_status === "failed";
+                  const amount = formatAmount(it.amount_paise);
                   return (
                     <div
-                      key={`${it.id}-${it.kind}`}
+                      key={feedKey(it)}
                       className="flex items-start gap-3 px-4 py-3 border-b border-slate-50 dark:border-gray-800/60 hover:bg-slate-50 dark:hover:bg-gray-800/40"
                     >
                       <div
@@ -226,11 +299,15 @@ export default function NotificationCenter() {
                           {isPayment ? (failed ? "Payment failed" : "Payment received") : it.patient_name}
                         </p>
                         <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
-                          {isPayment ? `${it.patient_name} · ${it.test_name || "Booking"}` : it.test_name || "New booking"}
+                          {isPayment
+                            ? `${it.patient_name} · ${it.test_name || "Booking"}`
+                            : it.test_name || "New booking"}
+                          {amount ? ` · ${amount}` : ""}
                         </p>
-                        <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1">
-                          <CalendarClock className="w-3 h-3" /> {timeAgo(it.event_at || it.created_at)}
-                          {it.assigned_to_name && <span className="ml-1">· Assigned: {it.assigned_to_name}</span>}
+                        <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1 flex-wrap">
+                          <CalendarClock className="w-3 h-3 shrink-0" />
+                          {timeAgo(it.event_at || it.created_at)}
+                          {it.assigned_to_name && <span>· {it.assigned_to_name}</span>}
                         </p>
                       </div>
                     </div>
@@ -241,7 +318,7 @@ export default function NotificationCenter() {
             {items.length > 0 && (
               <a
                 href="/appointments"
-                className="flex items-center justify-center gap-1.5 py-2.5 text-[11px] font-bold uppercase tracking-wide text-blue-600 dark:text-sky-400 border-t border-slate-100 dark:border-gray-800 hover:bg-slate-50 dark:hover:bg-gray-800/40 cursor-pointer"
+                className="flex items-center justify-center gap-1.5 py-2.5 text-[11px] font-bold uppercase tracking-wide text-blue-600 dark:text-sky-400 border-t border-slate-100 dark:border-gray-800 hover:bg-slate-50 dark:hover:bg-gray-800/40 cursor-pointer shrink-0"
               >
                 <CheckCheck className="w-3.5 h-3.5" /> View all appointments
               </a>
@@ -250,28 +327,12 @@ export default function NotificationCenter() {
         )}
       </div>
 
-      {/* Right-click context menu — mute/unmute sound */}
-      {menuPos && (
-        <div
-          ref={menuRef}
-          style={{ top: menuPos.y, left: menuPos.x }}
-          className="fixed z-9999 w-52 rounded-xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-2xl shadow-slate-900/20 py-1.5 overflow-hidden"
-        >
-          <button
-            onClick={toggleSound}
-            className="w-full flex items-center gap-2.5 px-3.5 py-2.5 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-gray-800 cursor-pointer"
-          >
-            {soundOn ? <BellOff className="w-4 h-4" /> : <Bell className="w-4 h-4" />}
-            {soundOn ? "Mute notification sound" : "Unmute notification sound"}
-          </button>
-        </div>
-      )}
-
       {/* Toast stack */}
-      <div className="fixed top-4 right-4 z-9999 flex flex-col gap-2 items-end pointer-events-none">
+      <div className="fixed top-4 right-4 z-9999 flex flex-col gap-2 items-end pointer-events-none max-w-[calc(100vw-2rem)]">
         {toasts.map((t) => {
           const isPayment = t.kind === "payment";
           const failed = isPayment && t.payment_status === "failed";
+          const amount = formatAmount(t.amount_paise);
           const title = isPayment ? (failed ? "Payment failed" : "Payment received") : "New appointment booked";
           const iconBg = failed
             ? "bg-linear-to-br from-rose-400 to-rose-600"
@@ -281,7 +342,7 @@ export default function NotificationCenter() {
           return (
             <div
               key={t.toastKey}
-              className="pointer-events-auto w-72 flex items-start gap-3 rounded-xl border border-white/10 bg-[#0b1424]/95 backdrop-blur-md shadow-2xl shadow-black/30 px-4 py-3 animate-[toast-in_0.25s_ease-out]"
+              className="pointer-events-auto w-72 max-w-full flex items-start gap-3 rounded-xl border border-white/10 bg-[#0b1424]/95 backdrop-blur-md shadow-2xl shadow-black/30 px-4 py-3 animate-[toast-in_0.25s_ease-out]"
             >
               <div className={`w-8 h-8 rounded-full ${iconBg} flex items-center justify-center shrink-0`}>
                 {isPayment ? (
@@ -294,9 +355,11 @@ export default function NotificationCenter() {
                 <p className="text-xs font-bold text-white truncate">{title}</p>
                 <p className="text-[11px] text-slate-300 truncate">
                   {t.patient_name} {t.test_name ? `· ${t.test_name}` : ""}
+                  {amount ? ` · ${amount}` : ""}
                 </p>
               </div>
               <button
+                type="button"
                 onClick={() => dismissToast(t.toastKey)}
                 className="text-slate-400 hover:text-white cursor-pointer shrink-0"
               >

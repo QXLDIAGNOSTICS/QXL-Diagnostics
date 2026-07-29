@@ -28,6 +28,7 @@ import {
   Pencil,
   ArrowUpDown,
   UserCheck,
+  IndianRupee,
 } from "lucide-react";
 import {
   api,
@@ -440,20 +441,37 @@ export default function AppointmentsPage() {
   };
 
   const handleStatus = async (id: string, status: string) => {
+    const apt = appointments.find((a) => a.id === id) || (detail?.id === id ? detail : null);
+    if (
+      apt &&
+      (status === "confirmed" || status === "completed") &&
+      apt.amount_paise &&
+      apt.payment_status !== "paid"
+    ) {
+      setError(`Cannot mark as ${status} while payment is ${apt.payment_status || "unpaid"}. Collect payment first.`);
+      return;
+    }
     try {
       const updated = await api.bookings.updateStatus(id, status);
       applyLocalUpdate(updated);
-    } catch {
-      setError("Could not update status.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not update status.");
     }
   };
 
-  const runAction = async (id: string, action: () => Promise<Booking>) => {
+  const runAction = async (id: string, action: () => Promise<Booking>, opts?: { requirePaid?: boolean }) => {
+    if (opts?.requirePaid) {
+      const apt = appointments.find((a) => a.id === id) || (detail?.id === id ? detail : null);
+      if (apt && apt.amount_paise && apt.payment_status !== "paid") {
+        setError(`Cannot complete while payment is ${apt.payment_status || "unpaid"}. Collect payment first.`);
+        return;
+      }
+    }
     try {
       const updated = await action();
       applyLocalUpdate(updated);
-    } catch {
-      setError("Could not update this appointment.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Could not update this appointment.");
     }
   };
 
@@ -712,6 +730,36 @@ export default function AppointmentsPage() {
                 <StatCard label="Rescheduled" value={d.rescheduled_appointments} icon={CalendarClock} />
                 <StatCard label="Walk-in patients" value={d.walk_in_patients} icon={Users} />
                 <StatCard label="Emergency patients" value={d.emergency_patients} icon={AlertTriangle} tone="red" />
+                <StatCard
+                  label="Revenue (paid)"
+                  value={
+                    d.revenue_paid_paise != null
+                      ? `₹${Math.round(d.revenue_paid_paise / 100).toLocaleString("en-IN")}`
+                      : "—"
+                  }
+                  icon={IndianRupee}
+                  tone="teal"
+                />
+                <StatCard
+                  label="Today's revenue"
+                  value={
+                    d.revenue_today_paise != null
+                      ? `₹${Math.round(d.revenue_today_paise / 100).toLocaleString("en-IN")}`
+                      : "—"
+                  }
+                  icon={IndianRupee}
+                />
+                <StatCard
+                  label="Outstanding"
+                  value={
+                    d.outstanding_paise != null
+                      ? `₹${Math.round(d.outstanding_paise / 100).toLocaleString("en-IN")}`
+                      : "—"
+                  }
+                  icon={IndianRupee}
+                  tone="red"
+                />
+                <StatCard label="Paid bookings" value={d.paid_bookings ?? 0} icon={CheckCircle2} tone="teal" />
               </div>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
@@ -935,6 +983,11 @@ export default function AppointmentsPage() {
                       >
                         {apt.payment_status}
                       </span>
+                      {apt.amount_paise != null && (
+                        <span className="block text-[11px] font-semibold text-slate-600 dark:text-slate-300 mt-0.5">
+                          ₹{Math.round(apt.amount_paise / 100).toLocaleString("en-IN")}
+                        </span>
+                      )}
                     </td>
                     <td className="px-4 py-3">
                       <div className="flex items-center justify-end gap-0.5 flex-wrap">
@@ -942,7 +995,17 @@ export default function AppointmentsPage() {
                           <Eye className="w-4 h-4" />
                         </button>
                         {apt.status === "pending" && (
-                          <button type="button" onClick={() => handleStatus(apt.id, "confirmed")} className="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-lg cursor-pointer" title="Confirm">
+                          <button
+                            type="button"
+                            onClick={() => handleStatus(apt.id, "confirmed")}
+                            disabled={!!apt.amount_paise && apt.payment_status !== "paid"}
+                            className="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-lg cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                            title={
+                              apt.amount_paise && apt.payment_status !== "paid"
+                                ? "Collect payment before confirming"
+                                : "Confirm"
+                            }
+                          >
                             <Check className="w-4 h-4" />
                           </button>
                         )}
@@ -957,7 +1020,17 @@ export default function AppointmentsPage() {
                           </button>
                         )}
                         {!["completed", "cancelled", "no_show"].includes(apt.status) && (
-                          <button type="button" onClick={() => runAction(apt.id, () => api.bookings.complete(apt.id))} className="p-1.5 text-sky-600 hover:bg-sky-50 rounded-lg cursor-pointer" title="Complete">
+                          <button
+                            type="button"
+                            onClick={() => runAction(apt.id, () => api.bookings.complete(apt.id), { requirePaid: true })}
+                            disabled={!!apt.amount_paise && apt.payment_status !== "paid"}
+                            className="p-1.5 text-sky-600 hover:bg-sky-50 rounded-lg cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                            title={
+                              apt.amount_paise && apt.payment_status !== "paid"
+                                ? "Collect payment before completing"
+                                : "Complete"
+                            }
+                          >
                             <CheckCircle2 className="w-4 h-4" />
                           </button>
                         )}
@@ -1105,7 +1178,7 @@ export default function AppointmentsPage() {
                       ["Address", detail.collection_address || "—"],
                       ["Preferred date", detail.preferred_date || "—"],
                       ["Preferred time", detail.preferred_time || "—"],
-                      ["Payment", detail.payment_status],
+                      ["Payment", `${detail.payment_status}${detail.amount_paise != null ? ` · ₹${Math.round(detail.amount_paise / 100).toLocaleString("en-IN")}` : ""}`],
                       ["Created", formatCreated(detail.created_at)],
                       ["Notes", detail.notes || "—"],
                     ].map(([label, value]) => (
@@ -1134,7 +1207,17 @@ export default function AppointmentsPage() {
                       <Receipt className="w-3.5 h-3.5" /> Receipt
                     </button>
                     {detail.status === "pending" && (
-                      <button type="button" onClick={() => handleStatus(detail.id, "confirmed")} className="px-3 py-2 rounded-lg bg-emerald-600 text-white text-xs font-bold cursor-pointer">
+                      <button
+                        type="button"
+                        onClick={() => handleStatus(detail.id, "confirmed")}
+                        disabled={!!detail.amount_paise && detail.payment_status !== "paid"}
+                        className="px-3 py-2 rounded-lg bg-emerald-600 text-white text-xs font-bold cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                        title={
+                          detail.amount_paise && detail.payment_status !== "paid"
+                            ? "Collect payment before confirming"
+                            : "Confirm"
+                        }
+                      >
                         Confirm
                       </button>
                     )}
@@ -1148,10 +1231,27 @@ export default function AppointmentsPage() {
                     <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1.5">
                       Update status
                     </label>
-                    <select value={detail.status} onChange={(e) => handleStatus(detail.id, e.target.value)} className={inputCls}>
+                    <select
+                      value={detail.status}
+                      onChange={(e) => handleStatus(detail.id, e.target.value)}
+                      className={inputCls}
+                    >
                       {STATUS_OPTIONS.map((s) => (
-                        <option key={s} value={s}>
+                        <option
+                          key={s}
+                          value={s}
+                          disabled={
+                            !!detail.amount_paise &&
+                            detail.payment_status !== "paid" &&
+                            (s === "confirmed" || s === "completed")
+                          }
+                        >
                           {STATUS_LABELS[s]}
+                          {!!detail.amount_paise &&
+                          detail.payment_status !== "paid" &&
+                          (s === "confirmed" || s === "completed")
+                            ? " (pay first)"
+                            : ""}
                         </option>
                       ))}
                     </select>

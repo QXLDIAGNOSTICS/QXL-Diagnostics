@@ -52,9 +52,12 @@ export default function AdminDashboard() {
       ]);
 
       const bookings: Booking[] = bookingsRes.items;
-      const revenue = bookings
-        .filter((b) => b.payment_status === "paid" && b.amount_paise)
-        .reduce((sum, b) => sum + (b.amount_paise || 0) / 100, 0);
+      const revenue =
+        adminStats.revenue_paid_paise != null
+          ? adminStats.revenue_paid_paise / 100
+          : bookings
+              .filter((b) => b.payment_status === "paid" && b.amount_paise)
+              .reduce((sum, b) => sum + (b.amount_paise || 0) / 100, 0);
 
       setStats({
         patients: adminStats.total_users,
@@ -72,7 +75,9 @@ export default function AdminDashboard() {
           service: b.test_name || "—",
           date: `${b.preferred_date || "—"} ${b.preferred_time ? `@ ${b.preferred_time}` : ""}`.trim(),
           status: b.status,
-          note: `${b.collection_type === "home" ? "Home collection" : "Center visit"} · ${b.status.replace("_", " ")}`,
+          note: `${b.collection_type === "home" ? "Home collection" : "Center visit"} · ${
+            b.amount_paise != null ? `₹${Math.round(b.amount_paise / 100)} · ` : ""
+          }${b.payment_status} · ${b.status.replace("_", " ")}`,
         }))
       );
 
