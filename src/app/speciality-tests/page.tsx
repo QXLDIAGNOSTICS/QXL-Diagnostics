@@ -407,6 +407,11 @@ export default function SpecialityTestsPage() {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-4 pt-4 border-t border-gray-100">
+                    <Link href="/tests" className="inline-flex items-center text-xs font-bold text-[#2563eb] hover:underline">
+                      View A-Z Test Directory <ChevronRight className="w-3.5 h-3.5 ml-1" />
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Benefits + Packages */}
@@ -457,7 +462,7 @@ export default function SpecialityTestsPage() {
                       <MessageCircle className="w-4 h-4" /> Enquire on WhatsApp
                     </a>
                     <div className="text-center pt-1">
-                      <span className="text-[11px] text-slate-400 font-medium">📞 +91 99646 39639 · 🕐 Open 24x7</span>
+                      <span className="text-[11px] text-slate-400 font-medium">📞 +91 9964 639 639 · 🕐 Open 24x7</span>
                     </div>
                   </div>
                 </div>

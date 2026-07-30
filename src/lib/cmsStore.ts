@@ -83,10 +83,10 @@ const defaultBanners = [
 ];
 
 const defaultDoctors = [
-  { id: "doc-1", name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg" },
-  { id: "doc-2", name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
-  { id: "doc-3", name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
-  { id: "doc-4", name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" }
+  { id: "doc-1", name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://images.unsplash.com/photo-1612349317150-e410f624c427?auto=format&fit=crop&q=80&w=400" },
+  { id: "doc-2", name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://images.unsplash.com/photo-1594824436998-d70d90db3c80?auto=format&fit=crop&q=80&w=400" },
+  { id: "doc-3", name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400" },
+  { id: "doc-4", name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://images.unsplash.com/photo-1537368910025-7028500a2216?auto=format&fit=crop&q=80&w=400" }
 ];
 
 const defaultPackages = [
@@ -99,6 +99,7 @@ const defaultPackages = [
     includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy.",
     parameters: "13+ Parameters",
     tag: "QUICK",
+    most_booked: true,
     benefits: ["Quick overall health snapshot", "Check basic organ functions", "Assess immunity & vitamins"],
     who_should_take: "Working professionals with limited time wanting a quick basic checkup.",
     age: "18+ Years",
@@ -128,7 +129,8 @@ const defaultPackages = [
     save_amount: "5000",
     includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, Liver Function Tests, Kidney Screen (Creatinine, Urea, BUN, Uric Acid, Sodium, Potassium, Chloride), Thyroid Function Tests (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine & Microscopy, Gastritis Screen (H. pylori IgG Antibodies), hs-CRP.",
     parameters: "25+ Parameters",
-    tag: "PRO",
+    tag: "MOST BOOKED",
+    most_booked: true,
     benefits: ["Complete systemic evaluation", "Heart risk assessment", "Extensive vitamin & thyroid checks"],
     who_should_take: "Adults seeking a comprehensive annual full-body screening.",
     age: "30+ Years",
@@ -205,7 +207,7 @@ const defaultTestimonials = [
 ];
 
 const defaultFaqs = [
-  { id: "faq-1", question: "How do I book a home collection?", answer: "Simply fill out our Home Collection form, message us on WhatsApp (+91 9964 639639), or select a health package and complete the check-out." },
+  { id: "faq-1", question: "How do I book a home collection?", answer: "Simply fill out our Home Collection form, message us on WhatsApp (+91 9964 639 639), or select a health package and complete the check-out." },
   { id: "faq-2", question: "How long does it take to receive reports?", answer: "Most routine report cards (like blood sugar, lipid profiles, and CBC) are delivered via email and WhatsApp within 6 to 12 hours." }
 ];
 
@@ -340,7 +342,7 @@ const defaultSettings = {
   copyrightText: "© 2026 QXL Diagnostics. All rights reserved.",
   footerDesc: "QXL Diagnostics is a super speciality diagnostic laboratory in Bengaluru offering advanced pathology, microbiology, immunology, molecular diagnostics, histopathology, cytology and precision diagnostic services for patients, clinicians and hospitals.",
   // Contact info — now comes from backend API via SiteSettings
-  phone_display: "+91 99646 39639",
+  phone_display: "+91 9964 639 639",
   phone_e164: "+919964639639",
   whatsapp_number: "919964639639",
   navItems: [
@@ -349,10 +351,9 @@ const defaultSettings = {
     { label: "Founder & Consultants", href: "/founder", visible: true },
     { label: "Our Specialities", href: "/specialities", visible: true },
     { label: "Packages", href: "/packages", visible: true },
-    { label: "Book a Test", href: "/book", visible: true },
     { label: "Find Nearest Centre", href: "/centers", visible: true },
-    { label: "Download Report", href: "/report", visible: true },
-    { label: "Collaborate with us", href: "/franchise", visible: true },
+    { label: "My Bookings", href: "/dashboard", visible: true },
+    { label: "My Reports", href: "/report", visible: true },
     { label: "Login", href: "/login", visible: true }
   ]
 };
@@ -365,33 +366,7 @@ export const cmsStore = {
     // Always serve the latest packages from defaults so updates show immediately
     if (key === "packages") return defaultPackages;
 
-    if (key === "doctors") {
-      try {
-        const data = localStorage.getItem("qxl_cms_doctors");
-        if (data) {
-          const parsed = JSON.parse(data);
-          let healed = false;
-          const healedDocs = parsed.map((doc: any) => {
-            if (doc.image && (doc.image.includes("dr_pritilata_latest.jpg") || doc.image.includes("dr_pritilata_latest_bak.jpg") || doc.image.includes("dr_pritilata_v3.jpg"))) {
-              doc.image = "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png";
-              healed = true;
-            }
-            if (doc.image && (doc.image.includes("dr_shantakumar_latest.jpg") || doc.image.includes("dr_shantakumar_latest_bak.jpg") || doc.image.includes("dr_shantakumar_v3.jpg"))) {
-              doc.image = "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg";
-              healed = true;
-            }
-            return doc;
-          });
-          if (healed) {
-            localStorage.setItem("qxl_cms_doctors", JSON.stringify(healedDocs));
-          }
-          return healedDocs;
-        }
-      } catch (e) {
-        console.error("CMS doctors heal error", e);
-      }
-      return defaultDoctors;
-    }
+    if (key === "doctors") return defaultDoctors;
 
     if (key === "blogs") {
       try {
@@ -475,20 +450,42 @@ export const cmsStore = {
           healed = true;
         }
       }
+      // Keep legacy Header/Footer keys in sync with the API phone fields.
+      if (parsed.phone_display && parsed.contactPhone !== parsed.phone_display) {
+        parsed.contactPhone = parsed.phone_display;
+        healed = true;
+      }
+      if (parsed.phone_display && parsed.whatsappNumber !== parsed.phone_display) {
+        parsed.whatsappNumber = parsed.phone_display;
+        healed = true;
+      }
+      // Force-migrate any cached copy of the retired number.
+      const stale = /99646\s*36848|9964\s*636848|9964636848/;
+      for (const key of ["phone_display", "contactPhone", "whatsappNumber", "phone_e164", "whatsapp_number"]) {
+        if (typeof parsed[key] === "string" && stale.test(parsed[key])) {
+          parsed[key] = (defaultSettings as any)[key] || defaultSettings.phone_display;
+          healed = true;
+        }
+      }
 
       // Force update navbar label to "Founder & Consultants" if it is still "Founder & Advisors"
       if (parsed.navItems && Array.isArray(parsed.navItems)) {
-        parsed.navItems = parsed.navItems.map((item: any) => {
-          if (item.label === "Founder & Advisors") {
-            item.label = "Founder & Consultants";
-            healed = true;
-          }
-          if (item.href === "/franchise" && (item.label === "Franchise" || item.label === "Collab with us")) {
-            item.label = "Collaborate with us";
-            healed = true;
-          }
-          return item;
-        });
+        // Auto-migrate menu structure if old items exist
+        const hasBook = parsed.navItems.some((item: any) => item.label === "Book a Test");
+        const hasDownloadReport = parsed.navItems.some((item: any) => item.label === "Download Report");
+        const hasCollab = parsed.navItems.some((item: any) => item.label === "Collaborate with us" || item.label === "Franchise" || item.label === "Collab with us");
+        if (hasBook || hasDownloadReport || hasCollab) {
+          parsed.navItems = defaultSettings.navItems;
+          healed = true;
+        } else {
+          parsed.navItems = parsed.navItems.map((item: any) => {
+            if (item.label === "Founder & Advisors") {
+              item.label = "Founder & Consultants";
+              healed = true;
+            }
+            return item;
+          });
+        }
       }
 
       if (healed) {
@@ -579,11 +576,15 @@ export const cmsStore = {
       
       const apiSettings = await response.json();
       
-      // Merge API settings with existing settings
+      // Merge API settings with existing settings. Also mirror the
+      // phone_display / whatsapp_number fields onto the legacy
+      // contactPhone / whatsappNumber keys that Header/Footer still read.
       const currentSettings = cmsStore.getSettings();
       const mergedSettings = {
         ...currentSettings,
         ...apiSettings, // Backend values override local defaults
+        contactPhone: apiSettings.phone_display || currentSettings.contactPhone,
+        whatsappNumber: apiSettings.phone_display || currentSettings.whatsappNumber,
       };
       
       cmsStore.saveSettings(mergedSettings);

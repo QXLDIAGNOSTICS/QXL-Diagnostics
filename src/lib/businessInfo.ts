@@ -20,7 +20,7 @@ export const SITE_URL = "https://qxldiagnostics.com";
 // Contact info — dynamically fetched from admin settings (SiteSettings API)
 export const getPhoneDisplay = (): string => {
   const settings = cmsStore.getSettings();
-  return settings?.phone_display || "+91 9964 639639";
+  return settings?.phone_display || "+91 9964 639 639";
 };
 
 export const getPhoneE164 = (): string => {
@@ -38,7 +38,7 @@ export const getWhatsAppLink = (): string => {
 };
 
 // Fallback constants for static contexts (structured data, pre-render)
-export const PHONE_DISPLAY = "+91 9964 639639";
+export const PHONE_DISPLAY = "+91 9964 639 639";
 export const PHONE_E164 = "+919964639639";
 export const WHATSAPP_NUMBER = "919964639639";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;

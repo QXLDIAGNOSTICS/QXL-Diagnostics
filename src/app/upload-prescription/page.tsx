@@ -263,7 +263,7 @@ export default function UploadPrescriptionPage() {
                 </p>
                 <a href="tel:+919964639639"
                   className="flex items-center gap-2 bg-white/20 hover:bg-white/30 transition-colors rounded-xl px-4 py-3 mb-3 text-sm font-bold">
-                  <Phone className="w-4 h-4" /> +91 99646 39639
+                  <Phone className="w-4 h-4" /> +91 9964 639 639
                 </a>
                 <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer"
                   className="flex items-center gap-2 bg-[#25d366]/80 hover:bg-[#25d366] transition-colors rounded-xl px-4 py-3 text-sm font-bold">

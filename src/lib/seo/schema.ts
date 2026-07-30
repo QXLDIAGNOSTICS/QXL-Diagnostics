@@ -138,7 +138,7 @@ export const SEO_FAQS = [
   },
   {
     q: "What are QXL Diagnostics lab hours?",
-    a: "Centre hours are typically Monday–Saturday 7:00 AM–9:00 PM and Sunday 7:00 AM–2:00 PM. Home collection is generally available daily from early morning through evening across Bengaluru; confirm slots while booking.",
+    a: "Centre hours are typically Monday–Saturday 6:30 AM–8:00 PM and Sunday 7:00 AM–2:00 PM. Home collection is generally available daily from early morning through evening across Bengaluru; confirm slots while booking.",
   },
   {
     q: "Who founded QXL Diagnostics?",

@@ -175,7 +175,7 @@ const DoctorProfile = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) 
     >
       <div
         className={`relative overflow-hidden ${
-          isHero ? "w-full md:w-[38%] min-h-[320px]" : "h-72"
+          isHero ? "w-full md:w-[45%] min-h-[420px]" : "h-96"
         } bg-gradient-to-b from-sky-50 to-sky-100/50`}
       >
         <img

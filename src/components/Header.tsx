@@ -3,15 +3,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { MapPin, Search, Phone, User, ChevronDown, ChevronRight, Mic, FileText, Menu, X, Home, Layers, Microscope, ShoppingCart, Calendar } from 'lucide-react';
+import { MapPin, Search, Phone, User, ChevronDown, ChevronRight, Mic, FileText, Menu, X, Home, Layers, Microscope, ShoppingCart, Calendar, CalendarCheck } from 'lucide-react';
 import PrescriptionModal from './PrescriptionModal';
 import SmartSearchBar from './SmartSearchBar';
 import { motion, AnimatePresence } from 'framer-motion';
+import LanguageSwitcher from './LanguageSwitcher';
 
 import { cmsStore } from '../lib/cmsStore';
 import { useAuth } from '../lib/useAuth';
 import { api } from '../lib/api';
 import { optimizeCloudinaryUrl } from '../lib/cloudinary';
+import InstallPrompt from './InstallPrompt';
 
 const FALLBACK_LOGO =
   "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
@@ -35,18 +37,17 @@ export default function Header() {
     siteName: "QXL Diagnostics",
     logoText: "QXL",
     logoImage: FALLBACK_LOGO,
-    contactPhone: "+91 9964 639639",
-    whatsappNumber: "+91 9964 639639",
+    contactPhone: "+91 9964 639 639",
+    whatsappNumber: "+91 9964 639 639",
     navItems: [
       { label: "Home", href: "/", visible: true },
       { label: "About Us", href: "/about", visible: true },
       { label: "Founder & Consultants", href: "/founder", visible: true },
       { label: "Our Specialities", href: "/specialities", visible: true },
       { label: "Packages", href: "/packages", visible: true },
-      { label: "Book a Test", href: "/book", visible: true },
       { label: "Find Nearest Centre", href: "/centers", visible: true },
-      { label: "Download Report", href: "/report", visible: true },
-      { label: "Collaborate with us", href: "/franchise", visible: true },
+      { label: "My Bookings", href: "/dashboard", visible: true },
+      { label: "My Reports", href: "/report", visible: true },
       { label: "Login", href: "/login", visible: true }
     ]
   });
@@ -55,7 +56,7 @@ export default function Header() {
     setIsMounted(true);
     const saved = localStorage.getItem('qxl_location');
     if (saved) setLocation(saved);
-
+    
     const ticker = setInterval(() => {
       setTickerIndex(prev => (prev + 1) % 2);
     }, 3500);
@@ -110,11 +111,17 @@ export default function Header() {
   }, []);
 
   const getShortLocationName = (fullName: string) => {
-    return fullName
+    let name = fullName
       .replace("QXL Diagnostics ", "")
       .replace("QXL @ ", "")
       .replace("Qxl @ ", "")
       .replace("QXL@", "");
+    
+    // Replace Kengeri references with Bangalore for display
+    if (name.toLowerCase().includes("kengeri")) {
+      return "Bangalore";
+    }
+    return name;
   };
 
   const changeLocation = (loc: string) => {
@@ -130,19 +137,22 @@ export default function Header() {
     { label: "Founder & Consultants", href: "/founder", visible: true },
     { label: "Our Specialities", href: "/specialities", visible: true },
     { label: "Packages", href: "/packages", visible: true },
-    { label: "Book a Test", href: "/book", visible: true },
     { label: "Find Nearest Centre", href: "/centers", visible: true },
-    { label: "Download Report", href: "/report", visible: true },
-    { label: "Collaborate with us", href: "/franchise", visible: true },
+    { label: "My Bookings", href: "/dashboard", visible: true },
+    { label: "My Reports", href: "/report", visible: true },
     { label: "Login", href: "/login", visible: true }
   ];
   const navItems = ((settings.navItems && settings.navItems.length > 0) ? settings.navItems : defaultNavItems)
     .filter((item: any) => item.visible !== false)
     .map((item: any) => {
+      let href = item.href;
+      if (!user && (item.label === "My Bookings" || item.label === "My Reports")) {
+        href = `/login?redirect=${encodeURIComponent(item.href)}`;
+      }
       if (String(item.label).toLowerCase() === "login") {
         return user ? { ...item, label: "Profile", href: "/profile" } : { ...item, label: "Login", href: "/login" };
       }
-      return item;
+      return { ...item, href };
     });
   const userDisplayName = user?.name?.trim() || user?.phone || "Profile";
   const userInitial = (user?.name?.trim()?.[0] || "U").toUpperCase();
@@ -151,7 +161,7 @@ export default function Header() {
   // by city so any newly added location/city shows up here automatically —
   // falls back to a static seed list only while the API hasn't loaded yet.
   const fallbackBranches = [
-    { id: "loc-1", name: "Kengeri – QXL Diagnostics Super Speciality Reference Laboratory (NABL Accredited)", city: "Bengaluru" },
+    { id: "loc-1", name: "Bangalore – QXL Diagnostics Super Speciality Reference Laboratory (NABL Accredited) (Kengeri)", city: "Bengaluru" },
     { id: "loc-2", name: "Nayandahalli (Mysuru Road) – Spandana Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
     { id: "loc-3", name: "Nagarabhavi – Astrio Multispeciality Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
     { id: "loc-4", name: "Chandra Layout – Nandi Diagnostics, Powered by QXL Diagnostics", city: "Bengaluru" },
@@ -260,11 +270,11 @@ export default function Header() {
                               key={branch.id}
                               onClick={() => changeLocation(branch.name)}
                               className={`px-5 py-2 text-[11px] cursor-pointer hover:bg-blue-50 transition-colors flex items-center justify-between ${
-                                location === branch.name ? 'font-extrabold text-[#0284c7]' : 'text-slate-700 font-medium'
+                                location === branch.name ? 'font-extrabold text-[#2563eb]' : 'text-slate-700 font-medium'
                               }`}
                             >
-                              <span className="truncate">{getShortLocationName(branch.name)}</span>
-                              {location === branch.name && <span className="w-1.5 h-1.5 rounded-full bg-[#0ea5e9]" />}
+                              <span className="line-clamp-2 leading-relaxed pr-2 text-left" title={getShortLocationName(branch.name)}>{getShortLocationName(branch.name)}</span>
+                              {location === branch.name && <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb] flex-shrink-0" />}
                             </div>
                           ))}
                         </div>
@@ -305,12 +315,12 @@ export default function Header() {
                     {tickerIndex === 0 ? (
                       <motion.div key="1" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight">
                         <span className="text-[10px] text-[#0369a1]/80 font-semibold tracking-wide">Home Collection</span>
-                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 639639</a>
+                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 639 639</a>
                       </motion.div>
                     ) : (
                       <motion.div key="2" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight">
                         <span className="text-[10px] text-[#16a34a] font-bold uppercase tracking-wider animate-pulse">Call Now</span>
-                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 639639</a>
+                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 639 639</a>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -330,6 +340,8 @@ export default function Header() {
                   <span className="text-[12px] font-extrabold text-[#0369a1] truncate">{userDisplayName}</span>
                 </Link>
               )}
+              {/* Language Switcher */}
+              <LanguageSwitcher />
               {/* Cart — spatial glass orb */}
               <Link
                 href="/cart"
@@ -344,7 +356,7 @@ export default function Header() {
                   </span>
                 )}
               </Link>
-              {/* Book a Test — animated gradient pill */}
+              {/* Book a Test — clean pill button with animated text */}
               <Link
                 href="/book"
                 className="hidden xl:inline-flex items-center font-extrabold px-6 py-2.5 rounded-full text-[11px] uppercase tracking-wider whitespace-nowrap active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
@@ -409,8 +421,20 @@ export default function Header() {
 
       {/* ── MOBILE HEADER (lg:hidden) — spatial liquid glass ── */}
       <div className="lg:hidden flex flex-col w-full relative z-10 gap-2 pb-2">
-        {/* Row 1: Menu + Logo + Location + Book Now (All in one line) */}
-        <div className="pt-2.5 px-3 flex items-center justify-between gap-1">
+        {/* Top Contact Bar */}
+        <div className="flex justify-between items-center px-3 py-1.5" style={{ background: 'linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)', color: 'white' }}>
+          <button onClick={() => setShowLocationModal(true)} className="flex items-center gap-1 text-[11px] font-bold tracking-wide">
+            <MapPin className="w-3 h-3 text-[#bae6fd]" />
+            <span className="truncate max-w-[140px] pt-0.5">{getShortLocationName(location) || "Select Location"}</span>
+            <ChevronDown className="w-3 h-3 text-[#bae6fd] opacity-70" />
+          </button>
+          <a href={`tel:${settings.phone_e164 || settings.contactPhone || '+919964639639'}`} className="flex items-center gap-1 text-[11px] font-bold tracking-wide">
+            <Phone className="w-3 h-3 text-[#bae6fd]" />
+            <span className="pt-0.5">{(settings.phone_display || settings.contactPhone || '9964 639 639').replace(/^\+91\s*/, '').replace('639639', '639 639')}</span>
+          </a>
+        </div>
+        {/* Row 1: Menu + Logo + Cart */}
+        <div className="px-3 flex items-center justify-between gap-1">
           <div className="flex items-center gap-1.5 flex-shrink-0">
             {/* Hamburger Menu */}
             <button
@@ -442,26 +466,24 @@ export default function Header() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-1.5 flex-1 justify-end min-w-0">
-            {/* Location Dropdown (Compact) */}
-            <button
-              onClick={() => setShowLocationModal(true)}
-              className="flex items-center justify-center gap-1 rounded-full px-2.5 py-1.5 transition-all flex-1 min-w-0 max-w-[160px]"
-              style={{ background: 'rgba(224,242,254,0.65)', border: '1px solid rgba(125,199,232,0.35)', backdropFilter: 'blur(8px)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)' }}
-              aria-label="Select location"
-            >
-              <MapPin className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0" />
-              <span className="font-extrabold text-[10px] text-[#0369a1] truncate pt-0.5 leading-none">{getShortLocationName(location)}</span>
-              <ChevronDown className="w-3.5 h-3.5 text-[#38bdf8] flex-shrink-0" />
-            </button>
-
-            {/* Book Now button */}
+          <div className="flex items-center gap-1.5 justify-end">
+            {/* Language Switcher (Mobile) */}
+            <LanguageSwitcher />
+            {/* Cart Icon (Mobile) */}
             <Link
-              href="/book"
-              className="flex-shrink-0 flex items-center justify-center rounded-full px-3 py-1.5 shadow-md active:scale-95 transition-transform"
+              href="/cart"
+              className="flex-shrink-0 flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 shadow-md active:scale-95 transition-transform"
               style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)', border: '1px solid rgba(125,199,232,0.4)' }}
             >
-              <span className="text-[10px] font-extrabold text-white tracking-wider uppercase leading-none pt-0.5">Book Now</span>
+              <ShoppingCart className="w-3.5 h-3.5 text-white" />
+              <span className="text-[10px] font-extrabold text-white tracking-wide uppercase leading-none pt-0.5 whitespace-nowrap">
+                Cart
+              </span>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold text-white bg-rose-500 shadow-sm border border-white">
+                  {cartCount}
+                </span>
+              )}
             </Link>
           </div>
         </div>
@@ -480,8 +502,8 @@ export default function Header() {
           <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col max-h-[85vh]">
             <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-gray-100 flex-shrink-0">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#0284c7]" />
-                <span className="font-extrabold text-[#0c4a6e] text-sm">Select Your Location</span>
+                <MapPin className="w-4 h-4 text-[#2563eb]" />
+                <span className="font-extrabold text-[#0f2d5e] text-sm">Select Your Location</span>
               </div>
               <button
                 onClick={() => setShowLocationModal(false)}
@@ -501,14 +523,14 @@ export default function Header() {
                     <button
                       onClick={() => setExpandedCity(isExpanded ? null : cityKey)}
                       className={`w-full flex items-center justify-between px-4 py-3.5 font-extrabold text-xs transition-all ${
-                        isExpanded ? 'bg-sky-50 text-[#0284c7]' : 'text-slate-700'
+                        isExpanded ? 'bg-blue-50 text-[#2563eb]' : 'text-slate-700'
                       }`}
                     >
                       <span className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-[#0284c7]" />
+                        <MapPin className="w-4 h-4 text-[#2563eb]" />
                         {cityKey} Centres ({cityBranches.length})
                       </span>
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-250 ${isExpanded ? 'rotate-180 text-[#0284c7]' : 'text-slate-400'}`} />
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-250 ${isExpanded ? 'rotate-180 text-[#2563eb]' : 'text-slate-400'}`} />
                     </button>
                     
                     {isExpanded && (
@@ -520,12 +542,12 @@ export default function Header() {
                               key={branch.id}
                               onClick={() => changeLocation(branch.name)}
                               className={`w-full text-left px-5 py-3 text-xs transition-colors flex items-center justify-between ${
-                                isBranchSelected ? 'font-extrabold text-[#0284c7] bg-sky-50/20' : 'text-slate-600 font-medium'
+                                isBranchSelected ? 'font-extrabold text-[#2563eb] bg-blue-50/20' : 'text-slate-600 font-medium'
                               }`}
                             >
-                              <span className="pr-4 truncate">{getShortLocationName(branch.name)}</span>
+                              <span className="pr-4 line-clamp-2 leading-relaxed text-left" title={getShortLocationName(branch.name)}>{getShortLocationName(branch.name)}</span>
                               {isBranchSelected && (
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
                                   <path d="M20 6L9 17l-5-5" />
                                 </svg>
                               )}
@@ -561,16 +583,16 @@ export default function Header() {
               className="fixed inset-y-0 left-0 w-[280px] h-[100dvh] bg-white shadow-2xl flex flex-col z-[9999]"
             >
               {/* Sidebar Header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-[#e0f2fe] to-white flex-shrink-0">
+              <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-[#eff6ff] to-white flex-shrink-0">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center text-white flex-shrink-0" style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)' }}>
+                  <div className="w-10 h-10 rounded-full bg-[#2563eb] flex items-center justify-center text-white flex-shrink-0">
                     {user ? <span className="text-sm font-extrabold">{userInitial}</span> : <User className="w-5 h-5" />}
                   </div>
                   <div>
-                    <p className="font-extrabold text-sm text-[#0c4a6e] truncate max-w-[145px]">
+                    <p className="font-extrabold text-sm text-[#0f2d5e] truncate max-w-[145px]">
                       {user ? userDisplayName : "Welcome Guest"}
                     </p>
-                    <Link href={user ? "/profile" : "/login"} onClick={() => setMobileMenuOpen(false)} className="text-[11px] text-[#0284c7] font-bold hover:underline">
+                    <Link href={user ? "/profile" : "/login"} onClick={() => setMobileMenuOpen(false)} className="text-[11px] text-[#2563eb] font-bold hover:underline">
                       {user ? "View Profile" : "Login / Register"}
                     </Link>
                   </div>
@@ -595,8 +617,8 @@ export default function Header() {
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
                         className={`min-h-[48px] px-4 rounded-xl flex items-center justify-between transition-colors ${isActive
-                          ? 'bg-[#e0f2fe] text-[#0284c7] font-extrabold'
-                          : 'text-[#0c4a6e] hover:bg-sky-50 font-extrabold'
+                          ? 'bg-[#eff6ff] text-[#2563eb] font-extrabold'
+                          : 'text-black hover:bg-gray-50 font-extrabold'
                           }`}
                       >
                         <span className="text-sm">{item.label}</span>
@@ -604,16 +626,19 @@ export default function Header() {
                       </Link>
                     );
                   })}
+                  <div className="pt-1 border-t border-gray-100 mt-1">
+                    <InstallPrompt />
+                  </div>
                 </nav>
               </div>
 
               {/* Sidebar Footer */}
-              <div className="p-4 border-t border-gray-100 bg-gray-50 flex-shrink-0" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 16px)' }}>
+              <div className="p-4 border-t border-gray-100 bg-gray-50 flex-shrink-0 flex flex-col gap-2" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 16px)' }}>
                 <a
                   href={`tel:${settings.contactPhone}`}
-                  className="w-full text-center bg-white text-slate-700 font-extrabold py-3 rounded-xl hover:bg-gray-100 transition-colors text-xs flex items-center justify-center gap-2 border border-slate-200 shadow-sm"
+              className="w-full text-center bg-white text-slate-700 font-extrabold py-3 rounded-xl hover:bg-gray-100 transition-colors text-xs flex items-center justify-center gap-2 border border-slate-200 shadow-sm"
                 >
-                  <Phone className="w-4 h-4 text-[#0284c7]" /> Call: {settings.contactPhone}
+                  <Phone className="w-4 h-4 text-[#2563eb]" /> Call: {settings.contactPhone}
                 </a>
               </div>
             </motion.div>
@@ -626,22 +651,20 @@ export default function Header() {
         className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
-        {/* Book Now — glass sky pill strip */}
-        <div className="px-3 pb-1.5">
-          <Link
-            href="/book"
-            className="flex items-center justify-center gap-2 w-full py-2.5 rounded-2xl text-white font-extrabold text-[11px] tracking-[0.14em] uppercase transition-transform active:scale-[0.98]"
-            style={{
-              background: 'linear-gradient(135deg, rgba(56,189,248,0.95) 0%, rgba(2,132,199,0.98) 100%)',
-              boxShadow: '0 6px 20px rgba(14,165,233,0.35), inset 0 1px 0 rgba(255,255,255,0.35)',
-              border: '1px solid rgba(255,255,255,0.35)',
-              backdropFilter: 'blur(12px)',
-            }}
-          >
-            Book Now
-            <span aria-hidden className="text-sm leading-none">→</span>
-          </Link>
-        </div>
+
+        {/* Dedicated Mobile Book Now Button */}
+        <Link
+          href="/book"
+          className="mx-2 mb-2 flex items-center justify-center gap-2 py-3 rounded-2xl shadow-lg transition-transform active:scale-95 text-white"
+          style={{
+            background: 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)',
+            boxShadow: '0 6px 20px rgba(14,165,233,0.3)',
+            border: '1px solid rgba(255,255,255,0.2)'
+          }}
+        >
+          <CalendarCheck className="w-5 h-5" strokeWidth={2.5} />
+          <span className="font-black text-[15px] tracking-wide">BOOK NOW <span className="opacity-80 ml-1 font-semibold">→</span></span>
+        </Link>
 
         <nav
           className="mx-2 mb-2 rounded-[22px] overflow-hidden"

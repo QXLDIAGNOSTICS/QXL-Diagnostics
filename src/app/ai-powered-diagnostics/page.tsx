@@ -28,7 +28,7 @@ export default function AIPoweredDiagnosticsPage() {
               Our NABL accredited laboratories are equipped with the latest technology to ensure precise and reliable results.
             </p>
             <p>
-              Please contact us at +91 99646 39639 or email qxldiagnostics@gmail.com for more detailed information about this service. 
+              Please contact us at +91 9964 639 639 or email qxldiagnostics@gmail.com for more detailed information about this service. 
               We are constantly updating our digital resources to serve you better.
             </p>
           </div>

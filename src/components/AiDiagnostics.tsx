@@ -138,7 +138,7 @@ const QA_DATA = {
       id: 'hc1',
       category: 'home_collection',
       question: 'How does home sample collection work?',
-      answer: 'Our home collection process is simple:\n1. Book online or via WhatsApp (+91 99646 39639).\n2. Select your preferred date and time slot.\n3. A certified phlebotomist visits your home to collect samples safely.\n4. Samples are transported in temperature-controlled kits to our lab.\n5. Secure digital reports are delivered online within 24 hours.'
+      answer: 'Our home collection process is simple:\n1. Book online or via WhatsApp (+91 9964 639 639).\n2. Select your preferred date and time slot.\n3. A certified phlebotomist visits your home to collect samples safely.\n4. Samples are transported in temperature-controlled kits to our lab.\n5. Secure digital reports are delivered online within 24 hours.'
     },
     {
       id: 'hc2',
@@ -303,7 +303,7 @@ const findAnswer = (query: string): { text: string; relatedQuestions?: string[] 
   
   if (q.includes('nearest center') || q.includes('location') || q.includes('branch') || q.includes('where is')) {
     return {
-      text: "📍 **QXL Diagnostics Center Locations**\n\nOur main super-specialty laboratory is located at:\n**3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060**\n\nWe also have multiple collection centers across Bengaluru. Allow location access in your browser or type your area name to find the closest collection center.\n\n🕒 **Lab Hours:** 24/7 Operations\n📞 **Phone:** +91 99646 39639",
+      text: "📍 **QXL Diagnostics Center Locations**\n\nOur main super-specialty laboratory is located at:\n**3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060**\n\nWe also have multiple collection centers across Bengaluru. Allow location access in your browser or type your area name to find the closest collection center.\n\n🕒 **Lab Hours:** 24/7 Operations\n📞 **Phone:** +91 9964 639 639",
       relatedQuestions: ["Book Home Collection", "Working Hours"]
     };
   }
@@ -317,7 +317,7 @@ const findAnswer = (query: string): { text: string; relatedQuestions?: string[] 
 
   if (q.includes('book blood test') || q.includes('book appointment') || q.includes('how to book') || q.includes('book test')) {
     return {
-      text: "📅 **How to Book a Test/Appointment**\n\n1. Click **\'Book a Test\'** or **\'Upload Prescription\'** at the top of our page.\n2. Select your required test or health package.\n3. Choose home sample collection or center visit.\n4. Select your date & time, then submit.\n\nAlternatively, you can book instantly by sending a photo of your prescription to us on **WhatsApp (+91 99646 39639)**. We will set up everything for you!",
+      text: "📅 **How to Book a Test/Appointment**\n\n1. Click **\'Book a Test\'** or **\'Upload Prescription\'** at the top of our page.\n2. Select your required test or health package.\n3. Choose home sample collection or center visit.\n4. Select your date & time, then submit.\n\nAlternatively, you can book instantly by sending a photo of your prescription to us on **WhatsApp (+91 9964 639 639)**. We will set up everything for you!",
       relatedQuestions: ["Do you provide home sample collection?", "View Packages"]
     };
   }
@@ -352,7 +352,7 @@ const findAnswer = (query: string): { text: string; relatedQuestions?: string[] 
 
   if (q.includes('speak to human') || q.includes('contact support') || q.includes('talk to support') || q.includes('whatsapp booking') || q.includes('human')) {
     return {
-      text: "💬 **Speak with a Representative**\n\nNeed to talk to a human? We are here to help!\n\n• **WhatsApp Support:** Text us at [+91 99646 39639](https://api.whatsapp.com/send?phone=919964639639) (Fastest reply)\n• **Customer Care Call:** Dial **+91 99646 39639**\n• **Email Support:** qxldiagnostics@gmail.com\n\nYou can also click the WhatsApp button at the bottom of the chat to start a direct message thread.",
+      text: "💬 **Speak with a Representative**\n\nNeed to talk to a human? We are here to help!\n\n• **WhatsApp Support:** Text us at [+91 9964 639 639](https://api.whatsapp.com/send?phone=919964639639) (Fastest reply)\n• **Customer Care Call:** Dial **+91 9964 639 639**\n• **Email Support:** qxldiagnostics@gmail.com\n\nYou can also click the WhatsApp button at the bottom of the chat to start a direct message thread.",
       relatedQuestions: ["How can I book a test?", "Find Nearest Center"]
     };
   }
@@ -668,7 +668,7 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
                       {msg.isBot && <div className="absolute -left-[9px] top-0 w-0 h-0 border-t-[10px] border-t-white border-l-[10px] border-l-transparent drop-shadow-sm"></div>}
                       {!msg.isBot && <div className="absolute -right-[9px] top-0 w-0 h-0 border-t-[10px] border-t-[#dcf8c6] border-r-[10px] border-r-transparent drop-shadow-sm"></div>}
                       
-                      <p className="text-[13px] text-gray-800 whitespace-pre-wrap leading-relaxed">{msg.text}</p>
+                      <p className="text-[13px] text-gray-800 whitespace-pre-wrap leading-relaxed">{msg.text ? msg.text.replace(/\*/g, '') : ''}</p>
                       <p className={`text-[9px] text-right mt-1 ${msg.isBot ? 'text-gray-400' : 'text-[#6ca553]'}`}>{msg.time} {!msg.isBot && '✓✓'}</p>
                     </motion.div>
 

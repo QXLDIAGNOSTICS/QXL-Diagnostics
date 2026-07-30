@@ -6,6 +6,8 @@ import { useAuth } from '@/lib/useAuth';
 import ChatPaymentCard, { type ChatPaymentOrder } from '@/components/ChatPaymentCard';
 import { useSiteSettings } from '@/lib/useSiteSettings';
 import ReactMarkdown from 'react-markdown';
+import { ShoppingCart, Phone } from 'lucide-react';
+import { getPhoneE164 } from '@/lib/businessInfo';
 
 type StreamResult = 'streamed' | 'unauthorized' | 'failed';
 
@@ -48,13 +50,27 @@ export default function AiChat() {
   const siteSettings = useSiteSettings();
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  // No auto-injected greeting bubble: the assistant already opens the
-  // conversation naturally once the user says something, so a canned
-  // "Good morning! ..." message followed by the AI's own greeting felt
-  // like two greetings stacked on top of each other. Instead we show a
-  // lightweight empty-state (see `messages.length === 0` below) that
-  // disappears the moment the first message is sent.
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string; type?: 'text' | 'file' | 'payment'; paymentOrder?: ChatPaymentOrder }[]>([]);
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    let greeting = "Good evening!";
+    if (hour < 12) greeting = "Good morning!";
+    else if (hour < 18) greeting = "Good afternoon!";
+
+    const signedInLine = user
+      ? `\n\nYou're signed in as ${user.name || user.phone || 'a QXL patient'}, so I can help with your bookings and prescriptions.`
+      : "\n\nYou can ask me questions or upload your medical report for a quick summary.";
+    const greetingMessage = {
+      role: 'assistant' as const,
+      content: `${greeting} I am the QXL AI Assistant. How can I help you today?${signedInLine}`,
+    };
+
+    setMessages(prev => {
+      if (prev.length > 1) return prev;
+      return [greetingMessage];
+    });
+  }, [user?.name, user?.phone]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState<string | null>(null);
@@ -141,15 +157,15 @@ export default function AiChat() {
   };
 
   const getMockReply = (text: string, file: File | null): string => {
-    let replyMessage = "Thank you for your query! For accurate information, please call us at +91 99646 39639 or WhatsApp us. Our team will be happy to assist you.";
+    let replyMessage = "Thank you for your query! For accurate information, please call us at +91 9964 639 639 or WhatsApp us. Our team will be happy to assist you.";
     if ((text.toLowerCase().includes('booking') || text.toLowerCase().includes('bookings')) && text.toLowerCase().includes('my')) {
       replyMessage = user
         ? "I can see you're signed in, but I couldn't reach your account data right now. Please open Profile > Bookings, or try again in a moment."
         : "Please log in to your QXL account to view your bookings.";
     } else if (text.toLowerCase().includes('package') || text.toLowerCase().includes('checkup')) {
-      replyMessage = "We offer a range of health packages starting from ₹1,899. Our popular ones include Full Body Checkup (86+ parameters), Senior Citizen Packages, and Women's Health Packages. Visit our Packages page or call +91 99646 39639 to book!";
+      replyMessage = "We offer a range of health packages starting from ₹1,899. Our popular ones include Full Body Checkup (86+ parameters), Senior Citizen Packages, and Women's Health Packages. Visit our Packages page or call +91 9964 639 639 to book!";
     } else if (text.toLowerCase().includes('home') || text.toLowerCase().includes('collection')) {
-      replyMessage = "Yes! We provide free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 99646 39639.";
+      replyMessage = "Yes! We provide free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 9964 639 639.";
     } else if (text.toLowerCase().includes('location') || text.toLowerCase().includes('lab') || text.toLowerCase().includes('where')) {
       replyMessage = "We have two centers in Bengaluru:\n1. Main Lab: SLN Complex, Mysore Road, Kengeri – 560 060\n2. North Hub: L Square, opposite RMZ Galleria Mall, Yelahanka – 560064\nBoth are Open 24x7.";
     } else if (text.toLowerCase().includes('cbc') || text.toLowerCase().includes('blood')) {
@@ -349,31 +365,89 @@ export default function AiChat() {
     sendMockReply(text, file);
   };
 
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const updateCartCount = () => {
+      try {
+        const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
+        setCartCount(cart.length);
+      } catch {
+        setCartCount(0);
+      }
+    };
+    updateCartCount();
+    window.addEventListener('cartChange', updateCartCount);
+    return () => window.removeEventListener('cartChange', updateCartCount);
+  }, []);
+
+  const aiBottom = FAB.whatsappBottom + FAB.size + FAB.gap;
+  const callBottom = aiBottom + FAB.size + FAB.gap;
+  const scrollTopBottom = callBottom + FAB.size + FAB.gap;
+
   // If the admin has disabled the AI chat widget, only render the WhatsApp
   // button (which is independent of the AI toggle).
   if (!siteSettings.ai_chat_enabled) {
     return (
-      <a
-        href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Chat on WhatsApp"
-        title="Chat on WhatsApp"
-        className="fab-whatsapp-btn"
-      >
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-      </a>
+      <>
+        <a
+          href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Chat on WhatsApp"
+          title="Chat on WhatsApp"
+          className="fab-whatsapp-btn"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+        </a>
+
+        {/* Floating Call Now Button */}
+        <a
+          href={`tel:${getPhoneE164()}`}
+          style={{
+            position: 'fixed',
+            right: '24px',
+            bottom: callBottom,
+            width: '56px',
+            height: '56px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, rgba(56,189,248,0.92) 0%, rgba(14,165,233,0.95) 100%)',
+            boxShadow: '0 4px 18px rgba(14,165,233,0.45)',
+            border: '1px solid rgba(255,255,255,0.35)',
+            color: 'white',
+            zIndex: 1000,
+            textDecoration: 'none'
+          }}
+          aria-label="Call Now"
+          title="Call Now"
+          className="fab-call-btn flex items-center justify-center overflow-hidden lg:hidden animate-fab-expand"
+        >
+          <Phone className="w-5 h-5 flex-shrink-0" />
+          <span className="animate-fab-text font-bold text-sm">Call Now</span>
+        </a>
+
+        {/* Scroll to top — above the Call button */}
+        {showScrollTop && (
+          <button
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+            title="Back to top"
+            className="fab-scroll-top-btn"
+            style={{ bottom: scrollTopBottom }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+          </button>
+        )}
+      </>
     );
   }
 
-  const aiBottom = FAB.whatsappBottom + FAB.size + FAB.gap;
-  const scrollTopBottom = aiBottom + FAB.size + FAB.gap;
-
   return (
     <>
-      {/* Floating WhatsApp — base of the FAB stack */}
       <a
         href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
         target="_blank"
@@ -387,7 +461,32 @@ export default function AiChat() {
         </svg>
       </a>
 
-      {/* Scroll to top — above the AI button */}
+      {/* Floating Call Now Button */}
+      <a
+        href={`tel:${getPhoneE164()}`}
+        style={{
+          position: 'fixed',
+          right: '24px',
+          bottom: callBottom,
+          width: '56px',
+          height: '56px',
+          borderRadius: '50%',
+          background: 'linear-gradient(135deg, rgba(56,189,248,0.92) 0%, rgba(14,165,233,0.95) 100%)',
+          boxShadow: '0 4px 18px rgba(14,165,233,0.45)',
+          border: '1px solid rgba(255,255,255,0.35)',
+          color: 'white',
+          zIndex: 1000,
+          textDecoration: 'none'
+        }}
+        aria-label="Call Now"
+        title="Call Now"
+        className="fab-call-btn flex items-center justify-center overflow-hidden lg:hidden animate-fab-expand"
+      >
+        <Phone className="w-5 h-5 flex-shrink-0" />
+        <span className="animate-fab-text font-bold text-sm">Call Now</span>
+      </a>
+
+      {/* Scroll to top — above the Call button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
@@ -400,6 +499,18 @@ export default function AiChat() {
             <polyline points="18 15 12 9 6 15"></polyline>
           </svg>
         </button>
+      )}
+
+      <style>{`
+        /* Keeping style block empty or just for future overrides */
+      `}</style>
+
+      {/* Floating Ask me bubble */}
+      {!isOpen && (
+        <div className="fab-ai-chat-bubble" style={{ bottom: aiBottom + 14 }}>
+          Ask me
+          <div className="fab-ai-bubble-arrow" />
+        </div>
       )}
 
       {/* QXL AI assistant FAB — same size/right edge as WhatsApp */}
@@ -516,19 +627,6 @@ export default function AiChat() {
 
           {/* Messages Area */}
           <div style={{ flex: 1, padding: '16px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px', backgroundColor: '#f0f9ff' }}>
-            {messages.length === 0 && (
-              <div style={{ textAlign: 'center', padding: '28px 12px 8px', color: '#475569' }}>
-                <div style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'linear-gradient(135deg,#2563eb,#0ea5e9)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px', color: 'white' }}>
-                  <QxlAiIcon size={30} />
-                </div>
-                <p style={{ fontSize: '13.5px', fontWeight: 700, color: '#0f2d5e', margin: '0 0 4px' }}>
-                  Hi{user?.name ? `, ${user.name.split(' ')[0]}` : ''}! How can I help?
-                </p>
-                <p style={{ fontSize: '12px', color: '#64748b', margin: 0, lineHeight: 1.5 }}>
-                  Ask about tests, packages, prices or centers — or upload a prescription/report for a quick summary.
-                </p>
-              </div>
-            )}
             {messages.map((msg, idx) => (
               <div key={msg.type === 'payment' && msg.paymentOrder ? `pay-${msg.paymentOrder.order_id}` : `msg-${idx}`} style={{
                 alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
@@ -563,8 +661,7 @@ export default function AiChat() {
                       }}
                     >
                       {msg.content
-                        // Model sometimes invents markdown "Pay Now" links; the real
-                        // Razorpay button is a separate payment bubble.
+                        // Strip any stray markdown pay links the model may generate.
                         .replace(/\[Pay[^\]]*\]\([^)]*\)/gi, '')
                         .replace(/\bPay Now\b/gi, '')
                         .trim() || ' '}
@@ -640,7 +737,7 @@ export default function AiChat() {
           )}
 
           {/* Prebuilt Questions */}
-          {messages.length === 0 && (
+          {messages.length === 1 && (
             <div style={{ padding: '10px 16px', display: 'flex', flexWrap: 'wrap', gap: '7px', backgroundColor: '#f0f9ff', borderTop: '1px solid #dbeafe' }}>
               {prebuiltQuestions.map((q, idx) => (
                 <button
@@ -685,21 +782,6 @@ export default function AiChat() {
                 <input type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,application/pdf,image/png,image/jpeg,image/webp" onChange={(e) => setSelectedFile(e.target.files?.[0] || null)} style={{ display: 'none' }} />
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
               </label>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setInput("Listening...");
-                  setTimeout(() => setInput("I have a fever, what test should I take?"), 1500);
-                }}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '8px', color: '#94a3b8', transition: 'color 0.2s', display: 'flex', alignItems: 'center' }}
-                onMouseOver={(e) => e.currentTarget.style.color = '#2563eb'}
-                onMouseOut={(e) => e.currentTarget.style.color = '#94a3b8'}
-                aria-label="Use voice input"
-                title="Voice input"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
-              </button>
 
               <input
                 type="text"
