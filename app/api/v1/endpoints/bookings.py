@@ -23,6 +23,8 @@ from app.schemas.booking import (
     BookingRead,
     BookingRescheduleRequest,
     BookingStatusUpdate,
+    PatientList,
+    PatientRead,
     ReceiptPaymentEntry,
 )
 from app.schemas.notification import NotificationList, NotifyRequest, NotificationRead
@@ -186,6 +188,24 @@ async def export_bookings_csv(
     )
 
 
+@router.get("/patients", response_model=PatientList)
+async def list_patients(
+    db: DbSession,
+    limit: int = Query(20, ge=1, le=100),
+    offset: int = Query(0, ge=0),
+    q: str | None = Query(None, description="Search name / phone / email"),
+    filter: str | None = Query(None, description="'new' | 'returning' | omit for all"),
+    user: User = Depends(require_role("staff")),
+) -> PatientList:
+    """Paginated distinct-patient list derived from bookings (by phone)."""
+    _ = user
+    kind = filter if filter in {"new", "returning"} else None
+    items, count = await booking_service.list_patients(
+        db, limit=limit, offset=offset, q=q, filter_kind=kind
+    )
+    return PatientList(items=[PatientRead(**row) for row in items], count=count)
+
+
 @router.get("/{booking_id}", response_model=BookingRead)
 async def get_my_booking(booking_id: uuid.UUID, db: DbSession, user: CurrentUser) -> BookingRead:
     booking = await booking_service.get_booking_for_user(db, booking_id, user)
@@ -196,12 +216,36 @@ async def get_my_booking(booking_id: uuid.UUID, db: DbSession, user: CurrentUser
 async def admin_list_bookings(
     db: DbSession,
     status: str | None = None,
-    limit: int = 100,
-    offset: int = 0,
+    statuses: str | None = Query(
+        None, description="Comma-separated status list, e.g. sample_collected,report_ready,completed"
+    ),
+    collection_type: str | None = Query(None, description="'home' | 'center'"),
+    visit_type: str | None = Query(None, description="'scheduled' | 'walk_in' | 'emergency'"),
+    date_from: str | None = Query(None, description="Preferred date lower bound YYYY-MM-DD"),
+    date_to: str | None = Query(None, description="Preferred date upper bound YYYY-MM-DD"),
+    q: str | None = Query(None, description="Search patient name / phone / email / test"),
+    limit: int = Query(20, ge=1, le=100),
+    offset: int = Query(0, ge=0),
     user: User = Depends(require_role("staff")),
 ) -> BookingList:
     _ = user
-    items, count = await booking_service.list_all_bookings(db, status=status, limit=limit, offset=offset)
+    status_list = [s.strip() for s in statuses.split(",") if s.strip()] if statuses else None
+    if collection_type and collection_type not in {"home", "center"}:
+        collection_type = None
+    if visit_type and visit_type not in {"scheduled", "walk_in", "emergency"}:
+        visit_type = None
+    items, count = await booking_service.list_all_bookings(
+        db,
+        status=status,
+        limit=limit,
+        offset=offset,
+        collection_type=collection_type,
+        statuses=status_list,
+        q=q,
+        visit_type=visit_type,
+        date_from=date_from,
+        date_to=date_to,
+    )
     return BookingList(items=[BookingRead.model_validate(b) for b in items], count=count)
 
 

@@ -265,9 +265,37 @@ async def list_all_bookings(
     offset: int,
     *,
     assigned_to_id: uuid.UUID | None = None,
+    collection_type: str | None = None,
+    statuses: list[str] | None = None,
+    q: str | None = None,
+    visit_type: str | None = None,
+    date_from: str | None = None,
+    date_to: str | None = None,
 ) -> tuple[list[Booking], int]:
     return await BookingRepository(db).list_all(
-        status=status, limit=limit, offset=offset, assigned_to_id=assigned_to_id
+        status=status,
+        limit=limit,
+        offset=offset,
+        assigned_to_id=assigned_to_id,
+        collection_type=collection_type,
+        statuses=statuses,
+        q=q,
+        visit_type=visit_type,
+        date_from=date_from,
+        date_to=date_to,
+    )
+
+
+async def list_patients(
+    db: AsyncSession,
+    *,
+    limit: int = 20,
+    offset: int = 0,
+    q: str | None = None,
+    filter_kind: str | None = None,
+) -> tuple[list[dict], int]:
+    return await BookingRepository(db).list_patients(
+        limit=limit, offset=offset, q=q, filter_kind=filter_kind
     )
 
 

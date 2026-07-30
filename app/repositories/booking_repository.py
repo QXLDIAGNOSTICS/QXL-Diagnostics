@@ -182,15 +182,47 @@ class BookingRepository:
         offset: int = 0,
         *,
         assigned_to_id: uuid.UUID | None = None,
+        collection_type: str | None = None,
+        statuses: list[str] | None = None,
+        q: str | None = None,
+        visit_type: str | None = None,
+        date_from: str | None = None,
+        date_to: str | None = None,
     ) -> tuple[list[Booking], int]:
         base = select(Booking).options(selectinload(Booking.assigned_staff))
         count_q = select(func.count()).select_from(Booking)
         if status:
             base = base.where(Booking.status == status)
             count_q = count_q.where(Booking.status == status)
+        elif statuses:
+            base = base.where(Booking.status.in_(statuses))
+            count_q = count_q.where(Booking.status.in_(statuses))
         if assigned_to_id is not None:
             base = base.where(Booking.assigned_to_id == assigned_to_id)
             count_q = count_q.where(Booking.assigned_to_id == assigned_to_id)
+        if collection_type:
+            base = base.where(Booking.collection_type == collection_type)
+            count_q = count_q.where(Booking.collection_type == collection_type)
+        if visit_type:
+            base = base.where(Booking.visit_type == visit_type)
+            count_q = count_q.where(Booking.visit_type == visit_type)
+        if date_from:
+            base = base.where(Booking.preferred_date >= date_from)
+            count_q = count_q.where(Booking.preferred_date >= date_from)
+        if date_to:
+            base = base.where(Booking.preferred_date <= date_to)
+            count_q = count_q.where(Booking.preferred_date <= date_to)
+        if q:
+            like = f"%{q.strip()}%"
+            text_filter = (
+                Booking.patient_name.ilike(like)
+                | Booking.patient_phone.ilike(like)
+                | Booking.patient_email.ilike(like)
+                | Booking.test_name.ilike(like)
+                | Booking.collection_address.ilike(like)
+            )
+            base = base.where(text_filter)
+            count_q = count_q.where(text_filter)
         count = (await self.db.execute(count_q)).scalar_one()
         rows = list(
             (
@@ -200,6 +232,114 @@ class BookingRepository:
             ).scalars().all()
         )
         return rows, count
+
+    async def status_counts(self) -> dict[str, int]:
+        rows = (
+            await self.db.execute(select(Booking.status, func.count()).group_by(Booking.status))
+        ).all()
+        return {str(status): int(n) for status, n in rows}
+
+    async def list_patients(
+        self,
+        *,
+        limit: int = 20,
+        offset: int = 0,
+        q: str | None = None,
+        filter_kind: str | None = None,
+    ) -> tuple[list[dict], int]:
+        """Aggregate distinct patients (by phone) from bookings, paginated.
+
+        Each row includes visit count + latest booking metadata so the admin
+        Patients page doesn't have to pull every booking into the browser.
+        """
+        # Subquery: one aggregate row per phone.
+        agg = (
+            select(
+                Booking.patient_phone.label("phone"),
+                func.count().label("visits"),
+                func.max(Booking.created_at).label("last_created"),
+            )
+            .group_by(Booking.patient_phone)
+            .subquery()
+        )
+
+        # Join back to the most-recent booking for display fields.
+        latest = (
+            select(Booking)
+            .join(
+                agg,
+                (Booking.patient_phone == agg.c.phone) & (Booking.created_at == agg.c.last_created),
+            )
+            .subquery()
+        )
+
+        base = (
+            select(
+                latest.c.patient_name,
+                latest.c.patient_phone,
+                latest.c.patient_email,
+                latest.c.patient_age,
+                latest.c.patient_gender,
+                agg.c.visits,
+                latest.c.preferred_date,
+                latest.c.created_at,
+            )
+            .select_from(agg.join(latest, agg.c.phone == latest.c.patient_phone))
+        )
+        count_q = select(func.count()).select_from(agg)
+
+        if q:
+            like = f"%{q.strip()}%"
+            text_filter = (
+                (latest.c.patient_name.ilike(like))
+                | (latest.c.patient_phone.ilike(like))
+                | (latest.c.patient_email.ilike(like))
+            )
+            base = base.where(text_filter)
+            # count needs the same join when filtering by name/email
+            count_q = (
+                select(func.count())
+                .select_from(agg.join(latest, agg.c.phone == latest.c.patient_phone))
+                .where(text_filter)
+            )
+
+        if filter_kind == "new":
+            base = base.where(agg.c.visits == 1)
+            if q:
+                count_q = count_q.where(agg.c.visits == 1)
+            else:
+                count_q = select(func.count()).select_from(agg).where(agg.c.visits == 1)
+        elif filter_kind == "returning":
+            base = base.where(agg.c.visits >= 2)
+            if q:
+                count_q = count_q.where(agg.c.visits >= 2)
+            else:
+                count_q = select(func.count()).select_from(agg).where(agg.c.visits >= 2)
+
+        count = (await self.db.execute(count_q)).scalar_one()
+        rows = (
+            await self.db.execute(
+                base.order_by(agg.c.last_created.desc()).limit(limit).offset(offset)
+            )
+        ).all()
+
+        items: list[dict] = []
+        for row in rows:
+            items.append(
+                {
+                    "patient_name": row.patient_name,
+                    "patient_phone": row.patient_phone,
+                    "patient_email": row.patient_email,
+                    "patient_age": row.patient_age,
+                    "patient_gender": row.patient_gender,
+                    "visits": int(row.visits),
+                    "last_date": row.preferred_date or (
+                        row.created_at.date().isoformat() if row.created_at else None
+                    ),
+                    "last_booking_at": row.created_at,
+                }
+            )
+        return items, int(count)
 
     async def update_status(self, booking: Booking, status: str) -> Booking:
         booking.status = status

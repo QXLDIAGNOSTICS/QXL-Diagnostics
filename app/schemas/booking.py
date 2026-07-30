@@ -178,6 +178,22 @@ class BookingList(BaseModel):
     count: int
 
 
+class PatientRead(BaseModel):
+    patient_name: str
+    patient_phone: str
+    patient_email: str | None = None
+    patient_age: int | None = None
+    patient_gender: str | None = None
+    visits: int
+    last_date: str | None = None
+    last_booking_at: datetime | None = None
+
+
+class PatientList(BaseModel):
+    items: list[PatientRead]
+    count: int
+
+
 class ReceiptPaymentEntry(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: uuid.UUID

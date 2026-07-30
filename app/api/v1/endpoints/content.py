@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import uuid
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
 
 from app.api.deps import DbSession, require_role
 from app.models.user import User
@@ -123,7 +123,10 @@ async def list_blog_posts(db: DbSession, limit: int = 50, offset: int = 0) -> Bl
 
 @router.get("/blog/admin", response_model=BlogPostList)
 async def admin_list_blog_posts(
-    db: DbSession, limit: int = 100, offset: int = 0, user: User = Depends(require_role("admin"))
+    db: DbSession,
+    limit: int = Query(20, ge=1, le=100),
+    offset: int = Query(0, ge=0),
+    user: User = Depends(require_role("admin")),
 ) -> BlogPostList:
     items, count = await content_service.list_all_posts(db, limit=limit, offset=offset)
     return BlogPostList(items=[BlogPostRead.model_validate(p) for p in items], count=count)
@@ -199,7 +202,10 @@ async def list_reviews(db: DbSession, limit: int = 20, offset: int = 0) -> Revie
 
 @router.get("/reviews/admin", response_model=ReviewList)
 async def admin_list_reviews(
-    db: DbSession, limit: int = 100, offset: int = 0, user: User = Depends(require_role("admin"))
+    db: DbSession,
+    limit: int = Query(20, ge=1, le=100),
+    offset: int = Query(0, ge=0),
+    user: User = Depends(require_role("admin")),
 ) -> ReviewList:
     items, count = await content_service.list_all_reviews(db, limit=limit, offset=offset)
     return ReviewList(items=[ReviewRead.model_validate(r) for r in items], count=count)
