@@ -5,13 +5,17 @@ import { MessageSquare, Plus, Search, Edit2, Trash2, X, Sparkles, Loader2, Eye, 
 import { api, type BlogPost } from "@/lib/api";
 import { aiHelper } from "@/lib/aiHelper";
 import ImageUploadField from "@/components/admin/ImageUploadField";
+import PaginationBar from "@/components/admin/PaginationBar";
 
 export default function BlogAdminPage() {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
 
@@ -32,18 +36,23 @@ export default function BlogAdminPage() {
     setLoading(true);
     setError(null);
     try {
-      const { items } = await api.blog.adminList(200, 0);
+      const { items, count } = await api.blog.adminList(pageSize, (page - 1) * pageSize);
       setBlogs(items);
+      setTotalCount(count);
     } catch {
       setError("Failed to load blog articles.");
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [page, pageSize]);
 
   useEffect(() => {
     refreshData();
   }, [refreshData]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [pageSize]);
 
   const openAddModal = () => {
     setEditingId(null);
@@ -185,7 +194,7 @@ export default function BlogAdminPage() {
             />
           </div>
           <div className="text-sm text-gray-500 dark:text-gray-400">
-            Showing {filtered.length} articles
+            {totalCount} articles
           </div>
         </div>
 
@@ -245,6 +254,14 @@ export default function BlogAdminPage() {
             ))}
           </div>
         )}
+        <PaginationBar
+          page={page}
+          pageSize={pageSize}
+          total={totalCount}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+          disabled={loading}
+        />
       </div>
 
       {/* Editor Modal */}

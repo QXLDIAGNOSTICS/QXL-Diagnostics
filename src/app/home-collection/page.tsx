@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Truck, Plus, Search, X, Check, MapPin, Calendar, Ban, Loader2 } from "lucide-react";
 import { api, type Booking, type HealthPackage, type TestCatalogItem } from "@/lib/api";
+import PaginationBar from "@/components/admin/PaginationBar";
 
 const STATUS_STYLES: Record<string, string> = {
   pending: "bg-orange-100 text-orange-700",
@@ -15,15 +16,18 @@ const STATUS_STYLES: Record<string, string> = {
 
 export default function HomeCollectionPage() {
   const [homeCollections, setHomeCollections] = useState<Booking[]>([]);
+  const [totalCount, setTotalCount] = useState(0);
   const [packages, setPackages] = useState<HealthPackage[]>([]);
   const [tests, setTests] = useState<TestCatalogItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Form states
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
@@ -33,16 +37,31 @@ export default function HomeCollectionPage() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("09:00 AM");
 
+  useEffect(() => {
+    const t = setTimeout(() => setDebouncedSearch(searchQuery.trim()), 300);
+    return () => clearTimeout(t);
+  }, [searchQuery]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [debouncedSearch, pageSize]);
+
   const refreshData = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
       const [bookingsRes, packagesRes, testsRes] = await Promise.all([
-        api.bookings.adminList(undefined, 200, 0),
+        api.bookings.adminList({
+          collection_type: "home",
+          q: debouncedSearch || undefined,
+          limit: pageSize,
+          offset: (page - 1) * pageSize,
+        }),
         api.packages.list(),
         api.tests.list(),
       ]);
-      setHomeCollections(bookingsRes.items.filter((b) => b.collection_type === "home"));
+      setHomeCollections(bookingsRes.items);
+      setTotalCount(bookingsRes.count);
       setPackages(packagesRes);
       setTests(testsRes);
     } catch {
@@ -50,7 +69,7 @@ export default function HomeCollectionPage() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [debouncedSearch, page, pageSize]);
 
   useEffect(() => {
     refreshData();
@@ -105,27 +124,21 @@ export default function HomeCollectionPage() {
     }
   };
 
-  const filtered = homeCollections.filter(
-    (hc) =>
-      hc.patient_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (hc.collection_address || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (hc.test_name || "").toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   return (
     <div className="space-y-6">
-      
-      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
             <Truck className="w-6 h-6 text-sky-600 dark:text-sky-400" />
             Home Collections
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">Coordinate phlebotomist visits, sample collections, patient addresses, and update processing statuses.</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">
+            Coordinate phlebotomist visits, sample collections, patient addresses, and update processing
+            statuses.
+          </p>
         </div>
-        
-        <button 
+
+        <button
           onClick={openAddModal}
           className="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg transition-colors flex items-center gap-2 text-sm font-medium shadow-sm cursor-pointer"
         >
@@ -140,35 +153,34 @@ export default function HomeCollectionPage() {
         </div>
       )}
 
-      {/* Main Table */}
       <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
-        
         <div className="p-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
           <div className="relative max-w-sm w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-            <input 
-              type="text" 
-              placeholder="Search address or patient..." 
+            <input
+              type="text"
+              placeholder="Search address or patient..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-4 py-2 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-slate-800 dark:text-slate-100"
             />
           </div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            Showing {filtered.length} scheduled visits
-          </div>
+          <div className="text-sm text-gray-500 dark:text-gray-400">{totalCount} scheduled visits</div>
         </div>
 
         {loading ? (
           <div className="p-12 flex items-center justify-center text-gray-400">
             <Loader2 className="w-6 h-6 animate-spin" />
           </div>
-        ) : filtered.length === 0 ? (
+        ) : homeCollections.length === 0 ? (
           <div className="p-12 text-center flex flex-col items-center justify-center">
             <Truck className="w-12 h-12 text-gray-300 mb-3" />
             <h3 className="text-base font-semibold text-gray-955 dark:text-white">No collections scheduled</h3>
             <p className="text-sm text-gray-500 max-w-xs mt-1 mb-4">Add your home visits coordinator data here.</p>
-            <button onClick={openAddModal} className="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-lg cursor-pointer">
+            <button
+              onClick={openAddModal}
+              className="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold rounded-lg cursor-pointer"
+            >
               Schedule First Visit
             </button>
           </div>
@@ -186,7 +198,7 @@ export default function HomeCollectionPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 dark:divide-gray-800 text-xs">
-                {filtered.map((hc) => (
+                {homeCollections.map((hc) => (
                   <tr key={hc.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-950/10">
                     <td className="px-6 py-4 font-extrabold text-slate-900 dark:text-white">
                       <div>{hc.patient_name}</div>
@@ -204,13 +216,17 @@ export default function HomeCollectionPage() {
                       {hc.preferred_date || "—"}
                     </td>
                     <td className="px-6 py-4">
-                      <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase ${STATUS_STYLES[hc.status] || "bg-gray-100 text-gray-700"}`}>
+                      <span
+                        className={`px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase ${
+                          STATUS_STYLES[hc.status] || "bg-gray-100 text-gray-700"
+                        }`}
+                      >
                         {hc.status.replace("_", " ")}
                       </span>
                     </td>
                     <td className="px-6 py-4 text-right flex items-center justify-end gap-1.5 mt-1.5">
                       {hc.status !== "completed" && hc.status !== "cancelled" && (
-                        <button 
+                        <button
                           onClick={() => updateStatus(hc.id, "completed")}
                           className="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-md cursor-pointer"
                           title="Complete collection"
@@ -219,7 +235,7 @@ export default function HomeCollectionPage() {
                         </button>
                       )}
                       {hc.status !== "completed" && hc.status !== "cancelled" && (
-                        <button 
+                        <button
                           onClick={() => updateStatus(hc.id, "cancelled")}
                           className="p-1.5 text-slate-400 hover:text-red-650 hover:bg-red-50 rounded-md cursor-pointer"
                           title="Cancel collection"
@@ -234,16 +250,21 @@ export default function HomeCollectionPage() {
             </table>
           </div>
         )}
+        <PaginationBar
+          page={page}
+          pageSize={pageSize}
+          total={totalCount}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+          disabled={loading}
+        />
       </div>
 
-      {/* Editor Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/55 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in duration-200">
           <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-md w-full shadow-2xl border border-gray-150 dark:border-gray-800 overflow-hidden">
             <div className="p-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
-              <h3 className="text-base font-bold text-gray-900 dark:text-white">
-                Schedule collection details
-              </h3>
+              <h3 className="text-base font-bold text-gray-900 dark:text-white">Schedule collection details</h3>
               <button onClick={() => setIsModalOpen(false)} className="p-2 text-gray-400 hover:text-gray-650 rounded-lg">
                 <X className="w-5 h-5" />
               </button>
@@ -252,36 +273,36 @@ export default function HomeCollectionPage() {
             <form onSubmit={handleSave} className="p-6 space-y-4">
               <div>
                 <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Patient Name</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   required
-                  value={name} 
-                  onChange={(e) => setName(e.target.value)} 
-                  placeholder="Karan Johar" 
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Karan Johar"
                   className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Contact Phone</label>
-                <input 
-                  type="tel" 
+                <input
+                  type="tel"
                   required
-                  value={phone} 
-                  onChange={(e) => setPhone(e.target.value)} 
-                  placeholder="9911882277" 
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="9911882277"
                   className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Full Home Address</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   required
-                  value={address} 
-                  onChange={(e) => setAddress(e.target.value)} 
-                  placeholder="Flat 402, Oakwood Apts, Indiranagar, Bengaluru" 
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="Flat 402, Oakwood Apts, Indiranagar, Bengaluru"
                   className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none"
                 />
               </div>
@@ -292,14 +313,22 @@ export default function HomeCollectionPage() {
                   <button
                     type="button"
                     onClick={() => setBookingType("package")}
-                    className={`flex-1 px-3 py-2 text-xs font-bold rounded-lg cursor-pointer ${bookingType === "package" ? "bg-sky-600 text-white" : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"}`}
+                    className={`flex-1 px-3 py-2 text-xs font-bold rounded-lg cursor-pointer ${
+                      bookingType === "package"
+                        ? "bg-sky-600 text-white"
+                        : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+                    }`}
                   >
                     Health Package
                   </button>
                   <button
                     type="button"
                     onClick={() => setBookingType("test")}
-                    className={`flex-1 px-3 py-2 text-xs font-bold rounded-lg cursor-pointer ${bookingType === "test" ? "bg-sky-600 text-white" : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"}`}
+                    className={`flex-1 px-3 py-2 text-xs font-bold rounded-lg cursor-pointer ${
+                      bookingType === "test"
+                        ? "bg-sky-600 text-white"
+                        : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+                    }`}
                   >
                     Individual Test
                   </button>
@@ -313,7 +342,9 @@ export default function HomeCollectionPage() {
                   >
                     <option value="">Select a package…</option>
                     {packages.map((p) => (
-                      <option key={p.id} value={p.id}>{p.name} — ₹{p.price}</option>
+                      <option key={p.id} value={p.id}>
+                        {p.name} — ₹{p.price}
+                      </option>
                     ))}
                   </select>
                 ) : (
@@ -325,7 +356,10 @@ export default function HomeCollectionPage() {
                   >
                     <option value="">Select a test…</option>
                     {tests.map((t) => (
-                      <option key={t.id} value={t.id}>{t.name}{t.price ? ` — ₹${t.price}` : ""}</option>
+                      <option key={t.id} value={t.id}>
+                        {t.name}
+                        {t.price ? ` — ₹${t.price}` : ""}
+                      </option>
                     ))}
                   </select>
                 )}
@@ -356,15 +390,15 @@ export default function HomeCollectionPage() {
               </div>
 
               <div className="pt-4 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-800">
-                <button 
-                  type="button" 
-                  onClick={() => setIsModalOpen(false)} 
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(false)}
                   className="px-4 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 text-xs font-medium cursor-pointer"
                 >
                   Cancel
                 </button>
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   disabled={saving}
                   className="px-5 py-2 bg-sky-600 hover:bg-sky-700 disabled:opacity-60 text-white rounded-lg text-xs font-medium shadow-sm cursor-pointer flex items-center gap-2"
                 >
@@ -376,7 +410,6 @@ export default function HomeCollectionPage() {
           </div>
         </div>
       )}
-
     </div>
   );
 }

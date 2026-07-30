@@ -213,6 +213,37 @@ export interface AppointmentDashboardStats {
   revenue_today_paise?: number;
   outstanding_paise?: number;
   paid_bookings?: number;
+  status_counts?: Record<string, number>;
+}
+
+export interface BookingAdminListParams {
+  status?: string;
+  statuses?: string;
+  collection_type?: 'home' | 'center';
+  visit_type?: string;
+  date_from?: string;
+  date_to?: string;
+  q?: string;
+  limit?: number;
+  offset?: number;
+}
+
+export interface PatientSummary {
+  patient_name: string;
+  patient_phone: string;
+  patient_email: string | null;
+  patient_age: number | null;
+  patient_gender: string | null;
+  visits: number;
+  last_date: string | null;
+  last_booking_at: string | null;
+}
+
+export interface PatientListParams {
+  limit?: number;
+  offset?: number;
+  q?: string;
+  filter?: 'new' | 'returning';
 }
 
 export interface AppointmentLiveStats {
@@ -841,10 +872,31 @@ export const api = {
   bookings: {
     create: (data: BookingCreate) => post<Booking>('/bookings', data),
     mine: () => get<{ items: Booking[]; count: number }>('/bookings/me'),
-    adminList: (status?: string, limit = 100, offset = 0) =>
-      get<{ items: Booking[]; count: number }>(
-        `/bookings?limit=${limit}&offset=${offset}${status ? `&status=${encodeURIComponent(status)}` : ''}`
-      ),
+    adminList: (statusOrParams?: string | BookingAdminListParams, limit = 20, offset = 0) => {
+      const params: BookingAdminListParams =
+        typeof statusOrParams === 'object' && statusOrParams !== null
+          ? statusOrParams
+          : { status: statusOrParams, limit, offset };
+      const qs = new URLSearchParams();
+      qs.set('limit', String(params.limit ?? 20));
+      qs.set('offset', String(params.offset ?? 0));
+      if (params.status) qs.set('status', params.status);
+      if (params.statuses) qs.set('statuses', params.statuses);
+      if (params.collection_type) qs.set('collection_type', params.collection_type);
+      if (params.visit_type) qs.set('visit_type', params.visit_type);
+      if (params.date_from) qs.set('date_from', params.date_from);
+      if (params.date_to) qs.set('date_to', params.date_to);
+      if (params.q) qs.set('q', params.q);
+      return get<{ items: Booking[]; count: number }>(`/bookings?${qs.toString()}`);
+    },
+    patients: (params: PatientListParams = {}) => {
+      const qs = new URLSearchParams();
+      qs.set('limit', String(params.limit ?? 20));
+      qs.set('offset', String(params.offset ?? 0));
+      if (params.q) qs.set('q', params.q);
+      if (params.filter) qs.set('filter', params.filter);
+      return get<{ items: PatientSummary[]; count: number }>(`/bookings/patients?${qs.toString()}`);
+    },
     updateStatus: (id: string, status: string) => patch<Booking>(`/bookings/${id}/status`, { status }),
     update: (id: string, data: BookingAdminUpdate) => patch<Booking>(`/bookings/${id}`, data),
     remove: (id: string) => del<void>(`/bookings/${id}`),

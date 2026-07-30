@@ -44,6 +44,7 @@ import {
 import { useAuth } from "@/lib/useAuth";
 import { canDeleteAppointments, canExportAppointments, hasPermission, isAdmin } from "@/lib/roles";
 import AutomationRules from "@/components/admin/AutomationRules";
+import PaginationBar from "@/components/admin/PaginationBar";
 
 const STATUS_OPTIONS = [
   "pending",
@@ -184,11 +185,15 @@ export default function AppointmentsPage() {
   const [pageTab, setPageTab] = useState<"dashboard" | "list" | "automation">("dashboard");
 
   const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [visitTypeFilter, setVisitTypeFilter] = useState<string>("all");
   const [dateFilter, setDateFilter] = useState<"all" | "today" | "yesterday" | "tomorrow" | "week" | "month">("all");
   const [sortKey, setSortKey] = useState<SortKey>("created_at");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [totalCount, setTotalCount] = useState(0);
 
   const [detail, setDetail] = useState<Booking | null>(null);
   const [editing, setEditing] = useState(false);
@@ -241,38 +246,6 @@ export default function AppointmentsPage() {
   const [reschedTime, setReschedTime] = useState("");
   const [reschedNotify, setReschedNotify] = useState(true);
 
-  const refreshData = useCallback(async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const [bookingsRes, packagesRes, testsRes, statsRes] = await Promise.all([
-        api.bookings.adminList(undefined, 500, 0),
-        api.packages.list(),
-        api.tests.list(),
-        api.bookings.stats().catch(() => null),
-      ]);
-      setAppointments(bookingsRes.items);
-      setPackages(packagesRes);
-      setTests(testsRes);
-      setStats(statsRes);
-    } catch {
-      setError("Could not load appointments. Please refresh.");
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    refreshData();
-  }, [refreshData]);
-
-  const counts = useMemo(() => {
-    const c: Record<string, number> = { all: appointments.length };
-    for (const s of STATUS_OPTIONS) c[s] = 0;
-    for (const a of appointments) c[a.status] = (c[a.status] || 0) + 1;
-    return c;
-  }, [appointments]);
-
   const todayStr = useMemo(() => new Date().toISOString().split("T")[0], []);
 
   const dateRangeFor = useCallback(
@@ -304,35 +277,88 @@ export default function AppointmentsPage() {
     []
   );
 
-  const filtered = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase();
-    const range = dateRangeFor(dateFilter);
-    let rows = appointments.filter((apt) => {
-      if (statusFilter !== "all" && apt.status !== statusFilter) return false;
-      if (visitTypeFilter !== "all" && apt.visit_type !== visitTypeFilter) return false;
-      if (range && apt.preferred_date) {
-        if (apt.preferred_date < range[0] || apt.preferred_date > range[1]) return false;
-      } else if (range && !apt.preferred_date) {
-        return false;
-      }
-      if (!q) return true;
-      return (
-        apt.patient_name.toLowerCase().includes(q) ||
-        apt.patient_phone.includes(q) ||
-        (apt.patient_email || "").toLowerCase().includes(q) ||
-        (apt.test_name || "").toLowerCase().includes(q) ||
-        apt.id.toLowerCase().includes(q)
-      );
-    });
+  useEffect(() => {
+    const t = setTimeout(() => setDebouncedSearch(searchQuery.trim()), 300);
+    return () => clearTimeout(t);
+  }, [searchQuery]);
 
-    rows = [...rows].sort((a, b) => {
+  useEffect(() => {
+    setPage(1);
+  }, [debouncedSearch, statusFilter, visitTypeFilter, dateFilter, pageSize]);
+
+  const loadMeta = useCallback(async () => {
+    try {
+      const [packagesRes, testsRes, statsRes] = await Promise.all([
+        api.packages.list(),
+        api.tests.list(),
+        api.bookings.stats().catch(() => null),
+      ]);
+      setPackages(packagesRes);
+      setTests(testsRes);
+      setStats(statsRes);
+    } catch {
+      /* list load will surface errors */
+    }
+  }, []);
+
+  const refreshData = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const range = dateRangeFor(dateFilter);
+      const [bookingsRes, packagesRes, testsRes, statsRes] = await Promise.all([
+        api.bookings.adminList({
+          status: statusFilter === "all" ? undefined : statusFilter,
+          visit_type: visitTypeFilter === "all" ? undefined : visitTypeFilter,
+          date_from: range?.[0],
+          date_to: range?.[1],
+          q: debouncedSearch || undefined,
+          limit: pageSize,
+          offset: (page - 1) * pageSize,
+        }),
+        api.packages.list(),
+        api.tests.list(),
+        api.bookings.stats().catch(() => null),
+      ]);
+      setAppointments(bookingsRes.items);
+      setTotalCount(bookingsRes.count);
+      setPackages(packagesRes);
+      setTests(testsRes);
+      setStats(statsRes);
+    } catch {
+      setError("Could not load appointments. Please refresh.");
+    } finally {
+      setLoading(false);
+    }
+  }, [dateFilter, dateRangeFor, debouncedSearch, page, pageSize, statusFilter, visitTypeFilter]);
+
+  useEffect(() => {
+    loadMeta();
+  }, [loadMeta]);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
+
+  const counts = useMemo(() => {
+    const sc = stats?.dashboard?.status_counts || {};
+    const c: Record<string, number> = {
+      all: stats?.dashboard?.total_appointments ?? Object.values(sc).reduce((a, b) => a + b, 0),
+    };
+    for (const s of STATUS_OPTIONS) c[s] = sc[s] || 0;
+    return c;
+  }, [stats]);
+
+  const filtered = useMemo(() => {
+    const rows = [...appointments];
+    rows.sort((a, b) => {
       const dir = sortDir === "asc" ? 1 : -1;
       const av = (a[sortKey] || "") as string;
       const bv = (b[sortKey] || "") as string;
       return av.localeCompare(bv, undefined, { sensitivity: "base", numeric: true }) * dir;
     });
     return rows;
-  }, [appointments, searchQuery, statusFilter, visitTypeFilter, dateFilter, dateRangeFor, sortKey, sortDir]);
+  }, [appointments, sortKey, sortDir]);
 
   const toggleSort = (key: SortKey) => {
     if (sortKey === key) setSortDir((d) => (d === "asc" ? "desc" : "asc"));
@@ -862,8 +888,7 @@ export default function AppointmentsPage() {
               <option value="month">This month</option>
             </select>
             <p className="text-sm text-gray-500 dark:text-gray-400 shrink-0">
-              Showing <strong className="text-slate-700 dark:text-slate-200">{filtered.length}</strong> of{" "}
-              {appointments.length}
+              <strong className="text-slate-700 dark:text-slate-200">{totalCount}</strong> matching
             </p>
           </div>
         </div>
@@ -1074,6 +1099,14 @@ export default function AppointmentsPage() {
             </table>
           </div>
         )}
+        <PaginationBar
+          page={page}
+          pageSize={pageSize}
+          total={totalCount}
+          onPageChange={setPage}
+          onPageSizeChange={setPageSize}
+          disabled={loading}
+        />
       </div>
       </>
       )}

@@ -3,13 +3,17 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Star, Plus, Search, Trash2, Edit2, X, MessageSquare, Loader2 } from "lucide-react";
 import { api, type ReviewItem } from "@/lib/api";
+import PaginationBar from "@/components/admin/PaginationBar";
 
 export default function ReviewsPage() {
   const [reviews, setReviews] = useState<ReviewItem[]>([]);
+  const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
 
@@ -23,18 +27,23 @@ export default function ReviewsPage() {
     setLoading(true);
     setError(null);
     try {
-      const data = await api.reviews.adminList(200, 0);
+      const data = await api.reviews.adminList(pageSize, (page - 1) * pageSize);
       setReviews(data.items);
+      setTotalCount(data.count);
     } catch {
       setError("Failed to load reviews.");
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [page, pageSize]);
 
   useEffect(() => {
     refreshData();
   }, [refreshData]);
+
+  useEffect(() => {
+    setPage(1);
+  }, [pageSize]);
 
   const openAddModal = () => {
     setEditingId(null);
@@ -151,7 +160,7 @@ export default function ReviewsPage() {
           />
         </div>
         <div className="text-sm text-gray-500 dark:text-gray-400 font-bold">
-          Total reviews: {filtered.length}
+          Total reviews: {totalCount}
         </div>
       </div>
 
@@ -170,6 +179,7 @@ export default function ReviewsPage() {
           </button>
         </div>
       ) : (
+        <div className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((rev) => (
             <div key={rev.id} className="bg-white dark:bg-gray-900 border border-gray-150 dark:border-gray-800 rounded-2xl p-5 flex flex-col justify-between shadow-sm relative">
@@ -233,6 +243,17 @@ export default function ReviewsPage() {
               </div>
             </div>
           ))}
+        </div>
+        <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-150 dark:border-gray-800 shadow-sm overflow-hidden">
+          <PaginationBar
+            page={page}
+            pageSize={pageSize}
+            total={totalCount}
+            onPageChange={setPage}
+            onPageSizeChange={setPageSize}
+            disabled={loading}
+          />
+        </div>
         </div>
       )}
 
