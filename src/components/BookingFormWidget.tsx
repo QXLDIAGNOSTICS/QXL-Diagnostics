@@ -381,8 +381,8 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
           package_id: (!isLocalFallback && item.kind === 'package') ? item.id : undefined,
           collection_type: formData.collectionType,
           collection_address: formData.collectionType === 'home' ? formData.address || undefined : undefined,
-          preferred_date: formData.date || undefined,
-          preferred_time: formData.time || undefined,
+          preferred_date: formData.date,
+          preferred_time: formData.time,
         });
         created.push(booking);
       }

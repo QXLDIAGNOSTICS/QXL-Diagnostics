@@ -184,6 +184,7 @@ export default function AppointmentPage() {
         patient_email: email,
         test_name: selectedTest,
         preferred_date: preferredDate,
+        preferred_time: preferredTime,
         collection_type: collectionType,
         collection_address: address || "Center Visit",
       });
