@@ -295,58 +295,53 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.deferredPWAInstallPrompt = null;
-              window.addEventListener('beforeinstallprompt', (e) => {
-                e.preventDefault();
-                window.deferredPWAInstallPrompt = e;
-              });
-            `
-          }}
-        />
+        <Script id="pwa-init">
+          {`
+            window.deferredPWAInstallPrompt = null;
+            window.addEventListener('beforeinstallprompt', (e) => {
+              e.preventDefault();
+              window.deferredPWAInstallPrompt = e;
+            });
+          `}
+        </Script>
         {/* ── Google Translate: define init callback BEFORE the script loads ── */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.googleTranslateElementInit = function() {
-                try {
-                  new window.google.translate.TranslateElement(
-                    {
-                      pageLanguage: 'en',
-                      includedLanguages: 'en,hi,kn,ta,te,ml',
-                      layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-                      autoDisplay: false,
-                      multilanguagePage: false,
-                    },
-                    'google_translate_element'
-                  );
-                  // Apply the stored language preference
-                  var saved = '';
-                  try { saved = localStorage.getItem('qxl_language') || 'en'; } catch(e){}
-                  if (saved && saved !== 'en') {
-                    var apply = function(retries) {
-                      var sel = document.querySelector('.goog-te-combo');
-                      if (sel) {
-                        sel.value = saved;
-                        sel.dispatchEvent(new Event('change'));
-                      } else if (retries > 0) {
-                        setTimeout(function(){ apply(retries - 1); }, 250);
-                      }
-                    };
-                    setTimeout(function(){ apply(12); }, 400);
-                  }
-                } catch(e) { console.warn('Google Translate init failed', e); }
-              };
-            `
-          }}
-        />
+        <Script id="google-translate-init">
+          {`
+            window.googleTranslateElementInit = function() {
+              try {
+                new window.google.translate.TranslateElement(
+                  {
+                    pageLanguage: 'en',
+                    includedLanguages: 'en,hi,kn,ta,te,ml',
+                    layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+                    autoDisplay: false,
+                    multilanguagePage: false,
+                  },
+                  'google_translate_element'
+                );
+                // Apply the stored language preference
+                var saved = '';
+                try { saved = localStorage.getItem('qxl_language') || 'en'; } catch(e){}
+                if (saved && saved !== 'en') {
+                  var apply = function(retries) {
+                    var sel = document.querySelector('.goog-te-combo');
+                    if (sel) {
+                      sel.value = saved;
+                      sel.dispatchEvent(new Event('change'));
+                    } else if (retries > 0) {
+                      setTimeout(function(){ apply(retries - 1); }, 250);
+                    }
+                  };
+                  setTimeout(function(){ apply(12); }, 400);
+                }
+              } catch(e) { console.warn('Google Translate init failed', e); }
+            };
+          `}
+        </Script>
         {/* ── Load Google Translate widget ── */}
-        {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
-        <script
+        <Script
+          id="google-translate-script"
           src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-          async
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

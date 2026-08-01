@@ -7,6 +7,7 @@ export default function CallbackModal() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   useEffect(() => {
@@ -36,17 +37,16 @@ export default function CallbackModal() {
     e.preventDefault();
     if (!name.trim() || !phone.trim()) return;
     setStatus("loading");
-    try {
-      await api.leads.contact({
-        name: name.trim(),
-        phone: phone.trim(),
-        subject: "Request a Call Back",
-        message: `${name.trim()} has requested a call back on ${phone.trim()}.`,
-      });
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
+    
+    const textMsg = `*Request a Call Back*
+*Name:* ${name.trim()}
+*Phone:* ${phone.trim()}
+*Message:* ${message.trim() || 'Please call me back.'}`;
+    
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=919964639639&text=${encodeURIComponent(textMsg)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    setStatus("success");
   };
 
   if (!open) return null;
@@ -139,7 +139,7 @@ export default function CallbackModal() {
                     required
                     placeholder="e.g. Rahul Sharma"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value.replace(/[^a-zA-Z\s]/g, ''))}
                     className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium"
                   />
                 </div>
@@ -163,8 +163,30 @@ export default function CallbackModal() {
                     required
                     placeholder="9964 639 639"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
                     className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium"
+                  />
+                </div>
+              </div>
+
+              {/* Message field */}
+              <div>
+                <label className="text-[10px] font-bold text-[#0f2d5e] block mb-1">Message (Optional)</label>
+                <div
+                  className="flex items-start gap-2 rounded-[14px] px-3 py-2.5"
+                  style={{
+                    background: "rgba(255,255,255,0.7)",
+                    backdropFilter: "blur(12px)",
+                    border: "1.5px solid rgba(125,199,232,0.45)",
+                    boxShadow: "0 2px 12px rgba(14,165,233,0.08), inset 0 1px 0 rgba(255,255,255,0.9)",
+                  }}
+                >
+                  <textarea
+                    rows={2}
+                    placeholder="Any specific requirements?"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium resize-none"
                   />
                 </div>
               </div>

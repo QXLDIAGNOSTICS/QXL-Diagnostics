@@ -66,11 +66,11 @@ export default function InstallPrompt() {
   return (
     <button
       onClick={handleInstallClick}
-      className="w-full min-h-[48px] px-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 text-sm font-extrabold text-white"
+      className={`w-full min-h-[48px] px-4 rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm active:scale-95 text-sm font-extrabold ${status === 'success' ? 'text-white' : 'text-[#0369a1] bg-[#f0f9ff] hover:bg-[#e0f2fe]'}`}
       style={{
         background: status === 'success'
           ? 'linear-gradient(135deg, #16a34a, #15803d)'
-          : 'linear-gradient(135deg, #2563eb, #1d4ed8)',
+          : undefined,
       }}
       aria-label="Install App"
     >
@@ -81,7 +81,7 @@ export default function InstallPrompt() {
         </>
       ) : (
         <>
-          <Download className="w-4 h-4 text-white" />
+          <Download className="w-4 h-4" />
           <span>Install App</span>
         </>
       )}

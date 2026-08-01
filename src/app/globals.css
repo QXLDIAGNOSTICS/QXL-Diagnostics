@@ -1347,28 +1347,63 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
                 padding-bottom: 140px !important;
             }
             .fab-whatsapp-btn {
-                bottom: 148px !important;
+                bottom: 132px !important;
                 right: 16px !important;
                 width: 58px;
                 height: 58px;
             }
             .fab-ai-chat-btn {
-                bottom: 220px !important;
+                bottom: 204px !important;
                 right: 16px !important;
                 width: 58px;
                 height: 58px;
             }
             .fab-cart-btn {
-                bottom: 364px !important;
+                bottom: 348px !important;
                 right: 16px !important;
             }
             .fab-call-btn {
-                bottom: 292px !important;
+                bottom: 276px !important;
                 right: 16px !important;
             }
             .fab-scroll-top-btn {
-                bottom: 436px !important;
+                bottom: 420px !important;
                 right: 20px !important;
+            }
+            .fab-toggle-hide-btn {
+                bottom: 344px !important;
+                right: 26px !important;
+            }
+        }
+
+        .fab-toggle-hide-btn {
+            position: fixed;
+            right: 36px;
+            z-index: 9999;
+        }
+
+        .mobile-only-book-btn {
+            display: none !important;
+        }
+        @media (max-width: 767px) {
+            .mobile-only-book-btn {
+                display: flex !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .fab-whatsapp-btn {
+                bottom: 100px !important;
+            }
+            .fab-ai-chat-btn {
+                bottom: 174px !important;
+            }
+            .fab-ai-chat-bubble {
+                bottom: 188px !important;
+            }
+            .fab-chat-window {
+                bottom: 80px !important;
+                right: 24px !important;
             }
         }
 
@@ -1457,7 +1492,7 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
 
         @media (max-width: 1023px) {
             .fab-ai-chat-bubble {
-                bottom: 220px !important;
+                bottom: 204px !important;
                 right: 82px !important;
             }
         }

@@ -55,6 +55,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
     address: '',
     date: '',
     time: '',
+    message: '',
     collectionType: 'home' as 'home' | 'center',
   });
 
@@ -383,6 +384,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
           collection_address: formData.collectionType === 'home' ? formData.address || undefined : undefined,
           preferred_date: formData.date,
           preferred_time: formData.time,
+          notes: formData.message || undefined,
         });
         created.push(booking);
       }
@@ -451,8 +453,8 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
               </p>
             </div>
 
-            <button 
-              onClick={() => { setSubmitted(false); setHasPaid(false); setCreatedBookings([]); setFormData({ name: user?.name || '', phone: user?.phone || '', email: user?.email || '', address: '', date: '', time: '', collectionType: 'home' }); setSelectedItems([]); setTestInput(''); setUnmatchedRecommended([]); }} 
+              <button 
+              onClick={() => { setSubmitted(false); setHasPaid(false); setCreatedBookings([]); setFormData({ name: user?.name || '', phone: user?.phone || '', email: user?.email || '', address: '', date: '', time: '', message: '', collectionType: 'home' }); setSelectedItems([]); setTestInput(''); setUnmatchedRecommended([]); }} 
               className="bg-[#2563eb] text-white font-bold px-8 py-3 rounded-full hover:bg-[#1d4ed8] transition-colors text-xs uppercase tracking-wider shadow-sm"
             >
               Book Another Test
@@ -472,7 +474,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                   required
                   placeholder="Enter patient name"
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  onChange={(e) => setFormData({...formData, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})}
                   className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
                 />
               </div>
@@ -486,7 +488,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                   required
                   placeholder="+91 Contact number"
                   value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})}
                   className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
                 />
               </div>
@@ -736,6 +738,19 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                 />
               </div>
             )}
+
+            <div className="flex flex-col">
+              <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
+                Message (Optional)
+              </label>
+              <textarea 
+                rows={2}
+                placeholder="Any specific requirements?"
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 resize-none"
+              />
+            </div>
 
             {error && (
               <p className="text-xs font-semibold text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-3">{error}</p>

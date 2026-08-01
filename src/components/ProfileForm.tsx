@@ -72,7 +72,7 @@ export default function ProfileForm({ firstLogin = false, onSaved }: ProfileForm
           </span>
           <input
             value={name}
-            onChange={(event) => setName(event.target.value)}
+            onChange={(event) => setName(event.target.value.replace(/[^a-zA-Z\s]/g, ''))}
             required
             placeholder="Patient full name"
             className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"

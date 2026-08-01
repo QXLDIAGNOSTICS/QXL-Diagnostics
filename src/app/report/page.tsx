@@ -62,7 +62,7 @@ export default function ReportPage() {
                   required
                   placeholder="Enter 10-digit number"
                   value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})}
                   className="border border-gray-200 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
                 />
               </div>

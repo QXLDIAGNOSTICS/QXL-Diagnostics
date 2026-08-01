@@ -68,7 +68,7 @@ export default function HomeCollectionPage() {
                       required
                       placeholder="Enter patient name"
                       value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      onChange={(e) => setFormData({...formData, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})}
                       className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
                     />
                   </div>
@@ -83,7 +83,7 @@ export default function HomeCollectionPage() {
                       required
                       placeholder="+91 Contact number"
                       value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})}
                       className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
                     />
                   </div>

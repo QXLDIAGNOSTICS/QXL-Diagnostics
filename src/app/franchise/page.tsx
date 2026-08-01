@@ -183,11 +183,11 @@ export default function FranchisePage() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1 block">Full Name</label>
-                    <input required type="text" value={formData.name} onChange={e=>setFormData({...formData, name:e.target.value})} className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-[#2563eb] outline-none bg-gray-50/50" placeholder="John Doe" />
+                    <input required type="text" value={formData.name} onChange={e=>setFormData({...formData, name:e.target.value.replace(/[^a-zA-Z\s]/g, '')})} className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-[#2563eb] outline-none bg-gray-50/50" placeholder="John Doe" />
                   </div>
                   <div>
                     <label className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1 block">Mobile</label>
-                    <input required type="tel" value={formData.phone} onChange={e=>setFormData({...formData, phone:e.target.value})} className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-[#2563eb] outline-none bg-gray-50/50" placeholder="+91" />
+                    <input required type="tel" value={formData.phone} onChange={e=>setFormData({...formData, phone:e.target.value.replace(/\D/g, '')})} className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-[#2563eb] outline-none bg-gray-50/50" placeholder="+91" />
                   </div>
                 </div>
 

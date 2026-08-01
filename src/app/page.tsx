@@ -629,11 +629,16 @@ function QuickBookingForm({ formState, setFormState, handleContactSubmit, formSt
       <form className="flex flex-col gap-5" onSubmit={handleContactSubmit}>
         <div>
           <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Full Name <span className="text-red-500">*</span></label>
-          <input type="text" required placeholder="Enter your name" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-2xl px-5 py-4 text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-sm" />
+          <input type="text" required placeholder="Enter your name" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-2xl px-5 py-4 text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-sm" />
         </div>
         <div>
           <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Phone Number <span className="text-red-500">*</span></label>
-          <input type="tel" required placeholder="+91 Contact number" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-2xl px-5 py-4 text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-sm" />
+          <input type="tel" required placeholder="+91 Contact number" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value.replace(/\D/g, '')})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-2xl px-5 py-4 text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-sm" />
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Message (Optional)</label>
+          <textarea rows={2} placeholder="Any specific requirements?" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-2xl px-5 py-4 text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-sm resize-none" />
         </div>
         
         <div className="pt-2">
@@ -674,20 +679,19 @@ export default function Home() {
     e.preventDefault();
     if (!formState.name || !formState.phone) return;
     setFormStatus('loading');
-    try {
-      await api.leads.contact({
-        name: formState.name,
-        phone: formState.phone,
-        subject: formState.service,
-        message: formState.message
-      });
-      setFormStatus('success');
-      setFormState({ name: '', phone: '', service: 'Home Collection', message: '' });
-      setTimeout(() => setFormStatus('idle'), 3000);
-    } catch (err) {
-      console.error(err);
-      setFormStatus('error');
-    }
+    
+    const message = `*New Inquiry from Website*
+*Name:* ${formState.name}
+*Phone:* ${formState.phone}
+*Service:* ${formState.service}
+*Message:* ${formState.message || 'None'}`;
+    
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=919964639639&text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    setFormStatus('success');
+    setFormState({ name: '', phone: '', service: 'Home Collection', message: '' });
+    setTimeout(() => setFormStatus('idle'), 3000);
   };
 
   useEffect(() => {
@@ -734,8 +738,8 @@ export default function Home() {
 
   const activeLocationObj = locations.find(loc => loc.name === location || loc.city === location);
   const mapSrc = activeLocationObj && activeLocationObj.lat && activeLocationObj.lng
-    ? `https://maps.google.com/maps?q=${activeLocationObj.lat},${activeLocationObj.lng}&t=&z=15&ie=UTF8&iwloc=&output=embed`
-    : `https://maps.google.com/maps?q=${encodeURIComponent(location + " Diagnostics")}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+    ? `https://maps.google.com/maps?q=QXL+Diagnostics+${activeLocationObj.lat},${activeLocationObj.lng}&t=&z=15&ie=UTF8&iwloc=&output=embed`
+    : `https://maps.google.com/maps?q=${encodeURIComponent("QXL Diagnostics " + location)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
   const slides = [
     {
@@ -1350,11 +1354,11 @@ export default function Home() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
-                      <input type="text" required placeholder="John Doe" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
+                      <input type="text" required placeholder="John Doe" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
-                      <input type="tel" required placeholder="+91 9964 639 639" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
+                      <input type="tel" required placeholder="+91 9964 639 639" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value.replace(/\D/g, '')})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
                     </div>
                   </div>
                   <div className="relative">
@@ -1787,8 +1791,8 @@ export default function Home() {
               <p className="text-slate-600 text-xs mb-4 leading-relaxed">Fill out the form below and our team will contact you shortly.</p>
               
               <form className="flex flex-col gap-3" onSubmit={handleContactSubmit}>
-                <input type="text" required placeholder="Full Name" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
-                <input type="tel" required placeholder="Phone Number" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
+                <input type="text" required placeholder="Full Name" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})} className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
+                <input type="tel" required placeholder="Phone Number" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value.replace(/\D/g, '')})} className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
                 
                 <div className="relative">
                   <button

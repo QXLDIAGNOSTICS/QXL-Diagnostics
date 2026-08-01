@@ -51,10 +51,9 @@ export default function Accreditations({ decorativeHeading = false }: Props) {
           
           <div className="md:w-1/2 flex items-center justify-center md:justify-end gap-6">
             {/* NABL Badge */}
-            <div className="bg-white p-6 rounded-3xl shadow-xl flex flex-col items-center justify-center w-40 h-40 transform hover:-translate-y-2 transition-transform">
-              <span className="text-[#000080] font-black text-4xl tracking-tighter leading-none mb-2">NABL</span>
-              <span className="text-black font-extrabold text-[10px] uppercase text-center leading-tight">Accredited Lab</span>
-              <span className="text-black font-extrabold text-[11px] mt-1">{NABL_CERTIFICATE.replace('-', ' - ')}</span>
+            <div className="bg-white p-4 rounded-3xl shadow-xl flex flex-col items-center justify-center w-40 h-40 transform hover:-translate-y-2 transition-transform relative">
+              <img src="https://nabl-india.org/wp-content/uploads/2019/12/NABL-logo.png" alt="NABL Accredited Lab" className="w-full h-auto object-contain" />
+              <span className="text-black font-extrabold text-[11px] mt-2 text-center absolute bottom-2">{NABL_CERTIFICATE.replace('-', ' - ')}</span>
             </div>
             
             {/* ISO Badge */}

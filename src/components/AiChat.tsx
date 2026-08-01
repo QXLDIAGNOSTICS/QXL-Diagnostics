@@ -6,7 +6,7 @@ import { useAuth } from '@/lib/useAuth';
 import ChatPaymentCard, { type ChatPaymentOrder } from '@/components/ChatPaymentCard';
 import { useSiteSettings } from '@/lib/useSiteSettings';
 import ReactMarkdown from 'react-markdown';
-import { ShoppingCart, Phone } from 'lucide-react';
+import { ShoppingCart, Phone, CalendarCheck } from 'lucide-react';
 import { getPhoneE164 } from '@/lib/businessInfo';
 
 type StreamResult = 'streamed' | 'unauthorized' | 'failed';
@@ -448,6 +448,35 @@ export default function AiChat() {
 
   return (
     <>
+      {/* Floating Horizontal Book Now Button */}
+        <a
+          href="/book"
+          className="mobile-only-book-btn flex md:hidden items-center justify-center"
+          style={{
+            position: 'fixed',
+            bottom: '76px', // Positioned with a clear space above the mobile bottom nav
+            left: '16px',
+            right: '16px',
+            background: 'linear-gradient(135deg, rgba(56,189,248,1) 0%, rgba(14,165,233,1) 100%)',
+            color: 'white',
+            padding: '14px 20px',
+            borderRadius: '100px',
+            fontWeight: 'bold',
+            fontSize: '15px',
+            boxShadow: '0 8px 24px rgba(14, 165, 233, 0.4)',
+            border: '1px solid rgba(255,255,255,0.4)',
+            zIndex: 1000,
+            textDecoration: 'none',
+            gap: '8px',
+            letterSpacing: '0.5px'
+          }}
+          aria-label="Book Now"
+          title="Book Now"
+        >
+          <CalendarCheck className="w-5 h-5" />
+          <span>Book Now</span>
+        </a>
+
       <a
         href="https://api.whatsapp.com/send?phone=919964639639&text=Hi%20QXL%20Diagnostics%2C%20I%20want%20to%20book%20a%20test"
         target="_blank"

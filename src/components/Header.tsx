@@ -616,13 +616,13 @@ export default function Header() {
                         key={item.label}
                         href={item.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className={`min-h-[48px] px-4 rounded-xl flex items-center justify-between transition-colors ${isActive
-                          ? 'bg-[#eff6ff] text-[#2563eb] font-extrabold'
-                          : 'text-black hover:bg-gray-50 font-extrabold'
+                        className={`min-h-[48px] px-4 rounded-xl flex items-center justify-between transition-colors mb-1 ${isActive
+                          ? 'bg-[#e0f2fe] text-[#0284c7] font-extrabold'
+                          : 'bg-[#f0f9ff] text-[#0369a1] hover:bg-[#e0f2fe] font-extrabold'
                           }`}
                       >
                         <span className="text-sm">{item.label}</span>
-                        <ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0" />
+                        <ChevronRight className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-[#0284c7]' : 'text-[#7dd3fc]'}`} />
                       </Link>
                     );
                   })}
@@ -652,19 +652,6 @@ export default function Header() {
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
 
-        {/* Dedicated Mobile Book Now Button */}
-        <Link
-          href="/book"
-          className="mx-2 mb-2 flex items-center justify-center gap-2 py-3 rounded-2xl shadow-lg transition-transform active:scale-95 text-white"
-          style={{
-            background: 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)',
-            boxShadow: '0 6px 20px rgba(14,165,233,0.3)',
-            border: '1px solid rgba(255,255,255,0.2)'
-          }}
-        >
-          <CalendarCheck className="w-5 h-5" strokeWidth={2.5} />
-          <span className="font-black text-[15px] tracking-wide">BOOK NOW <span className="opacity-80 ml-1 font-semibold">→</span></span>
-        </Link>
 
         <nav
           className="mx-2 mb-2 rounded-[22px] overflow-hidden"
@@ -680,7 +667,6 @@ export default function Header() {
           <div className="flex justify-around items-stretch h-[60px] px-1">
             {[
               { label: "Home", href: "/", icon: Home },
-              { label: "Book", href: "/book", icon: Microscope },
               { label: "Packages", href: "/packages", icon: Layers },
               { label: "Reports", href: "/report", icon: FileText },
               { label: user ? "Profile" : "Login", href: user ? "/profile" : "/login", icon: User },

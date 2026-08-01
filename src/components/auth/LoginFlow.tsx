@@ -179,7 +179,7 @@ export default function LoginFlow({
             className={inputClassName}
             placeholder="Phone (e.g. +919876543210)"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
             autoComplete="tel"
             required
           />
