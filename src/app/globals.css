@@ -1372,7 +1372,10 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
             }
             .fab-toggle-hide-btn {
                 bottom: 344px !important;
-                right: 26px !important;
+                right: 25px !important;
+            }
+            .fab-hidden-mobile {
+                display: none !important;
             }
         }
 

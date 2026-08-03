@@ -5,7 +5,7 @@ export const healthConditions = [
     slug: "diabetes",
     description: "Comprehensive diagnostic testing for Type 1, Type 2, and Gestational Diabetes. Early detection and regular monitoring are key to managing diabetes effectively.",
     relatedTests: ["hba1c-test", "fasting-blood-sugar-fbs", "post-prandial-blood-sugar-ppbs", "kidney-function-test-kft", "lipid-profile"],
-    relatedPackages: ["Quick Fit Package", "Q-Master Health Pro"]
+    relatedPackages: ["Q-Master Health Pro"]
   },
   {
     id: "thyroid-disorders",
@@ -13,7 +13,7 @@ export const healthConditions = [
     slug: "thyroid-disorders",
     description: "Expert testing for Hypothyroidism, Hyperthyroidism, and Autoimmune Thyroid conditions (Hashimoto's & Graves' disease).",
     relatedTests: ["thyroid-profile", "vitamin-d-test", "vitamin-b12-test", "iron-profile"],
-    relatedPackages: ["Quick Fit Package", "Q-Master Health Pro"]
+    relatedPackages: ["Q-Master Health Pro"]
   },
   {
     id: "heart-disease",

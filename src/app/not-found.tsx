@@ -23,7 +23,6 @@ const popularTests = [
 ];
 
 const popularPackages = [
-  { name: "Quick Fit Package", href: "/packages" },
   { name: "Q-Master Health Pro", href: "/packages" },
   { name: "Q-Oncoscreen", href: "/packages" },
 ];

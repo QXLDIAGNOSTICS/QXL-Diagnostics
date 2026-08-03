@@ -310,11 +310,11 @@ export default async function CombinedLocationPage({ params }: Props) {
                 <div className="space-y-4">
                   <div className="border border-gray-100 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-50">
                     <div>
-                      <h4 className="font-extrabold text-[#0f2d5e]">Quick Fit Package</h4>
-                      <p className="text-xs text-slate-600 font-medium mt-1">13+ Parameters including Liver, Kidney, Sugar, and Thyroid.</p>
+                      <h4 className="font-extrabold text-[#0f2d5e]">Q-Screen Diabetes Package</h4>
+                      <p className="text-xs text-slate-600 font-medium mt-1">15+ Parameters for Early Diabetes screening &amp; Kidney functions.</p>
                     </div>
                     <Link href="/book" className="bg-[#2563eb] text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-[#1d4ed8] transition-colors whitespace-nowrap text-center">
-                      Book for ₹1770
+                      Book for ₹1900
                     </Link>
                   </div>
                   

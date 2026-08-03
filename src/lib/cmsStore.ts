@@ -88,24 +88,7 @@ const defaultDoctors = [
   { id: "doc-3", name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400" },
   { id: "doc-4", name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://images.unsplash.com/photo-1537368910025-7028500a2216?auto=format&fit=crop&q=80&w=400" }
 ];
-
 const defaultPackages = [
-  {
-    id: "pkg-1",
-    name: "Quick Fit Package",
-    price: "1770",
-    old_price: "4696",
-    save_amount: "2926",
-    includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy.",
-    parameters: "13+ Parameters",
-    tag: "QUICK",
-    most_booked: true,
-    benefits: ["Quick overall health snapshot", "Check basic organ functions", "Assess immunity & vitamins"],
-    who_should_take: "Working professionals with limited time wanting a quick basic checkup.",
-    age: "18+ Years",
-    gender: "Male / Female",
-    doctor_recommended: true
-  },
   {
     id: "pkg-2",
     name: "Q-Screen Diabetes Package",

@@ -6,7 +6,7 @@ import { useAuth } from '@/lib/useAuth';
 import ChatPaymentCard, { type ChatPaymentOrder } from '@/components/ChatPaymentCard';
 import { useSiteSettings } from '@/lib/useSiteSettings';
 import ReactMarkdown from 'react-markdown';
-import { ShoppingCart, Phone, CalendarCheck } from 'lucide-react';
+import { ShoppingCart, Phone, CalendarCheck, X, ChevronLeft, ChevronDown } from 'lucide-react';
 import { getPhoneE164 } from '@/lib/businessInfo';
 
 type StreamResult = 'streamed' | 'unauthorized' | 'failed';
@@ -50,6 +50,7 @@ export default function AiChat() {
   const siteSettings = useSiteSettings();
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isFABsHidden, setIsFABsHidden] = useState(false);
   const [messages, setMessages] = useState<{ role: 'user' | 'assistant'; content: string; type?: 'text' | 'file' | 'payment'; paymentOrder?: ChatPaymentOrder }[]>([]);
 
   useEffect(() => {
@@ -396,7 +397,7 @@ export default function AiChat() {
           rel="noreferrer"
           aria-label="Chat on WhatsApp"
           title="Chat on WhatsApp"
-          className="fab-whatsapp-btn"
+          className={`fab-whatsapp-btn ${isFABsHidden ? 'fab-hidden-mobile' : ''}`}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -422,11 +423,54 @@ export default function AiChat() {
           }}
           aria-label="Call Now"
           title="Call Now"
-          className="fab-call-btn flex items-center justify-center overflow-hidden lg:hidden animate-fab-expand"
+          className={`fab-call-btn flex items-center justify-center overflow-hidden lg:hidden animate-fab-expand ${isFABsHidden ? 'fab-hidden-mobile' : ''}`}
         >
           <Phone className="w-5 h-5 flex-shrink-0" />
           <span className="animate-fab-text font-bold text-sm">Call Now</span>
         </a>
+
+        {/* Hide Button */}
+        {!isFABsHidden && (
+          <button
+            type="button"
+            onClick={() => setIsFABsHidden(true)}
+            className="fab-toggle-hide-btn lg:hidden flex items-center justify-center rounded-full text-slate-500 bg-white border border-gray-200 shadow-md hover:bg-slate-50 hover:text-slate-700 transition-all duration-200"
+            style={{
+              position: 'fixed',
+              width: '40px',
+              height: '40px',
+              zIndex: 1000,
+            }}
+            aria-label="Hide floating actions"
+            title="Hide actions"
+          >
+            <ChevronDown className="w-5 h-5" />
+          </button>
+        )}
+
+        {/* Open Button */}
+        {isFABsHidden && (
+          <button
+            type="button"
+            onClick={() => setIsFABsHidden(false)}
+            className="lg:hidden flex items-center justify-center rounded-full text-white shadow-lg active:scale-95 transition-transform"
+            style={{
+              position: 'fixed',
+              right: '25px',
+              bottom: '141px',
+              width: '40px',
+              height: '40px',
+              background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)',
+              border: '1.5px solid rgba(255, 255, 255, 0.4)',
+              boxShadow: '0 4px 16px rgba(14, 165, 233, 0.4)',
+              zIndex: 1000,
+            }}
+            aria-label="Show floating actions"
+            title="Show actions"
+          >
+            <ChevronLeft className="w-5 h-5 text-white animate-pulse" />
+          </button>
+        )}
 
         {/* Scroll to top — above the Call button */}
         {showScrollTop && (
@@ -451,7 +495,7 @@ export default function AiChat() {
       {/* Floating Horizontal Book Now Button */}
         <a
           href="/book"
-          className="mobile-only-book-btn flex md:hidden items-center justify-center"
+          className={`mobile-only-book-btn flex md:hidden items-center justify-center ${isFABsHidden ? 'fab-hidden-mobile' : ''}`}
           style={{
             position: 'fixed',
             bottom: '76px', // Positioned with a clear space above the mobile bottom nav
@@ -483,7 +527,7 @@ export default function AiChat() {
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
         title="Chat on WhatsApp"
-        className="fab-whatsapp-btn"
+        className={`fab-whatsapp-btn ${isFABsHidden ? 'fab-hidden-mobile' : ''}`}
       >
         <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -509,7 +553,7 @@ export default function AiChat() {
         }}
         aria-label="Call Now"
         title="Call Now"
-        className="fab-call-btn flex items-center justify-center overflow-hidden lg:hidden animate-fab-expand"
+        className={`fab-call-btn flex items-center justify-center overflow-hidden lg:hidden animate-fab-expand ${isFABsHidden ? 'fab-hidden-mobile' : ''}`}
       >
         <Phone className="w-5 h-5 flex-shrink-0" />
         <span className="animate-fab-text font-bold text-sm">Call Now</span>
@@ -535,7 +579,7 @@ export default function AiChat() {
       `}</style>
 
       {/* Floating Ask me bubble */}
-      {!isOpen && (
+      {!isOpen && !isFABsHidden && (
         <div className="fab-ai-chat-bubble" style={{ bottom: aiBottom + 14 }}>
           Ask me
           <div className="fab-ai-bubble-arrow" />
@@ -546,7 +590,7 @@ export default function AiChat() {
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="fab-ai-chat-btn"
+        className={`fab-ai-chat-btn ${isFABsHidden ? 'fab-hidden-mobile' : 'flex'}`}
         style={{ bottom: aiBottom }}
         aria-label={isOpen ? "Close QXL AI chat" : "Open QXL AI assistant"}
         title="QXL AI Assistant"
@@ -560,6 +604,49 @@ export default function AiChat() {
           <QxlAiIcon size={34} />
         )}
       </button>
+
+      {/* Hide Button */}
+      {!isFABsHidden && !isOpen && (
+        <button
+          type="button"
+          onClick={() => setIsFABsHidden(true)}
+          className="fab-toggle-hide-btn lg:hidden flex items-center justify-center rounded-full text-slate-500 bg-white border border-gray-200 shadow-md hover:bg-slate-50 hover:text-slate-700 transition-all duration-200"
+          style={{
+            position: 'fixed',
+            width: '40px',
+            height: '40px',
+            zIndex: 1000,
+          }}
+          aria-label="Hide floating actions"
+          title="Hide actions"
+        >
+          <ChevronDown className="w-5 h-5" />
+        </button>
+      )}
+
+      {/* Open Button */}
+      {isFABsHidden && (
+        <button
+          type="button"
+          onClick={() => setIsFABsHidden(false)}
+          className="lg:hidden flex items-center justify-center rounded-full text-white shadow-lg active:scale-95 transition-transform"
+          style={{
+            position: 'fixed',
+            right: '25px',
+            bottom: '141px',
+            width: '40px',
+            height: '40px',
+            background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)',
+            border: '1.5px solid rgba(255, 255, 255, 0.4)',
+            boxShadow: '0 4px 16px rgba(14, 165, 233, 0.4)',
+            zIndex: 1000,
+          }}
+          aria-label="Show floating actions"
+          title="Show actions"
+        >
+          <ChevronLeft className="w-5 h-5 text-white animate-pulse" />
+        </button>
+      )}
 
       {/* Chat Window — mobile-safe positioning using dvh so it never clips off-screen */}
       {isOpen && (

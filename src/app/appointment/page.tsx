@@ -148,7 +148,7 @@ export default function AppointmentPage() {
         phone: "+91 99887 76655",
         email: "rajesh.k@example.com",
         test_name: "Thyroid Profile (Total T3, T4, TSH)",
-        package_name: "Quick Fit Package",
+        package_name: "Q-Screen Diabetes Package",
         preferred_date: "2026-07-22",
         collection_type: "Center Visit",
         address: "Kengeri Main Lab",

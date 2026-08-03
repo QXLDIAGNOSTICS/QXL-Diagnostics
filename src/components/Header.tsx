@@ -149,7 +149,7 @@ export default function Header() {
       if (!user && (item.label === "My Bookings" || item.label === "My Reports")) {
         href = `/login?redirect=${encodeURIComponent(item.href)}`;
       }
-      if (String(item.label).toLowerCase() === "login") {
+      if (String(item.label).toLowerCase() === "login" || String(item.label).toLowerCase() === "patient portal") {
         return user ? { ...item, label: "Profile", href: "/profile" } : { ...item, label: "Login", href: "/login" };
       }
       return { ...item, href };
@@ -344,7 +344,7 @@ export default function Header() {
               <LanguageSwitcher />
               {/* Cart — spatial glass orb */}
               <Link
-                href="/cart"
+                href="/book"
                 className="hidden xl:flex items-center justify-center w-9 h-9 rounded-full relative transition-all duration-200 hover:scale-105"
                 style={{ background: 'rgba(224,242,254,0.65)', border: '1px solid rgba(125,199,232,0.35)', backdropFilter: 'blur(8px)', boxShadow: '0 2px 12px rgba(14,165,233,0.15), inset 0 1px 0 rgba(255,255,255,0.85)' }}
                 title="Cart / Booked Tests"
@@ -471,8 +471,8 @@ export default function Header() {
             <LanguageSwitcher />
             {/* Cart Icon (Mobile) */}
             <Link
-              href="/cart"
-              className="flex-shrink-0 flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 shadow-md active:scale-95 transition-transform"
+              href="/book"
+              className="relative flex-shrink-0 flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 shadow-md active:scale-95 transition-transform"
               style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)', border: '1px solid rgba(125,199,232,0.4)' }}
             >
               <ShoppingCart className="w-3.5 h-3.5 text-white" />

@@ -238,18 +238,6 @@ function WhyChooseSlider() {
 // ── Promo: QXL Packages Slider — Desktop ──────────────────────────────────────
 const promoSlides = [
   {
-    name: "Quick Fit Package",
-    price: "₹1,770",
-    original: "₹4,696",
-    tag: "POPULAR",
-    desc: "A fast, comprehensive metabolic & organ function panel covering blood sugar, lipids, liver, kidney, thyroid and more.",
-    includes: ["FBS, HbA1c, eAG, Insulin, HOMA IR", "Lipid Profile, Liver & Kidney Function", "TSH, Vitamin D, CBC, ESR", "Urine Routine & Microscopy"],
-    tests: "16+ Tests",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
-    imgBg: "#E3F2FD",
-    ctaLink: "/packages",
-  },
-  {
     name: "Q-Screen Diabetes Package",
     price: "₹1,900",
     original: "₹4,960",
@@ -674,6 +662,7 @@ export default function Home() {
   const [formState, setFormState] = useState({ name: '', phone: '', service: 'Home Collection', message: '' });
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [showContactServiceDropdown, setShowContactServiceDropdown] = useState(false);
+  const [collapsedMobileDesc, setCollapsedMobileDesc] = useState<Record<string, boolean>>({});
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -1613,10 +1602,34 @@ export default function Home() {
                       <span className="text-[9px] font-extrabold text-[#0284c7] bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">Details 🔍</span>
                     </div>
 
-                    {pkg.includes && (
-                      <p className="text-[11px] text-slate-600 bg-blue-50 px-3 py-2 rounded-xl font-medium leading-relaxed">
-                        {pkg.includes}
-                      </p>
+                    {pkg.includes && !collapsedMobileDesc[pkg.name] && (
+                      <div className="relative">
+                        <p className="text-[11px] text-slate-600 bg-blue-50 px-3 py-2 rounded-xl font-medium leading-relaxed pr-12">
+                          {pkg.includes}
+                        </p>
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCollapsedMobileDesc(prev => ({ ...prev, [pkg.name]: true }));
+                          }}
+                          className="absolute right-2 bottom-2 text-[10px] font-bold text-[#0284c7] hover:text-[#0369a1] bg-sky-50/90 hover:bg-sky-100/90 px-2.5 py-0.5 rounded-lg border border-sky-200/50 shadow-sm"
+                        >
+                          Hide
+                        </button>
+                      </div>
+                    )}
+                    {pkg.includes && collapsedMobileDesc[pkg.name] && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setCollapsedMobileDesc(prev => ({ ...prev, [pkg.name]: false }));
+                        }}
+                        className="text-left text-[11px] font-bold text-sky-600 hover:text-[#2563eb] py-1 flex items-center gap-1"
+                      >
+                        + Show Description
+                      </button>
                     )}
 
                     <p className="text-[11px] text-slate-600 font-semibold">🏠 Free Home Collection Available</p>

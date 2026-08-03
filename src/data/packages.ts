@@ -1,13 +1,5 @@
 export const packagesData = [
   {
-    name: "Quick Fit Package",
-    price: "1770",
-    old_price: "4696",
-    includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy.",
-    parameters: "13+ Parameters",
-    tag: "QUICK"
-  },
-  {
     name: "Q-Screen Diabetes Package",
     price: "1900",
     old_price: "4960",
