@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { Calendar, User, Phone, MapPin, Shield, X, Mail, LocateFixed, CheckCircle2, Loader2, Home, Building2, AlertTriangle, Clock } from 'lucide-react';
+import { Calendar, User, Phone, MapPin, Shield, X, Mail, LocateFixed, CheckCircle2, Loader2, Home, Building2, AlertTriangle, Clock, ChevronLeft } from 'lucide-react';
 import { api, type TestCatalogItem, type HealthPackage, type Booking } from '../../lib/api';
 import { useAuth } from '../../lib/useAuth';
 import RazorpayCheckoutButton from '../../components/RazorpayCheckoutButton';
@@ -57,6 +57,11 @@ export default function BookPage() {
     collectionType: 'home' as 'home' | 'center',
   });
 
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // ── Master catalog (the only source of truth for bookable items) ──────────
   const [catalog, setCatalog] = useState<CatalogEntry[]>([]);
   const [catalogLoading, setCatalogLoading] = useState(true);
@@ -64,6 +69,7 @@ export default function BookPage() {
   const [testInput, setTestInput] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [showTimeSlots, setShowTimeSlots] = useState(false);
+  const [isPackagesDrawerOpen, setIsPackagesDrawerOpen] = useState(false);
 
   const [submitted, setSubmitted] = useState(false);
   const [hasPaid, setHasPaid] = useState(false);
@@ -104,6 +110,16 @@ export default function BookPage() {
         
         // Define fallback DEFAULT_PACKAGES to resolve client-side matches
         const fallbackPackages = [
+          {
+            id: "pkg-1",
+            name: "Quick Fit Package",
+            kind: 'package' as const,
+            price: 1770,
+            old_price: 4696,
+            home_collection_available: true,
+            parameters: "12+ Parameters",
+            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy."
+          },
           {
             id: "pkg-2",
             name: "Q-Screen Diabetes Package",
@@ -200,6 +216,16 @@ export default function BookPage() {
         setCatalog(merged);
       } catch {
         const fallbackPackages = [
+          {
+            id: "pkg-1",
+            name: "Quick Fit Package",
+            kind: 'package' as const,
+            price: 1770,
+            old_price: 4696,
+            home_collection_available: true,
+            parameters: "12+ Parameters",
+            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy."
+          },
           {
             id: "pkg-2",
             name: "Q-Screen Diabetes Package",
@@ -529,20 +555,7 @@ export default function BookPage() {
 
   return (
     <div className="min-h-screen bg-[#f8faff]">
-      {/* Page Hero */}
-      <section className="py-12 bg-white border-b border-gray-150">
-        <div className="max-w-[1200px] mx-auto px-4 w-full">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div>
-              <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-3 shadow-sm">Secure Checkout</span>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-[#0c4a6e] mb-2">Complete Your Booking</h1>
-              <p className="text-slate-500 text-sm font-medium max-w-xl">
-                Review your tests and provide your details to confirm your appointment.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Main Content Form */}
       <section className="py-8 mb-12">
@@ -608,7 +621,7 @@ export default function BookPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   
                   {/* Step 1: Your Cart / Selected Tests */}
-                  <div className="bg-white p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
+                  <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
                     <div className="absolute -left-3 top-8 w-6 h-6 bg-[#2563eb] text-white font-black text-[11px] rounded-full flex items-center justify-center shadow-md ring-4 ring-white z-10 hidden sm:flex">1</div>
                     <h2 className="text-slate-800 text-lg font-extrabold mb-5 border-b border-gray-100 pb-4">Selected Tests & Packages</h2>
                     
@@ -623,7 +636,7 @@ export default function BookPage() {
                     )}
 
                     {selectedItems.length === 0 ? (
-                      <div className="text-center py-8 bg-gray-50 rounded-2xl border border-dashed border-gray-200 mb-6">
+                      <div className="text-center py-3 md:py-8 bg-gray-50 rounded-2xl border border-dashed border-gray-200 mb-4 md:mb-6">
                         <p className="text-slate-500 text-sm font-medium mb-2">Your cart is empty.</p>
                         <p className="text-slate-400 text-xs">Search below or select packages from the right side.</p>
                       </div>
@@ -699,7 +712,7 @@ export default function BookPage() {
                   </div>
 
                   {/* Step 2: Patient Details */}
-                  <div className="bg-white p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
+                  <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
                     <div className="absolute -left-3 top-8 w-6 h-6 bg-[#2563eb] text-white font-black text-[11px] rounded-full flex items-center justify-center shadow-md ring-4 ring-white z-10 hidden sm:flex">2</div>
                     <h2 className="text-slate-800 text-lg font-extrabold mb-5 border-b border-gray-100 pb-4">Patient Information</h2>
                     
@@ -751,7 +764,7 @@ export default function BookPage() {
                   </div>
 
                   {/* Step 3: Schedule & Location */}
-                  <div className="bg-white p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
+                  <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
                     <div className="absolute -left-3 top-8 w-6 h-6 bg-[#2563eb] text-white font-black text-[11px] rounded-full flex items-center justify-center shadow-md ring-4 ring-white z-10 hidden sm:flex">3</div>
                     <h2 className="text-slate-800 text-lg font-extrabold mb-5 border-b border-gray-100 pb-4">Schedule & Location</h2>
 
@@ -784,7 +797,8 @@ export default function BookPage() {
                           />
                           <div className="flex flex-col gap-1">
                             <span className="text-[13px] font-bold text-slate-800 flex items-center gap-1.5"><Building2 className="w-4 h-4 text-[#0f2d5e]" /> Walk-in Lab Center</span>
-                            <span className="text-[11px] text-slate-500 font-medium block leading-snug mt-1">Visit our NABL accredited lab in Kengeri</span>
+                            <span className="text-[12px] font-bold text-[#0f2d5e] block mt-1">Main Lab (Kengeri)</span>
+                            <span className="text-[11px] text-slate-500 font-medium block leading-snug mt-0.5">3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060</span>
                           </div>
                         </label>
                       </div>
@@ -805,7 +819,7 @@ export default function BookPage() {
                           <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                           <input 
                             type="date" 
-                            min={new Date().toLocaleDateString('en-CA')}
+                            min={mounted ? new Date().toLocaleDateString('en-CA') : undefined}
                             value={formData.date}
                             onChange={(e) => setFormData({...formData, date: e.target.value})}
                             className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-[13px] focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all bg-gray-50/50 text-slate-700"
@@ -917,12 +931,41 @@ export default function BookPage() {
               )}
             </div>
 
-            {/* Right Info Sidebar */}
-            <div className="w-full lg:w-1/3 lg:sticky lg:top-24 space-y-6">
+            {/* Mobile Packages Toggle Button */}
+            <button 
+              onClick={() => setIsPackagesDrawerOpen(true)}
+              className="lg:hidden fixed right-0 top-1/2 -translate-y-1/2 bg-blue-600 text-white rounded-l-xl py-2 px-1 shadow-2xl z-[9000] flex flex-col items-center gap-1 transition-transform hover:-translate-x-1 border border-blue-500 border-r-0 backdrop-blur-sm bg-blue-600/95"
+            >
+              <ChevronLeft className="w-3 h-3" />
+              <span className="text-[9px] font-black uppercase tracking-widest leading-none mb-1" style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}>Packages</span>
+            </button>
+
+            {/* Mobile Backdrop */}
+            {isPackagesDrawerOpen && (
+              <div 
+                className="lg:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[9998] transition-opacity duration-300" 
+                onClick={() => setIsPackagesDrawerOpen(false)} 
+              />
+            )}
+
+            {/* Right Info Sidebar (Drawer on Mobile) */}
+            <div className={`
+              fixed inset-y-0 right-0 z-[9999] w-[85vw] sm:w-[360px] bg-[#f8faff] shadow-2xl transition-transform duration-300 transform h-[100dvh] overflow-y-auto border-l border-slate-200
+              ${isPackagesDrawerOpen ? 'translate-x-0' : 'translate-x-full'}
+              lg:relative lg:translate-x-0 lg:w-1/3 lg:h-auto lg:shadow-none lg:z-auto lg:bg-transparent lg:border-none lg:sticky lg:top-24 space-y-6 lg:overflow-visible
+            `}>
               
+              {/* Mobile Drawer Header */}
+              <div className="lg:hidden p-4 border-b border-slate-200 flex justify-between items-center bg-white sticky top-0 z-10 shadow-sm">
+                <h3 className="font-black text-[#0f2d5e] uppercase tracking-wider text-sm">Available Packages</h3>
+                <button onClick={() => setIsPackagesDrawerOpen(false)} className="p-2 bg-slate-100 rounded-full text-slate-500 hover:text-slate-800 hover:bg-slate-200 transition-colors">
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
               {/* All Packages List */}
-              <div className="bg-white rounded-2xl border border-gray-150 shadow-sm overflow-hidden flex flex-col">
-                <div className="bg-slate-50 border-b border-gray-100 p-4 flex justify-between items-center">
+              <div className="bg-white rounded-none lg:rounded-2xl lg:border lg:border-gray-150 shadow-none lg:shadow-sm overflow-hidden flex flex-col">
+                <div className="hidden lg:flex bg-slate-50 border-b border-gray-100 p-4 justify-between items-center">
                   <div>
                     <h3 className="font-extrabold text-[13px] uppercase tracking-wider text-[#0f2d5e]">
                       Available Packages

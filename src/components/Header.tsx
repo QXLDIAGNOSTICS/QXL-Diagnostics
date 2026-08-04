@@ -170,7 +170,12 @@ export default function Header() {
     { id: "loc-7", name: "Sanjaynagar – Nisarga Diagnostics, Powered by QXL Diagnostics", city: "Bengaluru" },
     { id: "loc-8", name: "Vidyaranyapura – Dr. Abhi Kollur's Clinic, Powered by QXL Diagnostics", city: "Bengaluru" },
   ];
-  const sourceBranches = branches.length > 0 ? branches : fallbackBranches;
+  const sourceBranches = (branches.length > 0 ? branches : fallbackBranches).filter((b: any) => {
+    const cityName = (b.city || "").toLowerCase();
+    const branchName = (b.name || "").toLowerCase();
+    return !cityName.includes("delhi") && !cityName.includes("kochi") &&
+           !branchName.includes("delhi") && !branchName.includes("kochi");
+  });
   const groupedByCity: Record<string, any[]> = {};
   for (const b of sourceBranches) {
     const city = (b.city || "Bengaluru").trim();
@@ -633,10 +638,19 @@ export default function Header() {
               </div>
 
               {/* Sidebar Footer */}
-              <div className="p-4 border-t border-gray-100 bg-gray-50 flex-shrink-0 flex flex-col gap-2" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 16px)' }}>
+              <div className="p-4 border-t border-gray-100 bg-gray-50 flex-shrink-0 flex flex-col gap-3" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 16px)' }}>
+                <div className="flex gap-3">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-blue-100/50 border border-blue-200">
+                    <MapPin className="w-3.5 h-3.5 text-[#0369a1]" />
+                  </div>
+                  <div>
+                    <p className="text-[#0f2d5e] text-[12px] font-bold mb-0.5">Main Lab (Kengeri)</p>
+                    <p className="text-slate-500 text-[11px] font-medium leading-relaxed">{settings.hqAddress || "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060"}</p>
+                  </div>
+                </div>
                 <a
                   href={`tel:${settings.contactPhone}`}
-              className="w-full text-center bg-white text-slate-700 font-extrabold py-3 rounded-xl hover:bg-gray-100 transition-colors text-xs flex items-center justify-center gap-2 border border-slate-200 shadow-sm"
+                  className="w-full text-center bg-white text-slate-700 font-extrabold py-3 rounded-xl hover:bg-gray-100 transition-colors text-xs flex items-center justify-center gap-2 border border-slate-200 shadow-sm"
                 >
                   <Phone className="w-4 h-4 text-[#2563eb]" /> Call: {settings.contactPhone}
                 </a>
