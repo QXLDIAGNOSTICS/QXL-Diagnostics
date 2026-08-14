@@ -18,6 +18,30 @@ import InstallPrompt from './InstallPrompt';
 const FALLBACK_LOGO =
   "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
 
+// Countdown to August 15, 2026 11:59:59 PM IST
+function useCountdown() {
+  const target = new Date('2026-08-15T23:59:59+05:30').getTime();
+  const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0, expired: false });
+  useEffect(() => {
+    const tick = () => {
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0) { setTimeLeft({ d: 0, h: 0, m: 0, s: 0, expired: true }); return; }
+      setTimeLeft({
+        d: Math.floor(diff / 86400000),
+        h: Math.floor((diff % 86400000) / 3600000),
+        m: Math.floor((diff % 3600000) / 60000),
+        s: Math.floor((diff % 60000) / 1000),
+        expired: false
+      });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+  return timeLeft;
+}
+
 export default function Header() {
   const pathname = usePathname();
   const { user } = useAuth();
@@ -27,6 +51,8 @@ export default function Header() {
   const [showLocationModal, setShowLocationModal] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const locationMenuRef = useRef<HTMLDivElement>(null);
+
+  const countdown = useCountdown();
 
   const [branches, setBranches] = useState<any[]>([]);
   const [expandedCity, setExpandedCity] = useState<string | null>("Bengaluru");
@@ -133,14 +159,14 @@ export default function Header() {
 
   const defaultNavItems = [
     { label: "Home", href: "/", visible: true },
+    { label: "🇮🇳 Freedom 80 Offer", href: "/#freedom80-section", visible: true },
+    { label: "Doctor-Led Lab", href: "/doctor-led-diagnostic-lab-bengaluru", visible: true },
     { label: "About Us", href: "/about", visible: true },
-    { label: "Founder & Consultants", href: "/founder", visible: true },
     { label: "Our Specialities", href: "/specialities", visible: true },
     { label: "Packages", href: "/packages", visible: true },
     { label: "Find Nearest Centre", href: "/centers", visible: true },
     { label: "My Bookings", href: "/dashboard", visible: true },
     { label: "My Reports", href: "/report", visible: true },
-    { label: "Login", href: "/login", visible: true }
   ];
   const navItems = ((settings.navItems && settings.navItems.length > 0) ? settings.navItems : defaultNavItems)
     .filter((item: any) => item.visible !== false)
@@ -188,22 +214,80 @@ export default function Header() {
 
   return (
     <>
-      {/* Spatial liquid glass header — light sky blue palette */}
+      {/* Spatial liquid glass header — Indian Flag Theme */}
       <header
         className="w-full sticky top-0 z-50"
         style={{
-          background: 'linear-gradient(135deg, rgba(224,242,254,0.82) 0%, rgba(240,249,255,0.88) 50%, rgba(214,234,253,0.80) 100%)',
+          background: 'linear-gradient(135deg, rgba(255, 153, 51, 0.08) 0%, rgba(255,255,255,0.95) 50%, rgba(19, 136, 8, 0.05) 100%)',
           backdropFilter: 'blur(28px) saturate(200%) brightness(1.05)',
           WebkitBackdropFilter: 'blur(28px) saturate(200%) brightness(1.05)',
-          borderBottom: '1px solid rgba(125,199,232,0.25)',
-          boxShadow: '0 8px 40px rgba(14,165,233,0.10), 0 1px 0 rgba(255,255,255,0.9) inset, 0 -1px 0 rgba(125,199,232,0.15) inset'
+          boxShadow: '0 8px 40px rgba(255, 153, 51, 0.10), 0 1px 0 rgba(255,255,255,0.9) inset, 0 -1px 0 rgba(19, 136, 8, 0.15) inset'
         }}
       >
+        {/* Top Announcement Bar — Desktop */}
+        <div className="hidden lg:flex bg-emerald-600 text-white text-[11px] font-black py-2 px-3 items-center justify-center relative overflow-hidden z-20">
+          <div className="flex flex-row items-center justify-center gap-3 max-w-[1400px] mx-auto w-full flex-wrap">
+            
+            {/* Badges & Offer */}
+            <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">
+              🇮🇳 INDEPENDENCE DAY SPECIAL
+            </span>
+            <span className="text-emerald-200 font-bold shrink-0">•</span>
+            <span className="font-extrabold text-white text-[10px] tracking-wide shrink-0">
+              QXL FREEDOM 80 · 80 PARAMETERS · <span className="text-amber-200 font-black underline decoration-2">ONLY ₹800</span>
+            </span>
+            <span className="bg-white/15 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider shrink-0">SAVE 86%</span>
+
+            <span className="text-emerald-300 font-bold text-[10px] shrink-0">|</span>
+
+            {/* Countdown */}
+            {!countdown.expired && (
+              <div className="flex items-center gap-1 shrink-0">
+                <span className="text-amber-200 text-[9px] font-black uppercase tracking-wider">⏰ LIMITED OFFER ENDS:</span>
+                <div className="flex items-center gap-0.5">
+                  {[{v: countdown.d, l:'D'}, {v: countdown.h, l:'H'}, {v: countdown.m, l:'M'}, {v: countdown.s, l:'S'}].map(({v, l}, i) => (
+                    <React.Fragment key={l}>
+                      <div className="bg-white/20 rounded px-1.5 py-0.5 text-center min-w-[26px]">
+                        <span className="font-black text-white text-[11px] tabular-nums">{String(v).padStart(2,'0')}</span>
+                        <span className="text-emerald-200 text-[7px] block font-bold leading-none">{l}</span>
+                      </div>
+                      {i < 3 && <span className="text-amber-200 font-black text-[11px]">:</span>}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
+            )}
+            {countdown.expired && (
+              <span className="text-amber-200 text-[9px] font-black uppercase tracking-wider shrink-0">🇮🇳 OFFER EXPIRED</span>
+            )}
+
+            <span className="text-emerald-300 font-bold text-[10px] shrink-0">|</span>
+
+            {/* Book Now Button */}
+            <Link
+              href="/book?package=QXL%20Freedom%2080%20Health%20Check"
+              className="inline-flex items-center justify-center gap-1 bg-white hover:bg-slate-100 text-[10px] font-black px-3.5 py-1 rounded-full shadow-md active:scale-95 transition-all shrink-0 uppercase tracking-wider cursor-pointer"
+              style={{ color: '#059669' }}
+            >
+              Book Now →
+            </Link>
+          </div>
+          {/* Animated Tricolour Underline */}
+          <div 
+            className="absolute bottom-0 left-0 w-full h-[2.5px] animate-tricolour-wave"
+            style={{
+              background: 'linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%)',
+              backgroundSize: '200% 100%'
+            }}
+          />
+        </div>
+
+
         {/* Liquid glass orb decorations — spatial depth */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div style={{ position:'absolute', top:'-40px', left:'-60px', width:'200px', height:'200px', borderRadius:'50%', background:'radial-gradient(circle, rgba(186,230,255,0.45) 0%, transparent 70%)', filter:'blur(30px)' }} />
-          <div style={{ position:'absolute', top:'-30px', right:'10%', width:'160px', height:'160px', borderRadius:'50%', background:'radial-gradient(circle, rgba(147,210,255,0.35) 0%, transparent 70%)', filter:'blur(24px)' }} />
-          <div style={{ position:'absolute', bottom:'-20px', left:'40%', width:'220px', height:'80px', borderRadius:'50%', background:'radial-gradient(circle, rgba(186,230,255,0.25) 0%, transparent 70%)', filter:'blur(20px)' }} />
+          <div style={{ position:'absolute', top:'-40px', left:'-60px', width:'200px', height:'200px', borderRadius:'50%', background:'radial-gradient(circle, rgba(255, 153, 51, 0.15) 0%, transparent 70%)', filter:'blur(30px)' }} />
+          <div style={{ position:'absolute', top:'-30px', right:'10%', width:'160px', height:'160px', borderRadius:'50%', background:'radial-gradient(circle, rgba(0, 0, 128, 0.10) 0%, transparent 70%)', filter:'blur(24px)' }} />
+          <div style={{ position:'absolute', bottom:'-20px', left:'40%', width:'220px', height:'80px', borderRadius:'50%', background:'radial-gradient(circle, rgba(19, 136, 8, 0.15) 0%, transparent 70%)', filter:'blur(20px)' }} />
         </div>
 
       {/* ── DESKTOP HEADER (lg:block) ── */}
@@ -247,13 +331,13 @@ export default function Header() {
                     }
                   }}
                 >
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center mr-2 flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(147,210,255,0.6) 0%, rgba(186,230,255,0.4) 100%)', boxShadow: '0 2px 8px rgba(14,165,233,0.2), inset 0 1px 0 rgba(255,255,255,0.8)' }}>
-                    <MapPin className="w-3.5 h-3.5 text-[#0284c7]" />
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center mr-2 flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(255, 153, 51, 0.3) 0%, rgba(255, 153, 51, 0.1) 100%)', boxShadow: '0 2px 8px rgba(255, 153, 51, 0.2), inset 0 1px 0 rgba(255,255,255,0.8)' }}>
+                    <MapPin className="w-3.5 h-3.5 text-[#000080]" />
                   </div>
-                  <span className="font-semibold text-sm text-[#0369a1] max-w-[150px] truncate">
+                  <span className="font-semibold text-sm text-[#0b132b] max-w-[150px] truncate">
                     {isMounted ? getShortLocationName(location) : "Bengaluru"}
                   </span>
-                  <ChevronDown className="w-3.5 h-3.5 ml-1 text-[#38bdf8]" />
+                  <ChevronDown className="w-3.5 h-3.5 ml-1 text-[#FF9933]" />
                 </div>
                 <AnimatePresence>
                   {showLocationModal && (
@@ -293,8 +377,8 @@ export default function Header() {
 
             {/* Search Bar — liquid glass input */}
             <div className="flex-1 max-w-[600px] mx-6 hidden md:block relative z-30">
-              <div className="flex items-center w-full relative">
-                <div className="w-full" style={{ borderRadius: '999px', background: 'rgba(224,242,254,0.6)', border: '1px solid rgba(125,199,232,0.35)', backdropFilter: 'blur(12px)', boxShadow: '0 2px 16px rgba(14,165,233,0.08), inset 0 1px 0 rgba(255,255,255,0.85)' }}>
+              <div className="flex items-center w-full relative group">
+                <div className="w-full transition-all duration-300 group-hover:shadow-[0_4px_20px_rgba(255,153,51,0.15)]" style={{ borderRadius: '999px', background: 'rgba(255,255,255,0.65)', border: '1px solid rgba(255, 153, 51, 0.35)', backdropFilter: 'blur(12px)', boxShadow: '0 2px 16px rgba(255, 153, 51, 0.08), inset 0 1px 0 rgba(255,255,255,0.85)' }}>
                   <SmartSearchBar placeholder={settings.searchPlaceholder || "Search Tests"} isMobile={false} />
                 </div>
                 <button onClick={() => setIsModalOpen(true)} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-[#0284c7] hover:bg-sky-100/60 rounded-full transition-colors" aria-label="Upload Prescription">
@@ -315,17 +399,17 @@ export default function Header() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
                 </div>
-                <div className="relative overflow-hidden h-[34px] w-[110px]">
+                <div className="relative overflow-hidden h-[36px] w-[145px]">
                   <AnimatePresence mode="wait">
                     {tickerIndex === 0 ? (
-                      <motion.div key="1" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight">
+                      <motion.div key="1" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight whitespace-nowrap">
                         <span className="text-[10px] text-[#0369a1]/80 font-semibold tracking-wide">Home Collection</span>
-                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 639 639</a>
+                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7] whitespace-nowrap">+91 9964 639 639</a>
                       </motion.div>
                     ) : (
-                      <motion.div key="2" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight">
+                      <motion.div key="2" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight whitespace-nowrap">
                         <span className="text-[10px] text-[#16a34a] font-bold uppercase tracking-wider animate-pulse">Call Now</span>
-                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7]">+91 9964 639 639</a>
+                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7] whitespace-nowrap">+91 9964 639 639</a>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -361,26 +445,16 @@ export default function Header() {
                   </span>
                 )}
               </Link>
-              {/* Book a Test — clean pill button with animated text */}
+              {/* Book a Test — clean pill button */}
               <Link
                 href="/book"
-                className="hidden xl:inline-flex items-center font-extrabold px-6 py-2.5 rounded-full text-[11px] uppercase tracking-wider whitespace-nowrap active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
+                className="hidden xl:inline-flex items-center font-black px-6 py-2.5 rounded-full text-[11px] uppercase tracking-wider whitespace-nowrap active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
                 style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%)', color: '#ffffff' }}
               >
-                <motion.span
-                  animate={{ opacity: [1, 0.75, 1], scale: [1, 1.03, 1] }}
-                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                  className="!text-white font-black flex items-center gap-1.5"
-                  style={{ color: '#ffffff' }}
-                >
+                <span className="!text-white font-black flex items-center gap-1.5" style={{ color: '#ffffff' }}>
                   <span>BOOK A TEST</span>
-                  <motion.span
-                    animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    →
-                  </motion.span>
-                </motion.span>
+                  <span>→</span>
+                </span>
               </Link>
             </div>
           </div>
@@ -390,28 +464,22 @@ export default function Header() {
         <div className="pb-2 pt-1 px-3 xl:px-4">
           <div className="max-w-[1400px] mx-auto">
             <nav
-              className="rounded-2xl px-2 xl:px-3"
-              style={{
-                background: 'linear-gradient(135deg, rgba(224,242,254,0.50) 0%, rgba(186,230,255,0.35) 50%, rgba(224,242,254,0.50) 100%)',
-                border: '1px solid rgba(125,199,232,0.22)',
-                backdropFilter: 'blur(16px) saturate(180%)',
-                boxShadow: '0 1px 0 rgba(255,255,255,0.95) inset, 0 -1px 0 rgba(125,199,232,0.12) inset, 0 4px 20px rgba(14,165,233,0.06)'
-              }}
+              className="rounded-2xl px-2 xl:px-3 relative overflow-hidden bg-white/90 border border-slate-200/80 shadow-sm backdrop-blur-md"
             >
-              <div className="flex flex-nowrap items-center justify-between w-full gap-0 py-1.5 text-[9.5px] lg:text-[10px] xl:text-[11px] 2xl:text-[12px] font-extrabold">
+              <div className="flex flex-nowrap items-center justify-between w-full gap-0 py-1.5 text-[9.5px] lg:text-[10px] xl:text-[11px] 2xl:text-[12px] font-extrabold relative z-10">
                 {navItems.map((item: any) => {
                   const isActive = pathname === item.href;
                   return (
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="relative shrink-0 inline-flex items-center justify-center px-1.5 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg uppercase tracking-wide whitespace-nowrap leading-none transition-colors duration-200 text-[#0369a1] hover:text-[#0284c7]"
+                      className="relative shrink-0 inline-flex items-center justify-center px-1.5 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg uppercase tracking-wide whitespace-nowrap leading-none transition-all duration-300 text-[#0b132b] hover:text-[#000080]"
                       style={isActive ? {
-                        background: 'rgba(186,230,255,0.55)',
-                        color: '#0369a1',
-                        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.7)'
+                        background: 'linear-gradient(135deg, rgba(255, 153, 51, 0.15), rgba(255, 153, 51, 0.05))',
+                        color: '#000080',
+                        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 4px rgba(255, 153, 51, 0.05)'
                       } : undefined}
-                      onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(186,230,255,0.35)'; }}
+                      onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(255, 153, 51, 0.1)'; }}
                       onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
                     >
                       {item.label}
@@ -424,40 +492,51 @@ export default function Header() {
         </div>
       </div>
 
-      {/* ── MOBILE HEADER (lg:hidden) — spatial liquid glass ── */}
-      <div className="lg:hidden flex flex-col w-full relative z-10 gap-2 pb-2">
-        {/* Top Contact Bar */}
-        <div className="flex justify-between items-center px-3 py-1.5" style={{ background: 'linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)', color: 'white' }}>
-          <button onClick={() => setShowLocationModal(true)} className="flex items-center gap-1 text-[11px] font-bold tracking-wide">
-            <MapPin className="w-3 h-3 text-[#bae6fd]" />
-            <span className="truncate max-w-[140px] pt-0.5">{getShortLocationName(location) || "Select Location"}</span>
-            <ChevronDown className="w-3 h-3 text-[#bae6fd] opacity-70" />
+      {/* ── MOBILE HEADER (lg:hidden) — EXACT IMAGE 2 DESIGN ── */}
+      <div className="lg:hidden flex flex-col w-full relative z-10 bg-white pb-3 rounded-b-2xl shadow-sm border-b border-gray-100">
+        {/* Top Strip (Blue Strip): Location & Call Number */}
+        <div className="bg-[#2563eb] text-white px-4 py-1.5 flex items-center justify-between text-[11px] font-extrabold shadow-sm">
+          {/* Location Selector */}
+          <button
+            onClick={() => setShowLocationModal(true)}
+            className="flex items-center gap-1 text-white hover:text-sky-100 transition-colors"
+            title="Select Location"
+          >
+            <MapPin className="w-3.5 h-3.5 text-white shrink-0" />
+            <span>{getShortLocationName(location) || "Bangalore"}</span>
+            <ChevronDown className="w-3 h-3 text-white/80 shrink-0" />
           </button>
-          <a href={`tel:${settings.phone_e164 || settings.contactPhone || '+919964639639'}`} className="flex items-center gap-1 text-[11px] font-bold tracking-wide">
-            <Phone className="w-3 h-3 text-[#bae6fd]" />
-            <span className="pt-0.5">{(settings.phone_display || settings.contactPhone || '9964 639 639').replace(/^\+91\s*/, '').replace('639639', '639 639')}</span>
+
+          {/* Call Number */}
+          <a
+            href={`tel:${settings.phone_e164 || '+919964639639'}`}
+            className="flex items-center gap-1.5 text-white hover:text-sky-100 transition-colors"
+            title="Call QXL Diagnostics"
+          >
+            <Phone className="w-3.5 h-3.5 fill-white text-white shrink-0" />
+            <span>9964 639 639</span>
           </a>
         </div>
-        {/* Row 1: Menu + Logo + Cart */}
-        <div className="px-3 flex items-center justify-between gap-1">
-          <div className="flex items-center gap-1.5 flex-shrink-0">
+
+        {/* Main Bar: Hamburger, QXL Logo, Translate & Blue CART Pill */}
+        <div className="flex items-center justify-between px-4 py-2.5">
+          <div className="flex items-center gap-2.5">
             {/* Hamburger Menu */}
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-1.5 rounded-xl transition-all duration-200 flex-shrink-0"
-              style={{ background: 'rgba(224,242,254,0.60)', border: '1px solid rgba(125,199,232,0.3)', backdropFilter: 'blur(8px)' }}
+              className="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-200/60 transition-colors shrink-0"
               aria-label="Open menu"
             >
-              <Menu className="w-4 h-4 text-[#0284c7]" />
+              <Menu className="w-5 h-5" />
             </button>
 
-            {/* Logo */}
-            <Link href="/" className="flex-shrink-0">
+            {/* Company Logo */}
+            <Link href="/" className="flex-shrink-0 flex items-center">
               <img
-                src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 204, h: 56, crop: "fit" })}
+                src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 220, h: 60, crop: "fit" })}
                 alt={settings.siteName || "QXL Diagnostics"}
-                width={204}
-                height={56}
+                width={220}
+                height={60}
                 className="h-8 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
@@ -465,27 +544,26 @@ export default function Header() {
                   if (fallbackSpan) fallbackSpan.classList.remove('hidden');
                 }}
               />
-              <span className="logo-text-mobile font-extrabold text-sm text-[#0369a1] hidden">
+              <span className="logo-text-mobile font-extrabold text-lg text-[#0f2d5e] hidden">
                 {settings.logoText || "QXL"}
               </span>
             </Link>
           </div>
 
-          <div className="flex items-center gap-1.5 justify-end">
-            {/* Language Switcher (Mobile) */}
+          <div className="flex items-center gap-2">
+            {/* Language Translate Dropdown */}
             <LanguageSwitcher />
-            {/* Cart Icon (Mobile) */}
+
+            {/* Blue CART Pill Button */}
             <Link
               href="/book"
-              className="relative flex-shrink-0 flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 shadow-md active:scale-95 transition-transform"
-              style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)', border: '1px solid rgba(125,199,232,0.4)' }}
+              className="flex items-center gap-1.5 bg-[#2563eb] hover:bg-blue-700 text-white text-[11px] font-black px-3.5 py-1.5 rounded-full shadow-md active:scale-95 transition-all relative"
+              title="Cart / Bookings"
             >
-              <ShoppingCart className="w-3.5 h-3.5 text-white" />
-              <span className="text-[10px] font-extrabold text-white tracking-wide uppercase leading-none pt-0.5 whitespace-nowrap">
-                Cart
-              </span>
+              <ShoppingCart className="w-4 h-4 text-white" />
+              <span>CART</span>
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold text-white bg-rose-500 shadow-sm border border-white">
+                <span className="absolute -top-1.5 -right-1.5 rounded-full text-[10px] w-4.5 h-4.5 flex items-center justify-center font-bold text-white bg-rose-500 shadow-sm border border-white">
                   {cartCount}
                 </span>
               )}
@@ -493,11 +571,69 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Row 2: Search Bar */}
+        {/* Row 3: Search Bar */}
         <div className="px-4">
-          <SmartSearchBar placeholder="Search For Lab Tests/Package" isMobile={true} />
+          <div className="bg-[#f8fafc] border border-slate-200 rounded-xl flex items-center px-3.5 py-2.5 relative shadow-xs">
+            <Search className="w-4 h-4 text-slate-400 shrink-0" />
+            <div 
+              className="absolute inset-0 z-20 cursor-text"
+              onClick={() => {
+                const searchInput = document.querySelector('.mobile-search-trigger input') as HTMLInputElement;
+                if (searchInput) searchInput.focus();
+              }}
+            />
+            <div className="w-full opacity-0 absolute top-0 left-0 h-full pointer-events-none mobile-search-trigger">
+              <SmartSearchBar placeholder="Search for Tests/Packages" isMobile={true} />
+            </div>
+            <span className="text-slate-400 text-xs ml-2 font-medium">Search for Tests/Packages</span>
+          </div>
+        </div>
+
+        {/* Mobile Announcement Bar — Horizontal Scroll with Countdown */}
+        <div className="mt-3 bg-emerald-600 text-white py-2 px-1 overflow-x-auto whitespace-nowrap flex items-center z-20 shadow-inner border-y border-emerald-700/50 relative" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
+          {/* Hide webkit scrollbar using a global hack or just let it hide via touch */}
+          <style dangerouslySetInnerHTML={{__html: `::-webkit-scrollbar { display: none; }`}} />
+          
+          <div className="flex items-center gap-2.5 w-max min-w-full px-3">
+            <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-xs shrink-0">
+              🇮🇳 INDEPENDENCE DAY SPECIAL
+            </span>
+            <span className="text-emerald-200 font-bold shrink-0">•</span>
+            <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
+              QXL FREEDOM 80 · 80 PARAMETERS · <span className="text-amber-200 font-black underline decoration-2">ONLY ₹800</span>
+            </span>
+            <span className="bg-white/15 text-white text-[9px] font-black px-1.5 py-0.5 rounded-full border border-white/30 uppercase tracking-wider shrink-0">
+              SAVE 86%
+            </span>
+            {/* Countdown for mobile */}
+            {!countdown.expired && (
+              <>
+                <span className="text-emerald-300 font-bold shrink-0">|</span>
+                <span className="text-amber-200 text-[9px] font-black uppercase tracking-wider shrink-0">⏰ ENDS:</span>
+                <div className="flex items-center gap-0.5 shrink-0">
+                  {[{v: countdown.d, l:'D'}, {v: countdown.h, l:'H'}, {v: countdown.m, l:'M'}, {v: countdown.s, l:'S'}].map(({v, l}, i) => (
+                    <React.Fragment key={l}>
+                      <div className="bg-white/20 rounded px-1 py-0.5 text-center min-w-[22px]">
+                        <span className="font-black text-white text-[10px] tabular-nums">{String(v).padStart(2,'0')}</span>
+                        <span className="text-emerald-200 text-[7px] block font-bold leading-none">{l}</span>
+                      </div>
+                      {i < 3 && <span className="text-amber-200 font-black text-[10px]">:</span>}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </>
+            )}
+            <Link
+              href="/book?package=QXL%20Freedom%2080%20Health%20Check"
+              className="inline-flex items-center justify-center gap-1 bg-white hover:bg-slate-100 text-[10px] font-black px-3.5 py-1 rounded-full shadow-md active:scale-95 transition-all shrink-0 uppercase tracking-wider cursor-pointer ml-1"
+              style={{ color: '#059669' }}
+            >
+              Book Now →
+            </Link>
+          </div>
         </div>
       </div>
+
     </header>
 
       {/* ── LOCATION MODAL (mobile, centered) ── */}

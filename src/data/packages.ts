@@ -1,5 +1,22 @@
 export const packagesData = [
   {
+    name: "QXL Freedom 80 Health Check",
+    price: "800",
+    old_price: "5800",
+    includes: "80 Parameters across 8 Major Health Areas: Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11).",
+    parameters: "80 Parameters",
+    tag: "INDEPENDENCE OFFER",
+    most_booked: true
+  },
+  {
+    name: "Quick Fit Package",
+    price: "1770",
+    old_price: "4696",
+    includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy.",
+    parameters: "12+ Parameters",
+    tag: "FITNESS"
+  },
+  {
     name: "Q-Screen Diabetes Package",
     price: "1900",
     old_price: "4960",

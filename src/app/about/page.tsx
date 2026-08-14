@@ -80,10 +80,6 @@ export default function AboutPage() {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <a href="https://maps.app.goo.gl/GYhGxGxRvN4Wm8zJ8?g_st=aw" target="_blank" rel="noopener noreferrer" className="btn-sky flex items-center gap-2">
-                  <Eye className="w-4 h-4" />
-                  Take a Virtual Tour
-                </a>
                 <a href="https://maps.app.goo.gl/GCW7zkQYoJNdaHNv7" target="_blank" rel="noopener noreferrer" className="glass-pill text-[#0284c7] font-extrabold px-6 py-3 text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-sky-100/50 transition-all">
                   <MapPin className="w-4 h-4 text-[#0284c7]" />
                   View Location

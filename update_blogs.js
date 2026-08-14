@@ -101,7 +101,7 @@ const newBlogs = `const defaultBlogs = [
     content: "In an era of automated healthcare, it is easy to assume that a blood test is simply a machine printing out numbers. However, context is everything in medicine.\\n\\nAt QXL Diagnostics, we mandate that all critical and specialized reports are reviewed by our panel of senior medical consultants before they reach your doctor. Our experts look for subtle discrepancies, correlate findings across different tests, and add clinical interpretation notes that guide treatment.\\n\\nWhen a borderline result could mean the difference between a cancer diagnosis and a benign condition, the trained eye of an expert pathologist is irreplaceable. This is our commitment to precision care.",
     author: "Dr. Naveen Kumar N",
     date: "March 10, 2026",
-    image: "/image/dr_shantakumar_v4.jpg"
+    image: "/images/dr_shantakumar_new.jpg"
   }
 ];`;
 

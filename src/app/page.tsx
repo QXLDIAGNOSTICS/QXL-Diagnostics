@@ -3,9 +3,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2 } from "lucide-react";
+import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone } from "lucide-react";
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
+import { api } from '../lib/api';
 import { WHATSAPP_LINK } from '../lib/businessInfo';
 import { optimizeCloudinaryUrl } from '../lib/cloudinary';
 import BlogSlider from "../components/BlogSlider";
@@ -15,9 +16,15 @@ import Accreditations from "../components/Accreditations";
 import FaqSection from "../components/FaqSection";
 import ReviewsSection from "../components/ReviewsSection";
 import SeoContent from "../components/SeoContent";
-import { api } from "../lib/api";
 import CallbackModal from "../components/CallbackModal";
 import AppDownloadBanner from "../components/AppDownloadBanner";
+import Freedom80Hero from "../components/Freedom80Hero";
+import Freedom80CampaignSection from "../components/Freedom80CampaignSection";
+import Freedom80Breakdown from "../components/Freedom80Breakdown";
+import EmotionalFamilySection from "../components/EmotionalFamilySection";
+import DoctorLedLabSection from "../components/DoctorLedLabSection";
+import Freedom80FullWidthBanner from "../components/Freedom80FullWidthBanner";
+import RunningTextMarquee from "../components/RunningTextMarquee";
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
 const whySlides = [
@@ -309,7 +316,7 @@ function PromoHighlightSlider() {
   const prev2 = () => setActive(p => (p - 1 + promoSlides.length) % promoSlides.length);
   const next2 = () => setActive(p => (p + 1) % promoSlides.length);
   return (
-    <section className="py-10 bg-white border-t border-blue-100">
+    <section className="py-10 bg-transparent border-t border-blue-100/40">
       <div className="max-w-[1200px] mx-auto px-4 w-full">
         {/* Heading */}
         <div className="text-center mb-7">
@@ -522,7 +529,6 @@ function MobileWhyChooseSlider() {
 }
 
 
-
 // ── Mobile: QXL Packages Slider ─────────────────────────────────────────────
 function MobilePromoHighlightSlider() {
   const [active, setActive] = useState(0);
@@ -532,7 +538,7 @@ function MobilePromoHighlightSlider() {
   }, []);
   const slide = promoSlides[active];
   return (
-    <section className="py-5 bg-white border-t border-blue-100">
+    <section className="py-5 bg-transparent border-t border-blue-100">
       <div className="px-4 mb-3">
         <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Our Packages</p>
         <p className="text-[#0d2e42] font-extrabold text-base">Featured Packages</p>
@@ -601,9 +607,6 @@ function MobilePromoHighlightSlider() {
   );
 }
 
-
-
-
 import { BookingFormWidget } from '../components/BookingFormWidget';
 
 function QuickBookingForm({ formState, setFormState, handleContactSubmit, formStatus }: any) {
@@ -648,10 +651,32 @@ function QuickBookingForm({ formState, setFormState, handleContactSubmit, formSt
       </form>
     </div>
   );
+}function useCountdown() {
+  const target = new Date('2026-08-15T23:59:59+05:30').getTime();
+  const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0, expired: false });
+  useEffect(() => {
+    const tick = () => {
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0) { setTimeLeft({ d: 0, h: 0, m: 0, s: 0, expired: true }); return; }
+      setTimeLeft({
+        d: Math.floor(diff / 86400000),
+        h: Math.floor((diff % 86400000) / 3600000),
+        m: Math.floor((diff % 3600000) / 60000),
+        s: Math.floor((diff % 60000) / 1000),
+        expired: false
+      });
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+  return timeLeft;
 }
 
 
 export default function Home() {
+  const countdown = useCountdown();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [location, setLocation] = useState("Bengaluru");
   const [isPrescriptionModalOpen, setIsPrescriptionModalOpen] = useState(false);
@@ -701,9 +726,22 @@ export default function Home() {
     window.addEventListener('locationChange', handleLoc);
     window.addEventListener('cartChange', handleCart);
     
-    // Load dynamic locations for map rendering
+    // Load dynamic locations & packages safely for rendering
     setLocations(cmsStore.getAll("locations"));
-    setRecommendedPackages(cmsStore.getAll("packages").sort((a, b) => Number(a.price) - Number(b.price)));
+    const fallbackPackages = cmsStore.getAll("packages").sort((a, b) => Number(a.price) - Number(b.price));
+    setRecommendedPackages(fallbackPackages);
+
+    if (api && api.packages) {
+      api.packages.list()
+        .then((data) => {
+          if (data && data.length > 0) {
+            setRecommendedPackages(data.sort((a, b) => Number(a.price) - Number(b.price)));
+          }
+        })
+        .catch(() => {
+          // Graceful fallback to local CMS store packages
+        });
+    }
     
     return () => {
       window.removeEventListener('locationChange', handleLoc);
@@ -730,110 +768,25 @@ export default function Home() {
     ? `https://maps.google.com/maps?q=QXL+Diagnostics+${activeLocationObj.lat},${activeLocationObj.lng}&t=&z=15&ie=UTF8&iwloc=&output=embed`
     : `https://maps.google.com/maps?q=${encodeURIComponent("QXL Diagnostics " + location)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
-  const slides = [
-    {
-      badge: "SUPER SPECIALITY DIAGNOSTICS",
-      title: "DOCTOR DRIVEN SUPER SPECIALITY",
-      titleAccent: "DIAGNOSTICS LAB IN BENGALURU",
-      subtitle: "Advanced pathology, microbiology, molecular diagnostics,",
-      subtitleAccent: "histopathology & precision testing — expert-reviewed reports",
-      description: "QXL Diagnostics delivers clinically meaningful diagnostic answers through advanced super speciality testing, home sample collection across Bengaluru, and consultant-reviewed reports.",
-      cta: "Book a Test",
-      ctaLink: "/book",
-      ctaSecondary: "Our Specialities",
-      ctaSecondaryLink: "/speciality-tests",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg",
-      imageFit: "cover",
-      bgFrom: "#eff6ff",
-      bgTo: "#dbeafe",
-      features: ["NABL Accredited (MC-6849)", "Expert-Reviewed Reports", "AI-Assisted Diagnostics", "Home Collection"],
-    },
-    {
-      badge: "AI TECHNOLOGY",
-      title: "AI-POWERED SUPER SPECIALITY",
-      titleAccent: "DIAGNOSTICS LAB IN BENGALURU",
-      subtitle: "Unmatched precision and speed in diagnostic testing,",
-      subtitleAccent: "driven by cutting-edge artificial intelligence.",
-      description: "Experience the next generation of healthcare with AI-assisted diagnostics, ensuring faster turnaround times and superior accuracy for complex tests.",
-      cta: "Book a Test",
-      ctaLink: "/book",
-      ctaSecondary: "Our Specialities",
-      ctaSecondaryLink: "/specialities",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150124/Assets-QXL/legacy-assets/image/doctor_smiling.png",
-      imageFit: "cover",
-      bgFrom: "#eff6ff",
-      bgTo: "#dbeafe",
-      features: ["AI Precision", "Faster Results", "Advanced Technology", "NABL Certified"]
-    },
-    {
-      badge: "FAMILY CARE",
-      title: "Double the Care",
-      titleAccent: "Double the Savings",
-      subtitle: "Full Body Comprehensive Health Check-up",
-      subtitleAccent: "1+1 FAMILY OFFER",
-      description: "Get comprehensive insights for two people for the price of one. 86+ Parameters included.",
-      cta: "Book Now",
-      ctaLink: "/book",
-      ctaSecondary: "View Packages",
-      ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
-      imageFit: "cover",
-      bgFrom: "#f0f9ff",
-      bgTo: "#e0f2fe",
-      features: ["86+ Tests", "1+1 Offer", "Save 50%", "Home Collection"],
-    },
-    {
-      badge: "EXECUTIVE SCREENING",
-      title: "QXL SUPER SPECIALITY",
-      titleAccent: "HEALTH SCREENING PACKAGE",
-      subtitle: "TOTAL TESTS 317",
-      subtitleAccent: "AT JUST ₹7999",
-      description: "Advanced diagnostic package tailored for busy professionals. Comprehensive screening to keep you at peak performance.",
-      cta: "Book Now »",
-      ctaLink: "/book",
-      ctaSecondary: "View Package",
-      ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
-      imageFit: "cover",
-      bgFrom: "#dbeafe",
-      bgTo: "#eff6ff",
-      features: ["317 Tests", "₹7999 Only", "Priority Service"],
-    },
-    {
-      badge: "FRIENDSHIP OFFER",
-      title: "Best friends do everything together.",
-      titleAccent: "WHY NOT HEALTH CHECKUPS TOO?",
-      subtitle: "BUY 1 GET 1 FREE",
-      subtitleAccent: "FULL BODY CHECKUP",
-      description: "Bring a friend and get a Free FATTY LIVER TEST. Starting at just ₹850 ONLY.",
-      cta: "Book Offer",
-      ctaLink: "/book",
-      ctaSecondary: "View Packages",
-      ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150205/Assets-QXL/legacy-assets/image/happy_couple_phone.jpg",
-      imageFit: "cover",
-      bgFrom: "#dbeafe",
-      bgTo: "#eff6ff",
-      features: ["BOGO Offer", "Free Liver Test", "₹850 Only", "Shared Health"],
-    },
-    {
-      badge: "PREVENTIVE CARE",
-      title: "Know your health risks.",
-      titleAccent: "Before they become health problems.",
-      subtitle: "Advanced Preventive Screenings",
-      subtitleAccent: "Starting at ₹5,999 ONLY",
-      description: "Prevention is better than cure. Discover your health baseline with our comprehensive full body checkups.",
-      cta: "Book Now »",
-      ctaLink: "/book",
-      ctaSecondary: "Reports in 6 hours",
-      ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
-      imageFit: "cover",
-      bgFrom: "#eff6ff",
-      bgTo: "#e0f2fe",
-      features: ["₹5,999 Only", "6-Hour Reports", "Full Body", "Actionable Data"],
-    },
+  const posterImages = [
+    "/posters/02998fde-ef5f-4292-910c-7530f67acd7e.jpeg",
+    "/posters/07e29c76-b80d-406c-b9cb-5741d1cddc98.jpeg",
+    "/posters/0b7b423e-88d8-4f9c-baef-cf5b79e5cecc.jpeg",
+    "/posters/244bb0ec-8188-47a6-b185-b78d3646e4f0.jpeg",
+    "/posters/247d0b13-34e7-4296-b29a-148ce54d7fa4.jpeg",
+    "/posters/2730d20d-0638-4bd1-a949-6c76ba6cf6d4.jpeg",
+    "/posters/7726ca5b-1d20-4cf5-8130-785dcde255dc.jpeg",
+    "/posters/de0b69c4-521d-4674-8ef7-52e52eef4865.jpeg",
+    "/posters/ee2d2cb7-5bf7-462f-ac54-b34303d3a215.jpeg",
+    "/posters/ee7fee8d-4658-46d5-aea8-d31f44aaeee9.jpeg",
   ];
+
+  const slides = posterImages.map((img, i) => ({
+    title: `QXL Freedom Sale Poster ${i + 1}`,
+    image: img,
+    ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
+    imageOnly: true,
+  }));
 
   const [isHovered, setIsHovered] = useState(false);
   
@@ -863,10 +816,10 @@ export default function Home() {
   const activeSlide = slides[currentSlide];
 
   const bodyOrgans = [
-    { name: "Heart", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150111/Assets-QXL/legacy-assets/image/cardiology.jpg" },
+    { name: "Heart", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png" },
     { name: "Thyroid", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png" },
     { name: "Liver", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png" },
-    { name: "Bone & Joint", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150107/Assets-QXL/legacy-assets/image/bone_disorders.jpg" },
+    { name: "Bone & Joint", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150389/Assets-QXL/legacy-assets/image/spec_bone.png" },
     { name: "Infertility", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png" },
     { name: "Kidney", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png" },
   ];
@@ -882,8 +835,8 @@ export default function Home() {
         <section className="pt-6 pb-4 relative group overflow-hidden">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div
-              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row h-[580px] md:h-[520px]"
-              style={{ background: `linear-gradient(135deg, ${activeSlide.bgFrom} 0%, ${activeSlide.bgTo} 100%)` }}
+              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row h-[580px] md:h-[520px] shadow-lg border border-amber-200/50"
+              style={{ background: 'linear-gradient(135deg, #FFF4E6 0%, #FFFFFF 40%, #FFFFFF 60%, #E8F5E9 100%)' }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -907,79 +860,125 @@ export default function Home() {
                       />
                     </div>
                   ) : (
-                    <>
+                    <React.Fragment>
                       {/* Decorative blobs */}
-                      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#2563eb]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-                      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#2563eb]/8 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
-       
-                      {/* Content */}
+                      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-500/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+                      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-emerald-500/8 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+
+                      {/* Content — left side */}
                       <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="w-full md:w-[52%] px-8 md:px-14 py-6 md:py-0 h-[330px] md:h-full flex flex-col justify-center z-10 relative text-left"
+                        className="w-full md:w-[52%] px-8 md:px-12 py-8 h-full flex flex-col justify-center z-10 relative text-left overflow-hidden"
                       >
-                        <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3.5 w-fit shadow-sm">
-                          {activeSlide.badge}
-                        </span>
-                        <p className="text-[26px] md:text-[34px] leading-[1.1] font-extrabold text-[#0d2e42] mb-1">
+                        {/* Badge */}
+                        <div className="flex flex-wrap items-center gap-2 mb-3">
+                          <span className="inline-block bg-[#FF9933] text-white text-[9px] font-black px-3 py-1 rounded-full tracking-widest uppercase shadow-md border border-orange-300 truncate max-w-[90%]">
+                            {activeSlide.badge}
+                          </span>
+                          {activeSlide.flagAnimation && !countdown.expired && (
+                            <span className="bg-emerald-50 text-emerald-700 border border-emerald-300 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider animate-pulse flex items-center gap-1 shrink-0">
+                              ⏰ Offer Ends: {countdown.d}d {countdown.h}h {countdown.m}m {countdown.s}s
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Title — single compact block */}
+                        <h2 className="text-[22px] md:text-[28px] leading-[1.15] font-black text-[#0f2d5e] mb-1 pr-4">
                           {activeSlide.title}
-                        </p>
-                        <p className="text-[26px] md:text-[34px] leading-[1.1] font-extrabold text-[#2563eb] mb-2.5">
+                        </h2>
+                        <p className="text-[16px] md:text-[20px] leading-[1.2] font-extrabold text-[#138808] mb-2 pr-4">
                           {activeSlide.titleAccent}
                         </p>
-                        <p className="text-[14px] md:text-[16px] font-bold text-slate-600 mb-1">
-                          {activeSlide.subtitle}{" "}
-                          <span className="text-[#2563eb]">{activeSlide.subtitleAccent}</span>
+
+                        {/* Short subtitle only */}
+                        <p className="text-[12px] text-slate-600 font-medium mb-3 max-w-sm leading-snug line-clamp-2">
+                          {activeSlide.subtitle}
                         </p>
-                        <p className="text-[12.5px] text-slate-500 font-medium leading-relaxed mb-4 max-w-md">
-                          {activeSlide.description}
-                        </p>
-    
-                        {/* Feature pills */}
-                        <div className="flex flex-wrap gap-2 mb-5">
-                          {activeSlide.features.map((f) => (
-                            <span key={f} className="bg-white/70 border border-[#2563eb]/20 text-[#2563eb] text-[10.5px] font-bold px-3 py-1 rounded-full shadow-sm">
+
+                        {/* Feature pills — max 4, single row */}
+                        <div className="flex flex-wrap gap-1.5 mb-4">
+                          {activeSlide.features.slice(0, 4).map((f, i) => (
+                            <span
+                              key={f}
+                              className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border ${
+                                i % 3 === 0
+                                  ? "bg-amber-50 border-amber-300 text-amber-800"
+                                  : i % 3 === 1
+                                  ? "bg-sky-50 border-sky-300 text-sky-800"
+                                  : "bg-emerald-50 border-emerald-300 text-emerald-800"
+                              }`}
+                            >
                               ✓ {f}
                             </span>
                           ))}
                         </div>
-    
+
+                        {/* CTA Buttons */}
+                        <div className="flex flex-wrap items-center gap-2 mb-3">
+                          <Link
+                            href={activeSlide.ctaLink}
+                            className="bg-[#FF9933] hover:bg-orange-500 text-white font-black px-5 py-2.5 rounded-full text-[12px] shadow-md hover:shadow-lg active:scale-95 transition-all uppercase tracking-wide"
+                          >
+                            {activeSlide.cta}
+                          </Link>
+                          {(activeSlide as { freedom80Card?: boolean }).freedom80Card !== true && (
+                            <a
+                              href={activeSlide.ctaSecondaryLink}
+                              className="bg-white hover:bg-slate-50 text-slate-700 font-bold px-4 py-2.5 rounded-full text-[11px] uppercase tracking-wide border border-emerald-300/80 shadow-sm transition-all"
+                            >
+                              {activeSlide.ctaSecondary}
+                            </a>
+                          )}
+                        </div>
+
+                        {/* Freedom 80 Package Mini-Card — only on first slide */}
+                        {(activeSlide as { freedom80Card?: boolean }).freedom80Card === true && (
+                          <div className="bg-white/90 border border-amber-200 rounded-xl px-3 py-2.5 shadow-sm flex items-center gap-3 max-w-[360px]">
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-1.5 mb-0.5">
+                                <span className="bg-amber-100 text-amber-700 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">MOST BOOKED</span>
+                                <span className="bg-emerald-100 text-emerald-700 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">86% OFF</span>
+                              </div>
+                              <p className="text-[#0f2d5e] font-black text-[11px] truncate">QXL Freedom 80 · 80 Parameters</p>
+                              <div className="flex items-baseline gap-1.5 mt-0.5">
+                                <span className="text-emerald-600 font-black text-base">₹800</span>
+                                <span className="text-slate-400 text-[10px] line-through">₹5,800</span>
+                                <span className="text-slate-500 text-[9px]">· Free Home Collection</span>
+                              </div>
+                            </div>
+                            <Link
+                              href="/book?package=QXL%20Freedom%2080%20Health%20Check"
+                              className="bg-[#2563eb] hover:bg-blue-700 text-white font-black px-3 py-2 rounded-lg text-[10px] uppercase tracking-wide shadow-md transition-all active:scale-95 whitespace-nowrap flex-shrink-0"
+                            >
+                              BOOK NOW
+                            </Link>
+                          </div>
+                        )}
+
                       </motion.div>
-    
-                      {/* Image */}
+
+                      {/* Image — right side */}
                       <motion.div
                         initial={{ opacity: 0, scale: 0.9, y: 10 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.15 }}
-                        className="w-56 h-56 rounded-2xl bg-[#dbeafe] absolute top-10 right-10 lg:w-[450px] lg:h-[450px] overflow-hidden border-8 border-white/20 shadow-2xl z-20"
+                        className="w-56 h-56 rounded-2xl bg-[#dbeafe] absolute top-10 right-10 lg:w-[420px] lg:h-[420px] overflow-hidden border-8 border-white/30 shadow-2xl z-20"
                       >
-                        <Image
+                        <img
                           src={activeSlide.image}
                           alt={activeSlide.title}
-                          fill
-                          sizes="(max-width: 1024px) 224px, 450px"
-                          className="object-cover"
-                          priority
+                          className="w-full h-full object-cover"
                         />
                       </motion.div>
-                    </>
+                    </React.Fragment>
                   )}
                 </motion.div>
               </AnimatePresence>
-    
-              {/* Slide dots */}
-              <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-0.5 z-20">
-                {slides.map((s, idx) => (
-                  <button key={idx} type="button" onClick={() => setCurrentSlide(idx)}
-                    className="min-w-11 min-h-11 flex items-center justify-center"
-                    aria-label={`Slide ${idx + 1}`}
-                    aria-current={idx === currentSlide ? "true" : undefined}
-                  >
-                    <span className={`block h-2 rounded-full transition-all duration-300 ${idx === currentSlide ? "w-7 bg-[#2563eb]" : "w-2 bg-gray-400"}`} />
-                  </button>
-                ))}
-              </div>
+
+              {/* Slide dots removed as requested */}
+
             </div>
           </div>
     
@@ -1064,8 +1063,61 @@ export default function Home() {
           </div>
         </section>
 
+
+
+        {/* ── 24x7 Diagnostic Lab Banner (Independence Day Theme) ── */}
+        <section className="py-8 z-30 relative">
+          <div className="max-w-[1260px] mx-auto px-4 w-full">
+            <div className="rounded-[28px] overflow-hidden shadow-xl border border-white/50 relative bg-gradient-to-r from-[#FF9933]/10 via-white to-[#138808]/10 p-8 md:p-12">
+              {/* Background Decoration */}
+              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#138808]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#FF9933]/15 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+              
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="flex-1 text-left">
+                  <span className="inline-block bg-[#000080] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3.5 shadow-sm">
+                    24×7 DIAGNOSTIC SERVICES
+                  </span>
+                  <h2 className="text-[28px] md:text-[38px] leading-[1.1] font-extrabold text-[#0b132b] mb-2">
+                    India's Independence Day
+                  </h2>
+                  <h3 className="text-[22px] md:text-[28px] leading-[1.2] font-extrabold text-[#FF9933] mb-4">
+                    Doctor-Led Diagnostic Lab in Bengaluru
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                    {["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"].map(service => (
+                      <div key={service} className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-[#138808]" />
+                        <span className="text-slate-700 font-bold text-sm">{service}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-sm font-semibold text-slate-600 mb-6">
+                    Available at all QXL centres & partner facilities across Bengaluru.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <a href="tel:+919964639639" className="bg-[#FF9933] text-white font-black px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm uppercase tracking-widest flex items-center gap-2 border border-white/40">
+                      Call +91 9964 639 639
+                    </a>
+                    <a href="https://www.qxldiagnostics.com" target="_blank" rel="noreferrer" className="text-[#000080] font-bold text-sm hover:underline">
+                      www.qxldiagnostics.com
+                    </a>
+                  </div>
+                </div>
+                
+                {/* 24/7 Graphic */}
+                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white/80 border-8 border-white shadow-2xl flex flex-col items-center justify-center flex-shrink-0 relative">
+                  <div className="absolute inset-0 border-4 border-dashed border-[#138808]/30 rounded-full animate-[spin_30s_linear_infinite]" />
+                  <span className="text-6xl md:text-7xl font-black text-[#000080] tracking-tighter">24<span className="text-[#FF9933]">/</span>7</span>
+                  <span className="text-xs md:text-sm font-bold tracking-widest text-[#138808] uppercase mt-1">Care & Precision</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── Recommended Packages ── */}
-        <section className="py-10 bg-white border-t border-gray-100">
+        <section className="py-10 bg-transparent border-t border-gray-100">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div className="flex justify-between items-end mb-7">
               <div>
@@ -1073,8 +1125,8 @@ export default function Home() {
                 <h2 className="text-[#0f2d5e] text-2xl font-extrabold mt-0.5">Recommended Packages</h2>
                 <p className="text-slate-500 text-xs font-semibold mt-1">Our most popular general health panels — trusted by thousands</p>
               </div>
-              <Link href="/packages" className="border border-[#2563eb] text-[#2563eb] font-bold px-6 py-2 rounded-xl text-xs hover:bg-[#dbeafe] transition-colors">
-                View all health packages
+              <Link href="/packages" className="border border-blue-600 text-blue-600 font-extrabold px-5 py-2 rounded-full text-xs hover:bg-blue-50 transition-all">
+                View All
               </Link>
             </div>
 
@@ -1087,9 +1139,10 @@ export default function Home() {
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.35, delay: idx * 0.05 }}
                   whileHover={{ y: -4 }}
-                  className="w-[85vw] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-15px)] flex-shrink-0 snap-start bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:border-[#2563eb]/40 transition-all flex flex-col group h-[355px] text-left duration-300 relative z-10"
+                  className="w-[280px] md:w-[300px] flex-shrink-0 snap-start bg-white border border-gray-150 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-blue-400/50 transition-all flex flex-col group h-[385px] text-left relative z-10 duration-300"
                 >
-                  <div className="w-full bg-[#f0f9ff] px-4 py-3 flex justify-between items-center border-b border-sky-100">
+                  {/* Card Header (Pills) */}
+                  <div className="w-full bg-[#f0f9ff] px-4 py-3 flex justify-between items-center border-b border-sky-100/50">
                     <div className="flex items-center gap-1.5 flex-wrap">
                       {pkg.most_booked ? (
                         <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-3 py-1 rounded-full text-[10px] font-extrabold shadow-[0_0_12px_rgba(249,115,22,0.4)] flex items-center gap-1 border border-orange-400 tracking-wider">
@@ -1097,55 +1150,55 @@ export default function Home() {
                           MOST BOOKED
                         </span>
                       ) : (
-                        <span className="bg-[#2563eb] text-white px-2.5 py-1 rounded-full text-[10px] font-extrabold tracking-wider shadow-xs">{pkg.tag || "PACKAGE"}</span>
+                        <span className="bg-[#2563eb] text-white px-3 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase">{pkg.tag || "PACKAGE"}</span>
                       )}
                     </div>
-                    <span className="bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-full text-[10px] font-extrabold shadow-xs border border-emerald-200">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
+                    <span className="bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7] px-3 py-1 rounded-full text-[10px] font-extrabold">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
                   </div>
 
-                  <div className="p-4 flex flex-col flex-1 justify-between">
-                    <div className="cursor-pointer" onClick={() => setSelectedPackage(pkg)}>
+                  {/* Card Body */}
+                  <div className="p-4 flex flex-col flex-grow justify-between">
+                    <div>
                       <div className="flex justify-between items-start mb-2 gap-2">
-                        <h3 className="font-extrabold text-[#0c4a6e] text-[15px] leading-tight hover:text-[#2563eb] transition-colors">{pkg.name}</h3>
-                        <span className="text-[9px] font-extrabold text-[#0284c7] bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0 hover:bg-sky-100 transition-colors">Details 🔍</span>
+                        <h3 className="font-extrabold text-[#0f2d5e] text-[15px] leading-tight hover:text-[#2563eb] transition-colors">{pkg.name}</h3>
                       </div>
-                      <div className="mb-2">
-                        <div className="bg-sky-50/70 text-[#0284c7] border border-sky-200/50 text-[10px] font-bold px-2.5 py-1.5 rounded-lg h-[38px] flex items-center overflow-hidden">
-                          <p className="line-clamp-2 leading-tight">{pkg.includes}</p>
+                      
+                      {/* Parameter Box */}
+                      <div className="mb-3">
+                        <div className="bg-[#eff6ff] border border-sky-150/40 text-[#1d4ed8] text-[10.5px] font-medium px-3 py-2.5 rounded-xl h-[52px] flex items-center overflow-hidden leading-normal">
+                          <p className="line-clamp-2">{pkg.includes}</p>
                         </div>
                       </div>
-                      <p className="text-[10px] text-[#0c4a6e] font-extrabold mb-1 flex items-center gap-1">
+
+                      {/* Home Collection Notice */}
+                      <p className="text-[10px] text-slate-500 font-bold mb-3 flex items-center gap-1.5">
                         🏠 Free Home Collection Available
                       </p>
                     </div>
 
-                    <div className="pt-2 border-t border-slate-100">
-                      <div className="flex items-baseline gap-2 mb-3 mt-1">
-                        <span className="text-2xl font-black text-[#0c4a6e]">₹{pkg.price}</span>
-                        <span className="text-xs text-slate-400 line-through font-semibold">₹{pkg.old_price}</span>
-                        <span className="text-[11px] text-emerald-600 font-black">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
-                      </div>
-                      <div className="flex gap-2 items-center">
-                        <button
-                          type="button"
-                          onClick={() => handleToggleCart(pkg.name)}
-                          className={`flex-1 h-9 rounded-xl text-[10px] font-extrabold uppercase tracking-wider transition-all border cursor-pointer flex items-center justify-center ${
-                            cartItems.includes(pkg.name)
-                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
-                              : 'bg-slate-100 text-slate-800 border-slate-200 hover:bg-slate-200'
-                          }`}
-                        >
-                          {cartItems.includes(pkg.name) ? "✓ Added" : "+ Cart"}
-                        </button>
+                    {/* Pricing */}
+                    <div className="flex items-baseline gap-2 mb-4">
+                      <span className="text-xl font-extrabold text-slate-900">₹{pkg.price}</span>
+                      <span className="text-xs text-slate-400 line-through font-semibold">₹{pkg.old_price}</span>
+                      <span className="text-[11px] font-extrabold text-[#16a34a]">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
+                    </div>
 
-                        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="flex-1">
-                          <Link href={`/book?package=${encodeURIComponent(pkg.name)}`}
-                            className="btn-sky w-full h-9 rounded-xl text-[10px] shadow-sm uppercase tracking-wider flex items-center justify-center gap-1 font-extrabold">
-                            <span>BOOK NOW</span>
-                            <span>→</span>
-                          </Link>
-                        </motion.div>
-                      </div>
+                    {/* Buttons */}
+                    <div className="flex gap-2 items-center mt-auto">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedPackage(pkg)}
+                        className="flex-1 h-9 rounded-xl text-[10px] font-extrabold uppercase tracking-wider transition-all border border-slate-200 text-slate-700 hover:bg-slate-50 cursor-pointer flex items-center justify-center"
+                      >
+                        Details
+                      </button>
+
+                      <Link
+                        href={`/book?package=${encodeURIComponent(pkg.name)}`}
+                        className="flex-grow bg-[#2563eb] hover:bg-[#1d4ed8] text-white rounded-xl text-[10px] shadow-sm uppercase tracking-wider flex items-center justify-center gap-1 font-extrabold transition-all h-9 flex items-center justify-center text-center"
+                      >
+                        BOOK NOW
+                      </Link>
                     </div>
                   </div>
                 </motion.div>
@@ -1155,7 +1208,7 @@ export default function Home() {
         </section>
 
         {/* ── Quick Booking Form (Full Details, 2-Column Desktop) ── */}
-        <section className="hidden lg:block py-16 bg-[#f0f9ff] border-y border-blue-100 relative overflow-hidden">
+        <section className="hidden lg:block py-16 bg-transparent border-y border-blue-100 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/50 to-sky-200/30 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
           
           <div className="max-w-[1260px] mx-auto px-4 w-full relative z-10">
@@ -1198,7 +1251,7 @@ export default function Home() {
         </section>
 
         {/* ── Speciality Tests ── */}
-        <section className="py-14 bg-gradient-to-b from-[#eff6ff] to-[#dbeafe] border-t border-blue-100">
+        <section className="py-14 bg-gradient-to-b from-transparent to-blue-50/50 border-t border-blue-100">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div className="mb-10 text-center">
               <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-3 shadow-sm">Our Specialities</span>
@@ -1275,7 +1328,7 @@ export default function Home() {
         <HomeCollectionSection />
 
         {/* ── Meet Our Team ── */}
-        <section className="py-14 bg-[#f0f9ff] border-t border-blue-100">
+        <section className="py-14 bg-transparent border-t border-blue-100">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div className="mb-10 text-center">
               <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2">Our Experts</span>
@@ -1287,7 +1340,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", role: "Founder & CEO", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg", imagePosition: "center 20%", imageScale: 1.35 },
+                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", role: "Founder & CEO", image: "/images/dr_shantakumar_new.jpg", imagePosition: "center top", imageScale: 1.3, imageTranslateY: "-24%" },
                 { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", role: "Senior Consultant", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
                 { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", role: "Senior Consultant", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
                 { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", role: "Consultant Pathologist", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
@@ -1305,7 +1358,10 @@ export default function Home() {
                   <div className="relative aspect-square overflow-hidden bg-sky-50">
                     <Image src={doc.image} alt={doc.name} width={280} height={280}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      style={{ objectPosition: doc.imagePosition || 'top' }}
+                      style={{ 
+                        objectPosition: doc.imagePosition || 'top',
+                        transform: doc.imageScale ? `scale(${doc.imageScale}) ${doc.imageTranslateY ? `translateY(${doc.imageTranslateY})` : ''}` : 'none'
+                      }}
                       onError={(e) => { e.currentTarget.srcset = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"; }} />
                     <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
                   </div>
@@ -1330,7 +1386,7 @@ export default function Home() {
         <BlogSlider />
 
         {/* ── Form and Maps ── */}
-        <section className="py-16 bg-white border-t border-gray-150">
+        <section className="py-16 bg-transparent border-t border-gray-150">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
               {/* Contact Form */}
@@ -1424,7 +1480,7 @@ export default function Home() {
 
 
         {/* Mobile Hero Slider */}
-        <section className="w-full bg-white pb-2">
+        <section className="w-full bg-transparent pb-2">
           <div 
             className="relative w-full overflow-hidden"
             onTouchStart={() => setIsMobileHovered(true)}
@@ -1435,134 +1491,178 @@ export default function Home() {
                 key={idx}
                 className={`transition-opacity duration-500 ${idx === currentMobileSlide ? 'block' : 'hidden'}`}
               >
-                {/* Content slides — text left, image right */}
-                <div
-                  className="mx-3 mt-2 rounded-2xl overflow-hidden flex flex-row items-stretch"
-                  style={{
-                    minHeight: '260px',
-                    background: `linear-gradient(135deg, ${slide.bgFrom} 0%, ${slide.bgTo} 100%)`
-                  }}
-                >
-                  {/* Left: Text Content */}
-                  <div className="flex-1 flex flex-col justify-center px-4 py-4 z-10 text-left">
-                    {slide.badge && (
-                      <span className="inline-block bg-[#2563eb] text-white text-[8px] font-extrabold px-2 py-0.5 rounded-full tracking-widest uppercase mb-1.5 w-fit">
-                        {slide.badge}
-                      </span>
-                    )}
-                    <p className="text-[14px] font-extrabold text-[#0d2e42] leading-tight mb-0.5">
-                      {slide.title}
-                    </p>
-                    {slide.titleAccent && (
-                      <p className="text-[14px] font-extrabold text-[#2563eb] leading-tight mb-1">
-                        {slide.titleAccent}
-                      </p>
-                    )}
-                    {slide.subtitle && (
-                      <p className="text-[10px] font-bold text-slate-600 mb-0.5">{slide.subtitle}</p>
-                    )}
-                    {slide.subtitleAccent && (
-                      <p className="text-[10px] font-extrabold text-[#2563eb] mb-2">{slide.subtitleAccent}</p>
-                    )}
-                    {slide.cta && (
-                      <Link
-                        href={slide.ctaLink}
-                        className="inline-block bg-[#2563eb] text-white font-bold px-4 py-1.5 rounded-full text-[10px] w-fit mt-1 shadow-sm active:scale-95 transition-transform"
-                      >
-                        {slide.cta}
-                      </Link>
-                    )}
-                  </div>
-                  {/* Right: Image */}
-                  <div className="w-[125px] flex-shrink-0 relative overflow-hidden rounded-r-2xl bg-white/20">
+                {slide.imageOnly ? (
+                  <div className="mx-3 mt-2 rounded-2xl overflow-hidden shadow-md relative h-[320px] bg-slate-900">
                     <Image
                       src={slide.image}
                       alt={slide.title}
                       fill
-                      sizes="125px"
-                      className="object-cover object-center"
-                      style={{ imageRendering: 'auto' }}
+                      className="object-contain"
                       priority={idx === 0}
                     />
                   </div>
-                </div>
+                ) : (
+                  /* Content slides — text left, image right */
+                  <div
+                    className="mx-3 mt-2 rounded-2xl overflow-hidden flex flex-row items-stretch border border-amber-200/60 shadow-md"
+                    style={{
+                      minHeight: '260px',
+                      background: 'linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #f0fdf4 100%)'
+                    }}
+                  >
+                    {/* Left: Text Content */}
+                    <div className="flex-1 flex flex-col justify-center px-4 py-4 z-10 text-left">
+                      {slide.badge && (
+                        <div className="flex flex-col gap-1 mb-1.5 w-fit">
+                          <span className="inline-block bg-[#f97316] text-white text-[8px] font-black px-2 py-0.5 rounded-full tracking-widest uppercase border border-orange-300 shadow-xs">
+                            {slide.badge}
+                          </span>
+                          {slide.flagAnimation && !countdown.expired && (
+                            <span className="inline-block bg-emerald-50 text-emerald-700 border border-emerald-300 text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse whitespace-nowrap">
+                              ⏰ Ends: {countdown.d}d {countdown.h}h {countdown.m}m {countdown.s}s
+                            </span>
+                          )}
+                        </div>
+                      )}
+                      <p className="text-[14px] font-black text-[#0f2d5e] leading-tight mb-0.5">
+                        {slide.title}
+                      </p>
+                      {slide.titleAccent && (
+                        <p className="text-[14px] font-black text-[#0f2d5e] leading-tight mb-1">
+                          {slide.titleAccent}
+                        </p>
+                      )}
+                      {slide.subtitle && (
+                        <p className="text-[10px] font-bold text-slate-700 mb-0.5">{slide.subtitle}</p>
+                      )}
+                      {slide.subtitleAccent && (
+                        <p className="text-[10px] font-black text-[#0284c7] mb-2">{slide.subtitleAccent}</p>
+                      )}
+                      {slide.cta && (
+                        <Link
+                          href={slide.ctaLink}
+                          className="inline-block bg-[#2563eb] text-white font-black px-4 py-1.5 rounded-full text-[10px] w-fit mt-1 shadow-md active:scale-95 transition-transform uppercase tracking-wider"
+                        >
+                          {slide.cta}
+                        </Link>
+                      )}
+                    </div>
+                    {/* Right: Image */}
+                    <div className="w-[125px] flex-shrink-0 relative overflow-hidden rounded-r-2xl bg-white/20">
+                      <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        sizes="125px"
+                        className="object-cover object-center"
+                        style={{ imageRendering: 'auto' }}
+                        priority={idx === 0}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
-          {/* Dots + prev/next */}
-          <div className="flex justify-center items-center gap-0.5 pt-1 pb-1">
-            {mobileSlides.map((_, idx) => (
-              <button
+          {/* Dots removed as requested */}
+        </section>
+
+        {/* ── NEW MOBILE Action Grid (Agilus Style 2x2) ── */}
+        <section className="px-4 py-4 bg-transparent flex flex-col gap-3">
+          <div className="grid grid-cols-2 gap-3">
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 bg-[#eafaf1] hover:bg-[#dcfce7] border border-[#bbf7d0] rounded-2xl p-3.5 active:scale-95 transition-transform"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+                <MessageCircle className="w-5 h-5 text-white" />
+              </div>
+              <span className="font-extrabold text-[#166534] text-xs leading-tight">Book via<br/>WhatsApp</span>
+            </a>
+            
+            <a
+              href="tel:+919964639639"
+              className="flex items-center gap-3 bg-[#e0f2fe] hover:bg-[#bae6fd] border border-[#7dd3fc] rounded-2xl p-3.5 active:scale-95 transition-transform"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+                <Phone className="w-5 h-5 text-white" />
+              </div>
+              <span className="font-extrabold text-[#0369a1] text-xs leading-tight">Book via<br/>Call</span>
+            </a>
+
+            <button
+              onClick={() => setIsPrescriptionModalOpen(true)}
+              className="flex items-center gap-3 bg-[#fef3c7] hover:bg-[#fde68a] border border-[#fcd34d] rounded-2xl p-3.5 active:scale-95 transition-transform text-left"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#f59e0b] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+                <FileText className="w-5 h-5 text-white" />
+              </div>
+              <span className="font-extrabold text-[#92400e] text-xs leading-tight">Upload<br/>and Book</span>
+            </button>
+
+            <Link
+              href="/book"
+              className="flex items-center gap-3 bg-[#f3e8ff] hover:bg-[#e9d5ff] border border-[#d8b4fe] rounded-2xl p-3.5 active:scale-95 transition-transform"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#9333ea] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
+                <MapPin className="w-5 h-5 text-white" />
+              </div>
+              <span className="font-extrabold text-[#6b21a8] text-xs leading-tight">Find Nearby<br/>Labs</span>
+            </Link>
+          </div>
+        </section>
+
+
+
+        {/* ── MOBILE Explore by Health Need (Agilus Layout) ── */}
+        <section className="py-5 bg-transparent border-t border-gray-100">
+          <div className="flex items-center justify-between px-4 mb-3">
+            <h2 className="text-[#0d2e42] font-black text-lg leading-tight">Explore by Health Need</h2>
+            <Link href="/speciality-tests" className="text-[#2563eb] text-[11px] font-bold">View All</Link>
+          </div>
+
+          {/* Featured Full Body Checkups Pill Card (Agilus style) */}
+          <div className="px-4 mb-3">
+            <Link
+              href="/book?package=QXL%20Freedom%2080%20Health%20Check"
+              className="w-full bg-[#f8fafc] hover:bg-slate-100 border border-slate-200 rounded-2xl p-3.5 flex items-center justify-between shadow-xs transition-all"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-blue-100 text-[#2563eb] flex items-center justify-center font-extrabold text-base">
+                  🩸
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-black text-[#0f2d5e] text-sm">Full Body Checkups</span>
+                  <span className="text-[10px] text-slate-500 font-bold">80 Parameters @ ₹800</span>
+                </div>
+              </div>
+              <span className="bg-[#2563eb] text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                POPULAR
+              </span>
+            </Link>
+          </div>
+          
+          <div className="flex overflow-x-auto scrollbar-none snap-x snap-mandatory gap-3 px-4 pb-2">
+            {bodyOrgans.map((organ, idx) => (
+              <Link
                 key={idx}
-                type="button"
-                onClick={() => setCurrentMobileSlide(idx)}
-                className="min-w-11 min-h-11 flex items-center justify-center"
-                aria-label={`Go to hero banner ${idx + 1}`}
-                aria-current={idx === currentMobileSlide ? "true" : undefined}
+                href="/speciality-tests"
+                className="w-[95px] flex-shrink-0 snap-center bg-[#f8fafc] rounded-2xl border border-slate-200/80 p-3 flex flex-col items-center justify-center gap-2 active:scale-95 transition-transform"
               >
-                <span
-                  className={`block h-1.5 rounded-full transition-all ${idx === currentMobileSlide ? "w-5 bg-[#2563eb]" : "w-1.5 bg-gray-400"}`}
-                />
-              </button>
+                <div className="w-11 h-11 rounded-full overflow-hidden relative border border-white shadow-xs">
+                  <Image src={organ.image} alt={organ.name} fill className="object-cover" />
+                </div>
+                <span className="text-[11px] font-extrabold text-[#0f2d5e] text-center leading-tight">{organ.name}</span>
+              </Link>
             ))}
           </div>
         </section>
 
-        {/* Action Cards */}
-        <section className="px-4 py-3 flex flex-col gap-2.5 bg-white border-t border-gray-100">
-          <p className="text-[11px] font-extrabold text-slate-600 uppercase tracking-widest mb-1">Need help?</p>
-
-          {/* Prescription Card */}
-          <div
-            onClick={() => setIsPrescriptionModalOpen(true)}
-            className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl p-3.5 shadow-sm active:scale-[0.98] transition-transform cursor-pointer"
-          >
-            <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
-              <FileText className="w-5 h-5 text-orange-500" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="font-extrabold text-[#0d2e42] text-sm leading-tight">Have a Prescription?</p>
-              <p className="text-[11px] text-slate-600 mt-0.5">Upload and book your tests</p>
-            </div>
-            <ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0" />
-          </div>
-
-          {/* WhatsApp Booking */}
-          <a
-            href={WHATSAPP_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl p-3.5 shadow-sm active:scale-[0.98] transition-transform"
-          >
-            <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center flex-shrink-0">
-              <MessageCircle className="w-5 h-5 text-green-500" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="font-extrabold text-[#0d2e42] text-sm leading-tight">WhatsApp Booking</p>
-              <p className="text-[11px] text-slate-600 mt-0.5">Text us on WhatsApp to book a test</p>
-            </div>
-            <ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0" />
-          </a>
-
-          {/* Franchise Card */}
-          <Link
-            href="/franchise"
-            className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl p-3.5 shadow-sm active:scale-[0.98] transition-transform"
-          >
-            <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
-              <Building2 className="w-5 h-5 text-blue-500" />
-            </div>
-            <div className="flex-1 min-w-0 text-left">
-              <p className="font-extrabold text-[#0d2e42] text-sm leading-tight">Partner with us</p>
-              <p className="text-[11px] text-slate-600 mt-0.5">Lab partner or franchise?</p>
-            </div>
-            <ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0" />
-          </Link>
-        </section>
-
         {/* Recommended Packages — one per screen, full-width snap scroll */}
-        <section className="py-4 bg-[#f8faff] border-t border-gray-100">
+        <section className="py-4 bg-transparent border-t border-gray-100">
           <div className="flex items-center justify-between px-4 mb-3">
             <div>
               <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Health Packages</p>
@@ -1680,7 +1780,7 @@ export default function Home() {
         </section>
 
           {/* ── Quick Booking Form (Mobile - Full Details) ── */}
-          <div className="lg:hidden bg-[#f0f9ff] py-8 border-y border-blue-100">
+          <div className="lg:hidden bg-transparent py-8 border-y border-blue-100">
             <div className="px-4 mb-6">
               <span className="inline-block bg-white text-[#2563eb] text-[9px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2 shadow-sm border border-blue-100">Quick Booking</span>
               <h2 className="text-[#0f2d5e] text-2xl font-black leading-tight mb-2">Book a Test at Home</h2>
@@ -1692,7 +1792,7 @@ export default function Home() {
           </div>
 
         {/* Speciality Tests — full vertical list */}
-        <section className="bg-white border-t border-gray-100">
+        <section className="bg-transparent border-t border-gray-100">
           <div className="flex items-center justify-between px-4 pt-4 pb-2">
             <div>
               <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Our Specialities</p>
@@ -1754,7 +1854,7 @@ export default function Home() {
         <HomeCollectionSection decorativeHeading />
 
         {/* Meet Our Team */}
-        <section className="py-8 bg-[#f0f9ff] border-t border-blue-100">
+        <section className="py-8 bg-transparent border-t border-blue-100">
           <div className="px-4">
             <div className="mb-6 text-center">
               <span className="inline-block bg-blue-50 text-[#2563eb] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-1.5">Our Experts</span>
@@ -1766,7 +1866,7 @@ export default function Home() {
             </div>
             <div className="flex overflow-x-auto gap-4 scrollbar-none pb-4 snap-x snap-mandatory">
               {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg", imagePosition: "center 20%", imageScale: 1.35 },
+                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "/images/dr_shantakumar_new.jpg", imagePosition: "center top", imageScale: 1.3, imageTranslateY: "-24%" },
                 { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
                 { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
                 { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
@@ -1777,7 +1877,7 @@ export default function Home() {
                       className="w-full h-full object-cover"
                       style={{ 
                         objectPosition: doc.imagePosition || 'top',
-                        transform: doc.imageScale ? `scale(${doc.imageScale})` : 'none',
+                        transform: doc.imageScale ? `scale(${doc.imageScale}) ${doc.imageTranslateY ? `translateY(${doc.imageTranslateY})` : ''}` : 'none',
                       }}
                       onError={(e) => { e.currentTarget.srcset = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"; }} />
                   </div>
@@ -1795,7 +1895,7 @@ export default function Home() {
         <BlogSlider decorativeHeading />
 
         {/* Contact Form and Location Map */}
-        <section className="py-8 bg-white border-t border-gray-150">
+        <section className="py-8 bg-transparent border-t border-gray-150">
           <div className="px-4 flex flex-col gap-8">
             {/* Form */}
             <div className="bg-[#f0f9ff] p-5 rounded-2xl border border-[#2563eb]/10 shadow-sm">

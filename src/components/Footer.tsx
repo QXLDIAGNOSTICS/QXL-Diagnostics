@@ -72,6 +72,8 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden" style={{ zIndex: 1, background: BASE }}>
+
+
       {/* Subtle glass skin — faint highlights only, no color wash */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
         <div
@@ -140,13 +142,13 @@ export default function Footer() {
           <div className="flex flex-col items-center text-center md:items-start md:text-left">
             <div
               className="inline-block mb-5 p-2.5 rounded-2xl"
-              style={{ background: GLASS, border: GLASS_BORDER, backdropFilter: 'blur(16px)' }}
+              style={{ background: '#ffffff', border: GLASS_BORDER, backdropFilter: 'blur(16px)' }}
             >
               <img
                 src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 224, h: 56, crop: "fit" })}
                 alt={`${settings.siteName || "QXL"} Logo`}
                 width={224} height={56}
-                className="h-20 md:h-24 w-auto object-contain brightness-0 invert opacity-90"
+                className="h-20 md:h-24 w-auto object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const fb = e.currentTarget.parentElement?.querySelector('.logo-text-footer') as HTMLElement;
@@ -160,13 +162,13 @@ export default function Footer() {
             </p>
             <div
               className="inline-flex items-center gap-3 py-3 px-4 rounded-2xl"
-              style={{ background: GLASS, border: GLASS_BORDER, backdropFilter: 'blur(16px)' }}
+              style={{ background: '#ffffff', border: GLASS_BORDER, backdropFilter: 'blur(16px)' }}
             >
               <img
                 src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png"
                 alt="NABL Accredited ISO Certified"
                 width={100} height={50}
-                className="h-16 md:h-20 w-auto object-contain brightness-0 invert opacity-90"
+                className="h-16 md:h-20 w-auto object-contain"
               />
             </div>
           </div>
@@ -213,20 +215,18 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-white/85 text-[12px] font-bold mb-0.5">Main Lab (Kengeri)</p>
-                  <p className="text-white/35 text-[12px] font-medium leading-relaxed">{settings.hqAddress}</p>
+                  <p className="text-white/35 text-[12px] font-medium leading-relaxed">{settings.hqAddress || "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060"}</p>
                 </div>
               </li>
-              {settings.northHubAddress && (
-                <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: GLASS_SOFT, border: GLASS_BORDER }}>
-                    <MapPin className="w-4 h-4 text-white/55" />
-                  </div>
-                  <div>
-                    <p className="text-white/85 text-[12px] font-bold mb-0.5">North Hub (Yelahanka)</p>
-                    <p className="text-white/35 text-[12px] font-medium leading-relaxed">{settings.northHubAddress}</p>
-                  </div>
-                </li>
-              )}
+              <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: GLASS_SOFT, border: GLASS_BORDER }}>
+                  <MapPin className="w-4 h-4 text-white/55" />
+                </div>
+                <div>
+                  <p className="text-white/85 text-[12px] font-bold mb-0.5">North Hub (Yelahanka)</p>
+                  <p className="text-white/35 text-[12px] font-medium leading-relaxed">{settings.northHubAddress || "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064"}</p>
+                </div>
+              </li>
               <li className="flex flex-col items-center md:flex-row md:items-start gap-3">
                 <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: GLASS_SOFT, border: GLASS_BORDER }}>
                   <Phone className="w-4 h-4 text-white/55" />
@@ -257,6 +257,9 @@ export default function Footer() {
         }}
       >
         <div className="max-w-[1260px] mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-[#38bdf8] font-extrabold text-[13px] tracking-wider uppercase">
+            Your Health, Our Priority!
+          </p>
           <p className="text-white/35 text-[12px] font-semibold">
             {settings.copyrightText || `© ${year} QXL Diagnostics. All rights reserved.`}
           </p>

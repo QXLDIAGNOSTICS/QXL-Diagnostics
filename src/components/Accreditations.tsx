@@ -16,8 +16,8 @@ export default function Accreditations({ decorativeHeading = false }: Props) {
       <div className="max-w-[1260px] mx-auto px-4 w-full relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="md:w-1/2">
-            <span className="inline-block bg-[#38bdf8]/20 text-sky-200 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3">Quality & Trust</span>
-            <Heading className="text-white text-3xl font-extrabold mb-4 drop-shadow-sm">Certified for Excellence</Heading>
+            <span className="inline-block bg-[#38bdf8]/20 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3">Quality & Trust</span>
+            <Heading className="!text-white text-3xl font-extrabold mb-4 drop-shadow-sm">Certified for Excellence</Heading>
             <p className="text-slate-300 text-sm font-medium leading-relaxed mb-6">
               QXL Diagnostics is proud to be accredited by the highest national and international regulatory bodies. Our commitment to stringent quality control ensures that your health is always in safe, reliable hands.
             </p>
@@ -52,7 +52,7 @@ export default function Accreditations({ decorativeHeading = false }: Props) {
           <div className="md:w-1/2 flex items-center justify-center md:justify-end gap-6">
             {/* NABL Badge */}
             <div className="bg-white p-4 rounded-3xl shadow-xl flex flex-col items-center justify-center w-40 h-40 transform hover:-translate-y-2 transition-transform relative">
-              <img src="https://nabl-india.org/wp-content/uploads/2019/12/NABL-logo.png" alt="NABL Accredited Lab" className="w-full h-auto object-contain" />
+              <img src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png" alt="NABL Accredited Lab" className="w-full h-auto object-contain" />
               <span className="text-black font-extrabold text-[11px] mt-2 text-center absolute bottom-2">{NABL_CERTIFICATE.replace('-', ' - ')}</span>
             </div>
             

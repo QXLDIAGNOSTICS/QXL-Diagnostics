@@ -7,6 +7,7 @@ import ChatPaymentCard, { type ChatPaymentOrder } from '@/components/ChatPayment
 import { useSiteSettings } from '@/lib/useSiteSettings';
 import ReactMarkdown from 'react-markdown';
 import { ShoppingCart, Phone, CalendarCheck, X, ChevronLeft, ChevronDown } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import { getPhoneE164 } from '@/lib/businessInfo';
 
 type StreamResult = 'streamed' | 'unauthorized' | 'failed';
@@ -46,8 +47,10 @@ const FAB = {
 } as const;
 
 export default function AiChat() {
+  const pathname = usePathname();
   const { user, loading: authLoading, refresh } = useAuth();
   const siteSettings = useSiteSettings();
+  if (pathname === '/book') return null;
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isFABsHidden, setIsFABsHidden] = useState(false);
@@ -409,10 +412,7 @@ export default function AiChat() {
           href={`tel:${getPhoneE164()}`}
           style={{
             position: 'fixed',
-            right: '24px',
             bottom: callBottom,
-            width: '56px',
-            height: '56px',
             borderRadius: '50%',
             background: 'linear-gradient(135deg, rgba(56,189,248,0.92) 0%, rgba(14,165,233,0.95) 100%)',
             boxShadow: '0 4px 18px rgba(14,165,233,0.45)',
@@ -423,10 +423,9 @@ export default function AiChat() {
           }}
           aria-label="Call Now"
           title="Call Now"
-          className={`fab-call-btn flex items-center justify-center overflow-hidden lg:hidden animate-fab-expand ${isFABsHidden ? 'fab-hidden-mobile' : ''}`}
+          className={`fab-call-btn flex items-center justify-center lg:hidden ${isFABsHidden ? 'fab-hidden-mobile' : ''}`}
         >
           <Phone className="w-5 h-5 flex-shrink-0" />
-          <span className="animate-fab-text font-bold text-sm">Call Now</span>
         </a>
 
         {/* Hide Button */}
@@ -456,8 +455,8 @@ export default function AiChat() {
             className="lg:hidden flex items-center justify-center rounded-full text-white shadow-lg active:scale-95 transition-transform"
             style={{
               position: 'fixed',
-              right: '25px',
-              bottom: '141px',
+              right: '14px',
+              bottom: '136px',
               width: '40px',
               height: '40px',
               background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)',
@@ -498,18 +497,18 @@ export default function AiChat() {
           className={`mobile-only-book-btn flex md:hidden items-center justify-center ${isFABsHidden ? 'fab-hidden-mobile' : ''}`}
           style={{
             position: 'fixed',
-            bottom: '76px', // Positioned with a clear space above the mobile bottom nav
+            bottom: '76px',
             left: '16px',
             right: '16px',
             background: 'linear-gradient(135deg, rgba(56,189,248,1) 0%, rgba(14,165,233,1) 100%)',
             color: 'white',
-            padding: '14px 20px',
+            padding: '13px 20px',
             borderRadius: '100px',
             fontWeight: 'bold',
             fontSize: '15px',
             boxShadow: '0 8px 24px rgba(14, 165, 233, 0.4)',
             border: '1px solid rgba(255,255,255,0.4)',
-            zIndex: 1000,
+            zIndex: 999,
             textDecoration: 'none',
             gap: '8px',
             letterSpacing: '0.5px'
@@ -539,10 +538,7 @@ export default function AiChat() {
         href={`tel:${getPhoneE164()}`}
         style={{
           position: 'fixed',
-          right: '24px',
           bottom: callBottom,
-          width: '56px',
-          height: '56px',
           borderRadius: '50%',
           background: 'linear-gradient(135deg, rgba(56,189,248,0.92) 0%, rgba(14,165,233,0.95) 100%)',
           boxShadow: '0 4px 18px rgba(14,165,233,0.45)',
@@ -553,10 +549,9 @@ export default function AiChat() {
         }}
         aria-label="Call Now"
         title="Call Now"
-        className={`fab-call-btn flex items-center justify-center overflow-hidden lg:hidden animate-fab-expand ${isFABsHidden ? 'fab-hidden-mobile' : ''}`}
+        className={`fab-call-btn flex items-center justify-center lg:hidden ${isFABsHidden ? 'fab-hidden-mobile' : ''}`}
       >
         <Phone className="w-5 h-5 flex-shrink-0" />
-        <span className="animate-fab-text font-bold text-sm">Call Now</span>
       </a>
 
       {/* Scroll to top — above the Call button */}
@@ -578,32 +573,56 @@ export default function AiChat() {
         /* Keeping style block empty or just for future overrides */
       `}</style>
 
-      {/* Floating Ask me bubble */}
-      {!isOpen && !isFABsHidden && (
-        <div className="fab-ai-chat-bubble" style={{ bottom: aiBottom + 14 }}>
-          Ask me
-          <div className="fab-ai-bubble-arrow" />
+      {/* QXL AI assistant FAB & Ask Me Bubble Container */}
+      {!isFABsHidden && (
+        <div 
+          className="fab-ai-chat-container fixed z-[9999] flex items-center transition-all duration-300 pointer-events-auto"
+          style={{ 
+            bottom: aiBottom, 
+            right: FAB.right || 24 
+          }}
+        >
+          {/* Floating Ask me bubble — attached directly to AI Chat button */}
+          {!isOpen && (
+            <div className="fab-ai-chat-bubble relative flex items-center mr-2.5 bg-[#2563eb] text-white text-[11px] font-black px-3 py-1.5 rounded-xl shadow-lg border border-white/40 animate-pulse whitespace-nowrap">
+              Ask me
+              <div 
+                className="fab-ai-bubble-arrow absolute -right-1.5 top-1/2 -translate-y-1/2 w-0 h-0"
+                style={{
+                  borderTop: '5px solid transparent',
+                  borderBottom: '5px solid transparent',
+                  borderLeft: '7px solid #2563eb'
+                }}
+              />
+            </div>
+          )}
+
+          {/* QXL AI assistant FAB button */}
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            className="fab-ai-chat-btn flex items-center justify-center rounded-full text-white shadow-xl hover:scale-105 transition-all cursor-pointer shrink-0"
+            style={{ 
+              width: FAB.size || 52, 
+              height: FAB.size || 52,
+              background: 'linear-gradient(135deg, #0284c7 0%, #2563eb 100%)',
+              boxShadow: '0 4px 20px rgba(37,99,235,0.45)',
+              border: '2px solid rgba(255,255,255,0.4)'
+            }}
+            aria-label={isOpen ? "Close QXL AI chat" : "Open QXL AI assistant"}
+            title="QXL AI Assistant"
+          >
+            {isOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            ) : (
+              <QxlAiIcon size={32} />
+            )}
+          </button>
         </div>
       )}
-
-      {/* QXL AI assistant FAB — same size/right edge as WhatsApp */}
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className={`fab-ai-chat-btn ${isFABsHidden ? 'fab-hidden-mobile' : 'flex'}`}
-        style={{ bottom: aiBottom }}
-        aria-label={isOpen ? "Close QXL AI chat" : "Open QXL AI assistant"}
-        title="QXL AI Assistant"
-      >
-        {isOpen ? (
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        ) : (
-          <QxlAiIcon size={34} />
-        )}
-      </button>
 
       {/* Hide Button */}
       {!isFABsHidden && !isOpen && (

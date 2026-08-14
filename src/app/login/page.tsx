@@ -21,7 +21,7 @@ function LoginPageInner() {
   const searchParams = useSearchParams();
   const [loggingOut, setLoggingOut] = useState(false);
 
-  const returnTo = searchParams.get("return_to") || "/";
+  const returnTo = searchParams.get("return_to") || searchParams.get("redirect") || "/";
   const profileReturnTo = `/profile?first_login=1&return_to=${encodeURIComponent(returnTo)}`;
 
   async function handleLogout() {

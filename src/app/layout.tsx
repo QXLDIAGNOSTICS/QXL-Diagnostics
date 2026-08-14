@@ -378,7 +378,32 @@ export default function RootLayout({
           </Script>
         )}
       </head>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col relative selection:bg-amber-200 selection:text-amber-900">
+        {/* Global Tricolour Background */}
+        <div className="fixed inset-0 -z-50 pointer-events-none bg-gradient-to-br from-[#f0fdf4] via-white to-[#fff7ed]">
+           {/* Soft Green Glow (Top Left - Logo Side) */}
+           <div className="absolute top-0 left-0 w-[80vw] h-[50vh] bg-emerald-500/6 blur-[120px] rounded-full -translate-x-1/4 -translate-y-1/4" />
+           {/* Soft Saffron Glow (Bottom Right) */}
+           <div className="absolute bottom-0 right-0 w-[80vw] h-[50vh] bg-amber-500/6 blur-[120px] rounded-full translate-x-1/4 translate-y-1/4" />
+           
+           {/* Subtle Ashoka Chakra Watermark */}
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] pointer-events-none mix-blend-multiply">
+              <svg className="w-[100vw] max-w-[800px] h-auto aspect-square animate-[spin_120s_linear_infinite]" viewBox="0 0 100 100" fill="none" stroke="#000080" strokeWidth="0.5">
+                <circle cx="50" cy="50" r="45" />
+                <circle cx="50" cy="50" r="10" fill="#000080" />
+                {[...Array(24)].map((_, i) => (
+                  <line
+                    key={i}
+                    x1="50"
+                    y1="50"
+                    x2={50 + 45 * Math.cos((i * 15 * Math.PI) / 180)}
+                    y2={50 + 45 * Math.sin((i * 15 * Math.PI) / 180)}
+                  />
+                ))}
+              </svg>
+           </div>
+        </div>
+
         {/* Hidden Google Translate mount point — must be first in body */}
         <div
           id="google_translate_element"

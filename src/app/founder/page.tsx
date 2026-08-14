@@ -8,7 +8,8 @@ export default function FounderPage() {
       name: "Dr. Shantakumar Muruda",
       role: "Founder & CEO",
       qualification: "MD (BIOCHEMISTRY)",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150160/Assets-QXL/legacy-assets/image/dr_shantakumar_v4.jpg",
+      image: "/images/dr_shantakumar_new.jpg",
+      imagePosition: "center 20%",
       experience: "Over 20 years",
       expertise: "Clinical Biochemistry, Laboratory Operations, Hospital establishment and Management, Diabetology",
       achievements: "NABL Lead Assessor (150+ assessments), PHFI-certified Diabetologist.",
@@ -174,15 +175,18 @@ const DoctorProfile = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) 
       }}
     >
       <div
-        className={`relative overflow-hidden ${
-          isHero ? "w-full md:w-[45%] min-h-[420px]" : "h-96"
+        className={`relative overflow-hidden shrink-0 ${
+          isHero ? "w-full md:w-[34%] min-h-[260px] md:min-h-[300px]" : "h-60 sm:h-64"
         } bg-gradient-to-b from-sky-50 to-sky-100/50`}
       >
         <img
           src={doc.image}
           alt={doc.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-          style={{ objectPosition: doc.imagePosition || "top" }}
+          style={{ 
+            objectPosition: doc.imagePosition || "top",
+            transform: doc.imageScale ? `scale(${doc.imageScale}) ${doc.imageTranslateY ? `translateY(${doc.imageTranslateY})` : ''}` : 'none'
+          }}
           onError={(e) => {
             e.currentTarget.src =
               "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=400&auto=format&fit=crop";
