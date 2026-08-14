@@ -979,23 +979,75 @@ export default function Home() {
                   className="absolute inset-0 w-full h-full flex flex-col md:flex-row"
                 >
                   {activeSlide.imageOnly ? (
-                    <div className="w-full h-full relative z-10">
-                      <Image
-                        src={activeSlide.image}
-                        alt={activeSlide.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1260px) 100vw, 1260px"
-                        priority
-                      />
-                      {/* Book Now overlay button */}
-                      <a
-                        href={activeSlide.ctaLink || '/book?package=QXL%20Freedom%2080%20Health%20Check'}
-                        className="absolute bottom-6 right-6 bg-[#FF9933] hover:bg-orange-500 text-white font-black px-6 py-2.5 rounded-full text-[13px] uppercase tracking-wide shadow-lg hover:shadow-xl active:scale-95 transition-all z-20"
+                    <React.Fragment>
+                      {/* Full-width Indian tricolour stripe — spans entire slide top */}
+                      <div className="absolute top-0 left-0 right-0 h-[4px] flex z-30 pointer-events-none">
+                        <div className="flex-1" style={{ background: '#FF9933' }} />
+                        <div className="flex-1" style={{ background: '#ffffff' }} />
+                        <div className="flex-1" style={{ background: '#138808' }} />
+                      </div>
+
+                      {/* LEFT — text content 44% */}
+                      <motion.div
+                        initial={{ opacity: 0, x: -24 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.65, delay: 0.1 }}
+                        className="flex-none w-[44%] h-full flex flex-col justify-center pl-10 pr-6 pt-8 pb-8 z-10 relative"
+                        style={{ background: 'linear-gradient(160deg, #FFF8EE 0%, #FFF1DC 55%, #EDFFF2 100%)' }}
                       >
-                        BOOK NOW @ ₹800
-                      </a>
-                    </div>
+                        {/* Saffron left accent bar */}
+                        <div className="absolute left-0 top-8 bottom-8 w-[3px] rounded-full" style={{ background: 'linear-gradient(to bottom, #FF9933, #138808)' }} />
+
+                        <span className="inline-flex items-center gap-1.5 bg-[#FF9933] text-white text-[9px] font-black px-3 py-1 rounded-full tracking-widest uppercase mb-4 w-fit shadow-md">
+                          🇮🇳 INDEPENDENCE DAY SPECIAL
+                        </span>
+
+                        <h2 className="text-[28px] leading-[1.12] font-black mb-2" style={{ color: '#0f2d5e' }}>
+                          QXL Freedom 80
+                          <br />
+                          <span style={{ color: '#138808' }}>Health Check</span>
+                        </h2>
+
+                        <p className="text-[12px] font-extrabold mb-1" style={{ color: '#FF9933' }}>
+                          80 Parameters · Only ₹800 (Worth ₹5,800)
+                        </p>
+                        <p className="text-[11px] text-slate-500 font-medium mb-5 leading-snug">
+                          🏠 Free Home Collection &nbsp;·&nbsp; NABL Accredited &nbsp;·&nbsp; 6-hr Reports
+                        </p>
+
+                        <div className="flex items-baseline gap-2 mb-6">
+                          <span className="text-[38px] font-black leading-none" style={{ color: '#138808' }}>₹800</span>
+                          <span className="text-[13px] text-slate-400 line-through font-medium">₹5,800</span>
+                          <span className="text-white text-[8px] font-black px-2 py-0.5 rounded-full" style={{ background: '#FF9933' }}>86% OFF</span>
+                        </div>
+
+                        <a
+                          href={activeSlide.ctaLink || '/book?package=QXL%20Freedom%2080%20Health%20Check'}
+                          className="w-fit text-white font-black px-7 py-3 rounded-full text-[12px] uppercase tracking-wider shadow-lg hover:shadow-xl active:scale-95 transition-all"
+                          style={{ background: 'linear-gradient(135deg, #FF9933 0%, #e67e00 100%)' }}
+                        >
+                          BOOK NOW @ ₹800 →
+                        </a>
+                      </motion.div>
+
+                      {/* RIGHT — poster image 56% */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.97 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.65, delay: 0.05 }}
+                        className="flex-1 h-full relative z-10 overflow-hidden"
+                        style={{ background: 'linear-gradient(135deg, #FFF8EE 0%, #FFF4E6 50%, #EDFFF2 100%)' }}
+                      >
+                        <Image
+                          src={activeSlide.image}
+                          alt={activeSlide.title}
+                          fill
+                          className="object-contain p-2"
+                          sizes="56vw"
+                          priority
+                        />
+                      </motion.div>
+                    </React.Fragment>
                   ) : (
                     <React.Fragment>
                       {/* Decorative blobs */}
@@ -1007,7 +1059,7 @@ export default function Home() {
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="w-full md:w-[52%] px-8 md:px-12 py-8 h-full flex flex-col justify-center z-10 relative text-left overflow-hidden"
+                        className="w-full md:w-[55%] px-8 md:px-12 py-8 h-full flex flex-col justify-center z-20 relative text-left overflow-hidden"
                       >
                         {/* Badge */}
                         <div className="flex flex-wrap items-center gap-2 mb-3">
@@ -1096,18 +1148,20 @@ export default function Home() {
 
                       </motion.div>
 
-                      {/* Image — right side */}
+                      {/* Image — right side, flush panel */}
                       <motion.div
-                        initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.15 }}
-                        className="w-56 h-56 rounded-2xl bg-[#dbeafe] absolute top-10 right-10 lg:w-[420px] lg:h-[420px] overflow-hidden border-8 border-white/30 shadow-2xl z-20"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                        className="absolute top-0 right-0 bottom-0 w-[45%] overflow-hidden z-10"
                       >
                         <img
                           src={activeSlide.image}
                           alt={activeSlide.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-center"
                         />
+                        {/* Soft left fade so text doesn't clash */}
+                        <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white/40 to-transparent pointer-events-none" />
                       </motion.div>
                     </React.Fragment>
                   )}

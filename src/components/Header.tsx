@@ -392,29 +392,13 @@ export default function Header() {
 
             {/* Right Actions */}
             <div className="flex items-center gap-4">
-              {/* Home Collection — liquid glass pill with ticker */}
-              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-2xl cursor-pointer" style={{ background: 'rgba(224,242,254,0.55)', border: '1px solid rgba(125,199,232,0.28)', backdropFilter: 'blur(8px)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)' }}>
-                <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(147,210,255,0.7) 0%, rgba(186,230,255,0.5) 100%)', boxShadow: '0 2px 8px rgba(14,165,233,0.2), inset 0 1px 0 rgba(255,255,255,0.9)' }}>
-                  <svg className="w-3.5 h-3.5 text-[#0284c7]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                  </svg>
-                </div>
-                <div className="relative overflow-hidden h-[36px] w-[145px]">
-                  <AnimatePresence mode="wait">
-                    {tickerIndex === 0 ? (
-                      <motion.div key="1" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight whitespace-nowrap">
-                        <span className="text-[10px] text-[#0369a1]/80 font-semibold tracking-wide">Home Collection</span>
-                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7] whitespace-nowrap">+91 9964 639 639</a>
-                      </motion.div>
-                    ) : (
-                      <motion.div key="2" initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -20, opacity: 0 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex flex-col justify-center leading-tight whitespace-nowrap">
-                        <span className="text-[10px] text-[#16a34a] font-bold uppercase tracking-wider animate-pulse">Call Now</span>
-                        <a href="tel:+919964639639" className="text-[#0369a1] font-extrabold text-[13px] hover:text-[#0284c7] whitespace-nowrap">+91 9964 639 639</a>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </div>
+              {/* Home Collection — compact pill */}
+              <a href="tel:+919964639639" className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl cursor-pointer transition-all hover:scale-105 active:scale-95" style={{ background: 'rgba(224,242,254,0.55)', border: '1px solid rgba(125,199,232,0.28)', backdropFilter: 'blur(8px)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)' }}>
+                <svg className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+                <span className="text-[#0369a1] font-extrabold text-[11px] whitespace-nowrap">+91 9964 639 639</span>
+              </a>
 
               {user && (
                 <Link
