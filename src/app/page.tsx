@@ -652,7 +652,7 @@ function QuickBookingForm({ formState, setFormState, handleContactSubmit, formSt
     </div>
   );
 }function useCountdown() {
-  const target = new Date('2026-08-15T23:59:59+05:30').getTime();
+  const target = new Date('2026-08-20T23:59:59+05:30').getTime();
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0, expired: false });
   useEffect(() => {
     const tick = () => {

@@ -18,9 +18,9 @@ import InstallPrompt from './InstallPrompt';
 const FALLBACK_LOGO =
   "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
 
-// Countdown to August 15, 2026 11:59:59 PM IST
+// Countdown to August 20, 2026 11:59:59 PM IST (1 week offer)
 function useCountdown() {
-  const target = new Date('2026-08-15T23:59:59+05:30').getTime();
+  const target = new Date('2026-08-20T23:59:59+05:30').getTime();
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0, expired: false });
   useEffect(() => {
     const tick = () => {
