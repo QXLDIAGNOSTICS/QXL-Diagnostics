@@ -799,7 +799,8 @@ export default function Home() {
   }, [slides.length, isHovered]);
 
   const [currentMobileSlide, setCurrentMobileSlide] = useState(0);
-  const mobileSlides = slides; // all slides are now full slides
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const mobileSlides: any[] = slides; // all slides are now full slides
 
   const [isMobileHovered, setIsMobileHovered] = useState(false);
   
@@ -813,7 +814,8 @@ export default function Home() {
 
   const handlePrev = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   const handleNext = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const activeSlide = slides[currentSlide];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const activeSlide: any = slides[currentSlide];
 
   const bodyOrgans = [
     { name: "Heart", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png" },
@@ -849,7 +851,7 @@ export default function Home() {
                   transition={{ duration: 1.0 }}
                   className="absolute inset-0 w-full h-full flex flex-col md:flex-row"
                 >
-                  {(activeSlide as any).imageOnly ? (
+                  {activeSlide.imageOnly ? (
                     <div className="w-full h-full relative z-10">
                       <Image
                         src={activeSlide.image}
@@ -923,7 +925,7 @@ export default function Home() {
                           >
                             {activeSlide.cta}
                           </Link>
-                          {(activeSlide as { freedom80Card?: boolean }).freedom80Card !== true && (
+                          {activeSlide.freedom80Card !== true && (
                             <a
                               href={activeSlide.ctaSecondaryLink}
                               className="bg-white hover:bg-slate-50 text-slate-700 font-bold px-4 py-2.5 rounded-full text-[11px] uppercase tracking-wide border border-emerald-300/80 shadow-sm transition-all"
@@ -934,7 +936,7 @@ export default function Home() {
                         </div>
 
                         {/* Freedom 80 Package Mini-Card — only on first slide */}
-                        {(activeSlide as { freedom80Card?: boolean }).freedom80Card === true && (
+                        {activeSlide.freedom80Card === true && (
                           <div className="bg-white/90 border border-amber-200 rounded-xl px-3 py-2.5 shadow-sm flex items-center gap-3 max-w-[360px]">
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-1.5 mb-0.5">
