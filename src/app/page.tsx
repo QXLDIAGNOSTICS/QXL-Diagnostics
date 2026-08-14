@@ -768,7 +768,9 @@ export default function Home() {
     ? `https://maps.google.com/maps?q=QXL+Diagnostics+${activeLocationObj.lat},${activeLocationObj.lng}&t=&z=15&ie=UTF8&iwloc=&output=embed`
     : `https://maps.google.com/maps?q=${encodeURIComponent("QXL Diagnostics " + location)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
+  // ── All poster images (imageOnly slides) ─────────────────────────────────────
   const posterImages = [
+    "/posters/independence_day_banner.png",      // NEW generated banner — first
     "/posters/02998fde-ef5f-4292-910c-7530f67acd7e.jpeg",
     "/posters/07e29c76-b80d-406c-b9cb-5741d1cddc98.jpeg",
     "/posters/0b7b423e-88d8-4f9c-baef-cf5b79e5cecc.jpeg",
@@ -781,12 +783,138 @@ export default function Home() {
     "/posters/ee7fee8d-4658-46d5-aea8-d31f44aaeee9.jpeg",
   ];
 
-  const slides = posterImages.map((img, i) => ({
-    title: `QXL Freedom Sale Poster ${i + 1}`,
+  const posterSlides = posterImages.map((img, i) => ({
+    title: i === 0 ? "QXL Freedom 80 — Independence Day Special" : `QXL Freedom Sale Poster ${i}`,
     image: img,
     ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
     imageOnly: true,
   }));
+
+  // ── Original content-rich slides (restored) ────────────────────────────────
+  const contentSlides = [
+    {
+      badge: "🇮🇳 INDEPENDENCE DAY SPECIAL 🇮🇳",
+      title: "India's Independence Day",
+      titleAccent: "Doctor-Led Diagnostic Lab in Bengaluru",
+      subtitle: "QXL FREEDOM 80 HEALTH CHECK — 80 PARAMETERS AT ₹800 (WORTH ₹5,800)",
+      subtitleAccent: "Available at all QXL centres & partner facilities across Bengaluru.",
+      description: "Celebrate India's Independence Day with complete health freedom. Expert doctor-led diagnostics for your entire family.",
+      cta: "BOOK NOW @ ₹800",
+      ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
+      ctaSecondary: "VIEW PACKAGE",
+      ctaSecondaryLink: "/packages",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
+      imageFit: "cover",
+      bgFrom: "#fff7ed", bgTo: "#f0fdf4",
+      features: ["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"],
+      freedom80Card: true, flagAnimation: true,
+    },
+    {
+      badge: "🇮🇳 SENIOR CITIZENS HEALTH FREEDOM 🇮🇳",
+      title: "SENIOR CITIZENS CARE",
+      titleAccent: "FULL FREEDOM & VITALITY PANEL",
+      subtitle: "Comprehensive Heart, Bone, Diabetes & Kidney Screening",
+      subtitleAccent: "Free Home Blood Sample Collection for Elders",
+      description: "Specially curated diagnostic parameters to keep your parents & grandparents healthy, active, and independent.",
+      cta: "Book Senior Care Checkup",
+      ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
+      ctaSecondary: "Call +91 9964 639 639",
+      ctaSecondaryLink: "tel:+919964639639",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150239/Assets-QXL/legacy-assets/image/doctor_patient_consultation.jpg",
+      imageFit: "cover",
+      bgFrom: "#fff7ed", bgTo: "#eff6ff",
+      features: ["Heart & Lipids", "Bone & Joint", "Kidney Function", "Elder Care"],
+      flagAnimation: true,
+    },
+    {
+      badge: "🇮🇳 WOMEN'S HEALTH & METABOLIC FREEDOM 🇮🇳",
+      title: "WOMEN'S WELLNESS FREEDOM",
+      titleAccent: "HORMONE, ANEMIA & THYROID SCREENING",
+      subtitle: "Thyroid, Iron Profile, Vitamin D, Vitamin B12, Calcium & Hormones",
+      subtitleAccent: "Doctor-Reviewed Detailed Clinical Interpretation",
+      description: "Empowering women across Bengaluru with deep metabolic, hormonal, and nutritional clarity.",
+      cta: "Book Women's Screening",
+      ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
+      ctaSecondary: "View All Packages",
+      ctaSecondaryLink: "/packages",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg",
+      imageFit: "cover",
+      bgFrom: "#f0fdf4", bgTo: "#fff7ed",
+      features: ["Iron & Anemia", "Thyroid Profile", "Vitamin D & B12", "Hormonal Balance"],
+      flagAnimation: true,
+    },
+    {
+      badge: "🇮🇳 INDEPENDENCE DAY SPECIAL 🇮🇳",
+      title: "QXL FREEDOM 80 HEALTH CHECK",
+      titleAccent: "80 PARAMETERS AT ONLY ₹800",
+      subtitle: "80 Parameters across 8 Major Health Areas · Regular Value ₹5,800 (86% OFF)",
+      subtitleAccent: "🏠 Free Home Sample Collection Available Across Bengaluru",
+      description: "Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11).",
+      cta: "BOOK NOW @ ₹800",
+      ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
+      ctaSecondary: "View Details",
+      ctaSecondaryLink: "/packages",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
+      imageFit: "cover",
+      bgFrom: "#f0fdf4", bgTo: "#fff7ed",
+      features: ["80 Parameters", "8 Health Areas", "Only ₹800", "Free Home Collection"],
+      flagAnimation: true,
+    },
+    {
+      badge: "🇮🇳 FREEDOM FROM SILENT HEALTH RISKS 🇮🇳",
+      title: "PREVENTIVE HEALTH FREEDOM",
+      titleAccent: "EARLY DIAGNOSTICS SAVE LIVES",
+      subtitle: "Complete Lipid Profile, Fatty Liver Markers & Glycemic Index",
+      subtitleAccent: "Fast 6-Hour Digital Report Delivery on Mobile",
+      description: "Detect hidden health risks before symptoms arise with QXL's NABL-accredited diagnostic precision.",
+      cta: "Book Preventive Screen",
+      ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
+      ctaSecondary: "Explore AI Reports",
+      ctaSecondaryLink: "/about",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150124/Assets-QXL/legacy-assets/image/doctor_smiling.png",
+      imageFit: "cover",
+      bgFrom: "#eff6ff", bgTo: "#f0fdf4",
+      features: ["Fatty Liver Screen", "Lipid Profile", "HbA1c Sugar", "6-Hour Delivery"],
+      flagAnimation: true,
+    },
+    {
+      badge: "⚡ POPULAR CHECKUP",
+      title: "QUICK FIT PACKAGE",
+      titleAccent: "COMPLETE ESSENTIAL HEALTH CHECK",
+      subtitle: "FBS, HbA1c, LFT, KFT, TSH, Vitamin D, CBC, ESR",
+      subtitleAccent: "Only ₹1,770 · Worth ₹4,696 · Save 62%",
+      description: "Essential preventive screening covering blood count, liver, kidney, blood sugar, and thyroid health.",
+      cta: "Book Quick Fit @ ₹1,770",
+      ctaLink: "/book?package=Quick%20Fit%20Package",
+      ctaSecondary: "View All Packages",
+      ctaSecondaryLink: "/packages",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150124/Assets-QXL/legacy-assets/image/doctor_smiling.png",
+      imageFit: "cover",
+      bgFrom: "#f0fdf4", bgTo: "#fff7ed",
+      features: ["12+ Parameters", "₹1,770 Offer", "Vitamin D Included", "Free Home Collection"],
+      flagAnimation: false,
+    },
+    {
+      badge: "🏠 FREE HOME SAMPLE COLLECTION",
+      title: "24x7 BENGALURU HOME SERVICE",
+      titleAccent: "CERTIFIED PHLEBOTOMIST AT YOUR DOORSTEP",
+      subtitle: "Kengeri, Mysore Road, Yelahanka & All Neighborhoods",
+      subtitleAccent: "Fast 6-Hour Electronic Report Delivery",
+      description: "Safe, sterile, and professional blood collection at your convenient time anywhere in Bengaluru.",
+      cta: "Book Home Collection",
+      ctaLink: "/home-collection",
+      ctaSecondary: "Call +91 9964 639 639",
+      ctaSecondaryLink: "tel:+919964639639",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
+      imageFit: "cover",
+      bgFrom: "#f0fdf4", bgTo: "#dcfce7",
+      features: ["Free Home Collection", "NABL Phlebotomists", "6-Hour Reports", "Bengaluru 24x7"],
+      flagAnimation: false,
+    },
+  ];
+
+  // Combined: poster image-only slides first, then content slides
+  const slides = [...posterSlides, ...contentSlides];
 
   const [isHovered, setIsHovered] = useState(false);
   
@@ -852,14 +980,24 @@ export default function Home() {
                   className="absolute inset-0 w-full h-full flex flex-col md:flex-row"
                 >
                   {activeSlide.imageOnly ? (
-                    <div className="w-full h-full relative z-10">
-                      <Image
-                        src={activeSlide.image}
-                        alt={activeSlide.title}
-                        fill
-                        className="object-contain"
-                        priority
-                      />
+                    <div className="w-full h-full relative z-10 flex items-center justify-center p-4" style={{ background: 'linear-gradient(135deg, #fff9f2 0%, #ffffff 50%, #f0fdf4 100%)' }}>
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={activeSlide.image}
+                          alt={activeSlide.title}
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 1260px) 100vw, 1260px"
+                          priority
+                        />
+                      </div>
+                      {/* Book Now overlay button */}
+                      <a
+                        href={activeSlide.ctaLink || '/book?package=QXL%20Freedom%2080%20Health%20Check'}
+                        className="absolute bottom-6 right-6 bg-[#FF9933] hover:bg-orange-500 text-white font-black px-6 py-2.5 rounded-full text-[13px] uppercase tracking-wide shadow-lg hover:shadow-xl active:scale-95 transition-all z-20"
+                      >
+                        BOOK NOW @ ₹800
+                      </a>
                     </div>
                   ) : (
                     <React.Fragment>
@@ -901,7 +1039,7 @@ export default function Home() {
 
                         {/* Feature pills — max 4, single row */}
                         <div className="flex flex-wrap gap-1.5 mb-4">
-                          {activeSlide.features.slice(0, 4).map((f, i) => (
+                          {activeSlide.features.slice(0, 4).map((f: string, i: number) => (
                             <span
                               key={f}
                               className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border ${
@@ -1494,14 +1632,22 @@ export default function Home() {
                 className={`transition-opacity duration-500 ${idx === currentMobileSlide ? 'block' : 'hidden'}`}
               >
                 {slide.imageOnly ? (
-                  <div className="mx-3 mt-2 rounded-2xl overflow-hidden shadow-md relative h-[320px] bg-slate-900">
+                  <div className="mx-3 mt-2 rounded-2xl overflow-hidden shadow-md relative h-[240px]" style={{ background: 'linear-gradient(135deg, #fff9f2 0%, #ffffff 50%, #f0fdf4 100%)' }}>
                     <Image
                       src={slide.image}
                       alt={slide.title}
                       fill
-                      className="object-contain"
+                      className="object-contain p-2"
+                      sizes="100vw"
                       priority={idx === 0}
                     />
+                    {/* Book Now overlay */}
+                    <a
+                      href={slide.ctaLink || '/book?package=QXL%20Freedom%2080%20Health%20Check'}
+                      className="absolute bottom-3 right-3 bg-[#FF9933] text-white font-black px-4 py-1.5 rounded-full text-[10px] uppercase tracking-wide shadow-md active:scale-95 transition-all z-20"
+                    >
+                      BOOK NOW @ ₹800
+                    </a>
                   </div>
                 ) : (
                   /* Content slides — text left, image right */

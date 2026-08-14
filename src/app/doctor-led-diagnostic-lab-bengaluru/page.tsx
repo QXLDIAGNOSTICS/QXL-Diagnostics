@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import BookingFormWidget from "../../components/BookingFormWidget";
+import { BookingFormWidget } from "../../components/BookingFormWidget";
 import { WHATSAPP_LINK } from "../../lib/businessInfo";
 
 export const metadata: Metadata = {
