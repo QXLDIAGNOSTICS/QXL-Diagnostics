@@ -770,7 +770,6 @@ export default function Home() {
 
   // ── All poster images (imageOnly slides) ─────────────────────────────────────
   const posterImages = [
-    "/posters/independence_day_banner.png",      // NEW generated banner — first
     "/posters/02998fde-ef5f-4292-910c-7530f67acd7e.jpeg",
     "/posters/07e29c76-b80d-406c-b9cb-5741d1cddc98.jpeg",
     "/posters/0b7b423e-88d8-4f9c-baef-cf5b79e5cecc.jpeg",
@@ -965,7 +964,7 @@ export default function Home() {
         <section className="pt-6 pb-4 relative group overflow-hidden">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div
-              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row h-[580px] md:h-[520px] shadow-lg border border-amber-200/50"
+              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row h-[400px] md:h-[420px] shadow-lg border border-amber-200/50"
               style={{ background: 'linear-gradient(135deg, #FFF4E6 0%, #FFFFFF 40%, #FFFFFF 60%, #E8F5E9 100%)' }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -980,17 +979,15 @@ export default function Home() {
                   className="absolute inset-0 w-full h-full flex flex-col md:flex-row"
                 >
                   {activeSlide.imageOnly ? (
-                    <div className="w-full h-full relative z-10 flex items-center justify-center p-4" style={{ background: 'linear-gradient(135deg, #fff9f2 0%, #ffffff 50%, #f0fdf4 100%)' }}>
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={activeSlide.image}
-                          alt={activeSlide.title}
-                          fill
-                          className="object-contain"
-                          sizes="(max-width: 1260px) 100vw, 1260px"
-                          priority
-                        />
-                      </div>
+                    <div className="w-full h-full relative z-10">
+                      <Image
+                        src={activeSlide.image}
+                        alt={activeSlide.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1260px) 100vw, 1260px"
+                        priority
+                      />
                       {/* Book Now overlay button */}
                       <a
                         href={activeSlide.ctaLink || '/book?package=QXL%20Freedom%2080%20Health%20Check'}
@@ -1632,12 +1629,12 @@ export default function Home() {
                 className={`transition-opacity duration-500 ${idx === currentMobileSlide ? 'block' : 'hidden'}`}
               >
                 {slide.imageOnly ? (
-                  <div className="mx-3 mt-2 rounded-2xl overflow-hidden shadow-md relative h-[240px]" style={{ background: 'linear-gradient(135deg, #fff9f2 0%, #ffffff 50%, #f0fdf4 100%)' }}>
+                  <div className="mx-3 mt-2 rounded-2xl overflow-hidden shadow-md relative h-[220px]">
                     <Image
                       src={slide.image}
                       alt={slide.title}
                       fill
-                      className="object-contain p-2"
+                      className="object-cover"
                       sizes="100vw"
                       priority={idx === 0}
                     />
