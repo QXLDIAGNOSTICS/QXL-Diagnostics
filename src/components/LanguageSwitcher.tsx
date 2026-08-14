@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Globe, Check, ChevronDown } from "lucide-react";
+import { Globe, Check } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 /* ─── Supported languages ─────────────────────────────────────────── */
@@ -164,7 +164,7 @@ export default function LanguageSwitcher() {
           aria-label="Select Language"
           aria-haspopup="listbox"
           aria-expanded={open}
-          className="flex items-center gap-1.5 rounded-full px-2.5 py-1.5 transition-all duration-200 hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-sky-300/60"
+          className="flex items-center justify-center rounded-full w-8 h-8 transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-sky-300/60"
           style={{
             background: "rgba(224,242,254,0.65)",
             border: "1px solid rgba(125,199,232,0.35)",
@@ -178,14 +178,8 @@ export default function LanguageSwitcher() {
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
             </svg>
           ) : (
-            <Globe className="w-4 h-4 text-[#0284c7] flex-shrink-0" />
+            <Globe className="w-4 h-4 text-[#0284c7]" />
           )}
-          <span className="text-[11px] font-extrabold text-[#0369a1] hidden xl:inline leading-none">
-            {currentLang.native}
-          </span>
-          <ChevronDown
-            className={`w-3 h-3 text-[#38bdf8] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          />
         </button>
 
         {/* ── Dropdown ─────────────────────────────────────────── */}
