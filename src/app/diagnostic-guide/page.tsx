@@ -86,61 +86,67 @@ export default function DiagnosticGuidePage() {
           </div>
         </div>
 
-        {/* Test Packages List */}
+        {/* Test Packages List Grouped by Category */}
         <div className="space-y-12">
-          <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">Directory of Packages</h2>
-          <div className="grid gap-6">
-            {testGuideData.map((pkg, idx) => (
-              <div key={idx} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
-                <div className="p-6 md:p-8">
-                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
-                    <h3 className="text-2xl font-bold text-slate-900">{pkg.title}</h3>
-                    <div className={`px-3 py-1 rounded-full text-xs font-bold tracking-wide ${
-                      pkg.guidanceLevel === "SELF-REQUEST POSSIBLE" ? "bg-green-100 text-green-700" :
-                      pkg.guidanceLevel === "CONSULTATION RECOMMENDED" ? "bg-amber-100 text-amber-700" :
-                      "bg-red-100 text-red-700"
-                    }`}>
-                      {pkg.guidanceLevel} {pkg.id}
-                    </div>
-                  </div>
-                  <p className="text-slate-600 mb-6">{pkg.description}</p>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3">Key Tests / Components</h4>
-                      <ul className="space-y-2">
-                        {pkg.keyTests && pkg.keyTests.map((test, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
-                            <span className="text-slate-700 text-sm">{test}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="space-y-6">
-                      {pkg.mayHelpWhen && (
-                        <div>
-                          <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">May Help When</h4>
-                          <p className="text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100">{pkg.mayHelpWhen}</p>
+          {Array.from(new Set(testGuideData.map(pkg => pkg.category))).map(category => (
+            <div key={category} className="mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-8 border-b-2 border-blue-100 pb-2 inline-block">
+                {category}
+              </h2>
+              <div className="grid gap-6">
+                {testGuideData.filter(pkg => pkg.category === category).map((pkg, idx) => (
+                  <div key={idx} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                    <div className="p-6 md:p-8">
+                      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+                        <h3 className="text-2xl font-bold text-slate-900">{pkg.title}</h3>
+                        <div className={`px-3 py-1 rounded-full text-xs font-bold tracking-wide ${
+                          pkg.guidanceLevel === "SELF-REQUEST POSSIBLE" ? "bg-green-100 text-green-700" :
+                          pkg.guidanceLevel === "CONSULTATION RECOMMENDED" ? "bg-amber-100 text-amber-700" :
+                          "bg-red-100 text-red-700"
+                        }`}>
+                          {pkg.guidanceLevel} {pkg.id}
                         </div>
-                      )}
+                      </div>
+                      <p className="text-slate-600 mb-6">{pkg.description}</p>
                       
-                      {pkg.beforeBooking && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                          <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Before Booking</h4>
-                          <div className="flex gap-3 bg-blue-50/50 p-3 rounded-xl border border-blue-100">
-                            <Info className="w-5 h-5 text-blue-600 shrink-0" />
-                            <p className="text-sm text-blue-900">{pkg.beforeBooking}</p>
-                          </div>
+                          <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3">Key Tests / Components</h4>
+                          <ul className="space-y-2">
+                            {pkg.keyTests && pkg.keyTests.map((test, i) => (
+                              <li key={i} className="flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
+                                <span className="text-slate-700 text-sm">{test}</span>
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                      )}
+                        
+                        <div className="space-y-6">
+                          {pkg.mayHelpWhen && (
+                            <div>
+                              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">May Help When</h4>
+                              <p className="text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100">{pkg.mayHelpWhen}</p>
+                            </div>
+                          )}
+                          
+                          {pkg.beforeBooking && (
+                            <div>
+                              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">Before Booking</h4>
+                              <div className="flex gap-3 bg-blue-50/50 p-3 rounded-xl border border-blue-100">
+                                <Info className="w-5 h-5 text-blue-600 shrink-0" />
+                                <p className="text-sm text-blue-900">{pkg.beforeBooking}</p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
       </div>

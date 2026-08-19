@@ -14,7 +14,8 @@
       "Serum folate",
       "CRP/ESR when inflammation is suspected"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Joint & Heart Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 4 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Joint & Heart Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 4 / 45",
+    "category": "Blood Health"
   },
   {
     "id": "#02",
@@ -32,7 +33,8 @@
       "HLA-B27 when clinically compatible",
       "Kidney and liver baseline tests"
     ],
-    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Pregnancy Care Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 5 / 45"
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Pregnancy Care Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 5 / 45",
+    "category": "Joint & Heart Health"
   },
   {
     "id": "#03",
@@ -49,7 +51,8 @@
       "Rubella IgG",
       "TSH and STI NAAT according to risk/protocol"
     ],
-    "beforeBooking": "Pregnancy tests and timing should follow the treating obstetrician's plan. Blood Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 6 / 45"
+    "beforeBooking": "Pregnancy tests and timing should follow the treating obstetrician's plan. Blood Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 6 / 45",
+    "category": "Pregnancy Care"
   },
   {
     "id": "#04",
@@ -65,7 +68,8 @@
       "Calculated transferrin saturation",
       "CRP when ferritin may be affected by inflammation"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Hormonal & PCOS Evaluation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 7 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Hormonal & PCOS Evaluation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 7 / 45",
+    "category": "Blood Health"
   },
   {
     "id": "#05",
@@ -82,7 +86,8 @@
       "DHT when indicated",
       "17-hydroxyprogesterone when indicated"
     ],
-    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Autoimmune & Protein Disorders Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 8 / 45"
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Autoimmune & Protein Disorders Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 8 / 45",
+    "category": "Hormonal & PCOS"
   },
   {
     "id": "#06",
@@ -99,7 +104,8 @@
       "Hepatitis B/C screening to exclude viral causes",
       "IgG4 or metabolic tests when indicated"
     ],
-    "beforeBooking": "Doctor or laboratory consultation is advised before booking; exact tests depend on the clinical question. Tuberculosis & Adrenal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 9 / 45"
+    "beforeBooking": "Doctor or laboratory consultation is advised before booking; exact tests depend on the clinical question. Tuberculosis & Adrenal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 9 / 45",
+    "category": "Autoimmune & Protein Disorders"
   },
   {
     "id": "#07",
@@ -116,7 +122,8 @@
       "Renin/aldosterone for suspected primary disease",
       "21-hydroxylase antibodies when indicated"
     ],
-    "beforeBooking": "Doctor or laboratory consultation is advised before booking; exact tests depend on the clinical question. Blood & Metabolism Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 10 / 45"
+    "beforeBooking": "Doctor or laboratory consultation is advised before booking; exact tests depend on the clinical question. Blood & Metabolism Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 10 / 45",
+    "category": "Tuberculosis & Adrenal Health"
   },
   {
     "id": "#08",
@@ -134,7 +141,8 @@
       "Bicarbonate",
       "Calcium"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Specialist Testing Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 11 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Specialist Testing Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 11 / 45",
+    "category": "Blood & Metabolism"
   },
   {
     "id": "#09",
@@ -147,7 +155,8 @@
       "Clinical breast assessment and age/risk-appropriate imaging",
       "CA 15-3, CA 27.29 or CEA only when an oncologist selects them for monitoring"
     ],
-    "beforeBooking": "There is no routine blood-marker package for breast-cancer screening. Ask about appropriate clinical assessment and imaging. Diabetes & Bone Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 12 / 45"
+    "beforeBooking": "There is no routine blood-marker package for breast-cancer screening. Ask about appropriate clinical assessment and imaging. Diabetes & Bone Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 12 / 45",
+    "category": "Specialist Testing"
   },
   {
     "id": "#10",
@@ -165,7 +174,8 @@
       "Intact PTH",
       "Creatinine with eGFR"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Joint & Heart Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 13 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Joint & Heart Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 13 / 45",
+    "category": "Diabetes & Bone Health"
   },
   {
     "id": "#11",
@@ -180,7 +190,8 @@
       "BNP/NT-proBNP for suspected heart failure",
       "ApoB and lipoprotein(a) when indicated"
     ],
-    "beforeBooking": "Chest pain, sweating, severe breathlessness or fainting needs urgent medical assessment - do not wait for a package test. Antiphospholipid Antibodies Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 14 / 45"
+    "beforeBooking": "Chest pain, sweating, severe breathlessness or fainting needs urgent medical assessment - do not wait for a package test. Antiphospholipid Antibodies Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 14 / 45",
+    "category": "Joint & Heart Health"
   },
   {
     "id": "#12",
@@ -195,7 +206,8 @@
       "Lupus anticoagulant",
       "Repeat qualifying positives after at least 12 weeks"
     ],
-    "beforeBooking": "A qualifying positive result generally needs repeat testing after at least 12 weeks and clinical criteria. Bleeding & Coagulation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 15 / 45"
+    "beforeBooking": "A qualifying positive result generally needs repeat testing after at least 12 weeks and clinical criteria. Bleeding & Coagulation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 15 / 45",
+    "category": "Joint & Heart Health"
   },
   {
     "id": "#13",
@@ -208,7 +220,8 @@
       "Activated partial thromboplastin time (APTT)",
       "CBC with platelet count"
     ],
-    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Bleeding & Coagulation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 16 / 45"
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Bleeding & Coagulation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 16 / 45",
+    "category": "Bleeding & Coagulation"
   },
   {
     "id": "#14",
@@ -225,7 +238,8 @@
       "D-dimer only when clinically indicated",
       "Mixing studies or von Willebrand testing when indicated"
     ],
-    "beforeBooking": "Bleeding time and clotting time are not included as routine modern screening tests. Pregnancy Risk Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 17 / 45"
+    "beforeBooking": "Bleeding time and clotting time are not included as routine modern screening tests. Pregnancy Risk Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 17 / 45",
+    "category": "Bleeding & Coagulation"
   },
   {
     "id": "#15",
@@ -239,7 +253,8 @@
       "Nuchal-translucency ultrasound",
       "Maternal and gestational information for validated risk calculation"
     ],
-    "beforeBooking": "Screening estimates risk; it does not diagnose a chromosomal condition. Pregnancy Risk Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 18 / 45"
+    "beforeBooking": "Screening estimates risk; it does not diagnose a chromosomal condition. Pregnancy Risk Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 18 / 45",
+    "category": "Pregnancy Risk Screening"
   },
   {
     "id": "#16",
@@ -252,7 +267,8 @@
       "Unconjugated estriol (uE3)",
       "Maternal and gestational information for validated risk calculation"
     ],
-    "beforeBooking": "Screening estimates risk; gestational age and maternal information are essential. Pregnancy & Immunity Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 19 / 45"
+    "beforeBooking": "Screening estimates risk; gestational age and maternal information are essential. Pregnancy & Immunity Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 19 / 45",
+    "category": "Pregnancy Risk Screening"
   },
   {
     "id": "#17",
@@ -266,7 +282,8 @@
       "Inhibin A",
       "Maternal and gestational information for validated risk calculation"
     ],
-    "beforeBooking": "Screening estimates risk; abnormal results require counselling and follow-up. Electrolytes & Kidneys Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 20 / 45"
+    "beforeBooking": "Screening estimates risk; abnormal results require counselling and follow-up. Electrolytes & Kidneys Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 20 / 45",
+    "category": "Pregnancy Risk Screening"
   },
   {
     "id": "#18",
@@ -282,7 +299,8 @@
       "Magnesium when indicated",
       "Calcium when indicated"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Infection Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 21 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Infection Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 21 / 45",
+    "category": "Electrolytes & Kidneys"
   },
   {
     "id": "#19",
@@ -298,7 +316,8 @@
       "Syphilis screening with confirmation",
       "Other site-specific tests based on exposure"
     ],
-    "beforeBooking": "Testing is confidential. Specimen site and tests depend on exposure and symptoms. PCOS & Fertility Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 22 / 45"
+    "beforeBooking": "Testing is confidential. Specimen site and tests depend on exposure and symptoms. PCOS & Fertility Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 22 / 45",
+    "category": "Infection Screening"
   },
   {
     "id": "#20",
@@ -317,7 +336,8 @@
       "Testosterone/SHBG",
       "Pregnancy test when appropriate"
     ],
-    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Menopause & Amenorrhea Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 23 / 45"
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Menopause & Amenorrhea Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 23 / 45",
+    "category": "PCOS & Fertility"
   },
   {
     "id": "#21",
@@ -332,7 +352,8 @@
       "Estradiol",
       "Pregnancy test or prolactin when presentation is atypical"
     ],
-    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Menopause & Amenorrhea Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 24 / 45"
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Menopause & Amenorrhea Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 24 / 45",
+    "category": "PCOS & Fertility"
   },
   {
     "id": "#22",
@@ -349,7 +370,8 @@
       "Androgen/17-OHP testing only for specific symptoms",
       "HbA1c and lipids as a separate health assessment"
     ],
-    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Pregnancy & Immunity Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 25 / 45"
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Pregnancy & Immunity Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 25 / 45",
+    "category": "PCOS & Fertility"
   },
   {
     "id": "#23",
@@ -363,7 +385,8 @@
       "Rubella IgG",
       "PCR/IgM only through an acute- infection pathway when disease is suspected"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Autoimmune & Protein Disorders Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 26 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Autoimmune & Protein Disorders Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 26 / 45",
+    "category": "Pregnancy & Immunity"
   },
   {
     "id": "#24",
@@ -381,7 +404,8 @@
       "Albumin, total protein, LDH and beta-2 microglobulin",
       "Urine electrophoresis/ immunofixation when indicated"
     ],
-    "beforeBooking": "Doctor or laboratory consultation is advised before booking; exact tests depend on the clinical question. Bone & Musculoskeletal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 27 / 45"
+    "beforeBooking": "Doctor or laboratory consultation is advised before booking; exact tests depend on the clinical question. Bone & Musculoskeletal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 27 / 45",
+    "category": "Autoimmune & Protein Disorders"
   },
   {
     "id": "#25",
@@ -397,7 +421,8 @@
       "Vitamin D and calcium when indicated",
       "Joint-fluid analysis for suspected infection or crystals"
     ],
-    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Bone & Musculoskeletal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 28 / 45"
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Bone & Musculoskeletal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 28 / 45",
+    "category": "Bone & Musculoskeletal Health"
   },
   {
     "id": "#26",
@@ -415,7 +440,8 @@
       "P1NP and osteocalcin",
       "Beta-CTX when monitoring is required"
     ],
-    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Pregnancy Care Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 29 / 45"
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Pregnancy Care Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 29 / 45",
+    "category": "Bone & Musculoskeletal Health"
   },
   {
     "id": "#27",
@@ -430,7 +456,8 @@
       "Repeat qualifying positives after at least 12 weeks",
       "Other tests only after obstetric/ specialist review"
     ],
-    "beforeBooking": "This is not a routine antenatal panel. Blanket TORCH/ANA testing is not offered without a specific indication. Men's Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 30 / 45"
+    "beforeBooking": "This is not a routine antenatal panel. Blanket TORCH/ANA testing is not offered without a specific indication. Men's Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 30 / 45",
+    "category": "Pregnancy Care"
   },
   {
     "id": "#28",
@@ -443,7 +470,8 @@
       "Repeat PSA after resolving temporary causes of elevation when advised",
       "Urinalysis and creatinine/eGFR for urinary symptoms"
     ],
-    "beforeBooking": "Prostatic acid phosphatase is not included in the routine modern prostate assessment. Men's Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 31 / 45"
+    "beforeBooking": "Prostatic acid phosphatase is not included in the routine modern prostate assessment. Men's Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 31 / 45",
+    "category": "Men's Health"
   },
   {
     "id": "#29",
@@ -457,7 +485,8 @@
       "PHI/4Kscore only when selected by a urologist",
       "Urology assessment and MRI when indicated"
     ],
-    "beforeBooking": "PSA is not diagnostic by itself. Results should be interpreted with age, symptoms and prior values. Hormonal & PCOS Evaluation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 32 / 45"
+    "beforeBooking": "PSA is not diagnostic by itself. Results should be interpreted with age, symptoms and prior values. Hormonal & PCOS Evaluation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 32 / 45",
+    "category": "Men's Health"
   },
   {
     "id": "#30",
@@ -475,7 +504,8 @@
       "Full lipid profile",
       "Pregnancy test/17-OHP when indicated"
     ],
-    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. PCOS & Fertility Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 33 / 45"
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. PCOS & Fertility Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 33 / 45",
+    "category": "Hormonal & PCOS"
   },
   {
     "id": "#31",
@@ -493,7 +523,8 @@
       "Full lipid profile",
       "Pregnancy test when appropriate"
     ],
-    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Antiphospholipid Antibodies Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 34 / 45"
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Antiphospholipid Antibodies Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 34 / 45",
+    "category": "Hormonal & PCOS"
   },
   {
     "id": "#32",
@@ -507,7 +538,8 @@
       "Lupus anticoagulant",
       "Repeat qualifying positives after at least 12 weeks"
     ],
-    "beforeBooking": "Antibody results alone do not diagnose antiphospholipid syndrome. Blood & Metabolism Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 35 / 45"
+    "beforeBooking": "Antibody results alone do not diagnose antiphospholipid syndrome. Blood & Metabolism Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 35 / 45",
+    "category": "Antiphospholipid Antibodies"
   },
   {
     "id": "#33",
@@ -522,7 +554,8 @@
       "Ferritin",
       "Calculated transferrin saturation"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Electrolytes & Kidneys Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 36 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Electrolytes & Kidneys Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 36 / 45",
+    "category": "Blood Health"
   },
   {
     "id": "#34",
@@ -538,7 +571,8 @@
       "Routine urinalysis",
       "Urine ACR for diabetes, hypertension or CKD risk"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Kidneys & Diabetes Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 37 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Kidneys & Diabetes Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 37 / 45",
+    "category": "Electrolytes & Kidneys"
   },
   {
     "id": "#35",
@@ -555,7 +589,8 @@
       "Routine urinalysis",
       "Urine albumin-creatinine ratio (UACR)"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Infection Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 38 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Infection Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 38 / 45",
+    "category": "Electrolytes & Kidneys"
   },
   {
     "id": "#36",
@@ -572,7 +607,8 @@
       "Dengue test selected by illness day",
       "Urinalysis/culture when indicated"
     ],
-    "beforeBooking": "Widal is not used as a stand-alone routine fever screen. Test selection depends on illness day. Kidneys & Diabetes Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 39 / 45"
+    "beforeBooking": "Widal is not used as a stand-alone routine fever screen. Test selection depends on illness day. Kidneys & Diabetes Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 39 / 45",
+    "category": "Infection Screening"
   },
   {
     "id": "#37",
@@ -586,7 +622,8 @@
       "Post-meal blood glucose",
       "Creatinine with calculated eGFR"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Diabetes & Bone Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 40 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Diabetes & Bone Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 40 / 45",
+    "category": "Diabetes & Bone Health"
   },
   {
     "id": "#38",
@@ -603,7 +640,8 @@
       "Routine urinalysis",
       "Liver function tests"
     ],
-    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Respiratory & Microbiology Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 41 / 45"
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Respiratory & Microbiology Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 41 / 45",
+    "category": "Diabetes & Bone Health"
   },
   {
     "id": "#39",
@@ -618,7 +656,8 @@
       "Antimicrobial susceptibility testing",
       "Anaerobic, fungal or mycobacterial culture when indicated"
     ],
-    "beforeBooking": "Cultures are specimen-specific; urine, blood, sputum and swabs should not be bundled together. Tuberculosis & Adrenal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 42 / 45"
+    "beforeBooking": "Cultures are specimen-specific; urine, blood, sputum and swabs should not be bundled together. Tuberculosis & Adrenal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 42 / 45",
+    "category": "Respiratory & Microbiology"
   },
   {
     "id": "#40",
@@ -635,7 +674,8 @@
       "Baseline liver/kidney tests before treatment",
       "IGRA/TB Gold only for latent- infection assessment"
     ],
-    "beforeBooking": "TB Gold/IGRA cannot distinguish active from latent TB and is not the confirmation test for active disease. Respiratory & Microbiology Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 43 / 45"
+    "beforeBooking": "TB Gold/IGRA cannot distinguish active from latent TB and is not the confirmation test for active disease. Respiratory & Microbiology Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 43 / 45",
+    "category": "Tuberculosis & Adrenal Health"
   },
   {
     "id": "#41",
@@ -650,7 +690,8 @@
       "Sputum Gram stain/culture when indicated",
       "Blood cultures or urinary antigens for selected severe cases"
     ],
-    "beforeBooking": "Imaging and clinical assessment are central; cultures are reserved for selected cases. Specialist Testing Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 44 / 45"
+    "beforeBooking": "Imaging and clinical assessment are central; cultures are reserved for selected cases. Specialist Testing Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 44 / 45",
+    "category": "Respiratory & Microbiology"
   },
   {
     "id": "#42",
@@ -665,6 +706,7 @@
       "GC-MS or LC-MS/MS confirmation for non-negative results",
       "Defined cutoffs and chain-of- custody where required"
     ],
-    "beforeBooking": "Screening results are presumptive; consequential non-negative results require mass-spectrometry confirmation."
+    "beforeBooking": "Screening results are presumptive; consequential non-negative results require mass-spectrometry confirmation.",
+    "category": "Specialist Testing"
   }
 ]
