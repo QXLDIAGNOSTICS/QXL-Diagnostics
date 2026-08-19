@@ -178,7 +178,10 @@ export default function LanguageSwitcher() {
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
             </svg>
           ) : (
-            <Globe className="w-4 h-4 text-[#0284c7]" />
+            <div className="flex flex-col items-center justify-center -mt-0.5">
+              <Globe className="w-3.5 h-3.5 text-[#0284c7]" />
+              <span className="text-[7px] font-bold text-[#0284c7] uppercase leading-none mt-0.5">{activeLang}</span>
+            </div>
           )}
         </button>
 

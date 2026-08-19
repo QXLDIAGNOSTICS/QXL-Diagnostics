@@ -802,7 +802,7 @@ export default function Home() {
       ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
       ctaSecondary: "VIEW PACKAGE",
       ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
+      image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=1200&auto=format&fit=crop",
       imageFit: "cover",
       bgFrom: "#fff7ed", bgTo: "#f0fdf4",
       features: ["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"],
@@ -819,7 +819,7 @@ export default function Home() {
       ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
       ctaSecondary: "Call +91 9964 639 639",
       ctaSecondaryLink: "tel:+919964639639",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150239/Assets-QXL/legacy-assets/image/doctor_patient_consultation.jpg",
+      image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1200&auto=format&fit=crop",
       imageFit: "cover",
       bgFrom: "#fff7ed", bgTo: "#eff6ff",
       features: ["Heart & Lipids", "Bone & Joint", "Kidney Function", "Elder Care"],
@@ -836,7 +836,7 @@ export default function Home() {
       ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
       ctaSecondary: "View All Packages",
       ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg",
+      image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop",
       imageFit: "cover",
       bgFrom: "#f0fdf4", bgTo: "#fff7ed",
       features: ["Iron & Anemia", "Thyroid Profile", "Vitamin D & B12", "Hormonal Balance"],
@@ -853,7 +853,7 @@ export default function Home() {
       ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
       ctaSecondary: "View Details",
       ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
+      image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=1200&auto=format&fit=crop",
       imageFit: "cover",
       bgFrom: "#f0fdf4", bgTo: "#fff7ed",
       features: ["80 Parameters", "8 Health Areas", "Only ₹800", "Free Home Collection"],
@@ -1531,13 +1531,13 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", role: "Founder & CEO", image: "/images/dr_shantakumar_new.jpg", imagePosition: "center top", imageScale: 1.3, imageTranslateY: "-24%" },
-                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", role: "Senior Consultant", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
-                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", role: "Senior Consultant", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
-                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", role: "Consultant Pathologist", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
+                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", role: "Founder & CEO", slug: "dr-shantakumar-muruda", image: "/images/dr_shantakumar_new.jpg", imagePosition: "center top", imageScale: 1.3, imageTranslateY: "-24%" },
+                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", role: "Senior Consultant", slug: "dr-pritilata-rout", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
+                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", role: "Senior Consultant", slug: "dr-ajitha-pillai", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
+                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", role: "Consultant Pathologist", slug: "dr-naveen-kumar-n", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
               ].map((doc: any) => (
                 <Link
-                  href="/founder"
+                  href={`/${doc.slug}`}
                   key={doc.name}
                   className="group rounded-3xl overflow-hidden flex flex-col text-center transition-all duration-300 hover:-translate-y-1"
                   style={{

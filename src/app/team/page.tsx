@@ -1,8 +1,9 @@
 "use client";
 import React from 'react';
-import { Award, Star, Briefcase, Trophy, Target, Lightbulb, Phone } from 'lucide-react';
+import { Award, Star, Briefcase, Trophy, Target, Lightbulb, Phone, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
-export default function FounderPage() {
+export default function TeamPage() {
   const doctors = [
     {
       name: "Dr. Shantakumar Muruda",
@@ -10,44 +11,52 @@ export default function FounderPage() {
       qualification: "MD (BIOCHEMISTRY)",
       image: "/images/dr_shantakumar_new.jpg",
       imagePosition: "center 20%",
+      slug: "/dr-shantakumar-muruda",
+      isFounder: true,
+      description: "Over 20 years of experience in Clinical Biochemistry, Laboratory Operations, and Hospital Management. NABL Lead Assessor (150+ assessments) and PHFI-certified Diabetologist.",
       experience: "Over 20 years",
       expertise: "Clinical Biochemistry, Laboratory Operations, Hospital establishment and Management, Diabetology",
       achievements: "NABL Lead Assessor (150+ assessments), PHFI-certified Diabetologist.",
-      contribution: "Drives QXL's strategic vision, integrating cutting-edge technology with stringent diagnostic quality control.",
-      isFounder: true
-    },
-    {
-      name: "Dr. Ajitha Pillai",
-      role: "Senior Consultant",
-      qualification: "MD (MICROBIOLOGY)",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg",
-      experience: "20+ years",
-      expertise: "Clinical Microbiology, Molecular Biology, Infectious and Autoimmune Serology",
-      achievements: "Head of Microbiology, Molecular Biology, Immunology, Serology and Infection control to premium tertiary care hospitals in Bengaluru.",
-      contribution: "Leads the infectious diseases testing vertical and ensures highly rigorous infection control protocols.",
-      isFounder: false
+      contribution: "Drives QXL's strategic vision, integrating cutting-edge technology with stringent diagnostic quality control."
     },
     {
       name: "Dr. Pritilata Rout",
       role: "Senior Consultant Histopathologist",
       qualification: "MD (PATHOLOGY), PDF (NEUROPATH)",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png",
+      slug: "/dr-pritilata-rout",
+      isFounder: false,
+      description: "Senior Consultant Histopathologist with specialized fellowship training in Neuropathology and extensive diagnostic expertise.",
       experience: "28+ years (Since 1996)",
       expertise: "Neuropathology, Epilepsy Pathology, Cytopathology, Onco-Pathology",
       achievements: "Post-doctoral fellowship in Neuropathology from the prestigious NIMHANS (2001).",
-      contribution: "Provides expert, meticulous diagnostic interpretation for complex histopathology, cytology, and oncology cases.",
-      isFounder: false
+      contribution: "Provides expert, meticulous diagnostic interpretation for complex histopathology, cytology, and oncology cases."
+    },
+    {
+      name: "Dr. Ajitha Pillai",
+      role: "Senior Consultant",
+      qualification: "MD (MICROBIOLOGY)",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg",
+      slug: "/dr-ajitha-pillai",
+      isFounder: false,
+      description: "Senior Consultant Microbiologist specializing in clinical microbiology, infectious diseases, and advanced infection control protocols.",
+      experience: "25+ years",
+      expertise: "Clinical Microbiology, Infectious Diseases, Infection Control, Serology",
+      achievements: "Instrumental in setting up advanced infectious disease testing protocols.",
+      contribution: "Leads the microbiology department, ensuring rapid and accurate identification of pathogens to guide effective treatments."
     },
     {
       name: "Dr. Naveen Kumar N",
       role: "Consultant Pathologist",
       qualification: "DCP, DNB (PATHOLOGY)",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg",
+      slug: "/dr-naveen-kumar-n",
+      isFounder: false,
+      description: "Consultant Pathologist with extensive experience in clinical pathology, driving accurate diagnostics and continuous quality improvement.",
       experience: "10+ years",
       expertise: "Pathology, Histopathology, Hematology, Laboratory Quality Management",
       achievements: "Pivotal role in continuous NABL certification maintenance.",
-      contribution: "Oversees routine pathology, histopathology and hematology, ensuring laboratory operations consistently meet rigorous regulatory standards.",
-      isFounder: false
+      contribution: "Oversees routine pathology, histopathology and hematology, ensuring laboratory operations consistently meet rigorous regulatory standards."
     }
   ];
 
@@ -56,24 +65,7 @@ export default function FounderPage() {
 
   return (
     <div className="bg-[#f8faff] min-h-screen">
-      <section className="relative overflow-hidden py-14 border-b border-sky-100"
-        style={{ background: 'linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 50%, #eff6ff 100%)' }}>
-        <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div className="absolute -top-16 right-10 w-72 h-72 rounded-full bg-sky-300/20 blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-blue-300/15 blur-3xl" />
-        </div>
-        <div className="relative max-w-[1260px] mx-auto px-4 w-full">
-          <span className="inline-block bg-[#0284c7] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-4 shadow-sm shadow-sky-500/25">
-            Leadership & Expertise
-          </span>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-[#0c4a6e] mb-3 leading-tight uppercase tracking-tight">
-            Founder and Consultants
-          </h1>
-          <p className="text-slate-600 text-sm md:text-base max-w-3xl font-medium leading-relaxed">
-            Meet the visionary leadership and the highly qualified panel of Consultants who drive QXL Diagnostics&apos; commitment to unparalleled accuracy and precision.
-          </p>
-        </div>
-      </section>
+
 
       <section className="py-14">
         <div className="max-w-[1260px] mx-auto px-4 w-full">
@@ -83,7 +75,7 @@ export default function FounderPage() {
             </div>
             <h2 className="text-2xl font-extrabold text-[#0c4a6e] uppercase tracking-wider">Founder &amp; CEO</h2>
           </div>
-          {founder && <DoctorProfile doc={founder} isHero />}
+          {founder && <DoctorCard doc={founder} isHero />}
         </div>
       </section>
 
@@ -97,7 +89,7 @@ export default function FounderPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {consultants.map((doc) => (
-              <DoctorProfile key={doc.name} doc={doc} />
+              <DoctorCard key={doc.name} doc={doc} />
             ))}
           </div>
         </div>
@@ -155,18 +147,11 @@ export default function FounderPage() {
   );
 }
 
-const DoctorProfile = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) => {
-  const detailRows = [
-    { icon: Briefcase, label: "Experience", value: doc.experience },
-    { icon: Target, label: "Expertise", value: doc.expertise },
-    { icon: Trophy, label: "Achievements", value: doc.achievements },
-    { icon: Lightbulb, label: "Contribution to QXL", value: doc.contribution },
-  ];
-
+const DoctorCard = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) => {
   return (
     <article
       className={`group overflow-hidden rounded-3xl flex flex-col transition-all duration-300 hover:-translate-y-1 ${
-        isHero ? "md:flex-row" : ""
+        isHero ? "md:flex-row max-w-4xl" : ""
       }`}
       style={{
         background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)',
@@ -176,7 +161,7 @@ const DoctorProfile = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) 
     >
       <div
         className={`relative overflow-hidden shrink-0 ${
-          isHero ? "w-full md:w-[34%] min-h-[260px] md:min-h-[300px]" : "h-60 sm:h-64"
+          isHero ? "w-full md:w-[35%] min-h-[260px] md:min-h-[300px]" : "h-64 sm:h-72"
         } bg-gradient-to-b from-sky-50 to-sky-100/50`}
       >
         <img
@@ -184,8 +169,7 @@ const DoctorProfile = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) 
           alt={doc.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           style={{ 
-            objectPosition: doc.imagePosition || "top",
-            transform: doc.imageScale ? `scale(${doc.imageScale}) ${doc.imageTranslateY ? `translateY(${doc.imageTranslateY})` : ''}` : 'none'
+            objectPosition: doc.imagePosition || "top"
           }}
           onError={(e) => {
             e.currentTarget.src =
@@ -199,7 +183,7 @@ const DoctorProfile = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) 
         <h3 className={`${isHero ? "text-2xl md:text-3xl" : "text-xl"} font-extrabold text-[#0c4a6e] mb-3 tracking-tight`}>
           {doc.name}
         </h3>
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-col items-start gap-2 mb-6">
           <span
             className="text-white text-[11px] font-extrabold px-3 py-1 rounded-full"
             style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)' }}
@@ -210,26 +194,30 @@ const DoctorProfile = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) 
             {doc.qualification}
           </span>
         </div>
-
-        <div className="grid grid-cols-1 gap-3.5 text-[13px]">
-          {detailRows.map(({ icon: Icon, label, value }) => (
-            <div
-              key={label}
-              className="flex items-start gap-3 rounded-2xl px-3.5 py-3"
-              style={{
-                background: 'rgba(224,242,254,0.45)',
-                border: '1px solid rgba(125,199,232,0.2)',
-              }}
-            >
-              <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
+        
+        <div className="grid grid-cols-1 gap-3 mb-6">
+          {[
+            { icon: Briefcase, label: "Experience", value: doc.experience },
+            { icon: Target, label: "Expertise", value: doc.expertise },
+            { icon: Trophy, label: "Achievements", value: doc.achievements },
+            { icon: Lightbulb, label: "Contribution to QXL", value: doc.contribution },
+          ].map(({ icon: Icon, label, value }) => value && (
+            <div key={label} className="flex items-start gap-3 rounded-xl p-3" style={{ background: 'rgba(224,242,254,0.4)' }}>
+              <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
                 <Icon className="w-4 h-4 text-[#0284c7]" />
               </div>
               <div>
-                <span className="font-bold text-[#0c4a6e] block mb-0.5 text-[11px] uppercase tracking-wide">{label}</span>
-                <span className="text-slate-600 leading-relaxed">{value}</span>
+                <span className="font-bold text-[#0c4a6e] block text-[10px] uppercase tracking-wider mb-0.5">{label}</span>
+                <span className="text-slate-600 text-[12px] leading-snug font-medium line-clamp-2">{value}</span>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-auto pt-4 border-t border-sky-100">
+          <Link href={doc.slug} className="inline-flex items-center gap-2 text-[#0284c7] font-bold text-sm hover:text-[#0c4a6e] transition-colors group-hover:translate-x-1">
+            View Full Profile <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </article>

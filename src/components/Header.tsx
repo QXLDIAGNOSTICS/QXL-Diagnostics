@@ -18,9 +18,9 @@ import InstallPrompt from './InstallPrompt';
 const FALLBACK_LOGO =
   "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
 
-// Countdown to August 20, 2026 11:59:59 PM IST (1 week offer)
+// Countdown to August 27, 2026 11:59:59 PM IST
 function useCountdown() {
-  const target = new Date('2026-08-20T23:59:59+05:30').getTime();
+  const target = new Date('2026-08-27T23:59:59+05:30').getTime();
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0, expired: false });
   useEffect(() => {
     const tick = () => {
@@ -393,11 +393,16 @@ export default function Header() {
             {/* Right Actions */}
             <div className="flex items-center gap-4">
               {/* Home Collection — compact pill */}
-              <a href="tel:+919964639639" className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl cursor-pointer transition-all hover:scale-105 active:scale-95" style={{ background: 'rgba(224,242,254,0.55)', border: '1px solid rgba(125,199,232,0.28)', backdropFilter: 'blur(8px)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.8)' }}>
-                <svg className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-                <span className="text-[#0369a1] font-extrabold text-[11px] whitespace-nowrap">+91 9964 639 639</span>
+              <a href="tel:+919964639639" className="hidden sm:flex items-center gap-3 cursor-pointer transition-all hover:opacity-80">
+                <div className="w-10 h-10 rounded-full bg-[#e0f2fe] flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-[#3b82f6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
+                <div className="flex flex-col items-start leading-tight justify-center">
+                  <span className="text-[13px] font-medium text-slate-500">Home Collection</span>
+                  <span className="text-black font-extrabold text-[16px] tracking-tight whitespace-nowrap">+91 9964 639639</span>
+                </div>
               </a>
 
               {user && (

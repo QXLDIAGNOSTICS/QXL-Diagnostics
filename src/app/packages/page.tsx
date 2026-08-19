@@ -4,28 +4,20 @@ import { Shield, Clock, CheckCircle, Users, Scale, ArrowRight } from 'lucide-rea
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { api } from "../../lib/api";
+import { packagesData } from '../../data/packages';
 
 export default function PackagesPage() {
   const [packages, setPackages] = useState<any[]>([]);
 
   useEffect(() => {
-    let cancelled = false;
-    api.packages
-      .list()
-      .then((data) => {
-        if (cancelled) return;
-        setPackages(
-          data.map((p) => ({
-            ...p,
-            age: p.age_group,
-            benefits: p.benefits ? JSON.parse(p.benefits) : [],
-          }))
-        );
-      })
-      .catch((err) => console.error("Failed to load packages", err));
-    return () => {
-      cancelled = true;
-    };
+    // Using static packagesData instead of API for now
+    setPackages(
+      packagesData.map((p) => ({
+        ...p,
+        age: p.age_group || p.age,
+        benefits: typeof p.benefits === 'string' ? JSON.parse(p.benefits) : (p.benefits || []),
+      }))
+    );
   }, []);
 
   const Card = ({ name, price, old_price, parameters, includes, tag, save_amount, benefits, who_should_take, age, gender, doctor_recommended }: any) => (
@@ -42,13 +34,7 @@ export default function PackagesPage() {
           <h3 className="font-bold text-slate-800 text-base leading-snug">{name}</h3>
         </div>
 
-        <p className="text-[11px] text-slate-600 font-medium mb-3 flex items-start gap-1.5 bg-blue-50/50 p-2 rounded-md border border-blue-50">
-          <Users className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" /> 
-          <span>
-            <strong className="text-slate-800 block mb-0.5 text-[10px] uppercase tracking-wider">Ideal For</strong>
-            {who_should_take} ({age}, {gender})
-          </span>
-        </p>
+
 
         {benefits && benefits.length > 0 && (
           <div className="mb-3">

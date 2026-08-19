@@ -222,7 +222,20 @@ const defaultTestimonials = [
 
 const defaultFaqs = [
   { id: "faq-1", question: "How do I book a home collection?", answer: "Simply fill out our Home Collection form, message us on WhatsApp (+91 9964 639 639), or select a health package and complete the check-out." },
-  { id: "faq-2", question: "How long does it take to receive reports?", answer: "Most routine report cards (like blood sugar, lipid profiles, and CBC) are delivered via email and WhatsApp within 6 to 12 hours." }
+  { id: "faq-2", question: "How long does it take to receive reports?", answer: "Most routine report cards (like blood sugar, lipid profiles, and CBC) are delivered via email and WhatsApp within 6 to 12 hours." },
+  { id: "faq-3", question: "Which is the best diagnostic lab in Bangalore?", answer: "QXL Diagnostics is considered one of the best diagnostic labs in Bangalore, offering NABL accredited, doctor-led super speciality testing." },
+  { id: "faq-4", question: "Which diagnostic labs in Bangalore are NABL accredited?", answer: "QXL Diagnostics is fully NABL accredited, ensuring all pathology and diagnostic tests meet strict national and international quality standards." },
+  { id: "faq-5", question: "Which lab provides home blood collection in Bangalore?", answer: "QXL Diagnostics provides free and fast home blood collection across Bangalore. Our trained phlebotomists collect samples from the comfort of your home." },
+  { id: "faq-6", question: "Where can I get a blood test at home in Bangalore?", answer: "You can book a blood test at home anywhere in Bangalore with QXL Diagnostics by calling +91 9964 639 639 or booking online." },
+  { id: "faq-7", question: "Which is a doctor-led diagnostic laboratory in Bangalore?", answer: "QXL Diagnostics is a doctor-led diagnostic laboratory, with all critical reports reviewed by our expert team of consultant pathologists and microbiologists." },
+  { id: "faq-8", question: "Which lab does speciality tests in Bangalore?", answer: "QXL Diagnostics offers over 300 speciality tests including autoimmune panels, molecular diagnostics, allergy testing, and oncology markers." },
+  { id: "faq-9", question: "Which is the best reference laboratory in Bangalore?", answer: "QXL Diagnostics serves as a trusted reference laboratory in Bangalore for many clinics and hospitals, thanks to our advanced molecular and histopathology capabilities." },
+  { id: "faq-10", question: "Where can I get autoimmune tests in Bangalore?", answer: "QXL Diagnostics performs comprehensive autoimmune testing in Bangalore, including ANA profile, ANA IFA, ANCA, and ENA profile tests." },
+  { id: "faq-11", question: "Where can I get an ANA IFA test in Bangalore?", answer: "You can get an accurate ANA IFA test done at QXL Diagnostics, which uses advanced immunofluorescence techniques for autoimmune disease detection." },
+  { id: "faq-12", question: "Which lab does allergy testing in Bangalore?", answer: "QXL Diagnostics offers extensive allergy testing in Bangalore, including IgE panels, food allergy, and food intolerance testing." },
+  { id: "faq-13", question: "Where can I get histopathology and biopsy testing in Bangalore?", answer: "QXL Diagnostics has a dedicated histopathology department led by Senior Consultant Histopathologist Dr. Pritilata Rout for highly accurate biopsy reporting." },
+  { id: "faq-14", question: "Which lab performs advanced oncology testing in Bangalore?", answer: "QXL Diagnostics provides advanced oncology testing, including tumor markers like CEA, CA 125, CA 19-9, and PSA tests in Bangalore." },
+  { id: "faq-15", question: "Which lab provides molecular diagnostic testing in Bangalore?", answer: "QXL Diagnostics is equipped with state-of-the-art molecular diagnostic testing, including PCR testing for rapid detection of infectious diseases." }
 ];
 
 const defaultBlogs = [
@@ -602,19 +615,20 @@ export const cmsStore = {
         }
       }
 
-      // Force update navbar label to "Founder & Consultants" if it is still "Founder & Advisors"
       if (parsed.navItems && Array.isArray(parsed.navItems)) {
         // Auto-migrate menu structure if old items exist
         const hasBook = parsed.navItems.some((item: any) => item.label === "Book a Test");
         const hasDownloadReport = parsed.navItems.some((item: any) => item.label === "Download Report");
         const hasCollab = parsed.navItems.some((item: any) => item.label === "Collaborate with us" || item.label === "Franchise" || item.label === "Collab with us");
+        
         if (hasBook || hasDownloadReport || hasCollab) {
           parsed.navItems = defaultSettings.navItems;
           healed = true;
         } else {
           parsed.navItems = parsed.navItems.map((item: any) => {
-            if (item.label === "Founder & Advisors") {
+            if (item.label === "Founder & Advisors" || item.label === "Meet Our Team") {
               item.label = "Founder & Consultants";
+              item.href = "/founder";
               healed = true;
             }
             return item;

@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "res.cloudinary.com" },
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
   // Next.js's built-in gzip compression buffers streamed responses (Node's
@@ -27,6 +28,15 @@ const nextConfig: NextConfig = {
       {
         source: "/api/:path*",
         destination: `${backendUrl}/api/:path*`,
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: "/founder",
+        destination: "/team",
+        permanent: false,
       },
     ];
   },

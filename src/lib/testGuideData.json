@@ -1,0 +1,670 @@
+[
+  {
+    "id": "#01",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "Anemia Evaluation Profile",
+    "description": "Evaluates anemia severity and common nutritional causes by combining blood counts with iron assessment. Results help distinguish iron deficiency from macrocytic, inflammatory, hemolytic, or marrow-related patterns requiring further evaluation.",
+    "mayHelpWhen": "Fatigue, pallor, low hemoglobin or suspected nutrient deficiency",
+    "keyTests": [
+      "Complete Blood Count (CBC)",
+      "Ferritin",
+      "Serum iron, TIBC and transferrin saturation",
+      "Reticulocyte count",
+      "Vitamin B12",
+      "Serum folate",
+      "CRP/ESR when inflammation is suspected"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Joint & Heart Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 4 / 45"
+  },
+  {
+    "id": "#02",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "Inflammatory Arthritis Evaluation",
+    "description": "Supports investigation of inflammatory, autoimmune, crystal, and infection- related joint disease. No single universal arthritis screen exists, so testing should follow symptoms, examination, medication history, and suspected disease pattern.",
+    "mayHelpWhen": "Persistent inflammatory joint pain, swelling or stiffness",
+    "keyTests": [
+      "CBC",
+      "ESR and CRP",
+      "Rheumatoid factor",
+      "Anti-CCP",
+      "ANA with targeted reflex testing",
+      "Uric acid",
+      "HLA-B27 when clinically compatible",
+      "Kidney and liver baseline tests"
+    ],
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Pregnancy Care Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 5 / 45"
+  },
+  {
+    "id": "#03",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Initial Antenatal Laboratory Profile",
+    "description": "Provides baseline maternal blood, infection, immunity, and urine assessment early in pregnancy. Results identify anemia, blood-group incompatibility, diabetes risk, urinary infection, and transmissible infections requiring timely management.",
+    "mayHelpWhen": "Initial laboratory assessment during pregnancy",
+    "keyTests": [
+      "CBC",
+      "ABO/Rh group and antibody screen",
+      "Urinalysis and urine culture",
+      "Glucose assessment",
+      "HIV, hepatitis B/C and syphilis screening",
+      "Rubella IgG",
+      "TSH and STI NAAT according to risk/protocol"
+    ],
+    "beforeBooking": "Pregnancy tests and timing should follow the treating obstetrician's plan. Blood Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 6 / 45"
+  },
+  {
+    "id": "#04",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "Comprehensive Iron Studies",
+    "description": "Assesses circulating iron, binding capacity, transport, and saturation to investigate deficiency or overload. Ferritin is essential for estimating iron stores, while inflammation can alter interpretation of several measurements.",
+    "mayHelpWhen": "Suspected iron deficiency, overload or treatment monitoring",
+    "keyTests": [
+      "Serum iron",
+      "Ferritin",
+      "TIBC or transferrin",
+      "UIBC",
+      "Calculated transferrin saturation",
+      "CRP when ferritin may be affected by inflammation"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Hormonal & PCOS Evaluation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 7 / 45"
+  },
+  {
+    "id": "#05",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "Androgen Evaluation Profile",
+    "description": "Evaluates biochemical androgen excess or deficiency using total testosterone, binding protein, and related adrenal or peripheral androgens. Interpretation depends on sex, age, symptoms, collection timing, and assay quality.",
+    "mayHelpWhen": "Androgen excess/deficiency symptoms or reproductive concerns",
+    "keyTests": [
+      "Total testosterone",
+      "SHBG and albumin",
+      "Calculated free testosterone",
+      "DHEA-S",
+      "Androstenedione",
+      "DHT when indicated",
+      "17-hydroxyprogesterone when indicated"
+    ],
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Autoimmune & Protein Disorders Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 8 / 45"
+  },
+  {
+    "id": "#06",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Autoimmune Liver Disease Evaluation",
+    "description": "Combines liver injury, cholestasis, synthetic markers, immunoglobulins, and disease-associated antibodies to support autoimmune hepatitis or cholestatic disease assessment. Findings require clinical correlation and exclusion of viral, metabolic, and drug causes.",
+    "mayHelpWhen": "Abnormal liver tests with suspected autoimmune disease",
+    "keyTests": [
+      "Liver function tests: bilirubin, AST, ALT, ALP, GGT and proteins",
+      "Total IgG",
+      "ANA and smooth-muscle antibody",
+      "LKM-1 and SLA antibodies",
+      "Antimitochondrial antibody",
+      "Hepatitis B/C screening to exclude viral causes",
+      "IgG4 or metabolic tests when indicated"
+    ],
+    "beforeBooking": "Doctor or laboratory consultation is advised before booking; exact tests depend on the clinical question. Tuberculosis & Adrenal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 9 / 45"
+  },
+  {
+    "id": "#07",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Adrenal Insufficiency Evaluation",
+    "description": "Screens for cortisol deficiency and helps distinguish primary from central adrenal insufficiency. Sampling time, acute illness, steroid exposure, electrolyte findings, and confirmatory stimulation testing materially affect interpretation and urgency.",
+    "mayHelpWhen": "Symptoms or clinical suspicion of cortisol deficiency",
+    "keyTests": [
+      "8 a.m. cortisol with paired ACTH",
+      "Sodium and potassium",
+      "Glucose",
+      "Creatinine",
+      "Cosyntropin stimulation test when indicated",
+      "Renin/aldosterone for suspected primary disease",
+      "21-hydroxylase antibodies when indicated"
+    ],
+    "beforeBooking": "Doctor or laboratory consultation is advised before booking; exact tests depend on the clinical question. Blood & Metabolism Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 10 / 45"
+  },
+  {
+    "id": "#08",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "Basic Metabolic Panel - Standardized",
+    "description": "Measures glucose, kidney function, calcium, and core electrolytes for general metabolic assessment. The current package is broader than a conventional BMP and duplicates lipid and liver-related analytes.",
+    "mayHelpWhen": "General metabolic, glucose, kidney and electrolyte assessment",
+    "keyTests": [
+      "Fasting or random glucose",
+      "Urea/BUN",
+      "Creatinine with calculated eGFR",
+      "Sodium",
+      "Potassium",
+      "Chloride",
+      "Bicarbonate",
+      "Calcium"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Specialist Testing Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 11 / 45"
+  },
+  {
+    "id": "#09",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Breast Screening Guidance & Biomarker Monitoring",
+    "description": "Tumor markers may support selected monitoring decisions after a confirmed breast-cancer diagnosis, but they are not population screening tests. Screening should follow age, risk, examination, and appropriate breast imaging pathways.",
+    "mayHelpWhen": "Screening guidance or oncologist-directed biomarker monitoring",
+    "keyTests": [
+      "No routine blood test is recommended for breast-cancer screening",
+      "Clinical breast assessment and age/risk-appropriate imaging",
+      "CA 15-3, CA 27.29 or CEA only when an oncologist selects them for monitoring"
+    ],
+    "beforeBooking": "There is no routine blood-marker package for breast-cancer screening. Ask about appropriate clinical assessment and imaging. Diabetes & Bone Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 12 / 45"
+  },
+  {
+    "id": "#10",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "Basic Bone and Mineral Profile",
+    "description": "Reviews mineral balance and vitamin D status that can influence bone health. Laboratory findings complement fracture history and bone-density imaging but do not independently diagnose osteoporosis or predict fracture risk.",
+    "mayHelpWhen": "Vitamin D, mineral balance or general bone-health concerns",
+    "keyTests": [
+      "Calcium",
+      "Phosphorus",
+      "Magnesium",
+      "Albumin",
+      "Alkaline phosphatase",
+      "25-OH vitamin D",
+      "Intact PTH",
+      "Creatinine with eGFR"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Joint & Heart Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 13 / 45"
+  },
+  {
+    "id": "#11",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Cardiac Risk & Acute Injury Pathways",
+    "description": "The current package mixes long-term cardiovascular risk markers with acute myocardial injury and heart-failure tests. Separate pathways improve interpretation, turnaround expectations, urgency, and appropriate use of each biomarker.",
+    "mayHelpWhen": "Cardiovascular risk review or acute symptoms through separate pathways",
+    "keyTests": [
+      "Lipid profile with LDL and non-HDL",
+      "High-sensitivity CRP for selected risk assessment",
+      "High-sensitivity troponin I OR T for acute symptoms",
+      "BNP/NT-proBNP for suspected heart failure",
+      "ApoB and lipoprotein(a) when indicated"
+    ],
+    "beforeBooking": "Chest pain, sweating, severe breathlessness or fainting needs urgent medical assessment - do not wait for a package test. Antiphospholipid Antibodies Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 14 / 45"
+  },
+  {
+    "id": "#12",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Cardiolipin Antibody Profile",
+    "description": "Supports antiphospholipid syndrome evaluation when thrombosis or defined pregnancy morbidity is present. Diagnosis requires appropriate clinical criteria, standardized antibody testing, and persistence of qualifying results on repeat testing.",
+    "mayHelpWhen": "Thrombosis or defined pregnancy complications",
+    "keyTests": [
+      "Anticardiolipin IgG",
+      "Anticardiolipin IgM",
+      "Anti-beta-2 glycoprotein I IgG/IgM",
+      "Lupus anticoagulant",
+      "Repeat qualifying positives after at least 12 weeks"
+    ],
+    "beforeBooking": "A qualifying positive result generally needs repeat testing after at least 12 weeks and clinical criteria. Bleeding & Coagulation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 15 / 45"
+  },
+  {
+    "id": "#13",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "Basic Coagulation Profile",
+    "description": "Provides initial assessment of extrinsic and intrinsic coagulation pathways using PT/INR and APTT. Abnormal results require medication review, specimen-quality checks, bleeding history, and targeted reflex investigation.",
+    "mayHelpWhen": "Bleeding history, anticoagulant monitoring or selected procedures",
+    "keyTests": [
+      "Prothrombin time/INR",
+      "Activated partial thromboplastin time (APTT)",
+      "CBC with platelet count"
+    ],
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Bleeding & Coagulation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 16 / 45"
+  },
+  {
+    "id": "#14",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Extended Bleeding and Coagulation Evaluation",
+    "description": "Extends basic pathway testing for selected bleeding, thrombosis, anticoagulant, or disseminated-coagulation concerns. Test selection should be driven by clinical probability because broad panels can generate misleading abnormalities.",
+    "mayHelpWhen": "Unexplained bleeding/clotting or abnormal basic tests",
+    "keyTests": [
+      "PT/INR",
+      "APTT",
+      "Fibrinogen",
+      "Thrombin time",
+      "Platelet count",
+      "D-dimer only when clinically indicated",
+      "Mixing studies or von Willebrand testing when indicated"
+    ],
+    "beforeBooking": "Bleeding time and clotting time are not included as routine modern screening tests. Pregnancy Risk Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 17 / 45"
+  },
+  {
+    "id": "#15",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "First-Trimester Combined Aneuploidy Screen",
+    "description": "Uses PAPP-A and free beta-hCG with gestational age, maternal characteristics, and nuchal-translucency ultrasound to estimate chromosomal aneuploidy risk. It is a screening, not diagnostic, assessment.",
+    "mayHelpWhen": "First-trimester aneuploidy risk screening",
+    "keyTests": [
+      "PAPP-A",
+      "Free beta-hCG",
+      "Nuchal-translucency ultrasound",
+      "Maternal and gestational information for validated risk calculation"
+    ],
+    "beforeBooking": "Screening estimates risk; it does not diagnose a chromosomal condition. Pregnancy Risk Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 18 / 45"
+  },
+  {
+    "id": "#16",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Second-Trimester Triple Marker Screen",
+    "description": "Estimates second-trimester aneuploidy and open neural-tube-defect risk from AFP, hCG, and unconjugated estriol plus gestational age and maternal factors. Abnormal screens require counselling and follow-up.",
+    "mayHelpWhen": "Second-trimester biochemical risk screening",
+    "keyTests": [
+      "Alpha-fetoprotein (AFP) hCG",
+      "Unconjugated estriol (uE3)",
+      "Maternal and gestational information for validated risk calculation"
+    ],
+    "beforeBooking": "Screening estimates risk; gestational age and maternal information are essential. Pregnancy & Immunity Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 19 / 45"
+  },
+  {
+    "id": "#17",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Second-Trimester Quadruple Marker Screen",
+    "description": "Combines AFP, hCG, unconjugated estriol, and inhibin A with maternal and gestational information to estimate selected fetal risks. It screens probability and cannot confirm a chromosomal diagnosis.",
+    "mayHelpWhen": "Second-trimester biochemical risk screening",
+    "keyTests": [
+      "Alpha-fetoprotein (AFP) hCG",
+      "Unconjugated estriol (uE3)",
+      "Inhibin A",
+      "Maternal and gestational information for validated risk calculation"
+    ],
+    "beforeBooking": "Screening estimates risk; abnormal results require counselling and follow-up. Electrolytes & Kidneys Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 20 / 45"
+  },
+  {
+    "id": "#18",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "Electrolytes Plus",
+    "description": "Measures sodium, potassium, and chloride to assess fluid balance, kidney- related disturbances, medication effects, and acid-base clues. Adding bicarbonate provides a more useful routine overview of electrolyte physiology.",
+    "mayHelpWhen": "Vomiting, dehydration, kidney disease or medication monitoring",
+    "keyTests": [
+      "Sodium",
+      "Potassium",
+      "Chloride",
+      "Bicarbonate/total carbon dioxide",
+      "Magnesium when indicated",
+      "Calcium when indicated"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Infection Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 21 / 45"
+  },
+  {
+    "id": "#19",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "STI Screening Panel - Risk Based",
+    "description": "Screens for selected sexually transmitted infections using serology and nucleic- acid testing. Appropriate organisms, specimen sites, repeat intervals, and pregnancy considerations depend on age, exposure, symptoms, anatomy, and risk.",
+    "mayHelpWhen": "Risk-based STI screening, symptoms or exposure concerns",
+    "keyTests": [
+      "HIV-1/2 antigen-antibody test",
+      "Hepatitis B infection/immunity panel",
+      "Hepatitis C screening",
+      "Chlamydia and gonorrhea NAAT",
+      "Syphilis screening with confirmation",
+      "Other site-specific tests based on exposure"
+    ],
+    "beforeBooking": "Testing is confidential. Specimen site and tests depend on exposure and symptoms. PCOS & Fertility Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 22 / 45"
+  },
+  {
+    "id": "#20",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "Female Fertility Evaluation - Clinician Directed",
+    "description": "Assesses ovarian, pituitary, thyroid, and androgen-related factors that may affect fertility. Cycle day, menstrual pattern, medication use, pregnancy possibility, ultrasound findings, and partner evaluation guide meaningful interpretation.",
+    "mayHelpWhen": "Fertility evaluation with cycle-timed interpretation",
+    "keyTests": [
+      "FSH and LH",
+      "Prolactin",
+      "Estradiol",
+      "Cycle-timed progesterone",
+      "AMH",
+      "TSH",
+      "DHEA-S",
+      "Testosterone/SHBG",
+      "Pregnancy test when appropriate"
+    ],
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Menopause & Amenorrhea Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 23 / 45"
+  },
+  {
+    "id": "#21",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "Menopause Assessment - Clinician Directed",
+    "description": "Supports evaluation when menopausal status is uncertain, symptoms are atypical, or premature ovarian insufficiency is suspected. In many people over 45, menopause is diagnosed clinically without broad hormone testing.",
+    "mayHelpWhen": "Uncertain menopause or premature ovarian insufficiency concerns",
+    "keyTests": [
+      "TSH and free T4",
+      "FSH",
+      "LH",
+      "Estradiol",
+      "Pregnancy test or prolactin when presentation is atypical"
+    ],
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Menopause & Amenorrhea Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 24 / 45"
+  },
+  {
+    "id": "#22",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "Complex Menopause and Amenorrhea Evaluation",
+    "description": "Provides an expanded endocrine work-up for complex amenorrhea, androgen symptoms, or suspected premature ovarian insufficiency. The current broad profile is not appropriate as routine menopause screening for everyone.",
+    "mayHelpWhen": "Complex amenorrhea or atypical endocrine symptoms",
+    "keyTests": [
+      "Pregnancy test when appropriate",
+      "TSH and free T4",
+      "FSH",
+      "Prolactin",
+      "Estradiol",
+      "Androgen/17-OHP testing only for specific symptoms",
+      "HbA1c and lipids as a separate health assessment"
+    ],
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Pregnancy & Immunity Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 25 / 45"
+  },
+  {
+    "id": "#23",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "MMR Immunity Profile",
+    "description": "Assesses evidence of immunity to measles, mumps, and rubella when vaccination documentation is unavailable or testing is specifically required. IgM testing is reserved for suspected acute infection.",
+    "mayHelpWhen": "Immunity documentation when vaccination records are unavailable",
+    "keyTests": [
+      "Measles IgG",
+      "Mumps IgG",
+      "Rubella IgG",
+      "PCR/IgM only through an acute- infection pathway when disease is suspected"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Autoimmune & Protein Disorders Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 26 / 45"
+  },
+  {
+    "id": "#24",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Monoclonal Gammopathy / Myeloma Evaluation",
+    "description": "Detects and characterizes monoclonal proteins while assessing anemia, kidney impairment, calcium elevation, protein burden, and prognostic markers. Diagnosis also requires specialist review, marrow evaluation, and appropriate imaging.",
+    "mayHelpWhen": "Suspected monoclonal protein disorder under specialist review",
+    "keyTests": [
+      "CBC",
+      "Serum protein electrophoresis (SPEP)",
+      "Serum immunofixation",
+      "Free light chains and ratio",
+      "IgG, IgA and IgM",
+      "Calcium and creatinine/eGFR",
+      "Albumin, total protein, LDH and beta-2 microglobulin",
+      "Urine electrophoresis/ immunofixation when indicated"
+    ],
+    "beforeBooking": "Doctor or laboratory consultation is advised before booking; exact tests depend on the clinical question. Bone & Musculoskeletal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 27 / 45"
+  },
+  {
+    "id": "#25",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "Musculoskeletal Inflammation Screen",
+    "description": "Provides nonspecific hematology and inflammatory markers for selected musculoskeletal complaints. It cannot identify most orthopedic structural disorders, and autoimmune or infection testing should follow symptoms, examination, and imaging.",
+    "mayHelpWhen": "Selected joint or musculoskeletal symptoms after assessment",
+    "keyTests": [
+      "CBC",
+      "ESR and CRP",
+      "Rheumatoid factor/anti-CCP when indicated",
+      "Uric acid",
+      "Vitamin D and calcium when indicated",
+      "Joint-fluid analysis for suspected infection or crystals"
+    ],
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Bone & Musculoskeletal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 28 / 45"
+  },
+  {
+    "id": "#26",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "Osteoporosis and Secondary-Cause Laboratory Panel",
+    "description": "Assesses mineral metabolism and selected secondary causes that can contribute to low bone density or fractures. Laboratory testing complements DXA, fracture-risk assessment, medication review, and clinical evaluation.",
+    "mayHelpWhen": "Low bone density, fractures or secondary-cause evaluation",
+    "keyTests": [
+      "Calcium, phosphorus and magnesium",
+      "25-OH vitamin D",
+      "Intact PTH",
+      "Albumin and ALP",
+      "Creatinine",
+      "TSH",
+      "P1NP and osteocalcin",
+      "Beta-CTX when monitoring is required"
+    ],
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Pregnancy Care Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 29 / 45"
+  },
+  {
+    "id": "#27",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Recurrent Pregnancy Loss / APS Evaluation",
+    "description": "The listed autoimmune and infection tests resemble a recurrent-pregnancy-loss work-up, not a routine obstetric panel. Testing should follow pregnancy history, examination, ultrasound, and specialist-directed differential diagnosis.",
+    "mayHelpWhen": "Recurrent pregnancy loss or APS evaluation",
+    "keyTests": [
+      "Lupus anticoagulant",
+      "Anticardiolipin IgG/IgM",
+      "Anti-beta-2 glycoprotein I IgG/IgM",
+      "Repeat qualifying positives after at least 12 weeks",
+      "Other tests only after obstetric/ specialist review"
+    ],
+    "beforeBooking": "This is not a routine antenatal panel. Blanket TORCH/ANA testing is not offered without a specific indication. Men's Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 30 / 45"
+  },
+  {
+    "id": "#28",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Prostate Assessment - PSA Based",
+    "description": "Uses PSA-based testing within shared decision-making for prostate-cancer risk or monitoring. PSA is organ-specific rather than cancer-specific, so age, symptoms, infection, procedures, and prior results affect interpretation.",
+    "mayHelpWhen": "PSA-based prostate assessment after shared decision-making",
+    "keyTests": [
+      "Total PSA",
+      "Repeat PSA after resolving temporary causes of elevation when advised",
+      "Urinalysis and creatinine/eGFR for urinary symptoms"
+    ],
+    "beforeBooking": "Prostatic acid phosphatase is not included in the routine modern prostate assessment. Men's Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 31 / 45"
+  },
+  {
+    "id": "#29",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Prostate Cancer Risk Assessment - PSA Reflex",
+    "description": "Supports PSA-based risk assessment using total PSA and reflex free-PSA percentage when appropriate. Results inform shared decisions about repeat testing, imaging, biomarkers, or biopsy rather than diagnosing cancer alone.",
+    "mayHelpWhen": "PSA risk clarification through a urology pathway",
+    "keyTests": [
+      "Total PSA",
+      "Reflex free PSA with calculated free-to-total percentage",
+      "PHI/4Kscore only when selected by a urologist",
+      "Urology assessment and MRI when indicated"
+    ],
+    "beforeBooking": "PSA is not diagnostic by itself. Results should be interpreted with age, symptoms and prior values. Hormonal & PCOS Evaluation Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 32 / 45"
+  },
+  {
+    "id": "#30",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "PCOS Diagnostic and Metabolic Profile",
+    "description": "Evaluates biochemical hyperandrogenism and common alternative diagnoses while assessing glucose-related risk. PCOS remains a clinical diagnosis requiring menstrual, androgen, and ovarian-feature assessment rather than laboratory results alone.",
+    "mayHelpWhen": "Irregular cycles, androgen symptoms or suspected PCOS",
+    "keyTests": [
+      "TSH",
+      "Total/free testosterone and SHBG",
+      "DHEA-S",
+      "Prolactin",
+      "FSH and LH",
+      "HbA1c or oral glucose tolerance test",
+      "Full lipid profile",
+      "Pregnancy test/17-OHP when indicated"
+    ],
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. PCOS & Fertility Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 33 / 45"
+  },
+  {
+    "id": "#31",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "PCOS Evaluation - Not Population Screening",
+    "description": "Investigates suspected PCOS and excludes important mimics while assessing cardiometabolic risk. It should not be sold as population screening because diagnosis requires symptoms, menstrual history, and clinical assessment.",
+    "mayHelpWhen": "Clinical evaluation of suspected PCOS - not population screening",
+    "keyTests": [
+      "TSH",
+      "Total/free testosterone and SHBG",
+      "DHEA-S",
+      "Prolactin",
+      "17-hydroxyprogesterone",
+      "HbA1c or oral glucose tolerance test",
+      "Full lipid profile",
+      "Pregnancy test when appropriate"
+    ],
+    "beforeBooking": "Symptoms, medicines, age, cycle timing or treatment can change the appropriate tests and interpretation. Antiphospholipid Antibodies Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 34 / 45"
+  },
+  {
+    "id": "#32",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Complete Antiphospholipid Syndrome Panel",
+    "description": "Evaluates standardized antiphospholipid antibodies in people with compatible thrombosis or pregnancy morbidity. Generic antiphospholipid IgG/IgM labels are insufficient; specific assays and persistent positivity are required.",
+    "mayHelpWhen": "Suspected antiphospholipid syndrome",
+    "keyTests": [
+      "Anticardiolipin IgG/IgM",
+      "Anti-beta-2 glycoprotein I IgG/IgM",
+      "Lupus anticoagulant",
+      "Repeat qualifying positives after at least 12 weeks"
+    ],
+    "beforeBooking": "Antibody results alone do not diagnose antiphospholipid syndrome. Blood & Metabolism Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 35 / 45"
+  },
+  {
+    "id": "#33",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "Basic Iron Deficiency Profile",
+    "description": "Provides an economical first-line assessment for suspected iron deficiency. Serum iron and TIBC vary with timing and inflammation, so ferritin and blood- count context substantially improve diagnostic usefulness.",
+    "mayHelpWhen": "A focused first-line check for possible iron deficiency",
+    "keyTests": [
+      "Complete Blood Count (CBC)",
+      "Serum iron",
+      "TIBC",
+      "Ferritin",
+      "Calculated transferrin saturation"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Electrolytes & Kidneys Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 36 / 45"
+  },
+  {
+    "id": "#34",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "Kidney Function Test - Basic",
+    "description": "Assesses filtration-related markers and electrolyte balance. Kidney health evaluation is stronger when creatinine is converted to eGFR and blood findings are paired with urine assessment for protein or sediment abnormalities.",
+    "mayHelpWhen": "Routine kidney assessment or diabetes/hypertension risk",
+    "keyTests": [
+      "Urea/BUN",
+      "Creatinine with calculated eGFR",
+      "Uric acid",
+      "Sodium, potassium and chloride",
+      "Routine urinalysis",
+      "Urine ACR for diabetes, hypertension or CKD risk"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Kidneys & Diabetes Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 37 / 45"
+  },
+  {
+    "id": "#35",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "Kidney Function and Mineral Profile",
+    "description": "Extends kidney filtration and electrolyte assessment with calcium, phosphorus, and magnesium. Adding urine albumin and sediment evaluation helps detect kidney damage that serum chemistry alone may miss.",
+    "mayHelpWhen": "Expanded kidney and mineral assessment",
+    "keyTests": [
+      "Urea/BUN",
+      "Creatinine with eGFR",
+      "Sodium, potassium and chloride",
+      "Calcium, phosphorus and magnesium",
+      "Serum albumin",
+      "Routine urinalysis",
+      "Urine albumin-creatinine ratio (UACR)"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Infection Screening Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 38 / 45"
+  },
+  {
+    "id": "#36",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "Acute Fever Initial Evaluation - Context Based",
+    "description": "Provides initial hematology and selected regional infection tests for acute fever. Test choice must reflect illness duration, travel, local epidemiology, examination, severity, and specimen timing to avoid false results.",
+    "mayHelpWhen": "Acute fever assessed according to illness day and local risk",
+    "keyTests": [
+      "CBC",
+      "CRP",
+      "Liver function tests",
+      "Creatinine/eGFR and electrolytes",
+      "Malaria rapid test and smear when relevant",
+      "Dengue test selected by illness day",
+      "Urinalysis/culture when indicated"
+    ],
+    "beforeBooking": "Widal is not used as a stand-alone routine fever screen. Test selection depends on illness day. Kidneys & Diabetes Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 39 / 45"
+  },
+  {
+    "id": "#37",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "Diabetes Glycemic Profile - Basic",
+    "description": "Measures current and longer-term glycemia for diabetes diagnosis or monitoring. Interpretation depends on fasting status, treatment, anemia or hemoglobin variants, symptoms, and whether diagnostic confirmation is required.",
+    "mayHelpWhen": "Diabetes screening or basic glucose monitoring",
+    "keyTests": [
+      "HbA1c",
+      "Fasting blood glucose",
+      "Post-meal blood glucose",
+      "Creatinine with calculated eGFR"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Diabetes & Bone Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 40 / 45"
+  },
+  {
+    "id": "#38",
+    "guidanceLevel": "SELF-REQUEST POSSIBLE",
+    "title": "Comprehensive Diabetes Monitoring Profile",
+    "description": "Combines glycemic control, cardiovascular risk, kidney function, and urine assessment for ongoing diabetes care. Using eGFR and UACR provides standardized detection and staging of diabetic kidney disease.",
+    "mayHelpWhen": "Ongoing diabetes care with kidney and heart-risk monitoring",
+    "keyTests": [
+      "HbA1c",
+      "Fasting and post-meal glucose",
+      "Lipid profile",
+      "Creatinine with eGFR",
+      "Urine albumin-creatinine ratio",
+      "Routine urinalysis",
+      "Liver function tests"
+    ],
+    "beforeBooking": "Ask reception about fasting, sample type and whether previous reports or medicines affect interpretation. Respiratory & Microbiology Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 41 / 45"
+  },
+  {
+    "id": "#39",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Specimen-Specific Culture and Susceptibility Menu",
+    "description": "Identifies viable organisms from a clinically selected specimen and guides antimicrobial therapy. Each specimen requires its own collection instructions, transport conditions, culture methods, contamination criteria, and susceptibility reporting rules.",
+    "mayHelpWhen": "Suspected bacterial infection with the correct specimen",
+    "keyTests": [
+      "Correct specimen selected for the suspected site",
+      "Gram stain where appropriate",
+      "Culture and organism identification",
+      "Antimicrobial susceptibility testing",
+      "Anaerobic, fungal or mycobacterial culture when indicated"
+    ],
+    "beforeBooking": "Cultures are specimen-specific; urine, blood, sputum and swabs should not be bundled together. Tuberculosis & Adrenal Health Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 42 / 45"
+  },
+  {
+    "id": "#40",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Tuberculosis Evaluation - Active vs Latent",
+    "description": "Separates testing for active tuberculosis disease from latent infection. Sputum molecular testing, smear, culture, imaging, symptoms, and exposure history have different roles; no single result confirms every presentation.",
+    "mayHelpWhen": "Suspected active TB or separate latent-infection assessment",
+    "keyTests": [
+      "Sputum CBNAAT/molecular test",
+      "AFB smear",
+      "Mycobacterial culture",
+      "Drug-susceptibility testing",
+      "HIV screening",
+      "Baseline liver/kidney tests before treatment",
+      "IGRA/TB Gold only for latent- infection assessment"
+    ],
+    "beforeBooking": "TB Gold/IGRA cannot distinguish active from latent TB and is not the confirmation test for active disease. Respiratory & Microbiology Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 43 / 45"
+  },
+  {
+    "id": "#41",
+    "guidanceLevel": "DOCTOR-DIRECTED",
+    "title": "Pneumonia Severity and Etiology Evaluation",
+    "description": "Supports assessment of suspected pneumonia severity and possible cause. Imaging and clinical findings establish the syndrome, while microbiology and biomarkers are selected by care setting, severity, exposures, and treatment history.",
+    "mayHelpWhen": "Suspected pneumonia after clinical assessment and imaging",
+    "keyTests": [
+      "CBC and CRP",
+      "Kidney, electrolyte and liver tests for moderate/severe illness",
+      "Respiratory viral NAAT",
+      "Sputum Gram stain/culture when indicated",
+      "Blood cultures or urinary antigens for selected severe cases"
+    ],
+    "beforeBooking": "Imaging and clinical assessment are central; cultures are reserved for selected cases. Specialist Testing Call or WhatsApp +91 9964 639 639 for prices, preparation and booking 44 / 45"
+  },
+  {
+    "id": "#42",
+    "guidanceLevel": "CONSULTATION RECOMMENDED",
+    "title": "Urine Drug Screen - 10 Classes with Confirmation",
+    "description": "Provides qualitative immunoassay screening for selected drug classes. Results are presumptive, affected by cross-reactivity and detection windows, and require chain-of-custody, validity checks, and confirmation when consequential.",
+    "mayHelpWhen": "Clinical, workplace or legal testing with defined purpose",
+    "keyTests": [
+      "Immunoassay screen for 10 defined drug classes",
+      "Urine creatinine, specific gravity and pH",
+      "Oxidant/adulterant checks",
+      "GC-MS or LC-MS/MS confirmation for non-negative results",
+      "Defined cutoffs and chain-of- custody where required"
+    ],
+    "beforeBooking": "Screening results are presumptive; consequential non-negative results require mass-spectrometry confirmation."
+  }
+]
