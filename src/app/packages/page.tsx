@@ -12,7 +12,7 @@ export default function PackagesPage() {
   useEffect(() => {
     // Using static packagesData instead of API for now
     setPackages(
-      packagesData.map((p) => ({
+      packagesData.map((p: any) => ({
         ...p,
         age: p.age_group || p.age,
         benefits: typeof p.benefits === 'string' ? JSON.parse(p.benefits) : (p.benefits || []),
