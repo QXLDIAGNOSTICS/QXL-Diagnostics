@@ -1532,10 +1532,7 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
 
         @media (max-width: 1023px) {
             .fab-ai-chat-bubble {
-                bottom: 194px !important;
-                right: 60px !important;
-                padding: 4px 8px !important;
-                font-size: 10px !important;
+                display: none !important;
             }
         }
 
