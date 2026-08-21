@@ -6,6 +6,65 @@ import { PHONE_DISPLAY, WHATSAPP_LINK, NABL_CERTIFICATE, ISO_STANDARD } from "@/
 
 type Props = { params: Promise<{ slug: string }> };
 
+export function generateStaticParams() {
+  const commonTestSlugs = [
+    "blood-test-bangalore", "cbc-test-bangalore", "complete-blood-count-test-bangalore", "hemoglobin-test-bangalore",
+    "esr-test-bangalore", "crp-test-bangalore", "peripheral-smear-test-bangalore", "reticulocyte-count-test-bangalore",
+    "blood-group-test-bangalore", "coagulation-profile-test-bangalore", "pt-inr-test-bangalore", "aptt-test-bangalore",
+    "blood-sugar-test-bangalore", "fasting-blood-sugar-test-bangalore", "postprandial-blood-sugar-test-bangalore",
+    "random-blood-sugar-test-bangalore", "hba1c-test-bangalore", "insulin-test-bangalore", "fasting-insulin-test-bangalore",
+    "homa-ir-test-bangalore", "c-peptide-test-bangalore", "diabetes-profile-test-bangalore", "thyroid-test-bangalore",
+    "thyroid-profile-test-bangalore", "tsh-test-bangalore", "t3-test-bangalore", "t4-test-bangalore", "free-t3-test-bangalore",
+    "free-t4-test-bangalore", "anti-tpo-test-bangalore", "anti-thyroglobulin-test-bangalore", "vitamin-d-test-bangalore",
+    "vitamin-b12-test-bangalore", "folate-test-bangalore", "iron-profile-test-bangalore", "ferritin-test-bangalore",
+    "serum-iron-test-bangalore", "transferrin-test-bangalore", "calcium-test-bangalore", "magnesium-test-bangalore",
+    "zinc-test-bangalore", "liver-function-test-bangalore", "lft-test-bangalore", "bilirubin-test-bangalore",
+    "sgot-ast-test-bangalore", "sgpt-alt-test-bangalore", "ggt-test-bangalore", "alkaline-phosphatase-test-bangalore",
+    "albumin-test-bangalore", "total-protein-test-bangalore", "kidney-function-test-bangalore", "kft-test-bangalore",
+    "creatinine-test-bangalore", "urea-test-bangalore", "uric-acid-test-bangalore", "electrolytes-test-bangalore",
+    "sodium-test-bangalore", "potassium-test-bangalore", "microalbumin-urine-test-bangalore",
+    "urine-protein-creatinine-ratio-test-bangalore", "lipid-profile-test-bangalore", "cholesterol-test-bangalore",
+    "triglycerides-test-bangalore", "hdl-cholesterol-test-bangalore", "ldl-cholesterol-test-bangalore",
+    "apolipoprotein-a1-test-bangalore", "apolipoprotein-b-test-bangalore", "lipoprotein-a-test-bangalore",
+    "homocysteine-test-bangalore", "hs-crp-test-bangalore", "troponin-test-bangalore", "nt-probnp-test-bangalore",
+    "hormone-test-bangalore", "testosterone-test-bangalore", "free-testosterone-test-bangalore", "estrogen-test-bangalore",
+    "estradiol-test-bangalore", "progesterone-test-bangalore", "prolactin-test-bangalore", "cortisol-test-bangalore",
+    "dhea-s-test-bangalore", "fsh-test-bangalore", "lh-test-bangalore", "amh-test-bangalore", "fertility-test-bangalore",
+    "beta-hcg-test-bangalore", "pregnancy-blood-test-bangalore", "double-marker-test-bangalore", "triple-marker-test-bangalore",
+    "quadruple-marker-test-bangalore", "papp-a-test-bangalore", "free-beta-hcg-test-bangalore", "prenatal-screening-test-bangalore",
+    "ana-test-bangalore", "ana-profile-test-bangalore", "ana-ifa-test-bangalore", "anti-dsdna-test-bangalore",
+    "ena-profile-test-bangalore", "anti-ccp-test-bangalore", "rheumatoid-factor-test-bangalore", "anca-test-bangalore",
+    "c3-complement-test-bangalore", "c4-complement-test-bangalore", "autoimmune-profile-test-bangalore",
+    "allergy-test-bangalore", "allergy-panel-test-bangalore", "food-allergy-test-bangalore", "food-intolerance-test-bangalore",
+    "food-igg-test-bangalore", "food-xplorer-test-bangalore", "total-ige-test-bangalore", "inhalant-allergy-test-bangalore",
+    "respiratory-allergy-test-bangalore", "skin-allergy-blood-test-bangalore", "cancer-marker-test-bangalore",
+    "tumor-marker-test-bangalore", "psa-test-bangalore", "free-psa-test-bangalore", "ca-125-test-bangalore",
+    "ca-19-9-test-bangalore", "ca-15-3-test-bangalore", "cea-test-bangalore", "afp-test-bangalore",
+    "beta-2-microglobulin-test-bangalore", "fever-profile-test-bangalore", "dengue-test-bangalore", "malaria-test-bangalore",
+    "typhoid-test-bangalore", "widal-test-bangalore", "chikungunya-test-bangalore", "hiv-test-bangalore",
+    "hbsag-test-bangalore", "hepatitis-b-test-bangalore", "hepatitis-c-test-bangalore", "vdrl-test-bangalore",
+    "tb-test-bangalore", "tb-pcr-test-bangalore", "molecular-tb-test-bangalore", "urine-test-bangalore",
+    "urine-routine-test-bangalore", "urine-culture-test-bangalore", "urine-microalbumin-test-bangalore",
+    "urine-protein-test-bangalore", "stool-test-bangalore", "stool-routine-test-bangalore", "stool-culture-test-bangalore",
+    "occult-blood-test-bangalore", "calprotectin-test-bangalore", "h-pylori-test-bangalore", "celiac-disease-test-bangalore",
+    "anaemia-profile-test-bangalore", "hemoglobin-electrophoresis-test-bangalore", "hplc-hemoglobin-test-bangalore",
+    "spep-test-bangalore", "serum-protein-electrophoresis-test-bangalore", "immunofixation-electrophoresis-test-bangalore",
+    "free-light-chain-test-bangalore", "flow-cytometry-test-bangalore", "genetic-test-bangalore", "ngs-test-bangalore",
+    "pcr-test-bangalore", "molecular-diagnostic-test-bangalore", "mass-spectrometry-test-bangalore",
+    "therapeutic-drug-monitoring-test-bangalore", "immunofluorescence-test-bangalore", "histopathology-test-bangalore",
+    "biopsy-test-bangalore", "cytology-test-bangalore", "fnac-test-bangalore", "pap-smear-test-bangalore",
+    "immunohistochemistry-test-bangalore", "mens-health-checkup-bangalore", "male-fertility-test-bangalore",
+    "semen-analysis-test-bangalore", "womens-health-checkup-bangalore", "pcos-test-bangalore",
+    "female-hormone-test-bangalore", "full-body-checkup-bangalore", "health-checkup-bangalore",
+    "preventive-health-checkup-bangalore", "executive-health-checkup-bangalore", "senior-citizen-health-checkup-bangalore",
+    "diabetes-health-checkup-bangalore", "heart-health-checkup-bangalore", "blood-test-at-home-bangalore",
+    "home-blood-collection-bangalore", "home-sample-collection-bangalore", "lab-test-at-home-bangalore",
+    "diagnostic-test-at-home-bangalore", "health-checkup-at-home-bangalore"
+  ];
+
+  return commonTestSlugs.map(slug => ({ slug }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const pageData = getDynamicPageData(slug);
