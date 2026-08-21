@@ -562,20 +562,7 @@ export default function Header() {
 
         {/* Row 3: Search Bar */}
         <div className="px-4">
-          <div className="bg-[#f8fafc] border border-slate-200 rounded-xl flex items-center px-3.5 py-2.5 relative shadow-xs">
-            <Search className="w-4 h-4 text-slate-400 shrink-0" />
-            <div 
-              className="absolute inset-0 z-20 cursor-text"
-              onClick={() => {
-                const searchInput = document.querySelector('.mobile-search-trigger input') as HTMLInputElement;
-                if (searchInput) searchInput.focus();
-              }}
-            />
-            <div className="w-full opacity-0 absolute top-0 left-0 h-full pointer-events-none mobile-search-trigger">
-              <SmartSearchBar placeholder="Search for Tests/Packages" isMobile={true} />
-            </div>
-            <span className="text-slate-400 text-xs ml-2 font-medium">Search for Tests/Packages</span>
-          </div>
+          <SmartSearchBar placeholder="Search for Tests/Packages" isMobile={true} />
         </div>
 
         {/* Mobile Announcement Bar — Horizontal Scroll with Countdown */}

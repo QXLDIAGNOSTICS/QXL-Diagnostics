@@ -1398,6 +1398,43 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Home Collection & Offer Ticker Bar ── */}
+        <div className="w-full bg-[#059669] text-white py-3 px-2 overflow-x-auto whitespace-nowrap flex items-center z-20 shadow-inner border-y border-emerald-700/60 relative my-2">
+          <style dangerouslySetInnerHTML={{__html: `::-webkit-scrollbar { display: none; }`}} />
+          <div className="flex items-center gap-4 w-max min-w-full px-4 animate-marquee-fast hover:[animation-play-state:paused]">
+            {[1, 2].map((repeatKey) => (
+              <React.Fragment key={repeatKey}>
+                <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
+                  🇮🇳 INDEPENDENCE DAY SPECIAL
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
+                  QXL FREEDOM 80 · 80 PARAMETERS · <span className="text-amber-200 font-black underline decoration-2">ONLY ₹800</span>
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+
+                <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
+                  🏡 HOME COLLECTION AVAILABLE
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
+                  FREE HOME SAMPLE COLLECTION ACROSS BENGALURU · SAME DAY DIGITAL REPORTS
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+
+                <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
+                  ⚡ NABL ACCREDITED LAB
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
+                  EXPERT DOCTOR-REVIEWED REPORTS · FAST & RELIABLE
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
         {/* ── Quick Booking Form (Full Details, 2-Column Desktop) ── */}
         <section className="hidden lg:block py-16 bg-transparent border-y border-blue-100 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/50 to-sky-200/30 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
@@ -1977,6 +2014,43 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        {/* ── Mobile Home Collection & Offer Ticker Bar ── */}
+        <div className="lg:hidden w-full bg-[#059669] text-white py-2.5 px-1 overflow-x-auto whitespace-nowrap flex items-center z-20 shadow-inner border-y border-emerald-700/60 relative my-3">
+          <style dangerouslySetInnerHTML={{__html: `::-webkit-scrollbar { display: none; }`}} />
+          <div className="flex items-center gap-3 w-max min-w-full px-3 animate-marquee-fast hover:[animation-play-state:paused]">
+            {[1, 2].map((repeatKey) => (
+              <React.Fragment key={repeatKey}>
+                <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
+                  🏡 HOME COLLECTION AVAILABLE
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
+                  FREE HOME SAMPLE COLLECTION ACROSS BENGALURU · SAME DAY DIGITAL REPORTS
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+
+                <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
+                  🇮🇳 INDEPENDENCE DAY SPECIAL
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
+                  QXL FREEDOM 80 · 80 PARAMETERS · <span className="text-amber-200 font-black underline decoration-2">ONLY ₹800</span>
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+
+                <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
+                  ⚡ NABL ACCREDITED LAB
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
+                  EXPERT DOCTOR-REVIEWED REPORTS · FAST & RELIABLE
+                </span>
+                <span className="text-emerald-200 font-bold shrink-0">•</span>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
 
           {/* ── Quick Booking Form (Mobile - Full Details) ── */}
           <div className="lg:hidden bg-transparent py-8 border-y border-blue-100">
