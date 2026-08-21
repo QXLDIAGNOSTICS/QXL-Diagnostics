@@ -122,6 +122,17 @@ export default function BookPage() {
           },
           {
             id: "pkg-1",
+            id: "pkg-1",
+            name: "QXL Freedom 80 Health Check",
+            kind: 'package' as const,
+            price: 800,
+            old_price: 5800,
+            home_collection_available: true,
+            parameters: "80 Parameters",
+            includes: "80 Parameters across 8 Major Health Areas: Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11)."
+          },
+          {
+            id: "pkg-1",
             name: "Quick Fit Package",
             kind: 'package' as const,
             price: 1770,
@@ -182,10 +193,21 @@ export default function BookPage() {
           }
         ];
 
-        const isSpidyOffer = (name?: string | null) => {
+        const isSpidyOffer = (name?: string | null, price?: number | string | null) => {
           if (!name) return false;
-          const n = name.toLowerCase();
-          return n.includes('spidy') || n.includes('nothing , swing') || n.includes('swing , eat');
+          const n = String(name).toLowerCase();
+          const p = Number(price);
+          return (
+            n.includes('spidy') || 
+            n.includes('nothing') || 
+            n.includes('swing') || 
+            n.includes('eat') || 
+            n.includes('jump') || 
+            n.includes('sleep') || 
+            n.includes('100% off') || 
+            p === 1 || 
+            p === 0
+          );
         };
 
         const merged: CatalogEntry[] = [

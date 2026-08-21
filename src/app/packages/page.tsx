@@ -20,69 +20,91 @@ export default function PackagesPage() {
     );
   }, []);
 
-  const Card = ({ name, price, old_price, parameters, includes, tag, save_amount, benefits, who_should_take, age, gender, doctor_recommended }: any) => (
-    <div className="bg-white border border-blue-100 rounded-xl p-5 shadow-sm hover:shadow-[0_12px_30px_rgba(37,99,235,0.15)] hover:border-blue-400/50 hover:scale-[1.015] transition-all duration-300 flex flex-col justify-between h-full relative group">
-      {doctor_recommended && (
-        <div className="absolute top-0 right-0 bg-blue-600 text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-wider z-10">
-          Doctor Recommended
-        </div>
-      )}
-      
-      <div>
-        <div className="mb-3 pr-12">
-          {tag && <span className="inline-block bg-blue-50 text-blue-700 px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider mb-2 border border-blue-100">{tag}</span>}
-          <h3 className="font-bold text-slate-800 text-base leading-snug">{name}</h3>
-        </div>
+  const Card = ({ name, price, old_price, parameters, includes, tag, save_amount, benefits, who_should_take, age, gender, doctor_recommended, most_booked }: any) => {
+    const isFreedom80 = name?.toLowerCase().includes("freedom 80") || price === "800" || price === 800;
 
-
-
-        {benefits && benefits.length > 0 && (
-          <div className="mb-3">
-            <ul className="space-y-1">
-              {benefits.map((b: string, i: number) => (
-                <li key={i} className="text-[10px] text-slate-600 flex items-start gap-1.5 font-medium leading-tight">
-                  <CheckCircle className="w-3 h-3 text-green-500 shrink-0" />
-                  {b}
-                </li>
-              ))}
-            </ul>
+    return (
+      <div className={`bg-white border rounded-2xl p-6 shadow-sm transition-all duration-300 flex flex-col justify-between h-full relative group ${
+        isFreedom80 
+          ? "border-amber-400 ring-2 ring-amber-400/50 shadow-xl bg-gradient-to-b from-amber-50/40 via-white to-orange-50/30 scale-[1.02]" 
+          : "border-blue-100 hover:shadow-lg hover:border-blue-300"
+      }`}>
+        {isFreedom80 && (
+          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-md flex items-center gap-1.5 z-20">
+            🔥 INDEPENDENCE SPECIAL OFFER — 86% OFF
           </div>
         )}
 
-        <div className="my-3 pt-3 border-t border-dashed border-gray-200">
-          <p className="text-[10px] text-slate-500 font-medium line-clamp-2 hover:line-clamp-none transition-all cursor-pointer leading-relaxed">
-            <strong className="text-slate-700">Includes:</strong> {includes}
-          </p>
-        </div>
-
-      </div>
-
-      <div className="pt-3 mt-auto border-t border-gray-100">
-        <div className="flex items-end justify-between mb-3">
-          <div>
-            <span className="text-[10px] text-slate-400 line-through block mb-0.5">₹{old_price}</span>
-            <div className="flex items-baseline gap-1.5">
-              <span className="text-xl font-black text-slate-900">₹{price}</span>
-            </div>
+        {doctor_recommended && !isFreedom80 && (
+          <div className="absolute top-0 right-0 bg-blue-600 text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-wider z-10">
+            Doctor Recommended
           </div>
-          {save_amount && (
-            <div className="text-right">
-              <span className="bg-green-100 text-green-700 text-[9px] font-bold px-1.5 py-0.5 rounded uppercase tracking-wider block">
-                Save ₹{save_amount}
-              </span>
+        )}
+        
+        <div>
+          <div className="mb-3 pr-12 pt-2">
+            <span className={`inline-block px-2.5 py-0.5 rounded text-[9px] font-black uppercase tracking-wider mb-2 border ${
+              isFreedom80 
+                ? "bg-amber-100 text-amber-900 border-amber-300" 
+                : "bg-blue-50 text-blue-700 border-blue-100"
+            }`}>
+              {tag || (isFreedom80 ? "INDEPENDENCE SPECIAL" : "WELLNESS")}
+            </span>
+            <h3 className="font-extrabold text-slate-900 text-lg leading-snug">{name}</h3>
+          </div>
+
+          {benefits && benefits.length > 0 && (
+            <div className="mb-3">
+              <ul className="space-y-1.5">
+                {benefits.map((b: string, i: number) => (
+                  <li key={i} className="text-xs text-slate-700 flex items-start gap-1.5 font-semibold leading-tight">
+                    <CheckCircle className={`w-3.5 h-3.5 shrink-0 ${isFreedom80 ? "text-amber-600" : "text-emerald-500"}`} />
+                    {b}
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
+
+          <div className="my-3 pt-3 border-t border-dashed border-gray-200">
+            <p className="text-xs text-slate-600 font-medium line-clamp-3 leading-relaxed">
+              <strong className="text-slate-800 font-bold">Includes:</strong> {includes}
+            </p>
+          </div>
         </div>
-        
-        <Link 
-          href={`/book?package=${encodeURIComponent(name)}`}
-          className="flex items-center justify-center gap-1.5 w-full bg-[#2563eb] text-white py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider hover:bg-[#1d4ed8] transition-all"
-        >
-          Book Now <ArrowRight className="w-3 h-3" />
-        </Link>
+
+        <div className="pt-4 mt-auto border-t border-gray-100">
+          <div className="flex items-end justify-between mb-4">
+            <div>
+              <span className="text-xs text-slate-400 line-through block mb-0.5">₹{old_price || "5800"}</span>
+              <div className="flex items-baseline gap-1.5">
+                <span className={`text-2xl font-black ${isFreedom80 ? "text-emerald-600" : "text-slate-900"}`}>₹{price}</span>
+                {isFreedom80 && <span className="text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Save ₹5,000</span>}
+              </div>
+            </div>
+            {save_amount && !isFreedom80 && (
+              <div className="text-right">
+                <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider block">
+                  Save ₹{save_amount}
+                </span>
+              </div>
+            )}
+          </div>
+          
+          <Link 
+            href={`/book?package=${encodeURIComponent(name)}`}
+            className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-md ${
+              isFreedom80
+                ? "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-amber-500/25"
+                : "bg-[#2563eb] hover:bg-[#1d4ed8] text-white"
+            }`}
+          >
+            Book Now @ ₹{price} <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className="bg-[#f8faff] min-h-screen">
