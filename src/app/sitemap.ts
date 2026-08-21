@@ -1,8 +1,28 @@
 import { MetadataRoute } from 'next';
 import { serverApi } from '@/lib/serverApi';
 import { LOCATIONS } from '@/lib/businessInfo';
+import { homeCollectionAreas } from '@/lib/locationsData';
 
 const BASE_URL = 'https://qxldiagnostics.com';
+
+// SEO landing pages (Google Ads priority set)
+const SEO_PAGES: { url: string; priority: number; changeFrequency: "daily" | "weekly" | "monthly" }[] = [
+  { url: "/diagnostic-lab-bangalore", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/blood-test-bangalore", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/pathology-lab-bangalore", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/home-sample-collection-bangalore", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/full-body-checkup-bangalore", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/health-checkup-packages-bangalore", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/nabl-accredited-lab-bangalore", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/cbc-test", priority: 0.85, changeFrequency: "monthly" },
+  { url: "/hba1c-test", priority: 0.85, changeFrequency: "monthly" },
+  { url: "/thyroid-test", priority: 0.85, changeFrequency: "monthly" },
+  { url: "/vitamin-d-test", priority: 0.85, changeFrequency: "monthly" },
+  { url: "/vitamin-b12-test", priority: 0.85, changeFrequency: "monthly" },
+  { url: "/lipid-profile-test", priority: 0.85, changeFrequency: "monthly" },
+  { url: "/liver-function-test", priority: 0.85, changeFrequency: "monthly" },
+  { url: "/kidney-function-test", priority: 0.85, changeFrequency: "monthly" },
+];
 
 const SPECIALITIES = [
   'neurology',
@@ -79,6 +99,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.85,
     })),
+    ...homeCollectionAreas.map((area): MetadataRoute.Sitemap[number] => ({
+      url: `${BASE_URL}/locations/${area.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    })),
     ...centers
       .filter((c) => c.is_active)
       .map((c): MetadataRoute.Sitemap[number] => ({
@@ -93,6 +119,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    ...SEO_PAGES.map((p): MetadataRoute.Sitemap[number] => ({
+      url: `${BASE_URL}${p.url}`,
+      lastModified: new Date(),
+      changeFrequency: p.changeFrequency,
+      priority: p.priority,
+    })),
     {
       url: `${BASE_URL}/upload-prescription`,
       lastModified: new Date(),

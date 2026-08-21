@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { MapPin, Phone, CheckCircle2, ShieldCheck, Activity, Clock } from "lucide-react";
+import { MapPin, Phone, CheckCircle2, ShieldCheck, Activity, Clock, ChevronRight } from "lucide-react";
 import {
   BUSINESS_NAME,
   ISO_STANDARD,
@@ -9,9 +9,6 @@ import {
   NABL_CERTIFICATE,
   PHONE_DISPLAY,
   WHATSAPP_LINK,
-  getPhoneDisplay,
-  getPhoneE164,
-  getWhatsAppNumber
 } from "@/lib/businessInfo";
 import { buildLocationPageSchema, SEO_FAQS } from "@/lib/seo/schema";
 import { homeCollectionAreas } from "@/lib/locationsData";
@@ -59,14 +56,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (areaLoc) {
     return {
       title: `Blood Test at Home in ${areaLoc.name} | QXL Diagnostics`,
-      description: `Book a blood test with home collection in ${areaLoc.name}, Bengaluru. NABL certified lab, same-day reports, and safe sample transport.`,
+      description: `Book blood test with free home collection in ${areaLoc.name}, Bengaluru. NABL certified lab, CBC, HbA1c, thyroid, lipid & full body checkup packages with same-day reports.`,
       alternates: {
         canonical: `https://qxldiagnostics.com/locations/${slug}`,
-      }
+      },
+      openGraph: {
+        title: `Blood Test at Home in ${areaLoc.name} | QXL Diagnostics`,
+        description: `Free home sample collection in ${areaLoc.name}, Bengaluru. NABL certified lab, same-day reports.`,
+        url: `https://qxldiagnostics.com/locations/${slug}`,
+        locale: "en_IN",
+        type: "website",
+      },
+      keywords: [
+        `blood test at home ${areaLoc.name}`,
+        `diagnostic lab ${areaLoc.name}`,
+        `home collection blood test ${areaLoc.name}`,
+        `pathology lab near ${areaLoc.name}`,
+        `full body checkup ${areaLoc.name}`,
+        `QXL Diagnostics ${areaLoc.name}`
+      ]
     };
   }
 
-  return { title: "Location not found" };
+  return { title: "Location not found | QXL Diagnostics" };
 }
 
 export default async function CombinedLocationPage({ params }: Props) {
@@ -223,7 +235,13 @@ export default async function CombinedLocationPage({ params }: Props) {
       "telephone": "+91-9964-639639",
       "areaServed": {
         "@type": "Place",
-        "name": areaLoc.name
+        "name": areaLoc.name,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": areaLoc.name,
+          "addressRegion": "Karnataka",
+          "addressCountry": "IN"
+        }
       },
       "parentOrganization": {
         "@type": "Organization",
@@ -232,25 +250,35 @@ export default async function CombinedLocationPage({ params }: Props) {
       }
     };
 
+    const otherAreas = homeCollectionAreas
+      .filter((a) => a.slug !== areaLoc.slug)
+      .slice(0, 12);
+
     return (
       <div className="bg-[#f8fafc] min-h-screen pb-20">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
         
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-[#e0f2fe] to-[#fbf8f5] py-12 lg:py-16 border-b border-sky-100">
-          <div className="max-w-[1260px] mx-auto px-4 w-full text-center">
-            <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">Home Collection Service</span>
-            <h1 className="text-3xl md:text-5xl font-extrabold text-[#0f2d5e] mb-4">Blood Test at Home in {areaLoc.name}</h1>
-            <p className="text-slate-700 font-medium max-w-2xl mx-auto text-sm md:text-base">
-              {areaLoc.description}
-            </p>
-            <div className="mt-8 flex justify-center gap-4">
-              <Link href="/book" className="bg-[#2563eb] text-white font-extrabold px-8 py-3.5 rounded-full hover:bg-[#1d4ed8] transition-all shadow-md text-sm">
-                Book Home Collection
-              </Link>
-              <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="border-2 border-[#25d366] text-[#25d366] bg-white font-extrabold px-8 py-3.5 rounded-full hover:bg-green-50 transition-all shadow-sm text-sm flex items-center gap-2">
-                <Phone className="w-4 h-4" /> WhatsApp Us
-              </a>
+        <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-12 lg:py-16 border-b border-sky-900">
+          <div className="max-w-[1260px] mx-auto px-4 w-full">
+            <div className="max-w-3xl">
+              <span className="inline-block bg-[#FF9933] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">
+                FREE HOME COLLECTION · {areaLoc.name.toUpperCase()}
+              </span>
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
+                Blood Test at Home in {areaLoc.name}
+              </h1>
+              <p className="text-blue-100 font-medium text-sm md:text-base leading-relaxed mb-6">
+                {areaLoc.description}
+              </p>
+              <div className="flex flex-wrap items-center gap-3">
+                <Link href="/book" className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-extrabold px-8 py-3.5 rounded-full transition-all shadow-lg text-sm uppercase tracking-wide">
+                  Book Home Collection →
+                </Link>
+                <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-7 py-3.5 rounded-full transition-all shadow-md text-sm flex items-center gap-2">
+                  <Phone className="w-4 h-4" /> WhatsApp Booking
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -258,9 +286,14 @@ export default async function CombinedLocationPage({ params }: Props) {
         <section className="py-12">
           <div className="max-w-[1260px] mx-auto px-4 w-full flex flex-col lg:flex-row gap-10">
             
+            {/* Left Main Content */}
             <div className="flex-1 space-y-8">
+              
+              {/* Trust Badges Grid */}
               <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
-                <h2 className="text-2xl font-extrabold text-[#0f2d5e] mb-6 border-b border-gray-100 pb-4">Why Choose QXL in {areaLoc.name}?</h2>
+                <h2 className="text-2xl font-extrabold text-[#0f2d5e] mb-6 border-b border-gray-100 pb-4">
+                  Why Choose QXL Diagnostics in {areaLoc.name}?
+                </h2>
                 
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="flex items-start gap-4">
@@ -268,8 +301,8 @@ export default async function CombinedLocationPage({ params }: Props) {
                       <ShieldCheck className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Accredited</h3>
-                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Our main processing laboratories follow strict ISO 15189 quality guidelines.</p>
+                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Certified (MC-6849)</h3>
+                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Processed at our NABL-accredited ISO 15189:2022 laboratory with multi-level MD doctor verification.</p>
                     </div>
                   </div>
                   
@@ -278,8 +311,8 @@ export default async function CombinedLocationPage({ params }: Props) {
                       <MapPin className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">Cold Chain Transport</h3>
-                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Samples from {areaLoc.name} are securely transported in temperature-controlled kits to our {areaLoc.nearestLab}.</p>
+                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">Cold-Chain Transportation</h3>
+                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Samples collected in {areaLoc.name} are preserved in temperature-controlled cooler kits to ensure 100% precision.</p>
                     </div>
                   </div>
 
@@ -288,8 +321,8 @@ export default async function CombinedLocationPage({ params }: Props) {
                       <Clock className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">Same-Day Reports</h3>
-                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Get accurate digital reports sent straight to your WhatsApp and Email.</p>
+                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">Same-Day Digital Reports</h3>
+                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Get accurate PDF digital reports sent directly to your WhatsApp and Email within 6 to 12 hours.</p>
                     </div>
                   </div>
 
@@ -298,67 +331,124 @@ export default async function CombinedLocationPage({ params }: Props) {
                       <Activity className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">300+ Tests Available</h3>
-                      <p className="text-slate-600 text-xs font-medium leading-relaxed">From routine health checkups to advanced hormonal and cancer marker tests.</p>
+                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">300+ Medical Tests Available</h3>
+                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Full Body Checkups, CBC, HbA1c, Lipid, Liver, Kidney, Thyroid, Hormone, Vitamin D3 & B12 tests.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
+              {/* Popular Packages */}
               <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
-                <h2 className="text-2xl font-extrabold text-[#0f2d5e] mb-6">Popular Health Packages in {areaLoc.name}</h2>
-                <div className="space-y-4">
-                  <div className="border border-gray-100 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-50">
-                    <div>
-                      <h4 className="font-extrabold text-[#0f2d5e]">Q-Screen Diabetes Package</h4>
-                      <p className="text-xs text-slate-600 font-medium mt-1">15+ Parameters for Early Diabetes screening &amp; Kidney functions.</p>
-                    </div>
-                    <Link href="/book" className="bg-[#2563eb] text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-[#1d4ed8] transition-colors whitespace-nowrap text-center">
-                      Book for ₹1900
-                    </Link>
-                  </div>
+                <h2 className="text-2xl font-extrabold text-[#0f2d5e] mb-6">Most Booked Packages in {areaLoc.name}</h2>
+                <div className="grid sm:grid-cols-2 gap-4">
                   
-                  <div className="border border-gray-100 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-slate-50">
+                  <div className="border border-amber-200 bg-amber-50/40 p-5 rounded-2xl flex flex-col justify-between">
                     <div>
-                      <h4 className="font-extrabold text-[#0f2d5e]">Q-Master Health Pro</h4>
-                      <p className="text-xs text-slate-600 font-medium mt-1">86+ Parameters for a complete head-to-toe body evaluation.</p>
+                      <span className="bg-amber-500 text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">MOST POPULAR</span>
+                      <h3 className="font-black text-[#0f2d5e] text-base mt-2">QXL Freedom 80 Health Check</h3>
+                      <p className="text-xs text-slate-600 font-medium mt-1 leading-relaxed">80 Parameters including CBC, Lipid, Liver, Kidney, Fasting Sugar &amp; Thyroid Profile.</p>
+                      <div className="mt-3 flex items-baseline gap-2">
+                        <span className="text-xl font-black text-emerald-600">₹800</span>
+                        <span className="text-xs text-slate-400 line-through">₹5,800</span>
+                        <span className="text-[10px] bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-full">86% OFF</span>
+                      </div>
                     </div>
-                    <Link href="/book" className="bg-[#2563eb] text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-[#1d4ed8] transition-colors whitespace-nowrap text-center">
-                      Book for ₹4999
+                    <Link href="/book?package=QXL%20Freedom%2080%20Health%20Check" className="mt-4 bg-[#2563eb] text-white text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition-colors text-center uppercase tracking-wide">
+                      Book Freedom 80 →
                     </Link>
                   </div>
+
+                  <div className="border border-sky-200 bg-sky-50/40 p-5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                      <span className="bg-[#2563eb] text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">FULL BODY</span>
+                      <h3 className="font-black text-[#0f2d5e] text-base mt-2">Executive Health Package</h3>
+                      <p className="text-xs text-slate-600 font-medium mt-1 leading-relaxed">Comprehensive head-to-toe checkup including Vitamin D3, B12, HbA1c &amp; Cardiac markers.</p>
+                      <div className="mt-3 flex items-baseline gap-2">
+                        <span className="text-xl font-black text-emerald-600">₹1,999</span>
+                        <span className="text-xs text-slate-400 line-through">₹8,500</span>
+                        <span className="text-[10px] bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-full">76% OFF</span>
+                      </div>
+                    </div>
+                    <Link href="/book?package=Executive%20Health%20Package" className="mt-4 bg-[#2563eb] text-white text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition-colors text-center uppercase tracking-wide">
+                      Book Executive →
+                    </Link>
+                  </div>
+
                 </div>
               </div>
+
+              {/* Popular Routine Tests */}
+              {areaLoc.popularTests && areaLoc.popularTests.length > 0 && (
+                <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
+                  <h2 className="text-xl font-extrabold text-[#0f2d5e] mb-4">
+                    Popular Routine Blood Tests in {areaLoc.name}
+                  </h2>
+                  <div className="flex flex-wrap gap-2.5">
+                    {areaLoc.popularTests.map((t) => (
+                      <Link
+                        key={t}
+                        href="/book"
+                        className="bg-slate-50 border border-slate-200 text-slate-800 font-bold text-xs px-4 py-2.5 rounded-xl hover:bg-blue-50 hover:border-blue-300 hover:text-[#2563eb] transition-all flex items-center gap-1.5"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                        {t}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Nearby Bengaluru Localities */}
+              <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
+                <h2 className="text-xl font-extrabold text-[#0f2d5e] mb-4">
+                  Home Blood Collection Nearby Localities in Bengaluru
+                </h2>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                  {otherAreas.map((a) => (
+                    <Link
+                      key={a.slug}
+                      href={`/locations/${a.slug}`}
+                      className="text-xs font-semibold text-slate-700 hover:text-[#2563eb] flex items-center gap-1 bg-slate-50 p-2.5 rounded-xl border border-slate-100 hover:border-blue-200 transition-all"
+                    >
+                      <ChevronRight className="w-3 h-3 text-[#2563eb]" />
+                      <span className="truncate">{a.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
             </div>
             
+            {/* Sidebar */}
             <div className="w-full lg:w-[350px] space-y-6">
-              <div className="bg-[#0f2d5e] text-white rounded-3xl p-8 shadow-xl relative overflow-hidden">
+              <div className="bg-[#0f2d5e] text-white rounded-3xl p-7 shadow-xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#2563eb]/30 rounded-full blur-2xl"></div>
-                <h3 className="text-lg font-extrabold mb-4 border-b border-white/10 pb-4">Service Details</h3>
+                <h3 className="text-lg font-extrabold mb-4 border-b border-white/10 pb-4">Area Coverage Details</h3>
                 
                 <div className="space-y-4">
                   <div>
-                    <span className="text-[10px] text-sky-200 uppercase font-bold tracking-wider block mb-1">Service Area</span>
-                    <span className="font-semibold text-sm">{areaLoc.name}, Bengaluru</span>
+                    <span className="text-[10px] text-sky-200 uppercase font-extrabold tracking-wider block mb-1">Locality</span>
+                    <span className="font-extrabold text-base">{areaLoc.name}, Bengaluru</span>
                   </div>
                   
                   <div>
-                    <span className="text-[10px] text-sky-200 uppercase font-bold tracking-wider block mb-1">Pincodes Covered</span>
+                    <span className="text-[10px] text-sky-200 uppercase font-extrabold tracking-wider block mb-1">Pincodes Covered</span>
                     <div className="flex flex-wrap gap-2 mt-1">
                       {areaLoc.pincodes.map(pin => (
-                        <span key={pin} className="bg-white/10 px-2 py-1 rounded text-xs font-semibold">{pin}</span>
+                        <span key={pin} className="bg-white/15 px-2.5 py-1 rounded-lg text-xs font-bold">{pin}</span>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <span className="text-[10px] text-sky-200 uppercase font-bold tracking-wider block mb-1">Operating Hours</span>
-                    <span className="font-semibold text-sm">7:00 AM – 9:00 PM</span>
+                    <span className="text-[10px] text-sky-200 uppercase font-extrabold tracking-wider block mb-1">Doorstep Hours</span>
+                    <span className="font-bold text-sm">7:00 AM – 9:00 PM (Mon–Sun)</span>
                   </div>
 
                   <div>
-                    <span className="text-[10px] text-sky-200 uppercase font-bold tracking-wider block mb-1">Processing Lab</span>
-                    <span className="font-semibold text-sm">{areaLoc.nearestLab}</span>
+                    <span className="text-[10px] text-sky-200 uppercase font-extrabold tracking-wider block mb-1">NABL Processing Hub</span>
+                    <span className="font-bold text-sm">{areaLoc.nearestLab}</span>
                   </div>
                 </div>
 
@@ -368,7 +458,7 @@ export default async function CombinedLocationPage({ params }: Props) {
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <span className="text-[10px] uppercase font-bold tracking-wider block">Call For Booking</span>
+                      <span className="text-[10px] uppercase font-bold tracking-wider block">Helpline Booking</span>
                       <span className="font-extrabold text-base">+91 9964 639 639</span>
                     </div>
                   </a>
