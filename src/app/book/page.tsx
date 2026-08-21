@@ -111,17 +111,6 @@ export default function BookPage() {
         // Define fallback DEFAULT_PACKAGES to resolve client-side matches
         const fallbackPackages = [
           {
-            id: "pkg-freedom80",
-            name: "QXL Freedom 80 Health Check",
-            kind: 'package' as const,
-            price: 800,
-            old_price: 5800,
-            home_collection_available: true,
-            parameters: "80 Parameters",
-            includes: "80 Parameters across 8 Major Health Areas: Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11)."
-          },
-          {
-            id: "pkg-1",
             id: "pkg-1",
             name: "QXL Freedom 80 Health Check",
             kind: 'package' as const,
@@ -132,7 +121,7 @@ export default function BookPage() {
             includes: "80 Parameters across 8 Major Health Areas: Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11)."
           },
           {
-            id: "pkg-1",
+            id: "pkg-fit",
             name: "Quick Fit Package",
             kind: 'package' as const,
             price: 1770,
