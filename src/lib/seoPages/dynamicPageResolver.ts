@@ -576,6 +576,434 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       { question: "Can stress affect prolactin levels?", answer: "Yes, physical and emotional stress, exercise, and sleep disruption can temporarily elevate prolactin." }
     ],
     category: "Pituitary & Reproductive Endocrinology"
+  },
+  "free-t3-test-bangalore": {
+    title: "Free T3 Test in Bangalore | FT3 Thyroid Test | QXL Diagnostics",
+    h1Title: "Free T3 (FT3) Test in Bangalore",
+    subtitle: "Measures unbound triiodothyronine (FT3) circulating in blood to evaluate thyroid function, particularly suspected hyperthyroidism and T3 toxicosis.",
+    price: "450",
+    oldPrice: "700",
+    discountPercent: "35% OFF",
+    parametersCount: "Free T3 Quantitative",
+    sampleType: "Serum",
+    fastingRequired: "Usually no fasting required.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "Free T3 measures the unbound fraction of triiodothyronine circulating in blood. T3 is one of the principal thyroid hormones and has important effects on metabolism, heart rate, temperature regulation and energy use.",
+      "FT3 is generally interpreted together with TSH and Free T4. It is particularly useful in selected patients with suspected hyperthyroidism when T3 concentrations may rise disproportionately."
+    ],
+    whyImportant: [
+      "Evaluates suspected hyperthyroidism and T3 thyrotoxicosis.",
+      "Monitors antithyroid drug therapy.",
+      "Interpreted alongside TSH and Free T4 for complete thyroid hormone status."
+    ],
+    faqs: [
+      { question: "What is Free T3?", answer: "Free T3 measures the active, unbound triiodothyronine hormone circulating in your blood." },
+      { question: "What is the difference between T3 and Free T3?", answer: "Total T3 measures both bound and unbound hormone; Free T3 measures only the biologically active unbound fraction." }
+    ],
+    category: "Thyroid & Endocrinology"
+  },
+  "free-t4-test-bangalore": {
+    title: "Free T4 Test Bangalore | FT4 Thyroid Blood Test | QXL",
+    h1Title: "Free T4 (FT4) Test in Bangalore",
+    subtitle: "Measures unbound thyroxine (FT4) circulating in blood to evaluate thyroid gland output alongside TSH.",
+    price: "450",
+    oldPrice: "700",
+    discountPercent: "35% OFF",
+    parametersCount: "Free T4 Quantitative",
+    sampleType: "Serum",
+    fastingRequired: "Usually no fasting required.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "Free T4 measures the fraction of thyroxine circulating in blood that is not bound to transport proteins. It is one of the most useful tests for assessing thyroid function together with TSH.",
+      "When TSH is abnormal, Free T4 helps determine whether thyroid hormone concentrations are increased, reduced or within the expected range."
+    ],
+    whyImportant: [
+      "Direct measure of active thyroxine output from the thyroid gland.",
+      "Crucial for diagnosing hypothyroidism and hyperthyroidism.",
+      "Monitors levothyroxine medication dosage adjustments."
+    ],
+    faqs: [
+      { question: "Why are TSH and FT4 tested together?", answer: "TSH indicates pituitary stimulation, while FT4 shows actual thyroid hormone production; testing both gives a complete picture." },
+      { question: "Should I take levothyroxine before my FT4 test?", answer: "Ask your treating physician; some doctors prefer blood drawn before taking morning thyroid medication." }
+    ],
+    category: "Thyroid & Endocrinology"
+  },
+  "anti-tpo-test-bangalore": {
+    title: "Anti-TPO Test Bangalore | Thyroid Antibody Test | QXL",
+    h1Title: "Anti-TPO Thyroid Antibody Test in Bangalore",
+    subtitle: "Measures Anti-Thyroid Peroxidase autoantibodies in serum to diagnose autoimmune thyroid disease such as Hashimoto's thyroiditis and Graves' disease.",
+    price: "750",
+    oldPrice: "1200",
+    discountPercent: "37% OFF",
+    parametersCount: "Anti-TPO Autoantibodies",
+    sampleType: "Serum",
+    fastingRequired: "No fasting required.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "Thyroid peroxidase is an enzyme involved in thyroid hormone production. Anti-TPO antibodies develop when the immune system produces antibodies directed against this thyroid enzyme.",
+      "Elevated Anti-TPO antibodies are strongly associated with autoimmune thyroid conditions, particularly Hashimoto thyroiditis, and may also occur in Graves disease."
+    ],
+    whyImportant: [
+      "Confirms underlying autoimmune cause of hypothyroidism (Hashimoto's thyroiditis).",
+      "Assesses risk of developing overt thyroid dysfunction in subclinical hypothyroidism.",
+      "Important evaluation during recurrent pregnancy loss or fertility workups."
+    ],
+    faqs: [
+      { question: "Does positive Anti-TPO mean Hashimoto disease?", answer: "High Anti-TPO antibodies strongly suggest an autoimmune etiology such as Hashimoto's thyroiditis." },
+      { question: "Can Anti-TPO be positive with normal TSH?", answer: "Yes, antibodies can be elevated for years before TSH levels become abnormal." }
+    ],
+    category: "Thyroid & Autoimmune Diagnostics"
+  },
+  "anti-thyroglobulin-antibody-test-bangalore": {
+    title: "Anti-Thyroglobulin Antibody Test Bangalore | QXL",
+    h1Title: "Anti-Thyroglobulin Antibody Test in Bangalore",
+    subtitle: "Measures serum anti-thyroglobulin (TgAb) autoantibodies to assist in thyroid autoimmune assessment and thyroglobulin cancer surveillance.",
+    price: "750",
+    oldPrice: "1200",
+    discountPercent: "37% OFF",
+    parametersCount: "Anti-Thyroglobulin Antibodies",
+    sampleType: "Serum",
+    fastingRequired: "No fasting required.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "Thyroglobulin is a protein produced by thyroid follicular cells. Anti-thyroglobulin antibodies (TgAb) are autoantibodies directed against this protein.",
+      "They can occur in autoimmune thyroid disorders such as Hashimoto thyroiditis and Graves disease, and are essential for ensuring accurate interpretation of thyroglobulin testing in thyroid cancer follow-up."
+    ],
+    whyImportant: [
+      "Complementary marker for autoimmune thyroiditis alongside Anti-TPO.",
+      "Essential pre-requisite for interpreting Thyroglobulin (Tg) tumor marker assays.",
+      "Processed on high-sensitivity automated immunoassay analyzer platforms."
+    ],
+    faqs: [
+      { question: "Is Anti-Tg the same as Anti-TPO?", answer: "No, Anti-Tg targets thyroglobulin protein, while Anti-TPO targets the thyroid peroxidase enzyme." }
+    ],
+    category: "Thyroid & Autoimmune Diagnostics"
+  },
+  "fasting-insulin-test-bangalore": {
+    title: "Fasting Insulin Test Bangalore | Insulin Resistance | QXL",
+    h1Title: "Fasting Insulin Blood Test in Bangalore",
+    subtitle: "Measures fasting serum insulin levels to evaluate hyperinsulinaemia, insulin resistance, metabolic syndrome, and PCOS.",
+    price: "550",
+    oldPrice: "900",
+    discountPercent: "38% OFF",
+    parametersCount: "Fasting Serum Insulin",
+    sampleType: "Serum",
+    fastingRequired: "Strict 8 to 10 hours overnight fasting required.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "Insulin is a peptide hormone produced by pancreatic beta cells that facilitates cellular glucose uptake.",
+      "Fasting insulin measurement is used alongside fasting glucose to evaluate hyperinsulinaemia and calculate insulin resistance indices (HOMA-IR)."
+    ],
+    whyImportant: [
+      "Detects early compensatory hyperinsulinaemia before blood glucose levels rise.",
+      "Essential component of metabolic syndrome and PCOS evaluations.",
+      "Combines with fasting glucose for HOMA-IR calculation."
+    ],
+    faqs: [
+      { question: "Does high fasting insulin mean insulin resistance?", answer: "Elevated fasting insulin often reflects compensatory pancreatic secretion in response to cellular insulin resistance." },
+      { question: "How long should I fast for insulin testing?", answer: "An 8 to 10 hour overnight fast is required." }
+    ],
+    category: "Diabetes & Metabolic Diagnostics"
+  },
+  "c-peptide-test-bangalore": {
+    title: "C-Peptide Test Bangalore | Insulin Production Test | QXL",
+    h1Title: "C-Peptide Blood Test in Bangalore",
+    subtitle: "Measures serum C-peptide to evaluate endogenous pancreatic beta-cell insulin production and differentiate Type 1 from Type 2 diabetes.",
+    price: "750",
+    oldPrice: "1200",
+    discountPercent: "37% OFF",
+    parametersCount: "Serum C-Peptide",
+    sampleType: "Serum / Plasma",
+    fastingRequired: "8 hours fasting recommended for fasting C-peptide.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "C-peptide is cleaved from proinsulin during endogenous insulin synthesis and secreted in equimolar amounts into blood.",
+      "Because pharmaceutical insulin injections do not contain C-peptide, the test reliably measures a patient's own pancreatic insulin production."
+    ],
+    whyImportant: [
+      "Differentiates Type 1 diabetes (very low/absent C-peptide) from Type 2 diabetes (normal/high C-peptide).",
+      "Evaluates cause of unexplained hypoglycaemia (insulinoma vs exogenous insulin).",
+      "Monitors residual beta-cell function."
+    ],
+    faqs: [
+      { question: "What is C-peptide?", answer: "C-peptide is a byproduct created when the pancreas produces insulin, serving as a direct marker of natural insulin production." }
+    ],
+    category: "Diabetes & Pancreatic Diagnostics"
+  },
+  "homa-ir-test-bangalore": {
+    title: "HOMA-IR Test Bangalore | Insulin Resistance Assessment | QXL",
+    h1Title: "HOMA-IR Insulin Resistance Assessment in Bangalore",
+    subtitle: "Calculates Homeostatic Model Assessment for Insulin Resistance (HOMA-IR) from simultaneous Fasting Glucose and Fasting Insulin measurements.",
+    price: "650",
+    oldPrice: "1100",
+    discountPercent: "40% OFF",
+    parametersCount: "Fasting Glucose + Fasting Insulin + HOMA-IR Index",
+    sampleType: "Fluoride Plasma & Serum",
+    fastingRequired: "Strict 8 to 10 hours overnight fasting required.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "HOMA-IR (Homeostatic Model Assessment of Insulin Resistance) is a calculated mathematical model derived from fasting glucose and fasting insulin levels.",
+      "It provides a quantitative estimate of insulin sensitivity, helping evaluate metabolic health, fatty liver risk, and prediabetes trajectory."
+    ],
+    whyImportant: [
+      "Quantitative index for tracking insulin sensitivity improvements over time.",
+      "Included in comprehensive metabolic and PCOS screening profiles.",
+      "Requires simultaneous fasting blood draw."
+    ],
+    faqs: [
+      { question: "How is HOMA-IR calculated?", answer: "HOMA-IR = (Fasting Glucose mg/dL × Fasting Insulin µIU/mL) / 405." }
+    ],
+    category: "Metabolic & Diabetes Diagnostics"
+  },
+  "apolipoprotein-b-test-bangalore": {
+    title: "ApoB Test Bangalore | Apolipoprotein B Heart Risk Test | QXL",
+    h1Title: "Apolipoprotein B (ApoB) Test in Bangalore",
+    subtitle: "Measures serum Apolipoprotein B to quantify the total number of circulating atherogenic lipoprotein particles (LDL, VLDL, IDL) for advanced cardiac risk assessment.",
+    price: "750",
+    oldPrice: "1200",
+    discountPercent: "37% OFF",
+    parametersCount: "Serum ApoB",
+    sampleType: "Serum",
+    fastingRequired: "Usually not essential.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "Apolipoprotein B is the primary structural protein component on all potential atherogenic lipoprotein particles, including LDL, VLDL, and IDL.",
+      "Because each atherogenic particle carries exactly one ApoB molecule, ApoB directly reflects atherogenic particle number, proving superior to LDL-C alone in discordant cases."
+    ],
+    whyImportant: [
+      "Advanced cardiovascular risk marker for patients with diabetes, metabolic syndrome, or high triglycerides.",
+      "Directly quantifies atherogenic particle count.",
+      "NABL immunoturbidimetric methodology."
+    ],
+    faqs: [
+      { question: "Why test ApoB instead of LDL alone?", answer: "LDL-C measures cholesterol content, whereas ApoB measures the actual number of plaque-causing particles, which can be high even if LDL-C appears normal." }
+    ],
+    category: "Advanced Cardiovascular Risk"
+  },
+  "apolipoprotein-a1-test-bangalore": {
+    title: "ApoA1 Test Bangalore | Apolipoprotein A1 | QXL Diagnostics",
+    h1Title: "Apolipoprotein A1 (ApoA1) Test in Bangalore",
+    subtitle: "Measures serum Apolipoprotein A1, the major structural protein component of anti-atherogenic High-Density Lipoprotein (HDL) particles.",
+    price: "750",
+    oldPrice: "1200",
+    discountPercent: "37% OFF",
+    parametersCount: "Serum ApoA1 & ApoB/ApoA1 Ratio",
+    sampleType: "Serum",
+    fastingRequired: "Usually not required.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "Apolipoprotein A1 is the principal protein constituent of HDL ('good') cholesterol particles, participating in reverse cholesterol transport from peripheral tissues back to the liver.",
+      "Evaluated alongside ApoB to calculate the ApoB/ApoA1 ratio for detailed coronary risk stratification."
+    ],
+    whyImportant: [
+      "Measures protective anti-atherogenic HDL protein particles.",
+      "Calculates ApoB/ApoA1 balance ratio.",
+      "NABL-accredited clinical chemistry platform."
+    ],
+    faqs: [
+      { question: "What is the ApoB/ApoA1 ratio?", answer: "It is the ratio of bad atherogenic particles (ApoB) to good protective particles (ApoA1), serving as a strong cardiovascular risk indicator." }
+    ],
+    category: "Advanced Cardiovascular Risk"
+  },
+  "lipoprotein-a-test-bangalore": {
+    title: "Lipoprotein(a) Test Bangalore | Lp(a) Heart Risk | QXL",
+    h1Title: "Lipoprotein(a) – Lp(a) Test in Bangalore",
+    subtitle: "Measures serum Lipoprotein(a), an independent, genetically determined cardiovascular risk factor for premature coronary artery disease and aortic stenosis.",
+    price: "990",
+    oldPrice: "1600",
+    discountPercent: "38% OFF",
+    parametersCount: "Serum Lp(a) Quantitative",
+    sampleType: "Serum",
+    fastingRequired: "Usually not required.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "Lipoprotein(a), written as Lp(a), is an LDL-like lipoprotein particle bound to apolipoprotein(a). Plasma concentrations are 90% genetically determined.",
+      "Elevated Lp(a) is an independent causal risk factor for premature coronary heart disease, stroke, and calcific aortic valve stenosis."
+    ],
+    whyImportant: [
+      "One-time test recommended in adulthood to identify inherited high cardiac risk.",
+      "Crucial for individuals with a family history of early heart attacks.",
+      "Quantitative NABL immunoassay assay."
+    ],
+    faqs: [
+      { question: "Is high Lp(a) inherited?", answer: "Yes, Lp(a) levels are predominantly determined by genetics and remain relatively stable throughout adult life." }
+    ],
+    category: "Advanced Cardiovascular Risk"
+  },
+  "homocysteine-test-bangalore": {
+    title: "Homocysteine Test Bangalore | Cardiovascular & B12 Evaluation | QXL",
+    h1Title: "Homocysteine Blood Test in Bangalore",
+    subtitle: "Measures plasma homocysteine levels to assess vascular endothelial risk, hypercoagulability, and B12/Folate metabolic pathways.",
+    price: "850",
+    oldPrice: "1350",
+    discountPercent: "37% OFF",
+    parametersCount: "Plasma Homocysteine",
+    sampleType: "Plasma (EDTA/Citrate, immediate cold transport)",
+    fastingRequired: "10 to 12 hours overnight fast recommended.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "Homocysteine is a sulfur-containing amino acid intermediate generated during methionine metabolism. It requires Vitamin B12, Folate, and Vitamin B6 for remethylation/transsulfuration.",
+      "Hyperhomocysteinaemia causes endothelial injury, oxidative stress, and increased vascular thrombosis risk."
+    ],
+    whyImportant: [
+      "Evaluates unexplained arterial or venous thrombosis history.",
+      "Identifies functional B12 and Folate metabolic deficiencies.",
+      "Strict pre-analytical cold-chain handling to prevent falsely elevated results."
+    ],
+    faqs: [
+      { question: "What causes elevated homocysteine?", answer: "Vitamin B12 or Folate deficiency, MTHFR gene variants, kidney impairment, and smoking can elevate homocysteine." }
+    ],
+    category: "Cardiovascular & Nutritional Diagnostics"
+  },
+  "hs-crp-test-bangalore": {
+    title: "hs-CRP Test Bangalore | Cardiovascular Risk Test | QXL",
+    h1Title: "High-Sensitivity CRP (hs-CRP) Test in Bangalore",
+    subtitle: "Measures low-range C-reactive protein concentrations (0.1 - 10 mg/L) to evaluate vascular low-grade inflammation and cardiac risk.",
+    price: "550",
+    oldPrice: "850",
+    discountPercent: "35% OFF",
+    parametersCount: "hs-CRP High Sensitivity",
+    sampleType: "Serum",
+    fastingRequired: "Usually not required.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "High-sensitivity C-reactive protein (hs-CRP) measures low-level vascular inflammation in healthy individuals to refine 10-year cardiovascular risk assessment.",
+      "Distinct from routine high-range CRP used for acute infections; hs-CRP detects subclinical atherosclerotic plaque inflammation."
+    ],
+    whyImportant: [
+      "Assesses low-grade vascular inflammation for coronary artery disease risk stratification.",
+      "Categorizes cardiac risk: Low (<1 mg/L), Average (1–3 mg/L), High (>3 mg/L).",
+      "High-sensitivity immunoturbidimetric assay."
+    ],
+    faqs: [
+      { question: "Is hs-CRP different from regular CRP?", answer: "Yes, hs-CRP detects tiny baseline inflammation levels (0.1–10 mg/L) for cardiac risk, whereas regular CRP measures high levels (10–500 mg/L) for infection." }
+    ],
+    category: "Cardiovascular Risk Diagnostics"
+  },
+  "d-dimer-test-bangalore": {
+    title: "D-Dimer Test Bangalore | Blood Clot Evaluation | QXL Diagnostics",
+    h1Title: "D-Dimer Blood Test in Bangalore",
+    subtitle: "Quantitative citrated plasma D-Dimer test to evaluate fibrin degradation products and rule out Deep Vein Thrombosis (DVT) or Pulmonary Embolism (PE).",
+    price: "950",
+    oldPrice: "1500",
+    discountPercent: "36% OFF",
+    parametersCount: "D-Dimer Quantitative (FEU / DDU)",
+    sampleType: "Citrated Plasma",
+    fastingRequired: "No fasting required.",
+    turnaroundTime: "Same Day (3–6 Hours)",
+    overview: [
+      "D-dimer is a specific fibrin degradation product generated when cross-linked fibrin blood clots undergo plasmin-mediated fibrinolysis.",
+      "A negative quantitative D-dimer result has a high negative predictive value to rule out DVT or PE in low-to-intermediate risk patients."
+    ],
+    whyImportant: [
+      "High negative predictive value for ruling out venous thromboembolism.",
+      "Fast 3–6 hour priority report turnaround.",
+      "Quantitative immunoturbidimetric assay using sodium citrate tubes."
+    ],
+    faqs: [
+      { question: "Can a negative D-Dimer rule out a blood clot?", answer: "Yes, in patients with low-to-intermediate clinical probability, a normal D-Dimer reliably excludes DVT/PE." }
+    ],
+    category: "Coagulation & Thrombosis"
+  },
+  "iron-profile-test-bangalore": {
+    title: "Iron Profile Test Bangalore | Iron, TIBC & Transferrin Saturation | QXL",
+    h1Title: "Iron Profile Test in Bangalore",
+    subtitle: "Complete iron panel measuring Serum Iron, Total Iron Binding Capacity (TIBC), UIBC, Transferrin Saturation, and Ferritin.",
+    price: "850",
+    oldPrice: "1350",
+    discountPercent: "37% OFF",
+    parametersCount: "4 Parameters (Iron, TIBC, Saturation %, Ferritin)",
+    sampleType: "Serum",
+    fastingRequired: "Morning fasting collection (10–12 hours) recommended due to diurnal iron variation.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "An Iron Profile evaluates circulating iron availability, transport capacity, and tissue iron storage levels.",
+      "Includes Serum Iron, Total Iron Binding Capacity (TIBC), Unsaturated Iron Binding Capacity (UIBC), Transferrin Saturation %, and Serum Ferritin."
+    ],
+    whyImportant: [
+      "Differentiates iron deficiency anaemia from anaemia of chronic disease.",
+      "Evaluates iron overload disorders (haemochromatosis).",
+      "Morning fasting collection ensures accurate baseline serum iron levels."
+    ],
+    faqs: [
+      { question: "Why is morning fasting recommended for iron testing?", answer: "Serum iron levels fluctuate significantly throughout the day, peaking in the morning after fasting." }
+    ],
+    category: "Haematology & Iron Metabolism"
+  },
+  "transferrin-test-bangalore": {
+    title: "Transferrin Test Bangalore | Iron Transport Test | QXL",
+    h1Title: "Serum Transferrin Test in Bangalore",
+    subtitle: "Measures serum transferrin protein concentration to evaluate iron transport capacity and nutritional status.",
+    price: "550",
+    oldPrice: "850",
+    discountPercent: "35% OFF",
+    parametersCount: "Serum Transferrin",
+    sampleType: "Serum",
+    fastingRequired: "Morning fasting recommended.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "Transferrin is the main glycoprotein produced by the liver responsible for binding and transporting ferric iron through blood plasma.",
+      "Transferrin concentrations rise in iron deficiency as the body attempts to maximize iron transport, and fall in protein-energy malnutrition or iron overload."
+    ],
+    whyImportant: [
+      "Direct quantitative measurement of iron transport protein capacity.",
+      "Useful marker for protein nutritional assessment.",
+      "NABL clinical chemistry immunoassay platform."
+    ],
+    faqs: [
+      { question: "What causes high transferrin?", answer: "Iron deficiency anaemia causes increased transferrin synthesis to capture available iron." }
+    ],
+    category: "Iron Metabolism"
+  },
+  "tibc-uibc-test-bangalore": {
+    title: "TIBC & UIBC Test Bangalore | Iron Binding Capacity | QXL",
+    h1Title: "TIBC & UIBC Iron Tests in Bangalore",
+    subtitle: "Measures Total Iron Binding Capacity (TIBC) and Unsaturated Iron Binding Capacity (UIBC) to calculate transferrin saturation percentage.",
+    price: "450",
+    oldPrice: "700",
+    discountPercent: "35% OFF",
+    parametersCount: "TIBC & UIBC",
+    sampleType: "Serum",
+    fastingRequired: "10 to 12 hours fasting recommended.",
+    turnaroundTime: "Same Day (6 Hours)",
+    overview: [
+      "TIBC measures the total capacity of serum transferrin to bind iron. UIBC measures the unoccupied binding sites.",
+      "Used together with serum iron to calculate Transferrin Saturation % = (Serum Iron / TIBC) × 100."
+    ],
+    whyImportant: [
+      "TIBC rises in iron deficiency anaemia and falls in iron overload / haemochromatosis.",
+      "Provides transferrin saturation % for accurate clinical diagnosis."
+    ],
+    faqs: [
+      { question: "What is transferrin saturation?", answer: "It is the percentage of transferrin iron-binding sites currently occupied by iron, normally 20% to 50%." }
+    ],
+    category: "Iron Metabolism"
+  },
+  "calcium-test-bangalore": {
+    title: "Calcium Test Bangalore | Serum Calcium Blood Test | QXL",
+    h1Title: "Serum Calcium Test in Bangalore",
+    subtitle: "Measures Total Serum Calcium to evaluate bone metabolism, parathyroid gland function, and kidney health.",
+    price: "200",
+    oldPrice: "350",
+    discountPercent: "42% OFF",
+    parametersCount: "Total Serum Calcium",
+    sampleType: "Serum",
+    fastingRequired: "No fasting required.",
+    turnaroundTime: "Same Day (4 Hours)",
+    overview: [
+      "Serum calcium is a vital mineral essential for bone structure, muscle contraction, nerve signal transmission, and blood coagulation.",
+      "Regulated closely by Parathyroid Hormone (PTH), Vitamin D, and calcitonin. Intersected with serum albumin for corrected calcium calculations."
+    ],
+    whyImportant: [
+      "Screens for hypercalcaemia (hyperparathyroidism, bone disorders) and hypocalcaemia (vitamin D deficiency, kidney disease).",
+      "Essential evaluation for bone density loss, muscle cramps, and renal conditions.",
+      "Photometric Arsenazo III laboratory methodology."
+    ],
+    faqs: [
+      { question: "Why is serum albumin checked with calcium?", answer: "About 40% of blood calcium is bound to albumin; low albumin can cause falsely low total calcium results unless corrected." }
+    ],
+    category: "Bone & Mineral Metabolism"
   }
 };
 
