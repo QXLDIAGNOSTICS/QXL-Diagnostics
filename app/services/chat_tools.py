@@ -497,13 +497,24 @@ async def _build_booking_payload(
 
     package_id = None
     package_name = (arguments.get("package_name") or "").strip()
-    if package_name:
-        packages = await catalog_service.list_active_packages(db)
-        match = next((p for p in packages if p.name.lower() == package_name.lower()), None)
-        if match is None:
-            match = next((p for p in packages if package_name.lower() in p.name.lower()), None)
-        if match is not None:
-            package_id = match.id
+    test_name = (arguments.get("test_name") or "").strip()
+
+    from app.repositories.package_repository import HealthPackageRepository
+    from app.services.booking_service import _best_catalog_match
+
+    pkg_repo = HealthPackageRepository(db)
+    for candidate_name in (package_name, test_name):
+        if not candidate_name or package_id is not None:
+            continue
+        pkg_matches = await pkg_repo.search(candidate_name, limit=20)
+        pkg_match = _best_catalog_match(candidate_name, pkg_matches, name_getter=lambda p: p.name)
+        if pkg_match is None:
+            all_pkgs = await catalog_service.list_active_packages(db)
+            pkg_match = _best_catalog_match(candidate_name, all_pkgs, name_getter=lambda p: p.name)
+        if pkg_match is not None:
+            package_id = pkg_match.id
+            test_name = pkg_match.name
+            break
 
     center_id = None
     raw_center_id = (arguments.get("center_id") or "").strip()
@@ -529,7 +540,7 @@ async def _build_booking_payload(
         "patient_email": arguments.get("patient_email") or None,
         "patient_age": arguments.get("patient_age"),
         "patient_gender": arguments.get("patient_gender") or None,
-        "test_name": arguments.get("test_name") or None,
+        "test_name": test_name or None,
         "package_id": package_id,
         "center_id": center_id,
         "collection_type": collection_type,

@@ -156,7 +156,7 @@ def build_welcome(name: str | None) -> tuple[str, str]:
     first = (name or "").split(" ")[0] or "there"
     subject = f"Welcome to {_BRAND}!"
     message = (
-        f"Dear {first}, welcome to {_BRAND}! Your account is ready — you can now book tests, "
+        f"Dear {first}, welcome to {_BRAND}! Your account is ready - you can now book tests, "
         f"track reports, and manage appointments anytime. - {_BRAND}"
     )
     return subject, message
