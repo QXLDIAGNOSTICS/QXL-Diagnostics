@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { UserCheck, ShieldCheck, Award, Stethoscope, CheckCircle2, AlertCircle, FileText, ArrowRight, Microchip, Activity, HelpCircle, Phone, MessageSquare, Building2, Upload } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PopularPackagesGrid from '@/components/PopularPackagesGrid';
 
 export const metadata: Metadata = {
   title: "Doctor-Led Diagnostics & Reference Lab Expertise | QXL Diagnostics",
@@ -228,6 +229,9 @@ export default function DoctorLedDiagnosticsPage() {
             </ul>
           </div>
         </div>
+
+        {/* Popular Health Packages Grid */}
+        <PopularPackagesGrid />
 
       </section>
 

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { api } from "../../lib/api";
 import { packagesData } from '../../data/packages';
+import PopularPackagesGrid from '@/components/PopularPackagesGrid';
 
 export default function PackagesPage() {
   const [packages, setPackages] = useState<any[]>([]);
@@ -125,28 +126,7 @@ export default function PackagesPage() {
       </section>
 
       {/* Recommended Packages Section */}
-      <section className="py-12 bg-[#f8faff]">
-        <div className="max-w-[1200px] mx-auto px-4 w-full">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-            <div>
-              <h2 className="text-[#0f2d5e] text-2xl font-bold mb-1 tracking-tight">Health Packages</h2>
-              <p className="text-slate-500 text-xs font-medium">Popular choices tailored for your specific needs.</p>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {packages.map((p, idx) => (
-              <motion.div 
-                key={p.id}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, delay: idx * 0.05 }}
-              >
-                <Card {...p} />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <PopularPackagesGrid />
     </div>
   );
 }
