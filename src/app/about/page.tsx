@@ -3,6 +3,7 @@ import React from 'react';
 import { Target, Eye, CheckCircle, ShieldCheck, MapPin, Mail, Phone, Cpu } from 'lucide-react';
 import Accreditations from '@/components/Accreditations';
 import FaqSection from '@/components/FaqSection';
+import DoctorLedManifesto from '@/components/DoctorLedManifesto';
 
 export default function AboutPage() {
   const scrollRef = React.useRef<HTMLDivElement>(null);
@@ -183,6 +184,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Doctor-Led Corporate Manifesto ── */}
+      <DoctorLedManifesto />
 
       {/* ── Quality (Accreditations) ── */}
       <Accreditations />
