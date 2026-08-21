@@ -107,7 +107,7 @@ export default async function CombinedLocationPage({ params }: Props) {
             <p className="text-blue-200 text-[11px] font-extrabold uppercase tracking-widest mb-2">
               Local SEO · {loc.addressLocality} · {loc.postalCode}
             </p>
-            <h1 className="text-3xl md:text-4xl font-extrabold mb-3 leading-tight">{loc.name}</h1>
+            <h1 className="text-3xl md:text-4xl font-extrabold mb-3 leading-tight !text-white" style={{ color: '#ffffff' }}>{loc.name}</h1>
             <p className="text-blue-100 text-sm md:text-base max-w-2xl leading-relaxed">
               NABL-accredited ({NABL_CERTIFICATE}) · {ISO_STANDARD} · Free home sample collection near{" "}
               {loc.shortName}. Same-day digital reports for most routine tests.
@@ -265,7 +265,7 @@ export default async function CombinedLocationPage({ params }: Props) {
               <span className="inline-block bg-[#FF9933] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">
                 FREE HOME COLLECTION · {areaLoc.name.toUpperCase()}
               </span>
-              <h1 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
+              <h1 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight !text-white drop-shadow-sm" style={{ color: '#ffffff' }}>
                 Blood Test at Home in {areaLoc.name}
               </h1>
               <p className="text-blue-100 font-medium text-sm md:text-base leading-relaxed mb-6">
