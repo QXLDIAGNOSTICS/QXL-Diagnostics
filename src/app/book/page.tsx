@@ -182,29 +182,39 @@ export default function BookPage() {
           }
         ];
 
+        const isSpidyOffer = (name?: string | null) => {
+          if (!name) return false;
+          const n = name.toLowerCase();
+          return n.includes('spidy') || n.includes('nothing , swing') || n.includes('swing , eat');
+        };
+
         const merged: CatalogEntry[] = [
-          ...packages.map((p: HealthPackage): CatalogEntry => ({
-            id: p.id,
-            name: p.name,
-            kind: 'package',
-            price: p.price,
-            old_price: p.old_price,
-            home_collection_available: p.home_collection_available,
-            parameters: p.parameters,
-            includes: p.includes,
-          })),
-          ...tests.map((t: TestCatalogItem): CatalogEntry => ({
-            id: t.id,
-            name: t.name,
-            kind: 'test',
-            price: t.price,
-            home_collection_available: t.home_collection_available,
-          })),
-        ];
+          ...packages
+            .filter((p: HealthPackage) => !isSpidyOffer(p.name))
+            .map((p: HealthPackage): CatalogEntry => ({
+              id: p.id,
+              name: p.name,
+              kind: 'package',
+              price: p.price,
+              old_price: p.old_price,
+              home_collection_available: p.home_collection_available,
+              parameters: p.parameters,
+              includes: p.includes,
+            })),
+          ...tests
+            .filter((t: TestCatalogItem) => !isSpidyOffer(t.name))
+            .map((t: TestCatalogItem): CatalogEntry => ({
+              id: t.id,
+              name: t.name,
+              kind: 'test',
+              price: t.price,
+              home_collection_available: t.home_collection_available,
+            })),
+        ].filter(item => !isSpidyOffer(item.name));
 
         // Merge fallback packages if they aren't loaded in merged yet
         for (const fb of fallbackPackages) {
-          if (!merged.some(m => m.name.toLowerCase() === fb.name.toLowerCase())) {
+          if (!isSpidyOffer(fb.name) && !merged.some(m => m.name.toLowerCase() === fb.name.toLowerCase())) {
             merged.push(fb);
           }
         }
@@ -218,7 +228,7 @@ export default function BookPage() {
         ];
         
         for (const ft of defaultFallbackTests) {
-          if (!merged.some(m => m.name.toLowerCase() === ft.name.toLowerCase())) {
+          if (!isSpidyOffer(ft.name) && !merged.some(m => m.name.toLowerCase() === ft.name.toLowerCase())) {
             merged.push(ft);
           }
         }
@@ -349,23 +359,35 @@ export default function BookPage() {
     const params = new URLSearchParams(window.location.search);
     const wanted = [...params.getAll('tests').map(t => t.trim()), params.get('package') || ''].filter(Boolean);
     
+    const isSpidyOffer = (name?: string | null) => {
+      if (!name) return false;
+      const n = name.toLowerCase();
+      return n.includes('spidy') || n.includes('nothing , swing') || n.includes('swing , eat');
+    };
+
     try {
-      const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
-      for (const item of cart) {
-        if (!wanted.includes(item)) {
+      const cart: string[] = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
+      const cleanedCart = cart.filter(item => !isSpidyOffer(item));
+      if (cleanedCart.length !== cart.length) {
+        localStorage.setItem('qxl_cart', JSON.stringify(cleanedCart));
+      }
+      for (const item of cleanedCart) {
+        if (!wanted.includes(item) && !isSpidyOffer(item)) {
           wanted.push(item);
         }
       }
     } catch {}
 
-    if (!wanted.length) return;
+    const filteredWanted = wanted.filter(w => !isSpidyOffer(w));
+
+    if (!filteredWanted.length) return;
 
     const matches: CatalogEntry[] = [];
     const unmatched: string[] = [];
-    for (const w of wanted) {
+    for (const w of filteredWanted) {
       const match = findCatalogMatch(w, catalog);
-      if (match) matches.push(match);
-      else unmatched.push(w);
+      if (match && !isSpidyOffer(match.name)) matches.push(match);
+      else if (!isSpidyOffer(w)) unmatched.push(w);
     }
 
     if (matches.length) {

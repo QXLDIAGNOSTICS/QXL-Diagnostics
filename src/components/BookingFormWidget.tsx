@@ -125,18 +125,28 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
           }
         ];
 
+        const isSpidyOffer = (name?: string | null) => {
+          if (!name) return false;
+          const n = name.toLowerCase();
+          return n.includes('spidy') || n.includes('nothing , swing') || n.includes('swing , eat');
+        };
+
         const merged: CatalogEntry[] = [
-          ...packages.map((p: HealthPackage): CatalogEntry => ({
-            id: p.id, name: p.name, kind: 'package', price: p.price, old_price: p.old_price,
-            home_collection_available: p.home_collection_available, parameters: p.parameters, includes: p.includes,
-          })),
-          ...tests.map((t: TestCatalogItem): CatalogEntry => ({
-            id: t.id, name: t.name, kind: 'test', price: t.price, home_collection_available: t.home_collection_available,
-          })),
-        ];
+          ...packages
+            .filter((p: HealthPackage) => !isSpidyOffer(p.name))
+            .map((p: HealthPackage): CatalogEntry => ({
+              id: p.id, name: p.name, kind: 'package', price: p.price, old_price: p.old_price,
+              home_collection_available: p.home_collection_available, parameters: p.parameters, includes: p.includes,
+            })),
+          ...tests
+            .filter((t: TestCatalogItem) => !isSpidyOffer(t.name))
+            .map((t: TestCatalogItem): CatalogEntry => ({
+              id: t.id, name: t.name, kind: 'test', price: t.price, home_collection_available: t.home_collection_available,
+            })),
+        ].filter(item => !isSpidyOffer(item.name));
 
         for (const fb of fallbackPackages) {
-          if (!merged.some(m => m.name.toLowerCase() === fb.name.toLowerCase())) {
+          if (!isSpidyOffer(fb.name) && !merged.some(m => m.name.toLowerCase() === fb.name.toLowerCase())) {
             merged.push(fb);
           }
         }
