@@ -916,3 +916,5 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
     </div>
   );
 }
+
+export default BookingFormWidget;
