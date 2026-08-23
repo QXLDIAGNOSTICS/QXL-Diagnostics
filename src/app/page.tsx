@@ -18,13 +18,10 @@ import ReviewsSection from "../components/ReviewsSection";
 import SeoContent from "../components/SeoContent";
 import CallbackModal from "../components/CallbackModal";
 import AppDownloadBanner from "../components/AppDownloadBanner";
-import Freedom80Hero from "../components/Freedom80Hero";
-import Freedom80CampaignSection from "../components/Freedom80CampaignSection";
-import Freedom80Breakdown from "../components/Freedom80Breakdown";
 import EmotionalFamilySection from "../components/EmotionalFamilySection";
 import DoctorLedLabSection from "../components/DoctorLedLabSection";
-import Freedom80FullWidthBanner from "../components/Freedom80FullWidthBanner";
 import RunningTextMarquee from "../components/RunningTextMarquee";
+import RakshaOfferCard from "../components/rakshaBandhan/RakshaOfferCard";
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
 const whySlides = [
@@ -244,6 +241,18 @@ function WhyChooseSlider() {
 
 // ── Promo: QXL Packages Slider — Desktop ──────────────────────────────────────
 const promoSlides = [
+  {
+    name: "Raksha Bandhan Special Checkup",
+    price: "₹800",
+    original: "₹5,800",
+    tag: "FESTIVE OFFER",
+    desc: "Comprehensive 80 health parameters screening covering 8 major health areas — gift health to your sibling.",
+    includes: ["CBC (26), HbA1c & Glucose (3)", "Lipid Profile (8), Liver Function (11)", "Kidney Function (8), Thyroid Profile (3)", "Bone, Mineral & Urine Analysis (21)"],
+    tests: "80 Parameters",
+    image: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
+    imgBg: "#FFF7ED",
+    ctaLink: "/raksha-bandhan-health-checkup-bangalore",
+  },
   {
     name: "Q-Screen Diabetes Package",
     price: "₹1,900",
@@ -607,8 +616,6 @@ function MobilePromoHighlightSlider() {
   );
 }
 
-import { BookingFormWidget } from '../components/BookingFormWidget';
-
 function QuickBookingForm({ formState, setFormState, handleContactSubmit, formStatus }: any) {
   return (
     <div className="bg-white p-8 rounded-[2.5rem] border border-blue-100 shadow-[0_8px_30px_rgba(37,99,235,0.08)] relative z-10">
@@ -651,8 +658,10 @@ function QuickBookingForm({ formState, setFormState, handleContactSubmit, formSt
       </form>
     </div>
   );
-}function useCountdown() {
-  const target = new Date('2026-08-20T23:59:59+05:30').getTime();
+}
+
+function useCountdown() {
+  const target = new Date('2026-08-31T23:59:59+05:30').getTime();
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0, expired: false });
   useEffect(() => {
     const tick = () => {
@@ -726,16 +735,42 @@ export default function Home() {
     window.addEventListener('locationChange', handleLoc);
     window.addEventListener('cartChange', handleCart);
     
+    const rakshaBandhanPackage = {
+      id: "raksha-bandhan-800",
+      name: "Raksha Bandhan Special Health Checkup",
+      price: "800",
+      originalPrice: "5800",
+      original_price: "5800",
+      tag: "FESTIVE OFFER",
+      badge: "SAVE ₹5,000",
+      description: "Comprehensive 80 health parameters screening covering 8 major health areas — gift health to your sibling.",
+      parameterCount: 80,
+      parameters_count: 80,
+      includes: [
+        "Complete Blood Count (26 parameters)",
+        "Diabetes & Sugar (HbA1c & Fasting Glucose)",
+        "Lipid Profile (8 parameters)",
+        "Liver Function Panel (11 parameters)",
+        "Kidney Function Panel (8 parameters)",
+        "Thyroid Profile (3 parameters)",
+        "Bone, Mineral & Urinary Analysis (21 parameters)"
+      ],
+      popular: true,
+      isMostBooked: true,
+      slug: "raksha-bandhan-health-checkup-bangalore",
+    };
+
     // Load dynamic locations & packages safely for rendering
     setLocations(cmsStore.getAll("locations"));
     const fallbackPackages = cmsStore.getAll("packages").sort((a, b) => Number(a.price) - Number(b.price));
-    setRecommendedPackages(fallbackPackages);
+    setRecommendedPackages([rakshaBandhanPackage, ...fallbackPackages.filter(p => p.id !== 'raksha-bandhan-800')]);
 
     if (api && api.packages) {
       api.packages.list()
         .then((data) => {
           if (data && data.length > 0) {
-            setRecommendedPackages(data.sort((a, b) => Number(a.price) - Number(b.price)));
+            const sorted = data.sort((a, b) => Number(a.price) - Number(b.price));
+            setRecommendedPackages([rakshaBandhanPackage, ...sorted.filter(p => p.id !== 'raksha-bandhan-800')]);
           }
         })
         .catch(() => {
@@ -768,147 +803,138 @@ export default function Home() {
     ? `https://maps.google.com/maps?q=QXL+Diagnostics+${activeLocationObj.lat},${activeLocationObj.lng}&t=&z=15&ie=UTF8&iwloc=&output=embed`
     : `https://maps.google.com/maps?q=${encodeURIComponent("QXL Diagnostics " + location)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
-  // ── All poster images (imageOnly slides) ─────────────────────────────────────
-  const posterImages = [
-    "/posters/02998fde-ef5f-4292-910c-7530f67acd7e.jpeg",
-    "/posters/07e29c76-b80d-406c-b9cb-5741d1cddc98.jpeg",
-    "/posters/0b7b423e-88d8-4f9c-baef-cf5b79e5cecc.jpeg",
-    "/posters/244bb0ec-8188-47a6-b185-b78d3646e4f0.jpeg",
-    "/posters/247d0b13-34e7-4296-b29a-148ce54d7fa4.jpeg",
-    "/posters/2730d20d-0638-4bd1-a949-6c76ba6cf6d4.jpeg",
-    "/posters/7726ca5b-1d20-4cf5-8130-785dcde255dc.jpeg",
-    "/posters/de0b69c4-521d-4674-8ef7-52e52eef4865.jpeg",
-    "/posters/ee2d2cb7-5bf7-462f-ac54-b34303d3a215.jpeg",
-    "/posters/ee7fee8d-4658-46d5-aea8-d31f44aaeee9.jpeg",
-  ];
+  // ── Raksha Bandhan Campaign Poster Slides ─────────────────────
+  const posterSlides: any[] = [];
 
-  const posterSlides = posterImages.map((img, i) => ({
-    title: i === 0 ? "QXL Freedom 80 — Independence Day Special" : `QXL Freedom Sale Poster ${i}`,
-    image: img,
-    ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
-    imageOnly: true,
-  }));
-
-  // ── Original content-rich slides (restored) ────────────────────────────────
+  // ── Package & Home Collection Hero Slides ────────────────────────────────
   const contentSlides = [
     {
-      badge: "🇮🇳 INDEPENDENCE DAY SPECIAL 🇮🇳",
-      title: "India's Independence Day",
-      titleAccent: "Doctor-Led Diagnostic Lab in Bengaluru",
-      subtitle: "QXL FREEDOM 80 HEALTH CHECK — 80 PARAMETERS AT ₹800 (WORTH ₹5,800)",
-      subtitleAccent: "Available at all QXL centres & partner facilities across Bengaluru.",
-      description: "Celebrate India's Independence Day with complete health freedom. Expert doctor-led diagnostics for your entire family.",
-      cta: "BOOK NOW @ ₹800",
-      ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
-      ctaSecondary: "VIEW PACKAGE",
-      ctaSecondaryLink: "/packages",
-      image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=1200&auto=format&fit=crop",
-      imageFit: "cover",
+      badge: "7-DAY FESTIVE OFFER · SAVE ₹5,000",
+      title: "RAKSHA BANDHAN HEALTH CHECKUP",
+      titleAccent: "80 HEALTH PARAMETERS · 8 MAJOR HEALTH AREAS",
+      subtitle: "CBC (26), HbA1c & Fasting Glucose (3), Heart & Lipids (8), Liver (11), Kidney (8), Thyroid (3), Bone & Urinary (21)",
+      subtitleAccent: "Only ₹800 · Regular Value ₹5,800 · Save 86%",
+      description: "Gift the promise of good health to your cherished sibling with Bengaluru's most comprehensive 80-parameter checkup.",
+      cta: "Book Raksha Bandhan Package @ ₹800",
+      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
+      ctaSecondary: "Call +91 9964 639 639",
+      ctaSecondaryLink: "tel:+919964639639",
+      image: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
+      imageFit: "contain",
       bgFrom: "#fff7ed", bgTo: "#f0fdf4",
-      features: ["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"],
-      freedom80Card: true, flagAnimation: true,
+      features: ["80 Health Parameters", "8 Major Health Areas", "Free Home Collection", "₹800 Only (Worth ₹5,800)"],
     },
     {
-      badge: "🇮🇳 SENIOR CITIZENS HEALTH FREEDOM 🇮🇳",
-      title: "SENIOR CITIZENS CARE",
-      titleAccent: "FULL FREEDOM & VITALITY PANEL",
-      subtitle: "Comprehensive Heart, Bone, Diabetes & Kidney Screening",
-      subtitleAccent: "Free Home Blood Sample Collection for Elders",
-      description: "Specially curated diagnostic parameters to keep your parents & grandparents healthy, active, and independent.",
-      cta: "Book Senior Care Checkup",
-      ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
-      ctaSecondary: "Call +91 9964 639 639",
-      ctaSecondaryLink: "tel:+919964639639",
-      image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=1200&auto=format&fit=crop",
-      imageFit: "cover",
-      bgFrom: "#fff7ed", bgTo: "#eff6ff",
-      features: ["Heart & Lipids", "Bone & Joint", "Kidney Function", "Elder Care"],
-      flagAnimation: true,
-    },
-    {
-      badge: "🇮🇳 WOMEN'S HEALTH & METABOLIC FREEDOM 🇮🇳",
-      title: "WOMEN'S WELLNESS FREEDOM",
-      titleAccent: "HORMONE, ANEMIA & THYROID SCREENING",
-      subtitle: "Thyroid, Iron Profile, Vitamin D, Vitamin B12, Calcium & Hormones",
-      subtitleAccent: "Doctor-Reviewed Detailed Clinical Interpretation",
-      description: "Empowering women across Bengaluru with deep metabolic, hormonal, and nutritional clarity.",
-      cta: "Book Women's Screening",
-      ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
+      badge: "HEALTH CHECKUP · 8 ORGAN SYSTEMS",
+      title: "PROTECT YOUR SIBLING'S HEALTH",
+      titleAccent: "PREVENTIVE FULL BODY DIAGNOSTICS",
+      subtitle: "Comprehensive organ screening for heart, liver, kidney, thyroid, blood count & bone minerals.",
+      subtitleAccent: "Only ₹800 · 6-Hour Digital Reports Delivered on WhatsApp",
+      description: "Trusted diagnostic testing by Bengaluru's NABL accredited super speciality laboratory.",
+      cta: "Book Package @ ₹800",
+      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
       ctaSecondary: "View All Packages",
       ctaSecondaryLink: "/packages",
-      image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=1200&auto=format&fit=crop",
-      imageFit: "cover",
-      bgFrom: "#f0fdf4", bgTo: "#fff7ed",
-      features: ["Iron & Anemia", "Thyroid Profile", "Vitamin D & B12", "Hormonal Balance"],
-      flagAnimation: true,
-    },
-    {
-      badge: "🇮🇳 INDEPENDENCE DAY SPECIAL 🇮🇳",
-      title: "QXL FREEDOM 80 HEALTH CHECK",
-      titleAccent: "80 PARAMETERS AT ONLY ₹800",
-      subtitle: "80 Parameters across 8 Major Health Areas · Regular Value ₹5,800 (86% OFF)",
-      subtitleAccent: "🏠 Free Home Sample Collection Available Across Bengaluru",
-      description: "Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11).",
-      cta: "BOOK NOW @ ₹800",
-      ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
-      ctaSecondary: "View Details",
-      ctaSecondaryLink: "/packages",
-      image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=1200&auto=format&fit=crop",
-      imageFit: "cover",
-      bgFrom: "#f0fdf4", bgTo: "#fff7ed",
-      features: ["80 Parameters", "8 Health Areas", "Only ₹800", "Free Home Collection"],
-      flagAnimation: true,
-    },
-    {
-      badge: "🇮🇳 FREEDOM FROM SILENT HEALTH RISKS 🇮🇳",
-      title: "PREVENTIVE HEALTH FREEDOM",
-      titleAccent: "EARLY DIAGNOSTICS SAVE LIVES",
-      subtitle: "Complete Lipid Profile, Fatty Liver Markers & Glycemic Index",
-      subtitleAccent: "Fast 6-Hour Digital Report Delivery on Mobile",
-      description: "Detect hidden health risks before symptoms arise with QXL's NABL-accredited diagnostic precision.",
-      cta: "Book Preventive Screen",
-      ctaLink: "/book?package=QXL%20Freedom%2080%20Health%20Check",
-      ctaSecondary: "Explore AI Reports",
-      ctaSecondaryLink: "/about",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150124/Assets-QXL/legacy-assets/image/doctor_smiling.png",
-      imageFit: "cover",
+      image: "/images/posters/92e65b9b-f53b-497e-8ec7-334f4ea012fa.jpeg",
+      imageFit: "contain",
       bgFrom: "#eff6ff", bgTo: "#f0fdf4",
-      features: ["Fatty Liver Screen", "Lipid Profile", "HbA1c Sugar", "6-Hour Delivery"],
-      flagAnimation: true,
+      features: ["8 Organ Systems", "6-Hour Reports", "Free Home Collection", "₹800 Offer"],
     },
     {
-      badge: "⚡ POPULAR CHECKUP",
-      title: "QUICK FIT PACKAGE",
-      titleAccent: "COMPLETE ESSENTIAL HEALTH CHECK",
-      subtitle: "FBS, HbA1c, LFT, KFT, TSH, Vitamin D, CBC, ESR",
-      subtitleAccent: "Only ₹1,770 · Worth ₹4,696 · Save 62%",
-      description: "Essential preventive screening covering blood count, liver, kidney, blood sugar, and thyroid health.",
-      cta: "Book Quick Fit @ ₹1,770",
-      ctaLink: "/book?package=Quick%20Fit%20Package",
-      ctaSecondary: "View All Packages",
-      ctaSecondaryLink: "/packages",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150124/Assets-QXL/legacy-assets/image/doctor_smiling.png",
-      imageFit: "cover",
-      bgFrom: "#f0fdf4", bgTo: "#fff7ed",
-      features: ["12+ Parameters", "₹1,770 Offer", "Vitamin D Included", "Free Home Collection"],
-      flagAnimation: false,
-    },
-    {
-      badge: "🏠 FREE HOME SAMPLE COLLECTION",
-      title: "24x7 BENGALURU HOME SERVICE",
-      titleAccent: "CERTIFIED PHLEBOTOMIST AT YOUR DOORSTEP",
-      subtitle: "Kengeri, Mysore Road, Yelahanka & All Neighborhoods",
-      subtitleAccent: "Fast 6-Hour Electronic Report Delivery",
-      description: "Safe, sterile, and professional blood collection at your convenient time anywhere in Bengaluru.",
+      badge: "FREE HOME SAMPLE COLLECTION",
+      title: "CHERISHED SIBLING HEALTH CHECK",
+      titleAccent: "DOCTOR-LED LABORATORY TESTING",
+      subtitle: "Sterile doorstep blood sample collection across all areas in Bengaluru by certified phlebotomists.",
+      subtitleAccent: "Special Campaign Price ₹800 (Worth ₹5,800)",
+      description: "Give the gift of good health with quick online booking and accurate same-day digital results.",
       cta: "Book Home Collection",
-      ctaLink: "/home-collection",
+      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
       ctaSecondary: "Call +91 9964 639 639",
       ctaSecondaryLink: "tel:+919964639639",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
-      imageFit: "cover",
+      image: "/images/posters/8a688ccd-573a-4ff7-b6dc-512d8174a0df.jpeg",
+      imageFit: "contain",
       bgFrom: "#f0fdf4", bgTo: "#dcfce7",
-      features: ["Free Home Collection", "NABL Phlebotomists", "6-Hour Reports", "Bengaluru 24x7"],
-      flagAnimation: false,
+      features: ["NABL Phlebotomists", "Bengaluru Doorstep", "₹800 Offer", "Doctor Led"],
+    },
+    {
+      badge: "HAPPY RAKSHA BANDHAN · QXL",
+      title: "CELEBRATE THE BOND OF HEALTH",
+      titleAccent: "COMPREHENSIVE 80 TESTS PACKAGE",
+      subtitle: "All-in-one health checkup designed for men and women across Bengaluru.",
+      subtitleAccent: "Only ₹800 · Limited Time Festive Campaign",
+      description: "Book now to claim your ₹800 exclusive campaign package with free home collection.",
+      cta: "Claim ₹800 Package",
+      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
+      ctaSecondary: "Call +91 9964 639 639",
+      ctaSecondaryLink: "tel:+919964639639",
+      image: "/images/posters/85abf12b-7faf-40ad-a033-b637ca7f8c2c.jpeg",
+      imageFit: "contain",
+      bgFrom: "#fff7ed", bgTo: "#f0fdf4",
+      features: ["80 Parameters", "₹800 Special Price", "Free Home Collection", "NABL Accredited"],
+    },
+    {
+      badge: "FESTIVE CAMPAIGN · UPTO 50% OFF",
+      title: "RAKSHA BANDHAN SPECIAL OFFER",
+      titleAccent: "COMPLETE SIBLING HEALTH SCREENING",
+      subtitle: "Comprehensive 80 parameters screening covering blood count, diabetes, liver, kidney, thyroid & bone health.",
+      subtitleAccent: "Special ₹800 Offer · Free Home Collection Included",
+      description: "Surprise your sibling with the gift of health and complete peace of mind this festive season.",
+      cta: "Book Package @ ₹800",
+      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
+      ctaSecondary: "Call +91 9964 639 639",
+      ctaSecondaryLink: "tel:+919964639639",
+      image: "/images/posters/03960ebd-40e9-4efb-9b7e-38577ef50d5f.jpeg",
+      imageFit: "contain",
+      bgFrom: "#fff7ed", bgTo: "#f0fdf4",
+      features: ["80 Parameters", "50% Off", "Free Home Collection", "Same Day Report"],
+    },
+    {
+      badge: "COMPREHENSIVE DIAGNOSTICS · BENGALURU",
+      title: "SIBLING HEALTH SCREENING PANEL",
+      titleAccent: "PREVENTIVE FULL BODY CHECKUP",
+      subtitle: "Includes CBC, Fasting Sugar, HbA1c, Lipid Profile, Liver Panel, Kidney Panel, Thyroid Profile, Bone & Urinary Markers.",
+      subtitleAccent: "Festive Offer ₹800 Only (Worth ₹5,800)",
+      description: "Doctor-reviewed reports delivered straight to your mobile within 6 hours of sample collection.",
+      cta: "Book Package @ ₹800",
+      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
+      ctaSecondary: "View Details",
+      ctaSecondaryLink: "/raksha-bandhan-health-checkup-bangalore",
+      image: "/images/posters/b2daa5d0-9f39-4111-91fd-e6cb54ef816f.jpeg",
+      imageFit: "contain",
+      bgFrom: "#eff6ff", bgTo: "#f0fdf4",
+      features: ["8 Organ Systems", "₹800 Offer", "NABL Accredited", "6-Hour Delivery"],
+    },
+    {
+      badge: "DOCTOR-LED SUPER SPECIALITY LAB",
+      title: "NABL ACCREDITED DIAGNOSTIC CARE",
+      titleAccent: "PRECISION BLOOD & PATHOLOGY TESTING",
+      subtitle: "State-of-the-art laboratory testing backed by senior consultant pathologists and microbiologists.",
+      subtitleAccent: "Free Home Collection Available Across All Areas in Bengaluru",
+      description: "Trusted by thousands of families and clinicians across Bengaluru for ultra-precise diagnostic testing.",
+      cta: "Book a Test Now",
+      ctaLink: "/book",
+      ctaSecondary: "Call +91 9964 639 639",
+      ctaSecondaryLink: "tel:+919964639639",
+      image: "/images/posters/e630d3d6-7600-4a93-a304-02c0b772dfe9.jpeg",
+      imageFit: "contain",
+      bgFrom: "#f0fdf4", bgTo: "#eff6ff",
+      features: ["NABL Certified", "Doctor Reviewed", "24x7 Diagnostics", "Bengaluru Home Collection"],
+    },
+    {
+      badge: "SPECIAL RAKSHA BANDHAN CELEBRATION",
+      title: "GIFT THE BOND OF HEALTH",
+      titleAccent: "80 HEALTH PARAMETERS SCREENING",
+      subtitle: "Complete blood profile, diabetes impact, heart risk, liver function, kidney health, thyroid & bone minerals.",
+      subtitleAccent: "Festive Campaign Price ₹800 (Worth ₹5,800)",
+      description: "Celebrate Raksha Bandhan with Bengaluru's most trusted super speciality diagnostic laboratory.",
+      cta: "Book Package @ ₹800",
+      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
+      ctaSecondary: "Call +91 9964 639 639",
+      ctaSecondaryLink: "tel:+919964639639",
+      image: "/images/posters/Gemini_Generated_Image_ft6c59ft6c59ft6c.png",
+      imageFit: "contain",
+      bgFrom: "#fff7ed", bgTo: "#f0fdf4",
+      features: ["80 Parameters", "Save ₹5,000", "Free Home Collection", "Doctor Verified"],
     },
   ];
 
@@ -942,7 +968,7 @@ export default function Home() {
   const handlePrev = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   const handleNext = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const activeSlide: any = slides[currentSlide];
+  const activeSlide: any = slides[currentSlide % (slides.length || 1)] || slides[0] || {};
 
   const bodyOrgans = [
     { name: "Heart", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png" },
@@ -978,7 +1004,7 @@ export default function Home() {
                   transition={{ duration: 1.0 }}
                   className="absolute inset-0 w-full h-full flex flex-col md:flex-row"
                 >
-                  {activeSlide.imageOnly ? (
+                  {activeSlide?.imageOnly ? (
                     <React.Fragment>
                       {/* Full-width Indian tricolour stripe — spans entire slide top */}
                       <div className="absolute top-0 left-0 right-0 h-[4px] flex z-30 pointer-events-none">
@@ -998,35 +1024,28 @@ export default function Home() {
                         {/* Saffron left accent bar */}
                         <div className="absolute left-0 top-8 bottom-8 w-[3px] rounded-full" style={{ background: 'linear-gradient(to bottom, #FF9933, #138808)' }} />
 
-                        <span className="inline-flex items-center gap-1.5 bg-[#FF9933] text-white text-[9px] font-black px-3 py-1 rounded-full tracking-widest uppercase mb-4 w-fit shadow-md">
-                          🇮🇳 INDEPENDENCE DAY SPECIAL
+                        <span className="inline-flex items-center gap-1.5 bg-[#2563eb] text-white text-[9px] font-black px-3 py-1 rounded-full tracking-widest uppercase mb-4 w-fit shadow-md">
+                          DIAGNOSTIC HEALTH CHECKUPS
                         </span>
 
                         <h2 className="text-[28px] leading-[1.12] font-black mb-2" style={{ color: '#0f2d5e' }}>
-                          QXL Freedom 80
+                          QXL Diagnostics
                           <br />
-                          <span style={{ color: '#138808' }}>Health Check</span>
+                          <span style={{ color: '#2563eb' }}>Health Checkups</span>
                         </h2>
 
-                        <p className="text-[12px] font-extrabold mb-1" style={{ color: '#FF9933' }}>
-                          80 Parameters · Only ₹800 (Worth ₹5,800)
+                        <p className="text-[12px] font-extrabold mb-1" style={{ color: '#0284c7' }}>
+                          NABL Accredited · Doctor Verified
                         </p>
                         <p className="text-[11px] text-slate-500 font-medium mb-5 leading-snug">
                           🏠 Free Home Collection &nbsp;·&nbsp; NABL Accredited &nbsp;·&nbsp; 6-hr Reports
                         </p>
 
-                        <div className="flex items-baseline gap-2 mb-6">
-                          <span className="text-[38px] font-black leading-none" style={{ color: '#138808' }}>₹800</span>
-                          <span className="text-[13px] text-slate-400 line-through font-medium">₹5,800</span>
-                          <span className="text-white text-[8px] font-black px-2 py-0.5 rounded-full" style={{ background: '#FF9933' }}>86% OFF</span>
-                        </div>
-
                         <a
-                          href={activeSlide.ctaLink || '/book?package=QXL%20Freedom%2080%20Health%20Check'}
-                          className="w-fit text-white font-black px-7 py-3 rounded-full text-[12px] uppercase tracking-wider shadow-lg hover:shadow-xl active:scale-95 transition-all"
-                          style={{ background: 'linear-gradient(135deg, #FF9933 0%, #e67e00 100%)' }}
+                          href={activeSlide.ctaLink || '/book'}
+                          className="w-fit text-white font-black px-7 py-3 rounded-full text-[12px] uppercase tracking-wider shadow-lg hover:shadow-xl active:scale-95 transition-all bg-[#2563eb] hover:bg-blue-700"
                         >
-                          BOOK NOW @ ₹800 →
+                          BOOK A TEST NOW →
                         </a>
                       </motion.div>
 
@@ -1050,34 +1069,33 @@ export default function Home() {
                     </React.Fragment>
                   ) : (
                     <React.Fragment>
-                      {/* Decorative blobs */}
-                      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-amber-500/8 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-                      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-emerald-500/8 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+                      {/* Decorative Festive Background */}
+                      <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-amber-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+                      <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-emerald-500/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
 
                       {/* Content — left side */}
                       <motion.div
-                        initial={{ opacity: 0, x: -30 }}
+                        initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        transition={{ duration: 0.3 }}
                         className="w-full md:w-[55%] px-8 md:px-12 py-8 h-full flex flex-col justify-center z-20 relative text-left overflow-hidden"
                       >
                         {/* Badge */}
                         <div className="flex flex-wrap items-center gap-2 mb-3">
-                          <span className="inline-block bg-[#FF9933] text-white text-[9px] font-black px-3 py-1 rounded-full tracking-widest uppercase shadow-md border border-orange-300 truncate max-w-[90%]">
-                            {activeSlide.badge}
+                          <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 text-[9px] font-black px-3.5 py-1.5 rounded-full tracking-widest uppercase shadow-md border border-amber-300 truncate max-w-[90%]">
+                            <span>{activeSlide.badge}</span>
                           </span>
-                          {activeSlide.flagAnimation && !countdown.expired && (
-                            <span className="bg-emerald-50 text-emerald-700 border border-emerald-300 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider animate-pulse flex items-center gap-1 shrink-0">
-                              ⏰ Offer Ends: {countdown.d}d {countdown.h}h {countdown.m}m {countdown.s}s
-                            </span>
-                          )}
+
+                          <span className="inline-flex items-center gap-1 bg-emerald-50 border border-emerald-300 text-emerald-800 text-[9.5px] font-black px-2.5 py-0.5 rounded-full shadow-xs">
+                            FESTIVE SPECIAL @ ₹800
+                          </span>
                         </div>
 
                         {/* Title — single compact block */}
                         <h2 className="text-[22px] md:text-[28px] leading-[1.15] font-black text-[#0f2d5e] mb-1 pr-4">
                           {activeSlide.title}
                         </h2>
-                        <p className="text-[16px] md:text-[20px] leading-[1.2] font-extrabold text-[#138808] mb-2 pr-4">
+                        <p className="text-[16px] md:text-[20px] leading-[1.2] font-extrabold text-[#2563eb] mb-2 pr-4">
                           {activeSlide.titleAccent}
                         </p>
 
@@ -1093,7 +1111,7 @@ export default function Home() {
                               key={f}
                               className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border ${
                                 i % 3 === 0
-                                  ? "bg-amber-50 border-amber-300 text-amber-800"
+                                  ? "bg-blue-50 border-blue-300 text-blue-800"
                                   : i % 3 === 1
                                   ? "bg-sky-50 border-sky-300 text-sky-800"
                                   : "bg-emerald-50 border-emerald-300 text-emerald-800"
@@ -1108,60 +1126,35 @@ export default function Home() {
                         <div className="flex flex-wrap items-center gap-2 mb-3">
                           <Link
                             href={activeSlide.ctaLink}
-                            className="bg-[#FF9933] hover:bg-orange-500 text-white font-black px-5 py-2.5 rounded-full text-[12px] shadow-md hover:shadow-lg active:scale-95 transition-all uppercase tracking-wide"
+                            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-2.5 rounded-full text-[12px] shadow-md hover:shadow-lg active:scale-95 transition-all uppercase tracking-wide border border-amber-200"
                           >
-                            {activeSlide.cta}
+                            <span className="flex items-center gap-1.5">
+                              <span>{activeSlide.cta}</span>
+                              <span className="text-sm">→</span>
+                            </span>
                           </Link>
-                          {activeSlide.freedom80Card !== true && (
-                            <a
-                              href={activeSlide.ctaSecondaryLink}
-                              className="bg-white hover:bg-slate-50 text-slate-700 font-bold px-4 py-2.5 rounded-full text-[11px] uppercase tracking-wide border border-emerald-300/80 shadow-sm transition-all"
-                            >
-                              {activeSlide.ctaSecondary}
-                            </a>
-                          )}
+                          <a
+                            href={activeSlide.ctaSecondaryLink}
+                            className="bg-white hover:bg-slate-50 text-slate-700 font-bold px-4 py-2.5 rounded-full text-[11px] uppercase tracking-wide border border-blue-300/80 shadow-sm transition-all"
+                          >
+                            {activeSlide.ctaSecondary}
+                          </a>
                         </div>
-
-                        {/* Freedom 80 Package Mini-Card — only on first slide */}
-                        {activeSlide.freedom80Card === true && (
-                          <div className="bg-white/90 border border-amber-200 rounded-xl px-3 py-2.5 shadow-sm flex items-center gap-3 max-w-[360px]">
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-1.5 mb-0.5">
-                                <span className="bg-amber-100 text-amber-700 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">MOST BOOKED</span>
-                                <span className="bg-emerald-100 text-emerald-700 text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider">86% OFF</span>
-                              </div>
-                              <p className="text-[#0f2d5e] font-black text-[11px] truncate">QXL Freedom 80 · 80 Parameters</p>
-                              <div className="flex items-baseline gap-1.5 mt-0.5">
-                                <span className="text-emerald-600 font-black text-base">₹800</span>
-                                <span className="text-slate-400 text-[10px] line-through">₹5,800</span>
-                                <span className="text-slate-500 text-[9px]">· Free Home Collection</span>
-                              </div>
-                            </div>
-                            <Link
-                              href="/book?package=QXL%20Freedom%2080%20Health%20Check"
-                              className="bg-[#2563eb] hover:bg-blue-700 text-white font-black px-3 py-2 rounded-lg text-[10px] uppercase tracking-wide shadow-md transition-all active:scale-95 whitespace-nowrap flex-shrink-0"
-                            >
-                              BOOK NOW
-                            </Link>
-                          </div>
-                        )}
 
                       </motion.div>
 
-                      {/* Image — right side, flush panel */}
+                      {/* Image — right side, flush 50% alignment */}
                       <motion.div
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
-                        className="absolute top-0 right-0 bottom-0 w-[45%] overflow-hidden z-10"
+                        transition={{ duration: 0.3 }}
+                        className="absolute top-0 right-0 bottom-0 w-[50%] h-full z-10 flex items-center justify-center p-1.5 pointer-events-none overflow-hidden rounded-r-3xl"
                       >
                         <img
                           src={activeSlide.image}
                           alt={activeSlide.title}
-                          className="w-full h-full object-cover object-center"
+                          className="w-full h-full object-contain object-center rounded-2xl"
                         />
-                        {/* Soft left fade so text doesn't clash */}
-                        <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white/40 to-transparent pointer-events-none" />
                       </motion.div>
                     </React.Fragment>
                   )}
@@ -1256,7 +1249,7 @@ export default function Home() {
 
 
 
-        {/* ── 24x7 Diagnostic Lab Banner (Independence Day Theme) ── */}
+        {/* ── 24x7 Diagnostic Lab Banner ── */}
         <section className="py-8 z-30 relative">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div className="rounded-[28px] overflow-hidden shadow-xl border border-white/50 relative bg-gradient-to-r from-[#FF9933]/10 via-white to-[#138808]/10 p-8 md:p-12">
@@ -1266,19 +1259,19 @@ export default function Home() {
               
               <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
                 <div className="flex-1 text-left">
-                  <span className="inline-block bg-[#000080] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3.5 shadow-sm">
+                  <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3.5 shadow-sm">
                     24×7 DIAGNOSTIC SERVICES
                   </span>
                   <h2 className="text-[28px] md:text-[38px] leading-[1.1] font-extrabold text-[#0b132b] mb-2">
-                    India's Independence Day
+                    NABL Accredited Diagnostics
                   </h2>
-                  <h3 className="text-[22px] md:text-[28px] leading-[1.2] font-extrabold text-[#FF9933] mb-4">
+                  <h3 className="text-[22px] md:text-[28px] leading-[1.2] font-extrabold text-[#2563eb] mb-4">
                     Doctor-Led Diagnostic Lab in Bengaluru
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                     {["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"].map(service => (
                       <div key={service} className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-[#138808]" />
+                        <CheckCircle className="w-5 h-5 text-emerald-600" />
                         <span className="text-slate-700 font-bold text-sm">{service}</span>
                       </div>
                     ))}
@@ -1287,7 +1280,7 @@ export default function Home() {
                     Available at all QXL centres & partner facilities across Bengaluru.
                   </p>
                   <div className="flex flex-wrap items-center gap-4">
-                    <a href="tel:+919964639639" className="bg-[#FF9933] text-white font-black px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm uppercase tracking-widest flex items-center gap-2 border border-white/40">
+                    <a href="tel:+919964639639" className="bg-[#2563eb] text-white font-black px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm uppercase tracking-widest flex items-center gap-2 border border-white/40">
                       Call +91 9964 639 639
                     </a>
                     <a href="https://www.qxldiagnostics.com" target="_blank" rel="noreferrer" className="text-[#000080] font-bold text-sm hover:underline">
@@ -1344,7 +1337,7 @@ export default function Home() {
                         <span className="bg-[#2563eb] text-white px-3 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase">{pkg.tag || "PACKAGE"}</span>
                       )}
                     </div>
-                    <span className="bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7] px-3 py-1 rounded-full text-[10px] font-extrabold">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
+                    <span className="bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7] px-3 py-1 rounded-full text-[10px] font-extrabold">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || pkg.originalPrice || 5800)) * 100)}% OFF</span>
                   </div>
 
                   {/* Card Body */}
@@ -1370,8 +1363,8 @@ export default function Home() {
                     {/* Pricing */}
                     <div className="flex items-baseline gap-2 mb-4">
                       <span className="text-xl font-extrabold text-slate-900">₹{pkg.price}</span>
-                      <span className="text-xs text-slate-400 line-through font-semibold">₹{pkg.old_price}</span>
-                      <span className="text-[11px] font-extrabold text-[#16a34a]">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF</span>
+                      <span className="text-xs text-slate-400 line-through font-semibold">₹{pkg.old_price || pkg.original_price || pkg.originalPrice || "5800"}</span>
+                      <span className="text-[11px] font-extrabold text-[#16a34a]">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || pkg.originalPrice || 5800)) * 100)}% OFF</span>
                     </div>
 
                     {/* Buttons */}
@@ -1405,11 +1398,11 @@ export default function Home() {
             {[1, 2].map((repeatKey) => (
               <React.Fragment key={repeatKey}>
                 <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  🇮🇳 INDEPENDENCE DAY SPECIAL
+                  NABL ACCREDITED LAB
                 </span>
                 <span className="text-emerald-200 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
-                  QXL FREEDOM 80 · 80 PARAMETERS · <span className="text-amber-200 font-black underline decoration-2">ONLY ₹800</span>
+                  DOCTOR-LED DIAGNOSTICS &amp; 300+ TEST PANELS
                 </span>
                 <span className="text-emerald-200 font-bold shrink-0">•</span>
 
@@ -1471,12 +1464,14 @@ export default function Home() {
               {/* Right Column: Booking Widget */}
               <div className="lg:col-span-5 relative">
                 {/* Add a subtle highlight behind the form */}
-                <div className="absolute inset-0 bg-blue-100/50 blur-2xl transform scale-105 rounded-[3rem] -z-10"></div>
                 <QuickBookingForm formState={formState} setFormState={setFormState} handleContactSubmit={handleContactSubmit} formStatus={formStatus} />
               </div>
             </div>
           </div>
         </section>
+
+        {/* ── Raksha Bandhan Festive Offer Section ── */}
+        <RakshaOfferCard onOpenBooking={(title) => setSelectedPackage({ name: title || "Raksha Bandhan Special Health Checkup", price: "800", old_price: "5800", includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary (21)" })} />
 
         {/* ── Speciality Tests ── */}
         <section className="py-14 bg-gradient-to-b from-transparent to-blue-50/50 border-t border-blue-100">
@@ -1707,7 +1702,7 @@ export default function Home() {
       <div className="lg:hidden flex flex-col w-full overflow-x-hidden">
 
 
-        {/* Mobile Hero Slider */}
+        {/* Mobile Hero Slider — Uncropped Full Poster + Stacked Offer Card */}
         <section className="w-full bg-transparent pb-2">
           <div 
             className="relative w-full overflow-hidden"
@@ -1719,89 +1714,74 @@ export default function Home() {
                 key={idx}
                 className={`transition-opacity duration-500 ${idx === currentMobileSlide ? 'block' : 'hidden'}`}
               >
-                {slide.imageOnly ? (
-                  <div className="mx-3 mt-2 rounded-2xl overflow-hidden shadow-md relative h-[220px]">
-                    <Image
+                <div className="mx-3 mt-2 rounded-2xl overflow-hidden flex flex-col border border-amber-200/80 shadow-md bg-gradient-to-br from-amber-50/90 via-white to-emerald-50/60 p-3">
+                  {/* Top: Poster Image — 100% full width, uncropped */}
+                  <div className="w-full h-[200px] sm:h-[230px] relative rounded-xl overflow-hidden bg-white/70 shadow-inner flex items-center justify-center p-1 border border-slate-100">
+                    <img
                       src={slide.image}
                       alt={slide.title}
-                      fill
-                      className="object-cover"
-                      sizes="100vw"
-                      priority={idx === 0}
+                      className="w-full h-full object-contain object-center rounded-lg"
                     />
-                    {/* Book Now overlay */}
-                    <a
-                      href={slide.ctaLink || '/book?package=QXL%20Freedom%2080%20Health%20Check'}
-                      className="absolute bottom-3 right-3 bg-[#FF9933] text-white font-black px-4 py-1.5 rounded-full text-[10px] uppercase tracking-wide shadow-md active:scale-95 transition-all z-20"
-                    >
-                      BOOK NOW @ ₹800
-                    </a>
                   </div>
-                ) : (
-                  /* Content slides — text left, image right */
-                  <div
-                    className="mx-3 mt-2 rounded-2xl overflow-hidden flex flex-row items-stretch border border-amber-200/60 shadow-md"
-                    style={{
-                      minHeight: '260px',
-                      background: 'linear-gradient(135deg, #fff7ed 0%, #ffffff 50%, #f0fdf4 100%)'
-                    }}
-                  >
-                    {/* Left: Text Content */}
-                    <div className="flex-1 flex flex-col justify-center px-4 py-4 z-10 text-left">
-                      {slide.badge && (
-                        <div className="flex flex-col gap-1 mb-1.5 w-fit">
-                          <span className="inline-block bg-[#f97316] text-white text-[8px] font-black px-2 py-0.5 rounded-full tracking-widest uppercase border border-orange-300 shadow-xs">
-                            {slide.badge}
-                          </span>
-                          {slide.flagAnimation && !countdown.expired && (
-                            <span className="inline-block bg-emerald-50 text-emerald-700 border border-emerald-300 text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse whitespace-nowrap">
-                              ⏰ Ends: {countdown.d}d {countdown.h}h {countdown.m}m {countdown.s}s
-                            </span>
-                          )}
-                        </div>
-                      )}
-                      <p className="text-[14px] font-black text-[#0f2d5e] leading-tight mb-0.5">
-                        {slide.title}
+
+                  {/* Bottom: Offer Details & CTA */}
+                  <div className="flex flex-col gap-1 text-left mt-1">
+                    <div className="flex flex-wrap items-center justify-between gap-1 mb-0.5">
+                      <span className="inline-block bg-[#f97316] text-white text-[8.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
+                        {slide.badge}
+                      </span>
+                      <span className="text-[9px] font-extrabold text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded-full border border-emerald-200">
+                        ₹800 FESTIVE OFFER
+                      </span>
+                    </div>
+
+                    <h3 className="text-[14px] font-black text-[#0f2d5e] leading-tight">
+                      {slide.title}
+                    </h3>
+                    <p className="text-[11px] font-extrabold text-[#2563eb] leading-tight">
+                      {slide.titleAccent}
+                    </p>
+
+                    {slide.subtitle && (
+                      <p className="text-[10px] text-slate-600 font-medium line-clamp-2 mt-0.5">
+                        {slide.subtitle}
                       </p>
-                      {slide.titleAccent && (
-                        <p className="text-[14px] font-black text-[#0f2d5e] leading-tight mb-1">
-                          {slide.titleAccent}
-                        </p>
-                      )}
-                      {slide.subtitle && (
-                        <p className="text-[10px] font-bold text-slate-700 mb-0.5">{slide.subtitle}</p>
-                      )}
-                      {slide.subtitleAccent && (
-                        <p className="text-[10px] font-black text-[#0284c7] mb-2">{slide.subtitleAccent}</p>
-                      )}
-                      {slide.cta && (
-                        <Link
-                          href={slide.ctaLink}
-                          className="inline-block bg-[#2563eb] text-white font-black px-4 py-1.5 rounded-full text-[10px] w-fit mt-1 shadow-md active:scale-95 transition-transform uppercase tracking-wider"
-                        >
-                          {slide.cta}
-                        </Link>
-                      )}
-                    </div>
-                    {/* Right: Image */}
-                    <div className="w-[125px] flex-shrink-0 relative overflow-hidden rounded-r-2xl bg-white/20">
-                      <Image
-                        src={slide.image}
-                        alt={slide.title}
-                        fill
-                        sizes="125px"
-                        className="object-cover object-center"
-                        style={{ imageRendering: 'auto' }}
-                        priority={idx === 0}
-                      />
+                    )}
+
+                    {/* Action buttons */}
+                    <div className="flex items-center gap-2 mt-2">
+                      <Link
+                        href={slide.ctaLink || '/raksha-bandhan-health-checkup-bangalore'}
+                        className="flex-1 bg-[#2563eb] text-white font-black py-2.5 rounded-full text-[11px] text-center uppercase tracking-wide shadow-md active:scale-95 transition-all"
+                      >
+                        {slide.cta || "Book Package @ ₹800"}
+                      </Link>
+                      <a
+                        href="tel:+919964639639"
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-4 py-2.5 rounded-full text-[11px] text-center shadow-md active:scale-95 transition-all flex items-center justify-center gap-1 shrink-0"
+                      >
+                        <span>CALL</span>
+                      </a>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Dots removed as requested */}
+          {/* Dots Indicator for Mobile Slider */}
+          <div className="flex justify-center items-center gap-1.5 mt-2.5">
+            {mobileSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentMobileSlide(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  i === currentMobileSlide ? 'w-5 bg-[#2563eb]' : 'w-1.5 bg-slate-300'
+                }`}
+              />
+            ))}
+          </div>
         </section>
 
         {/* ── NEW MOBILE Action Grid (Agilus Style 2x2) ── */}
@@ -1863,7 +1843,7 @@ export default function Home() {
           {/* Featured Full Body Checkups Pill Card (Agilus style) */}
           <div className="px-4 mb-3">
             <Link
-              href="/book?package=QXL%20Freedom%2080%20Health%20Check"
+              href="/packages"
               className="w-full bg-[#f8fafc] hover:bg-slate-100 border border-slate-200 rounded-2xl p-3.5 flex items-center justify-between shadow-xs transition-all"
             >
               <div className="flex items-center gap-3">
@@ -1872,7 +1852,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-black text-[#0f2d5e] text-sm">Full Body Checkups</span>
-                  <span className="text-[10px] text-slate-500 font-bold">80 Parameters @ ₹800</span>
+                  <span className="text-[10px] text-slate-500 font-bold">Comprehensive Wellness Packages</span>
                 </div>
               </div>
               <span className="bg-[#2563eb] text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-xs">
@@ -1923,11 +1903,9 @@ export default function Home() {
                     )}
                     {pkg.tag || 'PACKAGE'}
                   </span>
-                  {pkg.old_price && (
-                    <span className="text-[10px] font-extrabold text-[#2563eb] bg-white px-2.5 py-1 rounded-full shadow-sm">
-                      {Math.round((1 - Number(pkg.price) / Number(pkg.old_price)) * 100)}% OFF
-                    </span>
-                  )}
+                  <span className="text-[10px] font-extrabold text-[#2563eb] bg-white px-2.5 py-1 rounded-full shadow-sm">
+                    {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || pkg.originalPrice || 5800)) * 100)}% OFF
+                  </span>
                 </div>
 
                 {/* Card body */}
@@ -2031,11 +2009,11 @@ export default function Home() {
                 <span className="text-emerald-200 font-bold shrink-0">•</span>
 
                 <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  🇮🇳 INDEPENDENCE DAY SPECIAL
+                  NABL ACCREDITED LAB
                 </span>
                 <span className="text-emerald-200 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
-                  QXL FREEDOM 80 · 80 PARAMETERS · <span className="text-amber-200 font-black underline decoration-2">ONLY ₹800</span>
+                  DOCTOR-LED DIAGNOSTICS &amp; 300+ TEST PANELS
                 </span>
                 <span className="text-emerald-200 font-bold shrink-0">•</span>
 
@@ -2291,9 +2269,9 @@ export default function Home() {
             <div className="p-6 space-y-4 overflow-y-auto flex-1">
               <div className="flex items-baseline gap-3 bg-sky-50/70 p-4 rounded-2xl border border-sky-100">
                 <span className="text-3xl font-black text-slate-900">₹{selectedPackage.price}</span>
-                <span className="text-sm text-slate-400 line-through">₹{selectedPackage.old_price}</span>
+                <span className="text-sm text-slate-400 line-through">₹{selectedPackage.old_price || selectedPackage.original_price || selectedPackage.originalPrice || "5800"}</span>
                 <span className="bg-emerald-100 text-emerald-700 text-xs font-extrabold px-3 py-1 rounded-full">
-                  Save ₹{Number(selectedPackage.old_price) - Number(selectedPackage.price)} ({Math.round((1 - Number(selectedPackage.price) / Number(selectedPackage.old_price)) * 100)}% OFF)
+                  Save ₹{Number(selectedPackage.old_price || selectedPackage.original_price || selectedPackage.originalPrice || 5800) - Number(selectedPackage.price)} ({Math.round((1 - Number(selectedPackage.price) / Number(selectedPackage.old_price || selectedPackage.original_price || selectedPackage.originalPrice || 5800)) * 100)}% OFF)
                 </span>
               </div>
 

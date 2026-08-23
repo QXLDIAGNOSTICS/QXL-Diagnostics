@@ -106,29 +106,31 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
     category: "Preventive Health Packages"
   },
   "cbc-test-bangalore": {
-    title: "CBC Test in Bangalore | Complete Blood Count | QXL Diagnostics",
+    title: "CBC Test in Bangalore | Complete Blood Count & Home Collection | QXL",
     h1Title: "CBC – Complete Blood Count Test in Bangalore",
-    subtitle: "Measures red blood cells, white blood cells, haemoglobin, hematocrit, and platelets to evaluate overall health, anaemia, infection, and immunity.",
-    price: "395",
-    oldPrice: "527",
-    discountPercent: "25% OFF",
-    parametersCount: "24 Parameters",
-    sampleType: "EDTA Whole Blood",
-    fastingRequired: "No fasting required for CBC test.",
-    turnaroundTime: "Same Day (6 Hours)",
+    subtitle: "Measures red blood cells, white blood cells, haemoglobin, hematocrit, differential count, and platelets to evaluate overall health, anaemia, infection, and immunity.",
+    price: "350",
+    oldPrice: "500",
+    discountPercent: "30% OFF",
+    parametersCount: "24 Parameters (RBC, WBC, Differential, Platelets, Indices)",
+    sampleType: "EDTA Whole Blood (K2/K3 EDTA)",
+    fastingRequired: "No fasting required for CBC test alone.",
+    turnaroundTime: "Same Day (4–6 Hours)",
     overview: [
-      "A Complete Blood Count, commonly called CBC, is one of the most frequently requested blood investigations. It measures and characterises the major cellular components of blood: red blood cells, white blood cells and platelets.",
-      "CBC testing provides useful information when investigating anaemia, infections, inflammatory conditions, abnormal bleeding, fatigue, fever and general health status."
+      "A Complete Blood Count (CBC) is the cornerstone haematological investigation performed on EDTA whole blood using automated 5-part differential cell counters.",
+      "Measures Haemoglobin (Hb), Total RBC Count, Hematocrit (HCT/PCV), Red Cell Indices (MCV, MCH, MCHC, RDW), Total Leukocyte Count (TLC), 5-part Differential WBC Count (Neutrophils, Lymphocytes, Monocytes, Eosinophils, Basophils), and Absolute Platelet Count.",
+      "Peripheral blood smear morphology examination is performed whenever automated flags indicate cell atypia, severe leucopenia/thrombocytopenia, or abnormal blasts."
     ],
     whyImportant: [
-      "Evaluates haemoglobin levels to screen for anaemia.",
-      "Identifies white blood cell variations indicating infection or inflammation.",
-      "Monitors platelet counts essential for normal blood clotting."
+      "Evaluates haemoglobin and red cell indices to diagnose microcytic, normocytic, or macrocytic anaemia.",
+      "Identifies leukocytosis or leukopenia indicative of acute bacterial/viral infections, inflammation, or bone marrow disorders.",
+      "Monitors platelet counts critical for fever workups (e.g., Dengue) and bleeding risks.",
+      "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
     faqs: [
-      { question: "What is a CBC test?", answer: "A CBC measures haemoglobin, RBCs, WBCs, and platelets in EDTA whole blood." },
-      { question: "Does CBC detect anaemia?", answer: "Yes, haemoglobin and red blood cell indices (MCV, MCH, MCHC) help evaluate anaemia." },
-      { question: "Does CBC require fasting?", answer: "No, fasting is not required for a CBC test." }
+      { question: "What parameters are included in a CBC test?", answer: "A CBC includes 24 parameters: Haemoglobin, RBC Count, PCV/HCT, MCV, MCH, MCHC, RDW, Total WBC Count, 5-part Differential (Neutrophils, Lymphocytes, Monocytes, Eosinophils, Basophils), and Platelet Count." },
+      { question: "Does CBC require fasting?", answer: "No, fasting is NOT required for a CBC blood draw." },
+      { question: "When is a peripheral blood smear needed with a CBC?", answer: "A peripheral blood smear is performed when automated cell counters detect abnormal cell morphology, immature blood cells, or significant cell count abnormalities." }
     ],
     category: "Haematology Diagnostics"
   },

@@ -18,33 +18,34 @@ import InstallPrompt from './InstallPrompt';
 const FALLBACK_LOGO =
   "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
 
-// Countdown to August 27, 2026 11:59:59 PM IST
-function useCountdown() {
-  const target = new Date('2026-08-27T23:59:59+05:30').getTime();
-  const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0, expired: false });
+import { getActiveCampaign } from '../lib/campaignScheduler';
+
+function useHeaderCountdown() {
+  const target = useRef(new Date('2026-08-31T23:59:59+05:30').getTime()).current;
+  const [timeLeft, setTimeLeft] = useState({ d: 7, h: 0, m: 0, s: 0 });
+
   useEffect(() => {
     const tick = () => {
-      const now = Date.now();
-      const diff = target - now;
-      if (diff <= 0) { setTimeLeft({ d: 0, h: 0, m: 0, s: 0, expired: true }); return; }
+      const diff = Math.max(0, target - Date.now());
       setTimeLeft({
         d: Math.floor(diff / 86400000),
         h: Math.floor((diff % 86400000) / 3600000),
         m: Math.floor((diff % 3600000) / 60000),
         s: Math.floor((diff % 60000) / 1000),
-        expired: false
       });
     };
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, []);
+  }, [target]);
+
   return timeLeft;
 }
 
 export default function Header() {
   const pathname = usePathname();
   const { user } = useAuth();
+  const countdown = useHeaderCountdown();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [location, setLocation] = useState("Bengaluru");
@@ -52,7 +53,7 @@ export default function Header() {
   const [isMounted, setIsMounted] = useState(false);
   const locationMenuRef = useRef<HTMLDivElement>(null);
 
-  const countdown = useCountdown();
+  const activeCampaign = getActiveCampaign();
 
   const [branches, setBranches] = useState<any[]>([]);
   const [expandedCity, setExpandedCity] = useState<string | null>("Bengaluru");
@@ -159,7 +160,6 @@ export default function Header() {
 
   const defaultNavItems = [
     { label: "Home", href: "/", visible: true },
-    { label: "🇮🇳 Freedom 80 Offer", href: "/#freedom80-section", visible: true },
     { label: "Doctor-Led Lab", href: "/doctor-led-diagnostic-lab-bengaluru", visible: true },
     { label: "About Us", href: "/about", visible: true },
     { label: "Our Specialities", href: "/specialities", visible: true },
@@ -224,62 +224,33 @@ export default function Header() {
           boxShadow: '0 8px 40px rgba(255, 153, 51, 0.10), 0 1px 0 rgba(255,255,255,0.9) inset, 0 -1px 0 rgba(19, 136, 8, 0.15) inset'
         }}
       >
-        {/* Top Announcement Bar — Desktop */}
-        <div className="hidden lg:flex bg-emerald-600 text-white text-[11px] font-black py-2 px-3 items-center justify-center relative overflow-hidden z-20">
-          <div className="flex flex-row items-center justify-center gap-3 max-w-[1400px] mx-auto w-full flex-wrap">
-            
-            {/* Badges & Offer */}
-            <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">
-              🇮🇳 INDEPENDENCE DAY SPECIAL
+        {/* Top Announcement Bar — Desktop (Green Container with Live Countdown & Shimmer) */}
+        <div className="hidden lg:flex bg-gradient-to-r from-[#138808] via-[#15803d] to-[#138808] text-white text-[11px] font-black py-2 px-3 items-center justify-center relative overflow-hidden z-20 shadow-xs border-b border-emerald-600/30">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-sweep pointer-events-none" />
+          <div className="flex flex-row items-center justify-center gap-3 max-w-[1400px] mx-auto w-full flex-wrap z-10">
+            <span className="bg-amber-400 text-slate-950 text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs flex items-center gap-1.5 animate-pulse">
+              <svg className="w-3.5 h-3.5 text-slate-950 animate-rakhi-spin" viewBox="0 0 100 100" fill="currentColor">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="4 4" />
+                <circle cx="50" cy="50" r="20" />
+              </svg>
+              <span>RAKSHA BANDHAN OFFER @ ₹800</span>
             </span>
             <span className="text-emerald-200 font-bold shrink-0">•</span>
-            <span className="font-extrabold text-white text-[10px] tracking-wide shrink-0">
-              QXL FREEDOM 80 · 80 PARAMETERS · <span className="text-amber-200 font-black underline decoration-2">ONLY ₹800</span>
+            <span className="bg-black/25 text-amber-300 font-mono text-[10.5px] font-bold px-2.5 py-0.5 rounded-full border border-amber-300/30 shrink-0 shadow-inner">
+              ENDS IN: {countdown.d}d {String(countdown.h).padStart(2, '0')}h {String(countdown.m).padStart(2, '0')}m {String(countdown.s).padStart(2, '0')}s
             </span>
-            <span className="bg-white/15 text-white text-[8px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider shrink-0">SAVE 86%</span>
-
-            <span className="text-emerald-300 font-bold text-[10px] shrink-0">|</span>
-
-            {/* Countdown */}
-            {!countdown.expired && (
-              <div className="flex items-center gap-1 shrink-0">
-                <span className="text-amber-200 text-[9px] font-black uppercase tracking-wider">⏰ LIMITED OFFER ENDS:</span>
-                <div className="flex items-center gap-0.5">
-                  {[{v: countdown.d, l:'D'}, {v: countdown.h, l:'H'}, {v: countdown.m, l:'M'}, {v: countdown.s, l:'S'}].map(({v, l}, i) => (
-                    <React.Fragment key={l}>
-                      <div className="bg-white/20 rounded px-1.5 py-0.5 text-center min-w-[26px]">
-                        <span className="font-black text-white text-[11px] tabular-nums">{String(v).padStart(2,'0')}</span>
-                        <span className="text-emerald-200 text-[7px] block font-bold leading-none">{l}</span>
-                      </div>
-                      {i < 3 && <span className="text-amber-200 font-black text-[11px]">:</span>}
-                    </React.Fragment>
-                  ))}
-                </div>
-              </div>
-            )}
-            {countdown.expired && (
-              <span className="text-amber-200 text-[9px] font-black uppercase tracking-wider shrink-0">🇮🇳 OFFER EXPIRED</span>
-            )}
-
-            <span className="text-emerald-300 font-bold text-[10px] shrink-0">|</span>
-
-            {/* Book Now Button */}
+            <span className="text-emerald-200 font-bold shrink-0">•</span>
+            <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
+              FREE HOME COLLECTION AVAILABLE
+            </span>
+            <span className="text-emerald-200 font-bold text-[10px] shrink-0">|</span>
             <Link
-              href="/book?package=QXL%20Freedom%2080%20Health%20Check"
-              className="inline-flex items-center justify-center gap-1 bg-white hover:bg-slate-100 text-[10px] font-black px-3.5 py-1 rounded-full shadow-md active:scale-95 transition-all shrink-0 uppercase tracking-wider cursor-pointer"
-              style={{ color: '#059669' }}
+              href="/raksha-bandhan-health-checkup-bangalore"
+              className="inline-flex items-center justify-center gap-1 bg-amber-400 hover:bg-amber-300 text-slate-950 text-[10px] font-black px-3.5 py-1 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all shrink-0 uppercase tracking-wider cursor-pointer border border-amber-200"
             >
-              Book Now →
+              CLAIM ₹800 OFFER →
             </Link>
           </div>
-          {/* Animated Tricolour Underline */}
-          <div 
-            className="absolute bottom-0 left-0 w-full h-[2.5px] animate-tricolour-wave"
-            style={{
-              background: 'linear-gradient(90deg, #FF9933 0%, #FFFFFF 50%, #138808 100%)',
-              backgroundSize: '200% 100%'
-            }}
-          />
         </div>
 
 
@@ -401,7 +372,7 @@ export default function Header() {
                 </div>
                 <div className="flex flex-col items-start leading-tight justify-center">
                   <span className="text-[13px] font-medium text-slate-500">Home Collection</span>
-                  <span className="text-black font-extrabold text-[16px] tracking-tight whitespace-nowrap">+91 9964 639639</span>
+                  <span className="text-black font-extrabold text-[16px] tracking-tight whitespace-nowrap">+91 9964 639 639</span>
                 </div>
               </a>
 
@@ -565,48 +536,20 @@ export default function Header() {
           <SmartSearchBar placeholder="Search for Tests/Packages" isMobile={true} />
         </div>
 
-        {/* Mobile Announcement Bar — Horizontal Scroll with Countdown */}
-        <div className="mt-3 bg-emerald-600 text-white py-2 px-1 overflow-x-auto whitespace-nowrap flex items-center z-20 shadow-inner border-y border-emerald-700/50 relative" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
-          {/* Hide webkit scrollbar using a global hack or just let it hide via touch */}
-          <style dangerouslySetInnerHTML={{__html: `::-webkit-scrollbar { display: none; }`}} />
-          
-          <div className="flex items-center gap-2.5 w-max min-w-full px-3">
-            <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-xs shrink-0">
-              🇮🇳 INDEPENDENCE DAY SPECIAL
+        {/* Mobile Announcement Bar (Green Container with Live Countdown) */}
+        <div className="mt-3 bg-gradient-to-r from-[#138808] via-[#15803d] to-[#138808] text-white py-2 px-3 flex items-center justify-between text-[11px] font-extrabold z-20 shadow-xs border-t border-emerald-600/30">
+          <div className="flex items-center gap-2 truncate pr-1">
+            <span className="truncate text-white">🎁 Raksha Bandhan @ ₹800</span>
+            <span className="bg-black/25 text-amber-300 font-mono text-[9px] px-1.5 py-0.5 rounded border border-amber-300/30 shrink-0">
+              {countdown.d}d {String(countdown.h).padStart(2, '0')}h {String(countdown.m).padStart(2, '0')}m
             </span>
-            <span className="text-emerald-200 font-bold shrink-0">•</span>
-            <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
-              QXL FREEDOM 80 · 80 PARAMETERS · <span className="text-amber-200 font-black underline decoration-2">ONLY ₹800</span>
-            </span>
-            <span className="bg-white/15 text-white text-[9px] font-black px-1.5 py-0.5 rounded-full border border-white/30 uppercase tracking-wider shrink-0">
-              SAVE 86%
-            </span>
-            {/* Countdown for mobile */}
-            {!countdown.expired && (
-              <>
-                <span className="text-emerald-300 font-bold shrink-0">|</span>
-                <span className="text-amber-200 text-[9px] font-black uppercase tracking-wider shrink-0">⏰ ENDS:</span>
-                <div className="flex items-center gap-0.5 shrink-0">
-                  {[{v: countdown.d, l:'D'}, {v: countdown.h, l:'H'}, {v: countdown.m, l:'M'}, {v: countdown.s, l:'S'}].map(({v, l}, i) => (
-                    <React.Fragment key={l}>
-                      <div className="bg-white/20 rounded px-1 py-0.5 text-center min-w-[22px]">
-                        <span className="font-black text-white text-[10px] tabular-nums">{String(v).padStart(2,'0')}</span>
-                        <span className="text-emerald-200 text-[7px] block font-bold leading-none">{l}</span>
-                      </div>
-                      {i < 3 && <span className="text-amber-200 font-black text-[10px]">:</span>}
-                    </React.Fragment>
-                  ))}
-                </div>
-              </>
-            )}
-            <Link
-              href="/book?package=QXL%20Freedom%2080%20Health%20Check"
-              className="inline-flex items-center justify-center gap-1 bg-white hover:bg-slate-100 text-[10px] font-black px-3.5 py-1 rounded-full shadow-md active:scale-95 transition-all shrink-0 uppercase tracking-wider cursor-pointer ml-1"
-              style={{ color: '#059669' }}
-            >
-              Book Now →
-            </Link>
           </div>
+          <Link
+            href="/raksha-bandhan-health-checkup-bangalore"
+            className="bg-amber-400 hover:bg-amber-300 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-sm"
+          >
+            CLAIM ₹800 →
+          </Link>
         </div>
       </div>
 

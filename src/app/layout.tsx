@@ -24,114 +24,8 @@ export const metadata: Metadata = {
     canonical: "https://qxldiagnostics.com",
   },
   description:
-    "QXL Diagnostics — NABL certified super speciality diagnostic lab in Bengaluru. 300+ tests, home collection, same-day reports. Book now.",
+    "QXL Diagnostics — NABL-accredited super speciality diagnostic lab in Bengaluru (MC-6849). 300+ tests, home collection, same-day reports. Book now.",
   manifest: "/manifest.json",
-  keywords: [
-    "diagnostic lab Bengaluru",
-    "NABL certified lab Bangalore",
-    "super speciality diagnostic lab Bengaluru",
-    "blood test Bangalore",
-    "home collection blood test",
-    "QXL Diagnostics",
-    "Qualitify Healthtech",
-    "pathology lab Kengeri",
-    "full body checkup Bangalore",
-    "thyroid test Bangalore",
-    "cancer markers Bangalore",
-    "health packages Bengaluru",
-    "AI-powered diagnostics",
-    "precision diagnostics Bengaluru",
-    "expert-reviewed reports",
-    "molecular diagnostics Bengaluru",
-    "histopathology Bengaluru",
-    "home sample collection Bengaluru",
-    "advanced cardiac risk testing",
-    "AMH test Bengaluru",
-    "PCOS testing Bengaluru",
-    "allergy testing Bengaluru",
-    "autoimmune testing Bengaluru",
-    "infectious disease lab Bengaluru",
-    "NABL accredited lab Mysore Road",
-    "best diagnostic lab Bengaluru",
-    "NABL lab Bengaluru",
-    "home blood collection Bengaluru",
-    "Blood test near me",
-    "Diagnostic lab near me",
-    "Pathology lab near me",
-    "Blood test lab near me",
-    "Diagnostic centre near me",
-    "Blood test Bangalore",
-    "Blood test Bengaluru",
-    "Diagnostic lab Bangalore",
-    "Diagnostic lab Bengaluru",
-    "Pathology lab Bangalore",
-    "Best diagnostic lab Bangalore",
-    "Best pathology lab Bangalore",
-    "NABL accredited lab Bangalore",
-    "NABL accredited diagnostic lab Bangalore",
-    "Blood test at home Bangalore",
-    "Home blood collection Bangalore",
-    "Home sample collection Bangalore",
-    "Lab test at home Bangalore",
-    "Book blood test online Bangalore",
-    "Full body checkup Bangalore",
-    "Autoimmune test Bangalore",
-    "Autoimmune profile Bangalore",
-    "ANA test Bangalore",
-    "ANA profile test Bangalore",
-    "ANA IFA test Bangalore",
-    "ANCA test Bangalore",
-    "ENA profile Bangalore",
-    "Anti CCP test Bangalore",
-    "Allergy test Bangalore",
-    "Allergy blood test Bangalore",
-    "Allergy panel test Bangalore",
-    "Food allergy test Bangalore",
-    "Food intolerance test Bangalore",
-    "IgE test Bangalore",
-    "AMH test Bangalore",
-    "AMH test price Bangalore",
-    "Fertility test Bangalore",
-    "PCOS blood test Bangalore",
-    "Pregnancy blood test Bangalore",
-    "Beta HCG test Bangalore",
-    "Double marker test Bangalore",
-    "Double marker test price Bangalore",
-    "Triple marker test Bangalore",
-    "Quadruple marker test Bangalore",
-    "Antenatal profile Bangalore",
-    "Prenatal screening test Bangalore",
-    "Molecular diagnostic lab Bangalore",
-    "PCR testing lab Bangalore",
-    "Molecular pathology Bangalore",
-    "Molecular diagnostic tests Bangalore",
-    "Cancer blood test Bangalore",
-    "Tumor marker test Bangalore",
-    "Cancer marker test Bangalore",
-    "Oncology diagnostic lab Bangalore",
-    "CEA test Bangalore",
-    "CA 125 test Bangalore",
-    "CA 19-9 test Bangalore",
-    "PSA test Bangalore",
-    "Autoimmune encephalitis panel Bangalore",
-    "NMO antibody test Bangalore",
-    "MOG antibody test Bangalore",
-    "Paraneoplastic panel Bangalore",
-    "Myasthenia gravis antibody test Bangalore",
-    "Vitamin D test Bangalore",
-    "Vitamin D test near me",
-    "Vitamin D test price Bangalore",
-    "Vitamin D blood test cost Bangalore",
-    "Vitamin D test at home Bangalore",
-    "Book Vitamin D test Bangalore",
-    "Diagnostic Lab Kengeri",
-    "Blood Test Kengeri",
-    "CBC Test Bangalore",
-    "Histopathology Lab Bangalore",
-    "Cancer/Tumor Marker Test Bangalore",
-    "Super Speciality Diagnostic Lab Bangalore",
-    "Reference Laboratory Bangalore"
-  ],
   authors: [{ name: "QXL Diagnostics" }],
   creator: "QXL Diagnostics",
   publisher: "Qualitify Healthtech Pvt Ltd",
@@ -140,12 +34,11 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://qxldiagnostics.com",
     siteName: "QXL Diagnostics",
-    title: "QXL Diagnostics | NABL Certified Diagnostic Lab Bengaluru",
+    title: "QXL Diagnostics | NABL Accredited Diagnostic Lab Bengaluru",
     description:
-      "Advanced diagnostic testing in Bengaluru. NABL certified, home collection, 300+ tests, same-day digital reports. Book now at +91 9964 639 639.",
+      "Advanced diagnostic testing in Bengaluru. NABL accredited (MC-6849), home collection, 300+ tests, same-day digital reports. Book now at +91 9964 639 639.",
     images: [
       {
-        // Force 1.91:1 OG crop so crawlers see 1200×630 (not a square logo/asset).
         url: "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
         width: 1200,
         height: 630,
@@ -155,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "QXL Diagnostics | NABL Certified Lab Bengaluru",
+    title: "QXL Diagnostics | NABL Accredited Lab Bengaluru",
     description:
-      "NABL certified diagnostic lab in Bengaluru. Home collection, 300+ tests, same-day reports.",
+      "NABL accredited diagnostic lab in Bengaluru. Home collection, 300+ tests, same-day reports.",
     images: [
       "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
     ],
@@ -185,10 +78,10 @@ const localBusinessSchema = {
   name: "QXL Diagnostics Super Speciality Lab",
   alternateName: "QXL Diagnostics",
   description:
-    "NABL certified diagnostic super speciality lab in Bengaluru offering 300+ tests, home sample collection, and same-day digital reports.",
+    "NABL accredited diagnostic super speciality lab in Bengaluru offering 300+ tests, home sample collection, and same-day digital reports.",
   url: "https://qxldiagnostics.com",
   telephone: "+91-9964-639639",
-  email: "qxldiagnostics@gmail.com",
+  email: "care@qxldiagnostics.com",
   logo: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   medicalSpecialty: [
     "Neurology", "Hematology", "Cardiology", "Urology", "Endocrinology",
@@ -464,6 +357,36 @@ const doctorsSchema = {
   ]
 };
 
+const rakshaOfferSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Raksha Bandhan Special Full Body Health Checkup",
+  "image": "https://qxldiagnostics.com/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
+  "description": "Comprehensive 80 Health Parameters full body preventive checkup in Bengaluru including CBC (26), HbA1c & Fasting Glucose (3), Heart & Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary Markers (21). Free home sample collection across Bengaluru.",
+  "brand": {
+    "@type": "Brand",
+    "name": "QXL Diagnostics"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://qxldiagnostics.com/raksha-bandhan-health-checkup-bangalore",
+    "priceCurrency": "INR",
+    "price": "800",
+    "priceValidUntil": "2026-08-31",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "QXL Diagnostics Super Speciality Lab"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "620"
+  }
+};
+
 import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 
 export default function RootLayout({
@@ -548,6 +471,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(doctorsSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(rakshaOfferSchema) }}
+        />
         {/* Google Analytics */}
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <Script id="google-analytics" strategy="afterInteractive">
@@ -616,30 +543,13 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {/* Global Tricolour Background */}
-        <div className="fixed inset-0 -z-50 pointer-events-none bg-gradient-to-br from-[#f0fdf4] via-white to-[#fff7ed]">
-           {/* Soft Green Glow (Top Left - Logo Side) */}
-           <div className="absolute top-0 left-0 w-[80vw] h-[50vh] bg-emerald-500/6 blur-[120px] rounded-full -translate-x-1/4 -translate-y-1/4" />
-           {/* Soft Saffron Glow (Bottom Right) */}
-           <div className="absolute bottom-0 right-0 w-[80vw] h-[50vh] bg-amber-500/6 blur-[120px] rounded-full translate-x-1/4 translate-y-1/4" />
-           
-           {/* Subtle Ashoka Chakra Watermark */}
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] pointer-events-none mix-blend-multiply">
-              <svg className="w-[100vw] max-w-[800px] h-auto aspect-square animate-[spin_120s_linear_infinite]" viewBox="0 0 100 100" fill="none" stroke="#000080" strokeWidth="0.5">
-                <circle cx="50" cy="50" r="45" />
-                <circle cx="50" cy="50" r="10" fill="#000080" />
-                {[...Array(24)].map((_, i) => (
-                  <line
-                    key={i}
-                    x1="50"
-                    y1="50"
-                    x2={50 + 45 * Math.cos((i * 15 * Math.PI) / 180)}
-                    y2={50 + 45 * Math.sin((i * 15 * Math.PI) / 180)}
-                  />
-                ))}
-              </svg>
-           </div>
-        </div>
+         {/* Global Tricolour Background */}
+         <div className="fixed inset-0 -z-50 pointer-events-none bg-gradient-to-br from-[#f0fdf4] via-white to-[#fff7ed]">
+            {/* Soft Green Glow (Top Left - Logo Side) */}
+            <div className="absolute top-0 left-0 w-[80vw] h-[50vh] bg-emerald-500/6 blur-[120px] rounded-full -translate-x-1/4 -translate-y-1/4" />
+            {/* Soft Saffron Glow (Bottom Right) */}
+            <div className="absolute bottom-0 right-0 w-[80vw] h-[50vh] bg-amber-500/6 blur-[120px] rounded-full translate-x-1/4 translate-y-1/4" />
+         </div>
 
         {/* Hidden Google Translate mount point — must be first in body */}
         <div

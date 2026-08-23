@@ -87,23 +87,36 @@ export default function HematologyPage() {
               </h2>
               <div className="grid gap-5">
                 {[
-                  { name: "Complete Blood Count (CBC) with Peripheral Smear", tests: "Hemoglobin, RBC Count, Hematocrit, MCV, MCH, MCHC, WBC Count (Total & Differential), Platelet Count, RDW, Pathologist Peripheral Smear Review", tat: "Same Day", sample: "Whole blood (EDTA)" },
-                  { name: "Anemia Evaluation Profile — Extended", tests: "CBC, Serum Iron, Total Iron Binding Capacity (TIBC), Transferrin Saturation, Ferritin, Vitamin B12, Folic Acid, Active B12", tat: "Same Day", sample: "Fasting blood (10-12 hrs)" },
-                  { name: "Coagulation Profile", tests: "Prothrombin Time (PT) with INR, Activated Partial Thromboplastin Time (APTT), Plasma Fibrinogen, D-Dimer, Bleeding & Clotting Time", tat: "4–6 hrs", sample: "Citrate plasma blood" },
-                  { name: "Thalassemia & Hemoglobinopathy Screen", tests: "Hb HPLC (High-Performance Liquid Chromatography), Hemoglobin Electrophoresis, CBC, Reticulocyte Count, Peripheral Smear", tat: "Same Day", sample: "Whole blood (EDTA)" },
-                  { name: "Bleeding Disorders Workup", tests: "Platelet Aggregation Studies, Factor VIII Assay, Factor IX Assay, Von Willebrand Factor (vWF) Antigen", tat: "2 Days", sample: "Blood (pre-arranged)" }
+                  { name: "Complete Blood Count (CBC) with Peripheral Smear", price: "350", oldPrice: "500", tests: "Hemoglobin, RBC Count, Hematocrit, MCV, MCH, MCHC, WBC Count (Total & Differential), Platelet Count, RDW, Pathologist Peripheral Smear Review", tat: "Same Day (4–6 hrs)", sample: "Whole blood (EDTA)" },
+                  { name: "Anemia Evaluation Profile — Extended", price: "1850", oldPrice: "2800", tests: "CBC, Serum Iron, Total Iron Binding Capacity (TIBC), Transferrin Saturation, Ferritin, Vitamin B12, Folic Acid, Active B12", tat: "Same Day", sample: "Fasting blood (10-12 hrs)" },
+                  { name: "Coagulation Profile", price: "1200", oldPrice: "1800", tests: "Prothrombin Time (PT) with INR, Activated Partial Thromboplastin Time (APTT), Plasma Fibrinogen, D-Dimer, Bleeding & Clotting Time", tat: "4–6 hrs", sample: "Citrate plasma blood" },
+                  { name: "Thalassemia & Hemoglobinopathy Screen", price: "1500", oldPrice: "2200", tests: "Hb HPLC (High-Performance Liquid Chromatography), Hemoglobin Electrophoresis, CBC, Reticulocyte Count, Peripheral Smear", tat: "Same Day", sample: "Whole blood (EDTA)" },
+                  { name: "Bleeding Disorders Workup", price: "3200", oldPrice: "4800", tests: "Platelet Aggregation Studies, Factor VIII Assay, Factor IX Assay, Von Willebrand Factor (vWF) Antigen", tat: "2 Days", sample: "Blood (pre-arranged)" }
                 ].map((t) => (
                   <div key={t.name} className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:border-sky-400 hover:shadow-md transition-all">
-                    <div className="flex flex-col md:flex-row justify-between gap-3">
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                       <div className="flex-1">
-                        <h3 className="text-lg font-bold text-gray-900 mb-1">{t.name}</h3>
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="text-lg font-bold text-gray-900">{t.name}</h3>
+                        </div>
                         <p className="text-gray-600 text-sm mb-3">{t.tests}</p>
                         <div className="flex flex-wrap gap-4 text-xs text-gray-500">
-                          <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> TAT: {t.tat}</span>
-                          <span className="flex items-center gap-1"><FlaskConical className="w-3 h-3" /> Sample: {t.sample}</span>
+                          <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-sky-600" /> TAT: {t.tat}</span>
+                          <span className="flex items-center gap-1"><FlaskConical className="w-3.5 h-3.5 text-sky-600" /> Sample: {t.sample}</span>
                         </div>
                       </div>
-                      <Link href={`/book?package=${encodeURIComponent(t.name)}`} className="self-start bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg whitespace-nowrap hover:bg-sky-700 transition-colors text-sm">Book Now</Link>
+                      <div className="flex flex-col md:items-end gap-2 shrink-0 w-full md:w-auto">
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-xl font-black text-[#0f2d5e]">₹{t.price}</span>
+                          <span className="text-xs text-slate-400 line-through">₹{t.oldPrice}</span>
+                        </div>
+                        <Link 
+                          href={`/book?package=${encodeURIComponent(t.name)}`} 
+                          className="bg-[#2563eb] text-white font-extrabold px-5 py-2.5 rounded-xl whitespace-nowrap hover:bg-[#1d4ed8] transition-all text-xs uppercase tracking-wider shadow-md text-center"
+                        >
+                          Book Now @ ₹{t.price}
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 ))}

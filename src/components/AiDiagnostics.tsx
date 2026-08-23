@@ -466,8 +466,8 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
     },
     {
       icon: <Microscope className="w-8 h-8 text-[#2563eb]" />,
-      title: "Enhanced Imaging",
-      desc: "AI-enhanced image analysis for radiology and histopathology, revealing details invisible to the naked eye."
+      title: "AI-Assisted QC & Delta Checks",
+      desc: "Automated delta checks, multi-rule Westgard validation, and pre-analytical sample tracking prior to consultant pathologist review."
     }
   ];
 
@@ -826,6 +826,9 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
                   </svg>
                 </a>
               </form>
+              <p className="text-[10px] text-slate-500 font-medium text-center mt-2 leading-tight">
+                ⚠️ QXL AI Assistant provides screening information only and does not issue medical prescriptions or diagnoses.
+              </p>
             </div>
 
           </div>

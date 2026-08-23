@@ -1,11 +1,11 @@
 export const packagesData = [
   {
-    name: "QXL Freedom 80 Health Check",
+    name: "Raksha Bandhan Special Health Checkup",
     price: "800",
     old_price: "5800",
-    includes: "80 Parameters across 8 Major Health Areas: Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11).",
+    includes: "CBC (26), HbA1c & Fasting Glucose (3), Heart & Lipid Profile (8), Liver Function Test (11), Kidney Function Test (8), Thyroid Profile (3), Bone/Mineral Health & Urine Routine (21).",
     parameters: "80 Parameters",
-    tag: "INDEPENDENCE OFFER",
+    tag: "RAKSHA BANDHAN SPECIAL",
     most_booked: true
   },
   {
@@ -14,7 +14,24 @@ export const packagesData = [
     old_price: "4696",
     includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy.",
     parameters: "12+ Parameters",
-    tag: "FITNESS"
+    tag: "FITNESS",
+    most_booked: true
+  },
+  {
+    name: "Senior Citizens Care Checkup",
+    price: "2490",
+    old_price: "5500",
+    includes: "CBC, ESR, Fasting Blood Sugar, HbA1c, Lipid Profile, Kidney Function Tests (Creatinine, BUN, Electrolytes), Liver Function Tests, Thyroid TSH, Serum Calcium, Vitamin D, Urine Routine.",
+    parameters: "18+ Parameters",
+    tag: "SENIOR CARE"
+  },
+  {
+    name: "Women's Wellness & Metabolic Panel",
+    price: "2290",
+    old_price: "4800",
+    includes: "CBC, ESR, Iron Profile (Serum Iron, TIBC, Ferritin), Thyroid Profile (T3, T4, TSH), Vitamin D, Vitamin B12, Calcium, Fasting Blood Sugar, Lipid Profile, Urine Routine.",
+    parameters: "16+ Parameters",
+    tag: "WOMEN'S HEALTH"
   },
   {
     name: "Q-Screen Diabetes Package",
@@ -33,12 +50,12 @@ export const packagesData = [
     tag: "PRO"
   },
   {
-    name: "Q-Oncoscreen Package",
+    name: "Physician-Directed Oncology Biomarker Assessment",
     price: "7900",
     old_price: "13600",
-    includes: "Cancer Markers (Alpha Fetoprotein AFP, Carcinoembryonic Antigen (CEA), Beta HCG, Prostate-Specific Antigen (PSA) - Male, CA-125 (Ovarian Cancer Marker) - Female, CA-19.9 (Pancreatic Cancer Marker)), CBC, ESR, Urine Routine & Microscopy, Calprotectin in Stool, Fecal Occult Blood Test (FOBT), Protein Electrophoresis.",
+    includes: "Physician-directed biomarker evaluation (AFP, CEA, Beta HCG, PSA/CA-125, CA-19.9), CBC, ESR, Stool Calprotectin, FOBT, Protein Electrophoresis. (Note: Tumor markers require physician interpretation).",
     parameters: "15+ Parameters",
-    tag: "ONCOSCREEN"
+    tag: "ONCO-BIOMARKERS"
   },
   {
     name: "Q-Advanced Arthritis and Autoimmune Panel",

@@ -38,6 +38,85 @@ const nextConfig: NextConfig = {
         destination: "/team",
         permanent: false,
       },
+      {
+        source: "/our-specialities",
+        destination: "/speciality-tests",
+        permanent: true,
+      },
+      {
+        source: "/our_team/:slug*",
+        destination: "/doctors",
+        permanent: true,
+      },
+      {
+        source: "/tests/complete-blood-count-test-bangalore",
+        destination: "/tests/cbc-test-bangalore",
+        permanent: true,
+      },
+      {
+        source: "/tests/lft-test-bangalore",
+        destination: "/tests/liver-function-test-bangalore",
+        permanent: true,
+      },
+      {
+        source: "/tests/kft-test-bangalore",
+        destination: "/tests/kidney-function-test-bangalore",
+        permanent: true,
+      },
+      {
+        source: "/diagnostic-lab-whitefield",
+        destination: "/locations/whitefield",
+        permanent: true,
+      },
+      {
+        source: "/home-blood-test-bangalore",
+        destination: "/home-blood-collection-bangalore",
+        permanent: true,
+      },
+      {
+        source: "/home-sample-collection-bangalore",
+        destination: "/home-blood-collection-bangalore",
+        permanent: true,
+      },
+      {
+        source: "/blood-sample-collection",
+        destination: "/home-blood-collection-bangalore",
+        permanent: true,
+      },
+      {
+        source: "/home-collection",
+        destination: "/home-blood-collection-bangalore",
+        permanent: true,
+      },
+      {
+        source: "/tests/blood-test-at-home-bangalore",
+        destination: "/home-blood-collection-bangalore",
+        permanent: true,
+      },
+      {
+        source: "/tests/home-blood-collection-bangalore",
+        destination: "/home-blood-collection-bangalore",
+        permanent: true,
+      },
+      {
+        source: "/tests/home-sample-collection-bangalore",
+        destination: "/home-blood-collection-bangalore",
+        permanent: true,
+      },
+      // P2.1 & P2.4 Thin specialty route & slug deduplication redirects
+      { source: "/hematology", destination: "/specialities/hematology", permanent: true },
+      { source: "/cardiology", destination: "/specialities/cardiology", permanent: true },
+      { source: "/endocrinology", destination: "/specialities/endocrinology", permanent: true },
+      { source: "/neurology", destination: "/specialities/neurology", permanent: true },
+      { source: "/oncology", destination: "/specialities/oncology", permanent: true },
+      { source: "/urology", destination: "/specialities/urology", permanent: true },
+      { source: "/gastroenterology", destination: "/specialities/gastroenterology", permanent: true },
+      { source: "/specialities/womens-health", destination: "/specialities/women-s-health", permanent: true },
+      { source: "/specialities/womenshealth", destination: "/specialities/women-s-health", permanent: true },
+      // P2.3 Legacy WordPress URL mappings
+      { source: "/uncategorized/:slug*", destination: "/", permanent: true },
+      { source: "/endocrinology-2/:slug*", destination: "/specialities/endocrinology", permanent: true },
+      { source: "/author/:slug*", destination: "/doctors", permanent: true },
     ];
   },
 };

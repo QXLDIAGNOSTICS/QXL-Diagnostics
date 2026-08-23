@@ -38,8 +38,8 @@ export default function EmotionalFamilySection() {
 
       <div className="max-w-[1260px] mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-amber-800 font-extrabold text-xs tracking-widest uppercase mb-3 inline-block bg-amber-100 px-4 py-1.5 rounded-full border border-amber-300 shadow-sm">
-            🇮🇳 HEALTH FREEDOM FOR YOUR FAMILY
+          <span className="text-blue-800 font-extrabold text-xs tracking-widest uppercase mb-3 inline-block bg-blue-100 px-4 py-1.5 rounded-full border border-blue-300 shadow-sm">
+            PREVENTIVE WELLNESS FOR YOUR FAMILY
           </span>
           <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tight text-[#0284c7]">
             “I’M FINE. I’LL GET TESTED LATER.”
@@ -58,7 +58,7 @@ export default function EmotionalFamilySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="bg-white/90 border border-amber-200/80 hover:border-amber-400 rounded-3xl p-6 backdrop-blur-lg flex flex-col justify-between group hover:shadow-xl transition-all shadow-md"
+              className="bg-white/90 border border-slate-200 hover:border-blue-400 rounded-3xl p-6 backdrop-blur-lg flex flex-col justify-between group hover:shadow-xl transition-all shadow-md"
             >
               <div>
                 <div className="w-full h-44 rounded-2xl overflow-hidden mb-5 relative bg-slate-100">
@@ -83,16 +83,16 @@ export default function EmotionalFamilySection() {
         </div>
 
         {/* Banner callout */}
-        <div className="bg-gradient-to-r from-amber-500/20 via-sky-500/20 to-emerald-500/20 border-2 border-amber-400/50 rounded-3xl p-8 md:p-10 text-center max-w-4xl mx-auto backdrop-blur-xl shadow-xl">
+        <div className="bg-gradient-to-r from-blue-500/10 via-sky-500/10 to-indigo-500/10 border-2 border-blue-400/30 rounded-3xl p-8 md:p-10 text-center max-w-4xl mx-auto backdrop-blur-xl shadow-xl">
           <h3 className="text-2xl md:text-3xl font-black text-[#0284c7] mb-3">
-            This Independence Day, turn “later” into “today.”
+            Turn “later” into “today.”
           </h3>
           <p className="text-slate-700 text-sm md:text-base font-bold mb-6 max-w-xl mx-auto">
-            Give your parents, spouse, and children the freedom to know their health parameters with the QXL Freedom 80 Checkup.
+            Give your parents, spouse, and children the gift of health with a comprehensive QXL preventive checkup.
           </p>
           <Link
-            href="/book?package=QXL%20Freedom%2080%20Health%20Check"
-            className="inline-block bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-black px-8 py-4 rounded-full text-base shadow-xl hover:shadow-amber-500/20 active:scale-95 transition-all text-center uppercase tracking-wider"
+            href="/book"
+            className="inline-block bg-[#2563eb] hover:bg-blue-700 text-white font-black px-8 py-4 rounded-full text-base shadow-xl active:scale-95 transition-all text-center uppercase tracking-wider"
           >
             Book a Health Check for Your Family →
           </Link>

@@ -4,6 +4,8 @@ import { Phone, CheckCircle2, ShieldCheck, Activity, Clock, ArrowRight } from "l
 import { getDynamicPageData } from "@/lib/seoPages/dynamicPageResolver";
 import { PHONE_DISPLAY, WHATSAPP_LINK, NABL_CERTIFICATE, ISO_STANDARD } from "@/lib/businessInfo";
 
+import MedicalReviewerBadge from "@/components/MedicalReviewerBadge";
+
 type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
@@ -119,10 +121,15 @@ export default async function TestPage({ params }: Props) {
             <h1 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight !text-white drop-shadow-sm" style={{ color: '#ffffff' }}>
               {data.h1Title}
             </h1>
-            <p className="text-blue-100 font-medium text-sm md:text-base leading-relaxed mb-6">
+            <p className="text-blue-100 text-base max-w-3xl leading-relaxed">
               {data.subtitle}
             </p>
-            <div className="flex flex-wrap items-center gap-4">
+
+            <div className="pt-2">
+              <MedicalReviewerBadge />
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 mt-6">
               <Link
                 href={`/book?package=${encodeURIComponent(data.h1Title)}`}
                 className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-extrabold px-8 py-3.5 rounded-full transition-all shadow-lg text-sm uppercase tracking-wide flex items-center gap-2"

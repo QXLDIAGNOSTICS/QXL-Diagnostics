@@ -4,19 +4,6 @@ import { CheckCircle2, ArrowRight, ShieldCheck, Award } from 'lucide-react';
 
 export const ALL_PACKAGES = [
   {
-    id: "pkg-1",
-    name: "QXL Freedom 80 Health Check",
-    price: "800",
-    old_price: "5800",
-    save_amount: "5000",
-    discountPercent: "86% OFF",
-    parameters: "80 Parameters across 8 Health Areas",
-    includes: "Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11).",
-    tag: "INDEPENDENCE SPECIAL",
-    most_booked: true,
-    benefits: ["80 Parameters Screened", "8 Major Health Areas", "86% OFF Promotional Price", "Free Home Collection"]
-  },
-  {
     id: "pkg-fit",
     name: "Quick Fit Package",
     price: "1770",
@@ -26,7 +13,7 @@ export const ALL_PACKAGES = [
     parameters: "12+ Parameters",
     includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine.",
     tag: "FITNESS",
-    most_booked: false,
+    most_booked: true,
     benefits: ["Essential fitness screening", "Diabetes & lipid baseline", "Liver & kidney health"]
   },
   {
@@ -112,32 +99,14 @@ export default function PopularPackagesGrid() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {ALL_PACKAGES.map((pkg) => {
-            const isFreedom80 = pkg.price === "800";
-
             return (
               <div
                 key={pkg.id}
-                className={`bg-white border rounded-2xl p-6 shadow-sm transition-all duration-300 flex flex-col justify-between h-full relative ${
-                  isFreedom80
-                    ? "border-amber-400 ring-2 ring-amber-400/50 shadow-xl bg-gradient-to-b from-amber-50/40 via-white to-orange-50/30 scale-[1.02]"
-                    : "border-slate-200 hover:border-blue-300 hover:shadow-lg"
-                }`}
+                className="bg-white border border-slate-200 hover:border-blue-300 hover:shadow-lg rounded-2xl p-6 shadow-sm transition-all duration-300 flex flex-col justify-between h-full relative"
               >
-                {isFreedom80 && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-md flex items-center gap-1.5 z-20">
-                    🔥 INDEPENDENCE SPECIAL OFFER — 86% OFF
-                  </div>
-                )}
-
                 <div>
                   <div className="mb-3 pt-2">
-                    <span
-                      className={`inline-block px-2.5 py-0.5 rounded text-[9px] font-black uppercase tracking-wider mb-2 border ${
-                        isFreedom80
-                          ? "bg-amber-100 text-amber-900 border-amber-300"
-                          : "bg-blue-50 text-blue-700 border-blue-100"
-                      }`}
-                    >
+                    <span className="inline-block px-2.5 py-0.5 rounded text-[9px] font-black uppercase tracking-wider mb-2 border bg-blue-50 text-blue-700 border-blue-100">
                       {pkg.tag}
                     </span>
                     <h3 className="font-extrabold text-slate-900 text-lg leading-snug">{pkg.name}</h3>
@@ -147,7 +116,7 @@ export default function PopularPackagesGrid() {
                     <ul className="space-y-1.5">
                       {pkg.benefits.map((b, i) => (
                         <li key={i} className="text-xs text-slate-700 flex items-start gap-1.5 font-semibold leading-tight">
-                          <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 ${isFreedom80 ? "text-amber-600" : "text-emerald-500"}`} />
+                          <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-500" />
                           {b}
                         </li>
                       ))}
@@ -166,7 +135,7 @@ export default function PopularPackagesGrid() {
                     <div>
                       <span className="text-xs text-slate-400 line-through block mb-0.5">₹{pkg.old_price}</span>
                       <div className="flex items-baseline gap-1.5">
-                        <span className={`text-2xl font-black ${isFreedom80 ? "text-emerald-600" : "text-slate-900"}`}>
+                        <span className="text-2xl font-black text-slate-900">
                           ₹{pkg.price}
                         </span>
                         <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
@@ -178,11 +147,7 @@ export default function PopularPackagesGrid() {
 
                   <Link
                     href={`/book?package=${encodeURIComponent(pkg.name)}`}
-                    className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-md ${
-                      isFreedom80
-                        ? "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-amber-500/25"
-                        : "bg-[#2563eb] hover:bg-[#1d4ed8] text-white"
-                    }`}
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white"
                   >
                     Book Package @ ₹{pkg.price} <ArrowRight className="w-4 h-4" />
                   </Link>

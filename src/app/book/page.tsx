@@ -111,16 +111,6 @@ export default function BookPage() {
         // Define fallback DEFAULT_PACKAGES to resolve client-side matches
         const fallbackPackages = [
           {
-            id: "pkg-1",
-            name: "QXL Freedom 80 Health Check",
-            kind: 'package' as const,
-            price: 800,
-            old_price: 5800,
-            home_collection_available: true,
-            parameters: "80 Parameters",
-            includes: "80 Parameters across 8 Major Health Areas: Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11)."
-          },
-          {
             id: "pkg-fit",
             name: "Quick Fit Package",
             kind: 'package' as const,
@@ -248,16 +238,6 @@ export default function BookPage() {
       } catch {
         const fallbackPackages = [
           {
-            id: "pkg-freedom80",
-            name: "QXL Freedom 80 Health Check",
-            kind: 'package' as const,
-            price: 800,
-            old_price: 5800,
-            home_collection_available: true,
-            parameters: "80 Parameters",
-            includes: "80 Parameters across 8 Major Health Areas: Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11)."
-          },
-          {
             id: "pkg-1",
             name: "Quick Fit Package",
             kind: 'package' as const,
@@ -368,13 +348,35 @@ export default function BookPage() {
   useEffect(() => {
     if (catalog.length === 0) return;
     const params = new URLSearchParams(window.location.search);
-    const wanted = [...params.getAll('tests').map(t => t.trim()), params.get('package') || ''].filter(Boolean);
+    
+    // Check collection type parameter (?center= or ?collection=center)
+    const centerParam = params.get('center') || params.get('collection');
+    if (centerParam === 'center' || centerParam === 'true' || centerParam === 'kengeri') {
+      setFormData(prev => ({ ...prev, collectionType: 'center' }));
+    }
+
+    const rawWanted = [
+      ...params.getAll('tests').map(t => t.trim()),
+      params.get('test') || '',
+      params.get('package') || '',
+      params.get('pkg') || '',
+      params.get('packageId') || '',
+    ].filter(Boolean);
     
     const isSpidyOffer = (name?: string | null) => {
       if (!name) return false;
       const n = name.toLowerCase();
       return n.includes('spidy') || n.includes('nothing , swing') || n.includes('swing , eat');
     };
+
+    const wanted: string[] = [];
+    for (const item of rawWanted) {
+      if (item.toLowerCase().includes('freedom') || item.toLowerCase().includes('independence')) {
+        wanted.push("Quick Fit Package");
+      } else {
+        wanted.push(item);
+      }
+    }
 
     try {
       const cart: string[] = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
@@ -396,7 +398,11 @@ export default function BookPage() {
     const matches: CatalogEntry[] = [];
     const unmatched: string[] = [];
     for (const w of filteredWanted) {
-      const match = findCatalogMatch(w, catalog);
+      let match = findCatalogMatch(w, catalog);
+      if (!match && (w.toLowerCase().includes('package') || w.toLowerCase().includes('checkup') || w.toLowerCase().includes('full body'))) {
+        // Fallback to first active package in catalog
+        match = catalog.find(c => c.kind === 'package');
+      }
       if (match && !isSpidyOffer(match.name)) matches.push(match);
       else if (!isSpidyOffer(w)) unmatched.push(w);
     }
@@ -608,6 +614,9 @@ export default function BookPage() {
 
   return (
     <div className="min-h-screen bg-transparent">
+      <head>
+        <meta name="robots" content="noindex, follow" />
+      </head>
 
 
       {/* Main Content Form */}

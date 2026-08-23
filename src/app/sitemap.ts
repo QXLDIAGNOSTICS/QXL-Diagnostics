@@ -7,6 +7,7 @@ const BASE_URL = 'https://qxldiagnostics.com';
 
 // SEO landing pages & High Priority Google Ads URLs
 const SEO_PAGES: { url: string; priority: number; changeFrequency: "daily" | "weekly" | "monthly" }[] = [
+  { url: "/raksha-bandhan-health-checkup-bangalore", priority: 0.95, changeFrequency: "daily" },
   { url: "/diagnostic-lab-bangalore", priority: 0.95, changeFrequency: "monthly" },
   { url: "/pathology-lab-bangalore", priority: 0.95, changeFrequency: "monthly" },
   { url: "/blood-test-bangalore", priority: 0.95, changeFrequency: "monthly" },

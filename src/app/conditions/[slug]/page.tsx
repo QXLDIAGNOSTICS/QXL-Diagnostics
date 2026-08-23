@@ -1,119 +1,129 @@
-import React from "react";
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import { healthConditions } from "@/lib/conditionsData";
-import { topTests } from "@/lib/testsData";
-import { ArrowRight, Activity, ShieldCheck, Phone } from "lucide-react";
+import React from 'react';
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { ShieldCheck, CheckCircle2, ArrowRight, Activity, Stethoscope, AlertTriangle, FileText } from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import MedicalReviewerBadge from '@/components/MedicalReviewerBadge';
+import { CONDITIONS_DATA } from '@/lib/conditionsData';
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return Object.keys(CONDITIONS_DATA).map(slug => ({ slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const condition = healthConditions.find((c) => c.slug === slug);
-  if (!condition) return { title: "Condition Not Found" };
+  const condition = CONDITIONS_DATA[slug];
+  if (!condition) return { title: "Condition Diagnostics | QXL Diagnostics" };
 
   return {
-    title: `${condition.name} Testing & Diagnostics in Bengaluru | QXL Diagnostics`,
-    description: `Comprehensive diagnostic testing for ${condition.name} at QXL Diagnostics Bengaluru. ${condition.description}`,
+    title: condition.title,
+    description: condition.subtitle,
     alternates: {
       canonical: `https://qxldiagnostics.com/conditions/${slug}`,
-    }
+    },
   };
 }
 
-export default async function ConditionHubPage({ params }: { params: { slug: string } }) {
+export default async function ConditionPage({ params }: Props) {
   const { slug } = await params;
-  const condition = healthConditions.find((c) => c.slug === slug);
-
-  if (!condition) {
-    notFound();
-  }
-
-  // Get rich test objects for related tests
-  const relatedTestsData = condition.relatedTests
-    .map(testId => topTests.find(t => t.id === testId))
-    .filter(Boolean);
+  const condition = CONDITIONS_DATA[slug];
+  if (!condition) notFound();
 
   return (
-    <div className="bg-[#f8fafc] min-h-screen pb-20">
-      
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#e0f2fe] to-[#fbf8f5] py-12 lg:py-16 border-b border-sky-100">
-        <div className="max-w-[1260px] mx-auto px-4 w-full text-center">
-          <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">Health Condition Hub</span>
-          <h1 className="text-3xl md:text-5xl font-extrabold text-[#0f2d5e] mb-4">{condition.name} Diagnostics</h1>
-          <p className="text-slate-700 font-medium max-w-2xl mx-auto text-sm md:text-base">
-            {condition.description}
-          </p>
-          <div className="mt-8 flex justify-center gap-4">
-            <Link href="/book" className="bg-[#2563eb] text-white font-extrabold px-8 py-3.5 rounded-full hover:bg-[#1d4ed8] transition-all shadow-md text-sm">
-              Book a Health Check
+    <main className="bg-slate-50 min-h-screen text-slate-900">
+      <Header />
+
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-[#0f2d5e] to-[#1e3a8a] text-white py-12">
+        <div className="max-w-[1200px] mx-auto px-4">
+          <span className="inline-block bg-blue-500/30 text-blue-200 border border-blue-400/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+            {condition.category} Clinical Guide
+          </span>
+          <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">{condition.h1Title}</h1>
+          <p className="text-blue-100 text-base max-w-3xl mt-2 leading-relaxed">{condition.subtitle}</p>
+
+          <div className="mt-6">
+            <MedicalReviewerBadge />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 max-w-[1200px] mx-auto px-4 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        {/* Left main content */}
+        <div className="lg:col-span-8 space-y-8">
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <h2 className="text-xl font-bold text-[#0f2d5e] flex items-center gap-2">
+              <Activity className="w-5 h-5 text-blue-600" /> Clinical Overview
+            </h2>
+            {condition.overview.map((paragraph, idx) => (
+              <p key={idx} className="text-sm text-slate-700 leading-relaxed">{paragraph}</p>
+            ))}
+          </div>
+
+          {/* Symptoms */}
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <h2 className="text-xl font-bold text-[#0f2d5e] flex items-center gap-2">
+              <AlertTriangle className="w-5 h-5 text-amber-500" /> Common Symptoms & Clinical Indicators
+            </h2>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+              {condition.symptoms.map((symptom, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-xs font-semibold text-slate-800">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                  {symptom}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Recommended Tests */}
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <h2 className="text-xl font-bold text-[#0f2d5e] flex items-center gap-2">
+              <Stethoscope className="w-5 h-5 text-emerald-600" /> Recommended Laboratory Investigations
+            </h2>
+            <div className="grid grid-cols-1 gap-4">
+              {condition.recommendedTests.map((t, idx) => (
+                <div key={idx} className="border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-blue-300 transition-all bg-slate-50/50">
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-base">{t.name}</h3>
+                    <p className="text-xs text-slate-600 mt-1">{t.description}</p>
+                  </div>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <span className="text-lg font-black text-slate-900">₹{t.price}</span>
+                    <Link
+                      href={`/tests/${t.slug}`}
+                      className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1 uppercase tracking-wider"
+                    >
+                      View Test <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right Sidebar */}
+        <div className="lg:col-span-4 space-y-6">
+          <div className="bg-gradient-to-br from-blue-900 to-indigo-900 text-white p-6 rounded-2xl shadow-xl space-y-4">
+            <h3 className="text-lg font-extrabold text-white">Book Home Sample Collection</h3>
+            <p className="text-xs text-blue-100">Sample draw by certified phlebotomists. NABL-accredited processing with 6-hour report delivery.</p>
+            <Link
+              href="/home-blood-collection-bangalore"
+              className="block text-center bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all"
+            >
+              Book Home Collection
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-12">
-        <div className="max-w-[1260px] mx-auto px-4 w-full flex flex-col lg:flex-row gap-10">
-          
-          <div className="flex-1 space-y-8">
-            <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-extrabold text-[#0f2d5e] mb-6 flex items-center gap-2 border-b border-gray-100 pb-4">
-                <Activity className="w-6 h-6 text-[#2563eb]" /> Recommended Tests for {condition.name}
-              </h2>
-              
-              <div className="grid sm:grid-cols-2 gap-4">
-                {relatedTestsData.map((test: any) => (
-                  <Link href={`/tests/${test.slug}`} key={test.id} className="border border-gray-100 rounded-2xl p-4 hover:border-[#2563eb] hover:shadow-md transition-all group bg-slate-50">
-                    <h3 className="font-extrabold text-[#0f2d5e] text-sm group-hover:text-[#2563eb] transition-colors mb-1">{test.name}</h3>
-                    <div className="flex items-center gap-3 text-xs font-semibold text-slate-500 mb-3">
-                      <span className="bg-white px-2 py-1 rounded shadow-sm border border-gray-100">{test.parameters} Param{test.parameters > 1 ? 's' : ''}</span>
-                      <span className="bg-white px-2 py-1 rounded shadow-sm border border-gray-100 text-emerald-600">₹{test.price}</span>
-                    </div>
-                    <span className="text-[#2563eb] text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
-                      View Test <ArrowRight className="w-3 h-3" />
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
-              <h2 className="text-2xl font-extrabold text-[#0f2d5e] mb-6 flex items-center gap-2 border-b border-gray-100 pb-4">
-                <ShieldCheck className="w-6 h-6 text-[#2563eb]" /> Recommended Comprehensive Packages
-              </h2>
-              
-              <div className="space-y-3">
-                {condition.relatedPackages.map((pkg, idx) => (
-                  <div key={idx} className="bg-[#f0f9ff] border border-[#e0f2fe] p-4 rounded-xl flex items-center justify-between gap-4">
-                    <span className="font-extrabold text-[#0f2d5e] text-sm">{pkg}</span>
-                    <a href={`https://api.whatsapp.com/send?phone=919964639639&text=Hi%2C%20I%20want%20to%20book%20${encodeURIComponent(pkg)}`} target="_blank" rel="noreferrer" className="bg-[#2563eb] text-white text-[10px] font-extrabold px-4 py-2 rounded-lg hover:bg-[#1d4ed8] transition-colors whitespace-nowrap uppercase tracking-wider">
-                      Book Now
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          
-          <div className="w-full lg:w-[320px]">
-            <div className="bg-[#0f2d5e] text-white rounded-3xl p-8 shadow-xl sticky top-24">
-              <h3 className="text-lg font-extrabold mb-2">Need Expert Advice?</h3>
-              <p className="text-sm text-sky-100 mb-6 font-medium">
-                Not sure which tests you need for {condition.name}? Contact our diagnostic experts for guidance.
-              </p>
-              
-              <div className="space-y-4">
-                <a href="tel:+919964639639" className="w-full flex items-center justify-center gap-2 bg-white text-[#0f2d5e] font-extrabold py-3.5 rounded-xl hover:bg-sky-50 transition-colors text-sm shadow-md">
-                  <Phone className="w-4 h-4" /> Call +91 9964 639 639
-                </a>
-                <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer" className="w-full flex items-center justify-center gap-2 bg-transparent border-2 border-white/20 text-white font-extrabold py-3 rounded-xl hover:bg-white/10 transition-colors text-sm">
-                  WhatsApp Us
-                </a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-    </div>
+      <Footer />
+    </main>
   );
 }

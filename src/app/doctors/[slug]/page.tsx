@@ -116,6 +116,30 @@ export default async function DoctorDetailPage({ params }: Props) {
               {doctor.bio && (
                 <p className="text-slate-600 text-base leading-relaxed mt-5">{doctor.bio}</p>
               )}
+
+              {/* Enhanced E-E-A-T Medical Credentials Section */}
+              <div className="mt-8 border-t border-slate-100 pt-6 space-y-4 text-left">
+                <h2 className="text-lg font-bold text-[#0f2d5e]">Clinical & Quality Leadership</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span className="font-bold text-slate-900 block">Medical Qualification & Specialty</span>
+                    <span className="text-slate-600">MD in Clinical Biochemistry, Specialist Diagnostic Pathologist</span>
+                  </div>
+                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span className="font-bold text-slate-900 block">Accreditation Leadership</span>
+                    <span className="text-slate-600">Head of NABL ISO 15189:2022 Quality Management (MC-6849)</span>
+                  </div>
+                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span className="font-bold text-slate-900 block">Clinical Expertise</span>
+                    <span className="text-slate-600">Endocrinology Assays, Metabolic Profiles, Diabetes & Tumor Markers</span>
+                  </div>
+                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span className="font-bold text-slate-900 block">Medical Review Supervision</span>
+                    <span className="text-slate-600">Directs 100% of QXL clinical test interpretations & critical values</span>
+                  </div>
+                </div>
+              </div>
+
               <div className="flex flex-wrap gap-3 justify-center md:justify-start mt-7">
                 <Link
                   href="/book"
@@ -140,8 +164,8 @@ export default async function DoctorDetailPage({ params }: Props) {
                 View all doctors
               </Link>{" "}
               or read about our{" "}
-              <Link href="/founder" className="text-[#2563eb] font-bold hover:underline">
-                founder &amp; consultants
+              <Link href="/quality-and-accreditation" className="text-[#2563eb] font-bold hover:underline">
+                NABL Quality & Accreditation
               </Link>
               .
             </p>

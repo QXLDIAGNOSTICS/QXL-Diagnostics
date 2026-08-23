@@ -41,7 +41,7 @@ const personas = [
 
 export default function EmotionalFamilyCampaign() {
   const shareOffer = () => {
-    const text = `🇮🇳 *QXL FREEDOM 80 HEALTH CHECK* 🇮🇳\n80 Health Parameters for only ₹800 (Regular value ₹5,800)!\nDon't let "I'll get tested later" become too late. Book for your family today:\nhttps://qxldiagnostics.com`;
+    const text = `💙 *QXL DIAGNOSTICS FAMILY HEALTH CHECK* 💙\nDon't let "I'll get tested later" become too late. Book home blood collection for your family today:\nhttps://qxldiagnostics.com`;
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
@@ -67,7 +67,7 @@ export default function EmotionalFamilyCampaign() {
             “I’m fine. I’ll get tested later.”
           </p>
           <p className="text-slate-600 text-sm sm:text-base font-medium mt-4 leading-relaxed">
-            This Independence Day, turn <strong className="text-[#0f2d5e]">“later”</strong> into <strong className="text-emerald-600">“today.”</strong> Give your loved ones the confidence of knowing their health.
+            Turn <strong className="text-[#0f2d5e]">“later”</strong> into <strong className="text-emerald-600">“today.”</strong> Give your loved ones the confidence of knowing their health.
           </p>
         </div>
 
@@ -102,7 +102,7 @@ export default function EmotionalFamilyCampaign() {
 
               <div className="pt-4 mt-4 border-t border-slate-100">
                 <Link
-                  href="/book?package=QXL%20Freedom%2080%20Health%20Check"
+                  href="/book"
                   className="w-full inline-flex items-center justify-between text-xs font-extrabold text-[#2563eb] hover:text-blue-700 transition-colors"
                 >
                   <span>Book Health Check for {p.role}</span>
@@ -114,13 +114,13 @@ export default function EmotionalFamilyCampaign() {
         </div>
 
         {/* Call To Action Banner */}
-        <div className="bg-gradient-to-r from-orange-50 via-white to-emerald-50 border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
+        <div className="bg-gradient-to-r from-blue-50 via-white to-sky-50 border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md">
           <div className="space-y-1 text-center md:text-left">
             <h3 className="text-xl sm:text-2xl font-black text-[#0f2d5e]">
-              Share this offer with someone who always puts their health last.
+              Share with someone who always puts their health last.
             </h3>
             <p className="text-slate-600 text-xs sm:text-sm font-medium">
-              QXL Freedom 80 Health Check — 80 Parameters at ₹800 (Worth ₹5,800).
+              Free home blood collection across Bengaluru with same-day doctor-verified reports.
             </p>
           </div>
 
@@ -133,10 +133,10 @@ export default function EmotionalFamilyCampaign() {
               <span>Share on WhatsApp</span>
             </button>
             <Link
-              href="/book?package=QXL%20Freedom%2080%20Health%20Check"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 text-white font-extrabold px-6 py-3 rounded-2xl shadow-md hover:shadow-sky-500/40 transition-all text-xs uppercase tracking-wider"
+              href="/book"
+              className="inline-flex items-center gap-2 bg-[#2563eb] hover:bg-blue-700 text-white font-extrabold px-6 py-3 rounded-2xl shadow-md transition-all text-xs uppercase tracking-wider"
             >
-              <span>Book Freedom 80 Offer</span>
+              <span>Book Health Check</span>
             </Link>
           </div>
         </div>

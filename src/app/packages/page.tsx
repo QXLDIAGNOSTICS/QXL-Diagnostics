@@ -22,21 +22,9 @@ export default function PackagesPage() {
   }, []);
 
   const Card = ({ name, price, old_price, parameters, includes, tag, save_amount, benefits, who_should_take, age, gender, doctor_recommended, most_booked }: any) => {
-    const isFreedom80 = name?.toLowerCase().includes("freedom 80") || price === "800" || price === 800;
-
     return (
-      <div className={`bg-white border rounded-2xl p-6 shadow-sm transition-all duration-300 flex flex-col justify-between h-full relative group ${
-        isFreedom80 
-          ? "border-amber-400 ring-2 ring-amber-400/50 shadow-xl bg-gradient-to-b from-amber-50/40 via-white to-orange-50/30 scale-[1.02]" 
-          : "border-blue-100 hover:shadow-lg hover:border-blue-300"
-      }`}>
-        {isFreedom80 && (
-          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest shadow-md flex items-center gap-1.5 z-20">
-            🔥 INDEPENDENCE SPECIAL OFFER — 86% OFF
-          </div>
-        )}
-
-        {doctor_recommended && !isFreedom80 && (
+      <div className="bg-white border border-blue-100 hover:shadow-lg hover:border-blue-300 rounded-2xl p-6 shadow-sm transition-all duration-300 flex flex-col justify-between h-full relative group">
+        {doctor_recommended && (
           <div className="absolute top-0 right-0 bg-blue-600 text-white text-[8px] font-bold px-2 py-1 rounded-bl-lg rounded-tr-xl uppercase tracking-wider z-10">
             Doctor Recommended
           </div>
@@ -44,12 +32,8 @@ export default function PackagesPage() {
         
         <div>
           <div className="mb-3 pr-12 pt-2">
-            <span className={`inline-block px-2.5 py-0.5 rounded text-[9px] font-black uppercase tracking-wider mb-2 border ${
-              isFreedom80 
-                ? "bg-amber-100 text-amber-900 border-amber-300" 
-                : "bg-blue-50 text-blue-700 border-blue-100"
-            }`}>
-              {tag || (isFreedom80 ? "INDEPENDENCE SPECIAL" : "WELLNESS")}
+            <span className="inline-block px-2.5 py-0.5 rounded text-[9px] font-black uppercase tracking-wider mb-2 border bg-blue-50 text-blue-700 border-blue-100">
+              {tag || "WELLNESS"}
             </span>
             <h3 className="font-extrabold text-slate-900 text-lg leading-snug">{name}</h3>
           </div>
@@ -59,7 +43,7 @@ export default function PackagesPage() {
               <ul className="space-y-1.5">
                 {benefits.map((b: string, i: number) => (
                   <li key={i} className="text-xs text-slate-700 flex items-start gap-1.5 font-semibold leading-tight">
-                    <CheckCircle className={`w-3.5 h-3.5 shrink-0 ${isFreedom80 ? "text-amber-600" : "text-emerald-500"}`} />
+                    <CheckCircle className="w-3.5 h-3.5 shrink-0 text-emerald-500" />
                     {b}
                   </li>
                 ))}
@@ -77,13 +61,12 @@ export default function PackagesPage() {
         <div className="pt-4 mt-auto border-t border-gray-100">
           <div className="flex items-end justify-between mb-4">
             <div>
-              <span className="text-xs text-slate-400 line-through block mb-0.5">₹{old_price || "5800"}</span>
+              {old_price && <span className="text-xs text-slate-400 line-through block mb-0.5">₹{old_price}</span>}
               <div className="flex items-baseline gap-1.5">
-                <span className={`text-2xl font-black ${isFreedom80 ? "text-emerald-600" : "text-slate-900"}`}>₹{price}</span>
-                {isFreedom80 && <span className="text-xs font-bold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full">Save ₹5,000</span>}
+                <span className="text-2xl font-black text-slate-900">₹{price}</span>
               </div>
             </div>
-            {save_amount && !isFreedom80 && (
+            {save_amount && (
               <div className="text-right">
                 <span className="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider block">
                   Save ₹{save_amount}
@@ -94,11 +77,7 @@ export default function PackagesPage() {
           
           <Link 
             href={`/book?package=${encodeURIComponent(name)}`}
-            className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-md ${
-              isFreedom80
-                ? "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-amber-500/25"
-                : "bg-[#2563eb] hover:bg-[#1d4ed8] text-white"
-            }`}
+            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white"
           >
             Book Now @ ₹{price} <ArrowRight className="w-4 h-4" />
           </Link>

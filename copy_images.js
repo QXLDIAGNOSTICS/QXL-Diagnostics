@@ -1,29 +1,35 @@
 const fs = require('fs');
 const path = require('path');
 
-const mappings = [
-  { src: '/Users/afi/.gemini/antigravity-ide/brain/be5d20ac-535e-4e54-92b7-fc601cf300ec/freedom80_slide1_1786557619229.png', dest: 'freedom80_slide1.png' },
-  { src: '/Users/afi/.gemini/antigravity-ide/brain/be5d20ac-535e-4e54-92b7-fc601cf300ec/freedom80_slide2_1786557699672.png', dest: 'freedom80_slide2.png' },
-  { src: '/Users/afi/.gemini/antigravity-ide/brain/be5d20ac-535e-4e54-92b7-fc601cf300ec/freedom80_slide3_1786557729564.png', dest: 'freedom80_slide3.png' },
-  { src: '/Users/afi/.gemini/antigravity-ide/brain/be5d20ac-535e-4e54-92b7-fc601cf300ec/freedom80_slide4_1786557767757.png', dest: 'freedom80_slide4.png' },
-  { src: '/Users/afi/.gemini/antigravity-ide/brain/be5d20ac-535e-4e54-92b7-fc601cf300ec/freedom80_slide5_1786557792652.png', dest: 'freedom80_slide5.png' },
-];
-
+const srcDir = '/Users/afi/.gemini/antigravity-ide/brain/9e9e9b04-b828-44fc-a716-4e1bacb94336';
 const destDir = path.join(__dirname, 'public', 'images');
+
 if (!fs.existsSync(destDir)) {
   fs.mkdirSync(destDir, { recursive: true });
 }
 
-mappings.forEach(m => {
-  try {
-    if (fs.existsSync(m.src)) {
-      const destPath = path.join(destDir, m.dest);
-      fs.copyFileSync(m.src, destPath);
-      console.log(`Successfully copied ${m.src} to ${destPath}`);
-    } else {
-      console.error(`File not found: ${m.src}`);
+const files = fs.readdirSync(srcDir);
+files.forEach(file => {
+  if (file.endsWith('.png')) {
+    if (file.includes('indian_lab_microscope')) {
+      fs.copyFileSync(path.join(srcDir, file), path.join(destDir, 'indian_lab_microscope.png'));
     }
-  } catch (err) {
-    console.error(`Error copying ${m.src}:`, err.message);
+    if (file.includes('preventive_health_banner')) {
+      fs.copyFileSync(path.join(srcDir, file), path.join(destDir, 'preventive_health_banner.png'));
+    }
+    if (file.includes('indian_doctor_fitness')) {
+      fs.copyFileSync(path.join(srcDir, file), path.join(destDir, 'indian_doctor_fitness.png'));
+    }
+    if (file.includes('indian_home_collection')) {
+      fs.copyFileSync(path.join(srcDir, file), path.join(destDir, 'indian_home_collection.png'));
+    }
+    if (file.includes('indian_female_doctor')) {
+      fs.copyFileSync(path.join(srcDir, file), path.join(destDir, 'indian_female_doctor.png'));
+    }
+    if (file.includes('senior_care_hero')) {
+      fs.copyFileSync(path.join(srcDir, file), path.join(destDir, 'senior_care_hero.png'));
+    }
   }
 });
+
+console.log('Successfully copied all generated images to public/images!');

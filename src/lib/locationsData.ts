@@ -16,7 +16,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     nearestLab: "QXL Central NABL Processing Laboratory",
     description: "QXL Diagnostics provides 100% free and hygienic home blood sample collection across all pin codes in Bengaluru. Book routine tests, diabetes profiles, thyroid panels, and full body health checkups with same-day digital reports.",
     pincodes: ["560001", "560002", "560004", "560011", "560024", "560037", "560060", "560064", "560066", "560100"],
-    popularTests: ["QXL Freedom 80 Health Check", "Complete Blood Count (CBC)", "HbA1c & Fasting Sugar", "Lipid Profile", "Thyroid Profile (T3, T4, TSH)"]
+    popularTests: ["Full Body Health Check", "Complete Blood Count (CBC)", "HbA1c & Fasting Sugar", "Lipid Profile", "Thyroid Profile (T3, T4, TSH)"]
   },
   {
     id: "kengeri",
@@ -34,7 +34,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     nearestLab: "Kengeri Main Lab (Mysore Road)",
     description: "Book home sample collection in Rajarajeshwari Nagar (RR Nagar, Ideal Homes, BEML Layout). We offer 300+ diagnostic tests with same-day digital reports delivered straight to WhatsApp.",
     pincodes: ["560098"],
-    popularTests: ["QXL Freedom 80 Package", "Thyroid Care", "Vitamin D3 & B12", "Liver Function Test"]
+    popularTests: ["Full Body Package", "Thyroid Care", "Vitamin D3 & B12", "Liver Function Test"]
   },
   {
     id: "nagarabhavi",
@@ -106,7 +106,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     nearestLab: "Kengeri Main Lab (Mysore Road)",
     description: "Doorstep blood sample collection along Kanakapura Road, Konanakunte, and Anjanapura. Accurate lab testing backed by doctor validation.",
     pincodes: ["560062", "560088"],
-    popularTests: ["QXL Freedom 80 Package", "Lipid Profile", "Vitamin B12", "Kidney Function Test"]
+    popularTests: ["Full Body Package", "Lipid Profile", "Vitamin B12", "Kidney Function Test"]
   },
   {
     id: "bannerghatta-road",
@@ -160,7 +160,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     nearestLab: "Kengeri Main Lab / Express Hub",
     description: "Trusted home sample collection for residents of Electronic City Phase 1 & Phase 2, Neeladri Nagar, and Rayasandra. Fast bookings & NABL reports.",
     pincodes: ["560100"],
-    popularTests: ["QXL Freedom 80 Package", "Thyroid Profile", "Vitamin B12", "Executive Wellness"]
+    popularTests: ["Full Body Package", "Thyroid Profile", "Vitamin B12", "Executive Wellness"]
   },
   {
     id: "sarjapur-road",
@@ -277,7 +277,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     nearestLab: "Yelahanka North Hub",
     description: "Safe at-home blood collection along Hennur Main Road, Hennur Gardens, and Geddalahalli. Fast booking and digital reports.",
     pincodes: ["560043", "560077"],
-    popularTests: ["QXL Freedom 80 Package", "Thyroid Profile", "Vitamin D", "Fever Panel"]
+    popularTests: ["Full Body Package", "Thyroid Profile", "Vitamin D", "Fever Panel"]
   },
   {
     id: "thanisandra",
@@ -322,7 +322,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     nearestLab: "Yelahanka North Hub",
     description: "Reliable home blood test collection across Yelahanka New Town, Old Town, and Kogilu. Supported by our advanced Yelahanka North Hub lab.",
     pincodes: ["560064"],
-    popularTests: ["QXL Freedom 80 Package", "Complete Blood Count", "Diabetes Screening", "Full Body Checkup"]
+    popularTests: ["Full Body Package", "Complete Blood Count", "Diabetes Screening", "Full Body Checkup"]
   },
   {
     id: "vidyaranyapura",
@@ -502,7 +502,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     nearestLab: "Kengeri Main Lab (Mysore Road)",
     description: "Home sample collection in Kumaraswamy Layout 1st & 2nd Stages, ISRO Layout, and Dayananda Sagar College belt.",
     pincodes: ["560078", "560111"],
-    popularTests: ["QXL Freedom 80 Package", "CBC", "Fever Panel", "Lipid Profile"]
+    popularTests: ["Full Body Package", "CBC", "Fever Panel", "Lipid Profile"]
   },
   {
     id: "yelachenahalli",
@@ -547,7 +547,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     nearestLab: "Yelahanka North Hub",
     description: "Reliable home sample collection in Devanahalli Town, KIADB IT Park, and Nandi Hills Road. Fast express processing.",
     pincodes: ["562110"],
-    popularTests: ["QXL Freedom 80 Package", "Thyroid Profile", "Vitamin D3 & B12", "Fever Profile"]
+    popularTests: ["Full Body Package", "Thyroid Profile", "Vitamin D3 & B12", "Fever Profile"]
   },
   {
     id: "bengaluru-airport",

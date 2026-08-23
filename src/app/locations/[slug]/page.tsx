@@ -301,7 +301,7 @@ export default async function CombinedLocationPage({ params }: Props) {
                       <ShieldCheck className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Certified (MC-6849)</h3>
+                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Accredited (MC-6849)</h3>
                       <p className="text-slate-600 text-xs font-medium leading-relaxed">Processed at our NABL-accredited ISO 15189:2022 laboratory with multi-level MD doctor verification.</p>
                     </div>
                   </div>
@@ -343,19 +343,19 @@ export default async function CombinedLocationPage({ params }: Props) {
                 <h2 className="text-2xl font-extrabold text-[#0f2d5e] mb-6">Most Booked Packages in {areaLoc.name}</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   
-                  <div className="border border-amber-200 bg-amber-50/40 p-5 rounded-2xl flex flex-col justify-between">
+                  <div className="border border-sky-200 bg-sky-50/40 p-5 rounded-2xl flex flex-col justify-between">
                     <div>
-                      <span className="bg-amber-500 text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">MOST POPULAR</span>
-                      <h3 className="font-black text-[#0f2d5e] text-base mt-2">QXL Freedom 80 Health Check</h3>
-                      <p className="text-xs text-slate-600 font-medium mt-1 leading-relaxed">80 Parameters including CBC, Lipid, Liver, Kidney, Fasting Sugar &amp; Thyroid Profile.</p>
+                      <span className="bg-[#2563eb] text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">MOST BOOKED</span>
+                      <h3 className="font-black text-[#0f2d5e] text-base mt-2">Quick Fit Package</h3>
+                      <p className="text-xs text-slate-600 font-medium mt-1 leading-relaxed">12+ Parameters including Fasting Sugar, HbA1c, Lipid Profile, LFT, KFT, Vitamin D &amp; CBC.</p>
                       <div className="mt-3 flex items-baseline gap-2">
-                        <span className="text-xl font-black text-emerald-600">₹800</span>
-                        <span className="text-xs text-slate-400 line-through">₹5,800</span>
-                        <span className="text-[10px] bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-full">86% OFF</span>
+                        <span className="text-xl font-black text-emerald-600">₹1,770</span>
+                        <span className="text-xs text-slate-400 line-through">₹4,696</span>
+                        <span className="text-[10px] bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-full">62% OFF</span>
                       </div>
                     </div>
-                    <Link href="/book?package=QXL%20Freedom%2080%20Health%20Check" className="mt-4 bg-[#2563eb] text-white text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition-colors text-center uppercase tracking-wide">
-                      Book Freedom 80 →
+                    <Link href="/book?package=Quick%20Fit%20Package" className="mt-4 bg-[#2563eb] text-white text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition-colors text-center uppercase tracking-wide">
+                      Book Quick Fit →
                     </Link>
                   </div>
 

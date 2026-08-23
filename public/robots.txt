@@ -1,0 +1,38 @@
+# QXL Diagnostics — Robots.txt Rules for Search & AI Answer Engines
+
+User-agent: *
+Allow: /
+
+# OpenAI ChatGPT Search Crawler
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI GPTBot Training/Data
+User-agent: GPTBot
+Allow: /
+
+# ChatGPT User Interactions
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity AI Search Crawler
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI & Search Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Anthropic Claude Crawler
+User-agent: ClaudeBot
+Allow: /
+
+# Disallow admin & internal API routes
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap Location
+Sitemap: https://qxldiagnostics.com/sitemap.xml

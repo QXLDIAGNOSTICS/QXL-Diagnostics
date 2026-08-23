@@ -246,7 +246,7 @@ export default function PaymentTermsPage() {
                 ['Legal entity', 'Qualitify Healthtech Private Limited'],
                 ['Grievance officer', <>Ms. Meghana Bhat, Grievance Redressal Officer, Finance &amp; Accounts</>],
                 ['Email', <a key="email" href="mailto:accounts@qxldiagnostics.com" className="text-[#2563eb] hover:underline font-bold">accounts@qxldiagnostics.com</a>],
-                ['Telephone', <a key="tel" href="tel:+919964639639" className="text-[#2563eb] hover:underline font-bold">+91 99646 39639</a>],
+                ['Telephone', <a key="tel" href="tel:+919964639639" className="text-[#2563eb] hover:underline font-bold">+91 9964 639 639</a>],
                 ['Correspondence', '3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560060, Karnataka, India'],
                 ['Support hours', 'Monday to Saturday: 7:00 AM – 9:00 PM; Sunday: 7:00 AM – 2:00 PM IST'],
                 ['Response timeline', 'Acknowledgement within 48 hours; refund decisions within seven working days (Section 8); other grievances resolved ordinarily within 30 days'],
@@ -298,7 +298,7 @@ export default function PaymentTermsPage() {
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
           {[
             { icon: <Mail className="w-4 h-4" />, label: 'Email', value: 'accounts@qxldiagnostics.com', href: 'mailto:accounts@qxldiagnostics.com' },
-            { icon: <Phone className="w-4 h-4" />, label: 'Phone', value: '+91 99646 39639', href: 'tel:+919964639639' },
+            { icon: <Phone className="w-4 h-4" />, label: 'Phone', value: '+91 9964 639 639', href: 'tel:+919964639639' },
             { icon: <MapPin className="w-4 h-4" />, label: 'Lab Address', value: 'Kengeri, Bengaluru – 560060', href: 'https://maps.google.com/?q=QXL+Diagnostics+Kengeri+Bangalore' },
           ].map(item => (
             <a

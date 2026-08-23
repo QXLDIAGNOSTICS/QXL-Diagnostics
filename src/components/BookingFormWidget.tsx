@@ -58,6 +58,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
     message: '',
     collectionType: 'home' as 'home' | 'center',
   });
+  const [consentChecked, setConsentChecked] = useState(true);
 
   const [catalog, setCatalog] = useState<CatalogEntry[]>([]);
   const [catalogLoading, setCatalogLoading] = useState(true);
@@ -98,16 +99,6 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
         if (cancelled) return;
         
         const fallbackPackages = [
-          {
-            id: "pkg-1",
-            name: "QXL Freedom 80 Health Check",
-            kind: 'package' as const,
-            price: 800,
-            old_price: 5800,
-            home_collection_available: true,
-            parameters: "80 Parameters",
-            includes: "80 Parameters across 8 Major Health Areas: Blood Health (25), Diabetes (3), Liver (12), Kidney & Electrolytes (12), Heart (9), Thyroid (3), Iron & Minerals (5), Complete Urine Examination (11)."
-          },
           {
             id: "pkg-2", name: "Q-Screen Diabetes Package", kind: 'package' as const, price: 1900, old_price: 4960,
             home_collection_available: true, parameters: "12 Parameters",
@@ -805,10 +796,26 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
               <p className="text-xs font-semibold text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-3">{error}</p>
             )}
 
+            {/* DPDP Act 2023 Consent Capture */}
+            <div className="pt-2">
+              <label className="flex items-start gap-2.5 cursor-pointer bg-slate-50 border border-slate-200 rounded-xl p-3.5 hover:bg-slate-100/80 transition-colors">
+                <input
+                  type="checkbox"
+                  required
+                  checked={consentChecked}
+                  onChange={(e) => setConsentChecked(e.target.checked)}
+                  className="mt-0.5 w-4 h-4 text-[#2563eb] rounded focus:ring-[#2563eb] shrink-0"
+                />
+                <span className="text-[11px] text-slate-600 font-medium leading-relaxed">
+                  I consent to QXL Diagnostics collecting and processing my health details for sample collection, lab testing, and report delivery in accordance with the <a href="/privacy-policy" target="_blank" className="text-[#2563eb] font-bold underline">Privacy Policy</a> &amp; <a href="/terms" target="_blank" className="text-[#2563eb] font-bold underline">T&amp;C</a> (DPDP Act 2023 compliant).
+                </span>
+              </label>
+            </div>
+
             <button 
               type="submit" 
-              disabled={submitting}
-              className="btn-sky w-full py-3.5 text-xs uppercase tracking-wider shadow-md mt-6 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+              disabled={submitting || !consentChecked}
+              className="btn-sky w-full py-3.5 text-xs uppercase tracking-wider shadow-md mt-4 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
             >
               {submitting ? 'Submitting…' : 'Submit Booking Request'}
             </button>
