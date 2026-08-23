@@ -760,16 +760,34 @@ export default function Home() {
       slug: "raksha-bandhan-health-checkup-bangalore",
     };
 
+    const isSpidyOffer = (name?: string | null, price?: number | string | null) => {
+      if (!name) return false;
+      const n = String(name).toLowerCase();
+      const p = Number(price);
+      return (
+        n.includes('spidy') || 
+        n.includes('nothing') || 
+        n.includes('swing') || 
+        n.includes('eat') || 
+        n.includes('jump') || 
+        n.includes('sleep') || 
+        n.includes('100% off') || 
+        p === 1 || 
+        p === 0
+      );
+    };
+
     // Load dynamic locations & packages safely for rendering
     setLocations(cmsStore.getAll("locations"));
-    const fallbackPackages = cmsStore.getAll("packages").sort((a, b) => Number(a.price) - Number(b.price));
+    const fallbackPackages = cmsStore.getAll("packages").filter(p => !isSpidyOffer(p.name, p.price)).sort((a, b) => Number(a.price) - Number(b.price));
     setRecommendedPackages([rakshaBandhanPackage, ...fallbackPackages.filter(p => p.id !== 'raksha-bandhan-800')]);
 
     if (api && api.packages) {
       api.packages.list()
         .then((data) => {
           if (data && data.length > 0) {
-            const sorted = data.sort((a, b) => Number(a.price) - Number(b.price));
+            const cleanData = data.filter((p: any) => !isSpidyOffer(p.name, p.price));
+            const sorted = cleanData.sort((a, b) => Number(a.price) - Number(b.price));
             setRecommendedPackages([rakshaBandhanPackage, ...sorted.filter(p => p.id !== 'raksha-bandhan-800')]);
           }
         })
