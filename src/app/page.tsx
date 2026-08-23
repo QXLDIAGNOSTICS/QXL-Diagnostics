@@ -817,9 +817,9 @@ export default function Home() {
   };
 
   const activeLocationObj = locations.find(loc => loc.name === location || loc.city === location);
-  const mapSrc = activeLocationObj && activeLocationObj.lat && activeLocationObj.lng
-    ? `https://maps.google.com/maps?q=QXL+Diagnostics+${activeLocationObj.lat},${activeLocationObj.lng}&t=&z=15&ie=UTF8&iwloc=&output=embed`
-    : `https://maps.google.com/maps?q=${encodeURIComponent("QXL Diagnostics " + location)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+  const mapLat = activeLocationObj?.lat || 12.9113827;
+  const mapLng = activeLocationObj?.lng || 77.4850301;
+  const mapSrc = `https://maps.google.com/maps?q=${mapLat},${mapLng}+(QXL+Diagnostics+Super+Speciality+Lab)&z=16&ie=UTF8&iwloc=&output=embed`;
 
   // ── Raksha Bandhan Campaign Poster Slides ─────────────────────
   const posterSlides: any[] = [];

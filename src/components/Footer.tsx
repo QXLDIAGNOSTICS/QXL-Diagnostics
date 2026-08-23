@@ -257,9 +257,6 @@ export default function Footer() {
         }}
       >
         <div className="max-w-[1260px] mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[#38bdf8] font-extrabold text-[13px] tracking-wider uppercase">
-            Your Health, Our Priority!
-          </p>
           <p className="text-white/35 text-[12px] font-semibold">
             {settings.copyrightText || `© ${year} QXL Diagnostics. All rights reserved.`}
           </p>
