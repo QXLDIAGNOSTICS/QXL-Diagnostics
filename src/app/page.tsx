@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone, Sparkles } from "lucide-react";
+import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone, Sparkles, Microscope } from "lucide-react";
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
 import { api } from '../lib/api';
@@ -22,6 +22,9 @@ import EmotionalFamilySection from "../components/EmotionalFamilySection";
 import DoctorLedLabSection from "../components/DoctorLedLabSection";
 import RunningTextMarquee from "../components/RunningTextMarquee";
 import RakshaOfferCard from "../components/rakshaBandhan/RakshaOfferCard";
+import MobileTrustBadges from "../components/MobileTrustBadges";
+import SmartSearchBar from "../components/SmartSearchBar";
+
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
 const whySlides = [
@@ -31,8 +34,8 @@ const whySlides = [
     titleAccent: "Panel",
     highlight: "Calcium · Phosphorus · Vitamin D · ALP",
     sub: "Detect osteoporosis, fracture risk, and bone density issues early with a targeted bone health assessment.",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150385/Assets-QXL/legacy-assets/image/slide_vitamin_bone_new.jpg",
-    imgBg: "#E8F5E9",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150389/Assets-QXL/legacy-assets/image/spec_bone.png",
+    imgBg: "#FFF8EB",
   },
   {
     specialty: "CARDIOLOGY",
@@ -40,8 +43,8 @@ const whySlides = [
     titleAccent: "Heart Risk Assessment",
     highlight: "Lipids · hs-CRP · NT-proBNP · Homocysteine",
     sub: "Comprehensive cardiac risk profiling — covering lipid disorders, inflammation markers, and heart stress indicators.",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150215/Assets-QXL/legacy-assets/image/nurse_bp_check.png",
-    imgBg: "#E3F2FD",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png",
+    imgBg: "#FFF8EB",
   },
   {
     specialty: "ENDOCRINOLOGY",
@@ -49,8 +52,8 @@ const whySlides = [
     titleAccent: "Hormone & Thyroid Panel",
     highlight: "TSH · T3 · T4 · Cortisol · Insulin",
     sub: "Full hormonal mapping including thyroid, adrenal, and metabolic hormones — essential for energy and wellness.",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150380/Assets-QXL/legacy-assets/image/slide_thyroid_test.jpg",
-    imgBg: "#E8EAF6",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png",
+    imgBg: "#FFF8EB",
   },
   {
     specialty: "GASTROENTEROLOGY",
@@ -58,8 +61,8 @@ const whySlides = [
     titleAccent: "Gut & Liver Panel",
     highlight: "H.pylori · Liver Function · Calprotectin",
     sub: "Identify digestive disorders, liver disease, gut infections, and inflammation from a single comprehensive profile.",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150203/Assets-QXL/legacy-assets/image/gastro_consult.png",
-    imgBg: "#FFF8E1",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png",
+    imgBg: "#FFF8EB",
   },
   {
     specialty: "HEMATOLOGY",
@@ -67,8 +70,8 @@ const whySlides = [
     titleAccent: "Complete Blood Analysis",
     highlight: "CBC · ESR · Iron Studies · Peripheral Smear",
     sub: "Detect anaemia, blood cell disorders, clotting abnormalities, and infection through a detailed blood workup.",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
-    imgBg: "#FCE4EC",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150417/Assets-QXL/legacy-assets/image/spec_hematology.png",
+    imgBg: "#FFF8EB",
   },
   {
     specialty: "INFECTIOUS DISEASES",
@@ -76,8 +79,8 @@ const whySlides = [
     titleAccent: "Immunity & Infection Panel",
     highlight: "Fever Panel · Dengue · Typhoid · Covid · HIV",
     sub: "From common viral fever to complex infections — early identification for fast, targeted treatment.",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg",
-    imgBg: "#E0F7FA",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150422/Assets-QXL/legacy-assets/image/spec_infectious.png",
+    imgBg: "#FFF8EB",
   },
   {
     specialty: "ONCOLOGY",
@@ -85,8 +88,8 @@ const whySlides = [
     titleAccent: "Cancer Marker Screening",
     highlight: "AFP · CEA · PSA · CA-125 · CA-19.9",
     sub: "Early cancer marker screening across multiple organs — giving you the best chance for timely intervention.",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
-    imgBg: "#EDE7F6",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150430/Assets-QXL/legacy-assets/image/spec_oncology.png",
+    imgBg: "#FFF8EB",
   },
   {
     specialty: "NEUROLOGY",
@@ -94,8 +97,8 @@ const whySlides = [
     titleAccent: "Brain & Nerve Health",
     highlight: "Homocysteine · B12 · Thyroid · Vitamin D",
     sub: "Nutritional and metabolic factors that drive neurological disorders — identified and addressed proactively.",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150236/Assets-QXL/legacy-assets/image/senior_bp_check.png",
-    imgBg: "#E8F5E9",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png",
+    imgBg: "#FFF8EB",
   },
   {
     specialty: "UROLOGY",
@@ -103,8 +106,8 @@ const whySlides = [
     titleAccent: "Kidney & Urinary Panel",
     highlight: "Creatinine · Urea · BUN · Urine Microscopy",
     sub: "Monitor kidney function, detect urinary tract infections, and assess renal health through precise biomarkers.",
-    image: "/images/doctor_smiling_new.png",
-    imgBg: "#E3F2FD",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png",
+    imgBg: "#FFF8EB",
   },
   {
     specialty: "WOMEN'S HEALTH",
@@ -112,78 +115,49 @@ const whySlides = [
     titleAccent: "Complete Wellness Panel",
     highlight: "FSH · LH · AMH · Thyroid · CBC · Vit D",
     sub: "From fertility and hormonal health to thyroid and nutrition — a dedicated panel designed for every woman's body.",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150185/Assets-QXL/legacy-assets/image/female_doctor_consult.jpg",
-    imgBg: "#FCE4EC",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png",
+    imgBg: "#FFF8EB",
   },
 ];
 
 function WhyChooseSlider() {
   const [active, setActive] = useState(0);
-  const prev = () => setActive(p => (p - 1 + whySlides.length) % whySlides.length);
-  const next = () => setActive(p => (p + 1) % whySlides.length);
+
   useEffect(() => {
-    const t = setInterval(next, 4500);
-    return () => clearInterval(t);
-   
+    const timer = setInterval(() => {
+      setActive((prev) => (prev + 1) % whySlides.length);
+    }, 5500);
+    return () => clearInterval(timer);
   }, []);
+
+  const next = () => setActive((prev) => (prev + 1) % whySlides.length);
+  const prev = () => setActive((prev) => (prev - 1 + whySlides.length) % whySlides.length);
+
   const slide = whySlides[active];
+
   return (
-    <section className="py-10 bg-[#f0f6ff] border-t border-blue-100">
-      <div className="max-w-[1200px] mx-auto px-4 w-full">
-        {/* Heading */}
-        <div className="text-center mb-7">
-          <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-2 shadow-sm">Our Specialities</span>
-          <h2 className="text-[#0f2d5e] text-2xl md:text-3xl font-extrabold mb-1">The QXL Difference</h2>
-          <p className="text-slate-600 text-sm font-medium">Excellence in every test, care in every result.</p>
-          <div className="w-14 h-1 bg-[#2563eb] mx-auto rounded-full mt-3" />
+    <section className="py-4 sm:py-8 bg-gradient-to-b from-amber-50/40 via-white to-amber-50/20 border-t border-[#F3DBA7]/40 relative overflow-hidden">
+      <div className="max-w-[1260px] mx-auto px-4 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-3 sm:mb-6">
+          <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[9.5px] sm:text-[10.5px] font-black px-3 py-0.5 rounded-full uppercase tracking-wider mb-1.5 shadow-2xs">
+            Our Specialities
+          </span>
+          <h2 className="text-xl sm:text-3xl font-black text-[#0f2d5e] mb-1">
+            The QXL Difference
+          </h2>
+          <p className="text-slate-500 text-xs sm:text-sm font-medium">
+            Excellence in every test, care in every result.
+          </p>
+          <div className="w-12 h-1 bg-[#D69A18] mx-auto mt-2 rounded-full" />
         </div>
 
-        {/* Spatial Liquid Glass Slide Card */}
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-sky-50/90 via-white/85 to-blue-50/90 backdrop-blur-2xl border border-sky-200/60 shadow-[0_20px_60px_rgba(14,165,233,0.12)] flex flex-row transition-all duration-300" style={{ minHeight: 230 }}>
-          {/* Left arrow — spatial liquid glass */}
-          <button
-            onClick={prev}
-            aria-label="Previous"
-            className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-xl border border-white/30 shadow-xl shadow-sky-500/30 hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group"
-          >
-            <ChevronLeft className="w-5 h-5 text-white" />
-          </button>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, x: -15 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 15 }}
-              transition={{ duration: 0.35 }}
-              className="flex-1 flex flex-col justify-center pl-16 sm:pl-20 pr-6 py-8 bg-gradient-to-r from-sky-50/80 via-white/70 to-transparent backdrop-blur-md text-left z-10"
-            >
-              <span className="inline-block bg-gradient-to-r from-sky-500 to-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2.5 w-fit shadow-md shadow-sky-500/20">
-                {slide.specialty}
-              </span>
-              <h3 className="text-[20px] md:text-[26px] font-black text-[#0f2d5e] leading-tight mb-1">
-                {slide.titlePlain}{" "}<span className="text-[#2563eb]">{slide.titleAccent}</span>
-              </h3>
-              <p className="text-[#0284c7] font-extrabold text-[12px] md:text-[13px] mb-2">{slide.highlight}</p>
-              <p className="text-slate-600 text-[13px] md:text-[14px] font-medium leading-relaxed mb-5 max-w-sm">{slide.sub}</p>
-              <Link
-                href="/book"
-                className="inline-block bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 !text-white font-black px-7 py-3 rounded-full text-[13px] hover:shadow-[0_0_20px_rgba(56,189,248,0.6)] hover:scale-105 transition-all w-fit shadow-md border border-white/40"
-                style={{ color: '#ffffff' }}
-              >
-                <span className="!text-white font-black" style={{ color: '#ffffff' }}>Book Now →</span>
-              </Link>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Right Image Panel with Spatial Glass Blend */}
-          <div
-            className="w-[38%] md:w-[42%] flex-shrink-0 relative overflow-hidden rounded-r-3xl bg-white/10"
-            style={{ minHeight: 230 }}
-          >
-            {/* Spatial Gradient Blend Overlay */}
-            <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white/90 via-white/40 to-transparent z-10 pointer-events-none" />
-
+        {/* Slide Card Container (Compact Stacked Mobile / Desktop Split) */}
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-[#F3DBA7] shadow-md flex flex-col md:flex-row transition-all duration-300">
+          
+          {/* Left / Top Image Panel */}
+          <div className="w-full md:w-[40%] h-[120px] sm:h-[180px] md:h-auto flex-shrink-0 relative overflow-hidden bg-[#FFF8EB] border-b md:border-b-0 md:border-r border-[#F3DBA7]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -191,46 +165,83 @@ function WhyChooseSlider() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35 }}
-                className="absolute inset-0 w-full h-full"
-                style={{ backgroundColor: slide.imgBg }}
+                className="absolute inset-0 w-full h-full flex items-center justify-center p-2 sm:p-4"
               >
-                <Image
+                <img
                   src={slide.image}
                   alt={slide.specialty}
-                  fill
-                  sizes="(max-width:768px) 38vw, 480px"
-                  className="object-cover object-center"
+                  className="max-h-full max-w-full object-contain drop-shadow-md"
                 />
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Right arrow — spatial liquid glass */}
-          <button
-            onClick={next}
-            aria-label="Next"
-            className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 z-50 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-xl border border-white/30 shadow-xl shadow-sky-500/30 hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group"
-          >
-            <ChevronRight className="w-5 h-5 text-white" />
-          </button>
-        </div>
+          {/* Right / Content Panel */}
+          <div className="flex-1 flex flex-col justify-between p-3.5 sm:p-6 md:pl-8 md:pr-10 text-left z-10">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-1.5"
+              >
+                <span className="inline-block bg-[#D69A18] text-white text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">
+                  {slide.specialty}
+                </span>
+                <h3 className="text-lg sm:text-2xl font-black text-[#0f2d5e] leading-tight">
+                  {slide.titlePlain}{" "}<span className="text-[#D69A18]">{slide.titleAccent}</span>
+                </h3>
+                <p className="text-[#D69A18] font-black text-xs">{slide.highlight}</p>
+                <p className="text-slate-600 text-[11.5px] sm:text-xs font-medium leading-relaxed max-w-lg">{slide.sub}</p>
+                
+                <div className="pt-2">
+                  <Link
+                    href="/book"
+                    className="inline-flex items-center gap-1.5 bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold px-4 py-2 rounded-xl text-[11px] uppercase tracking-wider shadow-sm active:scale-95 transition-all cursor-pointer"
+                  >
+                    <span>Book Now</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
-        {/* Dot indicators */}
-        <div className="flex justify-center gap-0.5 mt-4">
-          {whySlides.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActive(i)}
-              className="min-w-11 min-h-11 flex items-center justify-center"
-              aria-label={`Go to speciality slide ${i + 1}`}
-              aria-current={i === active ? "true" : undefined}
-            >
-              <span
-                className={`block h-2 rounded-full transition-all duration-300 ${i === active ? "w-7 bg-[#2563eb]" : "w-2 bg-gray-400"}`}
-              />
-            </button>
-          ))}
+            {/* Bottom Controls / Dots & Arrows Bar */}
+            <div className="flex items-center justify-between pt-3 mt-2 border-t border-slate-100">
+              <div className="flex items-center gap-1">
+                {whySlides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i)}
+                    className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                      active === i ? "w-5 bg-[#D69A18]" : "w-1.5 bg-amber-200 hover:bg-amber-300"
+                    }`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={prev}
+                  aria-label="Previous"
+                  className="w-7 h-7 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] hover:bg-[#D69A18] hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-2xs"
+                >
+                  <ChevronLeft className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  onClick={next}
+                  aria-label="Next"
+                  className="w-7 h-7 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] hover:bg-[#D69A18] hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-2xs"
+                >
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -698,6 +709,18 @@ export default function Home() {
   const [showContactServiceDropdown, setShowContactServiceDropdown] = useState(false);
   const [collapsedMobileDesc, setCollapsedMobileDesc] = useState<Record<string, boolean>>({});
   const [mobileOfferIndex, setMobileOfferIndex] = useState(0);
+  const [greeting, setGreeting] = useState("Good Morning");
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    if (hour >= 5 && hour < 12) {
+      setGreeting("Good Morning");
+    } else if (hour >= 12 && hour < 17) {
+      setGreeting("Good Afternoon");
+    } else {
+      setGreeting("Good Evening");
+    }
+  }, []);
 
   const mobileOfferBanners = [
     {
@@ -717,7 +740,7 @@ export default function Home() {
       price: "₹1,900",
       bgGradient: "bg-gradient-to-br from-indigo-50/95 via-blue-50/90 to-sky-50/80 border border-indigo-200/90 shadow-sm",
       badgeStyle: "bg-indigo-100 text-indigo-950 border border-indigo-200",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150385/Assets-QXL/legacy-assets/image/slide_vitamin_bone_new.jpg",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
       ctaLink: "/packages"
     }
   ];
@@ -1715,13 +1738,27 @@ export default function Home() {
                 </form>
               </div>
 
-              {/* Google Map */}
+              {/* Google Map Container (Mobile Optimized & Perfectly Aligned) */}
               <div className="flex flex-col">
-                <span className="inline-block bg-[#dbeafe] text-[#1d4ed8] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 w-fit">Our Location</span>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="inline-block bg-[#FFF8EB] text-[#D69A18] border border-[#F3DBA7] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">
+                    Our Location
+                  </span>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("QXL Diagnostics Kengeri Bengaluru")}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[11px] font-black text-[#D69A18] hover:underline flex items-center gap-1 bg-[#FFF8EB] border border-[#F3DBA7] px-3 py-1 rounded-full shadow-2xs"
+                  >
+                    Open in Maps &rarr;
+                  </a>
+                </div>
 
-                <p className="text-slate-500 text-sm font-medium mb-6">Conveniently located in Bengaluru, providing state-of-the-art diagnostic facilities.</p>
+                <p className="text-slate-500 text-xs sm:text-sm font-medium mb-3">
+                  Conveniently located in Bengaluru, providing state-of-the-art super speciality diagnostic facilities.
+                </p>
                 
-                <div className="w-full flex-1 min-h-[350px] rounded-3xl overflow-hidden shadow-md border border-gray-200">
+                <div className="w-full h-[250px] sm:h-[340px] md:h-[400px] rounded-3xl overflow-hidden shadow-sm border border-slate-200 bg-slate-100 relative">
                   <iframe 
                     src={mapSrc} 
                     width="100%" 
@@ -1738,666 +1775,328 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Accreditation / Reviews / FAQs (desktop) ── */}
-        <Accreditations />
-        {/* ── App Download Banner (after Certified for Excellence) ── */}
-        <AppDownloadBanner />
         <ReviewsSection />
         <FaqSection />
-        <SeoContent />
       </div>
 
-      {/* ── MOBILE VIEW (lg:hidden) — REFERENCE IMAGE DESIGN ── */}
-      <div className="lg:hidden flex flex-col w-full overflow-x-hidden bg-slate-50">
-        {/* White Rounded Sheet Overlay */}
-        <div className="rounded-t-[32px] bg-white relative z-20 shadow-2xl pt-6 px-4 flex flex-col gap-6 pb-6 mt-1">
+      {/* ── MOBILE VIEW (lg:hidden) — EXACT REFERENCE DESIGN ── */}
+      <div className="lg:hidden flex flex-col w-full max-w-full overflow-x-hidden bg-white pt-[68px] pb-[80px]">
 
-          {/* MORE WAYS TO BOOK Box */}
-          <div className="relative border border-slate-200/90 rounded-2xl p-4 pt-6 bg-white shadow-xs">
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-3 text-[10.5px] font-black text-slate-500 uppercase tracking-widest whitespace-nowrap">
-              MORE WAYS TO BOOK
-            </span>
-            <div className="grid grid-cols-4 gap-2 text-center">
-              {/* 1. WhatsApp */}
-              <a
-                href={WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex flex-col items-center group active:scale-95 transition-transform"
-              >
-                <div className="w-11 h-11 rounded-2xl bg-[#25d366] text-white flex items-center justify-center mb-1.5 shadow-md shadow-emerald-500/20">
-                  <MessageCircle className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-[11px] font-black text-slate-800 leading-tight">WhatsApp</span>
-              </a>
+        {/* ── Top Header Section (Greeting + Search + Amber Banner + Dots) ── */}
+        <div className="bg-white px-4 pt-1.5 pb-2">
+          {/* Greeting */}
+          <p className="text-[14.5px] font-normal text-slate-500 mb-0.5">{greeting},</p>
+          <h2 className="text-[26px] font-black text-[#0f2d5e] leading-[1.18] mb-3.5">
+            Take charge of your<br />health today!
+          </h2>
 
-              {/* 2. Call Us */}
-              <a
-                href="tel:+919964639639"
-                className="flex flex-col items-center group active:scale-95 transition-transform"
-              >
-                <div className="w-11 h-11 rounded-2xl bg-[#2563eb] text-white flex items-center justify-center mb-1.5 shadow-md shadow-blue-500/20">
-                  <Phone className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-[11px] font-black text-slate-800 leading-tight">Call Us</span>
-              </a>
-
-              {/* 3. Prescription */}
-              <button
-                onClick={() => setIsPrescriptionModalOpen(true)}
-                className="flex flex-col items-center group active:scale-95 transition-transform"
-              >
-                <div className="w-11 h-11 rounded-2xl bg-[#10b981] text-white flex items-center justify-center mb-1.5 shadow-md shadow-emerald-500/20">
-                  <FileText className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-[11px] font-black text-slate-800 leading-tight">Prescription</span>
-              </button>
-
-              {/* 4. AI Assistant */}
-              <Link
-                href="/ai-assistant"
-                className="flex flex-col items-center group active:scale-95 transition-transform"
-              >
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-1.5 shadow-md shadow-indigo-500/20">
-                  <Sparkles className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-[11px] font-black text-slate-800 leading-tight">AI Assistant</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Feature Banners Row (Home Collection Available, 24x7 Available, NABL Accredited) — 1 Card Full Screen */}
-          <div className="relative overflow-hidden py-1 w-full">
-            <div className="flex overflow-x-auto scrollbar-none snap-x snap-mandatory w-full">
-              {/* Banner 1: Home Collection Available (Blue Liquid Glass) */}
-              <div className="bg-gradient-to-br from-blue-50/95 via-sky-50/90 to-indigo-50/80 border border-blue-200/90 rounded-3xl p-4 flex justify-between items-center shrink-0 w-full min-w-full snap-center shadow-xs backdrop-blur-md">
-                <div className="flex flex-col pr-2">
-                  <h3 className="text-[14px] font-black text-blue-950 leading-tight mb-1">
-                    Home Collection Available
-                  </h3>
-                  <p className="text-[11px] font-bold text-blue-800 leading-snug flex items-center gap-1">
-                    <span>⚡</span> Doorstep sample pickup in 60 mins
-                  </p>
-                  <p className="text-[11px] font-bold text-blue-800 leading-snug flex items-center gap-1 mt-0.5">
-                    <span>🩺</span> 1000+ trained phlebotomists
-                  </p>
-                </div>
-                <div className="w-20 h-20 relative rounded-2xl overflow-hidden shrink-0 border-2 border-white shadow-xs bg-white">
-                  <img
-                    src="https://res.cloudinary.com/btjglif5/image/upload/v1784150185/Assets-QXL/legacy-assets/image/female_doctor_consult.jpg"
-                    alt="Home Collection Available"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-              </div>
-
-              {/* Banner 2: 24x7 Available (Sky Blue Liquid Glass) */}
-              <div className="bg-gradient-to-br from-sky-50/95 via-blue-50/90 to-cyan-50/80 border border-sky-200/90 rounded-3xl p-4 flex justify-between items-center shrink-0 w-full min-w-full snap-center shadow-xs backdrop-blur-md">
-                <div className="flex flex-col pr-2">
-                  <h3 className="text-[14px] font-black text-sky-950 leading-tight mb-1">
-                    24x7 Available
-                  </h3>
-                  <p className="text-[11px] font-bold text-sky-800 leading-snug flex items-center gap-1">
-                    <span>🔬</span> Round-the-clock NABL testing
-                  </p>
-                  <p className="text-[11px] font-bold text-sky-800 leading-snug flex items-center gap-1 mt-0.5">
-                    <span>⏱️</span> Fast digital reports in 6 hours
-                  </p>
-                </div>
-                <div className="w-20 h-20 relative rounded-2xl overflow-hidden shrink-0 border-2 border-white shadow-xs bg-white">
-                  <img
-                    src="https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg"
-                    alt="24x7 Available"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-              </div>
-
-              {/* Banner 3: 100% NABL Accredited (Indigo Liquid Glass) */}
-              <div className="bg-gradient-to-br from-indigo-50/95 via-blue-50/90 to-sky-50/80 border border-indigo-200/90 rounded-3xl p-4 flex justify-between items-center shrink-0 w-full min-w-full snap-center shadow-xs backdrop-blur-md">
-                <div className="flex flex-col pr-2">
-                  <h3 className="text-[14px] font-black text-indigo-950 leading-tight mb-1">
-                    100% NABL Accredited
-                  </h3>
-                  <p className="text-[11px] font-bold text-indigo-800 leading-snug flex items-center gap-1">
-                    <span>🏆</span> Verified MD Pathologists
-                  </p>
-                  <p className="text-[11px] font-bold text-indigo-800 leading-snug flex items-center gap-1 mt-0.5">
-                    <span>❤️</span> 50,000+ Happy Patients
-                  </p>
-                </div>
-                <div className="w-20 h-20 relative rounded-2xl overflow-hidden shrink-0 border-2 border-white shadow-xs bg-white">
-                  <img
-                    src="https://res.cloudinary.com/btjglif5/image/upload/v1784150385/Assets-QXL/legacy-assets/image/slide_vitamin_bone_new.jpg"
-                    alt="NABL Accredited"
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Main Banner Offer Carousel */}
-          <div className="relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={mobileOfferIndex}
-                initial={{ opacity: 0, x: 15 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -15 }}
-                transition={{ duration: 0.35 }}
-                className={`${mobileOfferBanners[mobileOfferIndex].bgGradient} rounded-2xl p-4 border shadow-sm relative overflow-hidden flex items-center justify-between min-h-[175px]`}
-              >
-                {/* Left Content */}
-                <div className="flex flex-col text-left max-w-[60%] z-10">
-                  <span className={`text-[9.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full w-fit mb-1.5 ${mobileOfferBanners[mobileOfferIndex].badgeStyle}`}>
-                    {mobileOfferBanners[mobileOfferIndex].badge}
-                  </span>
-                  <h3 className="text-[17px] font-black text-slate-900 leading-tight mb-1">
-                    {mobileOfferBanners[mobileOfferIndex].title}
-                  </h3>
-                  <p className="text-[11px] text-slate-600 font-bold leading-tight mb-2.5">
-                    {mobileOfferBanners[mobileOfferIndex].sub}
-                  </p>
-                  <div className="flex items-baseline gap-1 mb-3">
-                    <span className="text-[10px] font-black text-[#2563eb] uppercase tracking-wider">START @</span>
-                    <span className="text-[18px] font-black text-slate-950">{mobileOfferBanners[mobileOfferIndex].price}</span>
-                  </div>
-                  <Link
-                    href={mobileOfferBanners[mobileOfferIndex].ctaLink}
-                    className="bg-[#2563eb] hover:bg-blue-700 text-white font-black px-5 py-2 rounded-full text-[11px] shadow-md shadow-blue-500/20 w-fit active:scale-95 transition-transform flex items-center gap-1"
-                  >
-                    <span>Book Now</span>
-                    <ChevronRight className="w-3.5 h-3.5 text-white" />
-                  </Link>
-                </div>
-
-                {/* Right Image */}
-                <div className="w-28 h-32 relative rounded-2xl overflow-hidden shrink-0 shadow-md border-2 border-white bg-white">
-                  <img
-                    src={mobileOfferBanners[mobileOfferIndex].image}
-                    alt={mobileOfferBanners[mobileOfferIndex].title}
-                    className="w-full h-full object-cover object-center"
-                  />
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Carousel Navigation Dots & Controls */}
-            <div className="flex justify-between items-center mt-3 px-1">
-              <button
-                onClick={() => setMobileOfferIndex((prev) => (prev === 0 ? mobileOfferBanners.length - 1 : prev - 1))}
-                className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
-                aria-label="Previous banner"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] font-extrabold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
-                  {mobileOfferIndex + 1}/{mobileOfferBanners.length}
-                </span>
-                {mobileOfferBanners.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setMobileOfferIndex(i)}
-                    className={`h-2 rounded-full transition-all ${
-                      i === mobileOfferIndex ? 'w-5 bg-[#2563eb]' : 'w-2 bg-slate-300'
-                    }`}
-                    aria-label={`Go to slide ${i + 1}`}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={() => setMobileOfferIndex((prev) => (prev + 1) % mobileOfferBanners.length)}
-                className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
-                aria-label="Next banner"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-
-
-
-        {/* ── MOBILE Explore by Health Need (Agilus Layout) ── */}
-        <section className="py-5 bg-transparent border-t border-gray-100">
-          <div className="flex items-center justify-between px-4 mb-3">
-            <h2 className="text-[#0d2e42] font-black text-lg leading-tight">Explore by Health Need</h2>
-            <Link href="/speciality-tests" className="text-[#2563eb] text-[11px] font-bold">View All</Link>
-          </div>
-
-          {/* Featured Full Body Checkups Pill Card (Agilus style) */}
-          <div className="px-4 mb-3">
+          {/* Search bar */}
+          <div className="flex items-stretch rounded-xl overflow-hidden border border-slate-200 bg-white shadow-xs mb-4">
+            <input
+              type="text"
+              placeholder="Search for tests, packages..."
+              className="flex-1 px-4 py-3.5 text-[15px] text-slate-500 bg-white outline-none placeholder-slate-400"
+              readOnly
+              onClick={() => { window.location.href = '/tests'; }}
+            />
             <Link
-              href="/packages"
-              className="w-full bg-[#f8fafc] hover:bg-slate-100 border border-slate-200 rounded-2xl p-3.5 flex items-center justify-between shadow-xs transition-all"
+              href="/tests"
+              className="bg-[#D69A18] w-[54px] flex items-center justify-center shrink-0 rounded-r-xl active:scale-95 transition-transform"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-blue-100 text-[#2563eb] flex items-center justify-center font-extrabold text-base">
-                  🩸
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-black text-[#0f2d5e] text-sm">Full Body Checkups</span>
-                  <span className="text-[10px] text-slate-500 font-bold">Comprehensive Wellness Packages</span>
-                </div>
-              </div>
-              <span className="bg-[#2563eb] text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider shadow-xs">
-                POPULAR
-              </span>
-            </Link>
-          </div>
-          
-          <div className="flex overflow-x-auto scrollbar-none snap-x snap-mandatory gap-3 px-4 pb-2">
-            {bodyOrgans.map((organ, idx) => (
-              <Link
-                key={idx}
-                href="/speciality-tests"
-                className="w-[95px] flex-shrink-0 snap-center bg-[#f8fafc] rounded-2xl border border-slate-200/80 p-3 flex flex-col items-center justify-center gap-2 active:scale-95 transition-transform"
-              >
-                <div className="w-11 h-11 rounded-full overflow-hidden relative border border-white shadow-xs">
-                  <Image src={organ.image} alt={organ.name} fill className="object-cover" />
-                </div>
-                <span className="text-[11px] font-extrabold text-[#0f2d5e] text-center leading-tight">{organ.name}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Recommended Packages — one per screen, full-width snap scroll */}
-        <section className="py-4 bg-transparent border-t border-gray-100">
-          <div className="flex items-center justify-between px-4 mb-3">
-            <div>
-              <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Health Packages</p>
-              <p className="text-[#0d2e42] font-extrabold text-base leading-tight">Recommended Packages</p>
-            </div>
-            <Link href="/packages" className="text-[#2563eb] text-xs font-bold flex items-center gap-0.5">
-              View all packages <ChevronRight className="w-3.5 h-3.5" />
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+                <circle cx="11" cy="11" r="8" strokeLinecap="round" />
+                <path d="M21 21l-4.35-4.35" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Link>
           </div>
 
-          <div className="flex overflow-x-auto scrollbar-none snap-x snap-mandatory gap-0">
-            {recommendedPackages.map((pkg, idx) => {
-              const isRakhiPkg = Boolean(pkg.name?.toLowerCase().includes("raksha") || pkg.tag?.toLowerCase().includes("raksha"));
-              return (
-                <div
-                  key={idx}
-                  className={`w-[calc(100vw-32px)] mx-4 flex-shrink-0 snap-center rounded-2xl border overflow-hidden relative shadow-md transition-all ${
-                    isRakhiPkg
-                      ? 'bg-gradient-to-b from-rose-50/80 via-white to-amber-50/60 border-rose-300/90 shadow-rose-500/15'
-                      : 'bg-white border-gray-100'
-                  }`}
+          {/* Full Body Health Checkup Banner Card */}
+          <div
+            className="relative rounded-2xl overflow-hidden shadow-sm"
+            style={{ background: 'linear-gradient(135deg, #F5C118 0%, #E8A915 35%, #FDD55A 100%)' }}
+          >
+            <div className="flex items-end p-4.5 gap-3">
+              {/* Left: text + button */}
+              <div className="flex-1 flex flex-col pb-1">
+                <h3 className="text-[22px] font-black text-[#1a1a1a] leading-tight mb-1">
+                  Full Body<br />Health Checkup
+                </h3>
+                <p className="text-[13.5px] font-bold text-[#2a2a2a] mb-2">80 Parameters</p>
+                <div className="flex items-baseline gap-2 mb-4">
+                  <span className="text-[25px] font-black text-[#1a1a1a]">₹800</span>
+                  <span className="text-[14px] text-[#555] line-through font-bold">₹5,800</span>
+                </div>
+                <Link
+                  href="/book?package=Full+Body+Health+Checkup"
+                  className="bg-white text-[#1a1a1a] font-black px-5 py-2.5 rounded-full text-[13.5px] w-fit shadow-sm active:scale-95 transition-all flex items-center gap-1"
                 >
-                  {/* Top colour strip */}
-                  <div className={`px-4 py-3 flex items-center justify-between relative overflow-hidden ${
-                    isRakhiPkg
-                      ? 'bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600 text-white'
-                      : pkg.most_booked
-                      ? 'bg-gradient-to-r from-[#2563eb] via-blue-600 to-indigo-600'
-                      : 'bg-gradient-to-r from-[#2563eb] to-[#3b82f6]'
-                  }`}>
-                    {/* Rakhi Shimmer Sweep */}
-                    {isRakhiPkg && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shimmer-sweep pointer-events-none" />
-                    )}
-
-                    <span className="text-[10px] font-black text-white uppercase tracking-widest flex items-center gap-1.5 z-10">
-                      {isRakhiPkg ? (
-                        <>
-                          <span className="text-amber-200 inline-block">🪢</span>
-                          <span>🎀 RAKSHA BANDHAN SPECIAL</span>
-                        </>
-                      ) : (
-                        <>
-                          {pkg.most_booked && (
-                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                          )}
-                          {pkg.tag || 'PACKAGE'}
-                        </>
-                      )}
-                    </span>
-                    <span className={`text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm z-10 ${
-                      isRakhiPkg ? 'bg-amber-300 text-rose-950 border border-amber-400' : 'bg-white text-[#2563eb]'
-                    }`}>
-                      {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || pkg.originalPrice || 5800)) * 100)}% OFF
-                    </span>
-                  </div>
-
-                  {/* Card body */}
-                  <div className="p-4 flex flex-col gap-3">
-                    <div className="cursor-pointer flex flex-col gap-3" onClick={() => setSelectedPackage(pkg)}>
-                      <div className="flex justify-between items-start gap-2">
-                        <div className="flex flex-col">
-                          {isRakhiPkg && (
-                            <span className="text-[10px] font-black text-rose-600 flex items-center gap-1 mb-0.5">
-                              <Sparkles className="w-3 h-3 text-amber-500" />
-                              <span>Exclusive Sibling Health Gift</span>
-                            </span>
-                          )}
-                          <h3 className="font-extrabold text-[#0d2e42] text-[15px] leading-snug">{pkg.name}</h3>
-                        </div>
-                        <span className={`text-[9.5px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0 ${
-                          isRakhiPkg ? 'bg-rose-100 text-rose-800 border border-rose-200' : 'bg-sky-50 text-[#0284c7] border border-sky-200'
-                        }`}>Details 🔍</span>
-                      </div>
-
-                    {pkg.includes && !collapsedMobileDesc[pkg.name] && (
-                      <div className="relative">
-                        <p className="text-[11px] text-slate-600 bg-blue-50 px-3 py-2 rounded-xl font-medium leading-relaxed pr-12">
-                          {typeof pkg.includes === 'string'
-                            ? pkg.includes.split(/(?<=\))(?=[A-Z])/).join(' • ')
-                            : pkg.includes}
-                        </p>
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setCollapsedMobileDesc(prev => ({ ...prev, [pkg.name]: true }));
-                          }}
-                          className="absolute right-2 bottom-2 text-[10px] font-bold text-[#0284c7] hover:text-[#0369a1] bg-sky-50/90 hover:bg-sky-100/90 px-2.5 py-0.5 rounded-lg border border-sky-200/50 shadow-sm"
-                        >
-                          Hide
-                        </button>
-                      </div>
-                    )}
-                      {pkg.includes && collapsedMobileDesc[pkg.name] && (
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setCollapsedMobileDesc(prev => ({ ...prev, [pkg.name]: false }));
-                          }}
-                          className="text-left text-[11px] font-bold text-sky-600 hover:text-[#2563eb] py-1 flex items-center gap-1"
-                        >
-                          + Show Description
-                        </button>
-                      )}
-
-                      <p className="text-[11px] text-slate-600 font-semibold">🏠 Free Home Collection Available</p>
-                    </div>
-
-                    {/* Price + CTA */}
-                    <div className="flex items-center justify-between pt-3 border-t border-gray-100 mt-1">
-                      <div>
-                        {pkg.old_price && (
-                          <p className="text-[11px] text-slate-500 line-through font-medium">₹{pkg.old_price}</p>
-                        )}
-                        <p className="font-black text-[#0d2e42] text-[22px] leading-tight">₹{pkg.price}</p>
-                      </div>
-                      <div className="flex gap-2 items-center">
-                        <button
-                          type="button"
-                          onClick={() => handleToggleCart(pkg.name)}
-                          className={`h-9 px-4 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all border cursor-pointer flex items-center justify-center ${
-                            cartItems.includes(pkg.name)
-                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
-                              : 'bg-slate-100 text-slate-800 border-slate-200 hover:bg-slate-200'
-                          }`}
-                        >
-                          {cartItems.includes(pkg.name) ? "✓ Added" : "+ Cart"}
-                        </button>
-                        <Link
-                          href={`/book?package=${encodeURIComponent(pkg.name)}`}
-                          className="bg-[#2563eb] text-white text-[12px] font-extrabold px-5 py-2.5 rounded-xl active:scale-95 transition-transform shadow-md h-9 flex items-center justify-center"
-                        >
-                          Book Now
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+                  <span>Book Now</span>
+                  <span className="text-[15px]">›</span>
+                </Link>
+              </div>
+              {/* Right: doctor photo */}
+              <div className="w-[170px] h-[180px] shrink-0 self-end overflow-hidden rounded-xl border border-white/50 shadow-xs">
+                <img
+                  src="https://res.cloudinary.com/btjglif5/image/upload/v1784150185/Assets-QXL/legacy-assets/image/female_doctor_consult.jpg"
+                  alt="Full Body Health Checkup Doctor Consultation"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Dots indicator */}
-          <div className="flex justify-center gap-1.5 mt-3">
-            {recommendedPackages.map((_, idx) => (
-              <div
-                key={idx}
-                className="h-1.5 w-1.5 rounded-full bg-gray-300"
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* ── Mobile Home Collection & Offer Ticker Bar ── */}
-        <div className="lg:hidden w-full bg-[#059669] text-white py-2.5 px-1 overflow-x-auto whitespace-nowrap flex items-center z-20 shadow-inner border-y border-emerald-700/60 relative my-3">
-          <style dangerouslySetInnerHTML={{__html: `::-webkit-scrollbar { display: none; }`}} />
-          <div className="flex items-center gap-3 w-max min-w-full px-3 animate-marquee-fast hover:[animation-play-state:paused]">
-            {[1, 2].map((repeatKey) => (
-              <React.Fragment key={repeatKey}>
-                <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  🏡 HOME COLLECTION AVAILABLE
-                </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
-                <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
-                  FREE HOME SAMPLE COLLECTION ACROSS BENGALURU · SAME DAY DIGITAL REPORTS
-                </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
-
-                <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  NABL ACCREDITED LAB
-                </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
-                <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
-                  DOCTOR-LED DIAGNOSTICS &amp; 300+ TEST PANELS
-                </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
-
-                <span className="bg-white/20 text-white border border-white/30 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  ⚡ NABL ACCREDITED LAB
-                </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
-                <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
-                  EXPERT DOCTOR-REVIEWED REPORTS · FAST & RELIABLE
-                </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
-              </React.Fragment>
-            ))}
+          {/* Carousel dots */}
+          <div className="flex justify-center items-center gap-2 mt-3.5 mb-2">
+            <span className="w-6 h-2 rounded-full bg-[#D69A18]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+            <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
           </div>
         </div>
 
-          {/* ── Quick Booking Form (Mobile - Full Details) ── */}
-          <div className="lg:hidden bg-transparent py-8 border-y border-blue-100">
-            <div className="px-4 mb-6">
-              <span className="inline-block bg-white text-[#2563eb] text-[9px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2 shadow-sm border border-blue-100">Quick Booking</span>
-              <h2 className="text-[#0f2d5e] text-2xl font-black leading-tight mb-2">Book a Test at Home</h2>
-              <p className="text-slate-600 text-xs font-medium leading-relaxed">Search your tests, pick a time slot, and we'll collect the sample right from your home safely.</p>
-            </div>
-            <div className="px-4">
-              <QuickBookingForm formState={formState} setFormState={setFormState} handleContactSubmit={handleContactSubmit} formStatus={formStatus} />
-            </div>
+        {/* ── Book a Test Section (Bigger Icons & Warm Tint) ── */}
+        <div className="bg-white px-4 pt-3 pb-6 border-t border-slate-100">
+          <div className="flex items-center justify-between mb-3.5">
+            <span className="text-[18px] font-black text-[#0f2d5e]">Book a Test</span>
+            <Link href="/tests" className="text-[13.5px] font-extrabold text-[#D69A18] hover:underline">View All</Link>
           </div>
 
-        {/* Speciality Tests — full vertical list */}
-        <section className="bg-transparent border-t border-gray-100">
-          <div className="flex items-center justify-between px-4 pt-4 pb-2">
-            <div>
-              <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Our Specialities</p>
-              <p className="text-[#0d2e42] font-extrabold text-base leading-tight">Speciality Tests</p>
-            </div>
-            <Link href="/speciality-tests" className="text-[#2563eb] text-xs font-bold flex items-center gap-0.5">
-              View all speciality tests <ChevronRight className="w-3.5 h-3.5" />
+          <div className="grid grid-cols-4 gap-3">
+            {/* 1. Popular Tests */}
+            <Link href="/tests" className="flex flex-col items-center gap-2 active:scale-95 transition-transform">
+              <div className="w-[64px] h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs">
+                <Microscope className="w-7 h-7 text-[#D69A18]" strokeWidth={1.8} />
+              </div>
+              <span className="text-[11px] font-bold text-slate-800 text-center leading-tight">Popular<br />Tests</span>
             </Link>
+
+            {/* 2. Health Packages */}
+            <Link href="/packages" className="flex flex-col items-center gap-2 active:scale-95 transition-transform">
+              <div className="w-[64px] h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs">
+                <svg className="w-7 h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v1.281m7.5 0a48.667 48.667 0 00-7.5 0" />
+                </svg>
+              </div>
+              <span className="text-[11px] font-bold text-slate-800 text-center leading-tight">Health<br />Packages</span>
+            </Link>
+
+            {/* 3. Home Collection */}
+            <Link href="/home-collection" className="flex flex-col items-center gap-2 active:scale-95 transition-transform">
+              <div className="w-[64px] h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs">
+                <svg className="w-7 h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg>
+              </div>
+              <span className="text-[11px] font-bold text-slate-800 text-center leading-tight">Home<br />Collection</span>
+            </Link>
+
+            {/* 4. Upload Prescription */}
+            <button
+              onClick={() => setIsPrescriptionModalOpen(true)}
+              className="flex flex-col items-center gap-2 active:scale-95 transition-transform cursor-pointer"
+            >
+              <div className="w-[64px] h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs">
+                <svg className="w-7 h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                </svg>
+              </div>
+              <span className="text-[11px] font-bold text-slate-800 text-center leading-tight">Upload<br />Prescription</span>
+            </button>
           </div>
-          <div className="flex flex-col divide-y divide-gray-100 px-4 pb-4">
-            {[
-              { title: "Neurology", desc: "Brain & Nervous System", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png", href: "/specialities/neurology" },
-              { title: "Hematology", desc: "Blood Disorders & CBC", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150417/Assets-QXL/legacy-assets/image/spec_hematology.png", href: "/specialities/hematology" },
-              { title: "Cardiology", desc: "Heart & Cardiovascular", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png", href: "/specialities/cardiology" },
-              { title: "Urology", desc: "Kidney & Urinary Health", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png", href: "/specialities/urology" },
-              { title: "Endocrinology", desc: "Thyroid, Diabetes & Hormones", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png", href: "/specialities/endocrinology" },
-              { title: "Oncology", desc: "Cancer Markers & Screening", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150430/Assets-QXL/legacy-assets/image/spec_oncology.png", href: "/specialities/oncology" },
-              { title: "Infectious Diseases", desc: "Viral, Bacterial & Fungal", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150422/Assets-QXL/legacy-assets/image/spec_infectious.png", href: "/specialities/infectious-diseases" },
-              { title: "Women's Health", desc: "Gynaecology & Fertility", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png", href: "/specialities/womens-health" },
-              { title: "Gastroenterology", desc: "Liver, Gut & Digestive", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png", href: "/specialities/gastroenterology" },
-              { title: "Bone Disorders", desc: "Calcium, Vitamin D & Joints", icon: "https://res.cloudinary.com/btjglif5/image/upload/v1784150389/Assets-QXL/legacy-assets/image/spec_bone.png", href: "/specialities/bone-disorders" },
-            ].map((spec, i) => (
-              <Link
-                key={i}
-                href={spec.href}
-                className="flex items-center gap-3 py-3 active:bg-blue-50 transition-colors group"
-              >
-                <div className="w-16 h-16 rounded-xl bg-[#eff6ff] border border-blue-100 flex items-center justify-center flex-shrink-0 overflow-hidden">
-                  <Image
-                    src={optimizeCloudinaryUrl(spec.icon, { w: 96, h: 96 })}
-                    alt=""
-                    width={48}
-                    height={48}
-                    unoptimized
-                    className={`w-12 h-12 object-contain mix-blend-multiply ${spec.title === "Gastroenterology" ? "scale-[1.4]" : "scale-110"}`}
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="font-extrabold text-[#0d2e42] text-[13px] leading-tight">{spec.title}</p>
-                  <p className="text-[11px] text-slate-600 font-medium mt-0.5">{spec.desc}</p>
-                </div>
-                <ChevronRight className="w-4 h-4 text-gray-300 flex-shrink-0 group-active:text-[#2563eb] transition-colors" />
-              </Link>
-            ))}
-          </div>
-        </section>
+        </div>
 
-        {/* Mobile Why Choose QXL Slides */}
-        <MobileWhyChooseSlider />
+        {/* ── 24×7 Diagnostic Services Mobile Banner ── */}
+        <section className="py-4 px-4 bg-[#f8faff] border-t border-slate-100 my-4 sm:my-6">
+          <div className="rounded-2xl bg-gradient-to-br from-[#FFF8EB] via-white to-amber-50/60 p-5 border border-[#F3DBA7] shadow-sm">
+            <span className="inline-block bg-[#D69A18] text-white text-[10px] font-black px-3 py-1 rounded-full tracking-wider uppercase mb-2.5 shadow-2xs">
+              24×7 DIAGNOSTIC SERVICES
+            </span>
+            <h3 className="text-[20px] font-black text-[#0f2d5e] leading-tight mb-1">
+              NABL Accredited Diagnostics
+            </h3>
+            <p className="text-[13px] font-bold text-[#D69A18] mb-3.5">
+              Doctor-Led Diagnostic Lab in Bengaluru
+            </p>
 
-        {/* AI Powered Diagnostics (Mobile is inside the component) */}
-        <AiDiagnostics decorativeHeading />
-
-        {/* Technologies removed */}
-
-
-
-        {/* Home Collection */}
-        <HomeCollectionSection decorativeHeading />
-
-        {/* Meet Our Team */}
-        <section className="py-8 bg-transparent border-t border-blue-100">
-          <div className="px-4">
-            <div className="mb-6 text-center">
-              <span className="inline-block bg-blue-50 text-[#2563eb] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-1.5">Our Experts</span>
-              <p className="text-[#0f2d5e] text-xl font-extrabold">Meet Our Team</p>
-              <p className="text-slate-600 text-xs mt-2 leading-relaxed">
-                Combining over four decades of medical expertise, our team delivers exceptional diagnostic services with a commitment to precision and care.
-              </p>
-              <div className="w-10 h-0.5 bg-[#2563eb] mx-auto rounded-full mt-3" />
-            </div>
-            <div className="flex overflow-x-auto gap-4 scrollbar-none pb-4 snap-x snap-mandatory">
-              {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "/images/dr_shantakumar_new.jpg", imagePosition: "center top", imageScale: 1.3, imageTranslateY: "-24%" },
-                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
-                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
-                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
-              ].map((doc: any) => (
-                <div key={doc.name} className="w-[180px] bg-white rounded-2xl overflow-hidden flex flex-col items-center p-3 text-center border border-gray-100 shadow-sm flex-shrink-0 snap-start">
-                  <div className="w-36 h-36 rounded-xl overflow-hidden mb-3 bg-[#f8fafc] flex items-center justify-center">
-                    <Image src={doc.image} alt={doc.name} width={144} height={144}
-                      className="w-full h-full object-cover"
-                      style={{ 
-                        objectPosition: doc.imagePosition || 'top',
-                        transform: doc.imageScale ? `scale(${doc.imageScale}) ${doc.imageTranslateY ? `translateY(${doc.imageTranslateY})` : ''}` : 'none',
-                      }}
-                      onError={(e) => { e.currentTarget.srcset = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"; }} />
-                  </div>
-                  <h3 className="font-extrabold text-slate-800 text-[12px] mb-0.5">{doc.name}</h3>
-                  <p className="text-[9px] font-bold text-[#2563eb] uppercase tracking-wider">({doc.qual})</p>
+            <div className="grid grid-cols-2 gap-2.5 mb-4 bg-white/70 p-3 rounded-xl border border-amber-100/80">
+              {["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"].map(s => (
+                <div key={s} className="flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span className="text-[11.5px] font-bold text-slate-800 leading-tight">{s}</span>
                 </div>
               ))}
             </div>
+
+            <p className="text-[11.5px] text-slate-500 font-semibold mb-4 leading-normal">
+              Available at all QXL centres &amp; partner facilities across Bengaluru.
+            </p>
+
+            <a
+              href="tel:+919964639639"
+              className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-extrabold text-sm py-3 px-5 rounded-xl shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <Phone className="w-4 h-4 text-white" />
+              <span>Call +91 9964 639 639</span>
+            </a>
           </div>
         </section>
 
-        {/* Mobile Promo Highlights Slider */}
-        <MobilePromoHighlightSlider />
-        {/* Mobile App Download Banner */}
-        <BlogSlider decorativeHeading />
-
-        {/* Contact Form and Location Map */}
-        <section className="py-8 bg-transparent border-t border-gray-150">
-          <div className="px-4 flex flex-col gap-8">
-            {/* Form */}
-            <div className="bg-[#f0f9ff] p-5 rounded-2xl border border-[#2563eb]/10 shadow-sm">
-              <span className="inline-block bg-white text-[#2563eb] text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2 shadow-xs">Get in Touch</span>
-              <p className="text-[#0f2d5e] text-lg font-extrabold mb-1">Book a Test / Inquiry</p>
-              <p className="text-slate-600 text-xs mb-4 leading-relaxed">Fill out the form below and our team will contact you shortly.</p>
-              
-              <form className="flex flex-col gap-3" onSubmit={handleContactSubmit}>
-                <input type="text" required placeholder="Full Name" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})} className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
-                <input type="tel" required placeholder="Phone Number" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value.replace(/\D/g, '')})} className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
-                
-                <div className="relative">
-                  <button
-                    type="button"
-                    onClick={() => setShowContactServiceDropdown(!showContactServiceDropdown)}
-                    className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all text-left flex justify-between items-center text-slate-700"
-                  >
-                    {formState.service}
-                    <svg className={`w-3.5 h-3.5 transition-transform ${showContactServiceDropdown ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                  </button>
-                  {showContactServiceDropdown && (
-                    <div className="absolute top-[42px] left-0 right-0 bg-white border border-gray-200 rounded-xl shadow-lg z-30 flex flex-col py-1.5 overflow-hidden">
-                      {['Home Collection', 'Lab Visit', 'General Inquiry'].map(opt => (
-                        <button
-                          key={opt}
-                          type="button"
-                          onClick={() => { setFormState({...formState, service: opt}); setShowContactServiceDropdown(false); }}
-                          className={`text-left px-3 py-2.5 text-xs hover:bg-blue-50 transition-colors ${formState.service === opt ? 'font-bold text-[#2563eb] bg-blue-50/50' : 'text-slate-600'}`}
-                        >
-                          {opt}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <textarea rows={3} placeholder="Message" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all resize-none"></textarea>
-                
-                {formStatus === 'success' && <p className="text-green-600 text-[10px] font-bold">Inquiry submitted successfully!</p>}
-                {formStatus === 'error' && <p className="text-red-600 text-[10px] font-bold">Error submitting. Try again.</p>}
-                
-                <button type="submit" disabled={formStatus === 'loading'} className="w-full bg-[#2563eb] text-white font-extrabold py-3 rounded-xl shadow-sm hover:bg-[#1d4ed8] transition-all text-xs uppercase tracking-wider mt-1 disabled:opacity-70">
-                  {formStatus === 'loading' ? 'Submitting...' : 'Submit Inquiry'}
-                </button>
-              </form>
+        {/* ── Recommended Packages Carousel Mobile ── */}
+        <section className="py-4 px-4 bg-white border-t border-slate-100 my-4 sm:my-6">
+          <div className="flex justify-between items-center mb-3">
+            <div>
+              <span className="text-[10px] font-black text-[#D69A18] uppercase tracking-wider block">Health Packages</span>
+              <h3 className="text-[17px] font-black text-[#0f2d5e]">Recommended Packages</h3>
             </div>
+            <Link href="/packages" className="text-xs font-bold text-[#D69A18]">View All</Link>
+          </div>
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none">
+            {recommendedPackages.map((pkg) => (
+              <div key={pkg.name} className="w-[260px] shrink-0 snap-start bg-white border border-slate-200 rounded-2xl p-4 shadow-xs flex flex-col justify-between">
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="bg-[#FFF8EB] text-[#D69A18] text-[9.5px] font-black px-2.5 py-0.5 rounded-full border border-[#F3DBA7] uppercase">{pkg.tag || "PACKAGE"}</span>
+                    <span className="text-[10px] font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || pkg.originalPrice || 5800)) * 100)}% OFF</span>
+                  </div>
+                  <h4 className="font-extrabold text-[#0f2d5e] text-sm leading-tight mb-1">{pkg.name}</h4>
+                  <p className="text-[11px] text-slate-500 font-medium line-clamp-2 mb-2">{pkg.includes}</p>
+                </div>
+                <div>
+                  <div className="flex items-baseline gap-2 mb-3">
+                    <span className="text-lg font-black text-slate-900">₹{pkg.price}</span>
+                    <span className="text-xs text-slate-400 line-through">₹{pkg.old_price || pkg.original_price || pkg.originalPrice || "5800"}</span>
+                  </div>
+                  <div className="flex gap-2">
+                    <button type="button" onClick={() => setSelectedPackage(pkg)} className="flex-1 py-2 rounded-xl text-[10px] font-extrabold border border-slate-200 text-slate-700 bg-slate-50">Details</button>
+                    <Link href={`/book?package=${encodeURIComponent(pkg.name)}`} className="flex-1 py-2 rounded-xl text-[10px] font-extrabold bg-[#D69A18] text-white text-center">BOOK NOW</Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
-            {/* Map */}
-            <div className="flex flex-col">
-              <span className="inline-block bg-[#dbeafe] text-[#1d4ed8] text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-widest mb-2 w-fit">Our Location</span>
-              <p className="text-slate-600 text-xs mb-3 leading-relaxed">Conveniently located in Bengaluru, providing state-of-the-art diagnostic facilities.</p>
-              <div className="w-full h-[220px] rounded-2xl overflow-hidden shadow-xs border border-gray-200 mt-1">
-                <iframe 
-                  src={mapSrc} 
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen={true} 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={`${location} Diagnostics Lab Location`}
-                ></iframe>
+        {/* ── Raksha Bandhan Festive Offer Section ── */}
+        <div className="my-4 sm:my-6">
+          <RakshaOfferCard onOpenBooking={(title) => setSelectedPackage({ name: title || "Raksha Bandhan Special Health Checkup", price: "800", old_price: "5800", includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary (21)" })} />
+        </div>
+
+        {/* ── Explore by Health Need (Exact 2nd Reference Image Design) ── */}
+        <section className="py-5 px-4 bg-slate-50/60 border-t border-slate-100 my-4 sm:my-6">
+          {/* Header */}
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-[19px] font-black text-[#0f2d5e]">Explore by Health Need</h3>
+            <Link href="/specialities/womens-health" className="text-xs font-bold text-slate-500 hover:text-[#0f2d5e]">View All</Link>
+          </div>
+
+          {/* 1. Top Featured Card: Full Body Checkups */}
+          <Link
+            href="/book?package=Full+Body+Health+Checkup"
+            className="bg-white rounded-3xl p-4 border border-[#F3DBA7] shadow-xs flex items-center justify-between gap-3 mb-4 active:scale-[0.99] transition-all cursor-pointer group"
+          >
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-full overflow-hidden border border-[#F3DBA7] shrink-0 bg-amber-50 shadow-2xs">
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg" alt="Full Body Checkups" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <div className="flex flex-col">
+                <h4 className="font-extrabold text-[#0f2d5e] text-base leading-tight group-hover:text-[#D69A18] transition-colors">
+                  Full Body Checkups
+                </h4>
+                <span className="text-xs font-semibold text-slate-400 mt-0.5">
+                  Comprehensive Wellness Packages
+                </span>
               </div>
             </div>
+            <span className="bg-[#D69A18] text-white text-[10.5px] font-black px-3.5 py-1.5 rounded-full tracking-wider uppercase shadow-xs shrink-0">
+              POPULAR
+            </span>
+          </Link>
+
+          {/* 2. Horizontal Organ/Health Cards Carousel */}
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-2 scrollbar-none">
+            {[
+              { label: "Heart", href: "/specialities/cardiology", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png" },
+              { label: "Thyroid", href: "/specialities/endocrinology", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png" },
+              { label: "Liver", href: "/specialities/gastroenterology", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png" },
+              { label: "Bone & Joint", href: "/specialities/bone-disorders", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150389/Assets-QXL/legacy-assets/image/spec_bone.png" },
+              { label: "Brain & Nerves", href: "/specialities/neurology", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png" },
+              { label: "Blood", href: "/specialities/hematology", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150417/Assets-QXL/legacy-assets/image/spec_hematology.png" },
+              { label: "Kidney", href: "/specialities/urology", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png" },
+              { label: "Women", href: "/specialities/womens-health", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png" },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="w-[100px] shrink-0 snap-start bg-white border border-slate-200 rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
+              >
+                <div className="w-13 h-13 rounded-full overflow-hidden border-2 border-amber-300/80 bg-[#FFF8EB] mb-2 shadow-2xs shrink-0 flex items-center justify-center p-1.5">
+                  <img src={item.img} alt={item.label} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <span className="font-extrabold text-[#0f2d5e] text-xs leading-tight group-hover:text-[#D69A18] transition-colors">
+                  {item.label}
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
 
-        {/* Accreditation / Reviews / FAQs (mobile — decorative headings; desktop owns real H2s) */}
-        <Accreditations decorativeHeading />
-        {/* ── App Download Banner (mobile, after Certified for Excellence) ── */}
-        <AppDownloadBanner />
+        {/* ── Why Choose QXL ── */}
+        <div className="my-4 sm:my-6">
+          <WhyChooseSlider />
+        </div>
 
-        {/* Reviews */}
-        <ReviewsSection decorativeHeading />
+        {/* ── AI Powered Diagnostics ── */}
+        <div className="my-4 sm:my-6">
+          <AiDiagnostics />
+        </div>
 
-        {/* FAQs */}
-        <FaqSection decorativeHeading />
+        {/* ── Home Collection Section ── */}
+        <div className="my-4 sm:my-6">
+          <HomeCollectionSection />
+        </div>
 
-        {/* SEO Content */}
-        <SeoContent />
+        {/* ── Meet Our Team (Large Scrollable Carousel) ── */}
+        <section className="py-5 px-4 bg-white border-t border-slate-100 my-4 sm:my-6">
+          <div className="flex justify-between items-center mb-3">
+            <div>
+              <span className="text-[10px] font-black text-[#D69A18] uppercase tracking-wider block">Our Experts</span>
+              <h3 className="text-[18px] font-black text-[#0f2d5e]">Meet Our Team</h3>
+            </div>
+            <span className="text-[11px] font-extrabold text-slate-400">Scroll &rarr;</span>
+          </div>
+
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-3 scrollbar-none">
+            {[
+              { name: "Dr. Shantakumar Muruda", role: "Founder & CEO", qual: "MD, BIOCHEMISTRY", slug: "dr-shantakumar-muruda", img: "/images/dr_shantakumar_new.jpg", pos: "object-cover object-center" },
+              { name: "Dr. Ajitha Pillai", role: "Senior Consultant", qual: "MD, MICROBIOLOGY", slug: "dr-ajitha-pillai", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg", pos: "object-[center_top]" },
+              { name: "Dr. Naveen Kumar N", role: "Consultant Pathologist", qual: "DCP, DNB PATHOLOGY", slug: "dr-naveen-kumar-n", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg", pos: "object-[center_top]" },
+              { name: "Dr. Pritilata Rout", role: "Senior Consultant", qual: "MD, PATHOLOGY", slug: "dr-pritilata-rout", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png", pos: "object-[center_top]" },
+            ].map(d => (
+              <Link
+                key={d.name}
+                href={`/${d.slug}`}
+                className="w-[180px] shrink-0 snap-start bg-[#FFF8EB] border border-[#F3DBA7] p-4 rounded-3xl text-center flex flex-col items-center justify-between shadow-xs hover:shadow-md transition-all active:scale-95 group"
+              >
+                <div className="w-24 h-24 rounded-full overflow-hidden border-3 border-[#D69A18] mb-3 shrink-0 bg-white shadow-md relative">
+                  <img src={d.img} alt={d.name} className={`w-full h-full object-cover ${d.pos} group-hover:scale-105 transition-transform duration-300`} />
+                </div>
+                <div className="flex flex-col items-center text-center">
+                  <h4 className="font-black text-[#0f2d5e] text-sm leading-tight mb-1">{d.name}</h4>
+                  <span className="text-[11px] font-extrabold text-[#D69A18] block">{d.role}</span>
+                  <span className="text-[10px] font-extrabold text-slate-500 block mt-2 bg-white/80 px-2.5 py-0.5 rounded-full border border-amber-200/60">{d.qual}</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        {/* ── Blog & Reviews ── */}
+        <div className="my-4 sm:my-6 space-y-4 sm:space-y-6">
+          <BlogSlider />
+          <ReviewsSection />
+          <FaqSection />
+        </div>
       </div>
+
 
       <PrescriptionModal isOpen={isPrescriptionModalOpen} onClose={() => setIsPrescriptionModalOpen(false)} />
 

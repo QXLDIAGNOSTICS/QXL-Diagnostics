@@ -10,14 +10,15 @@ import { SiteSettingsProvider } from "@/lib/useSiteSettings";
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdminRoute = pathname?.startsWith("/admin");
+  const isNoFooterRoute = pathname === "/login" || pathname === "/tests";
 
   return (
     <AuthProvider>
       <SiteSettingsProvider>
         {!isAdminRoute && <Header />}
         <main className={!isAdminRoute ? "pb-[60px] md:pb-0" : ""}>{children}</main>
-        {!isAdminRoute && <Footer />}
-        {!isAdminRoute && <AiChat />}
+        {!isAdminRoute && !isNoFooterRoute && <Footer />}
+        {!isAdminRoute && !isNoFooterRoute && <AiChat />}
       </SiteSettingsProvider>
     </AuthProvider>
   );

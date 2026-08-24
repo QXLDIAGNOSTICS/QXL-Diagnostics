@@ -439,7 +439,7 @@ interface ChatMessage {
 export default function AiDiagnostics({ decorativeHeading = false }: { decorativeHeading?: boolean }) {
   const Heading = decorativeHeading ? 'p' : 'h2';
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { text: "👋 Hello! I am the QXL AI Assistant. How can I help you today?\n\nSelect a topic below, choose an FAQ category, or ask about any symptom/test in the chatbox!", isBot: true, time: "09:41 AM", isMenu: true }
+    { text: "👋 **Hello! I am the QXL AI Assistant.**\n\nSelect a topic below or ask about any test, symptom, or health package!", isBot: true, time: "09:41 AM", isMenu: true }
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
@@ -450,22 +450,22 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
   
   const features = [
     {
-      icon: <Cpu className="w-8 h-8 text-[#2563eb]" />,
+      icon: <Cpu className="w-5 h-5 text-[#D69A18]" />,
       title: "Machine Learning Algorithms",
       desc: "Advanced algorithms assist our pathologists in identifying microscopic anomalies with unprecedented accuracy."
     },
     {
-      icon: <Activity className="w-8 h-8 text-[#2563eb]" />,
+      icon: <Activity className="w-5 h-5 text-[#D69A18]" />,
       title: "Predictive Analytics",
       desc: "Leveraging vast datasets to predict health trends and provide proactive wellness insights."
     },
     {
-      icon: <ShieldCheck className="w-8 h-8 text-[#2563eb]" />,
+      icon: <ShieldCheck className="w-5 h-5 text-[#D69A18]" />,
       title: "Automated Quality Control",
       desc: "Continuous AI monitoring ensures every test result meets our stringent quality standards."
     },
     {
-      icon: <Microscope className="w-8 h-8 text-[#2563eb]" />,
+      icon: <Microscope className="w-5 h-5 text-[#D69A18]" />,
       title: "AI-Assisted QC & Delta Checks",
       desc: "Automated delta checks, multi-rule Westgard validation, and pre-analytical sample tracking prior to consultant pathologist review."
     }
@@ -594,36 +594,44 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
 
   useEffect(() => {
     if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      if (messages.length > 1) {
+        chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      } else {
+        chatContainerRef.current.scrollTop = 0;
+      }
     }
   }, [messages, isTyping, isScanning]);
 
   return (
-    <section className="py-16 bg-white border-t border-gray-150">
+    <section id="ai-assistant" className="py-6 sm:py-12 bg-white border-t border-slate-100">
       <div className="max-w-[1260px] mx-auto px-4 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-sm">Next-Gen Technology</span>
-            <Heading className="text-[#0f2d5e] text-3xl md:text-4xl font-extrabold mb-4 leading-tight">AI-Powered Diagnostics</Heading>
-            <p className="text-slate-500 text-sm font-medium mb-8 leading-relaxed">
-              At QXL Diagnostics, we integrate Artificial Intelligence into our core testing processes. This powerful synergy between our expert doctors and advanced AI systems ensures unparalleled precision, faster turnaround times, and deeper clinical insights for every patient.
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
+          <div className="space-y-3 mb-2 lg:mb-0">
+            <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
+              Next-Gen Technology
+            </span>
+            <Heading className="text-[#0f2d5e] text-xl sm:text-3xl md:text-4xl font-black leading-tight">
+              AI-Powered Diagnostics
+            </Heading>
+            <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              At QXL Diagnostics, we integrate Artificial Intelligence into core testing processes for faster turnaround times, precision accuracy, and deeper clinical insights.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5 pt-2">
               {features.map((feature, idx) => (
-                <div key={idx} className="flex gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                <div key={idx} className="flex flex-col sm:flex-row gap-2 items-start bg-slate-50/80 p-3 rounded-xl border border-slate-150/80 shadow-2xs">
+                  <div className="w-8 h-8 rounded-lg bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center shrink-0">
                     {feature.icon}
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-[#0f2d5e] text-[14px] mb-1">{feature.title}</h3>
-                    <p className="text-slate-500 text-[12px] leading-relaxed">{feature.desc}</p>
+                    <h3 className="font-extrabold text-[#0f2d5e] text-xs leading-tight mb-0.5">{feature.title}</h3>
+                    <p className="text-slate-500 text-[10.5px] leading-snug font-medium line-clamp-2">{feature.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
           
-          <div className="relative h-[600px] max-h-[600px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-[#efeae2] flex flex-col" style={{ height: '600px', maxHeight: '600px' }}>
+          <div className="relative h-[540px] sm:h-[600px] md:h-[650px] rounded-3xl overflow-hidden shadow-xl border-4 border-slate-100 bg-[#efeae2] flex flex-col mt-4 lg:mt-0">
             {/* AI Assistant Header */}
             <div className="bg-gradient-to-r from-[#075e54] to-[#128C7E] text-white p-4 flex items-center justify-between shadow-md z-20">
               <div className="flex items-center gap-3">
@@ -632,11 +640,11 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
                   <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-[#075e54] rounded-full"></span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-[15px] leading-tight flex items-center gap-2">
-                    QXL AI Assistant 
-                    <span className="bg-[#1d4ed8] text-white text-[10px] px-1.5 py-0.5 rounded-sm uppercase tracking-wider font-extrabold">Beta</span>
+                  <h3 className="font-black text-[15px] text-white leading-tight flex items-center gap-2">
+                    <span className="text-white">QXL AI Assistant</span>
+                    <span className="bg-[#1d4ed8] text-white text-[10px] px-1.5 py-0.5 rounded-sm uppercase tracking-wider font-black">Beta</span>
                   </h3>
-                  <p className="text-[11px] text-white/90">{isTyping ? 'typing...' : isScanning ? 'analyzing report...' : 'Online'}</p>
+                  <p className="text-[11px] text-white font-semibold opacity-90">{isTyping ? 'typing...' : isScanning ? 'analyzing report...' : 'Online'}</p>
                 </div>
               </div>
               <div className="flex gap-3 items-center">
@@ -677,15 +685,15 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
                       <motion.div 
                         initial={{ opacity: 0, y: 5 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="grid grid-cols-2 gap-2 mt-1 self-start w-[85%] pb-2"
+                        className="grid grid-cols-2 gap-1.5 mt-1 self-start w-full pb-2"
                       >
                         {QA_DATA.categories.map((cat) => (
                           <button
                             key={cat.id}
                             onClick={() => handleSend(cat.label, cat.id)}
-                            className="bg-white/95 hover:bg-[#128C7E] hover:text-white border border-[#128C7E]/20 text-gray-800 p-2.5 rounded-xl text-[12px] font-bold transition-all text-left shadow-sm flex items-center gap-2"
+                            className="bg-white hover:bg-[#D69A18] hover:text-white border border-[#F3DBA7] text-[#0f2d5e] p-2 rounded-xl text-xs font-extrabold transition-all text-left shadow-2xs flex items-center gap-1.5 group cursor-pointer"
                           >
-                            <span className="text-sm">{cat.icon}</span>
+                            <span className="text-sm shrink-0">{cat.icon}</span>
                             <span className="truncate">{cat.label.replace(/🏥|💉|🏠|💰|📄|❤️|🚀/, '').trim()}</span>
                           </button>
                         ))}

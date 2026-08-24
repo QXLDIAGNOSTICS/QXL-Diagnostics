@@ -119,7 +119,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
         {/* Heading */}
         <div className="flex justify-between items-end mb-7">
           <div>
-            <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-2 shadow-sm">
+            <span className="inline-block bg-[#D69A18] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-2 shadow-sm">
               Health Insights
             </span>
             <Heading className="text-[#0f2d5e] text-2xl font-extrabold mt-0.5">Latest From Our Blog</Heading>
@@ -129,7 +129,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
           </div>
           <Link
             href="/blog"
-            className="hidden sm:inline-flex border border-[#2563eb] text-[#2563eb] font-bold px-6 py-2 rounded-xl text-xs hover:bg-[#dbeafe] transition-colors"
+            className="hidden sm:inline-flex border border-[#D69A18] text-[#D69A18] hover:bg-[#FFF8EB] font-extrabold px-6 py-2 rounded-xl text-xs transition-colors"
           >
             View all blog articles
           </Link>
@@ -145,7 +145,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-center gap-3 text-[10px] text-slate-500 font-bold mb-2">
                   <span className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />{" "}
+                    <Calendar className="w-3 h-3 text-[#D69A18]" />{" "}
                     {new Date(blog.created_at).toLocaleDateString(undefined, {
                       year: "numeric",
                       month: "short",
@@ -153,7 +153,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
                     })}
                   </span>
                 </div>
-                <h3 className="text-[15px] font-bold text-[#0d2e42] mb-2 line-clamp-2 leading-snug group-hover:text-[#2563eb] transition-colors">
+                <h3 className="text-[15px] font-bold text-[#0d2e42] mb-2 line-clamp-2 leading-snug group-hover:text-[#D69A18] transition-colors">
                   {blog.title}
                 </h3>
                 <p className="text-xs text-slate-500 mb-4 line-clamp-3 leading-relaxed flex-1">
@@ -162,7 +162,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
                 <div className="mt-auto pt-2">
                   <Link
                     href={`/blog/${blog.slug}`}
-                    className="inline-flex items-center justify-center gap-1 text-xs font-bold text-white bg-[#2563eb] hover:bg-[#1d4ed8] transition-colors px-4 py-2.5 rounded-xl w-full"
+                    className="inline-flex items-center justify-center gap-1 text-xs font-bold text-white bg-[#D69A18] hover:bg-amber-600 transition-colors px-4 py-2.5 rounded-xl w-full shadow-xs"
                   >
                     Read: {blog.title.length > 42 ? `${blog.title.slice(0, 42)}…` : blog.title}
                     <ChevronRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
@@ -177,7 +177,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
         <div className="mt-2 text-center sm:hidden">
           <Link
             href="/blog"
-            className="inline-block border border-[#2563eb] text-[#2563eb] font-bold px-6 py-2 rounded-xl text-xs hover:bg-[#dbeafe] transition-colors"
+            className="inline-block border-2 border-[#D69A18] text-[#D69A18] bg-white hover:bg-[#FFF8EB] font-extrabold px-6 py-2.5 rounded-xl text-xs transition-colors shadow-xs"
           >
             View all blog articles
           </Link>

@@ -22,7 +22,7 @@ export default function StickyMobileCta({ onOpenBooking }: StickyMobileCtaProps)
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl flex items-center justify-center shrink-0 shadow-md"
+          className="p-3 bg-[#25D366] text-white rounded-xl flex items-center justify-center shrink-0 shadow-md"
           aria-label="Contact on WhatsApp"
         >
           <MessageCircle className="w-5 h-5" />
@@ -40,7 +40,7 @@ export default function StickyMobileCta({ onOpenBooking }: StickyMobileCtaProps)
         {/* Primary Book Now CTA */}
         <button
           onClick={onOpenBooking}
-          className="flex-1 py-3 px-4 bg-gradient-to-r from-[#0A5DAA] to-[#00A8A8] text-white font-extrabold rounded-xl text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-1.5"
+          className="flex-1 py-3 px-4 bg-gradient-to-r from-[#0A5DAA] to-[#00A8A8] text-white font-extrabold rounded-xl text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-1.5 cursor-pointer"
         >
           <span>BOOK NOW • ₹800</span>
           <ArrowRight className="w-4 h-4" />

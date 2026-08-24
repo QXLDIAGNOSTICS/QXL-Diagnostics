@@ -1,6 +1,7 @@
 "use client";
+
 import React from 'react';
-import { Target, Eye, CheckCircle, ShieldCheck, MapPin, Mail, Phone, Cpu } from 'lucide-react';
+import { Target, CheckCircle, ShieldCheck, MapPin, Mail, Phone, Cpu, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import Accreditations from '@/components/Accreditations';
 import FaqSection from '@/components/FaqSection';
 import DoctorLedManifesto from '@/components/DoctorLedManifesto';
@@ -16,47 +17,48 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-slate-50/50">
+      
       {/* ── Banner Slider Section (Hero) ── */}
-      <section className="w-full relative group py-6">
-        <div className="max-w-[1260px] mx-auto px-4">
-          <div className="glass-panel p-3 rounded-3xl relative overflow-hidden">
-            <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar rounded-2xl">
+      <section className="w-full relative group py-4 sm:py-6 bg-white border-b border-slate-100">
+        <div className="max-w-[1260px] mx-auto px-3 sm:px-6">
+          <div className="bg-[#FFFBF0] p-2 sm:p-3 rounded-2xl sm:rounded-3xl border border-[#F3DBA7] shadow-sm relative overflow-hidden">
+            <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar rounded-xl sm:rounded-2xl">
               <div className="min-w-full flex-none snap-start">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150040/Assets-QXL/legacy-assets/image/about_banner_final_1.png" alt="Banner 1" className="w-full h-[300px] md:h-[480px] lg:h-[540px] object-cover rounded-2xl" />
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150040/Assets-QXL/legacy-assets/image/about_banner_final_1.png" alt="QXL Diagnostic Lab" className="w-full h-[180px] sm:h-[320px] md:h-[420px] object-cover rounded-xl sm:rounded-2xl" />
               </div>
               <div className="min-w-full flex-none snap-start">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150042/Assets-QXL/legacy-assets/image/about_banner_final_2.jpg" alt="Banner 2" className="w-full h-[300px] md:h-[480px] lg:h-[540px] object-cover rounded-2xl" />
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150042/Assets-QXL/legacy-assets/image/about_banner_final_2.jpg" alt="Pathology Laboratory" className="w-full h-[180px] sm:h-[320px] md:h-[420px] object-cover rounded-xl sm:rounded-2xl" />
               </div>
               <div className="min-w-full flex-none snap-start">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150045/Assets-QXL/legacy-assets/image/about_banner_final_3.png" alt="Banner 3" className="w-full h-[300px] md:h-[480px] lg:h-[540px] object-cover rounded-2xl" />
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150045/Assets-QXL/legacy-assets/image/about_banner_final_3.png" alt="Doctor-Led Diagnostics" className="w-full h-[180px] sm:h-[320px] md:h-[420px] object-cover rounded-xl sm:rounded-2xl" />
               </div>
               <div className="min-w-full flex-none snap-start">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150046/Assets-QXL/legacy-assets/image/about_banner_final_4.png" alt="Banner 4" className="w-full h-[300px] md:h-[480px] lg:h-[540px] object-cover rounded-2xl" />
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150046/Assets-QXL/legacy-assets/image/about_banner_final_4.png" alt="State of the Art Equipment" className="w-full h-[180px] sm:h-[320px] md:h-[420px] object-cover rounded-xl sm:rounded-2xl" />
               </div>
             </div>
             
             {/* Navigation Buttons */}
             <button 
               onClick={() => scroll('left')}
-              className="absolute left-6 top-1/2 -translate-y-1/2 glass-pill text-[#0c4a6e] p-3 rounded-full opacity-80 hover:opacity-100 transition-all shadow-md z-10 cursor-pointer"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-[#D69A18] text-[#0f2d5e] hover:text-white p-2 sm:p-2.5 rounded-full transition-all shadow-md z-10 cursor-pointer border border-[#F3DBA7]"
               aria-label="Previous slide"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"/></svg>
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button 
               onClick={() => scroll('right')}
-              className="absolute right-6 top-1/2 -translate-y-1/2 glass-pill text-[#0c4a6e] p-3 rounded-full opacity-80 hover:opacity-100 transition-all shadow-md z-10 cursor-pointer"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-[#D69A18] text-[#0f2d5e] hover:text-white p-2 sm:p-2.5 rounded-full transition-all shadow-md z-10 cursor-pointer border border-[#F3DBA7]"
               aria-label="Next slide"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"/></svg>
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
-            <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 pointer-events-none z-10">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#0284c7]"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-white/60"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-white/60"></div>
-              <div className="w-2.5 h-2.5 rounded-full bg-white/60"></div>
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5 pointer-events-none z-10">
+              <div className="w-2 h-2 rounded-full bg-[#D69A18]"></div>
+              <div className="w-2 h-2 rounded-full bg-white/70"></div>
+              <div className="w-2 h-2 rounded-full bg-white/70"></div>
+              <div className="w-2 h-2 rounded-full bg-white/70"></div>
             </div>
           </div>
         </div>
@@ -66,79 +68,97 @@ export default function AboutPage() {
         `}} />
       </section>
 
-      {/* ── Precision Diagnostics ── */}
-      <section className="py-12">
-        <div className="max-w-[1260px] mx-auto px-4">
-          <div className="glass-panel p-8 md:p-12 rounded-3xl flex flex-col lg:flex-row gap-12 items-center">
-            <div className="lg:w-1/2">
-              <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-sm">About QXL</span>
-              <h2 className="text-[#0c4a6e] text-3xl md:text-4xl font-extrabold mb-6 leading-tight">Precision Diagnostics. Expert Interpretation.</h2>
-              <p className="text-[#0284c7] text-lg font-extrabold mb-4">
-                QXL Diagnostics, Unit of Qualitify Healthtech Pvt. Ltd., <span className="text-slate-700 font-medium">is a super speciality diagnostic laboratory established to deliver advanced, reliable and clinically meaningful diagnostic answers. We support patients, clinicians, hospitals and healthcare institutions through a wide range of routine, specialty and super-speciality investigations.</span>
+      {/* ── Precision Diagnostics Overview ── */}
+      <section className="py-6 sm:py-10 bg-white border-b border-slate-100">
+        <div className="max-w-[1260px] mx-auto px-3 sm:px-6">
+          <div className="bg-white p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-200 shadow-2xs grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            
+            <div className="lg:col-span-7 space-y-3 text-left">
+              <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
+                About QXL Diagnostics
+              </span>
+              <h1 className="text-xl sm:text-3xl font-black text-[#0f2d5e] leading-tight">
+                Precision Diagnostics. Doctor-Led Interpretation.
+              </h1>
+              <p className="text-[#D69A18] font-bold text-xs sm:text-sm leading-relaxed">
+                QXL Diagnostics, Unit of Qualitify Healthtech Pvt. Ltd., <span className="text-slate-700 font-medium">is a super speciality diagnostic laboratory established to deliver advanced, reliable and clinically meaningful diagnostic answers.</span>
               </p>
-              <p className="text-slate-600 text-[15px] leading-relaxed font-medium mb-8">
-                Our laboratory is equipped for advanced testing including autoimmune panels, India-specific allergen panels, immunofluorescence, immunoblot, ELISA, chemiluminescence, Multiplex PCR with FilmArray for syndrome-based testing, coagulation factor assays, TB PCR by CB NAAT with NTM screening, automated microbiology for infectious diseases, maternal screening, electrophoresis assays, and Histo-Cytopathology with IHC.
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                Our laboratory is equipped for advanced testing including autoimmune panels, India-specific allergen panels, immunofluorescence, immunoblot, ELISA, chemiluminescence, Multiplex PCR with FilmArray for syndrome-based testing, coagulation factor assays, TB PCR by CB NAAT with NTM screening, automated microbiology, maternal screening, and Histo-Cytopathology with IHC.
               </p>
               
-              <div className="flex flex-wrap gap-4">
-                <a href="https://maps.app.goo.gl/GCW7zkQYoJNdaHNv7" target="_blank" rel="noopener noreferrer" className="glass-pill text-[#0284c7] font-extrabold px-6 py-3 text-xs uppercase tracking-wider flex items-center gap-2 hover:bg-sky-100/50 transition-all">
-                  <MapPin className="w-4 h-4 text-[#0284c7]" />
-                  View Location
+              <div className="pt-2">
+                <a 
+                  href="https://maps.app.goo.gl/GCW7zkQYoJNdaHNv7" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] hover:bg-[#D69A18] hover:text-white font-extrabold px-4 py-2 rounded-xl text-xs uppercase tracking-wider transition-all shadow-2xs cursor-pointer active:scale-95"
+                >
+                  <MapPin className="w-4 h-4 shrink-0" />
+                  <span>View Lab Location</span>
                 </a>
               </div>
             </div>
-            <div className="lg:w-1/2 w-full">
-              <div className="glass-card p-3 rounded-3xl h-[400px] shadow-sm relative overflow-hidden">
+
+            <div className="lg:col-span-5 w-full">
+              <div className="rounded-2xl h-[240px] sm:h-[320px] shadow-sm relative overflow-hidden border border-slate-200 bg-slate-100">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!4v1709890456187!6m8!1m7!1sAF1QipOT_E1OvCmLPtbrGMkCFVjybPWfPYcc217TvRyC!2m2!1d12.911377!2d77.4850693!3f193.36!4f0!5f90"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, borderRadius: '1.25rem' }}
+                  style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="shadow-md relative z-10"
-                ></iframe>
+                  className="w-full h-full"
+                />
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* ── Analytical Equipment ── */}
-      <section className="py-12">
-        <div className="max-w-[1260px] mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-sm">State-of-the-Art</span>
-            <h2 className="text-[#0c4a6e] text-4xl font-extrabold mb-4">Our Analytical Equipment</h2>
-            <div className="w-16 h-1 bg-[#2563eb] mx-auto mb-6 rounded-full"></div>
-            <p className="text-slate-700 max-w-2xl mx-auto font-medium text-base">Equipped with state-of-the-art analytical instruments that ensure precision, accuracy, and efficiency in all our diagnostic processes.</p>
+      <section className="py-6 sm:py-10 bg-slate-50/70 border-b border-slate-100">
+        <div className="max-w-[1260px] mx-auto px-3 sm:px-6">
+          <div className="text-center max-w-2xl mx-auto mb-6">
+            <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider mb-2 shadow-2xs">
+              State-of-the-Art Technology
+            </span>
+            <h2 className="text-xl sm:text-3xl font-black text-[#0f2d5e] mb-1">
+              Our Analytical Equipment
+            </h2>
+            <div className="w-12 h-1 bg-[#D69A18] mx-auto rounded-full mt-2" />
+            <p className="text-slate-600 text-xs sm:text-sm font-medium mt-2">
+              Equipped with world-class analytical instruments for maximum precision and rapid turnaround times.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="glass-card p-2 rounded-3xl overflow-hidden h-[350px]">
-              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150168/Assets-QXL/legacy-assets/image/equipment_1.jpg" alt="Lab Technician operating equipment" className="w-full h-full object-cover rounded-2xl" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 mb-6">
+            <div className="rounded-2xl overflow-hidden h-[180px] sm:h-[260px] border border-slate-200 shadow-2xs">
+              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150168/Assets-QXL/legacy-assets/image/equipment_1.jpg" alt="Lab Technician operating equipment" className="w-full h-full object-cover" />
             </div>
-            <div className="glass-card p-2 rounded-3xl overflow-hidden h-[350px]">
-              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150172/Assets-QXL/legacy-assets/image/equipment_2.png" alt="Analytical Equipment in use" className="w-full h-full object-cover rounded-2xl" />
+            <div className="rounded-2xl overflow-hidden h-[180px] sm:h-[260px] border border-slate-200 shadow-2xs">
+              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150172/Assets-QXL/legacy-assets/image/equipment_2.png" alt="Analytical Equipment in use" className="w-full h-full object-cover" />
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 text-left">
             {[
-              { title: "DXI 9000 Analyzer", desc: "High-throughput clinical chemistry analyzer renowned for accuracy in biochemical parameter analysis. Designed for high-volume operations with rapid turnaround and precision reporting." },
-              { title: "IMMULITE 2000", desc: "Advanced immunoassay analyzer for comprehensive hormone profiling, tumor marker testing, infectious disease serology, and allergy-related biomarker detection with exceptional sensitivity." },
-              { title: "VITEK System", desc: "Automated microbial identification and antimicrobial susceptibility testing system. Provides rapid identification of bacterial and fungal pathogens to support targeted antimicrobial therapy." },
-              { title: "BACT/ALERT", desc: "Automated blood culture system for early detection of microbial growth. Critical for rapid diagnosis of bloodstream infections and sepsis with continuous monitoring capability." },
-              { title: "PHADIATOP / Allergy Testing", desc: "Advanced in vitro allergy testing platform detecting specific IgE antibodies to common allergens including India-specific food and environmental panels for personalised allergy management." },
-              { title: "FTIR Spectroscopy", desc: "Fourier Transform Infrared Spectroscopy for precise chemical compound characterisation. Used for kidney stone composition analysis, drug identification, and biomarker profiling." },
+              { title: "DXI 9000 Analyzer", desc: "High-throughput clinical chemistry analyzer renowned for accuracy in biochemical parameter analysis. Designed for high-volume operations with rapid turnaround." },
+              { title: "IMMULITE 2000", desc: "Advanced immunoassay analyzer for hormone profiling, tumor marker testing, infectious disease serology, and allergy detection with high sensitivity." },
+              { title: "VITEK System", desc: "Automated microbial identification and antimicrobial susceptibility testing system supporting targeted pathogen therapy." },
+              { title: "BACT/ALERT", desc: "Automated blood culture system for early detection of microbial growth, critical for rapid diagnosis of bloodstream infections and sepsis." },
+              { title: "PHADIATOP / Allergy Testing", desc: "Advanced in vitro allergy testing platform detecting specific IgE antibodies for India-specific food and environmental panels." },
+              { title: "FTIR Spectroscopy", desc: "Fourier Transform Infrared Spectroscopy for precise chemical compound characterisation, used for stone composition analysis." },
             ].map((feature, idx) => (
-              <div key={idx} className="glass-card p-6 rounded-2xl text-left">
-                <div className="w-12 h-12 glass-pill flex items-center justify-center mb-4">
-                  <Cpu className="w-6 h-6 text-[#0284c7]" />
+              <div key={idx} className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs text-left space-y-1.5">
+                <div className="w-9 h-9 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mb-2">
+                  <Cpu className="w-4 h-4 text-[#D69A18]" />
                 </div>
-                <h3 className="font-extrabold text-[#0c4a6e] text-lg mb-2">{feature.title}</h3>
-                <p className="text-slate-700 text-[14px] leading-relaxed font-medium">{feature.desc}</p>
+                <h3 className="font-extrabold text-[#0f2d5e] text-xs sm:text-sm">{feature.title}</h3>
+                <p className="text-slate-600 text-[11.5px] sm:text-xs leading-relaxed font-medium">{feature.desc}</p>
               </div>
             ))}
           </div>
@@ -146,39 +166,44 @@ export default function AboutPage() {
       </section>
 
       {/* ── What We Offer ── */}
-      <section className="py-16">
-        <div className="max-w-[1260px] mx-auto px-4">
-          <div className="text-center max-w-[900px] mx-auto mb-16">
-            <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-sm">Comprehensive Services</span>
-            <h2 className="text-[#0c4a6e] text-3xl md:text-4xl font-extrabold mb-6">What We Offer</h2>
-            <p className="text-slate-700 text-base md:text-lg leading-relaxed font-medium">
-              At QXL Diagnostics, we believe the future of diagnostics is not only about performing more tests, but about delivering better answers through clinical context, expert review, technology and precision. Our services range from routine blood investigations to advanced specialty panels in oncology, autoimmune diseases, molecular diagnostics, reproductive health, and more.
+      <section className="py-6 sm:py-10 bg-white border-b border-slate-100">
+        <div className="max-w-[1260px] mx-auto px-3 sm:px-6">
+          <div className="text-center max-w-2xl mx-auto mb-6">
+            <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider mb-2 shadow-2xs">
+              Comprehensive Services
+            </span>
+            <h2 className="text-xl sm:text-3xl font-black text-[#0f2d5e] mb-1">
+              What We Offer
+            </h2>
+            <div className="w-12 h-1 bg-[#D69A18] mx-auto rounded-full mt-2" />
+            <p className="text-slate-600 text-xs sm:text-sm font-medium mt-2">
+              From routine blood investigations to advanced super-specialty panels in oncology, autoimmune, and reproductive health.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             {[
-              { icon: <Target className="w-8 h-8 text-[#0284c7]" />, title: "AI-Powered Diagnostic Intelligence", desc: "Our laboratory processes combine advanced analytical platforms with clinician-reviewed interpretations, supporting clinicians in moving from test results to clinically meaningful answers." },
-              { icon: <MapPin className="w-8 h-8 text-[#0284c7]" />, title: "Home Sample Collection Across Bengaluru", desc: "Trained phlebotomists visit your home or clinic at your convenience. Hygienic, safe, and professional sample collection with digital report delivery." },
-              { icon: <ShieldCheck className="w-8 h-8 text-[#0284c7]" />, title: "Expert-Reviewed Reports", desc: "Every report is reviewed by our experienced team of pathologists, microbiologists and biochemists before release — ensuring accuracy you can trust." },
+              { icon: <Target className="w-6 h-6 text-[#D69A18]" />, title: "AI-Powered Intelligence", desc: "Laboratory processes combine advanced analytical platforms with clinician-reviewed interpretations for actionable diagnostics." },
+              { icon: <MapPin className="w-6 h-6 text-[#D69A18]" />, title: "Home Sample Collection", desc: "Trained phlebotomists visit your home across Bengaluru with hygienic, safe collection and digital report delivery." },
+              { icon: <ShieldCheck className="w-6 h-6 text-[#D69A18]" />, title: "Expert-Reviewed Reports", desc: "Every report is reviewed by our team of senior pathologists, microbiologists and biochemists before release." },
             ].map((feature, idx) => (
-              <div key={idx} className="glass-card p-8 rounded-3xl text-center">
-                <div className="w-16 h-16 glass-pill flex items-center justify-center mx-auto mb-6">
+              <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs text-center space-y-2">
+                <div className="w-12 h-12 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mx-auto mb-3">
                   {feature.icon}
                 </div>
-                <h3 className="font-extrabold text-[#0c4a6e] text-xl mb-4">{feature.title}</h3>
-                <p className="text-slate-700 font-medium leading-relaxed">{feature.desc}</p>
+                <h3 className="font-extrabold text-[#0f2d5e] text-sm sm:text-base">{feature.title}</h3>
+                <p className="text-slate-600 text-xs font-medium leading-relaxed">{feature.desc}</p>
               </div>
             ))}
           </div>
 
-          {/* Spatial Liquid Glass Banner */}
-          <div className="glass-panel text-[#0c4a6e] p-10 md:p-14 rounded-3xl text-center relative overflow-hidden shadow-xl border border-sky-300/40">
-            <h2 className="text-3xl font-black text-[#0c4a6e] mb-6 relative z-10">Experience the QXL Diagnostics Advantage</h2>
-            <p className="text-slate-700 text-base md:text-lg leading-relaxed max-w-4xl mx-auto mb-8 font-medium relative z-10">
-              Precision diagnostics in Bengaluru — advanced super speciality testing with home sample collection, same-day reports, and consultant-reviewed results. QXL Diagnostics is committed to delivering the highest standard of diagnostic care to patients and healthcare professionals.
+          {/* QXL Advantage Banner */}
+          <div className="bg-[#FFFBF0] text-[#0f2d5e] p-6 sm:p-8 rounded-2xl sm:rounded-3xl text-center relative overflow-hidden shadow-sm border border-[#F3DBA7]">
+            <h2 className="text-lg sm:text-2xl font-black text-[#0f2d5e] mb-2">Experience the QXL Diagnostics Advantage</h2>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-3xl mx-auto mb-4 font-medium">
+              Precision diagnostics in Bengaluru — advanced super speciality testing with home sample collection, same-day reports, and consultant-reviewed results.
             </p>
-            <p className="text-[#0369a1] font-extrabold text-xl relative z-10">
+            <p className="text-[#D69A18] font-black text-xs sm:text-sm uppercase tracking-wider">
               Explore our services today and discover the QXL difference — where innovation meets care.
             </p>
           </div>
@@ -194,30 +219,34 @@ export default function AboutPage() {
       {/* ── FAQ ── */}
       <FaqSection />
 
-      {/* ── Contact ── */}
-      <section className="py-16">
-        <div className="max-w-[1260px] mx-auto px-4">
-          <div className="text-center mb-10">
-            <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-sm">Support</span>
-            <h2 className="text-[#0c4a6e] text-3xl font-extrabold mb-3">Get in Touch</h2>
-            <p className="text-slate-700 text-sm font-medium">We are here to assist you with all your diagnostic needs.</p>
+      {/* ── Contact Support ── */}
+      <section className="py-6 sm:py-10 bg-white border-t border-slate-100">
+        <div className="max-w-[1260px] mx-auto px-3 sm:px-6">
+          <div className="text-center mb-6">
+            <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider mb-2 shadow-2xs">
+              Support
+            </span>
+            <h2 className="text-xl sm:text-3xl font-black text-[#0f2d5e] mb-1">
+              Get in Touch
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm font-medium">We are here to assist you with all your diagnostic needs.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-             <div className="glass-card p-8 rounded-2xl flex flex-col items-center text-center">
-               <div className="glass-pill p-4 rounded-full mb-4 shadow-sm"><MapPin className="text-[#0284c7] w-6 h-6" /></div>
-               <h4 className="text-[#0c4a6e] font-extrabold mb-2">Location</h4>
-               <p className="text-slate-700 text-xs font-medium">3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 max-w-3xl mx-auto">
+             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs flex flex-col items-center text-center space-y-2">
+               <div className="w-10 h-10 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mb-1"><MapPin className="text-[#D69A18] w-5 h-5" /></div>
+               <h3 className="text-[#0f2d5e] font-extrabold text-xs">Location</h3>
+               <p className="text-slate-600 text-[11px] font-medium leading-snug">3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060</p>
              </div>
-             <div className="glass-card p-8 rounded-2xl flex flex-col items-center text-center">
-               <div className="glass-pill p-4 rounded-full mb-4 shadow-sm"><Mail className="text-[#0284c7] w-6 h-6" /></div>
-               <h4 className="text-[#0c4a6e] font-extrabold mb-2">Email</h4>
-               <p className="text-slate-700 text-xs font-medium">qxldiagnostics@gmail.com</p>
+             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs flex flex-col items-center text-center space-y-2">
+               <div className="w-10 h-10 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mb-1"><Mail className="text-[#D69A18] w-5 h-5" /></div>
+               <h3 className="text-[#0f2d5e] font-extrabold text-xs">Email</h3>
+               <p className="text-slate-600 text-[11px] font-medium leading-snug">qxldiagnostics@gmail.com</p>
              </div>
-             <div className="glass-card p-8 rounded-2xl flex flex-col items-center text-center">
-               <div className="glass-pill p-4 rounded-full mb-4 shadow-sm"><Phone className="text-[#0284c7] w-6 h-6" /></div>
-               <h4 className="text-[#0c4a6e] font-extrabold mb-2">Phone</h4>
-               <p className="text-slate-700 text-xs font-medium">+91 9964 639 639</p>
+             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs flex flex-col items-center text-center space-y-2">
+               <div className="w-10 h-10 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mb-1"><Phone className="text-[#D69A18] w-5 h-5" /></div>
+               <h3 className="text-[#0f2d5e] font-extrabold text-xs">Phone</h3>
+               <p className="text-slate-600 text-[11px] font-medium leading-snug">+91 9964 639 639</p>
              </div>
           </div>
         </div>

@@ -1,7 +1,8 @@
 "use client";
+
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { MapPin, Phone, Clock, Shield, Search, Compass, AlertCircle, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Clock, Shield, Search, Compass, AlertCircle, ExternalLink, Sparkles, Navigation } from 'lucide-react';
 import { api } from '../../lib/api';
 
 function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
@@ -175,36 +176,40 @@ export default function CentersPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-slate-50/50">
       {/* Page Hero */}
-      <section className="py-8 flex-shrink-0">
-        <div className="max-w-[1260px] mx-auto px-4 w-full">
-          <div className="glass-panel p-8 md:p-10 rounded-3xl flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-sm">Diagnostic Network</span>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-[#0c4a6e] mb-2">Our Labs &amp; Collection Centres</h1>
-              <p className="text-slate-700 text-xs md:text-sm max-w-xl font-medium">
-                Locate QXL Speciality Labs and local clinic collection units. Walk in or book online for home collections.
+      <section className="py-4 sm:py-8 bg-white border-b border-slate-100 flex-shrink-0">
+        <div className="max-w-[1260px] mx-auto px-3 sm:px-6 w-full">
+          <div className="bg-[#FFFBF0] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#F3DBA7] shadow-2xs flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div className="space-y-1.5 text-left">
+              <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
+                Diagnostic Network
+              </span>
+              <h1 className="text-xl sm:text-3xl font-black text-[#0f2d5e] leading-tight">
+                Our Labs &amp; Collection Centres
+              </h1>
+              <p className="text-slate-600 text-xs sm:text-sm font-medium max-w-xl">
+                Locate QXL Speciality Labs and local collection hubs across Bengaluru. Walk in or book home sample collection.
               </p>
             </div>
 
             {/* GPS tracker button */}
-            <div className="flex flex-col items-start md:items-end gap-2">
+            <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
               <button
                 onClick={handleTrackLocation}
                 disabled={locating}
-                className="btn-sky flex items-center gap-2"
+                className="inline-flex items-center gap-2 bg-[#D69A18] hover:bg-[#b88313] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-sm active:scale-95 transition-all cursor-pointer"
               >
-                <Compass className={`w-4.5 h-4.5 ${locating ? 'animate-spin' : ''}`} />
-                {locating ? "Locating..." : "Find Closest Centre to Me"}
+                <Compass className={`w-4 h-4 ${locating ? 'animate-spin' : ''}`} />
+                <span>{locating ? "Locating..." : "Find Closest Centre to Me"}</span>
               </button>
               {userCoords && (
-                <span className="text-[10px] text-emerald-700 font-extrabold bg-emerald-50 border border-emerald-200 rounded-md px-2.5 py-1">
-                  ✓ GPS Location active. Sorted by proximity.
+                <span className="text-[10.5px] text-emerald-700 font-extrabold bg-emerald-50 border border-emerald-200 rounded-lg px-2.5 py-1">
+                  ✓ GPS Active. Sorted by nearest location.
                 </span>
               )}
               {gpsError && (
-                <span className="text-[10px] text-rose-600 font-bold bg-rose-50 border border-rose-200 rounded-md px-2.5 py-1 flex items-center gap-1">
+                <span className="text-[10.5px] text-rose-600 font-bold bg-rose-50 border border-rose-200 rounded-lg px-2.5 py-1 flex items-center gap-1">
                   <AlertCircle className="w-3.5 h-3.5" /> {gpsError}
                 </span>
               )}
@@ -214,22 +219,22 @@ export default function CentersPage() {
       </section>
 
       {/* Main split-screen section */}
-      <section className="flex-1 w-full max-w-[1260px] mx-auto px-4 py-4 mb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-full">
+      <section className="flex-1 w-full max-w-[1260px] mx-auto px-3 sm:px-6 py-4 sm:py-6 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full">
           
           {/* Left panel: search and list (5/12 columns) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             
             {/* Search and Filters */}
-            <div className="glass-panel p-4 rounded-2xl space-y-3">
+            <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-2xs space-y-2.5 text-left">
               <div className="relative">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#0284c7]" />
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D69A18]" />
                 <input
                   type="text"
-                  placeholder="Search by center name or area..."
+                  placeholder="Search by center name, area or pincode..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 glass-pill text-xs font-semibold text-[#0c4a6e] placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#2563eb]"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#D69A18] focus:ring-1 focus:ring-[#D69A18]"
                 />
               </div>
 
@@ -239,10 +244,10 @@ export default function CentersPage() {
                   <button
                     key={city}
                     onClick={() => setSelectedCity(city)}
-                    className={`px-3 py-1.5 rounded-full text-[10px] font-extrabold transition-all cursor-pointer ${
+                    className={`px-3 py-1 rounded-full text-[10.5px] font-extrabold transition-all cursor-pointer ${
                       selectedCity === city
-                        ? "bg-[#2563eb] text-white shadow-sm"
-                        : "glass-pill text-[#0369a1] hover:bg-sky-100/60"
+                        ? "bg-[#D69A18] text-white shadow-2xs"
+                        : "bg-slate-100 text-slate-600 hover:bg-amber-50 hover:text-[#D69A18]"
                     }`}
                   >
                     {city}
@@ -252,9 +257,9 @@ export default function CentersPage() {
             </div>
 
             {/* Centres list */}
-            <div className="flex-1 overflow-y-auto space-y-4 max-h-[60vh] lg:max-h-[680px] pr-1">
+            <div className="flex-1 overflow-y-auto space-y-3.5 max-h-[60vh] lg:max-h-[680px] pr-1">
               {filteredCenters.length === 0 ? (
-                <div className="glass-card p-8 text-center text-slate-500 font-semibold">
+                <div className="bg-white p-6 rounded-2xl border border-slate-200 text-center text-slate-500 text-xs font-semibold">
                   No diagnostic centres match your search criteria.
                 </div>
               ) : (
@@ -266,20 +271,20 @@ export default function CentersPage() {
                     <div
                       key={center.id || idx}
                       onClick={() => setSelectedCenter(center)}
-                      className={`glass-card p-5 transition-all cursor-pointer flex flex-col justify-between relative group ${
-                        isSelected ? "border-[#2563eb] ring-2 ring-[#2563eb]/20 shadow-md" : ""
+                      className={`bg-white p-4 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between relative text-left shadow-2xs group ${
+                        isSelected ? "border-[#D69A18] ring-2 ring-[#D69A18]/20" : "border-slate-200 hover:border-amber-300"
                       }`}
                     >
                       {/* Nearest badge */}
                       {isClosest && (
-                        <span className="absolute top-4 right-4 bg-emerald-500 text-white text-[9px] font-extrabold px-2.5 py-0.5 rounded-full shadow-xs tracking-wider">
+                        <span className="absolute top-3.5 right-3.5 bg-emerald-600 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow-2xs uppercase tracking-wider">
                           NEAREST
                         </span>
                       )}
 
                       <div>
-                        <h3 className="font-extrabold text-[#0c4a6e] text-sm mb-2 flex items-start gap-1.5 pr-14 leading-tight group-hover:text-[#2563eb] transition-colors">
-                          <Shield className="w-4 h-4 text-[#0284c7] flex-shrink-0 mt-0.5" />
+                        <h3 className="font-black text-[#0f2d5e] text-xs sm:text-sm mb-1.5 flex items-start gap-1.5 pr-14 leading-tight group-hover:text-[#D69A18] transition-colors">
+                          <Shield className="w-4 h-4 text-[#D69A18] shrink-0 mt-0.5" />
                           {center.slug ? (
                             <Link href={`/centers/${center.slug}`} className="hover:underline" onClick={(e) => e.stopPropagation()}>
                               {center.name}
@@ -291,41 +296,41 @@ export default function CentersPage() {
 
                         {/* Distance info */}
                         {center.distance !== null && (
-                          <p className="text-[11px] text-emerald-600 font-bold mb-3">
-                            📍 {center.distance.toFixed(1)} km away from you
+                          <p className="text-[10.5px] text-emerald-700 font-extrabold mb-2">
+                            📍 {center.distance.toFixed(1)} km away from your location
                           </p>
                         )}
                         
-                        <div className="space-y-2.5 text-[11px] text-slate-700 font-medium">
-                          <div className="flex items-start gap-2">
-                            <MapPin className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0 mt-0.5" />
-                            <span className="leading-normal">{center.address}</span>
+                        <div className="space-y-2 text-[11px] text-slate-600 font-medium">
+                          <div className="flex items-start gap-1.5">
+                            <MapPin className="w-3.5 h-3.5 text-[#D69A18] shrink-0 mt-0.5" />
+                            <span className="leading-snug">{center.address}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Clock className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0" />
+                          <div className="flex items-center gap-1.5">
+                            <Clock className="w-3.5 h-3.5 text-[#D69A18] shrink-0" />
                             <span>{center.hours || "Mon - Sat: 8:00 AM - 7:00 PM"}</span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <Phone className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0" />
-                            <a href={`tel:${(center.phone || "+91 9964 639 639").replace(/ /g, '')}`} className="hover:underline">{center.phone || "+91 9964 639 639"}</a>
+                          <div className="flex items-center gap-1.5">
+                            <Phone className="w-3.5 h-3.5 text-[#D69A18] shrink-0" />
+                            <a href={`tel:${(center.phone || "+91 9964 639 639").replace(/ /g, '')}`} className="hover:underline font-bold text-slate-700">{center.phone || "+91 9964 639 639"}</a>
                           </div>
                         </div>
                       </div>
 
-                      <div className="flex gap-2 border-t border-sky-200/40 pt-3 mt-4">
+                      <div className="flex gap-2 border-t border-slate-100 pt-3 mt-3">
                         <a
                           href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
                             center.name + " " + center.address
                           )}`}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex-1 text-center glass-pill text-[#0c4a6e] py-2 text-[10px] font-extrabold uppercase tracking-wider transition-colors flex items-center justify-center gap-1 hover:bg-sky-100/50"
+                          className="flex-1 text-center bg-slate-100 hover:bg-slate-200 text-[#0f2d5e] py-2 rounded-xl text-[10.5px] font-extrabold uppercase tracking-wider transition-colors flex items-center justify-center gap-1 cursor-pointer"
                         >
-                          Directions <ExternalLink className="w-3 h-3" />
+                          <span>Directions</span> <ExternalLink className="w-3 h-3" />
                         </a>
                         <Link
                           href={`/book?center=${encodeURIComponent(center.name)}`}
-                          className="flex-1 text-center bg-[#2563eb] hover:bg-[#1d4ed8] text-white py-2 rounded-full text-[10px] font-extrabold uppercase tracking-wider transition-colors shadow-sm"
+                          className="flex-1 text-center bg-[#D69A18] hover:bg-[#b88313] text-white py-2 rounded-xl text-[10.5px] font-black uppercase tracking-wider transition-all shadow-2xs active:scale-95"
                         >
                           Book Here
                         </Link>
@@ -338,14 +343,14 @@ export default function CentersPage() {
           </div>
 
           {/* Right panel: dynamic interactive map (7/12 columns) */}
-          <div className="lg:col-span-7 h-[400px] lg:h-[760px] flex flex-col">
+          <div className="lg:col-span-7 h-[360px] sm:h-[480px] lg:h-[760px] flex flex-col text-left">
             {selectedCenter ? (
-              <div className="glass-panel rounded-3xl p-3 shadow-md flex flex-col h-full overflow-hidden">
+              <div className="bg-white rounded-2xl sm:rounded-3xl p-3 border border-slate-200 shadow-sm flex flex-col h-full overflow-hidden">
                 {/* Map header */}
-                <div className="bg-sky-50/60 border-b border-sky-200/40 p-3.5 rounded-t-2xl flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-[#0284c7]" />
-                    <span className="font-extrabold text-xs text-[#0c4a6e] truncate max-w-md">
+                <div className="bg-[#FFFBF0] border-b border-[#F3DBA7] p-3 px-4 rounded-t-xl sm:rounded-t-2xl flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <MapPin className="w-4 h-4 text-[#D69A18] shrink-0" />
+                    <span className="font-extrabold text-xs text-[#0f2d5e] truncate">
                       Map: {selectedCenter.name}
                     </span>
                   </div>
@@ -355,13 +360,14 @@ export default function CentersPage() {
                     )}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[10px] text-[#2563eb] font-extrabold uppercase tracking-wider flex items-center gap-1 hover:underline"
+                    className="text-[10px] text-[#D69A18] font-black uppercase tracking-wider flex items-center gap-1 hover:underline shrink-0"
                   >
-                    Open in Google Maps
+                    <span>Open Map</span> <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
+
                 {/* Embedded Map iframe */}
-                <div className="flex-1 w-full bg-slate-100 relative rounded-b-2xl overflow-hidden">
+                <div className="flex-1 w-full bg-slate-100 relative rounded-b-xl sm:rounded-b-2xl overflow-hidden mt-2">
                   <iframe
                     src={getMapIframeSrc(selectedCenter)}
                     width="100%"
@@ -371,13 +377,13 @@ export default function CentersPage() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title={`Map for ${selectedCenter.name}`}
-                  ></iframe>
+                  />
                 </div>
               </div>
             ) : (
-              <div className="glass-panel rounded-3xl flex flex-col items-center justify-center p-8 h-full text-slate-500">
-                <MapPin className="w-12 h-12 mb-3 text-[#0284c7]" />
-                <p className="font-bold text-sm">Select a centre to view its location map</p>
+              <div className="bg-white rounded-2xl sm:rounded-3xl flex flex-col items-center justify-center p-8 h-full text-slate-500 border border-slate-200">
+                <MapPin className="w-10 h-10 mb-2 text-[#D69A18]" />
+                <p className="font-bold text-xs sm:text-sm">Select a centre to view its location map</p>
               </div>
             )}
           </div>

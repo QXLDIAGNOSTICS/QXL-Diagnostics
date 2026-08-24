@@ -81,7 +81,7 @@ const localBusinessSchema = {
     "NABL accredited diagnostic super speciality lab in Bengaluru offering 300+ tests, home sample collection, and same-day digital reports.",
   url: "https://qxldiagnostics.com",
   telephone: "+91-9964-639639",
-  email: "care@qxldiagnostics.com",
+  email: "qxldiagnostics@gmail.com",
   logo: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   medicalSpecialty: [
     "Neurology", "Hematology", "Cardiology", "Urology", "Endocrinology",
@@ -388,12 +388,15 @@ const rakshaOfferSchema = {
 };
 
 import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
+import { buildRootSchemaGraph } from "@/lib/seo/schema";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const rootSchemaGraph = buildRootSchemaGraph();
+
   return (
     <html
       lang="en"
@@ -454,6 +457,10 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&family=Noto+Sans+Malayalam:wght@400;600;700&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(rootSchemaGraph) }}
         />
         <script
           type="application/ld+json"

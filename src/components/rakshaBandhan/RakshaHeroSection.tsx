@@ -46,7 +46,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
               This Raksha Bandhan, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A5DAA] via-[#084B8A] to-[#00A8A8]">
+              <span className="text-[#D69A18]">
                 Gift Health.
               </span>
             </h1>
@@ -59,8 +59,8 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
             {/* Key Trust Signals Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div className="p-2 rounded-xl bg-cyan-50 text-[#00A8A8]">
-                  <ShieldCheck className="w-4 h-4" />
+                <div className="p-2 rounded-xl bg-[#FFF8EB] text-[#D69A18]">
+                  <ShieldCheck className="w-4 h-4 text-[#D69A18]" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900">NABL Accredited</div>
@@ -69,18 +69,18 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
               </div>
 
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div className="p-2 rounded-xl bg-blue-50 text-[#0A5DAA]">
-                  <Heart className="w-4 h-4" />
+                <div className="p-2 rounded-xl bg-[#FFF8EB] text-[#D69A18]">
+                  <Heart className="w-4 h-4 text-[#D69A18]" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-slate-900">64 Health Tests</div>
+                  <div className="text-xs font-bold text-slate-900">80 Health Tests</div>
                   <div className="text-[11px] text-slate-500">Full Body Screening</div>
                 </div>
               </div>
 
               <div className="col-span-2 sm:col-span-1 flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div className="p-2 rounded-xl bg-teal-50 text-[#00A8A8]">
-                  <Clock className="w-4 h-4" />
+                <div className="p-2 rounded-xl bg-[#FFF8EB] text-[#D69A18]">
+                  <Clock className="w-4 h-4 text-[#D69A18]" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900">Free Home Collection</div>
@@ -93,7 +93,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
               <button
                 onClick={() => onOpenBooking()}
-                className="py-4 px-8 bg-gradient-to-r from-[#0A5DAA] to-[#00A8A8] hover:from-[#084b8a] hover:to-[#008f8f] text-white text-base font-bold rounded-2xl shadow-xl shadow-cyan-900/15 hover:shadow-2xl hover:scale-[1.02] transition-all flex items-center justify-center gap-2 uppercase tracking-wide group"
+                className="py-4 px-8 bg-[#D69A18] hover:bg-amber-600 text-white text-base font-extrabold rounded-2xl shadow-xl hover:scale-[1.02] transition-all flex items-center justify-center gap-2 uppercase tracking-wide group cursor-pointer"
               >
                 <span>BOOK YOUR HEALTH CHECK</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

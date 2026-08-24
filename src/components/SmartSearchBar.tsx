@@ -63,7 +63,7 @@ export default function SmartSearchBar({ placeholder = "Search For Lab Tests/Pac
 
   return (
     <div ref={wrapperRef} className="relative flex-1 w-full">
-      <div className={`flex items-center w-full bg-white transition-all ${isMobile ? 'rounded-2xl border border-gray-200 px-3 py-2.5 gap-2' : 'rounded-xl border border-gray-200 focus-within:border-[#2563eb]/50 focus-within:shadow-md'}`}>
+      <div className={`flex items-center w-full bg-white transition-all ${isMobile ? 'rounded-2xl border border-slate-200 px-3 py-2 gap-2' : 'rounded-xl border border-slate-200 focus-within:border-[#D69A18]/50 focus-within:shadow-md'}`}>
         {isMobile && <Search className="w-4 h-4 text-slate-400 flex-shrink-0" />}
         
         <input
@@ -72,17 +72,36 @@ export default function SmartSearchBar({ placeholder = "Search For Lab Tests/Pac
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
           placeholder={placeholder}
-          className={`flex-1 bg-transparent border-none text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-0 ${isMobile ? 'text-[13px] font-medium p-0 min-w-0' : 'py-3.5 pl-6 pr-3 text-[15px] font-semibold w-full'}`}
+          className={`flex-1 bg-transparent border-none text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-0 ${isMobile ? 'text-[13px] font-medium p-0 min-w-0' : 'py-3.5 pl-6 pr-2 text-[15px] font-semibold w-full'}`}
         />
 
+        {/* Upload Prescription Rx Icon Button */}
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            window.dispatchEvent(new CustomEvent('openPrescriptionModal'));
+          }}
+          className="relative flex items-center justify-center p-1.5 hover:bg-amber-50 rounded-xl transition-all cursor-pointer shrink-0 border-l border-slate-200/80 pl-2 mr-1 group"
+          title="Upload Prescription"
+        >
+          <div className="relative flex items-center justify-center">
+            <FileText className="w-5 h-5 text-[#0f2d5e] group-hover:text-[#D69A18] transition-colors" strokeWidth={1.8} />
+            <span className="absolute -bottom-1 -right-1.5 w-3.5 h-3.5 bg-rose-500 rounded-full border border-white flex items-center justify-center shadow-2xs">
+              <svg className="w-2.5 h-2.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </span>
+          </div>
+        </button>
+
         {!isMobile && (
-          <div className="flex items-center pr-12">
-            <button className="p-2 text-[#2563eb] hover:bg-blue-50 rounded-full transition-colors" aria-label="Search" onClick={() => {
+          <div className="flex items-center pr-2">
+            <button className="p-2.5 bg-[#0284c7] hover:bg-[#0369a1] text-white rounded-xl transition-all shadow-2xs cursor-pointer active:scale-95" aria-label="Search" onClick={() => {
               setIsFocused(true);
             }}>
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4 text-white" />
             </button>
-            <div className="w-px h-6 bg-gray-200 mx-2"></div>
           </div>
         )}
       </div>

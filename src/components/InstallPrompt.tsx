@@ -110,11 +110,14 @@ export default function InstallPrompt() {
             </button>
 
             {/* QXL App Logo Icon */}
-            <div className="w-20 h-20 mx-auto mb-3 rounded-2xl bg-white p-2 border-2 border-emerald-100 shadow-md flex items-center justify-center">
+            <div className="w-20 h-20 mx-auto mb-3 rounded-2xl bg-white p-2.5 border border-amber-200 shadow-md flex items-center justify-center">
               <img
-                src="https://res.cloudinary.com/btjglif5/image/upload/v1784150000/Assets-QXL/legacy-assets/image/qxl_logo_main.png"
+                src="https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"
                 alt="QXL Diagnostics Logo"
                 className="w-full h-full object-contain"
+                onError={(e) => {
+                  e.currentTarget.src = "https://res.cloudinary.com/btjglif5/image/upload/v1784150185/Assets-QXL/legacy-assets/image/logo.png";
+                }}
               />
             </div>
 
@@ -124,33 +127,40 @@ export default function InstallPrompt() {
               Fast diagnostic bookings, same-day digital reports &amp; 1-click home sample collection.
             </p>
 
-            {/* Direct Install CTA Button */}
+            {/* Direct Install CTA Button (No browser alert popup) */}
             <button
               onClick={async () => {
-                if ((window as any).deferredPWAInstallPrompt) {
-                  const prompt = (window as any).deferredPWAInstallPrompt;
-                  prompt.prompt();
-                  const { outcome } = await prompt.userChoice;
-                  if (outcome === 'accepted') setIsInstalled(true);
-                  setShowGuide(false);
-                } else {
-                  alert("To install QXL Diagnostics:\n\n• On iPhone/iOS: Tap 'Share' in Safari → 'Add to Home Screen'\n• On Android/Chrome: Tap 3 dots menu → 'Install App'");
+                const prompt = (window as any).deferredPWAInstallPrompt || deferredPrompt;
+                if (prompt) {
+                  try {
+                    prompt.prompt();
+                    const { outcome } = await prompt.userChoice;
+                    if (outcome === 'accepted') setIsInstalled(true);
+                    setShowGuide(false);
+                  } catch (e) {
+                    console.log('Install prompt active', e);
+                  }
                 }
               }}
-              className="w-full bg-gradient-to-r from-[#2563eb] to-[#0284c7] hover:from-blue-700 hover:to-sky-700 text-white font-black py-3.5 px-6 rounded-2xl shadow-lg active:scale-95 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-3 cursor-pointer"
+              className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-black py-3.5 px-6 rounded-2xl shadow-md active:scale-95 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-3 cursor-pointer"
             >
               <Download className="w-4 h-4 text-white" />
               <span>INSTALL APP NOW</span>
             </button>
 
-            {/* iOS / Safari Quick Hint */}
-            <div className="bg-sky-50/80 border border-sky-100 rounded-xl p-3 text-left text-[11px] text-slate-600 space-y-1">
-              <p className="font-bold text-[#0c4a6e] flex items-center gap-1">
-                <span>📱 iOS / Safari User?</span>
+            {/* Direct Inline Installation Guide (Replaces annoying browser alert popup) */}
+            <div className="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-3.5 text-left text-[11.5px] text-slate-700 space-y-2 shadow-2xs">
+              <p className="font-black text-[#0f2d5e] flex items-center gap-1.5 text-xs">
+                <span>📱 Quick Installation Guide</span>
               </p>
-              <p className="leading-tight">
-                Tap <span className="font-extrabold text-slate-800">Share <Share className="w-3 h-3 inline text-blue-600" /></span> → tap <span className="font-extrabold text-slate-800">Add to Home Screen <PlusSquare className="w-3 h-3 inline" /></span>.
-              </p>
+              <div className="space-y-1 pt-0.5">
+                <p className="leading-snug">
+                  • <span className="font-bold text-slate-900">iPhone / Safari:</span> Tap <span className="font-black text-[#0f2d5e]">Share <Share className="w-3 h-3 inline text-blue-600" /></span> → tap <span className="font-black text-[#0f2d5e]">Add to Home Screen <PlusSquare className="w-3 h-3 inline text-emerald-600" /></span>.
+                </p>
+                <p className="leading-snug">
+                  • <span className="font-bold text-slate-900">Android / Chrome:</span> Tap <span className="font-black text-[#0f2d5e]">3 dots <MoreVertical className="w-3 h-3 inline" /></span> menu → tap <span className="font-black text-[#0f2d5e]">Install App</span>.
+                </p>
+              </div>
             </div>
           </div>
         </div>

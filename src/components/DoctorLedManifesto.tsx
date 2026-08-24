@@ -124,11 +124,11 @@ export default function DoctorLedManifesto() {
         </div>
 
         {/* Structured Diagnostic Pathway */}
-        <div className="bg-gradient-to-br from-[#0f2d5e] to-[#1e3a8a] text-white p-8 md:p-12 rounded-3xl space-y-6">
-          <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-amber-300">End-to-End Quality Pathway</span>
-            <h3 className="text-2xl sm:text-3xl font-black text-white mt-1">From Sample to Clinical Clarity</h3>
-            <p className="text-blue-100 text-xs sm:text-sm mt-2">Every QXL laboratory result travels through 9 standardized clinical quality steps.</p>
+        <div className="bg-[#0f2d5e] text-white p-8 md:p-12 rounded-3xl space-y-6 border border-slate-700 shadow-xl">
+          <div className="text-center max-w-2xl mx-auto space-y-1.5">
+            <span className="text-xs font-black uppercase tracking-widest text-[#D69A18] block">End-to-End Quality Pathway</span>
+            <h3 className="text-2xl sm:text-3xl font-black text-[#D69A18] leading-tight">From Sample to Clinical Clarity</h3>
+            <p className="text-slate-200 text-xs sm:text-sm font-medium pt-1">Every QXL laboratory result travels through 9 standardized clinical quality steps.</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 gap-3 text-center pt-4">
@@ -143,8 +143,8 @@ export default function DoctorLedManifesto() {
               { step: "8", title: "Digital Report" },
               { step: "9", title: "Clinician Action" },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur border border-white/15 p-3 rounded-xl">
-                <span className="w-6 h-6 bg-amber-400 text-slate-950 font-black rounded-full text-xs flex items-center justify-center mx-auto mb-1.5">{item.step}</span>
+              <div key={idx} className="bg-white/10 backdrop-blur border border-white/20 p-3 rounded-xl">
+                <span className="w-6 h-6 bg-[#D69A18] text-white font-black rounded-full text-xs flex items-center justify-center mx-auto mb-1.5 shadow-xs">{item.step}</span>
                 <span className="text-[11px] font-bold text-white leading-tight block">{item.title}</span>
               </div>
             ))}

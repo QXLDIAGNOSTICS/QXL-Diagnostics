@@ -31,7 +31,7 @@ export default function RakshaFloatingWidget() {
   if (!isVisible) return null;
 
   return (
-    <aside aria-label="Raksha Bandhan offer widget" className="fixed bottom-24 right-4 z-[99] flex flex-col items-end gap-2 group animate-in fade-in slide-in-from-bottom-6 duration-500">
+    <aside aria-label="Raksha Bandhan offer widget" className="fixed bottom-24 right-4 z-[99] hidden lg:flex flex-col items-end gap-2 group animate-in fade-in slide-in-from-bottom-6 duration-500">
       
       {/* Floating Sparkle Card */}
       <div className="relative bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 p-0.5 rounded-2xl shadow-2xl animate-rakhi-glow transition-all hover:scale-105">

@@ -364,7 +364,7 @@ const defaultSettings = {
   siteName: "QXL Diagnostics",
   logoText: "QXL",
   logoImage: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto,w_302,h_95,c_fit/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
-    supportEmail: "care@qxldiagnostics.com",
+    supportEmail: "qxldiagnostics@gmail.com",
   hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
   northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
   workingHours: "Open 24x7",

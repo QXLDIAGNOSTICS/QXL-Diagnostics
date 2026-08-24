@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from 'react';
-import { Calendar, User, Phone, MapPin, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowLeft, UserCheck, ShieldCheck, Clock, CheckCircle, User, Phone, MapPin, Calendar, Sparkles } from 'lucide-react';
+import MobileTrustBadges from '@/components/MobileTrustBadges';
 
 export default function HomeCollectionPage() {
   const [formData, setFormData] = useState({
@@ -20,137 +22,156 @@ export default function HomeCollectionPage() {
   };
 
   return (
-    <div className="bg-[#f8faff] min-h-screen">
-      {/* Page Hero */}
-      <section className="bg-gradient-to-r from-[#e0f2fe] to-[#fbf8f5] py-12 border-b border-gray-100">
-        <div className="max-w-[1200px] mx-auto px-4 w-full">
-          <h1 className="text-3xl md:text-4xl font-extrabold text-[#0f2d5e] mb-3">Book a Home Collection</h1>
-          <p className="text-slate-500 text-sm md:text-base max-w-2xl font-medium">
-            Get your blood tests done from the comfort of your home. Our certified phlebotomists will visit you at your preferred time.
+    <div className="bg-[#f8faff] min-h-screen pb-16">
+      {/* Page Header (Clean White Design without duplicate back button) */}
+      <div className="bg-white border-b border-slate-100 p-4 shadow-2xs">
+        <h1 className="font-black text-lg tracking-tight text-[#0f2d5e]">Home Collection</h1>
+      </div>
+
+      {/* ── Mobile Screen 3 Mockup Hero & Feature Checklist ── */}
+      <div className="max-w-md mx-auto p-4 flex flex-col gap-4">
+        {/* Phlebotomist Scooter Banner Illustration Card */}
+        <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 rounded-3xl p-5 border border-[#F3DBA7] shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+          {/* Scooter Visual Icon/Graphic */}
+          <div className="w-32 h-28 relative mb-3 flex items-center justify-center">
+            <div className="w-24 h-24 bg-[#FFF8EB] border-2 border-[#E9C47A] rounded-full flex items-center justify-center shadow-sm">
+              <span className="text-5xl">🛵</span>
+            </div>
+          </div>
+
+          <h2 className="text-xl font-black text-slate-900 mb-1">Book Home Collection</h2>
+          <p className="text-xs text-slate-600 font-medium leading-relaxed max-w-xs mb-4">
+            Safe, reliable and convenient sample collection from the comfort of your home.
           </p>
-          <div className="w-16 h-1 bg-[#2563eb] rounded-full mt-4"></div>
-        </div>
-      </section>
 
-      {/* Main Content Form */}
-      <section className="py-12">
-        <div className="max-w-[800px] mx-auto px-4 w-full">
-          
-          <div className="bg-white border border-gray-150 rounded-3xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
-            {submitted ? (
-              <div className="text-center py-12 flex flex-col items-center">
-                <div className="w-16 h-16 bg-[#dbeafe] text-[#2563eb] rounded-full flex items-center justify-center mb-6">
-                  <CheckCircle className="w-8 h-8" />
-                </div>
-                <h2 className="text-2xl font-bold text-slate-800 mb-2">Home Collection Requested!</h2>
-                <p className="text-slate-500 text-sm max-w-md mx-auto mb-8 font-medium">
-                  Thank you, <strong className="text-slate-700">{formData.name}</strong>. Our team will contact you at <strong className="text-slate-700">{formData.phone}</strong> shortly to confirm your booking and assign a phlebotomist to your address.
-                </p>
-                <button 
-                  onClick={() => { setSubmitted(false); setFormData({ name: '', phone: '', address: '', date: '', tests: '' }); }} 
-                  className="bg-[#2563eb] text-white font-bold px-8 py-2.5 rounded-full hover:bg-[#1d4ed8] transition-colors text-sm uppercase tracking-wider"
-                >
-                  Book Another
-                </button>
+          {/* Feature Checklist matching Screen 3 */}
+          <div className="w-full bg-white rounded-2xl p-3.5 border border-gray-150 shadow-xs space-y-2.5 text-left mb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
+                <UserCheck className="w-4.5 h-4.5" />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <h2 className="text-slate-800 text-xl font-bold mb-4">Patient Details</h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Full Name */}
-                  <div className="flex flex-col">
-                    <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                      <User className="w-3.5 h-3.5 text-[#0f2d5e]" /> Patient Full Name
-                    </label>
-                    <input 
-                      type="text" 
-                      required
-                      placeholder="Enter patient name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})}
-                      className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
-                    />
-                  </div>
+              <span className="text-xs font-extrabold text-slate-800">Trained phlebotomists</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
+                <ShieldCheck className="w-4.5 h-4.5" />
+              </div>
+              <span className="text-xs font-extrabold text-slate-800">Tamper-proof sample collection</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
+                <Clock className="w-4.5 h-4.5" />
+              </div>
+              <span className="text-xs font-extrabold text-slate-800">Reports delivered on time</span>
+            </div>
+          </div>
 
-                  {/* Phone Number */}
-                  <div className="flex flex-col">
-                    <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-[#0f2d5e]" /> Phone Number
-                    </label>
-                    <input 
-                      type="tel" 
-                      required
-                      placeholder="+91 Contact number"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})}
-                      className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
-                    />
-                  </div>
-                </div>
+          {/* Schedule Button in #D69A18 */}
+          <a
+            href="#booking-form"
+            className="w-full bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md uppercase text-xs tracking-wider transition-all text-center"
+          >
+            Schedule Home Collection
+          </a>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Tests */}
-                  <div className="flex flex-col">
-                    <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                      <span className="text-[#0f2d5e] font-extrabold text-sm">🧪</span> Tests Required (Optional)
-                    </label>
-                    <input 
-                      type="text" 
-                      placeholder="e.g. CBC, Thyroid, Diabetes"
-                      value={formData.tests}
-                      onChange={(e) => setFormData({...formData, tests: e.target.value})}
-                      className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
-                    />
-                  </div>
-
-                  {/* Preferred Date */}
-                  <div className="flex flex-col">
-                    <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-[#0f2d5e]" /> Preferred Date
-                    </label>
-                    <input 
-                      type="date" 
-                      value={formData.date}
-                      onChange={(e) => setFormData({...formData, date: e.target.value})}
-                      className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 text-slate-600"
-                    />
-                  </div>
-                </div>
-
-                {/* Home Address */}
-                <div className="flex flex-col">
-                  <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#0f2d5e]" /> Complete Home Address
-                  </label>
-                  <textarea 
-                    required
-                    rows={4}
-                    placeholder="Enter your full address in Bengaluru for home sample collection"
-                    value={formData.address}
-                    onChange={(e) => setFormData({...formData, address: e.target.value})}
-                    className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 resize-none"
-                  />
-                </div>
-
-                <div className="bg-[#eff6ff] rounded-xl p-4 flex items-start gap-3 mt-4">
-                  <div className="w-6 h-6 rounded-full bg-[#2563eb] flex items-center justify-center flex-shrink-0 text-white font-bold text-xs mt-0.5">ℹ</div>
-                  <p className="text-xs text-[#1e3a8a] font-medium leading-relaxed">
-                    By submitting this form, you agree to a callback from our team. Home collection is free for orders above ₹1000 in Bengaluru. All our phlebotomists follow strict hygiene protocols.
-                  </p>
-                </div>
-
-                <button 
-                  type="submit" 
-                  className="w-full bg-gradient-to-r from-[#2563eb] to-[#1e3a8a] text-white font-extrabold py-3.5 rounded-xl hover:from-[#1d4ed8] hover:to-[#172554] transition-all uppercase tracking-widest text-[13px] shadow-lg mt-6"
-                >
-                  Confirm Home Collection
-                </button>
-              </form>
-            )}
+          {/* Badge: 100% Safe & Hygienic */}
+          <div className="flex items-center gap-1.5 mt-3 text-[11px] font-extrabold text-amber-900 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200">
+            <ShieldCheck className="w-4 h-4 text-[#D69A18]" />
+            <span>100% Safe & Hygienic</span>
           </div>
         </div>
-      </section>
+
+        {/* ── Form Section ── */}
+        <div id="booking-form" className="bg-white border border-gray-200 rounded-3xl p-5 shadow-sm mt-2">
+          {submitted ? (
+            <div className="text-center py-8 flex flex-col items-center">
+              <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4">
+                <CheckCircle className="w-7 h-7" />
+              </div>
+              <h3 className="text-xl font-black text-slate-900 mb-1">Home Collection Requested!</h3>
+              <p className="text-xs text-slate-600 mb-6 font-medium">
+                Thank you, <strong>{formData.name}</strong>. Our team will contact you at <strong>{formData.phone}</strong> shortly to confirm your preferred slot.
+              </p>
+              <button
+                onClick={() => { setSubmitted(false); setFormData({ name: '', phone: '', address: '', date: '', tests: '' }); }}
+                className="bg-[#D69A18] text-white font-extrabold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider"
+              >
+                Book Another
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <h3 className="text-slate-900 text-base font-black border-b border-gray-100 pb-2">
+                Patient & Address Details
+              </h3>
+
+              <div>
+                <label className="text-[11px] font-extrabold text-slate-700 mb-1 block uppercase tracking-wider">
+                  Patient Full Name *
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="Enter full name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value.replace(/[^a-zA-Z\s]/g, '') })}
+                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50"
+                />
+              </div>
+
+              <div>
+                <label className="text-[11px] font-extrabold text-slate-700 mb-1 block uppercase tracking-wider">
+                  Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="+91 Contact number"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '') })}
+                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50"
+                />
+              </div>
+
+              <div>
+                <label className="text-[11px] font-extrabold text-slate-700 mb-1 block uppercase tracking-wider">
+                  Tests Required (Optional)
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. CBC, Thyroid, Lipid Profile"
+                  value={formData.tests}
+                  onChange={(e) => setFormData({ ...formData, tests: e.target.value })}
+                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50"
+                />
+              </div>
+
+              <div>
+                <label className="text-[11px] font-extrabold text-slate-700 mb-1 block uppercase tracking-wider">
+                  Complete Address in Bengaluru *
+                </label>
+                <textarea
+                  required
+                  rows={3}
+                  placeholder="House No, Street, Area, Pincode"
+                  value={formData.address}
+                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50 resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-widest shadow-md transition-all mt-2"
+              >
+                Confirm Home Collection
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+
+      <MobileTrustBadges />
     </div>
   );
 }

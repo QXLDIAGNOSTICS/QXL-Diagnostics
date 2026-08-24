@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { MapPin, Search, Phone, User, ChevronDown, ChevronRight, Mic, FileText, Menu, X, Home, Layers, Microscope, ShoppingCart, Calendar, CalendarCheck } from 'lucide-react';
+import { MapPin, Search, Phone, User, ChevronDown, ChevronRight, Mic, FileText, Menu, X, Home, Layers, Microscope, ShoppingCart, Calendar, CalendarCheck, Briefcase, Bot, Sparkles, Globe } from 'lucide-react';
 import PrescriptionModal from './PrescriptionModal';
 import SmartSearchBar from './SmartSearchBar';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -68,6 +68,7 @@ export default function Header() {
     whatsappNumber: "+91 9964 639 639",
     navItems: [
       { label: "Home", href: "/", visible: true },
+      { label: "AI Assistant 🤖", href: "/#ai-assistant", visible: true },
       { label: "About Us", href: "/about", visible: true },
       { label: "Founder & Consultants", href: "/founder", visible: true },
       { label: "Our Specialities", href: "/specialities", visible: true },
@@ -128,11 +129,15 @@ export default function Header() {
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
+    const handleOpenPrescription = () => setIsModalOpen(true);
+    window.addEventListener('openPrescriptionModal', handleOpenPrescription);
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       window.removeEventListener("cms-update", onCmsUpdate);
       window.removeEventListener("focus", loadBranches);
       window.removeEventListener('cartChange', updateCartCount);
+      window.removeEventListener('openPrescriptionModal', handleOpenPrescription);
       clearInterval(ticker);
     };
   }, []);
@@ -160,6 +165,7 @@ export default function Header() {
 
   const defaultNavItems = [
     { label: "Home", href: "/", visible: true },
+    { label: "AI Assistant 🤖", href: "/#ai-assistant", visible: true },
     { label: "Doctor-Led Lab", href: "/doctor-led-diagnostic-lab-bengaluru", visible: true },
     { label: "About Us", href: "/about", visible: true },
     { label: "Our Specialities", href: "/specialities", visible: true },
@@ -352,12 +358,6 @@ export default function Header() {
                 <div className="w-full transition-all duration-300 group-hover:shadow-[0_4px_20px_rgba(255,153,51,0.15)]" style={{ borderRadius: '999px', background: 'rgba(255,255,255,0.65)', border: '1px solid rgba(255, 153, 51, 0.35)', backdropFilter: 'blur(12px)', boxShadow: '0 2px 16px rgba(255, 153, 51, 0.08), inset 0 1px 0 rgba(255,255,255,0.85)' }}>
                   <SmartSearchBar placeholder={settings.searchPlaceholder || "Search Tests"} isMobile={false} />
                 </div>
-                <button onClick={() => setIsModalOpen(true)} className="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-[#0284c7] hover:bg-sky-100/60 rounded-full transition-colors" aria-label="Upload Prescription">
-                  <FileText className="w-5 h-5" />
-                  <div className="absolute bottom-1.5 right-1.5 w-3 h-3 bg-rose-500 rounded-full border border-white flex items-center justify-center">
-                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7" /></svg>
-                  </div>
-                </button>
               </div>
             </div>
 
@@ -455,110 +455,56 @@ export default function Header() {
       {/* placeholder — mobile header is rendered BELOW </header> so sticky works against viewport */}
     </header>
 
-    {/* ── MOBILE HEADER (lg:hidden) ── */}
-    <div className="lg:hidden flex flex-col w-full text-white pt-[54px]">
-      {/* Row 1: 100% FIXED TOP BAR (Menu, White Logo, Call Button) — NEVER MOVES OR SCROLLS */}
-      <div className="fixed top-0 left-0 right-0 z-[9999] bg-[#277a5e] flex items-center justify-between py-2 px-3 sm:px-4 text-[11px] border-b border-emerald-400/30 shadow-md h-[54px]">
-        {/* Sidebar Menu Button & White Logo Group */}
-        <div className="flex items-center gap-2 shrink-0">
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="w-9 h-9 rounded-full bg-white hover:bg-slate-100 text-[#0b3c2d] border border-slate-100 flex items-center justify-center shrink-0 shadow-xs transition-transform active:scale-95"
-            aria-label="Open sidebar menu"
-          >
-            <Menu className="w-4.5 h-4.5 text-[#0b3c2d]" />
-          </button>
-          <Link href="/" className="flex items-center shrink-1 min-w-0 bg-white rounded-xl px-2.5 py-1 shadow-xs border border-slate-100">
+    {/* ── MOBILE HEADER (lg:hidden) — Universal Top Bar on All Pages ── */}
+    <div className="lg:hidden flex flex-col w-full">
+      <div className="fixed top-0 left-0 right-0 z-[9999] bg-white flex items-center justify-between px-3 h-[60px] border-b border-slate-100 shadow-2xs max-w-full overflow-hidden">
+        <div className="flex items-center gap-2 min-w-0">
+          {pathname !== '/' && (
+            <button
+              onClick={() => {
+                if (window.history.length > 1) {
+                  window.history.back();
+                } else {
+                  window.location.href = '/';
+                }
+              }}
+              className="p-1.5 hover:bg-slate-100 rounded-full transition-colors active:scale-95 text-slate-700 shrink-0 cursor-pointer"
+              aria-label="Go back"
+            >
+              <svg className="w-5 h-5 text-[#0f2d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.6}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </button>
+          )}
+
+          <Link href="/" className="flex items-center py-0.5 shrink-0">
             <img
-              src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 180, h: 50, crop: "fit" })}
+              src={settings.logoImage || FALLBACK_LOGO}
               alt={settings.siteName || "QXL Diagnostics"}
-              width={180}
-              height={50}
-              className="h-7 sm:h-8 w-auto object-contain"
+              width={200}
+              height={56}
+              className="h-10 w-auto object-contain max-h-[42px]"
+              style={{ imageRendering: '-webkit-optimize-contrast' }}
               onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                const fallbackSpan = e.currentTarget.parentElement?.querySelector('.logo-text-mobile') as HTMLElement;
-                if (fallbackSpan) fallbackSpan.classList.remove('hidden');
+                e.currentTarget.src = FALLBACK_LOGO;
               }}
             />
-            <span className="logo-text-mobile font-extrabold text-xs text-[#0f2d5e] hidden truncate">
-              {settings.logoText || "QXL"}
-            </span>
+            <span className="logo-text-other hidden font-black text-base text-[#0f2d5e]">QXL Diagnostics</span>
           </Link>
         </div>
 
-        {/* Call Number Pill Badge */}
-        <a
-          href={`tel:${settings.phone_e164 || '+919964639639'}`}
-          className="flex items-center gap-1.5 bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-[11px] px-3 py-1.5 rounded-full shadow-xs border border-slate-100 transition-transform active:scale-95 shrink-0"
-          title="Call Us"
+        {/* Menu / Right Sidebar Icon Button */}
+        <button
+          onClick={() => setMobileMenuOpen(true)}
+          className="w-10 h-10 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
+          aria-label="Open Right Sidebar Menu"
         >
-          <Phone className="w-3.5 h-3.5 text-blue-600 fill-blue-600 shrink-0" />
-          <span className="text-slate-900 font-extrabold">9964 639 639</span>
-        </a>
+          <Menu className="w-6 h-6 text-[#0f2d5e]" strokeWidth={2.0} />
+        </button>
       </div>
 
-      {/* ── 2ND GREEN CONTAINER — normal page flow, SCROLLS AWAY when user scrolls ── */}
-      <div className="w-full bg-[#277a5e] pt-2 pb-4 px-3 sm:px-4 text-white shadow-md">
-        {/* Location Selector (Left) & Blue CART Button (Right) */}
-        <div className="flex items-center justify-between gap-2 py-1">
-          <button
-            onClick={() => setShowLocationModal(true)}
-            className="flex flex-col text-left group shrink-0"
-            title="Select Location"
-          >
-            <span className="text-[16px] sm:text-[17px] font-black text-white leading-tight flex items-center gap-0.5">
-              {getShortLocationName(location) || "Bengaluru"}
-            </span>
-            <span className="text-[10.5px] text-emerald-100 font-medium flex items-center gap-0.5 whitespace-nowrap">
-              Select your location <ChevronDown className="w-3 h-3 text-emerald-200 shrink-0" />
-            </span>
-          </button>
-
-          <Link
-            href="/book"
-            className="flex items-center gap-1.5 bg-[#2563eb] hover:bg-blue-700 text-white text-[11px] font-black px-4 py-2 rounded-full shadow-md shrink-0 active:scale-95 transition-all"
-            title="Cart / Bookings"
-          >
-            <ShoppingCart className="w-4 h-4 text-white" />
-            <span className="whitespace-nowrap">CART ({cartCount})</span>
-          </Link>
-        </div>
-
-        {/* Search Bar */}
-        <div className="my-2">
-          <SmartSearchBar placeholder="Search for tests, checkups..." isMobile={true} />
-        </div>
-
-        {/* Quick Action Cards */}
-        <div className="grid grid-cols-2 gap-3 mt-2">
-          <Link
-            href="/book"
-            className="bg-white rounded-2xl p-3 flex items-center gap-3 shadow-lg active:scale-95 transition-transform"
-          >
-            <div className="w-10 h-10 rounded-xl bg-emerald-100/80 text-[#0b3c2d] flex items-center justify-center shrink-0">
-              <Microscope className="w-5 h-5 text-[#0b3c2d]" />
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="text-[10px] text-slate-500 font-bold leading-none mb-0.5">Book</span>
-              <span className="text-[13px] font-black text-slate-900 leading-tight">Lab Tests</span>
-            </div>
-          </Link>
-
-          <Link
-            href="/packages"
-            className="bg-white rounded-2xl p-3 flex items-center gap-3 shadow-lg active:scale-95 transition-transform"
-          >
-            <div className="w-10 h-10 rounded-xl bg-emerald-100/80 text-[#0b3c2d] flex items-center justify-center shrink-0">
-              <CalendarCheck className="w-5 h-5 text-[#0b3c2d]" />
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="text-[10px] text-slate-500 font-bold leading-none mb-0.5">Book</span>
-              <span className="text-[13px] font-black text-slate-900 leading-tight">Checkups</span>
-            </div>
-          </Link>
-        </div>
-      </div>
+      {/* Spacer so page content doesn't hide behind the fixed header */}
+      <div className="h-[60px]" />
     </div>
 
       {/* ── LOCATION MODAL (mobile, centered) ── */}
@@ -568,7 +514,7 @@ export default function Header() {
           <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col max-h-[85vh]">
             <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-gray-100 flex-shrink-0">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#2563eb]" />
+                <MapPin className="w-4 h-4 text-[#D69A18]" />
                 <span className="font-extrabold text-[#0f2d5e] text-sm">Select Your Location</span>
               </div>
               <button
@@ -589,14 +535,14 @@ export default function Header() {
                     <button
                       onClick={() => setExpandedCity(isExpanded ? null : cityKey)}
                       className={`w-full flex items-center justify-between px-4 py-3.5 font-extrabold text-xs transition-all ${
-                        isExpanded ? 'bg-blue-50 text-[#2563eb]' : 'text-slate-700'
+                        isExpanded ? 'bg-amber-50 text-[#D69A18]' : 'text-slate-700'
                       }`}
                     >
                       <span className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-[#2563eb]" />
+                        <MapPin className="w-4 h-4 text-[#D69A18]" />
                         {cityKey} Centres ({cityBranches.length})
                       </span>
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-250 ${isExpanded ? 'rotate-180 text-[#2563eb]' : 'text-slate-400'}`} />
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-250 ${isExpanded ? 'rotate-180 text-[#D69A18]' : 'text-slate-400'}`} />
                     </button>
                     
                     {isExpanded && (
@@ -608,12 +554,12 @@ export default function Header() {
                               key={branch.id}
                               onClick={() => changeLocation(branch.name)}
                               className={`w-full text-left px-5 py-3 text-xs transition-colors flex items-center justify-between ${
-                                isBranchSelected ? 'font-extrabold text-[#2563eb] bg-blue-50/20' : 'text-slate-600 font-medium'
+                                isBranchSelected ? 'font-extrabold text-[#D69A18] bg-amber-50/40' : 'text-slate-600 font-medium'
                               }`}
                             >
                               <span className="pr-4 line-clamp-2 leading-relaxed text-left" title={getShortLocationName(branch.name)}>{getShortLocationName(branch.name)}</span>
                               {isBranchSelected && (
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D69A18" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
                                   <path d="M20 6L9 17l-5-5" />
                                 </svg>
                               )}
@@ -630,150 +576,186 @@ export default function Header() {
         </div>
       )}
 
-      {/* ── MOBILE SIDEBAR DRAWER ── */}
+      {/* ── MOBILE SIDEBAR DRAWER (Right Side) ── */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="fixed inset-0 z-[9998] lg:hidden">
+          <div className="fixed inset-0 z-[100000] lg:hidden">
+            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
               onClick={() => setMobileMenuOpen(false)}
             />
+
+            {/* Sidebar Drawer */}
             <motion.div
-              initial={{ x: "-100%" }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 220 }}
-              className="fixed inset-y-0 left-0 w-[280px] h-[100dvh] bg-white shadow-2xl flex flex-col z-[9999]"
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 28, stiffness: 240 }}
+              className="fixed inset-y-0 right-0 w-[300px] h-full bg-white shadow-2xl flex flex-col z-[100001] overflow-hidden"
             >
-              {/* Sidebar Header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gradient-to-r from-[#eff6ff] to-white flex-shrink-0">
+              {/* Mobile Sidebar Header — High Contrast & Clean */}
+              <div className="bg-[#FFF8EB] border-b border-[#F3DBA7] p-5 flex items-center justify-between flex-shrink-0">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#2563eb] flex items-center justify-center text-white flex-shrink-0">
-                    {user ? <span className="text-sm font-extrabold">{userInitial}</span> : <User className="w-5 h-5" />}
+                  <div className="w-11 h-11 rounded-full bg-[#D69A18] flex items-center justify-center text-white shrink-0 shadow-sm">
+                    {user ? <span className="text-base font-black text-white">{userInitial}</span> : <User className="w-6 h-6 text-white" />}
                   </div>
                   <div>
-                    <p className="font-extrabold text-sm text-[#0f2d5e] truncate max-w-[145px]">
+                    <h3 className="font-black text-base text-[#0f2d5e] leading-tight truncate max-w-[160px]" style={{ color: '#0f2d5e' }}>
                       {user ? userDisplayName : "Welcome Guest"}
-                    </p>
-                    <Link href={user ? "/profile" : "/login"} onClick={() => setMobileMenuOpen(false)} className="text-[11px] text-[#2563eb] font-bold hover:underline">
-                      {user ? "View Profile" : "Login / Register"}
+                    </h3>
+                    <Link
+                      href={user ? "/profile" : "/login"}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-[12px] text-[#D69A18] font-bold hover:underline tracking-wide block mt-0.5"
+                    >
+                      {user ? "View Account Profile ›" : "Login or Register ›"}
                     </Link>
                   </div>
                 </div>
+
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-gray-400 hover:text-slate-700 shadow-sm transition-colors"
+                  className="w-9 h-9 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 shadow-xs transition-colors shrink-0 ml-2 cursor-pointer"
                   aria-label="Close menu"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-5 h-5 text-slate-600" />
                 </button>
               </div>
 
-              {/* Nav Links — scrollable */}
-              <div className="flex-1 overflow-y-auto py-2 px-3">
-                <nav className="flex flex-col gap-0.5">
-                  {navItems.map((item: any) => {
-                    const isActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href);
-                    return (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className={`min-h-[48px] px-4 rounded-xl flex items-center justify-between transition-colors mb-1 ${isActive
-                          ? 'bg-[#e0f2fe] text-[#0284c7] font-extrabold'
-                          : 'bg-[#f0f9ff] text-[#0369a1] hover:bg-[#e0f2fe] font-extrabold'
-                          }`}
-                      >
-                        <span className="text-sm">{item.label}</span>
-                        <ChevronRight className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-[#0284c7]' : 'text-[#7dd3fc]'}`} />
-                      </Link>
-                    );
-                  })}
-                  <div className="pt-1 border-t border-gray-100 mt-1">
-                    <InstallPrompt />
-                  </div>
-                </nav>
+              {/* Scrollable Navigation Links */}
+              <div className="flex-1 overflow-y-auto py-3 px-4 space-y-1">
+                <div className="flex items-center justify-between px-2 pb-2 mb-1 border-b border-slate-150/80">
+                  <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest flex items-center gap-1">
+                    <Globe className="w-3.5 h-3.5 text-[#D69A18]" /> Translate Page
+                  </span>
+                  <LanguageSwitcher />
+                </div>
+                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-2 mb-2 pt-1">Navigation</p>
+                
+                {navItems.map((item: any) => {
+                  const isActive = item.href === '/' ? pathname === '/' : pathname?.startsWith(item.href);
+                  return (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`px-4 py-3 rounded-2xl flex items-center justify-between transition-all ${
+                        isActive
+                          ? 'bg-[#FFF8EB] text-[#D69A18] font-black border border-[#F3DBA7] shadow-2xs'
+                          : 'bg-slate-50 text-slate-800 font-bold hover:bg-amber-50/50 hover:text-[#D69A18] border border-slate-150/60'
+                      }`}
+                    >
+                      <span className="text-[13px]">{item.label}</span>
+                      <ChevronRight className={`w-4 h-4 shrink-0 ${isActive ? 'text-[#D69A18]' : 'text-slate-400'}`} />
+                    </Link>
+                  );
+                })}
+
+                <div className="pt-2">
+                  <InstallPrompt />
+                </div>
               </div>
 
-              {/* Sidebar Footer */}
-              <div className="p-4 border-t border-gray-100 bg-gray-50 flex-shrink-0 flex flex-col gap-3" style={{ paddingBottom: 'calc(env(safe-area-inset-bottom) + 16px)' }}>
-                <div className="flex gap-3">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-blue-100/50 border border-blue-200">
-                    <MapPin className="w-3.5 h-3.5 text-[#0369a1]" />
-                  </div>
+              {/* Sidebar Footer Action Section */}
+              <div className="p-4 border-t border-slate-100 bg-slate-50 flex-shrink-0 flex flex-col gap-3">
+                <div className="flex gap-2">
+                  <a
+                    href={`tel:${settings.contactPhone}`}
+                    className="flex-1 text-center bg-[#D69A18] text-white font-extrabold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-white" /> Call
+                  </a>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=919964639639"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 text-center bg-emerald-600 text-white font-extrabold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform"
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+
+                <div className="flex items-start gap-2.5 pt-1">
+                  <MapPin className="w-4 h-4 text-[#D69A18] shrink-0 mt-0.5" />
                   <div>
-                    <p className="text-[#0f2d5e] text-[12px] font-bold mb-0.5">Main Lab (Kengeri)</p>
-                    <p className="text-slate-500 text-[11px] font-medium leading-relaxed">{settings.hqAddress || "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060"}</p>
+                    <p className="text-[#0f2d5e] text-[11px] font-black">QXL Main Lab (Kengeri)</p>
+                    <p className="text-slate-500 text-[10.5px] font-medium leading-tight">SLN Complex, Mysore Road, Kengeri, Bengaluru</p>
                   </div>
                 </div>
-                <a
-                  href={`tel:${settings.contactPhone}`}
-                  className="w-full text-center bg-white text-slate-700 font-extrabold py-3 rounded-xl hover:bg-gray-100 transition-colors text-xs flex items-center justify-center gap-2 border border-slate-200 shadow-sm"
-                >
-                  <Phone className="w-4 h-4 text-[#2563eb]" /> Call: {settings.contactPhone}
-                </a>
               </div>
             </motion.div>
           </div>
         )}
       </AnimatePresence>
 
-      {/* ── MOBILE BOTTOM NAVIGATION — frosted glass ── */}
+      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs with Center AI Button) ── */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col"
+        className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col bg-white border-t border-slate-200/80 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
-
-
         <nav
-          className="mx-2 mb-2 rounded-[22px] overflow-hidden"
-          style={{
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(224,242,254,0.78) 100%)',
-            backdropFilter: 'blur(24px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(24px) saturate(180%)',
-            border: '1px solid rgba(125,199,232,0.35)',
-            boxShadow: '0 -4px 24px rgba(14,165,233,0.12), inset 0 1px 0 rgba(255,255,255,0.9)',
-          }}
+          className="flex justify-around items-center h-[60px] px-1 relative"
           aria-label="Mobile navigation"
         >
-          <div className="flex justify-around items-stretch h-[60px] px-1">
-            {[
-              { label: "Home", href: "/", icon: Home },
-              { label: "Packages", href: "/packages", icon: Layers },
-              { label: "Reports", href: "/report", icon: FileText },
-              { label: user ? "Profile" : "Login", href: user ? "/profile" : "/login", icon: User },
-            ].map((tab) => {
-              const TabIcon = tab.icon;
-              const isActive = tab.href === '/' ? pathname === '/' : pathname?.startsWith(tab.href);
+          {[
+            { label: "Home", href: "/", icon: Home, isCenter: false },
+            { label: "Reports", href: "/report", icon: FileText, isCenter: false },
+            { label: "AI Chat", href: "/#ai-assistant", icon: Bot, isCenter: true },
+            { label: "Bookings", href: "/book", icon: Calendar, isCenter: false },
+            { label: "Profile", href: user ? "/profile" : "/login", icon: User, isCenter: false },
+          ].map((tab) => {
+            const TabIcon = tab.icon;
+            const isActive = tab.href === '/' ? pathname === '/' : (tab.href !== '/#ai-assistant' && pathname?.startsWith(tab.href));
+
+            if (tab.isCenter) {
               return (
-                <Link
-                  key={tab.href}
-                  href={tab.href}
-                  className="relative flex flex-col items-center justify-center gap-0.5 flex-1 h-full rounded-xl mx-0.5 transition-colors"
-                  style={isActive ? {
-                    background: 'rgba(186,230,255,0.55)',
-                  } : undefined}
+                <button
+                  type="button"
+                  key={tab.label}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.dispatchEvent(new CustomEvent('openAiChat'));
+                  }}
+                  className="flex flex-col items-center justify-center flex-1 h-full -mt-4 active:scale-95 transition-transform group cursor-pointer z-10"
                 >
-                  <TabIcon
-                    className={`w-5 h-5 transition-colors ${
-                      isActive ? 'text-[#0284c7]' : 'text-slate-500'
-                    }`}
-                    strokeWidth={isActive ? 2.4 : 1.9}
-                  />
-                  <span
-                    className={`text-[9px] font-bold tracking-wide uppercase leading-none ${
-                      isActive ? 'text-[#0284c7]' : 'text-slate-500'
-                    }`}
-                  >
-                    {tab.label}
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#D69A18] to-[#f59e0b] text-white flex items-center justify-center shadow-lg border-2 border-white ring-2 ring-amber-400/30 group-hover:scale-110 transition-transform">
+                    <Bot className="w-6 h-6 text-white" strokeWidth={2.2} />
+                  </div>
+                  <span className="text-[10px] font-black text-[#D69A18] tracking-tight mt-0.5 uppercase">
+                    AI Chat
                   </span>
-                </Link>
+                </button>
               );
-            })}
-          </div>
+            }
+
+            return (
+              <Link
+                key={tab.href}
+                href={tab.href}
+                className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
+                  isActive ? 'text-[#D69A18]' : 'text-slate-400 hover:text-[#D69A18]'
+                }`}
+              >
+                <TabIcon
+                  className={`w-5 h-5 ${
+                    isActive ? 'text-[#D69A18]' : 'text-slate-400'
+                  }`}
+                  strokeWidth={isActive ? 2.4 : 1.8}
+                />
+                <span
+                  className={`text-[10px] ${
+                    isActive ? 'font-black text-[#D69A18]' : 'font-semibold text-slate-400'
+                  } tracking-tight`}
+                >
+                  {tab.label}
+                </span>
+              </Link>
+            );
+          })}
         </nav>
       </div>
 
