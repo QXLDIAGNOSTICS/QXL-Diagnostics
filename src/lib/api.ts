@@ -137,6 +137,11 @@ export interface Booking {
   report_url: string | null;
   amount_paise: number | null;
   payment_status: string;
+  created_at?: string;
+  updated_at?: string;
+  test_names?: string;
+  package_name?: string;
+  pdf_report_url?: string;
 }
 
 export interface BookingCreate {

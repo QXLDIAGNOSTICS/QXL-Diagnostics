@@ -139,7 +139,7 @@ export default function ReportPage() {
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                        {booking.created_at ? new Date(booking.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Recent'}
+                        {booking.preferred_date ? booking.preferred_date : booking.created_at ? new Date(booking.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) : 'Recent'}
                       </span>
                       <span className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border ${
                         booking.status === 'completed' 
