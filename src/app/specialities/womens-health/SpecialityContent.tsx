@@ -51,7 +51,7 @@ export default function WomensHealthPage() {
           <div className="lg:col-span-2 space-y-10">
             <section>
               <p className="text-gray-700 text-lg leading-relaxed">
-                QXL Diagnostics offers a comprehensive range of women's health diagnostics — from PCOS and fertility profiling to antenatal screening, prenatal genetic markers, menopause evaluation, thyroid testing, and cervical cancer screening. All tests are performed with NABL-certified quality and consultant-reviewed reports.
+                QXL Diagnostics offers a comprehensive range of women's health diagnostics — from PCOS and fertility profiling to antenatal screening, prenatal genetic markers, menopause evaluation, thyroid testing, and cervical cancer screening. All tests are performed with NABL-accredited quality and consultant-reviewed reports.
               </p>
             </section>
 

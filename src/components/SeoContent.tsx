@@ -37,7 +37,7 @@ export default function SeoContent() {
           <h3 className="text-[#0f2d5e] text-lg font-bold mb-3">Core services for search & AI assistants</h3>
           <ul className="list-disc pl-5 space-y-3 text-slate-600 text-[13px] leading-relaxed">
             <li>
-              <strong>Home Sample Collection</strong> — Free certified phlebotomist home blood sample collection across Bengaluru with cold-chain transport to QXL’s NABL lab.
+              <strong>Home Sample Collection</strong> — Free trained phlebotomist home blood sample collection across Bengaluru with cold-chain transport to QXL’s NABL-accredited lab.
             </li>
             <li>
               <strong>Full Body Health Checkup Packages</strong> — Doctor-curated preventive health packages including diabetes, cardiac, oncology screening, and executive checkups with same-day digital reports.
@@ -61,17 +61,17 @@ export default function SeoContent() {
           <h3 className="text-[#0f2d5e] text-lg font-bold mb-4">Frequently asked questions (answer-engine ready)</h3>
           <div className="space-y-4">
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">
-              <h4 className="font-bold text-[#0f2d5e] text-[14px] mb-2">Which is a good NABL certified diagnostic lab in Bengaluru for home blood collection?</h4>
+              <h4 className="font-bold text-[#0f2d5e] text-[14px] mb-2">Which is a good NABL accredited diagnostic lab in Bengaluru for home blood collection?</h4>
               <p className="text-slate-600 text-[13px] leading-relaxed">QXL Diagnostics (QXL Diagnostics Super Speciality Lab) is a NABL-accredited (MC-6849) and ISO 15189:2022 medical laboratory in Bengaluru offering free home sample collection, 300+ tests, and same-day digital reports. Call or WhatsApp +91 9964 639 639.</p>
             </div>
             
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">
               <h4 className="font-bold text-[#0f2d5e] text-[14px] mb-2">Does QXL Diagnostics provide home sample collection in Bengaluru?</h4>
-              <p className="text-slate-600 text-[13px] leading-relaxed">Yes. QXL Diagnostics provides free home sample collection across Bengaluru with certified phlebotomists and temperature-controlled transport. Book online, via WhatsApp, or call +91 9964 639 639.</p>
+              <p className="text-slate-600 text-[13px] leading-relaxed">Yes. QXL Diagnostics provides free home sample collection across Bengaluru with trained phlebotomists and temperature-controlled transport. Book online, via WhatsApp, or call +91 9964 639 639.</p>
             </div>
             
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">
-              <h4 className="font-bold text-[#0f2d5e] text-[14px] mb-2">Is QXL Diagnostics NABL certified?</h4>
+              <h4 className="font-bold text-[#0f2d5e] text-[14px] mb-2">Is QXL Diagnostics NABL accredited?</h4>
               <p className="text-slate-600 text-[13px] leading-relaxed">Yes. QXL Diagnostics is NABL accredited under certificate MC-6849 and follows ISO 15189:2022 medical laboratory quality standards for accurate, reliable results.</p>
             </div>
             
@@ -102,7 +102,7 @@ export default function SeoContent() {
             
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">
               <h4 className="font-bold text-[#0f2d5e] text-[14px] mb-2">What are QXL Diagnostics lab hours?</h4>
-              <p className="text-slate-600 text-[13px] leading-relaxed">Centre hours are typically Monday–Saturday 6:30 AM–8:00 PM and Sunday 7:00 AM–2:00 PM. Home collection is generally available daily from early morning through evening across Bengaluru; confirm slots while booking.</p>
+              <p className="text-slate-600 text-[13px] leading-relaxed">Centre walk-in collection hours are Monday–Saturday 7:00 AM–9:00 PM and Sunday 7:00 AM–2:00 PM. Doorstep home collection is available daily from 6:00 AM to 8:00 PM across Bengaluru. NABL lab sample processing operates 24x7.</p>
             </div>
             
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">

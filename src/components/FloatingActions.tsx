@@ -42,7 +42,7 @@ export default function FloatingActions() {
         href="https://api.whatsapp.com/send?phone=919964639639"
         target="_blank"
         rel="noreferrer"
-        className="fab-whatsapp-btn text-white p-4 rounded-full flex items-center justify-center hover:scale-110 transition-all animate-bounce"
+        className="fab-whatsapp-btn text-white p-4 rounded-full flex items-center justify-center hover:scale-110 transition-all"
         style={{
           background: '#25D366',
           boxShadow: '0 4px 16px rgba(37,211,102,0.4)',

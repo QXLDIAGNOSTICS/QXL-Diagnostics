@@ -17,7 +17,7 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://qxldiagnostics.com"),
   title: {
-    default: "QXL Diagnostics | NABL Certified Lab Bengaluru",
+    default: "QXL Diagnostics | NABL Accredited Lab Bengaluru",
     template: "%s | QXL Diagnostics Bengaluru",
   },
   alternates: {
@@ -131,15 +131,15 @@ const faqSchema = {
       name: "Does QXL Diagnostics provide home sample collection?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, QXL Diagnostics provides free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 9964 639 639.",
+        text: "Yes, QXL Diagnostics provides free home sample collection across Bengaluru. Our trained phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 9964 639 639.",
       },
     },
     {
       "@type": "Question",
-      name: "Is QXL Diagnostics NABL certified?",
+      name: "Is QXL Diagnostics NABL accredited?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, QXL Diagnostics is NABL certified and follows ISO 15189 standards for medical laboratory testing, ensuring the highest quality and accuracy of results.",
+        text: "Yes, QXL Diagnostics is NABL accredited and follows ISO 15189 standards for medical laboratory testing, ensuring the highest quality and accuracy of results.",
       },
     },
     {

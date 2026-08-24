@@ -49,8 +49,11 @@ const SEO_PAGES: { url: string; priority: number; changeFrequency: "daily" | "we
   { url: "/diagnostic-lab-indiranagar", priority: 0.9, changeFrequency: "monthly" },
   { url: "/diagnostic-lab-hsr-layout", priority: 0.9, changeFrequency: "monthly" },
   { url: "/diagnostic-lab-marathahalli", priority: 0.9, changeFrequency: "monthly" },
-  { url: "/diagnostic-lab-hebbal", priority: 0.9, changeFrequency: "monthly" },
+  {url: "/diagnostic-lab-kengeri", priority: 0.9, changeFrequency: "monthly" },
   { url: "/diagnostic-lab-yelahanka", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/diagnostic-lab-rr-nagar", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/diagnostic-lab-nagarabhavi", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/diagnostic-lab-vijayanagar", priority: 0.9, changeFrequency: "monthly" },
   { url: "/diagnostic-lab-manyata-tech-park", priority: 0.9, changeFrequency: "monthly" },
 ];
 

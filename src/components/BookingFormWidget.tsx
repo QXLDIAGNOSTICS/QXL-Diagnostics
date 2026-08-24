@@ -445,7 +445,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
   return (
     <div className="flex flex-col lg:flex-row gap-10">
       {/* Left Form */}
-      <div className={`w-full ${showSidebar ? 'lg:w-2/3' : ''} glass-card p-8 rounded-3xl`}>
+      <div className={`w-full ${showSidebar ? 'lg:w-2/3' : ''} glass-card p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl`}>
         {submitted ? (
           <div className="text-center py-12">
             <div className="w-16 h-16 bg-[#dbeafe] text-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-extrabold">✓</div>

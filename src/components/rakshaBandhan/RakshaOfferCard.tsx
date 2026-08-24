@@ -36,8 +36,8 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
         {/* Offer Card Container */}
         <div className="bg-gradient-to-b from-[#FFFBF0] via-white to-[#F0FDF4] rounded-3xl border border-amber-200/80 shadow-2xl overflow-hidden relative group">
           
-          {/* Background Animated Rotating Rakhi Mandala Motifs */}
-          <div className="absolute -top-12 -right-12 w-48 h-48 pointer-events-none opacity-20 text-amber-500 animate-rakhi-spin">
+          {/* Background Static Rakhi Mandala Motifs */}
+          <div className="absolute -top-12 -right-12 w-48 h-48 pointer-events-none opacity-20 text-amber-500">
             <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full">
               <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
               <path d="M50 0 L55 20 L50 25 L45 20 Z" />
@@ -48,7 +48,7 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
               <circle cx="50" cy="50" r="14" className="text-red-500" />
             </svg>
           </div>
-          <div className="absolute -bottom-16 -left-16 w-56 h-56 pointer-events-none opacity-15 text-amber-600 animate-rakhi-float">
+          <div className="absolute -bottom-16 -left-16 w-56 h-56 pointer-events-none opacity-15 text-amber-600">
             <svg viewBox="0 0 100 100" fill="currentColor" className="w-full h-full">
               <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="2" />
               <path d="M50 5 L55 25 L50 30 L45 25 Z" />
@@ -58,11 +58,10 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
             </svg>
           </div>
 
-          {/* Top Banner Ribbon with Live Pulse */}
+          {/* Top Banner Ribbon */}
           <div className="bg-gradient-to-r from-[#138808] via-[#15803d] to-[#138808] p-4 text-white px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-sweep pointer-events-none" />
             <div className="flex items-center gap-3 z-10">
-              <span className="p-2 rounded-xl bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider animate-pulse shadow-sm">
+              <span className="p-2 rounded-xl bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider shadow-sm">
                 🎁 RAKSHA BANDHAN OFFER
               </span>
               <span className="font-extrabold text-sm sm:text-base text-amber-100">
@@ -70,7 +69,7 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
               </span>
             </div>
             <div className="flex items-center gap-2 text-xs font-mono font-bold text-amber-200 bg-black/25 px-3 py-1.5 rounded-full border border-amber-300/30 z-10">
-              <Clock className="w-3.5 h-3.5 text-amber-300 animate-spin" style={{ animationDuration: '8s' }} />
+              <Clock className="w-3.5 h-3.5 text-amber-300" />
               <span>{RAKSHA_CAMPAIGN_CONFIG.offerValidityText}</span>
             </div>
           </div>
@@ -83,7 +82,7 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
                 <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-left space-y-4">
                   <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs font-bold text-amber-900 flex items-center justify-between">
                     <span className="flex items-center gap-1.5">
-                      <Sparkles className="w-4 h-4 text-amber-600 animate-pulse" />
+                      <Sparkles className="w-4 h-4 text-amber-600" />
                       <span>7-DAY EXCLUSIVE OFFER</span>
                     </span>
                     <span className="bg-amber-200/80 px-2 py-0.5 rounded text-[11px]">₹800 ONLY</span>

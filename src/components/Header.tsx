@@ -216,7 +216,7 @@ export default function Header() {
     <>
       {/* Spatial liquid glass header — Indian Flag Theme */}
       <header
-        className="w-full sticky top-0 z-50"
+        className="w-full relative lg:sticky lg:top-0 z-50"
         style={{
           background: 'linear-gradient(135deg, rgba(255, 153, 51, 0.08) 0%, rgba(255,255,255,0.95) 50%, rgba(19, 136, 8, 0.05) 100%)',
           backdropFilter: 'blur(28px) saturate(200%) brightness(1.05)',
@@ -228,8 +228,8 @@ export default function Header() {
         <div className="hidden lg:flex bg-gradient-to-r from-[#138808] via-[#15803d] to-[#138808] text-white text-[11px] font-black py-2 px-3 items-center justify-center relative overflow-hidden z-20 shadow-xs border-b border-emerald-600/30">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-sweep pointer-events-none" />
           <div className="flex flex-row items-center justify-center gap-3 max-w-[1400px] mx-auto w-full flex-wrap z-10">
-            <span className="bg-amber-400 text-slate-950 text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs flex items-center gap-1.5 animate-pulse">
-              <svg className="w-3.5 h-3.5 text-slate-950 animate-rakhi-spin" viewBox="0 0 100 100" fill="currentColor">
+            <span className="bg-amber-400 text-slate-950 text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs flex items-center gap-1.5">
+              <svg className="w-3.5 h-3.5 text-slate-950" viewBox="0 0 100 100" fill="currentColor">
                 <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="4 4" />
                 <circle cx="50" cy="50" r="20" />
               </svg>
@@ -452,108 +452,114 @@ export default function Header() {
         </div>
       </div>
 
-      {/* ── MOBILE HEADER (lg:hidden) — EXACT IMAGE 2 DESIGN ── */}
-      <div className="lg:hidden flex flex-col w-full relative z-10 bg-white pb-3 rounded-b-2xl shadow-sm border-b border-gray-100">
-        {/* Top Strip (Blue Strip): Location & Call Number */}
-        <div className="bg-[#2563eb] text-white px-4 py-1.5 flex items-center justify-between text-[11px] font-extrabold shadow-sm">
-          {/* Location Selector */}
+      {/* placeholder — mobile header is rendered BELOW </header> so sticky works against viewport */}
+    </header>
+
+    {/* ── MOBILE HEADER (lg:hidden) ── */}
+    <div className="lg:hidden flex flex-col w-full text-white pt-[54px]">
+      {/* Row 1: 100% FIXED TOP BAR (Menu, White Logo, Call Button) — NEVER MOVES OR SCROLLS */}
+      <div className="fixed top-0 left-0 right-0 z-[9999] bg-[#277a5e] flex items-center justify-between py-2 px-3 sm:px-4 text-[11px] border-b border-emerald-400/30 shadow-md h-[54px]">
+        {/* Sidebar Menu Button & White Logo Group */}
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="w-9 h-9 rounded-full bg-white hover:bg-slate-100 text-[#0b3c2d] border border-slate-100 flex items-center justify-center shrink-0 shadow-xs transition-transform active:scale-95"
+            aria-label="Open sidebar menu"
+          >
+            <Menu className="w-4.5 h-4.5 text-[#0b3c2d]" />
+          </button>
+          <Link href="/" className="flex items-center shrink-1 min-w-0 bg-white rounded-xl px-2.5 py-1 shadow-xs border border-slate-100">
+            <img
+              src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 180, h: 50, crop: "fit" })}
+              alt={settings.siteName || "QXL Diagnostics"}
+              width={180}
+              height={50}
+              className="h-7 sm:h-8 w-auto object-contain"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                const fallbackSpan = e.currentTarget.parentElement?.querySelector('.logo-text-mobile') as HTMLElement;
+                if (fallbackSpan) fallbackSpan.classList.remove('hidden');
+              }}
+            />
+            <span className="logo-text-mobile font-extrabold text-xs text-[#0f2d5e] hidden truncate">
+              {settings.logoText || "QXL"}
+            </span>
+          </Link>
+        </div>
+
+        {/* Call Number Pill Badge */}
+        <a
+          href={`tel:${settings.phone_e164 || '+919964639639'}`}
+          className="flex items-center gap-1.5 bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-[11px] px-3 py-1.5 rounded-full shadow-xs border border-slate-100 transition-transform active:scale-95 shrink-0"
+          title="Call Us"
+        >
+          <Phone className="w-3.5 h-3.5 text-blue-600 fill-blue-600 shrink-0" />
+          <span className="text-slate-900 font-extrabold">9964 639 639</span>
+        </a>
+      </div>
+
+      {/* ── 2ND GREEN CONTAINER — normal page flow, SCROLLS AWAY when user scrolls ── */}
+      <div className="w-full bg-[#277a5e] pt-2 pb-4 px-3 sm:px-4 text-white shadow-md">
+        {/* Location Selector (Left) & Blue CART Button (Right) */}
+        <div className="flex items-center justify-between gap-2 py-1">
           <button
             onClick={() => setShowLocationModal(true)}
-            className="flex items-center gap-1 text-white hover:text-sky-100 transition-colors"
+            className="flex flex-col text-left group shrink-0"
             title="Select Location"
           >
-            <MapPin className="w-3.5 h-3.5 text-white shrink-0" />
-            <span>{getShortLocationName(location) || "Bangalore"}</span>
-            <ChevronDown className="w-3 h-3 text-white/80 shrink-0" />
+            <span className="text-[16px] sm:text-[17px] font-black text-white leading-tight flex items-center gap-0.5">
+              {getShortLocationName(location) || "Bengaluru"}
+            </span>
+            <span className="text-[10.5px] text-emerald-100 font-medium flex items-center gap-0.5 whitespace-nowrap">
+              Select your location <ChevronDown className="w-3 h-3 text-emerald-200 shrink-0" />
+            </span>
           </button>
 
-          {/* Call Number */}
-          <a
-            href={`tel:${settings.phone_e164 || '+919964639639'}`}
-            className="flex items-center gap-1.5 text-white hover:text-sky-100 transition-colors"
-            title="Call QXL Diagnostics"
-          >
-            <Phone className="w-3.5 h-3.5 fill-white text-white shrink-0" />
-            <span>9964 639 639</span>
-          </a>
-        </div>
-
-        {/* Main Bar: Hamburger, QXL Logo, Translate & Blue CART Pill */}
-        <div className="flex items-center justify-between px-4 py-2.5">
-          <div className="flex items-center gap-2.5">
-            {/* Hamburger Menu */}
-            <button
-              onClick={() => setMobileMenuOpen(true)}
-              className="p-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-200/60 transition-colors shrink-0"
-              aria-label="Open menu"
-            >
-              <Menu className="w-5 h-5" />
-            </button>
-
-            {/* Company Logo */}
-            <Link href="/" className="flex-shrink-0 flex items-center">
-              <img
-                src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 220, h: 60, crop: "fit" })}
-                alt={settings.siteName || "QXL Diagnostics"}
-                width={220}
-                height={60}
-                className="h-8 w-auto object-contain"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const fallbackSpan = e.currentTarget.parentElement?.querySelector('.logo-text-mobile') as HTMLElement;
-                  if (fallbackSpan) fallbackSpan.classList.remove('hidden');
-                }}
-              />
-              <span className="logo-text-mobile font-extrabold text-lg text-[#0f2d5e] hidden">
-                {settings.logoText || "QXL"}
-              </span>
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-2">
-            {/* Language Translate Dropdown */}
-            <LanguageSwitcher />
-
-            {/* Blue CART Pill Button */}
-            <Link
-              href="/book"
-              className="flex items-center gap-1.5 bg-[#2563eb] hover:bg-blue-700 text-white text-[11px] font-black px-3.5 py-1.5 rounded-full shadow-md active:scale-95 transition-all relative"
-              title="Cart / Bookings"
-            >
-              <ShoppingCart className="w-4 h-4 text-white" />
-              <span>CART</span>
-              {cartCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 rounded-full text-[10px] w-4.5 h-4.5 flex items-center justify-center font-bold text-white bg-rose-500 shadow-sm border border-white">
-                  {cartCount}
-                </span>
-              )}
-            </Link>
-          </div>
-        </div>
-
-        {/* Row 3: Search Bar */}
-        <div className="px-4">
-          <SmartSearchBar placeholder="Search for Tests/Packages" isMobile={true} />
-        </div>
-
-        {/* Mobile Announcement Bar (Green Container with Live Countdown) */}
-        <div className="mt-3 bg-gradient-to-r from-[#138808] via-[#15803d] to-[#138808] text-white py-2 px-3 flex items-center justify-between text-[11px] font-extrabold z-20 shadow-xs border-t border-emerald-600/30">
-          <div className="flex items-center gap-2 truncate pr-1">
-            <span className="truncate text-white">🎁 Raksha Bandhan @ ₹800</span>
-            <span className="bg-black/25 text-amber-300 font-mono text-[9px] px-1.5 py-0.5 rounded border border-amber-300/30 shrink-0">
-              {countdown.d}d {String(countdown.h).padStart(2, '0')}h {String(countdown.m).padStart(2, '0')}m
-            </span>
-          </div>
           <Link
-            href="/raksha-bandhan-health-checkup-bangalore"
-            className="bg-amber-400 hover:bg-amber-300 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-sm"
+            href="/book"
+            className="flex items-center gap-1.5 bg-[#2563eb] hover:bg-blue-700 text-white text-[11px] font-black px-4 py-2 rounded-full shadow-md shrink-0 active:scale-95 transition-all"
+            title="Cart / Bookings"
           >
-            CLAIM ₹800 →
+            <ShoppingCart className="w-4 h-4 text-white" />
+            <span className="whitespace-nowrap">CART ({cartCount})</span>
+          </Link>
+        </div>
+
+        {/* Search Bar */}
+        <div className="my-2">
+          <SmartSearchBar placeholder="Search for tests, checkups..." isMobile={true} />
+        </div>
+
+        {/* Quick Action Cards */}
+        <div className="grid grid-cols-2 gap-3 mt-2">
+          <Link
+            href="/book"
+            className="bg-white rounded-2xl p-3 flex items-center gap-3 shadow-lg active:scale-95 transition-transform"
+          >
+            <div className="w-10 h-10 rounded-xl bg-emerald-100/80 text-[#0b3c2d] flex items-center justify-center shrink-0">
+              <Microscope className="w-5 h-5 text-[#0b3c2d]" />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="text-[10px] text-slate-500 font-bold leading-none mb-0.5">Book</span>
+              <span className="text-[13px] font-black text-slate-900 leading-tight">Lab Tests</span>
+            </div>
+          </Link>
+
+          <Link
+            href="/packages"
+            className="bg-white rounded-2xl p-3 flex items-center gap-3 shadow-lg active:scale-95 transition-transform"
+          >
+            <div className="w-10 h-10 rounded-xl bg-emerald-100/80 text-[#0b3c2d] flex items-center justify-center shrink-0">
+              <CalendarCheck className="w-5 h-5 text-[#0b3c2d]" />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="text-[10px] text-slate-500 font-bold leading-none mb-0.5">Book</span>
+              <span className="text-[13px] font-black text-slate-900 leading-tight">Checkups</span>
+            </div>
           </Link>
         </div>
       </div>
-
-    </header>
+    </div>
 
       {/* ── LOCATION MODAL (mobile, centered) ── */}
       {showLocationModal && (

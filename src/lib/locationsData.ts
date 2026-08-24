@@ -23,7 +23,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Kengeri",
     slug: "kengeri",
     nearestLab: "Kengeri Main Lab (Mysore Road)",
-    description: "QXL Diagnostics provides fast and reliable home blood sample collection across Kengeri Satellite Town, Kengeri Upanagara, and surrounding areas. Our NABL-certified phlebotomists ensure painless collection at your doorstep.",
+    description: "QXL Diagnostics provides fast and reliable home blood sample collection across Kengeri Satellite Town, Kengeri Upanagara, and surrounding areas. Our trained phlebotomists ensure painless collection at your doorstep.",
     pincodes: ["560060", "560059"],
     popularTests: ["Fever Profile", "Complete Blood Count (CBC)", "Diabetes Screening", "Full Body Checkup"]
   },

@@ -22,7 +22,7 @@ const MAIN_LAB_ID = `${SITE_URL}/#kengeri-lab`;
 
 export const SEO_KEYWORDS = [
   "diagnostic lab Bengaluru",
-  "NABL certified lab Bangalore",
+  "NABL accredited lab Bangalore",
   "super speciality diagnostic lab Bengaluru",
   "blood test Bangalore",
   "home collection blood test Bengaluru",
@@ -35,7 +35,7 @@ export const SEO_KEYWORDS = [
   "thyroid test Bangalore",
   "cancer markers Bangalore",
   "health packages Bengaluru",
-  "AI-powered diagnostics Bengaluru",
+  "technology-assisted lab quality systems Bengaluru",
   "precision diagnostics Bengaluru",
   "expert-reviewed lab reports",
   "molecular diagnostics Bengaluru",
@@ -67,7 +67,7 @@ export const PRIMARY_SERVICES = [
   {
     name: "Home Sample Collection",
     description:
-      "Free certified phlebotomist home blood sample collection across Bengaluru with cold-chain transport to QXL’s NABL lab.",
+      "Free trained phlebotomist home blood sample collection across Bengaluru with cold-chain transport to QXL’s NABL-accredited lab.",
     url: `${SITE_URL}/home-collection`,
   },
   {
@@ -105,15 +105,15 @@ export const PRIMARY_SERVICES = [
 /** Expanded AEO FAQ set — answers phrased as direct, citable sentences. */
 export const SEO_FAQS = [
   {
-    q: "Which is a good NABL certified diagnostic lab in Bengaluru for home blood collection?",
+    q: "Which is a good NABL accredited diagnostic lab in Bengaluru for home blood collection?",
     a: `QXL Diagnostics (${BUSINESS_LEGAL_NAME}) is a NABL-accredited (${NABL_CERTIFICATE}) and ${ISO_STANDARD} medical laboratory in Bengaluru offering free home sample collection, 300+ tests, and same-day digital reports. Call or WhatsApp ${PHONE_DISPLAY}.`,
   },
   {
     q: "Does QXL Diagnostics provide home sample collection in Bengaluru?",
-    a: `Yes. QXL Diagnostics provides free home sample collection across Bengaluru with certified phlebotomists and temperature-controlled transport. Book online, via WhatsApp, or call ${PHONE_DISPLAY}.`,
+    a: `Yes. QXL Diagnostics provides free home sample collection across Bengaluru with trained phlebotomists and temperature-controlled transport. Book online, via WhatsApp, or call ${PHONE_DISPLAY}.`,
   },
   {
-    q: "Is QXL Diagnostics NABL certified?",
+    q: "Is QXL Diagnostics NABL accredited?",
     a: `Yes. QXL Diagnostics is NABL accredited under certificate ${NABL_CERTIFICATE} and follows ${ISO_STANDARD} medical laboratory quality standards for accurate, reliable results.`,
   },
   {
@@ -134,11 +134,11 @@ export const SEO_FAQS = [
   },
   {
     q: "Is QXL Diagnostics good for advanced or molecular testing in Bangalore?",
-    a: "Yes. QXL is a doctor-driven super speciality lab with AI-assisted workflows, molecular/infectious disease capabilities, and senior pathologist review—positioned for advanced diagnostics beyond routine pathology.",
+    a: "Yes. QXL is a doctor-driven super speciality lab with technology-assisted laboratory quality systems, molecular/infectious disease capabilities, and senior pathologist review—positioned for advanced diagnostics beyond routine pathology.",
   },
   {
     q: "What are QXL Diagnostics lab hours?",
-    a: "Centre hours are typically Monday–Saturday 6:30 AM–8:00 PM and Sunday 7:00 AM–2:00 PM. Home collection is generally available daily from early morning through evening across Bengaluru; confirm slots while booking.",
+    a: "Patient walk-in collection centre hours are Monday–Saturday 7:00 AM–9:00 PM and Sunday 7:00 AM–2:00 PM. Doorstep home collection is available daily from 6:00 AM to 8:00 PM across Bengaluru. NABL lab sample processing operates 24x7.",
   },
   {
     q: "Who founded QXL Diagnostics?",
@@ -228,7 +228,7 @@ export function buildRootSchemaGraph() {
         name: BUSINESS_LEGAL_NAME,
         alternateName: BUSINESS_NAME,
         description:
-          "NABL certified super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, AI-assisted workflows, and same-day digital reports.",
+          "NABL-accredited super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, technology-assisted laboratory quality systems, and same-day digital reports.",
         url: SITE_URL,
         telephone: PHONE_DISPLAY,
         email: EMAIL,

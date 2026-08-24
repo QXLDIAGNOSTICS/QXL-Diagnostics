@@ -1376,23 +1376,17 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
                 width: 42px !important;
                 height: 42px !important;
             }
-            .fab-cart-btn {
+            .fab-toggle-hide-btn {
                 bottom: 292px !important;
                 right: 14px !important;
                 width: 42px !important;
                 height: 42px !important;
             }
             .fab-scroll-top-btn {
-                bottom: 292px !important;
+                bottom: 344px !important;
                 right: 14px !important;
-                width: 36px !important;
-                height: 36px !important;
-            }
-            .fab-toggle-hide-btn {
-                bottom: 292px !important;
-                right: 14px !important;
-                width: 32px !important;
-                height: 32px !important;
+                width: 42px !important;
+                height: 42px !important;
             }
             .fab-hidden-mobile {
                 display: none !important;

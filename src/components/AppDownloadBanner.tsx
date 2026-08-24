@@ -314,7 +314,7 @@ export default function AppDownloadBanner() {
         </div>
       </section>
 
-      {/* ─── CUSTOM PWA INSTALLATION GUIDE MODAL ─── */}
+      {/* ─── DIRECT PWA INSTALLATION MODAL WITH QXL LOGO ─── */}
       <AnimatePresence>
         {showInstructions && (
           <div className="fixed inset-0 z-[100000] flex items-center justify-center px-4">
@@ -333,77 +333,60 @@ export default function AppDownloadBanner() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", duration: 0.4 }}
-              className="relative w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl z-10 p-6 md:p-8"
-              style={{ border: "1px solid rgba(125,199,232,0.3)" }}
+              className="relative w-full max-w-sm bg-white rounded-3xl overflow-hidden shadow-2xl z-10 p-6 text-center border border-slate-100"
             >
               {/* Close Button */}
               <button
                 onClick={() => setShowInstructions(false)}
                 className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors"
+                aria-label="Close modal"
               >
                 <X className="w-4 h-4" />
               </button>
 
-              {/* Header */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
-                  <Info className="w-5 h-5 text-blue-600" />
-                </div>
-                <div>
-                  <h3 className="font-extrabold text-[#0f2d5e] text-lg">Install QXL Diagnostics</h3>
-                  <p className="text-slate-500 text-xs font-semibold">Easy guide to add the app to your device</p>
-                </div>
+              {/* QXL App Logo Icon */}
+              <div className="w-20 h-20 mx-auto mb-3 rounded-2xl bg-white p-2 border-2 border-emerald-100 shadow-md flex items-center justify-center">
+                <img
+                  src="https://res.cloudinary.com/btjglif5/image/upload/v1784150000/Assets-QXL/legacy-assets/image/qxl_logo_main.png"
+                  alt="QXL Diagnostics Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
 
-              {/* Instructions Grid */}
-              <div className="space-y-6">
-                {/* iOS Instructions */}
-                <div className="bg-sky-50/50 border border-sky-100 rounded-2xl p-5">
-                  <h4 className="font-bold text-[#0c4a6e] text-[13.5px] uppercase tracking-wide mb-3 flex items-center gap-2">
-                    🍎 Apple iOS (iPhone/iPad)
-                  </h4>
-                  <ol className="list-decimal list-inside text-xs text-slate-600 space-y-2.5 pl-1 leading-relaxed">
-                    <li>
-                      Open this website in your <span className="font-extrabold text-slate-700">Safari</span> browser.
-                    </li>
-                    <li className="flex items-center gap-1.5 flex-wrap">
-                      Tap the <span className="font-extrabold text-slate-700 flex items-center gap-1 bg-white px-2 py-1 rounded border border-slate-200">Share <Share className="w-3.5 h-3.5 inline text-blue-600" /></span> button at the bottom navigation bar.
-                    </li>
-                    <li className="flex items-center gap-1.5 flex-wrap">
-                      Scroll down and tap <span className="font-extrabold text-slate-700 flex items-center gap-1 bg-white px-2 py-1 rounded border border-slate-200">Add to Home Screen <PlusSquare className="w-3.5 h-3.5 inline text-slate-700" /></span>.
-                    </li>
-                    <li>
-                      Tap <span className="font-extrabold text-[#2563eb]">Add</span> in the top-right corner to complete.
-                    </li>
-                  </ol>
-                </div>
+              {/* Title & Description */}
+              <h3 className="font-black text-[#0f2d5e] text-lg mb-1">Install QXL Diagnostics</h3>
+              <p className="text-slate-500 text-xs font-medium mb-5 px-2">
+                Fast diagnostic bookings, same-day digital reports &amp; 1-click home sample collection.
+              </p>
 
-                {/* Android / Chrome Instructions */}
-                <div className="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-5">
-                  <h4 className="font-bold text-[#065f46] text-[13.5px] uppercase tracking-wide mb-3 flex items-center gap-2">
-                    🤖 Android &amp; Chrome Desktop
-                  </h4>
-                  <ol className="list-decimal list-inside text-xs text-slate-600 space-y-2.5 pl-1 leading-relaxed">
-                    <li className="flex items-center gap-1.5 flex-wrap">
-                      Tap the <span className="font-extrabold text-slate-700 flex items-center gap-1 bg-white px-1.5 py-0.5 rounded border border-slate-200"><MoreVertical className="w-3.5 h-3.5 inline text-slate-700" /> menu</span> button in your browser's address bar.
-                    </li>
-                    <li>
-                      Select <span className="font-extrabold text-slate-700 bg-white px-2 py-1 rounded border border-slate-200">Install App</span> or <span className="font-extrabold text-slate-700 bg-white px-2 py-1 rounded border border-slate-200">Add to Home Screen</span>.
-                    </li>
-                    <li>
-                      Confirm by clicking <span className="font-extrabold text-[#16a34a]">Install</span> on the popup.
-                    </li>
-                  </ol>
-                </div>
-              </div>
-
-              {/* Close Button at bottom */}
+              {/* Direct Install CTA Button */}
               <button
-                onClick={() => setShowInstructions(false)}
-                className="w-full mt-6 bg-[#2563eb] text-white font-extrabold py-3.5 rounded-2xl hover:bg-[#1d4ed8] transition-colors text-sm shadow-md"
+                onClick={async () => {
+                  if ((window as any).deferredPWAInstallPrompt) {
+                    const prompt = (window as any).deferredPWAInstallPrompt;
+                    prompt.prompt();
+                    const { outcome } = await prompt.userChoice;
+                    if (outcome === 'accepted') setInstalled(true);
+                    setShowInstructions(false);
+                  } else {
+                    alert("To install QXL Diagnostics:\n\n• On iPhone/iOS: Tap 'Share' in Safari → 'Add to Home Screen'\n• On Android/Chrome: Tap 3 dots menu → 'Install App'");
+                  }
+                }}
+                className="w-full bg-gradient-to-r from-[#2563eb] to-[#0284c7] hover:from-blue-700 hover:to-sky-700 text-white font-black py-3.5 px-6 rounded-2xl shadow-lg active:scale-95 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-3 cursor-pointer"
               >
-                Got It, Thanks!
+                <Download className="w-4 h-4 text-white" />
+                <span>INSTALL APP NOW</span>
               </button>
+
+              {/* iOS / Safari Quick Hint */}
+              <div className="bg-sky-50/80 border border-sky-100 rounded-xl p-3 text-left text-[11px] text-slate-600 space-y-1">
+                <p className="font-bold text-[#0c4a6e] flex items-center gap-1">
+                  <span>📱 iOS / Safari User?</span>
+                </p>
+                <p className="leading-tight">
+                  Tap <span className="font-extrabold text-slate-800">Share <Share className="w-3 h-3 inline text-blue-600" /></span> → tap <span className="font-extrabold text-slate-800">Add to Home Screen <PlusSquare className="w-3 h-3 inline" /></span>.
+                </p>
+              </div>
             </motion.div>
           </div>
         )}

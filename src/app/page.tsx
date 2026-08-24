@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone } from "lucide-react";
+import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone, Sparkles } from "lucide-react";
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
 import { api } from '../lib/api';
@@ -618,29 +618,29 @@ function MobilePromoHighlightSlider() {
 
 function QuickBookingForm({ formState, setFormState, handleContactSubmit, formStatus }: any) {
   return (
-    <div className="bg-white p-8 rounded-[2.5rem] border border-blue-100 shadow-[0_8px_30px_rgba(37,99,235,0.08)] relative z-10">
-      <div className="mb-6">
-        <h3 className="text-xl font-bold text-[#0f2d5e] mb-1">Request a Call Back</h3>
-        <p className="text-sm text-slate-500 font-medium">Leave your number and we'll call you right away.</p>
+    <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-[2.5rem] border border-blue-100 shadow-[0_8px_30px_rgba(37,99,235,0.08)] relative z-10">
+      <div className="mb-3 md:mb-6">
+        <h3 className="text-lg md:text-xl font-bold text-[#0f2d5e] mb-0.5 md:mb-1">Request a Call Back</h3>
+        <p className="text-xs md:text-sm text-slate-500 font-medium">Leave your number and we'll call you right away.</p>
       </div>
       
-      <form className="flex flex-col gap-5" onSubmit={handleContactSubmit}>
+      <form className="flex flex-col gap-3 md:gap-5" onSubmit={handleContactSubmit}>
         <div>
-          <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Full Name <span className="text-red-500">*</span></label>
-          <input type="text" required placeholder="Enter your name" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-2xl px-5 py-4 text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-sm" />
+          <label className="block text-[11px] md:text-xs font-bold text-slate-700 mb-1 md:mb-1.5 uppercase tracking-wider">Full Name <span className="text-red-500">*</span></label>
+          <input type="text" required placeholder="Enter your name" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-xl md:rounded-2xl px-3.5 py-2.5 md:px-5 md:py-4 text-xs md:text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-xs" />
         </div>
         <div>
-          <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Phone Number <span className="text-red-500">*</span></label>
-          <input type="tel" required placeholder="+91 Contact number" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value.replace(/\D/g, '')})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-2xl px-5 py-4 text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-sm" />
+          <label className="block text-[11px] md:text-xs font-bold text-slate-700 mb-1 md:mb-1.5 uppercase tracking-wider">Phone Number <span className="text-red-500">*</span></label>
+          <input type="tel" required placeholder="+91 Contact number" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value.replace(/\D/g, '')})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-xl md:rounded-2xl px-3.5 py-2.5 md:px-5 md:py-4 text-xs md:text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-xs" />
         </div>
 
         <div>
-          <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">Message (Optional)</label>
-          <textarea rows={2} placeholder="Any specific requirements?" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-2xl px-5 py-4 text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-sm resize-none" />
+          <label className="block text-[11px] md:text-xs font-bold text-slate-700 mb-1 md:mb-1.5 uppercase tracking-wider">Message (Optional)</label>
+          <textarea rows={1} placeholder="Any specific requirements?" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-xl md:rounded-2xl px-3.5 py-2 md:px-5 md:py-4 text-xs md:text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-xs resize-none" />
         </div>
         
-        <div className="pt-2">
-          <button type="submit" disabled={formStatus === 'loading'} className="w-full bg-[#2563eb] text-white font-black px-6 py-4 rounded-2xl shadow-lg hover:bg-[#1d4ed8] hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm uppercase tracking-widest flex items-center justify-center gap-2">
+        <div className="pt-1 md:pt-2">
+          <button type="submit" disabled={formStatus === 'loading'} className="w-full bg-[#2563eb] text-white font-black px-5 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl shadow-md hover:bg-[#1d4ed8] active:scale-[0.98] transition-all text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2">
             {formStatus === 'loading' ? 'Submitting...' : 'Request Call'}
           </button>
         </div>
@@ -697,6 +697,37 @@ export default function Home() {
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [showContactServiceDropdown, setShowContactServiceDropdown] = useState(false);
   const [collapsedMobileDesc, setCollapsedMobileDesc] = useState<Record<string, boolean>>({});
+  const [mobileOfferIndex, setMobileOfferIndex] = useState(0);
+
+  const mobileOfferBanners = [
+    {
+      badge: "🎁 SPECIAL OFFER",
+      title: "Raksha Bandhan Checkup",
+      sub: "Comprehensive 80 essential health parameters",
+      price: "₹800",
+      bgGradient: "bg-gradient-to-br from-sky-50/95 via-cyan-50/90 to-blue-50/80 border border-sky-200/90 shadow-sm",
+      badgeStyle: "bg-sky-100 text-sky-950 border border-sky-200",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
+      ctaLink: "/raksha-bandhan-health-checkup-bangalore"
+    },
+    {
+      badge: "🩺 MOST POPULAR",
+      title: "Full Body Checkup",
+      sub: "Complete Liver, Kidney, Heart & Diabetes Panel",
+      price: "₹1,900",
+      bgGradient: "bg-gradient-to-br from-indigo-50/95 via-blue-50/90 to-sky-50/80 border border-indigo-200/90 shadow-sm",
+      badgeStyle: "bg-indigo-100 text-indigo-950 border border-indigo-200",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150385/Assets-QXL/legacy-assets/image/slide_vitamin_bone_new.jpg",
+      ctaLink: "/packages"
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setMobileOfferIndex((prev) => (prev + 1) % mobileOfferBanners.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [mobileOfferBanners.length]);
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -862,7 +893,7 @@ export default function Home() {
       badge: "FREE HOME SAMPLE COLLECTION",
       title: "CHERISHED SIBLING HEALTH CHECK",
       titleAccent: "DOCTOR-LED LABORATORY TESTING",
-      subtitle: "Sterile doorstep blood sample collection across all areas in Bengaluru by certified phlebotomists.",
+      subtitle: "Sterile doorstep blood sample collection across all areas in Bengaluru by trained phlebotomists.",
       subtitleAccent: "Special Campaign Price ₹800 (Worth ₹5,800)",
       description: "Give the gift of good health with quick online booking and accurate same-day digital results.",
       cta: "Book Home Collection",
@@ -1716,138 +1747,218 @@ export default function Home() {
         <SeoContent />
       </div>
 
-      {/* ── MOBILE VIEW (lg:hidden) ── */}
-      <div className="lg:hidden flex flex-col w-full overflow-x-hidden">
+      {/* ── MOBILE VIEW (lg:hidden) — REFERENCE IMAGE DESIGN ── */}
+      <div className="lg:hidden flex flex-col w-full overflow-x-hidden bg-slate-50">
+        {/* White Rounded Sheet Overlay */}
+        <div className="rounded-t-[32px] bg-white relative z-20 shadow-2xl pt-6 px-4 flex flex-col gap-6 pb-6 mt-1">
 
-
-        {/* Mobile Hero Slider — Uncropped Full Poster + Stacked Offer Card */}
-        <section className="w-full bg-transparent pb-2">
-          <div 
-            className="relative w-full overflow-hidden"
-            onTouchStart={() => setIsMobileHovered(true)}
-            onTouchEnd={() => setIsMobileHovered(false)}
-          >
-            {mobileSlides.map((slide, idx) => (
-              <div
-                key={idx}
-                className={`transition-opacity duration-500 ${idx === currentMobileSlide ? 'block' : 'hidden'}`}
+          {/* MORE WAYS TO BOOK Box */}
+          <div className="relative border border-slate-200/90 rounded-2xl p-4 pt-6 bg-white shadow-xs">
+            <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white px-3 text-[10.5px] font-black text-slate-500 uppercase tracking-widest whitespace-nowrap">
+              MORE WAYS TO BOOK
+            </span>
+            <div className="grid grid-cols-4 gap-2 text-center">
+              {/* 1. WhatsApp */}
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col items-center group active:scale-95 transition-transform"
               >
-                <div className="mx-3 mt-2 rounded-2xl overflow-hidden flex flex-col border border-amber-200/80 shadow-md bg-gradient-to-br from-amber-50/90 via-white to-emerald-50/60 p-3">
-                  {/* Top: Poster Image — 100% full width, uncropped */}
-                  <div className="w-full h-[200px] sm:h-[230px] relative rounded-xl overflow-hidden bg-white/70 shadow-inner flex items-center justify-center p-1 border border-slate-100">
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="w-full h-full object-contain object-center rounded-lg"
-                    />
-                  </div>
+                <div className="w-11 h-11 rounded-2xl bg-[#25d366] text-white flex items-center justify-center mb-1.5 shadow-md shadow-emerald-500/20">
+                  <MessageCircle className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-[11px] font-black text-slate-800 leading-tight">WhatsApp</span>
+              </a>
 
-                  {/* Bottom: Offer Details & CTA */}
-                  <div className="flex flex-col gap-1 text-left mt-1">
-                    <div className="flex flex-wrap items-center justify-between gap-1 mb-0.5">
-                      <span className="inline-block bg-[#f97316] text-white text-[8.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-xs">
-                        {slide.badge}
-                      </span>
-                      <span className="text-[9px] font-extrabold text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded-full border border-emerald-200">
-                        ₹800 FESTIVE OFFER
-                      </span>
-                    </div>
+              {/* 2. Call Us */}
+              <a
+                href="tel:+919964639639"
+                className="flex flex-col items-center group active:scale-95 transition-transform"
+              >
+                <div className="w-11 h-11 rounded-2xl bg-[#2563eb] text-white flex items-center justify-center mb-1.5 shadow-md shadow-blue-500/20">
+                  <Phone className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-[11px] font-black text-slate-800 leading-tight">Call Us</span>
+              </a>
 
-                    <h3 className="text-[14px] font-black text-[#0f2d5e] leading-tight">
-                      {slide.title}
-                    </h3>
-                    <p className="text-[11px] font-extrabold text-[#2563eb] leading-tight">
-                      {slide.titleAccent}
-                    </p>
+              {/* 3. Prescription */}
+              <button
+                onClick={() => setIsPrescriptionModalOpen(true)}
+                className="flex flex-col items-center group active:scale-95 transition-transform"
+              >
+                <div className="w-11 h-11 rounded-2xl bg-[#10b981] text-white flex items-center justify-center mb-1.5 shadow-md shadow-emerald-500/20">
+                  <FileText className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-[11px] font-black text-slate-800 leading-tight">Prescription</span>
+              </button>
 
-                    {slide.subtitle && (
-                      <p className="text-[10px] text-slate-600 font-medium line-clamp-2 mt-0.5">
-                        {slide.subtitle}
-                      </p>
-                    )}
+              {/* 4. AI Assistant */}
+              <Link
+                href="/ai-assistant"
+                className="flex flex-col items-center group active:scale-95 transition-transform"
+              >
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-1.5 shadow-md shadow-indigo-500/20">
+                  <Sparkles className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-[11px] font-black text-slate-800 leading-tight">AI Assistant</span>
+              </Link>
+            </div>
+          </div>
 
-                    {/* Action buttons */}
-                    <div className="flex items-center gap-2 mt-2">
-                      <Link
-                        href={slide.ctaLink || '/raksha-bandhan-health-checkup-bangalore'}
-                        className="flex-1 bg-[#2563eb] text-white font-black py-2.5 rounded-full text-[11px] text-center uppercase tracking-wide shadow-md active:scale-95 transition-all"
-                      >
-                        {slide.cta || "Book Package @ ₹800"}
-                      </Link>
-                      <a
-                        href="tel:+919964639639"
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-4 py-2.5 rounded-full text-[11px] text-center shadow-md active:scale-95 transition-all flex items-center justify-center gap-1 shrink-0"
-                      >
-                        <span>CALL</span>
-                      </a>
-                    </div>
-                  </div>
+          {/* Feature Banners Row (Home Collection Available, 24x7 Available, NABL Accredited) — 1 Card Full Screen */}
+          <div className="relative overflow-hidden py-1 w-full">
+            <div className="flex overflow-x-auto scrollbar-none snap-x snap-mandatory w-full">
+              {/* Banner 1: Home Collection Available (Blue Liquid Glass) */}
+              <div className="bg-gradient-to-br from-blue-50/95 via-sky-50/90 to-indigo-50/80 border border-blue-200/90 rounded-3xl p-4 flex justify-between items-center shrink-0 w-full min-w-full snap-center shadow-xs backdrop-blur-md">
+                <div className="flex flex-col pr-2">
+                  <h3 className="text-[14px] font-black text-blue-950 leading-tight mb-1">
+                    Home Collection Available
+                  </h3>
+                  <p className="text-[11px] font-bold text-blue-800 leading-snug flex items-center gap-1">
+                    <span>⚡</span> Doorstep sample pickup in 60 mins
+                  </p>
+                  <p className="text-[11px] font-bold text-blue-800 leading-snug flex items-center gap-1 mt-0.5">
+                    <span>🩺</span> 1000+ trained phlebotomists
+                  </p>
+                </div>
+                <div className="w-20 h-20 relative rounded-2xl overflow-hidden shrink-0 border-2 border-white shadow-xs bg-white">
+                  <img
+                    src="https://res.cloudinary.com/btjglif5/image/upload/v1784150185/Assets-QXL/legacy-assets/image/female_doctor_consult.jpg"
+                    alt="Home Collection Available"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
               </div>
-            ))}
+
+              {/* Banner 2: 24x7 Available (Sky Blue Liquid Glass) */}
+              <div className="bg-gradient-to-br from-sky-50/95 via-blue-50/90 to-cyan-50/80 border border-sky-200/90 rounded-3xl p-4 flex justify-between items-center shrink-0 w-full min-w-full snap-center shadow-xs backdrop-blur-md">
+                <div className="flex flex-col pr-2">
+                  <h3 className="text-[14px] font-black text-sky-950 leading-tight mb-1">
+                    24x7 Available
+                  </h3>
+                  <p className="text-[11px] font-bold text-sky-800 leading-snug flex items-center gap-1">
+                    <span>🔬</span> Round-the-clock NABL testing
+                  </p>
+                  <p className="text-[11px] font-bold text-sky-800 leading-snug flex items-center gap-1 mt-0.5">
+                    <span>⏱️</span> Fast digital reports in 6 hours
+                  </p>
+                </div>
+                <div className="w-20 h-20 relative rounded-2xl overflow-hidden shrink-0 border-2 border-white shadow-xs bg-white">
+                  <img
+                    src="https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg"
+                    alt="24x7 Available"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+              </div>
+
+              {/* Banner 3: 100% NABL Accredited (Indigo Liquid Glass) */}
+              <div className="bg-gradient-to-br from-indigo-50/95 via-blue-50/90 to-sky-50/80 border border-indigo-200/90 rounded-3xl p-4 flex justify-between items-center shrink-0 w-full min-w-full snap-center shadow-xs backdrop-blur-md">
+                <div className="flex flex-col pr-2">
+                  <h3 className="text-[14px] font-black text-indigo-950 leading-tight mb-1">
+                    100% NABL Accredited
+                  </h3>
+                  <p className="text-[11px] font-bold text-indigo-800 leading-snug flex items-center gap-1">
+                    <span>🏆</span> Verified MD Pathologists
+                  </p>
+                  <p className="text-[11px] font-bold text-indigo-800 leading-snug flex items-center gap-1 mt-0.5">
+                    <span>❤️</span> 50,000+ Happy Patients
+                  </p>
+                </div>
+                <div className="w-20 h-20 relative rounded-2xl overflow-hidden shrink-0 border-2 border-white shadow-xs bg-white">
+                  <img
+                    src="https://res.cloudinary.com/btjglif5/image/upload/v1784150385/Assets-QXL/legacy-assets/image/slide_vitamin_bone_new.jpg"
+                    alt="NABL Accredited"
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Dots Indicator for Mobile Slider */}
-          <div className="flex justify-center items-center gap-1.5 mt-2.5">
-            {mobileSlides.map((_, i) => (
+          {/* Main Banner Offer Carousel */}
+          <div className="relative">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={mobileOfferIndex}
+                initial={{ opacity: 0, x: 15 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -15 }}
+                transition={{ duration: 0.35 }}
+                className={`${mobileOfferBanners[mobileOfferIndex].bgGradient} rounded-2xl p-4 border shadow-sm relative overflow-hidden flex items-center justify-between min-h-[175px]`}
+              >
+                {/* Left Content */}
+                <div className="flex flex-col text-left max-w-[60%] z-10">
+                  <span className={`text-[9.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full w-fit mb-1.5 ${mobileOfferBanners[mobileOfferIndex].badgeStyle}`}>
+                    {mobileOfferBanners[mobileOfferIndex].badge}
+                  </span>
+                  <h3 className="text-[17px] font-black text-slate-900 leading-tight mb-1">
+                    {mobileOfferBanners[mobileOfferIndex].title}
+                  </h3>
+                  <p className="text-[11px] text-slate-600 font-bold leading-tight mb-2.5">
+                    {mobileOfferBanners[mobileOfferIndex].sub}
+                  </p>
+                  <div className="flex items-baseline gap-1 mb-3">
+                    <span className="text-[10px] font-black text-[#2563eb] uppercase tracking-wider">START @</span>
+                    <span className="text-[18px] font-black text-slate-950">{mobileOfferBanners[mobileOfferIndex].price}</span>
+                  </div>
+                  <Link
+                    href={mobileOfferBanners[mobileOfferIndex].ctaLink}
+                    className="bg-[#2563eb] hover:bg-blue-700 text-white font-black px-5 py-2 rounded-full text-[11px] shadow-md shadow-blue-500/20 w-fit active:scale-95 transition-transform flex items-center gap-1"
+                  >
+                    <span>Book Now</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-white" />
+                  </Link>
+                </div>
+
+                {/* Right Image */}
+                <div className="w-28 h-32 relative rounded-2xl overflow-hidden shrink-0 shadow-md border-2 border-white bg-white">
+                  <img
+                    src={mobileOfferBanners[mobileOfferIndex].image}
+                    alt={mobileOfferBanners[mobileOfferIndex].title}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Carousel Navigation Dots & Controls */}
+            <div className="flex justify-between items-center mt-3 px-1">
               <button
-                key={i}
-                onClick={() => setCurrentMobileSlide(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === currentMobileSlide ? 'w-5 bg-[#2563eb]' : 'w-1.5 bg-slate-300'
-                }`}
-              />
-            ))}
+                onClick={() => setMobileOfferIndex((prev) => (prev === 0 ? mobileOfferBanners.length - 1 : prev - 1))}
+                className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                aria-label="Previous banner"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+
+              <div className="flex items-center gap-1.5">
+                <span className="text-[10px] font-extrabold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
+                  {mobileOfferIndex + 1}/{mobileOfferBanners.length}
+                </span>
+                {mobileOfferBanners.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setMobileOfferIndex(i)}
+                    className={`h-2 rounded-full transition-all ${
+                      i === mobileOfferIndex ? 'w-5 bg-[#2563eb]' : 'w-2 bg-slate-300'
+                    }`}
+                    aria-label={`Go to slide ${i + 1}`}
+                  />
+                ))}
+              </div>
+
+              <button
+                onClick={() => setMobileOfferIndex((prev) => (prev + 1) % mobileOfferBanners.length)}
+                className="p-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                aria-label="Next banner"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
-        </section>
-
-        {/* ── NEW MOBILE Action Grid (Agilus Style 2x2) ── */}
-        <section className="px-4 py-4 bg-transparent flex flex-col gap-3">
-          <div className="grid grid-cols-2 gap-3">
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 bg-[#eafaf1] hover:bg-[#dcfce7] border border-[#bbf7d0] rounded-2xl p-3.5 active:scale-95 transition-transform"
-            >
-              <div className="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
-                <MessageCircle className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-extrabold text-[#166534] text-xs leading-tight">Book via<br/>WhatsApp</span>
-            </a>
-            
-            <a
-              href="tel:+919964639639"
-              className="flex items-center gap-3 bg-[#e0f2fe] hover:bg-[#bae6fd] border border-[#7dd3fc] rounded-2xl p-3.5 active:scale-95 transition-transform"
-            >
-              <div className="w-10 h-10 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
-                <Phone className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-extrabold text-[#0369a1] text-xs leading-tight">Book via<br/>Call</span>
-            </a>
-
-            <button
-              onClick={() => setIsPrescriptionModalOpen(true)}
-              className="flex items-center gap-3 bg-[#fef3c7] hover:bg-[#fde68a] border border-[#fcd34d] rounded-2xl p-3.5 active:scale-95 transition-transform text-left"
-            >
-              <div className="w-10 h-10 rounded-full bg-[#f59e0b] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
-                <FileText className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-extrabold text-[#92400e] text-xs leading-tight">Upload<br/>and Book</span>
-            </button>
-
-            <Link
-              href="/book"
-              className="flex items-center gap-3 bg-[#f3e8ff] hover:bg-[#e9d5ff] border border-[#d8b4fe] rounded-2xl p-3.5 active:scale-95 transition-transform"
-            >
-              <div className="w-10 h-10 rounded-full bg-[#9333ea] text-white flex items-center justify-center flex-shrink-0 shadow-xs">
-                <MapPin className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-extrabold text-[#6b21a8] text-xs leading-tight">Find Nearby<br/>Labs</span>
-            </Link>
-          </div>
-        </section>
+        </div>
 
 
 
@@ -1908,36 +2019,76 @@ export default function Home() {
           </div>
 
           <div className="flex overflow-x-auto scrollbar-none snap-x snap-mandatory gap-0">
-            {recommendedPackages.map((pkg, idx) => (
-              <div
-                key={idx}
-                className="w-[calc(100vw-32px)] mx-4 flex-shrink-0 snap-center bg-white rounded-2xl border border-gray-100 shadow-md overflow-hidden"
-              >
-                {/* Top colour strip */}
-                <div className={`px-4 py-3 flex items-center justify-between ${pkg.most_booked ? 'bg-gradient-to-r from-orange-500 to-amber-500' : 'bg-gradient-to-r from-[#2563eb] to-[#3b82f6]'}`}>
-                  <span className="text-[10px] font-extrabold text-white/90 uppercase tracking-widest flex items-center gap-1">
-                    {pkg.most_booked && (
-                      <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+            {recommendedPackages.map((pkg, idx) => {
+              const isRakhiPkg = Boolean(pkg.name?.toLowerCase().includes("raksha") || pkg.tag?.toLowerCase().includes("raksha"));
+              return (
+                <div
+                  key={idx}
+                  className={`w-[calc(100vw-32px)] mx-4 flex-shrink-0 snap-center rounded-2xl border overflow-hidden relative shadow-md transition-all ${
+                    isRakhiPkg
+                      ? 'bg-gradient-to-b from-rose-50/80 via-white to-amber-50/60 border-rose-300/90 shadow-rose-500/15'
+                      : 'bg-white border-gray-100'
+                  }`}
+                >
+                  {/* Top colour strip */}
+                  <div className={`px-4 py-3 flex items-center justify-between relative overflow-hidden ${
+                    isRakhiPkg
+                      ? 'bg-gradient-to-r from-rose-600 via-pink-600 to-amber-600 text-white'
+                      : pkg.most_booked
+                      ? 'bg-gradient-to-r from-[#2563eb] via-blue-600 to-indigo-600'
+                      : 'bg-gradient-to-r from-[#2563eb] to-[#3b82f6]'
+                  }`}>
+                    {/* Rakhi Shimmer Sweep */}
+                    {isRakhiPkg && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shimmer-sweep pointer-events-none" />
                     )}
-                    {pkg.tag || 'PACKAGE'}
-                  </span>
-                  <span className="text-[10px] font-extrabold text-[#2563eb] bg-white px-2.5 py-1 rounded-full shadow-sm">
-                    {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || pkg.originalPrice || 5800)) * 100)}% OFF
-                  </span>
-                </div>
 
-                {/* Card body */}
-                <div className="p-4 flex flex-col gap-3">
-                  <div className="cursor-pointer flex flex-col gap-3" onClick={() => setSelectedPackage(pkg)}>
-                    <div className="flex justify-between items-start gap-2">
-                      <h3 className="font-extrabold text-[#0d2e42] text-[15px] leading-snug">{pkg.name}</h3>
-                      <span className="text-[9px] font-extrabold text-[#0284c7] bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">Details 🔍</span>
-                    </div>
+                    <span className="text-[10px] font-black text-white uppercase tracking-widest flex items-center gap-1.5 z-10">
+                      {isRakhiPkg ? (
+                        <>
+                          <span className="text-amber-200 inline-block">🪢</span>
+                          <span>🎀 RAKSHA BANDHAN SPECIAL</span>
+                        </>
+                      ) : (
+                        <>
+                          {pkg.most_booked && (
+                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                          )}
+                          {pkg.tag || 'PACKAGE'}
+                        </>
+                      )}
+                    </span>
+                    <span className={`text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm z-10 ${
+                      isRakhiPkg ? 'bg-amber-300 text-rose-950 border border-amber-400' : 'bg-white text-[#2563eb]'
+                    }`}>
+                      {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || pkg.originalPrice || 5800)) * 100)}% OFF
+                    </span>
+                  </div>
+
+                  {/* Card body */}
+                  <div className="p-4 flex flex-col gap-3">
+                    <div className="cursor-pointer flex flex-col gap-3" onClick={() => setSelectedPackage(pkg)}>
+                      <div className="flex justify-between items-start gap-2">
+                        <div className="flex flex-col">
+                          {isRakhiPkg && (
+                            <span className="text-[10px] font-black text-rose-600 flex items-center gap-1 mb-0.5">
+                              <Sparkles className="w-3 h-3 text-amber-500" />
+                              <span>Exclusive Sibling Health Gift</span>
+                            </span>
+                          )}
+                          <h3 className="font-extrabold text-[#0d2e42] text-[15px] leading-snug">{pkg.name}</h3>
+                        </div>
+                        <span className={`text-[9.5px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0 ${
+                          isRakhiPkg ? 'bg-rose-100 text-rose-800 border border-rose-200' : 'bg-sky-50 text-[#0284c7] border border-sky-200'
+                        }`}>Details 🔍</span>
+                      </div>
 
                     {pkg.includes && !collapsedMobileDesc[pkg.name] && (
                       <div className="relative">
                         <p className="text-[11px] text-slate-600 bg-blue-50 px-3 py-2 rounded-xl font-medium leading-relaxed pr-12">
-                          {pkg.includes}
+                          {typeof pkg.includes === 'string'
+                            ? pkg.includes.split(/(?<=\))(?=[A-Z])/).join(' • ')
+                            : pkg.includes}
                         </p>
                         <button
                           type="button"
@@ -1951,53 +2102,54 @@ export default function Home() {
                         </button>
                       </div>
                     )}
-                    {pkg.includes && collapsedMobileDesc[pkg.name] && (
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setCollapsedMobileDesc(prev => ({ ...prev, [pkg.name]: false }));
-                        }}
-                        className="text-left text-[11px] font-bold text-sky-600 hover:text-[#2563eb] py-1 flex items-center gap-1"
-                      >
-                        + Show Description
-                      </button>
-                    )}
-
-                    <p className="text-[11px] text-slate-600 font-semibold">🏠 Free Home Collection Available</p>
-                  </div>
-
-                  {/* Price + CTA */}
-                  <div className="flex items-center justify-between pt-3 border-t border-gray-100 mt-1">
-                    <div>
-                      {pkg.old_price && (
-                        <p className="text-[11px] text-slate-500 line-through font-medium">₹{pkg.old_price}</p>
+                      {pkg.includes && collapsedMobileDesc[pkg.name] && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCollapsedMobileDesc(prev => ({ ...prev, [pkg.name]: false }));
+                          }}
+                          className="text-left text-[11px] font-bold text-sky-600 hover:text-[#2563eb] py-1 flex items-center gap-1"
+                        >
+                          + Show Description
+                        </button>
                       )}
-                      <p className="font-black text-[#0d2e42] text-[22px] leading-tight">₹{pkg.price}</p>
+
+                      <p className="text-[11px] text-slate-600 font-semibold">🏠 Free Home Collection Available</p>
                     </div>
-                    <div className="flex gap-2 items-center">
-                      <button
-                        type="button"
-                        onClick={() => handleToggleCart(pkg.name)}
-                        className={`h-9 px-4 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all border cursor-pointer flex items-center justify-center ${
-                          cartItems.includes(pkg.name)
-                            ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
-                            : 'bg-slate-100 text-slate-800 border-slate-200 hover:bg-slate-200'
-                        }`}
-                      >
-                        {cartItems.includes(pkg.name) ? "✓ Added" : "+ Cart"}
-                      </button>
-                      <Link
-                        href={`/book?package=${encodeURIComponent(pkg.name)}`}
-                        className="bg-[#2563eb] text-white text-[12px] font-extrabold px-5 py-2.5 rounded-xl active:scale-95 transition-transform shadow-md h-9 flex items-center justify-center"
-                      >
-                        Book Now
-                      </Link>
+
+                    {/* Price + CTA */}
+                    <div className="flex items-center justify-between pt-3 border-t border-gray-100 mt-1">
+                      <div>
+                        {pkg.old_price && (
+                          <p className="text-[11px] text-slate-500 line-through font-medium">₹{pkg.old_price}</p>
+                        )}
+                        <p className="font-black text-[#0d2e42] text-[22px] leading-tight">₹{pkg.price}</p>
+                      </div>
+                      <div className="flex gap-2 items-center">
+                        <button
+                          type="button"
+                          onClick={() => handleToggleCart(pkg.name)}
+                          className={`h-9 px-4 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all border cursor-pointer flex items-center justify-center ${
+                            cartItems.includes(pkg.name)
+                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
+                              : 'bg-slate-100 text-slate-800 border-slate-200 hover:bg-slate-200'
+                          }`}
+                        >
+                          {cartItems.includes(pkg.name) ? "✓ Added" : "+ Cart"}
+                        </button>
+                        <Link
+                          href={`/book?package=${encodeURIComponent(pkg.name)}`}
+                          className="bg-[#2563eb] text-white text-[12px] font-extrabold px-5 py-2.5 rounded-xl active:scale-95 transition-transform shadow-md h-9 flex items-center justify-center"
+                        >
+                          Book Now
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Dots indicator */}

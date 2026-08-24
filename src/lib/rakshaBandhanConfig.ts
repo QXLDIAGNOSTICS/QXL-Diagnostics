@@ -148,7 +148,7 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
     },
     {
       question: "Is home sample collection available?",
-      answer: "Yes! QXL Diagnostics offers convenient Home Sample Collection across Bengaluru. Our trained, certified phlebotomists maintain strict cold-chain safety protocols to collect samples right from the comfort of your home.",
+      answer: "Yes! QXL Diagnostics offers convenient Home Sample Collection across Bengaluru. Our trained phlebotomists maintain strict cold-chain safety protocols to collect samples right from the comfort of your home.",
     },
     {
       question: "Can siblings book together?",
