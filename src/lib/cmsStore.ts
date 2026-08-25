@@ -60,7 +60,7 @@ const defaultBanners = [
     imageFit: "cover",
     bgFrom: "#eff6ff",
     bgTo: "#dbeafe",
-    features: ["NABL Certified", "CAP Standards", "Highly Skilled Team", "100% Accurate"]
+    features: ["NABL Accredited Medical Laboratory", "CAP Standards", "Highly Skilled Team", "100% Accurate"]
   },
   {
     id: "banner-4",
@@ -343,8 +343,8 @@ const defaultBlogs = [
   {
     id: "blog-12",
     title: "Choosing the Best Super Speciality Lab in Bangalore: What to Look For",
-    excerpt: "From NABL certifications to expert medical reviewers, here is why QXL Diagnostics stands out as Bangalore's premier diagnostic center.",
-    content: "With diagnostic centers on every corner, choosing the best super speciality lab in Bangalore can be challenging. Key factors to look for include NABL certification, automated analytical platforms, trained phlebotomists for home blood collection, and, most importantly, on-site expert consultant reviews. QXL Diagnostics check all these boxes. We are equipped with Beckman Coulter chemistry lines, Sysmex hematology tracks, and specialized molecular diagnostics equipment. Moreover, every critical report undergoes review by our panel of MD Pathologists and Biochemists. This ensures that you don't just get numbers, but accurate, clinically verified answers for your health.",
+    excerpt: "From NABL accreditation to expert medical reviewers, here is why QXL Diagnostics stands out as Bangalore's premier diagnostic center.",
+    content: "With diagnostic centers on every corner, choosing the best super speciality lab in Bangalore can be challenging. Key factors to look for include NABL accreditation, automated analytical platforms, trained phlebotomists for home blood collection, and, most importantly, on-site expert consultant reviews. QXL Diagnostics check all these boxes. We are equipped with Beckman Coulter chemistry lines, Sysmex hematology tracks, and specialized molecular diagnostics equipment. Moreover, every critical report undergoes review by our panel of MD Pathologists and Biochemists. This ensures that you don't just get numbers, but accurate, clinically verified answers for your health.",
     author: "Dr. Naveen Kumar N",
     date: "February 18, 2026",
     image: "/images/dr_shantakumar_new.jpg"

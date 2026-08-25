@@ -57,6 +57,7 @@ export default function BookPage() {
     collectionType: 'home' as 'home' | 'center',
   });
 
+  const [currentStep, setCurrentStep] = useState(1);
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
@@ -700,316 +701,569 @@ export default function BookPage() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  
-                  {/* Step 1: Your Cart / Selected Tests */}
-                  <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
-                    <div className="absolute -left-3 top-8 w-6 h-6 bg-[#2563eb] text-white font-black text-[11px] rounded-full flex items-center justify-center shadow-md ring-4 ring-white z-10 hidden sm:flex">1</div>
-                    <h2 className="text-slate-800 text-lg font-extrabold mb-5 border-b border-gray-100 pb-4">Selected Tests & Packages</h2>
-                    
-                    {unmatchedRecommended.length > 0 && (
-                      <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-5">
-                        <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                        <p className="text-[12px] text-amber-800 font-medium leading-relaxed">
-                          {selectedItems.length > 0 ? 'We added what we could match. ' : ''}
-                          <strong>{unmatchedRecommended.join(', ')}</strong> {unmatchedRecommended.length > 1 ? "aren't" : "isn't"} in our online catalog yet — please call <a href="tel:+919964639639" className="underline font-bold">+91 9964 639 639</a> to book {unmatchedRecommended.length > 1 ? 'them' : 'it'}.
-                        </p>
-                      </div>
-                    )}
-
-                    {selectedItems.length === 0 ? (
-                      <div className="text-center py-3 md:py-8 bg-gray-50 rounded-2xl border border-dashed border-gray-200 mb-4 md:mb-6">
-                        <p className="text-slate-500 text-sm font-medium mb-2">Your cart is empty.</p>
-                        <p className="text-slate-400 text-xs">Search below or select packages from the right side.</p>
-                      </div>
-                    ) : (
-                      <div className="space-y-3 mb-6">
-                        {selectedItems.map((item) => (
-                          <div key={item.id} className="flex items-center justify-between p-4 rounded-2xl border border-gray-150 hover:border-blue-200 transition-colors bg-white">
-                            <div className="flex flex-col gap-1">
-                              <span className="font-extrabold text-[#0f2d5e] text-[13px] flex items-center gap-2">
-                                {item.name}
-                                {!item.home_collection_available && (
-                                  <span title="Center visit only" className="bg-amber-100 text-amber-800 text-[9px] px-2 py-0.5 rounded-full uppercase tracking-wider font-bold"><Building2 className="w-2.5 h-2.5 inline mr-1" />Lab Only</span>
-                                )}
-                              </span>
-                              <span className="text-[11px] text-slate-500 font-medium">{item.kind === 'package' ? 'Health Package' : 'Lab Test'}</span>
-                            </div>
-                            <div className="flex items-center gap-4">
-                              <span className="font-black text-[#2563eb]">₹{item.price}</span>
-                              <button
-                                type="button"
-                                onClick={() => removeItem(item.id)}
-                                className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-1.5 rounded-full transition-colors cursor-pointer"
-                                aria-label={`Remove ${item.name}`}
-                              >
-                                <X className="w-4 h-4" />
-                              </button>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Search Bar */}
-                    <div className="relative" ref={suggestionsRef}>
-                      <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider block">Add More Tests</label>
-                      <div className="relative">
-                        <input
-                          type="text"
-                          placeholder={catalogLoading ? 'Loading catalog...' : 'Search for a test or package...'}
-                          value={testInput}
-                          disabled={catalogLoading}
-                          onChange={(e) => { setTestInput(e.target.value); setShowSuggestions(true); }}
-                          onFocus={() => setShowSuggestions(true)}
-                          className="w-full border border-gray-200 rounded-xl px-4 py-3.5 pr-10 text-[13px] focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all bg-gray-50/50"
-                        />
-                        <button 
-                          type="button" 
-                          onClick={(e) => { e.preventDefault(); setShowSuggestions(!showSuggestions); }} 
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none px-2"
-                        >
-                          <svg className={`w-4 h-4 transition-transform ${showSuggestions ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                        </button>
-                      </div>
-                      {showSuggestions && suggestions.length > 0 && (
-                        <div className="absolute top-[calc(100%+8px)] left-0 right-0 bg-white border border-gray-150 rounded-xl shadow-xl z-20 max-h-64 overflow-y-auto">
-                          {suggestions.map((s) => (
-                            <button
-                              type="button"
-                              key={s.id}
-                              onClick={() => addItem(s)}
-                              className="w-full text-left px-4 py-3 hover:bg-blue-50 flex items-center justify-between gap-3 border-b border-gray-50 last:border-0 cursor-pointer"
-                            >
-                              <span className="flex flex-col">
-                                <span className="text-[13px] font-bold text-slate-800">{s.name}</span>
-                                <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">{s.kind === 'package' ? 'Health Package' : 'Lab Test'}{!s.home_collection_available ? ' · Center visit only' : ''}</span>
-                              </span>
-                              {s.price != null && <span className="text-xs font-black text-[#2563eb]">₹{s.price}</span>}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Step 2: Patient Details */}
-                  <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
-                    <div className="absolute -left-3 top-8 w-6 h-6 bg-[#2563eb] text-white font-black text-[11px] rounded-full flex items-center justify-center shadow-md ring-4 ring-white z-10 hidden sm:flex">2</div>
-                    <h2 className="text-slate-800 text-lg font-extrabold mb-5 border-b border-gray-100 pb-4">Patient Information</h2>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div className="flex flex-col">
-                        <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Full Name</label>
-                        <div className="relative">
-                          <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                          <input 
-                            type="text" 
-                            required
-                            placeholder="e.g. Rahul Sharma"
-                            value={formData.name}
-                            onChange={(e) => setFormData({...formData, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})}
-                            className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-[13px] focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all bg-gray-50/50"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col">
-                        <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Phone Number</label>
-                        <div className="relative">
-                          <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                          <input 
-                            type="tel" 
-                            required
-                            placeholder="+91 Contact Number"
-                            value={formData.phone}
-                            onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})}
-                            className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-[13px] focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all bg-gray-50/50"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col md:col-span-2">
-                        <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Email (Optional)</label>
-                        <div className="relative">
-                          <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                          <input
-                            type="email"
-                            placeholder="For digital reports"
-                            value={formData.email}
-                            onChange={(e) => setFormData({...formData, email: e.target.value})}
-                            className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-[13px] focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all bg-gray-50/50"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Step 3: Schedule & Location */}
-                  <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
-                    <div className="absolute -left-3 top-8 w-6 h-6 bg-[#2563eb] text-white font-black text-[11px] rounded-full flex items-center justify-center shadow-md ring-4 ring-white z-10 hidden sm:flex">3</div>
-                    <h2 className="text-slate-800 text-lg font-extrabold mb-5 border-b border-gray-100 pb-4">Schedule & Location</h2>
-
-                    <div className="mb-6">
-                      <label className="text-[11px] font-bold text-slate-500 mb-3 uppercase tracking-wider block">Where would you like the test?</label>
-                      <div className="flex flex-col sm:flex-row gap-3">
-                        <label className={`flex items-start cursor-pointer border rounded-xl p-4 flex-1 transition-all ${formData.collectionType === 'home' ? 'border-[#2563eb] bg-blue-50/30 shadow-sm ring-1 ring-[#2563eb]' : 'border-gray-200 hover:bg-gray-50'}`}>
-                          <input 
-                            type="radio" 
-                            name="collectionType" 
-                            value="home"
-                            checked={formData.collectionType === 'home'}
-                            onChange={() => setFormData({...formData, collectionType: 'home'})}
-                            className="text-[#2563eb] focus:ring-[#2563eb] mr-3 w-4 h-4 mt-0.5 shrink-0"
-                          />
-                          <div className="flex flex-col gap-1">
-                            <span className="text-[13px] font-bold text-slate-800 flex items-center gap-1.5"><Home className="w-4 h-4 text-[#0f2d5e]" /> Home Collection</span>
-                            <span className="text-[11px] text-slate-500 font-medium block leading-snug mt-1">Certified phlebotomist visits your address</span>
-                          </div>
-                        </label>
-                        
-                        <label className={`flex items-start cursor-pointer border rounded-xl p-4 flex-1 transition-all ${formData.collectionType === 'center' ? 'border-[#2563eb] bg-blue-50/30 shadow-sm ring-1 ring-[#2563eb]' : 'border-gray-200 hover:bg-gray-50'}`}>
-                          <input 
-                            type="radio" 
-                            name="collectionType" 
-                            value="center"
-                            checked={formData.collectionType === 'center'}
-                            onChange={() => setFormData({...formData, collectionType: 'center'})}
-                            className="text-[#2563eb] focus:ring-[#2563eb] mr-3 w-4 h-4 mt-0.5 shrink-0"
-                          />
-                          <div className="flex flex-col gap-1">
-                            <span className="text-[13px] font-bold text-slate-800 flex items-center gap-1.5"><Building2 className="w-4 h-4 text-[#0f2d5e]" /> Walk-in Lab Center</span>
-                            <span className="text-[12px] font-bold text-[#0f2d5e] block mt-1">Main Lab (Kengeri)</span>
-                            <span className="text-[11px] text-slate-500 font-medium block leading-snug mt-0.5">3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060</span>
-                          </div>
-                        </label>
-                      </div>
-                      {formData.collectionType === 'home' && centerOnlyItems.length > 0 && (
-                        <div className="mt-3 flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
-                          <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                          <p className="text-[12px] text-amber-800 font-medium">
-                            <strong>{centerOnlyItems.map(i => i.name).join(', ')}</strong> {centerOnlyItems.length > 1 ? 'are' : 'is'} only available at our lab center. Please remove {centerOnlyItems.length > 1 ? 'them' : 'it'} or switch to "Walk-in Lab Center".
-                          </p>
-                        </div>
-                      )}
+                <div className="space-y-6">
+                  {/* 5-Step Progress Header Bar */}
+                  <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs">
+                    <div className="flex items-center justify-between mb-3 px-1">
+                      <span className="text-xs font-black text-[#0f2d5e] uppercase tracking-wider">
+                        Step {currentStep} of 5 — {
+                          currentStep === 1 ? "Review Tests" :
+                          currentStep === 2 ? "Patient Details" :
+                          currentStep === 3 ? "Collection Method" :
+                          currentStep === 4 ? "Address & Slot" :
+                          "Review & Confirm"
+                        }
+                      </span>
+                      <span className="text-xs font-bold text-[#D69A18]">{Math.round((currentStep / 5) * 100)}% Completed</span>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
-                      <div className="flex flex-col">
-                        <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Preferred Date</label>
-                        <div className="relative">
-                          <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                          <input 
-                            type="date" 
-                            min={mounted ? new Date().toLocaleDateString('en-CA') : undefined}
-                            value={formData.date}
-                            onChange={(e) => setFormData({...formData, date: e.target.value})}
-                            className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-[13px] focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all bg-gray-50/50 text-slate-700"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col relative">
-                        <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Preferred Time Slot</label>
+                    {/* Step Tabs Indicator */}
+                    <div className="grid grid-cols-5 gap-1.5">
+                      {[
+                        { num: 1, label: "Tests" },
+                        { num: 2, label: "Patient" },
+                        { num: 3, label: "Method" },
+                        { num: 4, label: "Slot" },
+                        { num: 5, label: "Confirm" },
+                      ].map((step) => (
                         <button
+                          key={step.num}
                           type="button"
-                          onClick={() => setShowTimeSlots(!showTimeSlots)}
-                          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[13px] focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all bg-gray-50/50 text-slate-700 flex justify-between items-center"
+                          onClick={() => {
+                            if (step.num < currentStep || (step.num === 2 && selectedItems.length > 0) || (step.num === 3 && formData.name && formData.phone)) {
+                              setCurrentStep(step.num);
+                            }
+                          }}
+                          className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl text-[10px] font-black transition-all cursor-pointer ${
+                            currentStep === step.num
+                              ? 'bg-[#0f2d5e] text-white shadow-xs'
+                              : currentStep > step.num
+                              ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                              : 'bg-slate-50 text-slate-400 border border-slate-150'
+                          }`}
                         >
-                          <span className={formData.time ? "font-bold text-[#0f2d5e]" : "text-slate-400"}>
-                            <Clock className="w-4 h-4 inline mr-2 text-slate-400" />
-                            {formData.time || "Select Time Slot"}
-                          </span>
-                          <svg className={`w-4 h-4 text-slate-400 transition-transform ${showTimeSlots ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                          <span>{currentStep > step.num ? '✓' : step.num}</span>
+                          <span className="truncate max-w-full font-bold">{step.label}</span>
                         </button>
+                      ))}
+                    </div>
+                  </div>
 
-                        {showTimeSlots && (
-                          <div className="absolute top-[calc(100%+8px)] left-0 right-0 z-30 bg-white border border-gray-150 rounded-xl shadow-xl p-3">
-                            <div className="grid grid-cols-3 gap-2 max-h-56 overflow-y-auto pr-1 custom-scrollbar">
-                              {generateTimeSlots(formData.date).map((slot) => (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* STEP 1: Test Selection & Review */}
+                    {currentStep === 1 && (
+                      <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
+                        <div className="flex items-center justify-between mb-5 border-b border-gray-100 pb-4">
+                          <h2 className="text-slate-800 text-lg font-extrabold flex items-center gap-2">
+                            <span className="w-6 h-6 bg-[#0f2d5e] text-white font-black text-xs rounded-full flex items-center justify-center">1</span>
+                            Selected Tests & Packages
+                          </h2>
+                          <span className="text-xs font-bold text-[#0f2d5e]">{selectedItems.length} Items</span>
+                        </div>
+                        
+                        {unmatchedRecommended.length > 0 && (
+                          <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 mb-5">
+                            <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                            <p className="text-[12px] text-amber-800 font-medium leading-relaxed">
+                              {selectedItems.length > 0 ? 'We added what we could match. ' : ''}
+                              <strong>{unmatchedRecommended.join(', ')}</strong> {unmatchedRecommended.length > 1 ? "aren't" : "isn't"} in our online catalog yet — please call <a href="tel:+919964639639" className="underline font-bold">+91 9964 639 639</a> to book {unmatchedRecommended.length > 1 ? 'them' : 'it'}.
+                            </p>
+                          </div>
+                        )}
+
+                        {selectedItems.length === 0 ? (
+                          <div className="text-center py-6 bg-gray-50 rounded-2xl border border-dashed border-gray-200 mb-6">
+                            <p className="text-slate-500 text-sm font-medium mb-2">Your cart is empty.</p>
+                            <p className="text-slate-400 text-xs">Search below to add tests or select packages.</p>
+                          </div>
+                        ) : (
+                          <div className="space-y-3 mb-6">
+                            {selectedItems.map((item) => (
+                              <div key={item.id} className="flex items-center justify-between p-4 rounded-2xl border border-gray-150 hover:border-blue-200 transition-colors bg-white shadow-2xs">
+                                <div className="flex flex-col gap-1">
+                                  <span className="font-extrabold text-[#0f2d5e] text-[13px] flex items-center gap-2">
+                                    {item.name}
+                                    {!item.home_collection_available && (
+                                      <span title="Center visit only" className="bg-amber-100 text-amber-800 text-[9px] px-2 py-0.5 rounded-full uppercase tracking-wider font-bold"><Building2 className="w-2.5 h-2.5 inline mr-1" />Lab Only</span>
+                                    )}
+                                  </span>
+                                  <div className="flex items-center gap-2 text-[11px] text-slate-500 font-semibold">
+                                    <span>{item.kind === 'package' ? 'Health Package' : 'Lab Test'}</span>
+                                    <span>•</span>
+                                    <span className="text-emerald-700">Report in 6 Hours</span>
+                                  </div>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                  <span className="font-black text-[#0f2d5e] text-base">₹{item.price}</span>
+                                  <button
+                                    type="button"
+                                    onClick={() => removeItem(item.id)}
+                                    className="text-gray-300 hover:text-red-500 hover:bg-red-50 p-1.5 rounded-full transition-colors cursor-pointer"
+                                    aria-label={`Remove ${item.name}`}
+                                  >
+                                    <X className="w-4 h-4" />
+                                  </button>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
+                        {/* Search Bar */}
+                        <div className="relative" ref={suggestionsRef}>
+                          <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider block">+ Add Another Test</label>
+                          <div className="relative">
+                            <input
+                              type="text"
+                              placeholder={catalogLoading ? 'Loading catalog...' : 'Search for a test or package...'}
+                              value={testInput}
+                              disabled={catalogLoading}
+                              onChange={(e) => { setTestInput(e.target.value); setShowSuggestions(true); }}
+                              onFocus={() => setShowSuggestions(true)}
+                              className="w-full border border-gray-200 rounded-xl px-4 py-3.5 pr-10 text-[13px] focus:outline-none focus:border-[#0f2d5e] focus:ring-1 focus:ring-[#0f2d5e] transition-all bg-gray-50/50"
+                            />
+                            <button 
+                              type="button" 
+                              onClick={(e) => { e.preventDefault(); setShowSuggestions(!showSuggestions); }} 
+                              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none px-2"
+                            >
+                              <svg className={`w-4 h-4 transition-transform ${showSuggestions ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                            </button>
+                          </div>
+                          {showSuggestions && suggestions.length > 0 && (
+                            <div className="absolute top-[calc(100%+8px)] left-0 right-0 bg-white border border-gray-150 rounded-xl shadow-xl z-20 max-h-64 overflow-y-auto">
+                              {suggestions.map((s) => (
                                 <button
-                                  key={slot}
                                   type="button"
-                                  onClick={() => { setFormData({...formData, time: slot}); setShowTimeSlots(false); }}
-                                  className={`whitespace-nowrap px-2 py-2.5 text-[11px] font-extrabold rounded-lg border transition-all ${
-                                    formData.time === slot
-                                      ? 'bg-[#2563eb] border-[#2563eb] text-white shadow-sm ring-2 ring-blue-200'
-                                      : 'bg-white border-gray-200 text-slate-600 hover:border-[#2563eb] hover:text-[#2563eb]'
-                                  }`}
+                                  key={s.id}
+                                  onClick={() => addItem(s)}
+                                  className="w-full text-left px-4 py-3 hover:bg-blue-50 flex items-center justify-between gap-3 border-b border-gray-50 last:border-0 cursor-pointer"
                                 >
-                                  {slot}
+                                  <span className="flex flex-col">
+                                    <span className="text-[13px] font-bold text-slate-800">{s.name}</span>
+                                    <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">{s.kind === 'package' ? 'Health Package' : 'Lab Test'}{!s.home_collection_available ? ' · Center visit only' : ''}</span>
+                                  </span>
+                                  {s.price != null && <span className="text-xs font-black text-[#0f2d5e]">₹{s.price}</span>}
                                 </button>
                               ))}
                             </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {formData.collectionType === 'home' && (
-                      <div className="flex flex-col">
-                        <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Home Address in Bengaluru</label>
-                        <div className="bg-blue-50/50 border border-blue-100 rounded-xl p-4 flex flex-col gap-3 mb-3">
-                          <div className="flex items-center justify-between gap-3 flex-wrap">
-                            <p className="text-[11px] text-slate-600 font-semibold">
-                              Detect location to quickly verify home collection availability.
-                            </p>
-                            <button
-                              type="button"
-                              onClick={detectLocation}
-                              disabled={locating}
-                              className="inline-flex items-center gap-1.5 bg-white border border-blue-200 text-[#2563eb] text-[11px] font-bold px-3 py-1.5 rounded-lg hover:bg-blue-50 transition-colors disabled:opacity-60 flex-shrink-0 cursor-pointer"
-                            >
-                              {locating ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <LocateFixed className="w-3.5 h-3.5" />}
-                              {locating ? 'Detecting...' : 'Detect Location'}
-                            </button>
-                          </div>
-                          {detectedAddress && (
-                            <div className="bg-white border border-emerald-100 rounded-lg p-3">
-                              <p className="text-[11px] text-slate-600 mb-2"><strong>Found:</strong> {detectedAddress}</p>
-                              <div className="flex gap-2">
-                                <button type="button" onClick={useDetectedAddress} className="bg-emerald-600 text-white text-[10px] font-bold px-3 py-1.5 rounded flex items-center gap-1 hover:bg-emerald-700 transition-colors"><CheckCircle2 className="w-3 h-3" /> Use this</button>
-                                <button type="button" onClick={() => setDetectedAddress(null)} className="border border-gray-200 text-slate-500 text-[10px] font-bold px-3 py-1.5 rounded hover:bg-gray-50 transition-colors">Discard</button>
-                              </div>
-                            </div>
                           )}
-                          {locationError && <p className="text-[11px] text-amber-600 font-medium">{locationError}</p>}
                         </div>
 
-                        <textarea 
-                          rows={3}
-                          required
-                          placeholder="House No, Building, Street, Area..."
-                          value={formData.address}
-                          onChange={(e) => setFormData({...formData, address: e.target.value})}
-                          className="border border-gray-200 rounded-xl px-4 py-3 text-[13px] focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all bg-gray-50/50 resize-none"
-                        />
+                        {error && (
+                          <div className="mt-4 flex items-start gap-2 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                            <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                            <p className="text-[12px] font-semibold text-red-700">{error}</p>
+                          </div>
+                        )}
+
+                        <div className="mt-6 flex justify-end">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (selectedItems.length === 0) {
+                                setError('Please select at least one test or health package.');
+                                return;
+                              }
+                              setError(null);
+                              setCurrentStep(2);
+                            }}
+                            className="bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                            style={{ color: '#ffffff' }}
+                          >
+                            <span className="!text-white font-extrabold" style={{ color: '#ffffff' }}>Continue to Patient Details →</span>
+                          </button>
+                        </div>
                       </div>
                     )}
 
-                    {error && (
-                      <div className="mt-6 flex items-start gap-2 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
-                        <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
-                        <p className="text-[12px] font-semibold text-red-700">{error}</p>
+                    {/* STEP 2: Patient Information */}
+                    {currentStep === 2 && (
+                      <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
+                        <h2 className="text-slate-800 text-lg font-extrabold mb-5 border-b border-gray-100 pb-4 flex items-center gap-2">
+                          <span className="w-6 h-6 bg-[#D69A18] text-white font-black text-xs rounded-full flex items-center justify-center">2</span>
+                          Who is this booking for?
+                        </h2>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                          <div className="flex flex-col">
+                            <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Patient Full Name *</label>
+                            <div className="relative">
+                              <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                              <input 
+                                type="text" 
+                                required
+                                placeholder="e.g. Rahul Sharma"
+                                value={formData.name}
+                                onChange={(e) => setFormData({...formData, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})}
+                                className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-[13px] focus:outline-none focus:border-[#D69A18] focus:ring-1 focus:ring-[#D69A18] transition-all bg-gray-50/50"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col">
+                            <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Mobile Number *</label>
+                            <div className="relative">
+                              <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                              <input 
+                                type="tel" 
+                                required
+                                placeholder="+91 Contact Number"
+                                value={formData.phone}
+                                onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})}
+                                className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-[13px] focus:outline-none focus:border-[#D69A18] focus:ring-1 focus:ring-[#D69A18] transition-all bg-gray-50/50"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col md:col-span-2">
+                            <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Email for Digital Reports (Optional)</label>
+                            <div className="relative">
+                              <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                              <input
+                                type="email"
+                                placeholder="For PDF report delivery"
+                                value={formData.email}
+                                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                                className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-[13px] focus:outline-none focus:border-[#D69A18] focus:ring-1 focus:ring-[#D69A18] transition-all bg-gray-50/50"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        {error && (
+                          <div className="mt-4 flex items-start gap-2 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                            <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                            <p className="text-[12px] font-semibold text-red-700">{error}</p>
+                          </div>
+                        )}
+
+                        <div className="mt-6 flex justify-between items-center">
+                          <button
+                            type="button"
+                            onClick={() => setCurrentStep(1)}
+                            className="text-slate-500 hover:text-slate-800 font-extrabold text-xs uppercase tracking-wider"
+                          >
+                            ← Back to Tests
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (!formData.name.trim() || formData.phone.trim().length < 10) {
+                                setError('Please enter a valid patient name and 10-digit mobile number.');
+                                return;
+                              }
+                              setError(null);
+                              setCurrentStep(3);
+                            }}
+                            className="bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                            style={{ color: '#ffffff' }}
+                          >
+                            <span className="!text-white font-extrabold" style={{ color: '#ffffff' }}>Continue to Collection Method →</span>
+                          </button>
+                        </div>
                       </div>
                     )}
-                  </div>
-                  
-                  {/* Submit Action - Mobile/Desktop Footer */}
-                  <div className="pt-2 pb-6">
-                    <button 
-                      type="submit" 
-                      disabled={submitting}
-                      className="w-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-extrabold py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all text-sm uppercase tracking-widest disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
-                    >
-                      {submitting ? <Loader2 className="w-5 h-5 animate-spin" /> : null}
-                      {submitting ? 'Processing...' : 'Confirm Booking Request'}
-                    </button>
-                    <p className="text-center text-[10px] text-slate-400 font-semibold mt-3">
-                      No payment required now. You can pay securely later.
-                    </p>
-                  </div>
-                </form>
+
+                    {/* STEP 3: Collection Method */}
+                    {currentStep === 3 && (
+                      <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
+                        <h2 className="text-slate-800 text-lg font-extrabold mb-5 border-b border-gray-100 pb-4 flex items-center gap-2">
+                          <span className="w-6 h-6 bg-[#D69A18] text-white font-black text-xs rounded-full flex items-center justify-center">3</span>
+                          Where would you like sample collection?
+                        </h2>
+
+                        <div className="flex flex-col sm:flex-row gap-4 mb-4">
+                          <label className={`flex items-start cursor-pointer border rounded-2xl p-5 flex-1 transition-all ${formData.collectionType === 'home' ? 'border-[#D69A18] bg-amber-50/40 shadow-sm ring-2 ring-[#D69A18]/20' : 'border-gray-200 hover:bg-gray-50'}`}>
+                            <input 
+                              type="radio" 
+                              name="collectionType" 
+                              value="home"
+                              checked={formData.collectionType === 'home'}
+                              onChange={() => setFormData({...formData, collectionType: 'home'})}
+                              className="text-[#D69A18] focus:ring-[#D69A18] mr-3 w-4 h-4 mt-1 shrink-0"
+                            />
+                            <div className="flex flex-col gap-1">
+                              <span className="text-sm font-black text-[#0f2d5e] flex items-center gap-1.5"><Home className="w-4 h-4 text-[#D69A18]" /> Home Sample Collection</span>
+                              <span className="text-xs text-slate-500 font-medium leading-relaxed mt-1">Certified phlebotomist visits your doorstep across Bengaluru</span>
+                              <span className="text-[10px] font-black text-emerald-700 bg-emerald-50 w-fit px-2 py-0.5 rounded-full mt-1">FREE COLLECTION</span>
+                            </div>
+                          </label>
+                          
+                          <label className={`flex items-start cursor-pointer border rounded-2xl p-5 flex-1 transition-all ${formData.collectionType === 'center' ? 'border-[#D69A18] bg-amber-50/40 shadow-sm ring-2 ring-[#D69A18]/20' : 'border-gray-200 hover:bg-gray-50'}`}>
+                            <input 
+                              type="radio" 
+                              name="collectionType" 
+                              value="center"
+                              checked={formData.collectionType === 'center'}
+                              onChange={() => setFormData({...formData, collectionType: 'center'})}
+                              className="text-[#D69A18] focus:ring-[#D69A18] mr-3 w-4 h-4 mt-1 shrink-0"
+                            />
+                            <div className="flex flex-col gap-1">
+                              <span className="text-sm font-black text-[#0f2d5e] flex items-center gap-1.5"><Building2 className="w-4 h-4 text-[#D69A18]" /> Walk-in Lab Center</span>
+                              <span className="text-xs font-extrabold text-[#0f2d5e] mt-1">QXL Main Reference Lab (Kengeri)</span>
+                              <span className="text-[11px] text-slate-500 font-medium leading-relaxed">3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru</span>
+                            </div>
+                          </label>
+                        </div>
+
+                        {formData.collectionType === 'home' && centerOnlyItems.length > 0 && (
+                          <div className="mt-3 flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
+                            <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                            <p className="text-[12px] text-amber-800 font-medium">
+                              <strong>{centerOnlyItems.map(i => i.name).join(', ')}</strong> {centerOnlyItems.length > 1 ? 'are' : 'is'} only available at our lab center. Please remove {centerOnlyItems.length > 1 ? 'them' : 'it'} or switch to "Walk-in Lab Center".
+                            </p>
+                          </div>
+                        )}
+
+                        <div className="mt-6 flex justify-between items-center">
+                          <button
+                            type="button"
+                            onClick={() => setCurrentStep(2)}
+                            className="text-slate-500 hover:text-slate-800 font-extrabold text-xs uppercase tracking-wider"
+                          >
+                            ← Back to Patient
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (formData.collectionType === 'home' && centerOnlyItems.length > 0) {
+                                setError('Selected tests are center-only. Please switch to Walk-in Lab Center or remove center-only items.');
+                                return;
+                              }
+                              setError(null);
+                              setCurrentStep(4);
+                            }}
+                            className="bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                            style={{ color: '#ffffff' }}
+                          >
+                            <span className="!text-white font-extrabold" style={{ color: '#ffffff' }}>Continue to Address & Slot →</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* STEP 4: Address & Slot */}
+                    {currentStep === 4 && (
+                      <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
+                        <h2 className="text-slate-800 text-lg font-extrabold mb-5 border-b border-gray-100 pb-4 flex items-center gap-2">
+                          <span className="w-6 h-6 bg-[#D69A18] text-white font-black text-xs rounded-full flex items-center justify-center">4</span>
+                          Select Slot & Collection Address
+                        </h2>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
+                          <div className="flex flex-col">
+                            <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Preferred Date *</label>
+                            <div className="relative">
+                              <Calendar className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                              <input 
+                                type="date" 
+                                required
+                                min={mounted ? new Date().toLocaleDateString('en-CA') : undefined}
+                                value={formData.date}
+                                onChange={(e) => setFormData({...formData, date: e.target.value})}
+                                className="w-full border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-[13px] focus:outline-none focus:border-[#D69A18] focus:ring-1 focus:ring-[#D69A18] transition-all bg-gray-50/50 text-slate-700"
+                              />
+                            </div>
+                          </div>
+
+                          <div className="flex flex-col relative">
+                            <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Preferred Time Slot *</label>
+                            <button
+                              type="button"
+                              onClick={() => setShowTimeSlots(!showTimeSlots)}
+                              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-[13px] focus:outline-none focus:border-[#D69A18] focus:ring-1 focus:ring-[#D69A18] transition-all bg-gray-50/50 text-slate-700 flex justify-between items-center"
+                            >
+                              <span className={formData.time ? "font-bold text-[#0f2d5e]" : "text-slate-400"}>
+                                <Clock className="w-4 h-4 inline mr-2 text-slate-400" />
+                                {formData.time || "Select Time Slot"}
+                              </span>
+                              <svg className={`w-4 h-4 text-slate-400 transition-transform ${showTimeSlots ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                            </button>
+
+                            {showTimeSlots && (
+                              <div className="absolute top-[calc(100%+8px)] left-0 right-0 z-30 bg-white border border-gray-150 rounded-xl shadow-xl p-3">
+                                <div className="grid grid-cols-3 gap-2 max-h-56 overflow-y-auto pr-1 custom-scrollbar">
+                                  {generateTimeSlots(formData.date).map((slot) => (
+                                    <button
+                                      key={slot}
+                                      type="button"
+                                      onClick={() => { setFormData({...formData, time: slot}); setShowTimeSlots(false); }}
+                                      className={`whitespace-nowrap px-2 py-2.5 text-[11px] font-extrabold rounded-lg border transition-all ${
+                                        formData.time === slot
+                                          ? 'bg-[#D69A18] border-[#D69A18] text-white shadow-sm ring-2 ring-amber-200'
+                                          : 'bg-white border-gray-200 text-slate-600 hover:border-[#D69A18] hover:text-[#D69A18]'
+                                      }`}
+                                    >
+                                      {slot}
+                                    </button>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        {formData.collectionType === 'home' && (
+                          <div className="flex flex-col">
+                            <label className="text-[11px] font-bold text-slate-500 mb-2 uppercase tracking-wider">Home Address in Bengaluru *</label>
+                            <div className="bg-amber-50/50 border border-amber-100 rounded-xl p-4 flex flex-col gap-3 mb-3">
+                              <div className="flex items-center justify-between gap-3 flex-wrap">
+                                <p className="text-[11px] text-slate-600 font-semibold">
+                                  Detect location to quickly verify home collection availability.
+                                </p>
+                                <button
+                                  type="button"
+                                  onClick={detectLocation}
+                                  disabled={locating}
+                                  className="inline-flex items-center gap-1.5 bg-white border border-amber-200 text-[#0f2d5e] text-[11px] font-bold px-3 py-1.5 rounded-lg hover:bg-amber-50 transition-colors disabled:opacity-60 flex-shrink-0 cursor-pointer"
+                                >
+                                  {locating ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <LocateFixed className="w-3.5 h-3.5" />}
+                                  {locating ? 'Detecting...' : 'Detect Location'}
+                                </button>
+                              </div>
+                              {detectedAddress && (
+                                <div className="bg-white border border-emerald-100 rounded-lg p-3">
+                                  <p className="text-[11px] text-slate-600 mb-2"><strong>Found:</strong> {detectedAddress}</p>
+                                  <div className="flex gap-2">
+                                    <button type="button" onClick={useDetectedAddress} className="bg-emerald-600 text-white text-[10px] font-bold px-3 py-1.5 rounded flex items-center gap-1 hover:bg-emerald-700 transition-colors"><CheckCircle2 className="w-3 h-3" /> Use this</button>
+                                    <button type="button" onClick={() => setDetectedAddress(null)} className="border border-gray-200 text-slate-500 text-[10px] font-bold px-3 py-1.5 rounded hover:bg-gray-50 transition-colors">Discard</button>
+                                  </div>
+                                </div>
+                              )}
+                              {locationError && <p className="text-[11px] text-amber-600 font-medium">{locationError}</p>}
+                            </div>
+
+                            <textarea 
+                              rows={3}
+                              required
+                              placeholder="House No, Building, Street, Area..."
+                              value={formData.address}
+                              onChange={(e) => setFormData({...formData, address: e.target.value})}
+                              className="border border-gray-200 rounded-xl px-4 py-3 text-[13px] focus:outline-none focus:border-[#D69A18] focus:ring-1 focus:ring-[#D69A18] transition-all bg-gray-50/50 resize-none"
+                            />
+                          </div>
+                        )}
+
+                        {error && (
+                          <div className="mt-4 flex items-start gap-2 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                            <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                            <p className="text-[12px] font-semibold text-red-700">{error}</p>
+                          </div>
+                        )}
+
+                        <div className="mt-6 flex justify-between items-center">
+                          <button
+                            type="button"
+                            onClick={() => setCurrentStep(3)}
+                            className="text-slate-500 hover:text-slate-800 font-extrabold text-xs uppercase tracking-wider"
+                          >
+                            ← Back to Collection
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (!formData.date || !formData.time) {
+                                setError('Please select a preferred date and time slot.');
+                                return;
+                              }
+                              if (formData.collectionType === 'home' && !formData.address.trim()) {
+                                setError('Please enter your complete home address for sample collection.');
+                                return;
+                              }
+                              setError(null);
+                              setCurrentStep(5);
+                            }}
+                            className="bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                            style={{ color: '#ffffff' }}
+                          >
+                            <span className="!text-white font-extrabold" style={{ color: '#ffffff' }}>Review & Confirm →</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* STEP 5: Final Review & Confirmation */}
+                    {currentStep === 5 && (
+                      <div className="bg-white p-5 md:p-8 rounded-3xl border border-gray-150 shadow-sm relative overflow-visible">
+                        <h2 className="text-slate-800 text-lg font-extrabold mb-5 border-b border-gray-100 pb-4 flex items-center gap-2">
+                          <span className="w-6 h-6 bg-[#D69A18] text-white font-black text-xs rounded-full flex items-center justify-center">5</span>
+                          Review Booking Summary
+                        </h2>
+
+                        {/* Order Summary Box */}
+                        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3 mb-6">
+                          <div className="flex justify-between items-center text-xs pb-2 border-b border-slate-200">
+                            <span className="font-bold text-slate-500">Patient:</span>
+                            <span className="font-extrabold text-[#0f2d5e]">{formData.name} ({formData.phone})</span>
+                          </div>
+
+                          <div className="flex justify-between items-center text-xs pb-2 border-b border-slate-200">
+                            <span className="font-bold text-slate-500">Collection:</span>
+                            <span className="font-extrabold text-[#0f2d5e]">
+                              {formData.collectionType === 'home' ? 'Home Collection' : 'Walk-in Lab Center'}
+                            </span>
+                          </div>
+
+                          <div className="flex justify-between items-center text-xs pb-2 border-b border-slate-200">
+                            <span className="font-bold text-slate-500">Scheduled:</span>
+                            <span className="font-extrabold text-[#0f2d5e]">{formData.date} at {formData.time}</span>
+                          </div>
+
+                          {formData.collectionType === 'home' && (
+                            <div className="flex justify-between items-start text-xs pb-2 border-b border-slate-200">
+                              <span className="font-bold text-slate-500">Address:</span>
+                              <span className="font-extrabold text-[#0f2d5e] text-right max-w-[200px]">{formData.address}</span>
+                            </div>
+                          )}
+
+                          <div className="pt-2 space-y-1.5">
+                            <div className="flex justify-between text-xs text-slate-600 font-semibold">
+                              <span>Subtotal ({selectedItems.length} items):</span>
+                              <span>₹{subtotal}</span>
+                            </div>
+                            <div className="flex justify-between text-xs text-emerald-700 font-bold">
+                              <span>Home Sample Collection Fee:</span>
+                              <span>FREE</span>
+                            </div>
+                            <div className="flex justify-between text-sm font-black text-[#0f2d5e] pt-2 border-t border-slate-300">
+                              <span>Total Payable Amount:</span>
+                              <span>₹{total}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {error && (
+                          <div className="mb-4 flex items-start gap-2 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                            <AlertTriangle className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
+                            <p className="text-[12px] font-semibold text-red-700">{error}</p>
+                          </div>
+                        )}
+
+                        <div className="flex justify-between items-center pt-2">
+                          <button
+                            type="button"
+                            onClick={() => setCurrentStep(4)}
+                            className="text-slate-500 hover:text-slate-800 font-extrabold text-xs uppercase tracking-wider"
+                          >
+                            ← Edit Slot / Address
+                          </button>
+                          <button 
+                            type="submit" 
+                            disabled={submitting}
+                            className="bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold py-3.5 px-7 rounded-xl shadow-lg transition-all text-xs uppercase tracking-widest disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
+                            style={{ color: '#ffffff' }}
+                          >
+                            {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
+                            <span className="!text-white font-extrabold" style={{ color: '#ffffff' }}>
+                              {submitting ? 'Confirming...' : 'Confirm Booking Request ✓'}
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </form>
+                </div>
               )}
             </div>
 

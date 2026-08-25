@@ -1780,34 +1780,42 @@ export default function Home() {
       </div>
 
       {/* ── MOBILE VIEW (lg:hidden) — EXACT REFERENCE DESIGN ── */}
-      <div className="lg:hidden flex flex-col w-full max-w-full overflow-x-hidden bg-white pt-[68px] pb-[80px]">
+      <div className="lg:hidden flex flex-col w-full max-w-full overflow-x-hidden bg-white pt-[68px] pb-[85px]">
 
         {/* ── Top Header Section (Greeting + Search + Amber Banner + Dots) ── */}
-        <div className="bg-white px-4 pt-1.5 pb-2">
+        <div className="bg-white px-4 pt-3 sm:pt-4 pb-2">
           {/* Greeting */}
-          <p className="text-[14.5px] font-normal text-slate-500 mb-0.5">{greeting},</p>
-          <h2 className="text-[26px] font-black text-[#0f2d5e] leading-[1.18] mb-3.5">
+          <p className="text-[13.5px] sm:text-[14.5px] font-medium text-slate-500 mb-1">{greeting},</p>
+          <h2 className="text-[23px] sm:text-[26px] font-black text-[#0f2d5e] leading-[1.18] mb-3 sm:mb-4">
             Take charge of your<br />health today!
           </h2>
 
-          {/* Search bar */}
-          <div className="flex items-stretch rounded-xl overflow-hidden border border-slate-200 bg-white shadow-xs mb-4">
-            <input
-              type="text"
-              placeholder="Search for tests, packages..."
-              className="flex-1 px-4 py-3.5 text-[15px] text-slate-500 bg-white outline-none placeholder-slate-400"
-              readOnly
-              onClick={() => { window.location.href = '/tests'; }}
-            />
-            <Link
-              href="/tests"
-              className="bg-[#D69A18] w-[54px] flex items-center justify-center shrink-0 rounded-r-xl active:scale-95 transition-transform"
-            >
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-                <circle cx="11" cy="11" r="8" strokeLinecap="round" />
-                <path d="M21 21l-4.35-4.35" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
+          {/* Smart Search Bar */}
+          <div className="mb-3 sm:mb-3.5">
+            <SmartSearchBar placeholder="Search tests, checkups or health concerns" isMobile={true} />
+          </div>
+
+          {/* Popular Search Chips */}
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-1.5 mb-3.5 sm:mb-4">
+            <span className="text-[10px] font-black text-slate-400 uppercase shrink-0">Popular:</span>
+            {[
+              { label: "Full Body Checkup", href: "/packages" },
+              { label: "CBC", href: "/book?tests=CBC" },
+              { label: "Diabetes", href: "/book?tests=HbA1c" },
+              { label: "Thyroid", href: "/book?tests=TSH" },
+              { label: "Vitamin D", href: "/book?tests=Vitamin%20D" },
+              { label: "Fever", href: "/book?tests=Dengue" },
+              { label: "Heart", href: "/book?tests=Lipid" },
+              { label: "Women's Health", href: "/specialities/womens-health" },
+            ].map(chip => (
+              <Link
+                key={chip.label}
+                href={chip.href}
+                className="px-3 py-1 bg-[#FFF8EB] border border-[#F3DBA7] hover:border-[#D69A18] text-[#0f2d5e] font-extrabold text-[11px] rounded-full whitespace-nowrap active:scale-95 transition-all shrink-0"
+              >
+                {chip.label}
+              </Link>
+            ))}
           </div>
 
           {/* Full Body Health Checkup Banner Card */}
@@ -1815,27 +1823,27 @@ export default function Home() {
             className="relative rounded-2xl overflow-hidden shadow-sm"
             style={{ background: 'linear-gradient(135deg, #F5C118 0%, #E8A915 35%, #FDD55A 100%)' }}
           >
-            <div className="flex items-end p-4.5 gap-3">
+            <div className="flex items-end p-3.5 sm:p-4.5 gap-2.5 sm:gap-3">
               {/* Left: text + button */}
-              <div className="flex-1 flex flex-col pb-1">
-                <h3 className="text-[22px] font-black text-[#1a1a1a] leading-tight mb-1">
+              <div className="flex-1 min-w-0 flex flex-col pb-0.5 sm:pb-1">
+                <h3 className="text-[19px] sm:text-[22px] font-black text-[#1a1a1a] leading-tight mb-1">
                   Full Body<br />Health Checkup
                 </h3>
-                <p className="text-[13.5px] font-bold text-[#2a2a2a] mb-2">80 Parameters</p>
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-[25px] font-black text-[#1a1a1a]">₹800</span>
-                  <span className="text-[14px] text-[#555] line-through font-bold">₹5,800</span>
+                <p className="text-[12px] sm:text-[13.5px] font-bold text-[#2a2a2a] mb-1.5 sm:mb-2">80 Parameters</p>
+                <div className="flex items-baseline gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                  <span className="text-[21px] sm:text-[25px] font-black text-[#1a1a1a]">₹800</span>
+                  <span className="text-[12px] sm:text-[14px] text-[#555] line-through font-bold">₹5,800</span>
                 </div>
                 <Link
                   href="/book?package=Full+Body+Health+Checkup"
-                  className="bg-white text-[#1a1a1a] font-black px-5 py-2.5 rounded-full text-[13.5px] w-fit shadow-sm active:scale-95 transition-all flex items-center gap-1"
+                  className="bg-white text-[#1a1a1a] font-black px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[12px] sm:text-[13.5px] w-fit shadow-sm active:scale-95 transition-all flex items-center gap-1 shrink-0"
                 >
                   <span>Book Now</span>
-                  <span className="text-[15px]">›</span>
+                  <span className="text-[14px]">›</span>
                 </Link>
               </div>
-              {/* Right: doctor photo */}
-              <div className="w-[170px] h-[180px] shrink-0 self-end overflow-hidden rounded-xl border border-white/50 shadow-xs">
+              {/* Right: doctor photo (responsive for small devices) */}
+              <div className="w-[130px] sm:w-[170px] h-[150px] sm:h-[180px] shrink-0 self-end overflow-hidden rounded-xl border border-white/50 shadow-xs">
                 <img
                   src="https://res.cloudinary.com/btjglif5/image/upload/v1784150185/Assets-QXL/legacy-assets/image/female_doctor_consult.jpg"
                   alt="Full Body Health Checkup Doctor Consultation"
@@ -1846,63 +1854,64 @@ export default function Home() {
           </div>
 
           {/* Carousel dots */}
-          <div className="flex justify-center items-center gap-2 mt-3.5 mb-2">
+          <div className="flex justify-center items-center gap-2 mt-3.5 mb-2.5">
             <span className="w-6 h-2 rounded-full bg-[#D69A18]" />
             <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
             <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
           </div>
         </div>
 
-        {/* ── Book a Test Section (Bigger Icons & Warm Tint) ── */}
-        <div className="bg-white px-4 pt-3 pb-6 border-t border-slate-100">
-          <div className="flex items-center justify-between mb-3.5">
-            <span className="text-[18px] font-black text-[#0f2d5e]">Book a Test</span>
-            <Link href="/tests" className="text-[13.5px] font-extrabold text-[#D69A18] hover:underline">View All</Link>
+        {/* ── Book a Test Section (Responsive Grid & Icons) ── */}
+        <div className="bg-white px-4 pt-3.5 sm:pt-4 pb-5 sm:pb-6 border-t border-slate-100">
+          <div className="flex items-center justify-between mb-3.5 sm:mb-4">
+            <span className="text-[17px] sm:text-[18px] font-black text-[#0f2d5e]">Book a Test</span>
+            <Link href="/tests" className="text-[12.5px] sm:text-[13.5px] font-extrabold text-[#D69A18] hover:underline">View All</Link>
           </div>
 
-          <div className="grid grid-cols-4 gap-3">
+          <div className="grid grid-cols-4 gap-2 sm:gap-3">
             {/* 1. Popular Tests */}
-            <Link href="/tests" className="flex flex-col items-center gap-2 active:scale-95 transition-transform">
-              <div className="w-[64px] h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs">
-                <Microscope className="w-7 h-7 text-[#D69A18]" strokeWidth={1.8} />
+            <Link href="/tests" className="flex flex-col items-center gap-1 active:scale-95 transition-transform">
+              <div className="w-[56px] sm:w-[64px] h-[56px] sm:h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
+                <Microscope className="w-6 sm:w-7 h-6 sm:h-7 text-[#D69A18]" strokeWidth={1.8} />
               </div>
-              <span className="text-[11px] font-bold text-slate-800 text-center leading-tight">Popular<br />Tests</span>
+              <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Popular<br />Tests</span>
             </Link>
 
             {/* 2. Health Packages */}
-            <Link href="/packages" className="flex flex-col items-center gap-2 active:scale-95 transition-transform">
-              <div className="w-[64px] h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs">
-                <svg className="w-7 h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
+            <Link href="/packages" className="flex flex-col items-center gap-1 active:scale-95 transition-transform">
+              <div className="w-[56px] sm:w-[64px] h-[56px] sm:h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
+                <svg className="w-6 sm:w-7 h-6 sm:h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v1.281m7.5 0a48.667 48.667 0 00-7.5 0" />
                 </svg>
               </div>
-              <span className="text-[11px] font-bold text-slate-800 text-center leading-tight">Health<br />Packages</span>
+              <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Health<br />Packages</span>
             </Link>
 
             {/* 3. Home Collection */}
-            <Link href="/home-collection" className="flex flex-col items-center gap-2 active:scale-95 transition-transform">
-              <div className="w-[64px] h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs">
-                <svg className="w-7 h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
+            <Link href="/home-collection" className="flex flex-col items-center gap-1 active:scale-95 transition-transform">
+              <div className="w-[56px] sm:w-[64px] h-[56px] sm:h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
+                <svg className="w-6 sm:w-7 h-6 sm:h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
               </div>
-              <span className="text-[11px] font-bold text-slate-800 text-center leading-tight">Home<br />Collection</span>
+              <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Home<br />Collection</span>
             </Link>
 
             {/* 4. Upload Prescription */}
             <button
               onClick={() => setIsPrescriptionModalOpen(true)}
-              className="flex flex-col items-center gap-2 active:scale-95 transition-transform cursor-pointer"
+              className="flex flex-col items-center gap-1 active:scale-95 transition-transform cursor-pointer"
             >
-              <div className="w-[64px] h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs">
-                <svg className="w-7 h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
+              <div className="w-[56px] sm:w-[64px] h-[56px] sm:h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
+                <svg className="w-6 sm:w-7 h-6 sm:h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                 </svg>
               </div>
-              <span className="text-[11px] font-bold text-slate-800 text-center leading-tight">Upload<br />Prescription</span>
+              <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Upload<br />Prescription</span>
             </button>
           </div>
         </div>
+
 
         {/* ── 24×7 Diagnostic Services Mobile Banner ── */}
         <section className="py-4 px-4 bg-[#f8faff] border-t border-slate-100 my-4 sm:my-6">
@@ -1932,10 +1941,11 @@ export default function Home() {
 
             <a
               href="tel:+919964639639"
-              className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-extrabold text-sm py-3 px-5 rounded-xl shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold text-sm py-3 px-5 rounded-xl shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              style={{ color: '#ffffff' }}
             >
               <Phone className="w-4 h-4 text-white" />
-              <span>Call +91 9964 639 639</span>
+              <span className="!text-white font-black" style={{ color: '#ffffff' }}>Call +91 9964 639 639</span>
             </a>
           </div>
         </section>

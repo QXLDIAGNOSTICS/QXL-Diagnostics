@@ -574,17 +574,17 @@ export default function AiChat() {
 
 
 
-      {/* Backdrop overlay when chat is open — NO dark blur, click outside to close */}
+      {/* Backdrop overlay when chat is open */}
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0 z-[99990]"
+          className="fixed inset-0 z-[100001]"
         />
       )}
 
       {/* Chat Window — Mobile Drawer above bottom navbar & Desktop Corner Widget */}
       {isOpen && (
-        <div className="fixed inset-x-0 bottom-[72px] z-[99995] h-[calc(78vh-72px)] max-h-[75vh] rounded-t-3xl sm:bottom-20 sm:right-6 sm:left-auto sm:w-[420px] sm:h-[620px] sm:max-h-[80vh] sm:rounded-3xl bg-white shadow-2xl flex flex-col overflow-hidden border border-slate-200 animate-in slide-in-from-bottom duration-300">
+        <div className="fixed inset-x-0 bottom-[66px] z-[100002] h-[calc(85vh-66px)] max-h-[85vh] rounded-t-3xl sm:bottom-20 sm:right-6 sm:left-auto sm:w-[420px] sm:h-[620px] sm:max-h-[80vh] sm:rounded-3xl bg-white shadow-2xl flex flex-col overflow-hidden border border-slate-200 animate-in slide-in-from-bottom duration-300">
           {/* Top Mobile Drag Pill */}
           <div className="w-12 h-1.5 bg-slate-300 rounded-full mx-auto my-2 sm:hidden shrink-0 cursor-pointer" onClick={() => setIsOpen(false)} />
 

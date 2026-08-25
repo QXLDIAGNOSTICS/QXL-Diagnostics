@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { MapPin, Search, Phone, User, ChevronDown, ChevronRight, Mic, FileText, Menu, X, Home, Layers, Microscope, ShoppingCart, Calendar, CalendarCheck, Briefcase, Bot, Sparkles, Globe } from 'lucide-react';
+import { MapPin, Search, Phone, User, ChevronDown, ChevronRight, Mic, FileText, Menu, X, Home, Layers, Microscope, ShoppingCart, Calendar, CalendarCheck, Briefcase, Bot, Sparkles, Globe, MessageSquareText } from 'lucide-react';
 import PrescriptionModal from './PrescriptionModal';
 import SmartSearchBar from './SmartSearchBar';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -14,6 +14,8 @@ import { useAuth } from '../lib/useAuth';
 import { api } from '../lib/api';
 import { optimizeCloudinaryUrl } from '../lib/cloudinary';
 import InstallPrompt from './InstallPrompt';
+import CartDrawer from './CartDrawer';
+import AiDiagnostics from './AiDiagnostics';
 
 const FALLBACK_LOGO =
   "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
@@ -25,18 +27,19 @@ function useHeaderCountdown() {
   const [timeLeft, setTimeLeft] = useState({ d: 7, h: 0, m: 0, s: 0 });
 
   useEffect(() => {
-    const tick = () => {
-      const diff = Math.max(0, target - Date.now());
-      setTimeLeft({
-        d: Math.floor(diff / 86400000),
-        h: Math.floor((diff % 86400000) / 3600000),
-        m: Math.floor((diff % 3600000) / 60000),
-        s: Math.floor((diff % 60000) / 1000),
-      });
+    const updateTimer = () => {
+      const now = new Date().getTime();
+      const diff = Math.max(0, target - now);
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+      setTimeLeft({ d, h, m, s });
     };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
+
+    updateTimer();
+    const interval = setInterval(updateTimer, 1000);
+    return () => clearInterval(interval);
   }, [target]);
 
   return timeLeft;
@@ -48,6 +51,8 @@ export default function Header() {
   const countdown = useHeaderCountdown();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
+  const [isAiModalOpen, setIsAiModalOpen] = useState(false);
   const [location, setLocation] = useState("Bengaluru");
   const [showLocationModal, setShowLocationModal] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -459,31 +464,23 @@ export default function Header() {
     <div className="lg:hidden flex flex-col w-full">
       <div className="fixed top-0 left-0 right-0 z-[9999] bg-white flex items-center justify-between px-3 h-[60px] border-b border-slate-100 shadow-2xs max-w-full overflow-hidden">
         <div className="flex items-center gap-2 min-w-0">
-          {pathname !== '/' && (
-            <button
-              onClick={() => {
-                if (window.history.length > 1) {
-                  window.history.back();
-                } else {
-                  window.location.href = '/';
-                }
-              }}
-              className="p-1.5 hover:bg-slate-100 rounded-full transition-colors active:scale-95 text-slate-700 shrink-0 cursor-pointer"
-              aria-label="Go back"
-            >
-              <svg className="w-5 h-5 text-[#0f2d5e]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.6}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-              </svg>
-            </button>
-          )}
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
+            aria-label="Open Navigation Menu"
+          >
+            <Menu className="w-5 h-5 text-[#0f2d5e]" strokeWidth={2.2} />
+          </button>
+
+
 
           <Link href="/" className="flex items-center py-0.5 shrink-0">
             <img
               src={settings.logoImage || FALLBACK_LOGO}
               alt={settings.siteName || "QXL Diagnostics"}
-              width={200}
-              height={56}
-              className="h-10 w-auto object-contain max-h-[42px]"
+              width={180}
+              height={48}
+              className="h-8 xs:h-9 w-auto object-contain max-h-[36px]"
               style={{ imageRendering: '-webkit-optimize-contrast' }}
               onError={(e) => {
                 e.currentTarget.src = FALLBACK_LOGO;
@@ -491,92 +488,225 @@ export default function Header() {
             />
             <span className="logo-text-other hidden font-black text-base text-[#0f2d5e]">QXL Diagnostics</span>
           </Link>
+
+          {/* Location Button Pill Right After Logo */}
+          <button
+            type="button"
+            onClick={() => setShowLocationModal(true)}
+            className="flex items-center gap-1 bg-[#FFFBF0] border border-[#F3DBA7] px-2.5 py-1 rounded-full text-[11.5px] font-black text-[#0f2d5e] shrink-0 active:scale-95 transition-transform cursor-pointer ml-0.5"
+            aria-label="Change Location"
+          >
+            <MapPin className="w-3.5 h-3.5 text-[#D69A18] shrink-0" />
+            <span className="truncate max-w-[95px]">{location || "Bengaluru"}</span>
+            <ChevronDown className="w-3 h-3 text-[#D69A18] shrink-0" />
+          </button>
         </div>
 
-        {/* Menu / Right Sidebar Icon Button */}
-        <button
-          onClick={() => setMobileMenuOpen(true)}
-          className="w-10 h-10 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
-          aria-label="Open Right Sidebar Menu"
+        {/* Right Header Action: Cart Icon (Navigates directly to /book) */}
+        <Link
+          href="/book"
+          className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer"
+          aria-label="View Cart and Checkout"
         >
-          <Menu className="w-6 h-6 text-[#0f2d5e]" strokeWidth={2.0} />
-        </button>
+          <ShoppingCart className="w-4 h-4 text-[#0f2d5e]" strokeWidth={2.0} />
+          {cartCount > 0 && (
+            <span className="absolute -top-1 -right-1 bg-amber-500 text-white font-black text-[9px] w-4 h-4 rounded-full flex items-center justify-center border border-white shadow-xs">
+              {cartCount}
+            </span>
+          )}
+        </Link>
       </div>
 
-      {/* Spacer so page content doesn't hide behind the fixed header */}
+      {/* Spacer for Fixed Top Header (60px) */}
       <div className="h-[60px]" />
     </div>
 
-      {/* ── LOCATION MODAL (mobile, centered) ── */}
-      {showLocationModal && (
-        <div className="fixed inset-0 z-[10000] lg:hidden flex items-center justify-center px-6">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-xs" onClick={() => setShowLocationModal(false)} />
-          <div className="relative bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 flex flex-col max-h-[85vh]">
-            <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-gray-100 flex-shrink-0">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#D69A18]" />
-                <span className="font-extrabold text-[#0f2d5e] text-sm">Select Your Location</span>
-              </div>
-              <button
-                onClick={() => setShowLocationModal(false)}
-                className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200 transition-colors"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-            
-            <div className="p-4 flex flex-col gap-3 overflow-y-auto">
-              {cityNames.map((cityKey) => {
-                const isExpanded = expandedCity === cityKey;
-                const cityBranches = groupedByCity[cityKey];
-                
-                return (
-                  <div key={cityKey} className="border border-gray-100 rounded-2xl overflow-hidden bg-gray-50/50 flex flex-col">
-                    <button
-                      onClick={() => setExpandedCity(isExpanded ? null : cityKey)}
-                      className={`w-full flex items-center justify-between px-4 py-3.5 font-extrabold text-xs transition-all ${
-                        isExpanded ? 'bg-amber-50 text-[#D69A18]' : 'text-slate-700'
-                      }`}
-                    >
-                      <span className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-[#D69A18]" />
-                        {cityKey} Centres ({cityBranches.length})
-                      </span>
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-250 ${isExpanded ? 'rotate-180 text-[#D69A18]' : 'text-slate-400'}`} />
-                    </button>
-                    
-                    {isExpanded && (
-                      <div className="bg-white border-t border-gray-100 py-1 flex flex-col max-h-[200px] overflow-y-auto divide-y divide-gray-50">
-                        {cityBranches.map((branch: any) => {
-                          const isBranchSelected = location === branch.name;
-                          return (
-                            <button
-                              key={branch.id}
-                              onClick={() => changeLocation(branch.name)}
-                              className={`w-full text-left px-5 py-3 text-xs transition-colors flex items-center justify-between ${
-                                isBranchSelected ? 'font-extrabold text-[#D69A18] bg-amber-50/40' : 'text-slate-600 font-medium'
-                              }`}
-                            >
-                              <span className="pr-4 line-clamp-2 leading-relaxed text-left" title={getShortLocationName(branch.name)}>{getShortLocationName(branch.name)}</span>
-                              {isBranchSelected && (
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D69A18" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
-                                  <path d="M20 6L9 17l-5-5" />
-                                </svg>
-                              )}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      )}
+      {/* ── LOCATION BOTTOM SHEET MODAL (mobile slide-up bottom sheet) ── */}
+      <AnimatePresence>
+        {showLocationModal && (
+          <div className="fixed inset-0 z-[100001] lg:hidden flex flex-col justify-end">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs"
+              onClick={() => setShowLocationModal(false)}
+            />
 
-      {/* ── MOBILE SIDEBAR DRAWER (Right Side) ── */}
+            {/* Bottom Sheet Drawer */}
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              exit={{ y: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 280 }}
+              className="relative bg-white rounded-t-3xl shadow-2xl w-full max-h-[85vh] flex flex-col overflow-hidden z-10"
+            >
+              {/* Handle Bar */}
+              <div className="w-full flex justify-center pt-3 pb-1 shrink-0">
+                <div className="w-12 h-1.5 bg-slate-200 rounded-full" />
+              </div>
+
+              {/* Header */}
+              <div className="flex items-center justify-between px-5 py-3 border-b border-slate-100 shrink-0">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-[#D69A18]" />
+                  <div>
+                    <h3 className="font-black text-[#0f2d5e] text-base leading-tight">Select Location</h3>
+                    <p className="text-[11px] text-slate-500 font-semibold">Home collection available in your area</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowLocationModal(false)}
+                  className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors cursor-pointer"
+                  aria-label="Close location modal"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              {/* Body */}
+              <div className="p-4 space-y-4 overflow-y-auto max-h-[calc(85vh-90px)]">
+
+                {/* 1. Detect Current Location */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (navigator.geolocation) {
+                      navigator.geolocation.getCurrentPosition(
+                        () => changeLocation("Bengaluru (GPS)"),
+                        () => changeLocation("Bengaluru")
+                      );
+                    } else {
+                      changeLocation("Bengaluru");
+                    }
+                  }}
+                  className="w-full p-3.5 rounded-2xl bg-amber-50/80 border border-[#F3DBA7] hover:bg-amber-100/80 transition-all flex items-center justify-between text-left cursor-pointer active:scale-98"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-[#D69A18] text-white flex items-center justify-center shrink-0 shadow-xs">
+                      <Globe className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <span className="font-extrabold text-[#0f2d5e] text-xs block">
+                        Detect Current Location
+                      </span>
+                      <span className="text-[10.5px] text-slate-500 font-medium">Using GPS for instant detection</span>
+                    </div>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-[#D69A18]" />
+                </button>
+
+                {/* 2. Enter PIN Code */}
+                <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200">
+                  <label className="block text-[11px] font-black text-[#0f2d5e] uppercase tracking-wider mb-2">
+                    Enter PIN Code
+                  </label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      maxLength={6}
+                      placeholder="e.g. 560102"
+                      className="flex-1 bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-bold text-[#0f2d5e] focus:outline-none focus:border-[#D69A18]"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && e.currentTarget.value) {
+                          changeLocation(`PIN ${e.currentTarget.value} - Bengaluru`);
+                        }
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        const input = (e.currentTarget.previousElementSibling as HTMLInputElement)?.value;
+                        if (input) changeLocation(`PIN ${input} - Bengaluru`);
+                      }}
+                      className="bg-[#D69A18] hover:bg-[#b88313] text-white font-black px-4 py-2 rounded-xl text-xs uppercase tracking-wider shadow-xs transition-all cursor-pointer"
+                      style={{ color: '#ffffff' }}
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+
+                {/* 3. Saved Address */}
+                <div className="bg-white rounded-2xl p-3.5 border border-slate-200 shadow-2xs">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-black text-slate-500 uppercase tracking-wider">Saved Address</span>
+                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Default</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => changeLocation("HSR Layout, Bengaluru")}
+                    className="w-full text-left flex items-start gap-2.5 p-2 rounded-xl hover:bg-slate-50 transition-colors cursor-pointer"
+                  >
+                    <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center text-[#0f2d5e] shrink-0 mt-0.5">
+                      <Home className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="font-extrabold text-[#0f2d5e] text-xs block">Home</span>
+                      <span className="text-[11px] text-slate-600 font-medium leading-tight block">
+                        HSR Layout, Sector 2, Bengaluru - 560102
+                      </span>
+                    </div>
+                  </button>
+                </div>
+
+                {/* 4. Select QXL Centre */}
+                <div className="space-y-2">
+                  <span className="text-[11px] font-black text-[#0f2d5e] uppercase tracking-wider block px-1">
+                    Select QXL Centre
+                  </span>
+                  <div className="space-y-2">
+                    {cityNames.map((cityKey) => {
+                      const isExpanded = expandedCity === cityKey;
+                      const cityBranches = groupedByCity[cityKey];
+                      return (
+                        <div key={cityKey} className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50">
+                          <button
+                            onClick={() => setExpandedCity(isExpanded ? null : cityKey)}
+                            className={`w-full flex items-center justify-between px-4 py-3 font-extrabold text-xs transition-all ${
+                              isExpanded ? 'bg-amber-50 text-[#D69A18]' : 'text-slate-700'
+                            }`}
+                          >
+                            <span className="flex items-center gap-2">
+                              <MapPin className="w-4 h-4 text-[#D69A18]" />
+                              {cityKey} Centres ({cityBranches.length})
+                            </span>
+                            <ChevronDown className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180 text-[#D69A18]' : 'text-slate-400'}`} />
+                          </button>
+
+                          {isExpanded && (
+                            <div className="bg-white border-t border-slate-100 divide-y divide-slate-100 max-h-[180px] overflow-y-auto">
+                              {cityBranches.map((branch: any) => {
+                                const isBranchSelected = location === branch.name;
+                                return (
+                                  <button
+                                    key={branch.id}
+                                    onClick={() => changeLocation(branch.name)}
+                                    className={`w-full text-left px-4 py-2.5 text-xs transition-colors flex items-center justify-between ${
+                                      isBranchSelected ? 'font-extrabold text-[#D69A18] bg-amber-50/50' : 'text-slate-600 font-medium'
+                                    }`}
+                                  >
+                                    <span>{getShortLocationName(branch.name)}</span>
+                                    {isBranchSelected && <span className="text-[#D69A18] font-bold">✓</span>}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* ── MOBILE SIDEBAR DRAWER (Left Side) ── */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <div className="fixed inset-0 z-[100000] lg:hidden">
@@ -591,11 +721,11 @@ export default function Header() {
 
             {/* Sidebar Drawer */}
             <motion.div
-              initial={{ x: "100%" }}
+              initial={{ x: "-100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              exit={{ x: "-100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 240 }}
-              className="fixed inset-y-0 right-0 w-[300px] h-full bg-white shadow-2xl flex flex-col z-[100001] overflow-hidden"
+              className="fixed inset-y-0 left-0 w-[300px] h-full bg-white shadow-2xl flex flex-col z-[100001] overflow-hidden"
             >
               {/* Mobile Sidebar Header — High Contrast & Clean */}
               <div className="bg-[#FFF8EB] border-b border-[#F3DBA7] p-5 flex items-center justify-between flex-shrink-0">
@@ -692,75 +822,129 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs with Center AI Button) ── */}
+      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs: Home | Tests | QXL AI (Center Elevated) | Bookings | Profile) ── */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col bg-white border-t border-slate-200/80 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
+        className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col bg-white border-t border-slate-200/80 shadow-[0_-4px_24px_rgba(0,0,0,0.12)]"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         <nav
-          className="flex justify-around items-center h-[60px] px-1 relative"
+          className="flex justify-between items-center h-[62px] px-1 relative"
           aria-label="Mobile navigation"
         >
-          {[
-            { label: "Home", href: "/", icon: Home, isCenter: false },
-            { label: "Reports", href: "/report", icon: FileText, isCenter: false },
-            { label: "AI Chat", href: "/#ai-assistant", icon: Bot, isCenter: true },
-            { label: "Bookings", href: "/book", icon: Calendar, isCenter: false },
-            { label: "Profile", href: user ? "/profile" : "/login", icon: User, isCenter: false },
-          ].map((tab) => {
-            const TabIcon = tab.icon;
-            const isActive = tab.href === '/' ? pathname === '/' : (tab.href !== '/#ai-assistant' && pathname?.startsWith(tab.href));
+          {/* Tab 1: Home */}
+          <Link
+            href="/"
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
+              pathname === '/' ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+            }`}
+          >
+            {pathname === '/' && (
+              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
+            )}
+            <Home className={`w-5 h-5 ${pathname === '/' ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname === '/' ? 2.4 : 1.8} />
+            <span className={`text-[10px] ${pathname === '/' ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
+              Home
+            </span>
+          </Link>
 
-            if (tab.isCenter) {
-              return (
-                <button
-                  type="button"
-                  key={tab.label}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.dispatchEvent(new CustomEvent('openAiChat'));
-                  }}
-                  className="flex flex-col items-center justify-center flex-1 h-full -mt-4 active:scale-95 transition-transform group cursor-pointer z-10"
-                >
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#D69A18] to-[#f59e0b] text-white flex items-center justify-center shadow-lg border-2 border-white ring-2 ring-amber-400/30 group-hover:scale-110 transition-transform">
-                    <Bot className="w-6 h-6 text-white" strokeWidth={2.2} />
-                  </div>
-                  <span className="text-[10px] font-black text-[#D69A18] tracking-tight mt-0.5 uppercase">
-                    AI Chat
-                  </span>
-                </button>
-              );
-            }
+          {/* Tab 2: Tests */}
+          <Link
+            href="/tests"
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
+              pathname?.startsWith('/tests') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+            }`}
+          >
+            {pathname?.startsWith('/tests') && (
+              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
+            )}
+            <Microscope className={`w-5 h-5 ${pathname?.startsWith('/tests') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/tests') ? 2.4 : 1.8} />
+            <span className={`text-[10px] ${pathname?.startsWith('/tests') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
+              Tests
+            </span>
+          </Link>
 
-            return (
-              <Link
-                key={tab.href}
-                href={tab.href}
-                className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-                  isActive ? 'text-[#D69A18]' : 'text-slate-400 hover:text-[#D69A18]'
-                }`}
-              >
-                <TabIcon
-                  className={`w-5 h-5 ${
-                    isActive ? 'text-[#D69A18]' : 'text-slate-400'
-                  }`}
-                  strokeWidth={isActive ? 2.4 : 1.8}
-                />
-                <span
-                  className={`text-[10px] ${
-                    isActive ? 'font-black text-[#D69A18]' : 'font-semibold text-slate-400'
-                  } tracking-tight`}
-                >
-                  {tab.label}
-                </span>
-              </Link>
-            );
-          })}
+          {/* Tab 3: CENTER ELEVATED QXL AI CHAT BUTTON */}
+          <button
+            type="button"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent('openAiChat'));
+            }}
+            className="flex flex-col items-center justify-center -mt-5 flex-1 group active:scale-95 transition-transform shrink-0 cursor-pointer"
+          >
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#D69A18] via-amber-500 to-amber-600 shadow-md border-2 border-white flex items-center justify-center relative">
+              <MessageSquareText className="w-5.5 h-5.5 text-white" strokeWidth={2.2} />
+            </div>
+            <span className="text-[10px] font-black text-[#D69A18] mt-0.5 tracking-tight">
+              AI Chat
+            </span>
+          </button>
+
+          {/* Tab 4: Bookings */}
+          <Link
+            href="/book"
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
+              pathname?.startsWith('/book') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+            }`}
+          >
+            {pathname?.startsWith('/book') && (
+              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
+            )}
+            <Calendar className={`w-5 h-5 ${pathname?.startsWith('/book') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/book') ? 2.4 : 1.8} />
+            <span className={`text-[10px] ${pathname?.startsWith('/book') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
+              Bookings
+            </span>
+          </Link>
+
+          {/* Tab 5: Profile / Reports */}
+          <Link
+            href={user ? "/profile" : "/login"}
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
+              pathname?.startsWith('/profile') || pathname?.startsWith('/login') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+            }`}
+          >
+            {(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) && (
+              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
+            )}
+            <User className={`w-5 h-5 ${pathname?.startsWith('/profile') || pathname?.startsWith('/login') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/profile') || pathname?.startsWith('/login') ? 2.4 : 1.8} />
+            <span className={`text-[10px] ${pathname?.startsWith('/profile') || pathname?.startsWith('/login') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
+              Profile
+            </span>
+          </Link>
         </nav>
       </div>
 
+      {/* ── QXL HEALTH AI ASSISTANT MODAL OVERLAY ── */}
+      {isAiModalOpen && (
+        <div className="fixed inset-0 z-[100005] bg-white flex flex-col overflow-hidden animate-in fade-in duration-200">
+          <div className="bg-[#0f2d5e] text-white p-3.5 flex items-center justify-between shadow-md shrink-0">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-full bg-[#D69A18] flex items-center justify-center text-white">
+                <Sparkles className="w-4 h-4 text-white" />
+              </div>
+              <div>
+                <h3 className="font-extrabold text-sm text-white leading-snug">QXL Health AI Assistant</h3>
+                <p className="text-[10px] text-amber-300 font-bold">24/7 Smart Symptom &amp; Diagnostic Advisor</p>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={() => setIsAiModalOpen(false)}
+              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto">
+            <AiDiagnostics decorativeHeading={true} />
+          </div>
+        </div>
+      )}
+
       {/* Prescription Modal */}
       <PrescriptionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
+      {/* Cart Drawer */}
+      <CartDrawer isOpen={isCartDrawerOpen} onClose={() => setIsCartDrawerOpen(false)} />
     </>
   );
 }

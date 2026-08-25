@@ -70,9 +70,12 @@ function LoginPageInner() {
               <button
                 onClick={handleLogout}
                 disabled={loggingOut}
-                className="block w-full bg-[#0f2d5e] text-white font-bold py-3.5 rounded-xl hover:bg-[#0c254c] transition-colors uppercase tracking-wider text-xs shadow-md text-center disabled:opacity-50"
+                className="block w-full bg-[#D69A18] hover:bg-[#b88313] !text-white font-black py-3.5 rounded-xl transition-colors uppercase tracking-wider text-xs shadow-md text-center disabled:opacity-50"
+                style={{ color: '#ffffff' }}
               >
-                {loggingOut ? "Logging out…" : "Log Out"}
+                <span className="!text-white font-black" style={{ color: '#ffffff' }}>
+                  {loggingOut ? "Logging out…" : "Log Out"}
+                </span>
               </button>
             </div>
           )}

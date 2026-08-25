@@ -51,7 +51,7 @@ export default function GenericPage({
 
           <div className="p-6 rounded-2xl bg-sky-50/60 border border-sky-100 space-y-3">
             <h3 className="text-xs font-extrabold text-[#0f2d5e] uppercase tracking-wider flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-emerald-600" /> NABL Certified Laboratory Standards
+              <CheckCircle className="w-4 h-4 text-emerald-600" /> NABL Accredited Medical Laboratory Standards
             </h3>
             <p className="text-xs text-slate-600 font-semibold leading-relaxed">
               Main Lab: 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560060 · Call: +91 9964 639 639

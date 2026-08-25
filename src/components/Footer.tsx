@@ -271,7 +271,7 @@ export default function Footer() {
             {settings.copyrightText || `© ${year} QXL Diagnostics. All rights reserved.`}
           </p>
           <p className="text-white/35 text-[11px] font-semibold text-center">
-            {currentDate && `Last updated: ${currentDate} · `}NABL Certified · {ISO_STANDARD} · Bengaluru, Karnataka
+            {currentDate && `Last updated: ${currentDate} · `}NABL Accredited Medical Laboratory · {ISO_STANDARD} · Bengaluru, Karnataka
           </p>
           <div className="flex gap-3 items-center justify-center flex-wrap my-1">
             {[
