@@ -86,7 +86,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "JP Nagar",
     slug: "jp-nagar",
     nearestLab: "Kengeri Main Lab / Central Hub",
-    description: "Fast and professional sample collection at home in JP Nagar 1st to 8th Phases. NABL certified lab quality, cold-chain preservation, and fast digital reports.",
+    description: "Fast and professional sample collection at home in JP Nagar 1st to 8th Phases. NABL accredited lab quality, cold-chain preservation, and fast digital reports.",
     pincodes: ["560078"],
     popularTests: ["Full Body Checkup", "Thyroid Panel", "Liver Function Test", "Complete Blood Count"]
   },
@@ -131,7 +131,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Bommanahalli",
     slug: "bommanahalli",
     nearestLab: "Central Processing Hub",
-    description: "QXL Diagnostics offers doorstep blood collection in Bommanahalli, Begur Road, and Hongasandra. Affordable pricing and NABL certified quality.",
+    description: "QXL Diagnostics offers doorstep blood collection in Bommanahalli, Begur Road, and Hongasandra. Affordable pricing and NABL accredited quality.",
     pincodes: ["560068"],
     popularTests: ["Complete Blood Count (CBC)", "HbA1c", "Thyroid T3 T4 TSH", "Lipid Profile"]
   },
@@ -293,7 +293,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Nagawara",
     slug: "nagawara",
     nearestLab: "Yelahanka North Hub",
-    description: "Free home sample collection in Nagawara, Manyata Tech Park area, and AC Post. NABL certified quality diagnostics.",
+    description: "Free home sample collection in Nagawara, Manyata Tech Park area, and AC Post. NABL accredited quality diagnostics.",
     pincodes: ["560045"],
     popularTests: ["Executive Health Check", "Thyroid Care", "HbA1c", "Lipid Profile"]
   },

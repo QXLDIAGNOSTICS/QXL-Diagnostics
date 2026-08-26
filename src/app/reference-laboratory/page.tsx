@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: "Reference Laboratory Partner for Doctors & Hospitals | QXL Diagnostics",
-  description: "QXL Diagnostics reference laboratory services for hospitals, polyclinics, nursing homes, and diagnostic centres across Bengaluru & Karnataka. NABL accredited (MC-6849), specialized testing & MD pathologist review.",
+  description: "QXL Diagnostics reference laboratory services for hospitals, polyclinics, nursing homes, and diagnostic centres across Bengaluru & Karnataka. NABL accredited (MC-10025), specialized testing & MD pathologist review.",
   keywords: ["reference laboratory bangalore", "b2b diagnostic lab bengaluru", "hospital lab outsourcing", "NABL reference lab", "specialised diagnostic referral"],
   alternates: {
     canonical: "https://qxldiagnostics.com/reference-laboratory",
@@ -37,7 +37,7 @@ export default function ReferenceLaboratoryPage() {
             <a href="tel:+919964639639" className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg flex items-center gap-2 text-sm uppercase tracking-wider transition-all">
               <Phone className="w-4 h-4" /> Partner Desk: +91 9964 639 639
             </a>
-            <a href="mailto:qxldiagnostics@gmail.com" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white font-bold px-6 py-3.5 rounded-xl flex items-center gap-2 text-sm uppercase tracking-wider transition-all">
+            <a href="mailto:info@qxldiagnostics.com" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white font-bold px-6 py-3.5 rounded-xl flex items-center gap-2 text-sm uppercase tracking-wider transition-all">
               <Mail className="w-4 h-4" /> Email Reference Team
             </a>
           </div>

@@ -1,11 +1,22 @@
 /**
  * Single Configuration Source for QXL Diagnostics Raksha Bandhan Campaign
- * 
- * Marketing team can update campaign parameters, prices, package inclusions,
- * contact numbers, and validity dates from this single file.
+ *
+ * ─────────────────────────────────────────────────────────────────────────
+ * HOW TO MANAGE CAMPAIGNS
+ * ─────────────────────────────────────────────────────────────────────────
+ * 1. Set `startsAt` and `endsAt` to ISO 8601 datetime strings (IST = UTC+05:30).
+ * 2. The `isCampaignActive()` export automatically returns false after `endsAt`.
+ * 3. Components should wrap campaign UI in `{isCampaignActive() && <CampaignCard />}`.
+ * 4. When a campaign ends, the site reverts to evergreen banners — no manual change needed.
+ * 5. To start a new campaign, update these values and redeploy. Old values auto-expire.
+ * ─────────────────────────────────────────────────────────────────────────
  */
 
 export interface RakshaCampaignConfig {
+  /** ISO 8601 — campaign goes live at this moment */
+  startsAt: string;
+  /** ISO 8601 — campaign auto-expires at this moment, components must use isCampaignActive() */
+  endsAt: string;
   campaignBadge: string;
   heroHeadline: string;
   heroSubheadline: string;
@@ -48,7 +59,31 @@ export interface RakshaCampaignConfig {
   }[];
 }
 
+/**
+ * Returns true only if current system time is within [startsAt, endsAt].
+ * Safe to call server-side and client-side.
+ */
+export function isCampaignActive(config?: Pick<RakshaCampaignConfig, 'startsAt' | 'endsAt'>): boolean {
+  const cfg = config ?? RAKSHA_CAMPAIGN_CONFIG;
+  const now = Date.now();
+  return now >= new Date(cfg.startsAt).getTime() && now <= new Date(cfg.endsAt).getTime();
+}
+
+/**
+ * Returns seconds remaining until endsAt (0 if expired).
+ */
+export function campaignSecondsRemaining(config?: Pick<RakshaCampaignConfig, 'endsAt'>): number {
+  const cfg = config ?? RAKSHA_CAMPAIGN_CONFIG;
+  return Math.max(0, Math.floor((new Date(cfg.endsAt).getTime() - Date.now()) / 1000));
+}
+
 export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
+  // ── Campaign window ────────────────────────────────────────────────────────
+  // Raksha Bandhan 2026 — update these two dates for every new campaign.
+  // Components that render offer UI MUST guard with: isCampaignActive()
+  startsAt: "2026-08-08T00:00:00+05:30",
+  endsAt:   "2026-08-22T23:59:59+05:30",
+  // ──────────────────────────────────────────────────────────────────────────
   campaignBadge: "7-DAY SPECIAL OFFER @ ₹800",
   heroHeadline: "This Raksha Bandhan, Gift Health.",
   heroSubheadline: "Celebrate the bond that lasts a lifetime with an 80-parameter preventive health check from QXL Diagnostics.",
@@ -65,7 +100,7 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
   contactPhoneE164: "+919964639639",
   whatsappNumber: "919964639639",
   labLocation: "Bengaluru, Karnataka",
-  nablCertNumber: "MC-6849",
+  nablCertNumber: "MC-10025",
   isHomeSampleCollectionAvailable: true,
   heroImage: "/images/raksha_bandhan_hero.png",
   bannerImage: "/images/raksha_bandhan_banner.png",
@@ -160,7 +195,7 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
     },
     {
       question: "How do I receive my report?",
-      answer: "Your test reports will be processed at our NABL-accredited central laboratory (MC-6849) and sent directly to your registered WhatsApp and email within 6 to 12 hours. Hard copies can also be provided upon request.",
+      answer: "Your test reports will be processed at our NABL-accredited central laboratory (MC-10025) and sent directly to your registered WhatsApp and email within 6 to 12 hours. Hard copies can also be provided upon request.",
     },
     {
       question: "How long is the Raksha Bandhan offer valid?",

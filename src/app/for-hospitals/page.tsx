@@ -59,12 +59,12 @@ export default function Page() {
                     <ul class="footer-links">
                         <li>3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru</li>
                         <li><a href="tel:+919964639639">+91 9964 639 639</a></li>
-                        <li><a href="mailto:qxldiagnostics@gmail.com">qxldiagnostics@gmail.com</a></li>
+                        <li><a href="mailto:info@qxldiagnostics.com">info@qxldiagnostics.com</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                © 2026 QXL Diagnostics. All rights reserved. | NABL Certified Diagnostic Lab Bengaluru
+                © 2026 QXL Diagnostics. All rights reserved. | NABL Accredited Diagnostic Lab Bengaluru
             </div>
         </div>
     </footer>

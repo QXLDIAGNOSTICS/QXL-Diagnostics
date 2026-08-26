@@ -14,7 +14,7 @@ export default function SeoContent() {
             NABL Diagnostic Lab in Bengaluru — Home Collection, Speciality Tests & Same-Day Reports
           </h2>
           <p className="text-slate-600 text-[13px] leading-relaxed mb-4">
-            QXL Diagnostics (Qualitify Healthtech Pvt Ltd) is a NABL accredited (MC-6849) and ISO 15189:2022 super speciality medical laboratory serving Bengaluru from Kengeri (Mysore Road) and Yelahanka. Patients search for a trustworthy pathology lab for CBC, thyroid (TSH/T3/T4), HbA1c, lipid profile, vitamin D, hormone panels, cancer markers, and full body checkup packages — QXL combines doctor-driven reporting, AI-assisted quality checks, and free home sample collection across the city.
+            QXL Diagnostics (Qualitify Healthtech Pvt Ltd) is a NABL accredited (MC-10025) and ISO 15189:2022 super speciality medical laboratory serving Bengaluru from Kengeri (Mysore Road) and Yelahanka. Patients search for a trustworthy pathology lab for CBC, thyroid (TSH/T3/T4), HbA1c, lipid profile, vitamin D, hormone panels, cancer markers, and full body checkup packages — QXL combines doctor-driven reporting, AI-assisted quality checks, and free home sample collection across the city.
           </p>
           <p className="text-slate-600 text-[13px] leading-relaxed">
             Unlike marketplace-only aggregators, QXL operates its own clinical lab with senior consultants in biochemistry, pathology, microbiology, and histopathology. That means samples collected at home or at our centres are processed under controlled NABL/ISO 15189 systems, with digital reports typically available the same day for routine tests via WhatsApp and email.
@@ -62,7 +62,7 @@ export default function SeoContent() {
           <div className="space-y-4">
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">
               <h4 className="font-bold text-[#0f2d5e] text-[14px] mb-2">Which is a good NABL accredited diagnostic lab in Bengaluru for home blood collection?</h4>
-              <p className="text-slate-600 text-[13px] leading-relaxed">QXL Diagnostics (QXL Diagnostics Super Speciality Lab) is a NABL-accredited (MC-6849) and ISO 15189:2022 medical laboratory in Bengaluru offering free home sample collection, 300+ tests, and same-day digital reports. Call or WhatsApp +91 9964 639 639.</p>
+              <p className="text-slate-600 text-[13px] leading-relaxed">QXL Diagnostics (QXL Diagnostics Super Speciality Lab) is a NABL-accredited (MC-10025) and ISO 15189:2022 medical laboratory in Bengaluru offering free home sample collection, 300+ tests, and same-day digital reports. Call or WhatsApp +91 9964 639 639.</p>
             </div>
             
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">
@@ -72,7 +72,7 @@ export default function SeoContent() {
             
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">
               <h4 className="font-bold text-[#0f2d5e] text-[14px] mb-2">Is QXL Diagnostics NABL accredited?</h4>
-              <p className="text-slate-600 text-[13px] leading-relaxed">Yes. QXL Diagnostics is NABL accredited under certificate MC-6849 and follows ISO 15189:2022 medical laboratory quality standards for accurate, reliable results.</p>
+              <p className="text-slate-600 text-[13px] leading-relaxed">Yes. QXL Diagnostics is NABL accredited under certificate MC-10025 and follows ISO 15189:2022 medical laboratory quality standards for accurate, reliable results.</p>
             </div>
             
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">

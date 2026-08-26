@@ -126,10 +126,10 @@ export default function OncologyPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Lab", desc: "Meets international standards for diagnostic testing and quality assurance." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL-Accredited Lab", desc: "Meets international standards for diagnostic testing and quality assurance." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "High-Sensitivity Assays", desc: "Using advanced chemiluminescence platforms for precise result quantification." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Consultant-Reviewed Reports", desc: "Expert biochemists and pathologists verify every critical tumor marker profile." },
-                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Collection Service", desc: "Safe, sterile home collections across Bengaluru by NABL-certified phlebotomists." }
+                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Collection Service", desc: "Safe, sterile home collections across Bengaluru by NABL-accredited phlebotomists." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-3">
                     <div className="mt-0.5 bg-sky-100 p-1.5 rounded-lg flex-shrink-0">{item.icon}</div>

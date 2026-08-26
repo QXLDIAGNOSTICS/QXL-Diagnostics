@@ -8,7 +8,7 @@ export const bloodTestBangalore: SeoLandingData = {
   h1Lead: "Blood Test in Bangalore —",
   h1Highlight: "NABL Lab, Home Collection, Same-Day Reports",
   heroIntro:
-    "Book any blood test in Bengaluru with QXL Diagnostics. From a routine CBC to advanced hormone and autoimmune panels, your sample is collected at home by certified phlebotomists and tested at our NABL-accredited (MC-6849) super-speciality laboratory.",
+    "Book any blood test in Bengaluru with QXL Diagnostics. From a routine CBC to advanced hormone and autoimmune panels, your sample is collected at home by certified phlebotomists and tested at our NABL-accredited (MC-10025) super-speciality laboratory.",
   aiOverviewTitle: "Booking a blood test with QXL",
   aiOverview:
     "QXL Diagnostics offers 300+ blood tests across biochemistry, haematology, hormones, vitamins, immunity and infection markers in Bangalore. Free home sample collection is available city-wide, most routine reports are delivered the same day, and every abnormal result is reviewed by a specialist consultant before release.",

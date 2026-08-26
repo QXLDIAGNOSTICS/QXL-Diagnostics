@@ -39,6 +39,9 @@ function LoginPageInner() {
 
   return (
     <div className="bg-[#f8faff] min-h-[85vh] flex flex-col items-center justify-center px-4 py-6 sm:py-12">
+      <head>
+        <meta name="robots" content="noindex, follow" />
+      </head>
       <div className="w-full max-w-md">
         
         {/* White Form Container */}

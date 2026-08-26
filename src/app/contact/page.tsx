@@ -54,7 +54,7 @@ export default function ContactUsPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-[#0f2d5e] mb-1">Email</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">qxldiagnostics@gmail.com</p>
+                    <p className="text-slate-600 text-sm leading-relaxed">info@qxldiagnostics.com</p>
                   </div>
                 </div>
               </div>

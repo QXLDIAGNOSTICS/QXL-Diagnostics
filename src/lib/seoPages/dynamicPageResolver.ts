@@ -1,5 +1,13 @@
 import { topTests } from '../testsData';
 
+export interface ReferenceRange {
+  label: string;
+  range: string;
+  unit: string;
+  interpretation: 'normal' | 'borderline' | 'abnormal' | 'info';
+  note?: string;
+}
+
 export interface DynamicPageData {
   slug: string;
   title: string;
@@ -19,7 +27,25 @@ export interface DynamicPageData {
   whyImportant: string[];
   faqs: { question: string; answer: string }[];
   category: string;
+  // ── Phase 2: Enriched fields for GEO/AEO/AI discoverability ──────────────
+  /** Structured reference ranges table (normal/borderline/abnormal rows). */
+  referenceRanges?: ReferenceRange[];
+  /** Related test slugs for internal linking. */
+  relatedTests?: string[];
+  /** Attributed clinical interpretation note from a QXL MD. */
+  doctorNote?: string;
+  /** Doctor slug for link to profile page. */
+  doctorSlug?: string;
+  /** Doctor display name. */
+  doctorName?: string;
+  /** Doctor qualifications string. */
+  doctorQuals?: string;
+  /** Symptoms / indications that prompt this test (plain-language chips). */
+  whenToTest?: string[];
+  /** 2–3 sentences of deeper clinical significance — for AI extractable blocks. */
+  clinicalSignificance?: string;
 }
+
 
 const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
   "blood-test-bangalore": {
@@ -40,7 +66,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
     whyImportant: [
       "Investigate symptoms, establish baseline health information, or diagnose & monitor disease.",
       "Suitable for routine screening, preventive health checks, and physician-requested investigations.",
-      "Processed at NABL-accredited super speciality diagnostic laboratory (MC-6849)."
+      "Processed at NABL-accredited super speciality diagnostic laboratory (MC-10025)."
     ],
     faqs: [
       { question: "Can I book a blood test at home in Bangalore?", answer: "Yes, home blood sample collection is available across Bengaluru subject to service availability." },
@@ -130,9 +156,31 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
     faqs: [
       { question: "What parameters are included in a CBC test?", answer: "A CBC includes 24 parameters: Haemoglobin, RBC Count, PCV/HCT, MCV, MCH, MCHC, RDW, Total WBC Count, 5-part Differential (Neutrophils, Lymphocytes, Monocytes, Eosinophils, Basophils), and Platelet Count." },
       { question: "Does CBC require fasting?", answer: "No, fasting is NOT required for a CBC blood draw." },
-      { question: "When is a peripheral blood smear needed with a CBC?", answer: "A peripheral blood smear is performed when automated cell counters detect abnormal cell morphology, immature blood cells, or significant cell count abnormalities." }
+      { question: "When is a peripheral blood smear needed with a CBC?", answer: "A peripheral blood smear is performed when automated cell counters detect abnormal cell morphology, immature blood cells, or significant cell count abnormalities." },
+      { question: "What does low haemoglobin mean?", answer: "Low haemoglobin (below 12 g/dL in women, 13 g/dL in men) indicates anaemia, which may result from iron deficiency, B12 deficiency, chronic disease, or blood loss." },
+      { question: "Can I book a CBC blood test at home in Bangalore?", answer: "Yes. QXL Diagnostics offers free home blood collection for CBC across all Bengaluru localities including Kengeri, RR Nagar, Yelahanka, Nagarabhavi, Vijayanagar, and more." }
     ],
-    category: "Haematology Diagnostics"
+    category: "Haematology Diagnostics",
+    clinicalSignificance: "The Complete Blood Count (CBC) is the most frequently ordered laboratory investigation worldwide and remains the first-line test for evaluating systemic health. Haemoglobin and red cell indices identify the type and severity of anaemia; white cell count and differential distinguish bacterial from viral infections; platelet count guides clinical decisions in fever workups and bleeding disorders. A single CBC drawn at QXL Diagnostics provides 24 data points reviewed by our consultant haematopathologist.",
+    whenToTest: ["Unexplained fatigue or weakness", "Persistent fever", "Frequent infections", "Easy bruising or bleeding", "Pre-operative fitness assessment", "Routine annual health check", "Dengue or malaria follow-up"],
+    relatedTests: ["esr-test-bangalore", "iron-profile-test-bangalore", "ferritin-test-bangalore", "vitamin-b12-test-bangalore", "dengue-test-bangalore"],
+    referenceRanges: [
+      { label: "Haemoglobin — Men",         range: "13.0 – 17.0",  unit: "g/dL",  interpretation: "normal" },
+      { label: "Haemoglobin — Women",        range: "12.0 – 15.0",  unit: "g/dL",  interpretation: "normal" },
+      { label: "Haemoglobin — Low (Anaemia)",range: "< 12.0",       unit: "g/dL",  interpretation: "abnormal" },
+      { label: "Total WBC Count",            range: "4,000 – 11,000",unit: "cells/µL",interpretation: "normal" },
+      { label: "WBC — Leukocytosis",         range: "> 11,000",     unit: "cells/µL",interpretation: "abnormal", note: "Suggests bacterial infection or inflammation" },
+      { label: "WBC — Leukopenia",           range: "< 4,000",      unit: "cells/µL",interpretation: "borderline", note: "Can indicate viral infection or bone marrow suppression" },
+      { label: "Platelet Count — Normal",    range: "1,50,000 – 4,00,000", unit: "/µL", interpretation: "normal" },
+      { label: "Platelet Count — Low",       range: "< 1,00,000",  unit: "/µL",  interpretation: "abnormal", note: "Clinical alert in dengue; below 50,000 requires urgent review" },
+      { label: "MCV (Mean Cell Volume)",     range: "80 – 100",    unit: "fL",   interpretation: "normal" },
+      { label: "MCV — Microcytic",           range: "< 80",        unit: "fL",   interpretation: "borderline", note: "Suggests iron deficiency anaemia" },
+      { label: "MCV — Macrocytic",           range: "> 100",       unit: "fL",   interpretation: "borderline", note: "Suggests B12 / folate deficiency" }
+    ],
+    doctorNote: "The CBC is the window into systemic disease. I particularly focus on the neutrophil-to-lymphocyte ratio and platelet trends in fever workups — a dropping platelet count with dengue positivity demands daily monitoring. A low MCV with iron deficiency should always prompt a dietary and gastrointestinal workup, not just supplementation.",
+    doctorSlug: "dr-naveen-kumar-n",
+    doctorName: "Dr. Naveen Kumar N",
+    doctorQuals: "DCP, DNB Pathology"
   },
   "hba1c-test-bangalore": {
     title: "HbA1c Test in Bangalore | Diabetes Test | QXL Diagnostics",
@@ -155,10 +203,29 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Calculates estimated Average Glucose (eAG) for practical clinical understanding."
     ],
     faqs: [
-      { question: "What does HbA1c measure?", answer: "It measures average blood sugar control over the past 2 to 3 months." },
-      { question: "Do I need fasting for HbA1c?", answer: "No, fasting is not required for an HbA1c test." }
+      { question: "What does HbA1c measure?", answer: "It measures the percentage of haemoglobin in red blood cells coated with glucose, reflecting average blood sugar over the past 2 to 3 months." },
+      { question: "Do I need fasting for HbA1c?", answer: "No, fasting is NOT required for an HbA1c test. You can have it drawn at any time of the day." },
+      { question: "What is a normal HbA1c level?", answer: "Below 5.7% is normal (non-diabetic). 5.7%–6.4% indicates prediabetes. 6.5% or above on two occasions confirms diabetes." },
+      { question: "What is eAG and how does it relate to HbA1c?", answer: "eAG (estimated Average Glucose) is calculated from HbA1c. An HbA1c of 7% corresponds to an eAG of approximately 154 mg/dL." },
+      { question: "Can I book an HbA1c test at home in Bangalore?", answer: "Yes. QXL Diagnostics provides free home collection for HbA1c across all Bengaluru areas. No fasting needed." }
     ],
-    category: "Diabetes Diagnostics"
+    category: "Diabetes Diagnostics",
+    clinicalSignificance: "HbA1c is the gold-standard marker for long-term glycaemic control. Unlike fasting blood glucose which reflects a single moment, HbA1c integrates glucose exposure over the preceding 60–90 days. It is recommended by WHO and the ADA for both diabetes diagnosis and monitoring. At QXL Diagnostics, HbA1c is measured on a validated ion-exchange HPLC platform — the same technology used in reference hospitals — ensuring interference-free results even in the presence of common haemoglobin variants prevalent in South India.",
+    whenToTest: ["Monitoring diabetes control every 3 months", "Screening for prediabetes", "Fatigue, frequent urination, or excessive thirst", "Before starting or adjusting diabetes medication", "Annual preventive health check", "PCOS or metabolic syndrome workup"],
+    relatedTests: ["blood-sugar-test-bangalore", "diabetes-profile-test-bangalore", "kidney-function-test-bangalore", "lipid-profile-test-bangalore", "urine-microalbumin-test-bangalore"],
+    referenceRanges: [
+      { label: "HbA1c — Normal (Non-Diabetic)",   range: "< 5.7",     unit: "%",    interpretation: "normal" },
+      { label: "HbA1c — Prediabetes",              range: "5.7 – 6.4", unit: "%",    interpretation: "borderline", note: "Increased risk; lifestyle intervention recommended" },
+      { label: "HbA1c — Diabetes (WHO Criteria)",  range: "≥ 6.5",     unit: "%",    interpretation: "abnormal",   note: "Diagnosis requires confirmation on repeat sample" },
+      { label: "HbA1c — Well Controlled Diabetes", range: "< 7.0",     unit: "%",    interpretation: "normal",     note: "Target for most adults with diabetes (ADA 2024)" },
+      { label: "eAG at HbA1c 6.5%",               range: "~140",      unit: "mg/dL", interpretation: "info" },
+      { label: "eAG at HbA1c 7.0%",               range: "~154",      unit: "mg/dL", interpretation: "info" },
+      { label: "eAG at HbA1c 8.0%",               range: "~183",      unit: "mg/dL", interpretation: "info" }
+    ],
+    doctorNote: "I always pair HbA1c with fasting plasma glucose and urine microalbumin in diabetic follow-ups. A patient may have a normal fasting glucose yet an elevated HbA1c if post-meal excursions are high. The reverse is also true in early prediabetes. For South Indian patients, I specifically verify that our HPLC platform provides reliable results in the context of HbE and sickle-cell trait, which are not uncommon in this region.",
+    doctorSlug: "dr-shantakumar-muruda",
+    doctorName: "Dr. Shantakumar Muruda",
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
   },
   "thyroid-test-bangalore": {
     title: "Thyroid Test in Bangalore | T3 T4 TSH | QXL Diagnostics",
@@ -181,10 +248,29 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Essential for evaluating unexplained weight changes, fatigue, and hair loss."
     ],
     faqs: [
-      { question: "What tests are included in a thyroid profile?", answer: "TSH (Thyroid Stimulating Hormone), Total T3, and Total T4." },
-      { question: "Do thyroid tests require fasting?", answer: "Usually no fasting is required." }
+      { question: "What tests are included in a thyroid profile?", answer: "A standard thyroid profile includes TSH (Thyroid Stimulating Hormone), Total T3 (triiodothyronine), and Total T4 (thyroxine)." },
+      { question: "Do thyroid tests require fasting?", answer: "No fasting is required for thyroid tests. The sample can be collected at any time of day." },
+      { question: "What does high TSH mean?", answer: "A TSH above 4.5 mIU/L typically indicates an underactive thyroid (hypothyroidism). Treatment and interpretation should be directed by your physician." },
+      { question: "What does low TSH mean?", answer: "A TSH below 0.4 mIU/L may indicate an overactive thyroid (hyperthyroidism) or suppression from medications, and requires clinical review." },
+      { question: "Can I book a thyroid test at home in Bangalore?", answer: "Yes. QXL Diagnostics offers free home collection for the thyroid profile across all Bengaluru areas. No fasting required." }
     ],
-    category: "Endocrinology Diagnostics"
+    category: "Endocrinology Diagnostics",
+    clinicalSignificance: "The thyroid gland regulates metabolic rate, energy utilisation, cardiac rhythm, temperature homeostasis, and cognitive function. TSH from the pituitary gland is the most sensitive first-line indicator of thyroid dysfunction — even subtle TSH changes often precede clinical symptoms by months. QXL Diagnostics measures thyroid hormones on a third-generation TSH assay platform with functional sensitivity below 0.01 mIU/L, enabling detection of subclinical hyperthyroidism.",
+    whenToTest: ["Unexplained weight gain or loss", "Fatigue and sluggishness", "Hair fall or hair thinning", "Cold intolerance", "Irregular menstrual cycles", "Fertility workup", "Monitoring levothyroxine therapy", "Neck swelling or goitre"],
+    relatedTests: ["tsh-test-bangalore", "free-t3-test-bangalore", "free-t4-test-bangalore", "anti-tpo-test-bangalore", "vitamin-b12-test-bangalore"],
+    referenceRanges: [
+      { label: "TSH — Normal Adult",           range: "0.40 – 4.50", unit: "mIU/L", interpretation: "normal" },
+      { label: "TSH — Subclinical Hypothyroid",range: "4.5 – 10.0",  unit: "mIU/L", interpretation: "borderline", note: "Often asymptomatic; monitor with Anti-TPO" },
+      { label: "TSH — Overt Hypothyroidism",   range: "> 10.0",      unit: "mIU/L", interpretation: "abnormal",   note: "Usually requires treatment with levothyroxine" },
+      { label: "TSH — Hyperthyroidism",         range: "< 0.40",      unit: "mIU/L", interpretation: "abnormal",   note: "Further workup with FT3/FT4 required" },
+      { label: "Total T4 — Normal",             range: "5.0 – 12.0",  unit: "µg/dL", interpretation: "normal" },
+      { label: "Total T3 — Normal",             range: "0.8 – 2.0",   unit: "ng/mL", interpretation: "normal" },
+      { label: "TSH in Pregnancy (1st Trimester)", range: "0.1 – 2.5",unit: "mIU/L", interpretation: "info",       note: "Tighter target; consult your obstetrician" }
+    ],
+    doctorNote: "Thyroid disease is one of the most under-diagnosed conditions I encounter. Many patients come to us already fatigued for years, only to discover a TSH above 8. I particularly watch for subclinical hypothyroidism in women planning pregnancy — a TSH above 2.5 in the first trimester requires immediate review. I also recommend checking Anti-TPO antibodies whenever TSH is borderline, as it identifies autoimmune thyroiditis years before the gland fails.",
+    doctorSlug: "dr-shantakumar-muruda",
+    doctorName: "Dr. Shantakumar Muruda",
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
   },
   "vitamin-d-test-bangalore": {
     title: "Vitamin D Test in Bangalore | 25-OH Vitamin D | QXL",
@@ -207,10 +293,27 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "NABL-validated immunoassay platform ensuring precise quantitative results."
     ],
     faqs: [
-      { question: "What is a 25-OH Vitamin D test?", answer: "It is the standard blood test used by doctors to assess overall vitamin D status in the body." },
-      { question: "Do I need fasting for a Vitamin D test?", answer: "No fasting is required." }
+      { question: "What is a 25-OH Vitamin D test?", answer: "It measures 25-hydroxyvitamin D (calcidiol) in serum — the standard marker doctors use to assess total body vitamin D status from sun exposure, food, and supplements." },
+      { question: "Do I need fasting for a Vitamin D test?", answer: "No, fasting is not required for a Vitamin D test." },
+      { question: "What are the symptoms of Vitamin D deficiency?", answer: "Common symptoms include bone pain, muscle weakness, fatigue, frequent infections, and depression. Many people are deficient without obvious symptoms." },
+      { question: "What is a normal Vitamin D level in India?", answer: "The ICMR/Endocrine Society defines: Deficient < 12 ng/mL, Insufficient 12–20 ng/mL, Sufficient 20–50 ng/mL, Optimal 40–60 ng/mL for most adults." },
+      { question: "Can I book a Vitamin D test at home in Bangalore?", answer: "Yes. QXL Diagnostics offers free home sample collection for the Vitamin D test across all Bengaluru localities." }
     ],
-    category: "Vitamin & Nutritional Panels"
+    category: "Vitamin & Nutritional Panels",
+    clinicalSignificance: "Vitamin D deficiency is highly prevalent in urban India, including among people in sunny Bengaluru, due to indoor lifestyles, sun avoidance, and limited dietary sources. Beyond bone health, emerging evidence links adequate vitamin D to immune function, cardiovascular health, glucose metabolism, and mental well-being. Supplementation without testing can lead to under- or over-dosing — 25-OH Vitamin D testing provides the only objective guide to corrective dosage.",
+    whenToTest: ["Bone pain or muscle weakness", "Osteoporosis or osteopaenia", "Fatigue or low mood", "Frequent infections", "Monitoring supplementation", "Post-menopausal women", "Diabetes or metabolic syndrome workup", "Annual preventive check"],
+    relatedTests: ["calcium-test-bangalore", "magnesium-test-bangalore", "vitamin-b12-test-bangalore", "thyroid-test-bangalore", "iron-profile-test-bangalore"],
+    referenceRanges: [
+      { label: "Deficiency",               range: "< 12",      unit: "ng/mL", interpretation: "abnormal",   note: "High risk of bone disease and immune suppression" },
+      { label: "Insufficiency",            range: "12 – 20",   unit: "ng/mL", interpretation: "borderline", note: "Supplementation usually recommended" },
+      { label: "Sufficient (General)",     range: "20 – 50",   unit: "ng/mL", interpretation: "normal" },
+      { label: "Optimal Target (Adults)",  range: "40 – 60",   unit: "ng/mL", interpretation: "normal",     note: "Target range for most supplement protocols" },
+      { label: "Toxicity Risk",            range: "> 100",     unit: "ng/mL", interpretation: "abnormal",   note: "Hypercalcaemia risk; high-dose supplementation without testing" }
+    ],
+    doctorNote: "Vitamin D deficiency is almost universal in my urban patient population — I rarely see a report above 30 ng/mL without supplementation. I routinely check Vitamin D in all patients with fatigue, bone pain, recurrent infections, and in all women over 40. Importantly, I pair it with calcium and magnesium to avoid the trap of supplementing D3 without addressing co-factor deficiencies.",
+    doctorSlug: "dr-shantakumar-muruda",
+    doctorName: "Dr. Shantakumar Muruda",
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
   },
   "vitamin-b12-test-bangalore": {
     title: "Vitamin B12 Test in Bangalore | QXL Diagnostics",
@@ -233,10 +336,24 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Processed on high-sensitivity automated immunoassay platforms."
     ],
     faqs: [
-      { question: "What causes Vitamin B12 deficiency?", answer: "Inadequate dietary intake (common in strict vegetarians), pernicious anaemia, or intestinal malabsorption." },
-      { question: "Can B12 deficiency cause numbness or tingling?", answer: "Yes, B12 is essential for nerve health, and deficiency can lead to peripheral nerve symptoms." }
+      { question: "What causes Vitamin B12 deficiency?", answer: "Inadequate dietary intake (common in strict vegetarians), pernicious anaemia, or intestinal malabsorption conditions." },
+      { question: "Can B12 deficiency cause numbness or tingling?", answer: "Yes, B12 is essential for myelin sheath integrity. Deficiency often manifests as peripheral neuropathy, tingling, or memory lapses." },
+      { question: "Do I need to fast for a B12 test?", answer: "An 8-hour overnight fast is recommended for optimal serum accuracy." },
+      { question: "Can I book a B12 test at home in Bangalore?", answer: "Yes. QXL Diagnostics provides free doorstep sample collection for Vitamin B12 across all Bengaluru localities." }
     ],
-    category: "Vitamin & Nutritional Panels"
+    category: "Vitamin & Nutritional Panels",
+    clinicalSignificance: "Vitamin B12 (cobalamin) is a critical co-factor for DNA synthesis and nerve myelin maintenance. Because plants do not synthesize cobalamin, B12 deficiency is widespread among urban populations in Bengaluru, particularly those following strict vegetarian diets. Left untreated, chronic deficiency leads to irreversible subacute combined degeneration of the spinal cord and megaloblastic anaemia. At QXL Diagnostics, B12 is measured using quantitative chemiluminescent immunoassay (CLIA).",
+    whenToTest: ["Tingling, numbness, or burning sensation in hands/feet", "Unexplained chronic fatigue and brain fog", "Strict vegetarian or vegan diet", "Megaloblastic anaemia found on CBC", "Post-bariatric surgery evaluation", "Metformin long-term use follow-up"],
+    relatedTests: ["folate-test-bangalore", "cbc-test-bangalore", "iron-profile-test-bangalore", "vitamin-d-test-bangalore", "homocysteine-test-bangalore"],
+    referenceRanges: [
+      { label: "Normal Range",           range: "211 – 911",  unit: "pg/mL", interpretation: "normal" },
+      { label: "Borderline Deficiency",  range: "150 – 210",  unit: "pg/mL", interpretation: "borderline", note: "Early biochemical deficiency; MMA or homocysteine confirmation recommended" },
+      { label: "Overt B12 Deficiency",   range: "< 150",      unit: "pg/mL", interpretation: "abnormal",   note: "Neurological & haematological risk; requires therapeutic supplementation" }
+    ],
+    doctorNote: "In South India, B12 deficiency is extremely common due to dietary patterns. I frequently see patients presenting with unexplained neurological symptoms like tingling or burning feet who have serum B12 below 180 pg/mL. When B12 is borderline (150–210 pg/mL), I recommend testing serum Homocysteine or Methylmalonic Acid to confirm functional tissue deficiency before starting treatment.",
+    doctorSlug: "dr-shantakumar-muruda",
+    doctorName: "Dr. Shantakumar Muruda",
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
   },
   "lipid-profile-test-bangalore": {
     title: "Lipid Profile Test Bangalore | Cholesterol Test | QXL",
@@ -259,10 +376,34 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Processed using enzymatic clinical chemistry analyzers with strict NABL quality controls."
     ],
     faqs: [
-      { question: "Do I need to fast for a lipid profile?", answer: "Yes, 10 to 12 hours of strict fasting is required for accurate triglyceride and LDL calculations." },
-      { question: "What is LDL cholesterol?", answer: "LDL is Low-Density Lipoprotein, often called 'bad' cholesterol, associated with arterial plaque buildup." }
+      { question: "Do I need to fast for a lipid profile?", answer: "Yes, 10 to 12 hours of strict fasting is required for accurate triglyceride measurement and the Friedewald LDL calculation. Only plain water is permitted." },
+      { question: "What is LDL cholesterol?", answer: "LDL (Low-Density Lipoprotein) is often called 'bad' cholesterol. High LDL contributes to arterial plaque buildup, increasing the risk of heart attack and stroke." },
+      { question: "What is HDL cholesterol?", answer: "HDL (High-Density Lipoprotein) is 'good' cholesterol that transports cholesterol from arteries back to the liver. Higher HDL is protective against cardiovascular disease." },
+      { question: "What does a high triglycerides level mean?", answer: "High triglycerides (>150 mg/dL) are associated with metabolic syndrome, obesity, alcohol intake, uncontrolled diabetes, and increased cardiovascular risk." },
+      { question: "Can I book a lipid profile test at home in Bangalore?", answer: "Yes. QXL offers free home collection for the lipid profile with strict cold-chain transport. Ensure 10–12 hours of fasting before your phlebotomist arrives." }
     ],
-    category: "Cardiovascular Health"
+    category: "Cardiovascular Health",
+    clinicalSignificance: "Dyslipidaemia is a major modifiable cardiovascular risk factor. The lipid profile provides the foundation for ASCVD (atherosclerotic cardiovascular disease) risk stratification using total cholesterol, LDL, HDL, and triglycerides. At QXL Diagnostics, all lipid parameters are measured enzymatically on NABL-validated analysers, with LDL calculated using the Friedewald equation (when triglycerides <400 mg/dL) or direct measurement when indicated.",
+    whenToTest: ["Family history of heart disease or stroke", "Diabetes or prediabetes", "Hypertension", "Obesity (BMI > 25)", "Routine annual check from age 35", "Monitoring statin or cholesterol-lowering therapy", "Fatty liver workup"],
+    relatedTests: ["hs-crp-test-bangalore", "homocysteine-test-bangalore", "troponin-test-bangalore", "blood-sugar-test-bangalore", "liver-function-test-bangalore"],
+    referenceRanges: [
+      { label: "Total Cholesterol — Desirable",      range: "< 200",     unit: "mg/dL", interpretation: "normal" },
+      { label: "Total Cholesterol — Borderline High",range: "200 – 239", unit: "mg/dL", interpretation: "borderline" },
+      { label: "Total Cholesterol — High Risk",      range: "≥ 240",     unit: "mg/dL", interpretation: "abnormal" },
+      { label: "LDL Cholesterol — Optimal",          range: "< 100",     unit: "mg/dL", interpretation: "normal" },
+      { label: "LDL Cholesterol — Near-Optimal",     range: "100 – 129", unit: "mg/dL", interpretation: "normal" },
+      { label: "LDL Cholesterol — Borderline High",  range: "130 – 159", unit: "mg/dL", interpretation: "borderline" },
+      { label: "LDL Cholesterol — High",             range: "≥ 160",     unit: "mg/dL", interpretation: "abnormal" },
+      { label: "HDL Cholesterol — Low (Risk Factor)",range: "< 40",      unit: "mg/dL", interpretation: "abnormal",   note: "Below 40 in men or 50 in women increases CV risk" },
+      { label: "HDL Cholesterol — Optimal",          range: "≥ 60",      unit: "mg/dL", interpretation: "normal",     note: "Protective; reduces overall CV risk" },
+      { label: "Triglycerides — Normal",             range: "< 150",     unit: "mg/dL", interpretation: "normal" },
+      { label: "Triglycerides — Borderline High",    range: "150 – 199", unit: "mg/dL", interpretation: "borderline" },
+      { label: "Triglycerides — High",               range: "≥ 200",     unit: "mg/dL", interpretation: "abnormal" }
+    ],
+    doctorNote: "I interpret the lipid panel as a risk profile, not isolated numbers. An LDL of 140 with an HDL of 55 and controlled diabetes is very different from the same LDL in a smoker with low HDL. I always look at the non-HDL cholesterol and the total cholesterol-to-HDL ratio as composite markers. In Indian patients, high triglycerides and low HDL is the most common pattern — often driven by refined carbohydrates rather than saturated fat.",
+    doctorSlug: "dr-shantakumar-muruda",
+    doctorName: "Dr. Shantakumar Muruda",
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
   },
   "liver-function-test-bangalore": {
     title: "Liver Function Test Bangalore | LFT Test | QXL Diagnostics",
@@ -285,10 +426,31 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Evaluates causes of jaundice, fatigue, and abdominal discomfort."
     ],
     faqs: [
-      { question: "What does an LFT include?", answer: "Bilirubin (Total/Direct/Indirect), SGOT, SGPT, ALP, GGT, Total Protein, Albumin, Globulin, A/G Ratio." },
-      { question: "What does high SGPT/ALT mean?", answer: "Elevated SGPT indicates liver cell injury or stress, commonly seen in fatty liver, alcohol use, or hepatitis." }
+      { question: "What does an LFT include?", answer: "Total Bilirubin, Direct Bilirubin, Indirect Bilirubin, SGOT (AST), SGPT (ALT), Alkaline Phosphatase (ALP), Gamma-GT (GGT), Total Protein, Albumin, Globulin, and A/G Ratio." },
+      { question: "What does high SGPT/ALT mean?", answer: "Elevated SGPT indicates liver cell inflammation or injury, commonly caused by fatty liver (MASLD), alcohol, viral hepatitis, or hepatotoxic medications." },
+      { question: "Do I need to fast for an LFT?", answer: "8 hours of overnight fasting is recommended for clear serum and accurate bilirubin/lipid parameters." },
+      { question: "Can I book an LFT test at home in Bangalore?", answer: "Yes. QXL Diagnostics provides free home blood sample collection across all Bengaluru localities with same-day digital reports." }
     ],
-    category: "Hepatic Diagnostics"
+    category: "Hepatic Diagnostics",
+    clinicalSignificance: "Liver Function Tests (LFT) evaluate hepatocellular integrity (SGOT/SGPT), cholestatic biliary function (ALP/GGT), and hepatic synthetic capacity (Albumin/Total Protein). Non-alcoholic fatty liver disease (NAFLD/MASLD) has become a primary public health issue in urban Bengaluru. Transaminase elevations often serve as the first subclinical sign of hepatic steatosis or early fibrosis. QXL Diagnostics processes all LFT samples on NABL-validated automated clinical chemistry platforms.",
+    whenToTest: ["Routine health checkup", "Unexplained fatigue or nausea", "Abdominal discomfort or right upper quadrant heaviness", "Jaundice or yellowing of eyes/skin", "Monitoring cholesterol/fatty liver treatment", "Long-term medication review (statins, painkillers, anti-TB)"],
+    relatedTests: ["kidney-function-test-bangalore", "lipid-profile-test-bangalore", "cbc-test-bangalore", "hepatitis-b-test-bangalore", "hepatitis-c-test-bangalore"],
+    referenceRanges: [
+      { label: "Total Bilirubin",          range: "0.2 – 1.2",  unit: "mg/dL", interpretation: "normal" },
+      { label: "Direct Bilirubin",         range: "0.0 – 0.3",  unit: "mg/dL", interpretation: "normal" },
+      { label: "SGPT (ALT)",               range: "7 – 56",     unit: "U/L",   interpretation: "normal" },
+      { label: "SGPT — Elevated (Fatty Liver)", range: "> 56",   unit: "U/L",   interpretation: "abnormal", note: "Commonly seen in fatty liver or alcohol intake" },
+      { label: "SGOT (AST)",               range: "10 – 40",    unit: "U/L",   interpretation: "normal" },
+      { label: "Alkaline Phosphatase (ALP)",range: "44 – 147",  unit: "U/L",   interpretation: "normal" },
+      { label: "Gamma-GT (GGT)",           range: "9 – 48",     unit: "U/L",   interpretation: "normal" },
+      { label: "Serum Albumin",            range: "3.5 – 5.0",  unit: "g/dL",  interpretation: "normal" },
+      { label: "Globulin",                 range: "2.0 – 3.5",  unit: "g/dL",  interpretation: "normal" },
+      { label: "A/G Ratio",                range: "1.1 – 2.2",  unit: "ratio", interpretation: "normal" }
+    ],
+    doctorNote: "When interpreting an LFT, I don't just look at SGPT in isolation — I assess the De Ritis ratio (AST/ALT ratio). An ALT higher than AST with elevated GGT strongly points to non-alcoholic fatty liver disease (NAFLD), whereas AST twice ALT suggests alcoholic or toxic etiology. Early detection through routine LFT allows patients to reverse fatty liver before permanent fibrosis occurs.",
+    doctorSlug: "dr-shantakumar-muruda",
+    doctorName: "Dr. Shantakumar Muruda",
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
   },
   "kidney-function-test-bangalore": {
     title: "Kidney Function Test Bangalore | KFT | Creatinine | QXL",
@@ -311,10 +473,31 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Monitors medication safety and electrolyte balance."
     ],
     faqs: [
-      { question: "What is creatinine?", answer: "Creatinine is a waste product from muscle breakdown filtered by healthy kidneys. Elevated levels suggest reduced renal filtration." },
-      { question: "Is fasting required for a KFT?", answer: "No fasting is required." }
+      { question: "What parameters are included in a KFT?", answer: "Serum Creatinine, eGFR, Blood Urea Nitrogen (BUN), Serum Urea, Uric Acid, Sodium, Potassium, Chloride, Calcium, and Phosphorus." },
+      { question: "What is eGFR and why is it important?", answer: "eGFR (estimated Glomerular Filtration Rate) calculates kidney filtering capacity based on creatinine, age, and sex. An eGFR above 90 is normal; below 60 indicates reduced kidney function." },
+      { question: "Do I need to fast for a KFT?", answer: "No fasting is required, though adequate hydration before sample collection is recommended." },
+      { question: "Can I book a KFT test at home in Bangalore?", answer: "Yes. QXL Diagnostics provides free doorstep collection for KFT across all Bengaluru localities." }
     ],
-    category: "Renal Diagnostics"
+    category: "Renal Diagnostics",
+    clinicalSignificance: "Kidney Function Tests (KFT) evaluate renal filtration, nitrogenous waste clearance, and electrolyte balance. Diabetic kidney disease (diabetic nephropathy) and hypertensive nephrosclerosis develop insidiously without early clinical symptoms. Routine monitoring of serum creatinine and eGFR allows early identification of chronic kidney disease (CKD). QXL Diagnostics calculates CKD-EPI eGFR automatically on all KFT reports.",
+    whenToTest: ["Hypertension or high blood pressure monitoring", "Diabetes or prediabetes annual screening", "Kidney stone history or flank pain", "Swelling in feet, ankles, or under eyes (edema)", "Long-term NSAID or painkiller medication use", "Routine preventive health checkup"],
+    relatedTests: ["creatinine-test-bangalore", "uric-acid-test-bangalore", "liver-function-test-bangalore", "urine-test-bangalore", "urine-microalbumin-test-bangalore"],
+    referenceRanges: [
+      { label: "Serum Creatinine — Men",   range: "0.7 – 1.3",  unit: "mg/dL", interpretation: "normal" },
+      { label: "Serum Creatinine — Women", range: "0.6 – 1.1",  unit: "mg/dL", interpretation: "normal" },
+      { label: "Creatinine — Elevated",    range: "> 1.3",      unit: "mg/dL", interpretation: "abnormal", note: "Indicates impaired renal clearance" },
+      { label: "eGFR — Normal (Stage 1)",  range: "≥ 90",       unit: "mL/min/1.73m²", interpretation: "normal" },
+      { label: "eGFR — Mildly Decreased (Stage 2)", range: "60 – 89", unit: "mL/min/1.73m²", interpretation: "borderline" },
+      { label: "eGFR — Moderate Decrease (Stage 3)", range: "30 – 59", unit: "mL/min/1.73m²", interpretation: "abnormal", note: "Requires nephrology or physician evaluation" },
+      { label: "Blood Urea Nitrogen (BUN)",range: "7 – 20",     unit: "mg/dL", interpretation: "normal" },
+      { label: "Serum Sodium (Na+)",       range: "136 – 145",  unit: "mEq/L", interpretation: "normal" },
+      { label: "Serum Potassium (K+)",     range: "3.5 – 5.1",  unit: "mEq/L", interpretation: "normal" },
+      { label: "Potassium — High (Hyperkalaemia)", range: "> 5.5", unit: "mEq/L", interpretation: "abnormal", note: "Critical value requiring urgent clinical alert" }
+    ],
+    doctorNote: "In diabetic and hypertensive patients, relying on Serum Creatinine alone can miss early renal decline because creatinine stays within normal limits until over 50% of nephrons are lost. That is why QXL automatically includes eGFR calculation on every KFT report. For complete renal protection, I always advise diabetic patients to pair their annual KFT with a Spot Urine Microalbumin-to-Creatinine Ratio.",
+    doctorSlug: "dr-shantakumar-muruda",
+    doctorName: "Dr. Shantakumar Muruda",
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
   },
   "dengue-test-bangalore": {
     title: "Dengue Test Bangalore | NS1, IgM & Dengue Testing | QXL",
@@ -337,10 +520,28 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Accompanied by daily platelet count monitoring option."
     ],
     faqs: [
-      { question: "Which dengue test should I take on Day 1 of fever?", answer: "Dengue NS1 Antigen test is recommended during the first 1 to 7 days of fever." },
-      { question: "When will I get the report?", answer: "Dengue results are processed with high clinical priority in 3 to 6 hours." }
+      { question: "Which Dengue test should I take on Day 1 of fever?", answer: "Dengue NS1 Antigen test is recommended during the first 1 to 7 days of fever for early virus detection." },
+      { question: "When is Dengue IgM / IgG antibody testing needed?", answer: "Dengue IgM antibodies develop after Day 5 of fever, indicating recent acute infection. IgG indicates past infection or immunity." },
+      { question: "How fast will I get my Dengue test report?", answer: "Dengue samples are given high priority at QXL and processed in 3 to 6 hours with immediate digital PDF delivery." },
+      { question: "Does QXL provide home sample collection for Dengue fever?", answer: "Yes. Phlebotomists visit your home across Bengaluru with cold-chain transport kits for safe sample processing." }
     ],
-    category: "Infectious Disease Testing"
+    category: "Infectious Disease Testing",
+    clinicalSignificance: "Dengue virus infection is endemic in Bengaluru, with seasonal peaks during monsoon and post-monsoon months. Rapid laboratory confirmation differentiates Dengue from Typhoid, Chikungunya, and Malaria. Dengue NS1 antigen is detectable from Day 1 of symptoms. Serial monitoring of Complete Blood Count (CBC) with absolute platelet counts and hematocrit is vital for detecting plasma leakage and severe thrombocytopenia.",
+    whenToTest: ["High fever (101°F+) with severe body aches", "Severe pain behind eyes (retro-orbital pain)", "Joint & muscle pain ('breakbone fever')", "Skin rash or petechiae", "Falling platelet count on CBC", "Sudden weakness or nausea during fever"],
+    relatedTests: ["cbc-test-bangalore", "crp-test-bangalore", "typhoid-test-bangalore", "malaria-test-bangalore", "esr-test-bangalore"],
+    referenceRanges: [
+      { label: "Dengue NS1 Antigen",        range: "Negative",  unit: "Qualitative", interpretation: "normal" },
+      { label: "Dengue NS1 — Positive",     range: "Positive",  unit: "Qualitative", interpretation: "abnormal", note: "Confirms acute Dengue infection (Days 1–7)" },
+      { label: "Dengue IgM Antibody",       range: "Negative",  unit: "Index",       interpretation: "normal" },
+      { label: "Dengue IgM — Positive",      range: "Positive",  unit: "Index",       interpretation: "abnormal", note: "Indicates recent acute Dengue infection (>Day 5)" },
+      { label: "Platelet Count — Normal",   range: "1.5 – 4.0", unit: "Lakhs/µL",   interpretation: "normal" },
+      { label: "Platelet Count — Warning",  range: "50k – 1.0L",unit: "/µL",        interpretation: "borderline", note: "Requires daily CBC monitoring" },
+      { label: "Platelet Count — Critical", range: "< 50,000",  unit: "/µL",        interpretation: "abnormal",   note: "High risk of bleeding; medical alert" }
+    ],
+    doctorNote: "During Dengue season in Bengaluru, timing is everything. Dengue NS1 is highly accurate during the first 5 days of fever, whereas IgM antibodies only peak after Day 7. I always advise patients to monitor Platelet Count and Hematocrit (PCV) daily — a rising PCV with dropping platelets indicates hemoconcentration and plasma leakage, which requires immediate fluid management.",
+    doctorSlug: "dr-ajitha-pillai",
+    doctorName: "Dr. Ajitha Pillai",
+    doctorQuals: "MD Microbiology"
   },
   "tsh-test-bangalore": {
     title: "TSH Test in Bangalore | Thyroid Blood Test | QXL Diagnostics",
@@ -418,10 +619,25 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Crucial for checking renal safety prior to CT contrast or specific medications."
     ],
     faqs: [
-      { question: "What does creatinine measure?", answer: "It is a waste product filtered by the kidneys used as a key marker of kidney filtration." },
-      { question: "Does high creatinine always mean kidney disease?", answer: "Not always; muscle mass, dehydration, and certain medications can also influence results." }
+      { question: "What does serum creatinine measure?", answer: "Serum Creatinine measures a breakdown waste product of muscle tissue filtered by the kidneys, serving as a key quantitative renal marker." },
+      { question: "What is a normal creatinine level?", answer: "0.7 to 1.3 mg/dL for men and 0.6 to 1.1 mg/dL for women. Values vary slightly by muscle mass and age." },
+      { question: "Does high creatinine always mean kidney failure?", answer: "Not necessarily. Dehydration, intense physical exercise, high red meat consumption, or certain medications can cause temporary creatinine elevations." },
+      { question: "Is fasting required for a Creatinine test?", answer: "No fasting is required for a serum creatinine blood test." }
     ],
-    category: "Renal Diagnostics"
+    category: "Renal Diagnostics",
+    clinicalSignificance: "Serum Creatinine is the standard biochemical marker used to assess renal excretory function and calculate estimated Glomerular Filtration Rate (eGFR). Because muscle mass generates creatinine at a constant daily rate, elevated serum concentrations reflect reduced glomerular filtration. Creatinine is routinely monitored before administering IV contrast materials for CT scans and when initiating nephrotoxic medications.",
+    whenToTest: ["Pre-CT scan contrast safety check", "Hypertension or diabetes monitoring", "Swelling in legs, ankles, or face", "Changes in urination frequency or color", "Medication dosage adjustment (NSAIDs, antibiotics)"],
+    relatedTests: ["kidney-function-test-bangalore", "uric-acid-test-bangalore", "urine-test-bangalore", "blood-sugar-test-bangalore"],
+    referenceRanges: [
+      { label: "Serum Creatinine — Adult Men",   range: "0.7 – 1.3", unit: "mg/dL", interpretation: "normal" },
+      { label: "Serum Creatinine — Adult Women", range: "0.6 – 1.1", unit: "mg/dL", interpretation: "normal" },
+      { label: "Borderline Elevation",           range: "1.2 – 1.5", unit: "mg/dL", interpretation: "borderline", note: "eGFR evaluation recommended" },
+      { label: "High Creatinine",                range: "> 1.5",     unit: "mg/dL", interpretation: "abnormal",   note: "Significant renal impairment; doctor consultation needed" }
+    ],
+    doctorNote: "Serum Creatinine is simple, accurate, and essential. However, in elderly patients with low muscle mass, a 'normal' serum creatinine of 1.0 mg/dL may actually mask an eGFR below 50 mL/min. At QXL, we always compute age and sex-adjusted eGFR to prevent under-diagnosing early renal dysfunction.",
+    doctorSlug: "dr-shantakumar-muruda",
+    doctorName: "Dr. Shantakumar Muruda",
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
   },
   "cholesterol-test-bangalore": {
     title: "Cholesterol Test in Bangalore | Heart Risk Blood Test | QXL",
@@ -470,10 +686,25 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Distinguished from high-sensitivity hs-CRP used for cardiac risk."
     ],
     faqs: [
-      { question: "What does high CRP mean?", answer: "High CRP indicates systemic inflammation in the body but does not pinpoint the exact cause or location." },
-      { question: "Is CRP the same as hs-CRP?", answer: "No, hs-CRP measures lower baseline concentrations used specifically in cardiovascular risk assessment." }
+      { question: "What does high CRP mean?", answer: "High CRP (C-Reactive Protein) indicates acute systemic inflammation in the body from bacterial infection, tissue injury, or autoimmune flares." },
+      { question: "Is CRP different from hs-CRP?", answer: "Yes. Standard CRP measures higher inflammatory levels (>5 mg/L) for infections and autoimmune disease. High-sensitivity hs-CRP measures low baseline levels (0.5–5 mg/L) for cardiac risk." },
+      { question: "Does CRP require fasting?", answer: "No fasting is required for a CRP blood test." },
+      { question: "Can I book a CRP test at home in Bangalore?", answer: "Yes. QXL Diagnostics provides free doorstep collection for CRP with same-day digital reports." }
     ],
-    category: "Inflammatory & Infection Diagnostics"
+    category: "Inflammatory & Infection Diagnostics",
+    clinicalSignificance: "C-reactive protein (CRP) is an acute-phase reactant synthesized by the liver within 6 hours of an inflammatory stimulus, rising up to 1,000-fold during severe infection. Unlike ESR, CRP rises rapidly and falls quickly once inflammation resolves, making it an ideal real-time marker for monitoring response to antibiotic or anti-inflammatory treatment.",
+    whenToTest: ["Acute bacterial fever or infection workup", "Post-surgical infection screening", "Rheumatoid arthritis or lupus flare-up monitoring", "Inflammatory bowel disease (IBD) evaluation"],
+    relatedTests: ["esr-test-bangalore", "cbc-test-bangalore", "ana-test-bangalore", "rheumatoid-factor-test-bangalore", "hs-crp-test-bangalore"],
+    referenceRanges: [
+      { label: "Normal CRP",                 range: "< 5.0",      unit: "mg/L", interpretation: "normal" },
+      { label: "Mildly Elevated",            range: "5.0 – 10.0", unit: "mg/L", interpretation: "borderline", note: "Mild viral infection, exercise, or minor inflammation" },
+      { label: "Moderate Elevation",         range: "10.0 – 50.0",unit: "mg/L", interpretation: "abnormal",   note: "Bacterial infection or systemic inflammatory flare" },
+      { label: "Severe Elevation",           range: "> 50.0",     unit: "mg/L", interpretation: "abnormal",   note: "Severe acute bacterial infection or tissue necrosis" }
+    ],
+    doctorNote: "CRP is one of the most useful real-time biomarkers in clinical medicine. In acute fever, a CRP above 40 mg/L strongly points to a bacterial infection rather than viral. Because CRP has a half-life of ~19 hours, dropping CRP levels give us early confidence that antibiotic therapy is working.",
+    doctorSlug: "dr-shantakumar-muruda",
+    doctorName: "Dr. Shantakumar Muruda",
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
   },
   "esr-test-bangalore": {
     title: "ESR Test in Bangalore | Sedimentation Rate | QXL Diagnostics",
@@ -496,10 +727,26 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Often tested alongside CBC and CRP for complementary inflammatory insights."
     ],
     faqs: [
-      { question: "What does ESR measure?", answer: "It measures how quickly red blood cells settle under standardized laboratory conditions." },
+      { question: "What does ESR measure?", answer: "Erythrocyte Sedimentation Rate (ESR) measures how quickly red blood cells settle at the bottom of a vertical tube in one hour, indicating systemic inflammation." },
+      { question: "Why is ESR tested along with CRP?", answer: "ESR reflects long-term chronic inflammation over weeks, while CRP reflects acute real-time inflammation over days. Testing both provides a complete picture." },
       { question: "Does ESR require fasting?", answer: "No fasting is required for an ESR test." }
     ],
-    category: "Inflammatory Diagnostics"
+    category: "Inflammatory Diagnostics",
+    clinicalSignificance: "Erythrocyte Sedimentation Rate (ESR) is a classic hematological marker of systemic inflammation. Fibrinogen and immunoglobulin proteins cause red blood cells to form rouleaux stacks that settle rapidly under gravity. ESR is elevated in autoimmune conditions (Rheumatoid Arthritis, Polymyalgia Rheumatica, Lupus), chronic infections (Tuberculosis), and malignancies.",
+    whenToTest: ["Joint pain, morning stiffness, or arthritis", "Unexplained prolonged fever or weight loss", "Suspected autoimmune disease or vasculitis", "Tuberculosis workup or monitoring"],
+    relatedTests: ["crp-test-bangalore", "cbc-test-bangalore", "rheumatoid-factor-test-bangalore", "anti-ccp-test-bangalore", "ana-test-bangalore"],
+    referenceRanges: [
+      { label: "Normal ESR — Men (< 50 yrs)",   range: "< 15",   unit: "mm/hr", interpretation: "normal" },
+      { label: "Normal ESR — Women (< 50 yrs)", range: "< 20",   unit: "mm/hr", interpretation: "normal" },
+      { label: "Normal ESR — Men (> 50 yrs)",   range: "< 20",   unit: "mm/hr", interpretation: "normal" },
+      { label: "Normal ESR — Women (> 50 yrs)", range: "< 30",   unit: "mm/hr", interpretation: "normal" },
+      { label: "Elevated ESR",                 range: "> 30",   unit: "mm/hr", interpretation: "abnormal", note: "Indicates active inflammatory or infectious process" },
+      { label: "Markedly Elevated ESR",        range: "> 100",  unit: "mm/hr", interpretation: "abnormal", note: "Strong association with vasculitis, severe infection, or myeloma" }
+    ],
+    doctorNote: "Although ESR is non-specific, an ESR exceeding 100 mm/hr is a key red flag that demands thorough investigation for conditions like Polymyalgia Rheumatica, Temporal Arteritis, Multiple Myeloma, or occult Tuberculosis.",
+    doctorSlug: "dr-naveen-kumar-n",
+    doctorName: "Dr. Naveen Kumar N",
+    doctorQuals: "DCP, DNB Pathology"
   },
   "uric-acid-test-bangalore": {
     title: "Uric Acid Test Bangalore | Gout Blood Test | QXL Diagnostics",
@@ -522,10 +769,23 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Evaluates purine breakdown in renal and metabolic conditions."
     ],
     faqs: [
-      { question: "Is uric acid the same as gout?", answer: "No. High uric acid increases the risk of gout, but not everyone with high levels develops joint symptoms." },
-      { question: "Can diet affect uric acid?", answer: "Yes, purine-rich foods like red meat, seafood, and alcohol can elevate uric acid levels." }
+      { question: "What causes high Uric Acid?", answer: "Diets high in purines (red meat, seafood, beer), obesity, kidney dysfunction, high fructose intake, or metabolic syndrome." },
+      { question: "Can high Uric Acid cause joint pain?", answer: "Yes. Urate crystals can deposit in joint fluid, causing sudden intense joint inflammation known as Gout (commonly affecting the big toe)." },
+      { question: "Is fasting required for a Uric Acid test?", answer: "A 4-hour fast is recommended for optimal serum accuracy." }
     ],
-    category: "Metabolic & Joint Diagnostics"
+    category: "Metabolic & Joint Diagnostics",
+    clinicalSignificance: "Serum Uric Acid is the end-product of purine nucleotide metabolism in humans. Hyperuricaemia (serum urate > 6.8 mg/dL) exceeds urate solubility limits, predisposing to monosodium urate crystal deposition in synovial joints (gouty arthritis) and renal tubules (urate kidney stones). Uric acid is also an independent risk factor for metabolic syndrome and hypertension.",
+    whenToTest: ["Sudden severe joint pain and redness (especially big toe, ankle, or knee)", "Kidney stone history", "Monitoring allopurinol or febuxostat urate-lowering therapy", "Metabolic syndrome workup"],
+    relatedTests: ["kidney-function-test-bangalore", "creatinine-test-bangalore", "crp-test-bangalore", "esr-test-bangalore"],
+    referenceRanges: [
+      { label: "Serum Uric Acid — Men",   range: "3.5 – 7.2", unit: "mg/dL", interpretation: "normal" },
+      { label: "Serum Uric Acid — Women", range: "2.6 – 6.0", unit: "mg/dL", interpretation: "normal" },
+      { label: "Hyperuricaemia (High)",   range: "> 7.2",     unit: "mg/dL", interpretation: "abnormal", note: "Increased risk of gout flares and renal urate stones" }
+    ],
+    doctorNote: "Intense pain in the big toe (podagra) waking a patient at night is classic for gout. However, during an acute gout flare, serum uric acid can actually drop temporarily as urate crystals deposit into the joint. I always re-test uric acid 2–4 weeks after the acute inflammation settles.",
+    doctorSlug: "dr-shantakumar-muruda",
+    doctorName: "Dr. Shantakumar Muruda",
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
   },
   "testosterone-test-bangalore": {
     title: "Testosterone Test Bangalore | Male Hormone Blood Test | QXL",
@@ -1019,7 +1279,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
       slug: cleanSlug,
       title: explicitData.title || `${cleanSlug} | QXL Diagnostics`,
       metaDescription: explicitData.subtitle || `Book ${cleanSlug} in Bangalore with NABL accredited precision and doorstep collection.`,
-      badge: "NABL ACCREDITED LAB (MC-6849) · FREE HOME COLLECTION",
+      badge: "NABL ACCREDITED LAB (MC-10025) · FREE HOME COLLECTION",
       h1Title: explicitData.h1Title || cleanSlug.replace(/-/g, ' '),
       subtitle: explicitData.subtitle || "High accuracy diagnostic investigation performed by QXL Diagnostics.",
       price: explicitData.price || "499",
@@ -1040,7 +1300,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
       ],
       whyImportant: explicitData.whyImportant || [
         "Provides accurate baseline health data for your doctor.",
-        "Conducted at NABL accredited super speciality laboratory (MC-6849).",
+        "Conducted at NABL accredited super speciality laboratory (MC-10025).",
         "Digital PDF report delivered directly to your WhatsApp & Email."
       ],
       faqs: explicitData.faqs || [
@@ -1085,7 +1345,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
       turnaroundTime: matchedTest.turnaround || "6 to 12 Hours",
       overview: [
         `${matchedTest.name} is a vital diagnostic test conducted by QXL Diagnostics across Bangalore using automated, high-precision analyzer instruments.`,
-        `Samples are collected directly at your home by NABL-certified phlebotomists using sterile single-use vacuum tubes and transported in temperature-controlled cold-chain kits.`
+        `Samples are collected directly at your home by NABL-accredited phlebotomists using sterile single-use vacuum tubes and transported in temperature-controlled cold-chain kits.`
       ],
       parametersList: [
         `${matchedTest.name} Core Parameters`,
@@ -1095,7 +1355,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
       whyImportant: [
         "Provides accurate baseline clinical data for your doctor.",
         "Detects early underlying health changes before symptoms develop.",
-        "Processed at NABL-accredited ISO 15189:2022 laboratory (MC-6849)."
+        "Processed at NABL-accredited ISO 15189:2022 laboratory (MC-10025)."
       ],
       faqs: matchedTest.faqs || [
         { question: `Do I need to fast for ${matchedTest.name}?`, answer: matchedTest.preparation },
@@ -1147,7 +1407,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
   return {
     slug: cleanSlug,
     title: `${formattedName} in Bangalore | QXL Diagnostics NABL Lab`,
-    metaDescription: `Book ${formattedName} in Bangalore. NABL accredited lab (MC-6849), free doorstep sample collection, same-day reports on WhatsApp & Email.`,
+    metaDescription: `Book ${formattedName} in Bangalore. NABL accredited lab (MC-10025), free doorstep sample collection, same-day reports on WhatsApp & Email.`,
     badge: `NABL ACCREDITED · FREE DOORSTEP COLLECTION`,
     h1Title: `${formattedName} in Bangalore`,
     subtitle: `High-accuracy ${formattedName} performed by QXL Diagnostics with NABL-accredited precision, fast doorstep blood collection, and doctor-validated reports.`,
@@ -1169,7 +1429,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
     ],
     whyImportant: [
       "Provides actionable health insights for early diagnosis.",
-      "Conducted at NABL accredited ISO 15189 laboratory (MC-6849).",
+      "Conducted at NABL accredited ISO 15189 laboratory (MC-10025).",
       "Doctor-reviewed PDF report sent directly to your WhatsApp and Email."
     ],
     faqs: [

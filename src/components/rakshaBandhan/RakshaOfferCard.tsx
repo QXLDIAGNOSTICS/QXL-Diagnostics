@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { CheckCircle2, ChevronDown, ChevronUp, Sparkles, Shield, Clock, Home, ArrowRight, Info } from "lucide-react";
-import { RAKSHA_CAMPAIGN_CONFIG } from "@/lib/rakshaBandhanConfig";
+import { RAKSHA_CAMPAIGN_CONFIG, isCampaignActive } from "@/lib/rakshaBandhanConfig";
 
 interface RakshaOfferCardProps {
   onOpenBooking: (packageTitle?: string) => void;
@@ -11,6 +11,9 @@ interface RakshaOfferCardProps {
 export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps) {
   const [expandedCategory, setExpandedCategory] = useState<number | null>(null);
   const [showDetails, setShowDetails] = useState(false);
+
+  // Auto-hide when campaign has expired — no manual code changes required after endsAt
+  if (!isCampaignActive()) return null;
 
   const toggleCategory = (idx: number) => {
     setExpandedCategory(expandedCategory === idx ? null : idx);

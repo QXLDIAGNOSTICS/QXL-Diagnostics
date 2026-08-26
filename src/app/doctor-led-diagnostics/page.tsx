@@ -8,7 +8,7 @@ import PopularPackagesGrid from '@/components/PopularPackagesGrid';
 
 export const metadata: Metadata = {
   title: "Doctor-Led Diagnostics & Reference Lab Expertise | QXL Diagnostics",
-  description: "At QXL Diagnostics, laboratory medicine is led by doctors—not just machines. NABL-accredited (MC-6849) routine & super-speciality reference diagnostics across Bengaluru.",
+  description: "At QXL Diagnostics, laboratory medicine is led by doctors—not just machines. NABL-accredited (MC-10025) routine & super-speciality reference diagnostics across Bengaluru.",
   keywords: ["doctor led diagnostics bangalore", "pathologist led lab bengaluru", "NABL reference laboratory", "super speciality diagnostic lab", "QXL diagnostics doctor led"],
   alternates: {
     canonical: "https://qxldiagnostics.com/doctor-led-diagnostics",
@@ -91,7 +91,7 @@ export default function DoctorLedDiagnosticsPage() {
             <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center font-black text-sm">03</div>
             <h3 className="font-extrabold text-slate-900 text-base">Verified Quality Systems</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Testing is supported by NABL-accredited laboratory processes (MC-6849), ISO 15189:2022 standards, and daily multi-rule Westgard IQC.
+              Testing is supported by NABL-accredited laboratory processes (MC-10025), ISO 15189:2022 standards, and daily multi-rule Westgard IQC.
             </p>
           </div>
 

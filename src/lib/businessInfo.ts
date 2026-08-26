@@ -43,7 +43,7 @@ export const PHONE_E164 = "+919964639639";
 export const WHATSAPP_NUMBER = "919964639639";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
-export const EMAIL = "qxldiagnostics@gmail.com";
+export const EMAIL = "info@qxldiagnostics.com";
 
 /** NABL certificate number — must match Google Business / accreditation docs */
 export const NABL_CERTIFICATE = "MC-10025";

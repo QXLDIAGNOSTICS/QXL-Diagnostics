@@ -7,7 +7,7 @@ export default function SupportPage() {
       subtitle="Direct contact channels for appointment modifications, report queries, and emergency lab requests."
       badge="24x7 Support Desk"
       contentParagraphs={[
-        "Phone Hotline: +91 9964 639 639 (Call or WhatsApp)\nEmail Support: qxldiagnostics@gmail.com",
+        "Phone Hotline: +91 9964 639 639 (Call or WhatsApp)\nEmail Support: info@qxldiagnostics.com",
         "Laboratory Location: 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560060 (Open 24x7).",
       ]}
       ctaText="Contact Us"

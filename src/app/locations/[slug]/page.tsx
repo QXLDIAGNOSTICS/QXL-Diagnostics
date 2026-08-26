@@ -56,13 +56,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (areaLoc) {
     return {
       title: `Blood Test at Home in ${areaLoc.name} | QXL Diagnostics`,
-      description: `Book blood test with free home collection in ${areaLoc.name}, Bengaluru. NABL certified lab, CBC, HbA1c, thyroid, lipid & full body checkup packages with same-day reports.`,
+      description: `Book blood test with free home collection in ${areaLoc.name}, Bengaluru. NABL accredited lab, CBC, HbA1c, thyroid, lipid & full body checkup packages with same-day reports.`,
       alternates: {
         canonical: `https://qxldiagnostics.com/locations/${slug}`,
       },
       openGraph: {
         title: `Blood Test at Home in ${areaLoc.name} | QXL Diagnostics`,
-        description: `Free home sample collection in ${areaLoc.name}, Bengaluru. NABL certified lab, same-day reports.`,
+        description: `Free home sample collection in ${areaLoc.name}, Bengaluru. NABL accredited lab, same-day reports.`,
         url: `https://qxldiagnostics.com/locations/${slug}`,
         locale: "en_IN",
         type: "website",
@@ -301,7 +301,7 @@ export default async function CombinedLocationPage({ params }: Props) {
                       <ShieldCheck className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Accredited (MC-6849)</h3>
+                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Accredited (MC-10025)</h3>
                       <p className="text-slate-600 text-xs font-medium leading-relaxed">Processed at our NABL-accredited ISO 15189:2022 laboratory with multi-level MD doctor verification.</p>
                     </div>
                   </div>

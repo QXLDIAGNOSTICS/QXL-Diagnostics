@@ -3,6 +3,48 @@ import { serverApi } from '@/lib/serverApi';
 import { LOCATIONS } from '@/lib/businessInfo';
 import { homeCollectionAreas } from '@/lib/locationsData';
 
+// Top-100 priority test pages (SEO Master Plan priority order)
+const TOP_100_TEST_PAGES = [
+  // Priority 21–25: High-volume routine tests
+  "cbc-test-bangalore", "thyroid-test-bangalore", "vitamin-d-test-bangalore",
+  "hba1c-test-bangalore", "lipid-profile-test-bangalore",
+  // Priority 26–35: Routine metabolic tests
+  "liver-function-test-bangalore", "kidney-function-test-bangalore",
+  "vitamin-b12-test-bangalore", "blood-sugar-test-bangalore", "urine-test-bangalore",
+  "crp-test-bangalore", "esr-test-bangalore", "creatinine-test-bangalore",
+  "uric-acid-test-bangalore", "iron-profile-test-bangalore",
+  // Priority 36–50: Preventive & fertility
+  "ferritin-test-bangalore", "diabetes-profile-test-bangalore",
+  "thyroid-profile-test-bangalore", "amh-test-bangalore", "pcos-test-bangalore",
+  "beta-hcg-test-bangalore", "double-marker-test-bangalore",
+  "female-hormone-test-bangalore", "fsh-test-bangalore", "lh-test-bangalore",
+  // Priority 51–65: Prenatal & autoimmune
+  "triple-marker-test-bangalore", "quadruple-marker-test-bangalore",
+  "antenatal-profile-test-bangalore", "allergy-test-bangalore",
+  "food-allergy-test-bangalore", "food-intolerance-test-bangalore",
+  "total-ige-test-bangalore", "autoimmune-profile-test-bangalore",
+  "ana-test-bangalore", "ana-profile-test-bangalore", "ana-ifa-test-bangalore",
+  "anti-dsdna-test-bangalore", "ena-profile-test-bangalore",
+  "anti-ccp-test-bangalore", "rheumatoid-factor-test-bangalore",
+  // Priority 66–75: Histopathology & molecular
+  "anca-test-bangalore", "histopathology-test-bangalore", "biopsy-test-bangalore",
+  "immunohistochemistry-test-bangalore", "molecular-diagnostic-test-bangalore",
+  "pcr-test-bangalore", "genetic-test-bangalore", "flow-cytometry-test-bangalore",
+  "ngs-test-bangalore",
+  // Priority 76–90: Super speciality & cardiac
+  "therapeutic-drug-monitoring-test-bangalore", "mass-spectrometry-test-bangalore",
+  "tumor-marker-test-bangalore", "cancer-marker-test-bangalore",
+  "psa-test-bangalore", "ca-125-test-bangalore", "cea-test-bangalore",
+  "afp-test-bangalore", "troponin-test-bangalore", "nt-probnp-test-bangalore",
+  "d-dimer-test-bangalore", "cardiac-biomarker-test-bangalore",
+  "testosterone-test-bangalore", "prolactin-test-bangalore", "cortisol-test-bangalore",
+  // Priority 91–100: GI, oncology, B2B supporting tests
+  "stool-test-bangalore", "calprotectin-test-bangalore", "h-pylori-test-bangalore",
+  "dengue-test-bangalore", "malaria-test-bangalore", "typhoid-test-bangalore",
+  "hiv-test-bangalore", "hepatitis-b-test-bangalore", "hepatitis-c-test-bangalore",
+  "urine-culture-test-bangalore",
+];
+
 const BASE_URL = 'https://qxldiagnostics.com';
 
 // SEO landing pages & High Priority Google Ads URLs
@@ -107,6 +149,48 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/knowledge-centre`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/for-doctors`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${BASE_URL}/insights`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/dr-shantakumar-muruda`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/dr-pritilata-rout`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/dr-ajitha-pillai`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/dr-naveen-kumar-n`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
     },
     {
       url: `${BASE_URL}/conditions/diabetes-testing`,
@@ -234,6 +318,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: 'monthly',
         priority: 0.6,
       })),
+    // ── Top-100 Priority Test Pages ──────────────────────────────────────────
+    ...TOP_100_TEST_PAGES.map((slug): MetadataRoute.Sitemap[number] => ({
+      url: `${BASE_URL}/tests/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    })),
+    // ── B2B / Reference Laboratory Pages ────────────────────────────────────
+    {
+      url: `${BASE_URL}/super-speciality-reference-lab-bengaluru`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/b2b-reference-lab`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/hospital-services`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/doctor-partnership`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/quality-accreditation`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     {
       url: `${BASE_URL}/contact`,
       lastModified: new Date(),
@@ -248,3 +370,4 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 }
+

@@ -92,7 +92,7 @@ const QA_DATA = {
       id: 'g10',
       category: 'general',
       question: 'Are your reports accurate?',
-      answer: 'Absolutely. QXL Diagnostics follows strict international quality standards and is NABL certified. We use fully automated, advanced analysers and every report is reviewed by our senior doctors.'
+      answer: 'Absolutely. QXL Diagnostics follows strict international quality standards and is NABL accredited. We use fully automated, advanced analysers and every report is reviewed by our senior doctors.'
     },
 
     // Blood Test Questions
@@ -352,7 +352,7 @@ const findAnswer = (query: string): { text: string; relatedQuestions?: string[] 
 
   if (q.includes('speak to human') || q.includes('contact support') || q.includes('talk to support') || q.includes('whatsapp booking') || q.includes('human')) {
     return {
-      text: "💬 **Speak with a Representative**\n\nNeed to talk to a human? We are here to help!\n\n• **WhatsApp Support:** Text us at [+91 9964 639 639](https://api.whatsapp.com/send?phone=919964639639) (Fastest reply)\n• **Customer Care Call:** Dial **+91 9964 639 639**\n• **Email Support:** qxldiagnostics@gmail.com\n\nYou can also click the WhatsApp button at the bottom of the chat to start a direct message thread.",
+      text: "💬 **Speak with a Representative**\n\nNeed to talk to a human? We are here to help!\n\n• **WhatsApp Support:** Text us at [+91 9964 639 639](https://api.whatsapp.com/send?phone=919964639639) (Fastest reply)\n• **Customer Care Call:** Dial **+91 9964 639 639**\n• **Email Support:** info@qxldiagnostics.com\n\nYou can also click the WhatsApp button at the bottom of the chat to start a direct message thread.",
       relatedQuestions: ["How can I book a test?", "Find Nearest Center"]
     };
   }

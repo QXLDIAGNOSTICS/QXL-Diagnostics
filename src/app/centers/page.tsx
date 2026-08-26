@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { MapPin, Phone, Clock, Shield, Search, Compass, AlertCircle, ExternalLink, Sparkles, Navigation } from 'lucide-react';
+import { MapPin, Phone, Clock, Shield, Search, Compass, AlertCircle, ExternalLink, Sparkles, Navigation, CheckCircle2, Building2 } from 'lucide-react';
 import { api } from '../../lib/api';
 
 function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
-  const R = 6371;
+  const R = 6371; // km
   const dLat = (lat2 - lat1) * (Math.PI / 180);
   const dLon = (lon2 - lon1) * (Math.PI / 180);
   const a =
@@ -19,11 +19,21 @@ function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: numbe
   return R * c;
 }
 
+function isOpenNow(hoursString: string): boolean {
+  if (hoursString.includes("24x7")) return true;
+  const now = new Date();
+  const currentHour = now.getHours();
+  // Most centers open 6:30 AM to 8:00 PM (6.5 to 20)
+  return currentHour >= 6 && currentHour < 20;
+}
+
 const DEFAULT_CENTERS = [
   {
     id: "center-1",
     name: "QXL Main Super Speciality Reference Laboratory (Kengeri)",
     slug: "kengeri-main-lab",
+    pincode: "560060",
+    locality: "Kengeri",
     address: "3rd Floor, SLN Complex, Mysuru Road, Kengeri, Bengaluru – 560060",
     city: "Bengaluru",
     phone: "+91 9964 639 639",
@@ -37,6 +47,8 @@ const DEFAULT_CENTERS = [
     id: "center-2",
     name: "QXL Diagnostics Partner Centre (Yelahanka)",
     slug: "yelahanka-north-hub",
+    pincode: "560064",
+    locality: "Yelahanka",
     address: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560064",
     city: "Bengaluru",
     phone: "+91 9964 639 639",
@@ -50,6 +62,8 @@ const DEFAULT_CENTERS = [
     id: "center-3",
     name: "QXL Home Blood Collection Service Hub (Jayanagar)",
     slug: "jayanagar-south-hub",
+    pincode: "560041",
+    locality: "Jayanagar",
     address: "Coverage: Jayanagar 4th Block, JP Nagar, Banashankari & South Bengaluru",
     city: "Bengaluru",
     phone: "+91 9964 639 639",
@@ -63,6 +77,8 @@ const DEFAULT_CENTERS = [
     id: "center-4",
     name: "QXL Home Blood Collection Service Hub (Indiranagar)",
     slug: "indiranagar-hub",
+    pincode: "560038",
+    locality: "Indiranagar",
     address: "Coverage: Indiranagar, HAL 2nd Stage, Domlur & Central Bengaluru",
     city: "Bengaluru",
     phone: "+91 9964 639 639",
@@ -76,6 +92,8 @@ const DEFAULT_CENTERS = [
     id: "center-5",
     name: "QXL Home Blood Collection Service Hub (Whitefield)",
     slug: "whitefield-tech-hub",
+    pincode: "560066",
+    locality: "Whitefield",
     address: "Coverage: Whitefield, ITPL, Kadugodi, Hope Farm, Brookefield & EPIP Zone",
     city: "Bengaluru",
     phone: "+91 9964 639 639",
@@ -90,7 +108,8 @@ const DEFAULT_CENTERS = [
 export default function CentersPage() {
   const [centers, setCenters] = useState<any[]>(DEFAULT_CENTERS);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCity, setSelectedCity] = useState("All Cities");
+  const [pincodeQuery, setPincodeQuery] = useState("");
+  const [selectedLocality, setSelectedLocality] = useState("All Localities");
   const [selectedCenter, setSelectedCenter] = useState<any>(DEFAULT_CENTERS[0]);
   const [userCoords, setUserCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [locating, setLocating] = useState(false);
@@ -148,15 +167,25 @@ export default function CentersPage() {
 
   const filteredCenters = centersWithDistance
     .filter((center) => {
-      const matchesSearch =
-        center.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        center.address.toLowerCase().includes(searchQuery.toLowerCase());
-      
-      const matchesCity =
-        selectedCity === "All Cities" ||
-        (center.city && center.city.toLowerCase() === selectedCity.toLowerCase());
+      const q = searchQuery.toLowerCase();
+      const p = pincodeQuery.trim();
 
-      return matchesSearch && matchesCity;
+      const matchesSearch =
+        !q ||
+        center.name.toLowerCase().includes(q) ||
+        center.address.toLowerCase().includes(q) ||
+        (center.pincode && center.pincode.includes(q)) ||
+        (center.locality && center.locality.toLowerCase().includes(q));
+
+      const matchesPincode =
+        !p || (center.pincode && center.pincode.includes(p)) || center.address.includes(p);
+
+      const matchesLocality =
+        selectedLocality === "All Localities" ||
+        (center.locality && center.locality.toLowerCase() === selectedLocality.toLowerCase()) ||
+        center.address.toLowerCase().includes(selectedLocality.toLowerCase());
+
+      return matchesSearch && matchesPincode && matchesLocality;
     })
     .sort((a, b) => {
       if (a.distance !== null && b.distance !== null) {
@@ -165,7 +194,7 @@ export default function CentersPage() {
       return 0;
     });
 
-  const uniqueCities = Array.from(new Set(centers.map((c) => c.city || "Bengaluru")));
+  const uniqueLocalities = Array.from(new Set(centers.map((c) => c.locality).filter(Boolean)));
 
   const getMapIframeSrc = (center: any) => {
     if (!center) return "";
@@ -175,8 +204,40 @@ export default function CentersPage() {
     return `https://maps.google.com/maps?q=${encodeURIComponent(q)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
   };
 
+  // Build JSON-LD MedicalClinic & LocalBusiness schemas
+  const centersJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": centers.map((c) => ({
+      "@type": ["MedicalClinic", "LocalBusiness"],
+      "@id": `https://www.qxldiagnostics.com/centers#${c.slug || c.id}`,
+      "name": c.name,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": c.address,
+        "addressLocality": c.locality || "Bengaluru",
+        "addressRegion": "Karnataka",
+        "postalCode": c.pincode || "560060",
+        "addressCountry": "IN"
+      },
+      "telephone": c.phone || "+91 9964 639 639",
+      "openingHours": "Mo-Su 06:30-20:00",
+      "geo": c.lat && c.lng ? {
+        "@type": "GeoCoordinates",
+        "latitude": c.lat,
+        "longitude": c.lng
+      } : undefined,
+      "parentOrganization": {
+        "@type": "DiagnosticLab",
+        "name": "QXL Diagnostics Super Speciality Lab",
+        "url": "https://www.qxldiagnostics.com"
+      }
+    }))
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50/50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(centersJsonLd) }} />
+
       {/* Page Hero */}
       <section className="py-4 sm:py-8 bg-white border-b border-slate-100 flex-shrink-0">
         <div className="max-w-[1260px] mx-auto px-3 sm:px-6 w-full">
@@ -186,10 +247,10 @@ export default function CentersPage() {
                 Diagnostic Network
               </span>
               <h1 className="text-xl sm:text-3xl font-black text-[#0f2d5e] leading-tight">
-                Our Labs &amp; Collection Centres
+                QXL Diagnostic Labs &amp; Collection Centres
               </h1>
               <p className="text-slate-600 text-xs sm:text-sm font-medium max-w-xl">
-                Locate QXL Speciality Labs and local collection hubs across Bengaluru. Walk in or book home sample collection.
+                Locate QXL NABL-accredited laboratory hubs across Bengaluru. Search by 6-digit pincode, area, or GPS distance.
               </p>
             </div>
 
@@ -201,11 +262,11 @@ export default function CentersPage() {
                 className="inline-flex items-center gap-2 bg-[#D69A18] hover:bg-[#b88313] text-white font-extrabold px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-sm active:scale-95 transition-all cursor-pointer"
               >
                 <Compass className={`w-4 h-4 ${locating ? 'animate-spin' : ''}`} />
-                <span>{locating ? "Locating..." : "Find Closest Centre to Me"}</span>
+                <span>{locating ? "Locating..." : "Find Nearest Lab to Me"}</span>
               </button>
               {userCoords && (
                 <span className="text-[10.5px] text-emerald-700 font-extrabold bg-emerald-50 border border-emerald-200 rounded-lg px-2.5 py-1">
-                  ✓ GPS Active. Sorted by nearest location.
+                  ✓ GPS Active. Sorted by distance.
                 </span>
               )}
               {gpsError && (
@@ -226,31 +287,47 @@ export default function CentersPage() {
           <div className="lg:col-span-5 flex flex-col gap-4">
             
             {/* Search and Filters */}
-            <div className="bg-white p-3.5 rounded-2xl border border-slate-200 shadow-2xs space-y-2.5 text-left">
-              <div className="relative">
-                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D69A18]" />
-                <input
-                  type="text"
-                  placeholder="Search by center name, area or pincode..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#D69A18] focus:ring-1 focus:ring-[#D69A18]"
-                />
+            <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs space-y-3 text-left">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {/* Text search */}
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D69A18]" />
+                  <input
+                    type="text"
+                    placeholder="Search area or center..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#D69A18]"
+                  />
+                </div>
+
+                {/* Pincode search (6-digit) */}
+                <div className="relative">
+                  <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-emerald-600" />
+                  <input
+                    type="text"
+                    maxLength={6}
+                    placeholder="6-digit Pincode (e.g. 560060)"
+                    value={pincodeQuery}
+                    onChange={(e) => setPincodeQuery(e.target.value.replace(/\D/g, ''))}
+                    className="w-full pl-9 pr-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-emerald-600"
+                  />
+                </div>
               </div>
 
-              {/* City filter pills */}
+              {/* Locality filter pills */}
               <div className="flex flex-wrap gap-1.5 pt-1">
-                {["All Cities", ...uniqueCities].map((city) => (
+                {["All Localities", ...uniqueLocalities].map((loc) => (
                   <button
-                    key={city}
-                    onClick={() => setSelectedCity(city)}
+                    key={loc}
+                    onClick={() => setSelectedLocality(loc)}
                     className={`px-3 py-1 rounded-full text-[10.5px] font-extrabold transition-all cursor-pointer ${
-                      selectedCity === city
+                      selectedLocality === loc
                         ? "bg-[#D69A18] text-white shadow-2xs"
                         : "bg-slate-100 text-slate-600 hover:bg-amber-50 hover:text-[#D69A18]"
                     }`}
                   >
-                    {city}
+                    {loc}
                   </button>
                 ))}
               </div>
@@ -260,12 +337,13 @@ export default function CentersPage() {
             <div className="flex-1 overflow-y-auto space-y-3.5 max-h-[60vh] lg:max-h-[680px] pr-1">
               {filteredCenters.length === 0 ? (
                 <div className="bg-white p-6 rounded-2xl border border-slate-200 text-center text-slate-500 text-xs font-semibold">
-                  No diagnostic centres match your search criteria.
+                  No diagnostic centres match your search query or pincode.
                 </div>
               ) : (
                 filteredCenters.map((center, idx) => {
                   const isSelected = selectedCenter && selectedCenter.id === center.id;
                   const isClosest = userCoords && idx === 0;
+                  const open = isOpenNow(center.hours || "");
                   
                   return (
                     <div
@@ -275,23 +353,24 @@ export default function CentersPage() {
                         isSelected ? "border-[#D69A18] ring-2 ring-[#D69A18]/20" : "border-slate-200 hover:border-amber-300"
                       }`}
                     >
-                      {/* Nearest badge */}
-                      {isClosest && (
-                        <span className="absolute top-3.5 right-3.5 bg-emerald-600 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow-2xs uppercase tracking-wider">
-                          NEAREST
+                      {/* Open/Closed and Nearest badges */}
+                      <div className="flex items-center gap-2 absolute top-3.5 right-3.5">
+                        <span className={`text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
+                          open ? "bg-emerald-100 text-emerald-800 border border-emerald-300" : "bg-slate-100 text-slate-600"
+                        }`}>
+                          {open ? "● OPEN NOW" : "CLOSED NOW"}
                         </span>
-                      )}
+                        {isClosest && (
+                          <span className="bg-blue-600 text-white text-[9.5px] font-black px-2 py-0.5 rounded-full shadow-2xs uppercase tracking-wider">
+                            NEAREST
+                          </span>
+                        )}
+                      </div>
 
                       <div>
-                        <h3 className="font-black text-[#0f2d5e] text-xs sm:text-sm mb-1.5 flex items-start gap-1.5 pr-14 leading-tight group-hover:text-[#D69A18] transition-colors">
+                        <h3 className="font-black text-[#0f2d5e] text-xs sm:text-sm mb-1.5 flex items-start gap-1.5 pr-28 leading-tight group-hover:text-[#D69A18] transition-colors">
                           <Shield className="w-4 h-4 text-[#D69A18] shrink-0 mt-0.5" />
-                          {center.slug ? (
-                            <Link href={`/centers/${center.slug}`} className="hover:underline" onClick={(e) => e.stopPropagation()}>
-                              {center.name}
-                            </Link>
-                          ) : (
-                            <span>{center.name}</span>
-                          )}
+                          <span>{center.name}</span>
                         </h3>
 
                         {/* Distance info */}
@@ -346,7 +425,6 @@ export default function CentersPage() {
           <div className="lg:col-span-7 h-[360px] sm:h-[480px] lg:h-[760px] flex flex-col text-left">
             {selectedCenter ? (
               <div className="bg-white rounded-2xl sm:rounded-3xl p-3 border border-slate-200 shadow-sm flex flex-col h-full overflow-hidden">
-                {/* Map header */}
                 <div className="bg-[#FFFBF0] border-b border-[#F3DBA7] p-3 px-4 rounded-t-xl sm:rounded-t-2xl flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2 min-w-0">
                     <MapPin className="w-4 h-4 text-[#D69A18] shrink-0" />
@@ -366,7 +444,6 @@ export default function CentersPage() {
                   </a>
                 </div>
 
-                {/* Embedded Map iframe */}
                 <div className="flex-1 w-full bg-slate-100 relative rounded-b-xl sm:rounded-b-2xl overflow-hidden mt-2">
                   <iframe
                     src={getMapIframeSrc(selectedCenter)}

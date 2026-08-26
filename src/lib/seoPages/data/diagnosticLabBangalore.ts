@@ -4,16 +4,16 @@ export const diagnosticLabBangalore: SeoLandingData = {
   slug: "/diagnostic-lab-bangalore",
   breadcrumbLabel: "Diagnostic Lab Bangalore",
   pageType: "service",
-  heroBadge: "NABL Accredited Laboratory (MC-6849) | ISO 15189:2022",
+  heroBadge: "NABL Accredited Laboratory (MC-10025) | ISO 15189:2022",
   h1Lead: "Diagnostic Lab in Bangalore —",
   h1Highlight: "Doctor-Led, NABL Accredited, Trusted by Bengaluru",
   heroIntro:
     "QXL Diagnostics is a super-speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection across the city, and same-day digital reports for most routine investigations — every report reviewed under specialist medical supervision.",
   aiOverviewTitle: "Why choose QXL Diagnostics?",
   aiOverview:
-    "QXL Diagnostics is a doctor-led, NABL-accredited (MC-6849) super-speciality diagnostic lab in Bangalore following ISO 15189:2022 quality standards. Founded by Clinical Biochemist Dr. Shantakumar Muruda, QXL combines advanced automation, molecular diagnostics and consultant-reviewed reporting with free home sample collection across Bengaluru.",
+    "QXL Diagnostics is a doctor-led, NABL-accredited (MC-10025) super-speciality diagnostic lab in Bangalore following ISO 15189:2022 quality standards. Founded by Clinical Biochemist Dr. Shantakumar Muruda, QXL combines advanced automation, molecular diagnostics and consultant-reviewed reporting with free home sample collection across Bengaluru.",
   aiOverviewPoints: [
-    "NABL Accreditation: MC-6849",
+    "NABL Accreditation: MC-10025",
     "ISO 15189:2022 Quality Standards",
     "300+ Tests & Health Packages",
     "Free Home Collection Across Bengaluru",
@@ -22,7 +22,7 @@ export const diagnosticLabBangalore: SeoLandingData = {
     {
       icon: "award",
       title: "NABL Accredited Quality",
-      desc: "Accredited under NABL certificate MC-6849 and operating to ISO 15189:2022 medical laboratory standards with daily internal and external quality control.",
+      desc: "Accredited under NABL certificate MC-10025 and operating to ISO 15189:2022 medical laboratory standards with daily internal and external quality control.",
     },
     {
       icon: "userCheck",
@@ -120,7 +120,7 @@ export const diagnosticLabBangalore: SeoLandingData = {
   faqs: [
     {
       q: "Which is the best NABL accredited diagnostic lab in Bangalore?",
-      a: "QXL Diagnostics is a NABL-accredited (certificate MC-6849) super-speciality diagnostic laboratory in Bengaluru operating to ISO 15189:2022 standards, offering 300+ tests, free home sample collection and doctor-reviewed reports. The best lab for you should combine accreditation, test range and convenient sample collection — QXL offers all three.",
+      a: "QXL Diagnostics is a NABL-accredited (certificate MC-10025) super-speciality diagnostic laboratory in Bengaluru operating to ISO 15189:2022 standards, offering 300+ tests, free home sample collection and doctor-reviewed reports. The best lab for you should combine accreditation, test range and convenient sample collection — QXL offers all three.",
     },
     {
       q: "Where is QXL Diagnostics located in Bangalore?",

@@ -15,7 +15,7 @@ export const fullBodyCheckupBangalore: SeoLandingData = {
   aiOverviewPoints: [
     "70+ Parameters in Comprehensive Panels",
     "Free Home Collection Across Bengaluru",
-    "NABL-Accredited Laboratory (MC-6849)",
+    "NABL-Accredited Laboratory (MC-10025)",
     "Specialist-Reviewed Digital Reports",
   ],
   highlights: [
@@ -127,7 +127,7 @@ export const fullBodyCheckupBangalore: SeoLandingData = {
   faqs: [
     {
       q: "Which is the best full body checkup in Bangalore?",
-      a: "The best full body checkup is one that matches your age, risk factors and family history, performed at an accredited lab. QXL Diagnostics offers doctor-curated full body panels at our NABL-accredited (MC-6849) Bengaluru laboratory with free home collection and same-day reports — call +91 9964 639 639 and we'll help you choose without overselling.",
+      a: "The best full body checkup is one that matches your age, risk factors and family history, performed at an accredited lab. QXL Diagnostics offers doctor-curated full body panels at our NABL-accredited (MC-10025) Bengaluru laboratory with free home collection and same-day reports — call +91 9964 639 639 and we'll help you choose without overselling.",
     },
     {
       q: "How many parameters are tested in a full body checkup?",

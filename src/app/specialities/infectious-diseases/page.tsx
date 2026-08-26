@@ -4,7 +4,7 @@ import SpecialityContent from "./SpecialityContent";
 
 const TITLE = "Infectious Disease Testing: Serology & Molecular PCR Bengaluru";
 const DESCRIPTION =
-  "Rapid multiplex PCR assays, automated culture systems, and sensitive serology panels for precise viral, bacterial, and parasitic identification — NABL-certified lab in Bengaluru.";
+  "Rapid multiplex PCR assays, automated culture systems, and sensitive serology panels for precise viral, bacterial, and parasitic identification — NABL-accredited lab in Bengaluru.";
 
 export const metadata: Metadata = {
   title: TITLE,

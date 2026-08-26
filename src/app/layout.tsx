@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: "https://qxldiagnostics.com",
   },
   description:
-    "QXL Diagnostics — NABL-accredited super speciality diagnostic lab in Bengaluru (MC-6849). 300+ tests, home collection, same-day reports. Book now.",
+    "QXL Diagnostics — NABL-accredited super speciality diagnostic lab in Bengaluru (MC-10025). 300+ tests, home collection, same-day reports. Book now.",
   manifest: "/manifest.json",
   authors: [{ name: "QXL Diagnostics" }],
   creator: "QXL Diagnostics",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "QXL Diagnostics",
     title: "QXL Diagnostics | NABL Accredited Diagnostic Lab Bengaluru",
     description:
-      "Advanced diagnostic testing in Bengaluru. NABL accredited (MC-6849), home collection, 300+ tests, same-day digital reports. Book now at +91 9964 639 639.",
+      "Advanced diagnostic testing in Bengaluru. NABL accredited (MC-10025), home collection, 300+ tests, same-day digital reports. Book now at +91 9964 639 639.",
     images: [
       {
         url: "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
@@ -74,18 +74,42 @@ export const metadata: Metadata = {
 // JSON-LD Structured Data
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "MedicalClinic",
+  "@type": ["DiagnosticLab", "LocalBusiness"],
+  "@id": "https://qxldiagnostics.com/#lab",
   name: "QXL Diagnostics Super Speciality Lab",
-  alternateName: "QXL Diagnostics",
+  legalName: "Qualitify Healthtech Pvt Ltd",
+  alternateName: ["QXL Diagnostics", "QXL Diagnostics Bengaluru", "QXL Diagnostics Bangalore"],
   description:
-    "NABL accredited diagnostic super speciality lab in Bengaluru offering 300+ tests, home sample collection, and same-day digital reports.",
+    "NABL-accredited (MC-10025) doctor-led super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, and same-day digital reports.",
   url: "https://qxldiagnostics.com",
   telephone: "+91-9964-639639",
-  email: "qxldiagnostics@gmail.com",
+  email: "info@qxldiagnostics.com",
   logo: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
+  image: "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
+  hasCredential: {
+    "@type": "EducationalOccupationalCredential",
+    credentialCategory: "Laboratory Accreditation",
+    name: "NABL Accreditation Certificate MC-10025",
+    description: "ISO 15189:2022 accreditation from National Accreditation Board for Testing and Calibration Laboratories (NABL), Government of India",
+    recognizedBy: {
+      "@type": "Organization",
+      name: "NABL — National Accreditation Board for Testing and Calibration Laboratories",
+      url: "https://www.nabl-india.org"
+    }
+  },
+  sameAs: [
+    "https://www.facebook.com/qxldiagnostics",
+    "https://www.linkedin.com/company/qxl-diagnostics",
+    "https://twitter.com/qxldiagnostics",
+    "https://www.instagram.com/qxldiagnostics",
+    "https://www.practo.com/bangalore/diagnostic-centre/qxl-diagnostics",
+    "https://www.justdial.com/Bangalore/QXL-Diagnostics",
+    "https://maps.google.com/?q=QXL+Diagnostics+Kengeri+Bengaluru"
+  ],
   medicalSpecialty: [
-    "Neurology", "Hematology", "Cardiology", "Urology", "Endocrinology",
-    "Oncology", "Infectious Disease", "Women's Health", "Gastroenterology", "Bone Disorders"
+    "Pathology", "Clinical Biochemistry", "Microbiology", "Histopathology",
+    "Haematology", "Molecular Diagnostics", "Immunology", "Cytopathology",
+    "Oncology Biomarkers", "Autoimmune Diagnostics", "Reproductive Endocrinology"
   ],
   openingHoursSpecification: [
     {
@@ -113,6 +137,11 @@ const localBusinessSchema = {
     "@type": "GeoCoordinates",
     latitude: 12.9113827,
     longitude: 77.4850301,
+  },
+  areaServed: {
+    "@type": "GeoCircle",
+    geoMidpoint: { "@type": "GeoCoordinates", latitude: 12.9716, longitude: 77.5946 },
+    geoRadius: "30000"
   },
   priceRange: "₹₹",
   aggregateRating: {
@@ -270,20 +299,43 @@ const organizationSchema = {
   "@type": "Organization",
   "@id": "https://qxldiagnostics.com/#organization",
   "name": "QXL Diagnostics",
+  "legalName": "Qualitify Healthtech Pvt Ltd",
   "url": "https://qxldiagnostics.com",
   "logo": "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   "sameAs": [
     "https://www.facebook.com/qxldiagnostics",
     "https://www.linkedin.com/company/qxl-diagnostics",
     "https://twitter.com/qxldiagnostics",
-    "https://www.instagram.com/qxldiagnostics"
+    "https://www.instagram.com/qxldiagnostics",
+    "https://www.practo.com/bangalore/diagnostic-centre/qxl-diagnostics",
+    "https://www.justdial.com/Bangalore/QXL-Diagnostics",
+    "https://maps.google.com/?q=QXL+Diagnostics+Kengeri+Bengaluru"
   ],
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+91-9964-639639",
     "contactType": "customer service",
     "areaServed": "IN",
-    "availableLanguage": ["en", "hi", "kn"]
+    "availableLanguage": ["en", "hi", "kn", "ta", "te", "ml"]
+  }
+};
+
+// Speakable Schema — marks key content blocks for AI voice assistants & AI search
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://qxldiagnostics.com",
+  "name": "QXL Diagnostics — NABL Accredited Super Speciality Lab Bengaluru",
+  "description": "NABL-accredited (MC-10025) diagnostic laboratory in Bengaluru. Free home collection, 300+ tests, same-day reports.",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1", "[data-speakable]", ".clinical-overview", ".when-to-test", ".faq-item"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://qxldiagnostics.com/#organization"
   }
 };
 
@@ -473,6 +525,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
         />
         <script
           type="application/ld+json"

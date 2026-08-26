@@ -957,9 +957,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* SEO H1 Tag - Visually Hidden */}
-      <h1 className="sr-only">Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</h1>
-      <p className="sr-only">Advanced blood tests, pathology, speciality diagnostics and home sample collection across Bengaluru.</p>
+      {/* Evergreen SEO H1 — never change this to a campaign/festive title */}
+      <h1 className="sr-only">NABL-Accredited Diagnostic Lab in Bengaluru — Home Collection &amp; Same-Day Reports</h1>
+      <p className="sr-only">Doctor-led NABL-accredited super-speciality diagnostic laboratory. Advanced blood tests, histopathology, molecular diagnostics and free home sample collection across Bengaluru.</p>
 
       {/* ── DESKTOP VIEW (hidden lg:flex) ── */}
       <div className="hidden lg:flex flex-col w-full">
@@ -2033,7 +2033,7 @@ export default function Home() {
 
               <div className="pt-2 text-xs text-slate-500 flex items-center gap-4 font-semibold">
                 <span>🏠 Free Home Collection</span>
-                <span>📋 NABL Accredited (MC-6849)</span>
+                <span>📋 NABL Accredited (MC-10025)</span>
               </div>
             </div>
 

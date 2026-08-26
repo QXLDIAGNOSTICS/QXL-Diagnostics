@@ -6,9 +6,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: "Quality & NABL Accreditation (MC-6849) | QXL Diagnostics",
+  title: "Quality & NABL Accreditation (MC-10025) | QXL Diagnostics",
   description: "Official QXL Diagnostics Quality & NABL Accreditation documentation. ISO 15189:2022 standards, Internal Quality Control (IQC), External Quality Assessment Schemes (EQAS), and critical value protocols.",
-  keywords: ["NABL accredited lab bangalore", "MC-6849", "ISO 15189 laboratory", "quality control diagnostic lab", "QXL accreditation"],
+  keywords: ["NABL accredited lab bangalore", "MC-10025", "ISO 15189 laboratory", "quality control diagnostic lab", "QXL accreditation"],
   alternates: {
     canonical: "https://qxldiagnostics.com/quality-and-accreditation",
   },
@@ -24,13 +24,13 @@ export default function QualityAccreditationPage() {
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-amber-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
             <Award className="w-4 h-4 text-amber-300" />
-            NABL Accreditation MC-6849
+            NABL Accreditation MC-10025
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
             Quality Assurance & NABL Accreditation
           </h1>
           <p className="text-blue-100 text-base max-w-3xl mt-3 leading-relaxed">
-            QXL Diagnostics operates strictly under NABL Accreditation (Certificate No. MC-6849) adhering to ISO 15189:2022 standards for medical laboratories, ensuring high analytical accuracy, traceability, and patient safety.
+            QXL Diagnostics operates strictly under NABL Accreditation (Certificate No. MC-10025) adhering to ISO 15189:2022 standards for medical laboratories, ensuring high analytical accuracy, traceability, and patient safety.
           </p>
         </div>
       </section>
@@ -42,7 +42,7 @@ export default function QualityAccreditationPage() {
             <ShieldCheck className="w-8 h-8 text-blue-600 mb-2" />
             <h3 className="font-bold text-slate-900 text-base">NABL Accreditation</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Formally accredited by National Accreditation Board for Testing and Calibration Laboratories (NABL) under Certificate MC-6849.
+              Formally accredited by National Accreditation Board for Testing and Calibration Laboratories (NABL) under Certificate MC-10025.
             </p>
           </div>
 

@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone, CheckCircle2, ShieldCheck, Activity, Clock, ArrowRight } from "lucide-react";
+import { Phone, CheckCircle2, ShieldCheck, Activity, Clock, ArrowRight, Beaker, Calendar } from "lucide-react";
 import { getDynamicPageData } from "@/lib/seoPages/dynamicPageResolver";
-import { PHONE_DISPLAY, WHATSAPP_LINK, NABL_CERTIFICATE, ISO_STANDARD } from "@/lib/businessInfo";
+import { PHONE_DISPLAY, WHATSAPP_LINK, NABL_CERTIFICATE, ISO_STANDARD, SITE_URL } from "@/lib/businessInfo";
+import { getTestInternalLinks } from "@/lib/seo/internalLinks";
 
 import MedicalReviewerBadge from "@/components/MedicalReviewerBadge";
+import ReferenceRangesTable from "@/components/ReferenceRangesTable";
+import RelatedTestsGrid from "@/components/RelatedTestsGrid";
+import DoctorInterpretationNote from "@/components/DoctorInterpretationNote";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -70,20 +74,38 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const pageData = getDynamicPageData(slug);
+  const links = getTestInternalLinks(slug);
+  const canonical = `${SITE_URL}/tests/${slug}`;
 
   return {
     title: pageData.title,
     description: pageData.metaDescription,
-    alternates: {
-      canonical: `https://qxldiagnostics.com/tests/${slug}`,
+    alternates: { canonical },
+    // ── Medical review meta — signals authority to AI crawlers ───────────────
+    other: {
+      "medical-reviewed-by": links?.doctorName ?? pageData.doctorName ?? "Dr. Shantakumar Muruda",
+      "medical-reviewer-credentials": links?.doctorQuals ?? pageData.doctorQuals ?? "MD Biochemistry",
+      "medical-review-date": "2026-08-01",
+      "medical-specialty": pageData.category,
+      "nabl-accreditation": NABL_CERTIFICATE,
+      "lab-iso-standard": ISO_STANDARD,
     },
     openGraph: {
       title: pageData.title,
       description: pageData.metaDescription,
-      url: `https://qxldiagnostics.com/tests/${slug}`,
+      url: canonical,
+      siteName: "QXL Diagnostics",
       locale: "en_IN",
       type: "website",
     },
+    keywords: [
+      pageData.h1Title,
+      `${pageData.category} Bangalore`,
+      "NABL accredited lab Bangalore",
+      "home blood collection Bangalore",
+      "QXL Diagnostics",
+      "blood test Bengaluru",
+    ],
   };
 }
 
@@ -91,45 +113,155 @@ export default async function TestPage({ params }: Props) {
   const { slug } = await params;
   const data = getDynamicPageData(slug);
 
+  // Merge data-layer internal links with resolver data
+  const links = getTestInternalLinks(slug);
+  const relatedTests = data.relatedTests ?? links?.relatedTests ?? [];
+  const doctorSlug = data.doctorSlug ?? links?.doctorSlug ?? "dr-shantakumar-muruda";
+  const doctorName = data.doctorName ?? links?.doctorName ?? "Dr. Shantakumar Muruda";
+  const doctorQuals = data.doctorQuals ?? links?.doctorQuals ?? "MD Biochemistry";
+
+  // ── JSON-LD Structured Data (SSR — directly readable by AI crawlers) ────────
   const jsonLdSchema = {
     "@context": "https://schema.org",
     "@type": "MedicalTest",
     "name": data.h1Title,
     "description": data.metaDescription,
-    "url": `https://qxldiagnostics.com/tests/${slug}`,
+    "url": `${SITE_URL}/tests/${slug}`,
+    "usesDevice": { "@type": "MedicalDevice", "name": "Automated Clinical Analyser — NABL Accredited" },
+    "normalRange": data.referenceRanges
+      ? data.referenceRanges.filter(r => r.interpretation === "normal").map(r => ({
+          "@type": "MedicalIntangible",
+          "name": r.label,
+          "description": `${r.range} ${r.unit}`
+        }))
+      : undefined,
+    "preparation": data.fastingRequired,
+    "relevantSpecialty": { "@type": "MedicalSpecialty", "name": data.category },
+    "study": { "@type": "MedicalStudy", "status": "Completed" },
     "provider": {
       "@type": "DiagnosticLab",
       "name": "QXL Diagnostics",
-      "url": "https://qxldiagnostics.com"
+      "alternateName": ["QXL Diagnostics Super Speciality Lab", "Qualitify Healthtech"],
+      "url": SITE_URL,
+      "telephone": "+919964639639",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3rd Floor, SLN Complex, Mysore Road, Kengeri",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "postalCode": "560060",
+        "addressCountry": "IN"
+      },
+      "medicalSpecialty": ["Pathology", "Clinical Biochemistry", "Microbiology", "Histopathology"],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "name": `NABL Accreditation ${NABL_CERTIFICATE}`,
+        "credentialCategory": "ISO 15189:2022 Medical Laboratory"
+      }
+    },
+    "reviewedBy": {
+      "@type": "Person",
+      "name": doctorName,
+      "jobTitle": doctorQuals,
+      "worksFor": { "@type": "Organization", "name": "QXL Diagnostics" }
     }
   };
 
-  return (
-    <div className="bg-[#f8fafc] min-h-screen pb-20">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
-      />
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": data.faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
 
-      {/* Hero Header */}
-      <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-12 lg:py-16 border-b border-sky-900">
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+      { "@type": "ListItem", "position": 2, "name": "Tests", "item": `${SITE_URL}/tests` },
+      { "@type": "ListItem", "position": 3, "name": data.h1Title, "item": `${SITE_URL}/tests/${slug}` }
+    ]
+  };
+
+  return (
+    <div className="bg-[#f8fafc] min-h-screen pb-24">
+      {/* ── Structured Data (SSR — AI + Google can read these directly) ────── */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      {/* ── Breadcrumb ─────────────────────────────────────────────────────── */}
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-slate-100 px-4 py-2.5">
+        <div className="max-w-[1260px] mx-auto">
+          <ol className="flex items-center gap-1.5 text-[11px] text-slate-500 font-medium flex-wrap">
+            <li><Link href="/" className="hover:text-[#2563eb] transition-colors">Home</Link></li>
+            <li className="text-slate-300">/</li>
+            <li><Link href="/tests" className="hover:text-[#2563eb] transition-colors">Tests</Link></li>
+            <li className="text-slate-300">/</li>
+            {links?.speciality && (
+              <>
+                <li>
+                  <Link href={`/specialities/${links.speciality}`} className="hover:text-[#2563eb] transition-colors capitalize">
+                    {links.speciality.replace(/-/g, ' ')}
+                  </Link>
+                </li>
+                <li className="text-slate-300">/</li>
+              </>
+            )}
+            <li className="text-slate-700 font-semibold truncate max-w-[200px]">{data.h1Title}</li>
+          </ol>
+        </div>
+      </nav>
+
+      {/* ── Hero ────────────────────────────────────────────────────────────── */}
+      <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-10 lg:py-14 border-b border-sky-900">
         <div className="max-w-[1260px] mx-auto px-4 w-full">
           <div className="max-w-3xl">
             <span className="inline-block bg-[#FF9933] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">
               {data.badge}
             </span>
-            <h1 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight !text-white drop-shadow-sm" style={{ color: '#ffffff' }}>
+
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight !text-white drop-shadow-sm" style={{ color: '#ffffff' }}>
               {data.h1Title}
             </h1>
-            <p className="text-blue-100 text-base max-w-3xl leading-relaxed">
+
+            {/* ── Direct Answer Block (AI-extractable) ──────────────────────── */}
+            <p className="text-blue-100 text-sm md:text-base max-w-3xl leading-relaxed mb-3">
               {data.subtitle}
             </p>
 
-            <div className="pt-2">
-              <MedicalReviewerBadge />
+            {/* ── Key Stats Bar (SSR inline — no JS required for crawlers) ──── */}
+            <div className="flex flex-wrap gap-3 mb-5 text-xs font-bold">
+              <span className="flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-white/90">
+                <Beaker className="w-3.5 h-3.5 text-sky-300" />
+                {data.parametersCount}
+              </span>
+              <span className="flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-white/90">
+                <Clock className="w-3.5 h-3.5 text-sky-300" />
+                {data.turnaroundTime}
+              </span>
+              <span className="flex items-center gap-1.5 bg-white/10 border border-white/20 rounded-full px-3 py-1.5 text-white/90">
+                <Activity className="w-3.5 h-3.5 text-sky-300" />
+                {data.sampleType}
+              </span>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 mt-6">
+            <div className="pt-1">
+              <MedicalReviewerBadge
+                doctorName={doctorName}
+                qualifications={doctorQuals}
+                reviewDate="August 2026"
+              />
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 mt-5">
               <Link
                 href={`/book?package=${encodeURIComponent(data.h1Title)}`}
                 className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-extrabold px-8 py-3.5 rounded-full transition-all shadow-lg text-sm uppercase tracking-wide flex items-center gap-2"
@@ -149,15 +281,34 @@ export default async function TestPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="py-12">
-        <div className="max-w-[1260px] mx-auto px-4 w-full flex flex-col lg:flex-row gap-10">
-          
-          {/* Main Body */}
-          <div className="flex-1 space-y-8">
-            
-            {/* Quick Test Overview Card */}
-            <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 pb-6 mb-6">
+      {/* ── Trust Bar (SSR — always visible without JS) ──────────────────────── */}
+      <div className="bg-white border-b border-slate-100 py-3">
+        <div className="max-w-[1260px] mx-auto px-4 flex flex-wrap items-center gap-4 justify-center sm:justify-start">
+          <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
+            <ShieldCheck className="w-3.5 h-3.5" /> NABL Accredited ({NABL_CERTIFICATE})
+          </span>
+          <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-sky-700 bg-sky-50 px-3 py-1.5 rounded-full border border-sky-200">
+            <Activity className="w-3.5 h-3.5" /> Free Home Collection
+          </span>
+          <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-purple-700 bg-purple-50 px-3 py-1.5 rounded-full border border-purple-200">
+            <Clock className="w-3.5 h-3.5" /> Same-Day Reports on WhatsApp
+          </span>
+          <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> Doctor-Reviewed Results
+          </span>
+        </div>
+      </div>
+
+      {/* ── Main Body ─────────────────────────────────────────────────────────── */}
+      <section className="py-10">
+        <div className="max-w-[1260px] mx-auto px-4 w-full flex flex-col lg:flex-row gap-8">
+
+          {/* Left Main Content */}
+          <div className="flex-1 space-y-6">
+
+            {/* ── Quick Overview Card ──────────────────────────────────────── */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-gray-100 pb-5 mb-5">
                 <div>
                   <span className="text-xs text-slate-500 font-bold uppercase tracking-wider">Test Category</span>
                   <p className="text-lg font-black text-[#0f2d5e]">{data.category}</p>
@@ -170,32 +321,56 @@ export default async function TestPage({ params }: Props) {
               </div>
 
               <div className="grid sm:grid-cols-3 gap-4 mb-6">
-                <div className="bg-sky-50/70 p-4 rounded-2xl border border-sky-100">
-                  <span className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-wider block mb-1">Parameters Covered</span>
-                  <p className="font-bold text-slate-800 text-sm">{data.parametersCount}</p>
-                </div>
-                <div className="bg-sky-50/70 p-4 rounded-2xl border border-sky-100">
-                  <span className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-wider block mb-1">Sample Type</span>
-                  <p className="font-bold text-slate-800 text-sm">{data.sampleType}</p>
-                </div>
-                <div className="bg-sky-50/70 p-4 rounded-2xl border border-sky-100">
-                  <span className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-wider block mb-1">Report Delivery</span>
-                  <p className="font-bold text-slate-800 text-sm">{data.turnaroundTime}</p>
-                </div>
+                {[
+                  { label: "Parameters Covered", value: data.parametersCount },
+                  { label: "Sample Type", value: data.sampleType },
+                  { label: "Report Delivery", value: data.turnaroundTime },
+                ].map(item => (
+                  <div key={item.label} className="bg-sky-50/70 p-4 rounded-2xl border border-sky-100">
+                    <span className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-wider block mb-1">{item.label}</span>
+                    <p className="font-bold text-slate-800 text-sm">{item.value}</p>
+                  </div>
+                ))}
               </div>
 
-              <h2 className="text-xl font-extrabold text-[#0f2d5e] mb-3">Preparation &amp; Fasting Guidelines</h2>
-              <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-amber-900 text-xs font-semibold leading-relaxed mb-6">
+              {/* Fasting / Preparation — Direct Answer Block */}
+              <h2 className="text-xl font-extrabold text-[#0f2d5e] mb-3">Preparation &amp; Fasting Instructions</h2>
+              <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-amber-900 text-sm font-semibold leading-relaxed mb-6">
                 💡 <strong>Instructions:</strong> {data.fastingRequired}
               </div>
 
+              {/* When to Get This Test — Symptom chips (AI-extractable) */}
+              {data.whenToTest && data.whenToTest.length > 0 && (
+                <>
+                  <h2 className="text-xl font-extrabold text-[#0f2d5e] mb-3">When Should You Get This Test?</h2>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {data.whenToTest.map(indication => (
+                      <span key={indication} className="flex items-center gap-1.5 bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full">
+                        <Calendar className="w-3 h-3 text-[#2563eb]" />
+                        {indication}
+                      </span>
+                    ))}
+                  </div>
+                </>
+              )}
+
+              {/* Clinical Overview — AI-extractable paragraphs */}
               <h2 className="text-xl font-extrabold text-[#0f2d5e] mb-3">Clinical Overview</h2>
-              <div className="space-y-3 text-slate-600 text-sm leading-relaxed mb-6">
+              <div className="space-y-3 text-slate-600 text-sm leading-relaxed mb-4">
                 {data.overview.map((p, idx) => (
                   <p key={idx}>{p}</p>
                 ))}
               </div>
 
+              {/* Clinical Significance — deep-dive paragraph for AI answer extraction */}
+              {data.clinicalSignificance && (
+                <div className="bg-sky-50/60 border border-sky-100 rounded-2xl p-5 mb-6">
+                  <h2 className="text-base font-extrabold text-[#0f2d5e] mb-2">Clinical Significance</h2>
+                  <p className="text-slate-700 text-sm leading-relaxed">{data.clinicalSignificance}</p>
+                </div>
+              )}
+
+              {/* Why Important */}
               <h2 className="text-xl font-extrabold text-[#0f2d5e] mb-3">Why Get Tested at QXL Diagnostics?</h2>
               <div className="space-y-2.5">
                 {data.whyImportant.map((item, idx) => (
@@ -207,9 +382,17 @@ export default async function TestPage({ params }: Props) {
               </div>
             </div>
 
-            {/* FAQs */}
-            <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm">
-              <h2 className="text-xl font-extrabold text-[#0f2d5e] mb-6">Frequently Asked Questions</h2>
+            {/* ── Reference Ranges Table ───────────────────────────────────── */}
+            {data.referenceRanges && data.referenceRanges.length > 0 && (
+              <ReferenceRangesTable
+                ranges={data.referenceRanges}
+                testName={data.h1Title}
+              />
+            )}
+
+            {/* ── FAQs — structured for FAQPage schema ─────────────────────── */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+              <h2 className="text-xl font-extrabold text-[#0f2d5e] mb-5">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 {data.faqs.map((faq, idx) => (
                   <div key={idx} className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
@@ -220,40 +403,78 @@ export default async function TestPage({ params }: Props) {
               </div>
             </div>
 
+            {/* ── Related Tests Grid ───────────────────────────────────────── */}
+            {relatedTests.length > 0 && (
+              <RelatedTestsGrid tests={relatedTests} />
+            )}
+
           </div>
 
-          {/* Sidebar */}
-          <div className="w-full lg:w-[360px] space-y-6">
-            <div className="bg-[#0f2d5e] text-white rounded-3xl p-7 shadow-xl relative overflow-hidden">
-              <h3 className="text-lg font-extrabold mb-4 border-b border-white/10 pb-4">NABL Quality Guarantees</h3>
-              
-              <div className="space-y-4 text-xs font-semibold">
+          {/* ── Sidebar ────────────────────────────────────────────────────── */}
+          <div className="w-full lg:w-[360px] space-y-5">
+
+            {/* Price + Book CTA Card */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-sm">
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="text-3xl font-black text-emerald-600">₹{data.price}</span>
+                <span className="text-sm text-slate-400 line-through">₹{data.oldPrice}</span>
+                <span className="text-xs bg-emerald-100 text-emerald-800 font-black px-2 py-0.5 rounded-full">{data.discountPercent}</span>
+              </div>
+              <p className="text-xs text-slate-500 font-medium mb-4">Includes free home sample collection</p>
+              <Link
+                href={`/book?package=${encodeURIComponent(data.h1Title)}`}
+                className="w-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-extrabold py-3.5 rounded-2xl text-center block text-sm uppercase tracking-wider shadow-md transition-all"
+              >
+                Book Home Collection →
+              </Link>
+              <a
+                href={`tel:${PHONE_DISPLAY}`}
+                className="block text-center text-xs text-slate-500 font-bold mt-3 hover:text-[#2563eb] transition-colors"
+              >
+                Or call: {PHONE_DISPLAY}
+              </a>
+            </div>
+
+            {/* Doctor Interpretation Note */}
+            {data.doctorNote && (
+              <DoctorInterpretationNote
+                doctorName={doctorName}
+                doctorSlug={doctorSlug}
+                qualifications={doctorQuals}
+                specialty={data.category}
+                note={data.doctorNote}
+                reviewDate="August 2026"
+              />
+            )}
+
+            {/* NABL Quality Card */}
+            <div className="bg-[#0f2d5e] text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-28 h-28 bg-[#2563eb]/20 rounded-full blur-2xl" />
+              <h3 className="text-base font-extrabold mb-4 border-b border-white/10 pb-3 relative z-10">NABL Quality Guarantees</h3>
+              <div className="space-y-4 text-xs font-semibold relative z-10">
                 <div className="flex items-start gap-3">
                   <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
-                    <p className="font-extrabold text-white text-sm">NABL Accredited (MC-6849)</p>
+                    <p className="font-extrabold text-white text-sm">NABL Accredited ({NABL_CERTIFICATE})</p>
                     <p className="text-sky-200 mt-0.5">{ISO_STANDARD} quality compliance</p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
                     <p className="font-extrabold text-white text-sm">Same-Day WhatsApp Reports</p>
-                    <p className="text-sky-200 mt-0.5">Fast digital PDF delivered within 6 to 12 hours</p>
+                    <p className="text-sky-200 mt-0.5">Digital PDF within 6–12 hours</p>
                   </div>
                 </div>
-
                 <div className="flex items-start gap-3">
                   <Activity className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
                     <p className="font-extrabold text-white text-sm">Free Home Sample Collection</p>
-                    <p className="text-sky-200 mt-0.5">Sterile vacuum tubes &amp; cold-chain transport</p>
+                    <p className="text-sky-200 mt-0.5">Sterile vacuum tubes · Cold-chain transport</p>
                   </div>
                 </div>
               </div>
-
-              <div className="mt-8 pt-6 border-t border-white/10">
+              <div className="mt-6 pt-5 border-t border-white/10 relative z-10">
                 <Link
                   href={`/book?package=${encodeURIComponent(data.h1Title)}`}
                   className="w-full bg-[#2563eb] hover:bg-blue-600 text-white font-extrabold py-3 rounded-xl text-center block text-xs uppercase tracking-wider shadow-md"
@@ -261,14 +482,60 @@ export default async function TestPage({ params }: Props) {
                   Schedule Home Collection Now
                 </Link>
                 <a href={`tel:${PHONE_DISPLAY}`} className="block text-center text-xs text-sky-200 font-bold mt-3 hover:underline">
-                  Or Call Helpline: {PHONE_DISPLAY}
+                  Or Call: {PHONE_DISPLAY}
                 </a>
               </div>
             </div>
-          </div>
 
+            {/* Location Hub Links */}
+            <div className="bg-white border border-gray-200 rounded-3xl p-5 shadow-sm">
+              <h3 className="text-sm font-extrabold text-[#0f2d5e] mb-3">Home Collection Locations</h3>
+              <div className="grid grid-cols-2 gap-1.5 text-xs font-semibold text-[#2563eb]">
+                {["Kengeri", "RR Nagar", "Nagarabhavi", "Vijayanagar", "Yelahanka", "Rajajinagar"].map(area => (
+                  <Link
+                    key={area}
+                    href={`/locations/${area.toLowerCase().replace(/\s+/g, '-')}`}
+                    className="hover:underline flex items-center gap-1"
+                  >
+                    → {area}
+                  </Link>
+                ))}
+              </div>
+              <Link href="/locations" className="block text-center text-xs font-extrabold text-[#2563eb] mt-3 hover:underline">
+                View all 40+ Bengaluru areas →
+              </Link>
+            </div>
+
+          </div>
         </div>
       </section>
+
+      {/* ── Sticky Mobile Book CTA ───────────────────────────────────────────── */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-white border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] px-4 py-3 flex items-center gap-3">
+        <div className="flex-1 min-w-0">
+          <p className="text-[10px] text-slate-500 font-medium truncate">{data.h1Title}</p>
+          <div className="flex items-baseline gap-1.5">
+            <span className="text-lg font-black text-emerald-600">₹{data.price}</span>
+            <span className="text-[11px] text-slate-400 line-through">₹{data.oldPrice}</span>
+            <span className="text-[9px] bg-emerald-100 text-emerald-800 font-black px-1.5 py-0.5 rounded-full">{data.discountPercent}</span>
+          </div>
+        </div>
+        <Link
+          href={`/book?package=${encodeURIComponent(data.h1Title)}`}
+          className="flex-shrink-0 bg-[#2563eb] text-white font-extrabold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wide shadow-md active:scale-95 transition-transform"
+        >
+          Book Now →
+        </Link>
+        <a
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noreferrer"
+          className="flex-shrink-0 bg-emerald-600 text-white font-extrabold p-2.5 rounded-xl shadow-md active:scale-95 transition-transform"
+          aria-label="WhatsApp Booking"
+        >
+          <Phone className="w-4 h-4" />
+        </a>
+      </div>
     </div>
   );
 }

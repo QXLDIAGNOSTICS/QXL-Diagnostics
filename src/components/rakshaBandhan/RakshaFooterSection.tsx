@@ -98,9 +98,9 @@ export default function RakshaFooterSection() {
                 </a>
               </li>
               <li>
-                <a href="mailto:qxldiagnostics@gmail.com" className="flex items-center gap-1.5 hover:text-white">
-                  <Mail className="w-3.5 h-3.5 text-[#00A8A8]" />
-                  <span>qxldiagnostics@gmail.com</span>
+                <a href="mailto:info@qxldiagnostics.com" className="flex items-center gap-1.5 hover:text-white">
+                  <Mail className="w-3.5 h-3.5 text-[#D69A18]" />
+                  <span>info@qxldiagnostics.com</span>
                 </a>
               </li>
               <li>

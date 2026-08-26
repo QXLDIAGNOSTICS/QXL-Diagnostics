@@ -139,7 +139,7 @@ export default function HematologyPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Excellence", desc: "Rigorous internal and external quality control programs ensuring reliable blood metrics." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited Excellence", desc: "Rigorous internal and external quality control programs ensuring reliable blood metrics." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Consultant Pathologist Verification", desc: "Every blood smear flag is manually reviewed under microscopy by our experts." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "HPLC Gold Standard Testing", desc: "High-resolution liquid chromatography for accurate thalassemia trait mapping." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Safe & Painless Extraction", desc: "Certified phlebotomists trained in pediatric and geriatric blood draws at home." }

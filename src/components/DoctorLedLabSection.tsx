@@ -26,7 +26,7 @@ export default function DoctorLedLabSection() {
               Bengaluru's Doctor-Led Diagnostic Laboratory
             </h2>
             <p className="text-slate-700 text-base md:text-lg font-bold leading-relaxed mb-8">
-              QXL Diagnostics is a doctor-led, NABL-accredited (MC-6849) super-speciality diagnostic laboratory in Bengaluru, combining advanced laboratory technology, quality systems and specialist medical review for accurate, timely results.
+              QXL Diagnostics is a doctor-led, NABL-accredited (MC-10025) super-speciality diagnostic laboratory in Bengaluru, combining advanced laboratory technology, quality systems and specialist medical review for accurate, timely results.
             </p>
 
             {/* Department Grid */}
@@ -71,7 +71,7 @@ export default function DoctorLedLabSection() {
                   <Award className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="text-xs font-black text-[#2563eb] uppercase tracking-wider">NABL ACCREDITED (MC-6849)</div>
+                  <div className="text-xs font-black text-[#2563eb] uppercase tracking-wider">NABL ACCREDITED (MC-10025)</div>
                   <div className="text-sm font-extrabold text-[#0f2d5e]">Direct Doctor Verification for Every Report</div>
                 </div>
               </div>

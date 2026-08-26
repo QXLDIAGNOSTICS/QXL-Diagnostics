@@ -69,6 +69,9 @@ export default function DashboardPage() {
 
   return (
     <div className="bg-[#f8faff] min-h-screen">
+      <head>
+        <meta name="robots" content="noindex, follow" />
+      </head>
       <section className="bg-gradient-to-r from-[#e0f2fe] to-[#eff6ff] py-12 border-b border-gray-100">
         <div className="max-w-[1200px] mx-auto px-4 w-full">
           <h1 className="text-3xl md:text-4xl font-extrabold text-[#0f2d5e] mb-2">

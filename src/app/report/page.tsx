@@ -50,6 +50,9 @@ export default function ReportPage() {
 
   return (
     <div className="bg-[#f8faff] min-h-screen">
+      <head>
+        <meta name="robots" content="noindex, follow" />
+      </head>
       {/* ── MOBILE VIEW (lg:hidden) ── */}
       <div className="lg:hidden flex flex-col w-full pb-12">
         {/* Screen Header (Clean White Design without duplicate back button) */}

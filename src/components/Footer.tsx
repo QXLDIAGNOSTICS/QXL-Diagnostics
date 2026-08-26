@@ -39,7 +39,7 @@ export default function Footer() {
     logoText: "QXL",
     logoImage: FALLBACK_LOGO,
     contactPhone: "+91 9964 639 639",
-    supportEmail: "qxldiagnostics@gmail.com",
+    supportEmail: "info@qxldiagnostics.com",
     hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
     northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
     workingHours: "Open 24x7",
@@ -108,7 +108,7 @@ export default function Footer() {
         <div className="max-w-[1260px] mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div>
             <h3 className="text-white font-extrabold text-base sm:text-lg tracking-tight">Book a Test Today</h3>
-            <p className="text-white/50 text-xs font-medium mt-0.5">Free home sample collection · NABL certified · Same-day reports</p>
+            <p className="text-white/50 text-xs font-medium mt-0.5">Free home sample collection · NABL accredited · Same-day reports</p>
           </div>
           <div className="flex gap-2.5 flex-wrap justify-center">
             <a
@@ -164,7 +164,7 @@ export default function Footer() {
               >
                 <img
                   src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png"
-                  alt="NABL Accredited ISO Certified"
+                  alt="NABL Accredited ISO 15189"
                   width={120} height={60}
                   className="h-10 sm:h-12 max-w-full w-auto object-contain"
                 />

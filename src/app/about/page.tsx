@@ -241,7 +241,7 @@ export default function AboutPage() {
              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs flex flex-col items-center text-center space-y-2">
                <div className="w-10 h-10 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mb-1"><Mail className="text-[#D69A18] w-5 h-5" /></div>
                <h3 className="text-[#0f2d5e] font-extrabold text-xs">Email</h3>
-               <p className="text-slate-600 text-[11px] font-medium leading-snug">qxldiagnostics@gmail.com</p>
+               <p className="text-slate-600 text-[11px] font-medium leading-snug">info@qxldiagnostics.com</p>
              </div>
              <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-2xs flex flex-col items-center text-center space-y-2">
                <div className="w-10 h-10 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mb-1"><Phone className="text-[#D69A18] w-5 h-5" /></div>
