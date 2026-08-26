@@ -878,21 +878,8 @@ export default function Home() {
   // ── Happy Onam Campaign Poster Slides ─────────────────────
   // ── Package & Home Collection Hero Slides ────────────────────────────────
   const contentSlides = [
-    {
-      badge: "🌼 HAPPY ONAM SPECIAL CELEBRATION",
-      title: "HAPPY ONAM FESTIVE OFFER",
-      titleAccent: "80 ESSENTIAL PARAMETERS",
-      subtitle: "Celebrate Onam with complete blood profile, diabetes, heart, liver, kidney, thyroid & bone health screening.",
-      subtitleAccent: "Festive Campaign Price ₹800 (Worth ₹5,800)",
-      description: "Gift health to your loved ones with Bengaluru's premier doctor-led diagnostic laboratory.",
-      cta: "Book Onam Offer @ ₹800",
-      ctaLink: "/book?package=Happy+Onam+Festive+Offer",
-      ctaSecondary: "Call +91 9964 639 639",
-      ctaSecondaryLink: "tel:+919964639639",
-      noImage: true,
-      bgFrom: "#fff7ed", bgTo: "#f0fdf4",
-      features: ["Happy Onam Offer", "80 Parameters", "Free Home Collection", "Doctor Verified"],
-    },
+
+
     {
       badge: "DOCTOR-LED SUPER SPECIALITY LAB",
       title: "NABL ACCREDITED DIAGNOSTIC CARE",
@@ -1712,31 +1699,6 @@ export default function Home() {
               </Link>
             ))}
           </div>
-
-          {/* Happy Onam Festive Text Card */}
-          <Link href="/book?package=Happy+Onam+Festive+Offer" className="block w-full">
-            <div className="relative rounded-2xl overflow-hidden shadow-md border border-amber-200 bg-gradient-to-br from-[#FFF8EE] via-[#FFFDF5] to-[#FFF0D6] p-4">
-              {/* Kerala motif dots row */}
-              <div className="flex gap-1 mb-3">
-                {['#F97316','#FBBF24','#4ADE80','#34D399','#F97316','#FBBF24','#4ADE80'].map((c, i) => (
-                  <span key={i} className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: c }} />
-                ))}
-              </div>
-              <div className="flex items-center justify-between gap-3">
-                <div>
-                  <p className="text-[11px] font-black text-amber-600 uppercase tracking-widest mb-1">🌼 Festive Offer · Onam Special</p>
-                  <h3 className="text-[20px] font-black text-[#0f2d5e] leading-tight">Happy Onam!</h3>
-                  <p className="text-[12px] font-bold text-amber-700 mt-0.5">80 Health Parameters · Only ₹800</p>
-                  <p className="text-[11px] text-slate-500 font-medium mt-1">Free home collection · Doctor verified</p>
-                </div>
-                <div className="flex-shrink-0 text-center bg-[#0f2d5e] text-white rounded-xl px-3 py-2.5 shadow-md">
-                  <p className="text-[10px] font-bold uppercase tracking-wide opacity-80">Book Now</p>
-                  <p className="text-[18px] font-black leading-tight">₹800</p>
-                  <p className="text-[9px] font-semibold line-through opacity-60">₹5,800</p>
-                </div>
-              </div>
-            </div>
-          </Link>
 
 
           {/* Carousel dots */}
