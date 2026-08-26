@@ -702,29 +702,31 @@ export default function BookPage() {
                 </div>
               ) : (
                 <div className="space-y-6">
-                  {/* 5-Step Progress Header Bar */}
+                  {/* 6-Step Progress Header Bar */}
                   <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs">
                     <div className="flex items-center justify-between mb-3 px-1">
                       <span className="text-xs font-black text-[#0f2d5e] uppercase tracking-wider">
-                        Step {currentStep} of 5 — {
-                          currentStep === 1 ? "Review Tests" :
+                        Step {currentStep} of 6 — {
+                          currentStep === 1 ? "Selected Tests" :
                           currentStep === 2 ? "Patient Details" :
-                          currentStep === 3 ? "Collection Method" :
-                          currentStep === 4 ? "Address & Slot" :
-                          "Review & Confirm"
+                          currentStep === 3 ? "Collection Method & Address" :
+                          currentStep === 4 ? "Time Slot" :
+                          currentStep === 5 ? "Review Booking Summary" :
+                          "Confirm Booking"
                         }
                       </span>
-                      <span className="text-xs font-bold text-[#D69A18]">{Math.round((currentStep / 5) * 100)}% Completed</span>
+                      <span className="text-xs font-bold text-[#D69A18]">{Math.round((currentStep / 6) * 100)}% Completed</span>
                     </div>
 
                     {/* Step Tabs Indicator */}
-                    <div className="grid grid-cols-5 gap-1.5">
+                    <div className="grid grid-cols-6 gap-1">
                       {[
                         { num: 1, label: "Tests" },
                         { num: 2, label: "Patient" },
-                        { num: 3, label: "Method" },
+                        { num: 3, label: "Collection" },
                         { num: 4, label: "Slot" },
-                        { num: 5, label: "Confirm" },
+                        { num: 5, label: "Review" },
+                        { num: 6, label: "Confirm" },
                       ].map((step) => (
                         <button
                           key={step.num}
@@ -734,7 +736,7 @@ export default function BookPage() {
                               setCurrentStep(step.num);
                             }
                           }}
-                          className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl text-[10px] font-black transition-all cursor-pointer ${
+                          className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl text-[9.5px] font-black transition-all cursor-pointer ${
                             currentStep === step.num
                               ? 'bg-[#0f2d5e] text-white shadow-xs'
                               : currentStep > step.num

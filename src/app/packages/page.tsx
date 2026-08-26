@@ -103,23 +103,7 @@ export default function PackagesPage() {
       </div>
 
       {/* ── DESKTOP VIEW (hidden on mobile) ── */}
-      <div className="hidden lg:block">
-        <section className="bg-[#e0f2fe] py-12 relative overflow-hidden border-b border-blue-100">
-          <div className="max-w-[1200px] mx-auto px-4 w-full relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="max-w-xl text-center md:text-left">
-              <span className="inline-block bg-blue-600 text-white text-[9px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider mb-3 shadow-sm">
-                Comprehensive Health
-              </span>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-[#0f2d5e] mb-3 leading-tight">
-                Expert Health Check <br />Packages for Everyone
-              </h1>
-              <p className="text-blue-800 text-sm font-medium mb-6 opacity-90">
-                Browse our clinical packages and blood tests, certified with NABL-level quality. Free home collection and same-day electronic reports included.
-              </p>
-            </div>
-          </div>
-        </section>
-
+      <div className="hidden lg:block pt-4">
         <PopularPackagesGrid />
       </div>
     </div>

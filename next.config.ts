@@ -114,6 +114,10 @@ const nextConfig: NextConfig = {
       { source: "/specialities/womens-health", destination: "/specialities/women-s-health", permanent: true },
       { source: "/specialities/womenshealth", destination: "/specialities/women-s-health", permanent: true },
       // P2.3 Legacy WordPress URL mappings
+      { source: "/urology-3", destination: "/specialities/urology", permanent: true },
+      { source: "/doctors/dr-shantakumar-muruda-6f7b6161", destination: "/dr-shantakumar-muruda", permanent: true },
+      { source: "/our_team/naveen-kumar", destination: "/dr-naveen-kumar-n", permanent: true },
+      { source: "/our_team/dr-shantakumar-muruda-md", destination: "/dr-shantakumar-muruda", permanent: true },
       { source: "/uncategorized/:slug*", destination: "/", permanent: true },
       { source: "/endocrinology-2/:slug*", destination: "/specialities/endocrinology", permanent: true },
       { source: "/author/:slug*", destination: "/doctors", permanent: true },

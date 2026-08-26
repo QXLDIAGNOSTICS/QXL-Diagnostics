@@ -95,51 +95,32 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Near-black glass CTA */}
-      <section className="relative overflow-hidden py-16" style={{ background: '#060a12' }}>
-        <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,255,255,0.05) 0%, transparent 60%)',
-            }}
-          />
-        </div>
-        <div
-          className="relative max-w-3xl mx-auto px-4 text-center rounded-3xl py-10"
-          style={{
-            background: 'rgba(255,255,255,0.04)',
-            backdropFilter: 'blur(24px)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06)',
-          }}
-        >
-          <h2 className="text-3xl font-extrabold text-white mb-4 tracking-tight">Consult with our Experts</h2>
-          <p className="text-white/45 text-sm font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-            Every test performed at QXL Diagnostics is reviewed by our panel of specialists to ensure you receive clinically meaningful answers.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <a
-              href="tel:+919964639639"
-              className="inline-flex items-center gap-2 font-extrabold px-8 py-3.5 rounded-full text-sm text-white transition-all hover:scale-105"
-              style={{
-                background: 'rgba(255,255,255,0.1)',
-                border: '1px solid rgba(255,255,255,0.16)',
-                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.1)',
-              }}
-            >
-              <Phone className="w-4 h-4" /> Call Support
-            </a>
-            <a
-              href="https://api.whatsapp.com/send?phone=919964639639"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 font-extrabold px-8 py-3.5 rounded-full text-sm text-white transition-all hover:scale-105"
-              style={{ background: '#25D366', boxShadow: '0 4px 18px rgba(37,211,102,0.3)' }}
-            >
-              WhatsApp Enquiry
-            </a>
+      {/* Consult with our Experts CTA */}
+      <section className="py-12 bg-white border-t border-slate-100">
+        <div className="max-w-[1260px] mx-auto px-4">
+          <div className="bg-[#FFFBF0] p-8 md:p-12 rounded-3xl border border-[#F3DBA7] shadow-sm text-center max-w-3xl mx-auto space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#0f2d5e] tracking-tight">Consult with our Experts</h2>
+            <p className="text-slate-600 text-xs sm:text-sm font-semibold max-w-2xl mx-auto leading-relaxed">
+              Every test performed at QXL Diagnostics is reviewed by our panel of specialists to ensure you receive clinically meaningful answers.
+            </p>
+            <div className="flex gap-4 justify-center flex-wrap pt-2">
+              <a
+                href="tel:+919964639639"
+                className="inline-flex items-center gap-2 bg-[#D69A18] hover:bg-[#b88313] !text-white font-black px-6 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer"
+                style={{ color: '#ffffff' }}
+              >
+                <Phone className="w-4 h-4 text-white" /> Call Support
+              </a>
+              <a
+                href="https://api.whatsapp.com/send?phone=919964639639"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] !text-white font-black px-6 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer"
+                style={{ color: '#ffffff' }}
+              >
+                WhatsApp Enquiry
+              </a>
+            </div>
           </div>
         </div>
       </section>

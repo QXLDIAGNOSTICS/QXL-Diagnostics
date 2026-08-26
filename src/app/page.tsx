@@ -875,106 +875,23 @@ export default function Home() {
   const mapLng = activeLocationObj?.lng || 77.4850301;
   const mapSrc = `https://maps.google.com/maps?q=${mapLat},${mapLng}+(QXL+Diagnostics+Super+Speciality+Lab)&z=16&ie=UTF8&iwloc=&output=embed`;
 
-  // ── Raksha Bandhan Campaign Poster Slides ─────────────────────
-  const posterSlides: any[] = [];
-
+  // ── Happy Onam Campaign Poster Slides ─────────────────────
   // ── Package & Home Collection Hero Slides ────────────────────────────────
   const contentSlides = [
     {
-      badge: "7-DAY FESTIVE OFFER · SAVE ₹5,000",
-      title: "RAKSHA BANDHAN HEALTH CHECKUP",
-      titleAccent: "80 HEALTH PARAMETERS · 8 MAJOR HEALTH AREAS",
-      subtitle: "CBC (26), HbA1c & Fasting Glucose (3), Heart & Lipids (8), Liver (11), Kidney (8), Thyroid (3), Bone & Urinary (21)",
-      subtitleAccent: "Only ₹800 · Regular Value ₹5,800 · Save 86%",
-      description: "Gift the promise of good health to your cherished sibling with Bengaluru's most comprehensive 80-parameter checkup.",
-      cta: "Book Raksha Bandhan Package @ ₹800",
-      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
+      badge: "🌼 HAPPY ONAM SPECIAL CELEBRATION",
+      title: "HAPPY ONAM FESTIVE OFFER",
+      titleAccent: "80 ESSENTIAL PARAMETERS",
+      subtitle: "Celebrate Onam with complete blood profile, diabetes, heart, liver, kidney, thyroid & bone health screening.",
+      subtitleAccent: "Festive Campaign Price ₹800 (Worth ₹5,800)",
+      description: "Gift health to your loved ones with Bengaluru's premier doctor-led diagnostic laboratory.",
+      cta: "Book Onam Offer @ ₹800",
+      ctaLink: "/book?package=Happy+Onam+Festive+Offer",
       ctaSecondary: "Call +91 9964 639 639",
       ctaSecondaryLink: "tel:+919964639639",
-      image: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
-      imageFit: "contain",
+      noImage: true,
       bgFrom: "#fff7ed", bgTo: "#f0fdf4",
-      features: ["80 Health Parameters", "8 Major Health Areas", "Free Home Collection", "₹800 Only (Worth ₹5,800)"],
-    },
-    {
-      badge: "HEALTH CHECKUP · 8 ORGAN SYSTEMS",
-      title: "PROTECT YOUR SIBLING'S HEALTH",
-      titleAccent: "PREVENTIVE FULL BODY DIAGNOSTICS",
-      subtitle: "Comprehensive organ screening for heart, liver, kidney, thyroid, blood count & bone minerals.",
-      subtitleAccent: "Only ₹800 · 6-Hour Digital Reports Delivered on WhatsApp",
-      description: "Trusted diagnostic testing by Bengaluru's NABL accredited super speciality laboratory.",
-      cta: "Book Package @ ₹800",
-      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
-      ctaSecondary: "View All Packages",
-      ctaSecondaryLink: "/packages",
-      image: "/images/posters/92e65b9b-f53b-497e-8ec7-334f4ea012fa.jpeg",
-      imageFit: "contain",
-      bgFrom: "#eff6ff", bgTo: "#f0fdf4",
-      features: ["8 Organ Systems", "6-Hour Reports", "Free Home Collection", "₹800 Offer"],
-    },
-    {
-      badge: "FREE HOME SAMPLE COLLECTION",
-      title: "CHERISHED SIBLING HEALTH CHECK",
-      titleAccent: "DOCTOR-LED LABORATORY TESTING",
-      subtitle: "Sterile doorstep blood sample collection across all areas in Bengaluru by trained phlebotomists.",
-      subtitleAccent: "Special Campaign Price ₹800 (Worth ₹5,800)",
-      description: "Give the gift of good health with quick online booking and accurate same-day digital results.",
-      cta: "Book Home Collection",
-      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
-      ctaSecondary: "Call +91 9964 639 639",
-      ctaSecondaryLink: "tel:+919964639639",
-      image: "/images/posters/8a688ccd-573a-4ff7-b6dc-512d8174a0df.jpeg",
-      imageFit: "contain",
-      bgFrom: "#f0fdf4", bgTo: "#dcfce7",
-      features: ["NABL Phlebotomists", "Bengaluru Doorstep", "₹800 Offer", "Doctor Led"],
-    },
-    {
-      badge: "HAPPY RAKSHA BANDHAN · QXL",
-      title: "CELEBRATE THE BOND OF HEALTH",
-      titleAccent: "COMPREHENSIVE 80 TESTS PACKAGE",
-      subtitle: "All-in-one health checkup designed for men and women across Bengaluru.",
-      subtitleAccent: "Only ₹800 · Limited Time Festive Campaign",
-      description: "Book now to claim your ₹800 exclusive campaign package with free home collection.",
-      cta: "Claim ₹800 Package",
-      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
-      ctaSecondary: "Call +91 9964 639 639",
-      ctaSecondaryLink: "tel:+919964639639",
-      image: "/images/posters/85abf12b-7faf-40ad-a033-b637ca7f8c2c.jpeg",
-      imageFit: "contain",
-      bgFrom: "#fff7ed", bgTo: "#f0fdf4",
-      features: ["80 Parameters", "₹800 Special Price", "Free Home Collection", "NABL Accredited"],
-    },
-    {
-      badge: "FESTIVE CAMPAIGN · UPTO 50% OFF",
-      title: "RAKSHA BANDHAN SPECIAL OFFER",
-      titleAccent: "COMPLETE SIBLING HEALTH SCREENING",
-      subtitle: "Comprehensive 80 parameters screening covering blood count, diabetes, liver, kidney, thyroid & bone health.",
-      subtitleAccent: "Special ₹800 Offer · Free Home Collection Included",
-      description: "Surprise your sibling with the gift of health and complete peace of mind this festive season.",
-      cta: "Book Package @ ₹800",
-      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
-      ctaSecondary: "Call +91 9964 639 639",
-      ctaSecondaryLink: "tel:+919964639639",
-      image: "/images/posters/03960ebd-40e9-4efb-9b7e-38577ef50d5f.jpeg",
-      imageFit: "contain",
-      bgFrom: "#fff7ed", bgTo: "#f0fdf4",
-      features: ["80 Parameters", "50% Off", "Free Home Collection", "Same Day Report"],
-    },
-    {
-      badge: "COMPREHENSIVE DIAGNOSTICS · BENGALURU",
-      title: "SIBLING HEALTH SCREENING PANEL",
-      titleAccent: "PREVENTIVE FULL BODY CHECKUP",
-      subtitle: "Includes CBC, Fasting Sugar, HbA1c, Lipid Profile, Liver Panel, Kidney Panel, Thyroid Profile, Bone & Urinary Markers.",
-      subtitleAccent: "Festive Offer ₹800 Only (Worth ₹5,800)",
-      description: "Doctor-reviewed reports delivered straight to your mobile within 6 hours of sample collection.",
-      cta: "Book Package @ ₹800",
-      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
-      ctaSecondary: "View Details",
-      ctaSecondaryLink: "/raksha-bandhan-health-checkup-bangalore",
-      image: "/images/posters/b2daa5d0-9f39-4111-91fd-e6cb54ef816f.jpeg",
-      imageFit: "contain",
-      bgFrom: "#eff6ff", bgTo: "#f0fdf4",
-      features: ["8 Organ Systems", "₹800 Offer", "NABL Accredited", "6-Hour Delivery"],
+      features: ["Happy Onam Offer", "80 Parameters", "Free Home Collection", "Doctor Verified"],
     },
     {
       badge: "DOCTOR-LED SUPER SPECIALITY LAB",
@@ -990,28 +907,28 @@ export default function Home() {
       image: "/images/posters/e630d3d6-7600-4a93-a304-02c0b772dfe9.jpeg",
       imageFit: "contain",
       bgFrom: "#f0fdf4", bgTo: "#eff6ff",
-      features: ["NABL Certified", "Doctor Reviewed", "24x7 Diagnostics", "Bengaluru Home Collection"],
+      features: ["NABL Accredited", "Doctor Reviewed", "24x7 Diagnostics", "Bengaluru Home Collection"],
     },
     {
-      badge: "SPECIAL RAKSHA BANDHAN CELEBRATION",
-      title: "GIFT THE BOND OF HEALTH",
-      titleAccent: "80 HEALTH PARAMETERS SCREENING",
-      subtitle: "Complete blood profile, diabetes impact, heart risk, liver function, kidney health, thyroid & bone minerals.",
-      subtitleAccent: "Festive Campaign Price ₹800 (Worth ₹5,800)",
-      description: "Celebrate Raksha Bandhan with Bengaluru's most trusted super speciality diagnostic laboratory.",
+      badge: "HEALTH CHECKUP · 8 ORGAN SYSTEMS",
+      title: "PREVENTIVE FULL BODY DIAGNOSTICS",
+      titleAccent: "DOCTOR-LED LABORATORY TESTING",
+      subtitle: "Comprehensive organ screening for heart, liver, kidney, thyroid, blood count & bone minerals.",
+      subtitleAccent: "Only ₹800 · 6-Hour Digital Reports Delivered on WhatsApp",
+      description: "Trusted diagnostic testing by Bengaluru's NABL accredited super speciality laboratory.",
       cta: "Book Package @ ₹800",
-      ctaLink: "/raksha-bandhan-health-checkup-bangalore",
+      ctaLink: "/packages",
       ctaSecondary: "Call +91 9964 639 639",
       ctaSecondaryLink: "tel:+919964639639",
-      image: "/images/posters/Gemini_Generated_Image_ft6c59ft6c59ft6c.png",
+      image: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
       imageFit: "contain",
       bgFrom: "#fff7ed", bgTo: "#f0fdf4",
-      features: ["80 Parameters", "Save ₹5,000", "Free Home Collection", "Doctor Verified"],
+      features: ["80 Health Parameters", "8 Major Health Areas", "Free Home Collection", "₹800 Only (Worth ₹5,800)"],
     },
   ];
 
-  // Combined: poster image-only slides first, then content slides
-  const slides = [...posterSlides, ...contentSlides];
+  // All hero slides
+  const slides = [...contentSlides];
 
   const [isHovered, setIsHovered] = useState(false);
   
@@ -1054,7 +971,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* SEO H1 Tag - Visually Hidden */}
-      <h1 className="sr-only">QXL Diagnostics | NABL Certified Diagnostic Lab in Bengaluru</h1>
+      <h1 className="sr-only">Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</h1>
+      <p className="sr-only">Advanced blood tests, pathology, speciality diagnostics and home sample collection across Bengaluru.</p>
 
       {/* ── DESKTOP VIEW (hidden lg:flex) ── */}
       <div className="hidden lg:flex flex-col w-full">
@@ -1078,63 +996,19 @@ export default function Home() {
                 >
                   {activeSlide?.imageOnly ? (
                     <React.Fragment>
-                      {/* Full-width Indian tricolour stripe — spans entire slide top */}
-                      <div className="absolute top-0 left-0 right-0 h-[4px] flex z-30 pointer-events-none">
-                        <div className="flex-1" style={{ background: '#FF9933' }} />
-                        <div className="flex-1" style={{ background: '#ffffff' }} />
-                        <div className="flex-1" style={{ background: '#138808' }} />
-                      </div>
-
-                      {/* LEFT — text content 44% */}
+                      {/* Full-width image-only slide — banner fills entire slide */}
                       <motion.div
-                        initial={{ opacity: 0, x: -24 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.65, delay: 0.1 }}
-                        className="flex-none w-[44%] h-full flex flex-col justify-center pl-10 pr-6 pt-8 pb-8 z-10 relative"
-                        style={{ background: 'linear-gradient(160deg, #FFF8EE 0%, #FFF1DC 55%, #EDFFF2 100%)' }}
-                      >
-                        {/* Saffron left accent bar */}
-                        <div className="absolute left-0 top-8 bottom-8 w-[3px] rounded-full" style={{ background: 'linear-gradient(to bottom, #FF9933, #138808)' }} />
-
-                        <span className="inline-flex items-center gap-1.5 bg-[#2563eb] text-white text-[9px] font-black px-3 py-1 rounded-full tracking-widest uppercase mb-4 w-fit shadow-md">
-                          DIAGNOSTIC HEALTH CHECKUPS
-                        </span>
-
-                        <h2 className="text-[28px] leading-[1.12] font-black mb-2" style={{ color: '#0f2d5e' }}>
-                          QXL Diagnostics
-                          <br />
-                          <span style={{ color: '#2563eb' }}>Health Checkups</span>
-                        </h2>
-
-                        <p className="text-[12px] font-extrabold mb-1" style={{ color: '#0284c7' }}>
-                          NABL Accredited · Doctor Verified
-                        </p>
-                        <p className="text-[11px] text-slate-500 font-medium mb-5 leading-snug">
-                          🏠 Free Home Collection &nbsp;·&nbsp; NABL Accredited &nbsp;·&nbsp; 6-hr Reports
-                        </p>
-
-                        <a
-                          href={activeSlide.ctaLink || '/book'}
-                          className="w-fit text-white font-black px-7 py-3 rounded-full text-[12px] uppercase tracking-wider shadow-lg hover:shadow-xl active:scale-95 transition-all bg-[#2563eb] hover:bg-blue-700"
-                        >
-                          BOOK A TEST NOW →
-                        </a>
-                      </motion.div>
-
-                      {/* RIGHT — poster image 56% */}
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.97 }}
+                        initial={{ opacity: 0, scale: 1.02 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.65, delay: 0.05 }}
-                        className="flex-1 h-full relative z-10 overflow-hidden"
-                        style={{ background: 'linear-gradient(135deg, #FFF8EE 0%, #FFF4E6 50%, #EDFFF2 100%)' }}
+                        transition={{ duration: 0.7 }}
+                        className="absolute inset-0 w-full h-full"
                       >
                         <Image
                           src={activeSlide.image}
-                          alt={activeSlide.title}
+                          alt={activeSlide.title || 'QXL Diagnostics'}
                           fill
-                          className="object-contain p-2"
-                          sizes="56vw"
+                          className="object-cover object-center"
+                          sizes="100vw"
                           priority
                         />
                       </motion.div>
@@ -1215,18 +1089,39 @@ export default function Home() {
 
                       </motion.div>
 
-                      {/* Image — right side, flush 50% alignment */}
+                      {/* Image / Decorative — right side, flush 50% */}
                       <motion.div
                         initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute top-0 right-0 bottom-0 w-[50%] h-full z-10 flex items-center justify-center p-1.5 pointer-events-none overflow-hidden rounded-r-3xl"
+                        className="absolute top-0 right-0 bottom-0 w-[50%] h-full z-10 flex items-center justify-center overflow-hidden rounded-r-3xl"
+                        style={{ background: activeSlide.noImage ? 'linear-gradient(135deg, #FFF8EE 0%, #FFFBF0 50%, #F0FFF4 100%)' : 'transparent' }}
                       >
-                        <img
-                          src={activeSlide.image}
-                          alt={activeSlide.title}
-                          className="w-full h-full object-contain object-center rounded-2xl"
-                        />
+                        {activeSlide.noImage ? (
+                          <div className="flex flex-col items-center justify-center w-full h-full px-6 text-center gap-3">
+                            {/* Pookkalam flower motif */}
+                            <div className="text-[72px] leading-none select-none" aria-hidden="true">🌸</div>
+                            <div className="flex gap-1.5 flex-wrap justify-center">
+                              {['🌼','🪔','🌺','🌸','🌼','🌺','🪔'].map((e, i) => (
+                                <span key={i} className="text-[22px]">{e}</span>
+                              ))}
+                            </div>
+                            <p className="text-[13px] font-extrabold text-amber-700 tracking-wide uppercase mt-1">Wishing you a joyous</p>
+                            <p className="text-[28px] font-black text-[#0f2d5e] leading-tight">Happy Onam!</p>
+                            <div className="flex gap-2 mt-1 flex-wrap justify-center">
+                              {['🌼','🌿','🌼','🌿','🌼'].map((e, i) => (
+                                <span key={i} className="text-[18px]">{e}</span>
+                              ))}
+                            </div>
+                            <p className="text-[11px] text-slate-500 font-semibold mt-1">QXL Diagnostics Super Speciality Lab</p>
+                          </div>
+                        ) : (
+                          <img
+                            src={activeSlide.image}
+                            alt={activeSlide.title}
+                            className="w-full h-full object-contain object-center rounded-2xl p-1.5"
+                          />
+                        )}
                       </motion.div>
                     </React.Fragment>
                   )}
@@ -1818,40 +1713,31 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Full Body Health Checkup Banner Card */}
-          <div
-            className="relative rounded-2xl overflow-hidden shadow-sm"
-            style={{ background: 'linear-gradient(135deg, #F5C118 0%, #E8A915 35%, #FDD55A 100%)' }}
-          >
-            <div className="flex items-end p-3.5 sm:p-4.5 gap-2.5 sm:gap-3">
-              {/* Left: text + button */}
-              <div className="flex-1 min-w-0 flex flex-col pb-0.5 sm:pb-1">
-                <h3 className="text-[19px] sm:text-[22px] font-black text-[#1a1a1a] leading-tight mb-1">
-                  Full Body<br />Health Checkup
-                </h3>
-                <p className="text-[12px] sm:text-[13.5px] font-bold text-[#2a2a2a] mb-1.5 sm:mb-2">80 Parameters</p>
-                <div className="flex items-baseline gap-1.5 sm:gap-2 mb-3 sm:mb-4">
-                  <span className="text-[21px] sm:text-[25px] font-black text-[#1a1a1a]">₹800</span>
-                  <span className="text-[12px] sm:text-[14px] text-[#555] line-through font-bold">₹5,800</span>
-                </div>
-                <Link
-                  href="/book?package=Full+Body+Health+Checkup"
-                  className="bg-white text-[#1a1a1a] font-black px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[12px] sm:text-[13.5px] w-fit shadow-sm active:scale-95 transition-all flex items-center gap-1 shrink-0"
-                >
-                  <span>Book Now</span>
-                  <span className="text-[14px]">›</span>
-                </Link>
+          {/* Happy Onam Festive Text Card */}
+          <Link href="/book?package=Happy+Onam+Festive+Offer" className="block w-full">
+            <div className="relative rounded-2xl overflow-hidden shadow-md border border-amber-200 bg-gradient-to-br from-[#FFF8EE] via-[#FFFDF5] to-[#FFF0D6] p-4">
+              {/* Kerala motif dots row */}
+              <div className="flex gap-1 mb-3">
+                {['#F97316','#FBBF24','#4ADE80','#34D399','#F97316','#FBBF24','#4ADE80'].map((c, i) => (
+                  <span key={i} className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: c }} />
+                ))}
               </div>
-              {/* Right: doctor photo (responsive for small devices) */}
-              <div className="w-[130px] sm:w-[170px] h-[150px] sm:h-[180px] shrink-0 self-end overflow-hidden rounded-xl border border-white/50 shadow-xs">
-                <img
-                  src="https://res.cloudinary.com/btjglif5/image/upload/v1784150185/Assets-QXL/legacy-assets/image/female_doctor_consult.jpg"
-                  alt="Full Body Health Checkup Doctor Consultation"
-                  className="w-full h-full object-cover object-top"
-                />
+              <div className="flex items-center justify-between gap-3">
+                <div>
+                  <p className="text-[11px] font-black text-amber-600 uppercase tracking-widest mb-1">🌼 Festive Offer · Onam Special</p>
+                  <h3 className="text-[20px] font-black text-[#0f2d5e] leading-tight">Happy Onam!</h3>
+                  <p className="text-[12px] font-bold text-amber-700 mt-0.5">80 Health Parameters · Only ₹800</p>
+                  <p className="text-[11px] text-slate-500 font-medium mt-1">Free home collection · Doctor verified</p>
+                </div>
+                <div className="flex-shrink-0 text-center bg-[#0f2d5e] text-white rounded-xl px-3 py-2.5 shadow-md">
+                  <p className="text-[10px] font-bold uppercase tracking-wide opacity-80">Book Now</p>
+                  <p className="text-[18px] font-black leading-tight">₹800</p>
+                  <p className="text-[9px] font-semibold line-through opacity-60">₹5,800</p>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
+
 
           {/* Carousel dots */}
           <div className="flex justify-center items-center gap-2 mt-3.5 mb-2.5">

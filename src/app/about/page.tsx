@@ -135,12 +135,12 @@ export default function AboutPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 mb-6">
-            <div className="rounded-2xl overflow-hidden h-[180px] sm:h-[260px] border border-slate-200 shadow-2xs">
-              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150168/Assets-QXL/legacy-assets/image/equipment_1.jpg" alt="Lab Technician operating equipment" className="w-full h-full object-cover" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 items-stretch">
+            <div className="rounded-2xl overflow-hidden h-[220px] sm:h-[280px] md:h-[340px] border border-slate-200 shadow-sm flex items-center justify-center bg-slate-100">
+              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150168/Assets-QXL/legacy-assets/image/equipment_1.jpg" alt="Lab Technician operating equipment" className="w-full h-full object-cover object-center" />
             </div>
-            <div className="rounded-2xl overflow-hidden h-[180px] sm:h-[260px] border border-slate-200 shadow-2xs">
-              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150172/Assets-QXL/legacy-assets/image/equipment_2.png" alt="Analytical Equipment in use" className="w-full h-full object-cover" />
+            <div className="rounded-2xl overflow-hidden h-[220px] sm:h-[280px] md:h-[340px] border border-slate-200 shadow-sm flex items-center justify-center bg-slate-100">
+              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150172/Assets-QXL/legacy-assets/image/equipment_2.png" alt="Analytical Equipment in use" className="w-full h-full object-cover object-center" />
             </div>
           </div>
           

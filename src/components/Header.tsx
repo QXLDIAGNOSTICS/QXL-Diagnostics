@@ -170,14 +170,15 @@ export default function Header() {
 
   const defaultNavItems = [
     { label: "Home", href: "/", visible: true },
-    { label: "AI Assistant 🤖", href: "/#ai-assistant", visible: true },
-    { label: "Doctor-Led Lab", href: "/doctor-led-diagnostic-lab-bengaluru", visible: true },
-    { label: "About Us", href: "/about", visible: true },
-    { label: "Our Specialities", href: "/specialities", visible: true },
-    { label: "Packages", href: "/packages", visible: true },
-    { label: "Find Nearest Centre", href: "/centers", visible: true },
-    { label: "My Bookings", href: "/dashboard", visible: true },
+    { label: "Tests", href: "/tests", visible: true },
+    { label: "Health Packages", href: "/packages", visible: true },
+    { label: "Specialities", href: "/specialities", visible: true },
+    { label: "Home Collection", href: "/home-blood-collection-bangalore", visible: true },
+    { label: "Locations", href: "/centers", visible: true },
+    { label: "For Doctors", href: "/doctor-led-diagnostic-lab-bengaluru", visible: true },
+    { label: "About QXL", href: "/about", visible: true },
     { label: "My Reports", href: "/report", visible: true },
+    { label: "My Bookings", href: "/dashboard", visible: true },
   ];
   const navItems = ((settings.navItems && settings.navItems.length > 0) ? settings.navItems : defaultNavItems)
     .filter((item: any) => item.visible !== false)
@@ -822,7 +823,7 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs: Home | Tests | QXL AI (Center Elevated) | Bookings | Profile) ── */}
+      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs: Home | Tests | Bookings | Reports | Profile) ── */}
       <div
         className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col bg-white border-t border-slate-200/80 shadow-[0_-4px_24px_rgba(0,0,0,0.12)]"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
@@ -863,23 +864,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Tab 3: CENTER ELEVATED QXL AI CHAT BUTTON */}
-          <button
-            type="button"
-            onClick={() => {
-              window.dispatchEvent(new CustomEvent('openAiChat'));
-            }}
-            className="flex flex-col items-center justify-center -mt-5 flex-1 group active:scale-95 transition-transform shrink-0 cursor-pointer"
-          >
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#D69A18] via-amber-500 to-amber-600 shadow-md border-2 border-white flex items-center justify-center relative">
-              <MessageSquareText className="w-5.5 h-5.5 text-white" strokeWidth={2.2} />
-            </div>
-            <span className="text-[10px] font-black text-[#D69A18] mt-0.5 tracking-tight">
-              AI Chat
-            </span>
-          </button>
-
-          {/* Tab 4: Bookings */}
+          {/* Tab 3: Bookings */}
           <Link
             href="/book"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
@@ -895,7 +880,23 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Tab 5: Profile / Reports */}
+          {/* Tab 4: Reports */}
+          <Link
+            href="/report"
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
+              pathname?.startsWith('/report') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+            }`}
+          >
+            {pathname?.startsWith('/report') && (
+              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
+            )}
+            <FileText className={`w-5 h-5 ${pathname?.startsWith('/report') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/report') ? 2.4 : 1.8} />
+            <span className={`text-[10px] ${pathname?.startsWith('/report') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
+              Reports
+            </span>
+          </Link>
+
+          {/* Tab 5: Profile */}
           <Link
             href={user ? "/profile" : "/login"}
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
@@ -916,20 +917,20 @@ export default function Header() {
       {/* ── QXL HEALTH AI ASSISTANT MODAL OVERLAY ── */}
       {isAiModalOpen && (
         <div className="fixed inset-0 z-[100005] bg-white flex flex-col overflow-hidden animate-in fade-in duration-200">
-          <div className="bg-[#0f2d5e] text-white p-3.5 flex items-center justify-between shadow-md shrink-0">
+          <div className="bg-gradient-to-r from-[#D69A18] via-amber-600 to-amber-700 text-white p-3.5 flex items-center justify-between shadow-md shrink-0">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-[#D69A18] flex items-center justify-center text-white">
+              <div className="w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center text-white">
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
               <div>
                 <h3 className="font-extrabold text-sm text-white leading-snug">QXL Health AI Assistant</h3>
-                <p className="text-[10px] text-amber-300 font-bold">24/7 Smart Symptom &amp; Diagnostic Advisor</p>
+                <p className="text-[10px] text-amber-100 font-bold">24/7 Smart Symptom &amp; Diagnostic Advisor</p>
               </div>
             </div>
             <button
               type="button"
               onClick={() => setIsAiModalOpen(false)}
-              className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white cursor-pointer"
+              className="w-8 h-8 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center text-white cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>

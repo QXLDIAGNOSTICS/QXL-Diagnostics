@@ -6,12 +6,15 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin', '/api/', '/login', '/private/', '/dashboard'],
+        disallow: ['/admin', '/api/', '/login', '/private/', '/dashboard', '/book', '/cart', '/checkout', '/profile', '/report'],
       },
-      // Welcome major AI / answer-engine crawlers for GEO & AEO visibility.
+      // Welcome major AI / search crawlers for GEO, AEO & AI-Search visibility.
+      { userAgent: 'OAI-SearchBot', allow: '/' },
+      { userAgent: 'Claude-SearchBot', allow: '/' },
+      { userAgent: 'Claude-User', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },
-      { userAgent: 'PerplexityBot', allow: '/' },
       { userAgent: 'ClaudeBot', allow: '/' },
       { userAgent: 'anthropic-ai', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
