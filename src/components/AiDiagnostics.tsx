@@ -451,23 +451,23 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
   const features = [
     {
       icon: <Cpu className="w-5 h-5 text-[#D69A18]" />,
-      title: "Machine Learning Algorithms",
-      desc: "Advanced algorithms assist our pathologists in identifying microscopic anomalies with unprecedented accuracy."
+      title: "Automated Delta Checks",
+      desc: "Automated comparison against patient historical baseline readings to flag rapid biomarker shifts prior to sign-off."
     },
     {
       icon: <Activity className="w-5 h-5 text-[#D69A18]" />,
-      title: "Predictive Analytics",
-      desc: "Leveraging vast datasets to predict health trends and provide proactive wellness insights."
+      title: "Westgard Multi-Rule IQC",
+      desc: "Daily automated internal quality control (IQC) algorithms validating analyzer precision across every shift."
     },
     {
       icon: <ShieldCheck className="w-5 h-5 text-[#D69A18]" />,
-      title: "Automated Quality Control",
-      desc: "Continuous AI monitoring ensures every test result meets our stringent quality standards."
+      title: "Smart Symptom Guidance",
+      desc: "Intelligent screening tools helping patients identify relevant preventive tests based on age and symptoms."
     },
     {
       icon: <Microscope className="w-5 h-5 text-[#D69A18]" />,
-      title: "AI-Assisted QC & Delta Checks",
-      desc: "Automated delta checks, multi-rule Westgard validation, and pre-analytical sample tracking prior to consultant pathologist review."
+      title: "Doctor-Led Interpretation",
+      desc: "Every single certified laboratory report is evaluated and signed off by senior consultant pathologists."
     }
   ];
 

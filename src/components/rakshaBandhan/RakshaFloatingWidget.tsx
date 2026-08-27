@@ -79,10 +79,9 @@ export default function RakshaFloatingWidget() {
               <span>80 Tests · Save ₹5,000</span>
             </div>
 
-            {/* Dynamic Live Ticking Timer */}
-            <div className="mt-1 flex items-center gap-1 text-[10px] font-mono text-amber-300 font-bold bg-amber-950/80 px-2 py-0.5 rounded border border-amber-500/40">
-              <span>ENDS IN:</span>
-              <span className="text-white">{countdown.d}d {String(countdown.h).padStart(2, '0')}h {String(countdown.m).padStart(2, '0')}m {String(countdown.s).padStart(2, '0')}s</span>
+            {/* Transparent Campaign Period Badge */}
+            <div className="mt-1 flex items-center gap-1 text-[10px] text-amber-300 font-extrabold bg-amber-950/80 px-2 py-0.5 rounded border border-amber-500/40">
+              <span>VALID TILL AUGUST 31</span>
             </div>
           </div>
 

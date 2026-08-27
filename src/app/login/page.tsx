@@ -83,9 +83,13 @@ function LoginPageInner() {
             </div>
           )}
 
-          <div className="mt-6 pt-4 border-t border-gray-100 text-center">
+          <div className="mt-6 pt-4 border-t border-gray-100 text-center space-y-3">
+            <div className="bg-sky-50 border border-sky-100 rounded-2xl p-3 text-left flex items-start gap-2 text-xs font-semibold text-slate-700">
+              <span className="text-amber-500 font-bold shrink-0">📞 Senior Citizen Assistance:</span>
+              <span>Need help logging in or downloading reports? Call <a href="tel:+919964639639" className="text-[#2563eb] font-extrabold hover:underline">+91 9964 639 639</a> — our team will send your PDF reports directly via WhatsApp.</span>
+            </div>
             <p className="text-[10px] text-slate-400 font-semibold leading-relaxed">
-              By signing in, you agree to QXL's Terms of Use and Privacy Policy.
+              By signing in, you agree to QXL's Terms of Use and Privacy Policy. No password required — authentication uses instant SMS / WhatsApp OTP.
             </p>
           </div>
         </div>

@@ -248,8 +248,8 @@ export default function Header() {
               <span>RAKSHA BANDHAN OFFER @ ₹800</span>
             </span>
             <span className="text-emerald-200 font-bold shrink-0">•</span>
-            <span className="bg-black/25 text-amber-300 font-mono text-[10.5px] font-bold px-2.5 py-0.5 rounded-full border border-amber-300/30 shrink-0 shadow-inner">
-              ENDS IN: {countdown.d}d {String(countdown.h).padStart(2, '0')}h {String(countdown.m).padStart(2, '0')}m {String(countdown.s).padStart(2, '0')}s
+            <span className="bg-black/25 text-amber-300 text-[10.5px] font-extrabold px-3 py-0.5 rounded-full border border-amber-300/30 shrink-0 shadow-inner">
+              LIMITED PERIOD OFFER • VALID TILL AUGUST 31
             </span>
             <span className="text-emerald-200 font-bold shrink-0">•</span>
             <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
