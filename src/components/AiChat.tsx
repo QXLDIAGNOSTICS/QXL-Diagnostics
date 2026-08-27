@@ -494,7 +494,7 @@ export default function AiChat() {
         >
           {/* Floating Ask me bubble — attached directly to AI Chat button (Desktop only) */}
           {!isOpen && (
-            <div className="fab-ai-chat-bubble hidden lg:flex relative items-center mr-2.5 bg-[#2563eb] text-white text-[11px] font-black px-3 py-1.5 rounded-xl shadow-lg border border-white/40 animate-pulse whitespace-nowrap">
+            <div className="fab-ai-chat-bubble hidden lg:flex relative items-center mr-2.5 bg-[#2563eb] text-white text-[11px] font-black px-3 py-1.5 rounded-xl shadow-lg border border-white/40 whitespace-nowrap">
               Ask me
               <div 
                 className="fab-ai-bubble-arrow absolute -right-1.5 top-1/2 -translate-y-1/2 w-0 h-0"

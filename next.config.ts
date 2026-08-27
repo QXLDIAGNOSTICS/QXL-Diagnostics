@@ -138,14 +138,27 @@ const nextConfig: NextConfig = {
       { source: "/gastroenterology", destination: "/specialities/gastroenterology", permanent: true },
       { source: "/specialities/womens-health", destination: "/specialities/women-s-health", permanent: true },
       { source: "/specialities/womenshealth", destination: "/specialities/women-s-health", permanent: true },
-      // P2.3 Legacy WordPress URL mappings
+      // P2.3 Legacy WordPress & Short Doctor URL mappings
       { source: "/urology-3", destination: "/specialities/urology", permanent: true },
       { source: "/doctors/dr-shantakumar-muruda-6f7b6161", destination: "/dr-shantakumar-muruda", permanent: true },
+      { source: "/doctors/dr-shantakumar-muruda", destination: "/dr-shantakumar-muruda", permanent: true },
       { source: "/our_team/naveen-kumar", destination: "/dr-naveen-kumar-n", permanent: true },
       { source: "/our_team/dr-shantakumar-muruda-md", destination: "/dr-shantakumar-muruda", permanent: true },
       { source: "/uncategorized/:slug*", destination: "/", permanent: true },
       { source: "/endocrinology-2/:slug*", destination: "/specialities/endocrinology", permanent: true },
+      { source: "/endocrinology-2", destination: "/specialities/endocrinology", permanent: true },
       { source: "/author/:slug*", destination: "/doctors", permanent: true },
+
+      // ── Short Test Slugs → Canonical Test Landing Pages ──────────────────────
+      { source: "/tests/cbc", destination: "/tests/cbc-test-bangalore", permanent: true },
+      { source: "/tests/hba1c", destination: "/tests/hba1c-test-bangalore", permanent: true },
+      { source: "/tests/tsh", destination: "/tests/tsh-test-bangalore", permanent: true },
+      { source: "/tests/thyroid", destination: "/tests/thyroid-test-bangalore", permanent: true },
+      { source: "/tests/vitamin-d", destination: "/tests/vitamin-d-test-bangalore", permanent: true },
+      { source: "/tests/vitamin-b12", destination: "/tests/vitamin-b12-test-bangalore", permanent: true },
+      { source: "/tests/lipid-profile", destination: "/tests/lipid-profile-test-bangalore", permanent: true },
+      { source: "/tests/lft", destination: "/tests/liver-function-test-bangalore", permanent: true },
+      { source: "/tests/kft", destination: "/tests/kidney-function-test-bangalore", permanent: true },
 
       // ── Canonical slug suffix: -bengaluru → -bangalore (301 permanent) ──────
       // Test pages: resolve SEO master plan -bengaluru URLs to canonical -bangalore

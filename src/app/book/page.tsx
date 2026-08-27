@@ -4,6 +4,7 @@ import { Calendar, User, Phone, MapPin, Shield, X, Mail, LocateFixed, CheckCircl
 import { api, type TestCatalogItem, type HealthPackage, type Booking } from '../../lib/api';
 import { useAuth } from '../../lib/useAuth';
 import RazorpayCheckoutButton from '../../components/RazorpayCheckoutButton';
+import { trackChatGPTBookingStart, trackChatGPTBookingCompleted } from '../../lib/chatgptAnalytics';
 
 
 type CatalogEntry = {
@@ -231,12 +232,21 @@ export default function BookPage() {
           }
         }
 
-        const defaultFallbackTests = [
-          { id: "test-1", name: "BILE ACIDS - SERUM", kind: 'test' as const, price: 2500, home_collection_available: true },
-          { id: "test-2", name: "COMPLETE BLOOD COUNT (CBC)", kind: 'test' as const, price: 395, home_collection_available: true },
-          { id: "test-3", name: "HBA1C, GLYCATED HEMOGLOBIN", kind: 'test' as const, price: 610, home_collection_available: true },
-          { id: "test-4", name: "LIPID PROFILE", kind: 'test' as const, price: 800, home_collection_available: true },
-          { id: "test-6", name: "SEX HORMONE BINDING GLOBULIN (SHBG)", kind: 'test' as const, price: 2900, home_collection_available: true },
+        const defaultFallbackTests: CatalogEntry[] = [
+          { id: "test-cbc", name: "COMPLETE BLOOD COUNT (CBC)", kind: 'test', price: 395, home_collection_available: true },
+          { id: "test-hba1c", name: "HBA1C, GLYCATED HEMOGLOBIN", kind: 'test', price: 610, home_collection_available: true },
+          { id: "test-tsh", name: "THYROID STIMULATING HORMONE (TSH)", kind: 'test', price: 350, home_collection_available: true },
+          { id: "test-thyroid-profile", name: "THYROID PROFILE (T3, T4, TSH)", kind: 'test', price: 550, home_collection_available: true },
+          { id: "test-vit-d", name: "VITAMIN D (25-OH)", kind: 'test', price: 1200, home_collection_available: true },
+          { id: "test-vit-b12", name: "VITAMIN B12", kind: 'test', price: 950, home_collection_available: true },
+          { id: "test-lipid", name: "LIPID PROFILE", kind: 'test', price: 800, home_collection_available: true },
+          { id: "test-lft", name: "LIVER FUNCTION TEST (LFT)", kind: 'test', price: 850, home_collection_available: true },
+          { id: "test-kft", name: "KIDNEY FUNCTION TEST (KFT)", kind: 'test', price: 850, home_collection_available: true },
+          { id: "test-fbs", name: "FASTING BLOOD SUGAR (FBS)", kind: 'test', price: 150, home_collection_available: true },
+          { id: "test-ppbs", name: "POSTPRANDIAL BLOOD SUGAR (PPBS)", kind: 'test', price: 150, home_collection_available: true },
+          { id: "test-urine", name: "URINE ROUTINE & MICROSCOPY", kind: 'test', price: 200, home_collection_available: true },
+          { id: "test-bile", name: "BILE ACIDS - SERUM", kind: 'test', price: 2500, home_collection_available: true },
+          { id: "test-shbg", name: "SEX HORMONE BINDING GLOBULIN (SHBG)", kind: 'test', price: 2900, home_collection_available: true }
         ];
         
         for (const ft of defaultFallbackTests) {
@@ -247,7 +257,7 @@ export default function BookPage() {
 
         setCatalog(merged);
       } catch {
-        const fallbackPackages = [
+        const fallbackPackages: CatalogEntry[] = [
           {
             id: "raksha-bandhan-800",
             name: "Raksha Bandhan Special Health Checkup",
@@ -318,11 +328,20 @@ export default function BookPage() {
             parameters: "25 Parameters",
             includes: "CBC, Lipid Profile, Kidney Screen (BUN, Urea, Creatinine, Sodium, Potassium, Chloride), Urine Routine & Microscopy, FBS, Apo A1, Apo B, Apo B/A1 Ratio, hs-CRP, Lipoprotein(a), Fibrinogen, Homocysteine, NT-proBNP, Insulin, C-Peptide, Thyroid Screen (T3, T4, TSH), Cortisol Level, Serum Magnesium."
           },
-          { id: "test-1", name: "BILE ACIDS - SERUM", kind: 'test' as const, price: 2500, home_collection_available: true },
-          { id: "test-2", name: "COMPLETE BLOOD COUNT (CBC)", kind: 'test' as const, price: 395, home_collection_available: true },
-          { id: "test-3", name: "HBA1C, GLYCATED HEMOGLOBIN", kind: 'test' as const, price: 610, home_collection_available: true },
-          { id: "test-4", name: "LIPID PROFILE", kind: 'test' as const, price: 800, home_collection_available: true },
-          { id: "test-6", name: "SEX HORMONE BINDING GLOBULIN (SHBG)", kind: 'test' as const, price: 2900, home_collection_available: true }
+          { id: "test-cbc", name: "COMPLETE BLOOD COUNT (CBC)", kind: 'test' as const, price: 395, home_collection_available: true },
+          { id: "test-hba1c", name: "HBA1C, GLYCATED HEMOGLOBIN", kind: 'test' as const, price: 610, home_collection_available: true },
+          { id: "test-tsh", name: "THYROID STIMULATING HORMONE (TSH)", kind: 'test' as const, price: 350, home_collection_available: true },
+          { id: "test-thyroid-profile", name: "THYROID PROFILE (T3, T4, TSH)", kind: 'test' as const, price: 550, home_collection_available: true },
+          { id: "test-vit-d", name: "VITAMIN D (25-OH)", kind: 'test' as const, price: 1200, home_collection_available: true },
+          { id: "test-vit-b12", name: "VITAMIN B12", kind: 'test' as const, price: 950, home_collection_available: true },
+          { id: "test-lipid", name: "LIPID PROFILE", kind: 'test' as const, price: 800, home_collection_available: true },
+          { id: "test-lft", name: "LIVER FUNCTION TEST (LFT)", kind: 'test' as const, price: 850, home_collection_available: true },
+          { id: "test-kft", name: "KIDNEY FUNCTION TEST (KFT)", kind: 'test' as const, price: 850, home_collection_available: true },
+          { id: "test-fbs", name: "FASTING BLOOD SUGAR (FBS)", kind: 'test' as const, price: 150, home_collection_available: true },
+          { id: "test-ppbs", name: "POSTPRANDIAL BLOOD SUGAR (PPBS)", kind: 'test' as const, price: 150, home_collection_available: true },
+          { id: "test-urine", name: "URINE ROUTINE & MICROSCOPY", kind: 'test' as const, price: 200, home_collection_available: true },
+          { id: "test-bile", name: "BILE ACIDS - SERUM", kind: 'test' as const, price: 2500, home_collection_available: true },
+          { id: "test-shbg", name: "SEX HORMONE BINDING GLOBULIN (SHBG)", kind: 'test' as const, price: 2900, home_collection_available: true }
         ];
         setCatalog(fallbackPackages);
       } finally {
@@ -337,14 +356,43 @@ export default function BookPage() {
   // Normalize a name for fuzzy comparison: lowercase, strip punctuation, collapse whitespace.
   const normalizeName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
-  // Find the best catalog match for a recommended test/package name. Prefers
-  // an exact (normalized) match, then falls back to a substring match in
-  // either direction, then a significant-word-overlap match — because AI- or
-  // prescription-derived names (e.g. "HbA1c") rarely match our catalog's
-  // exact formatting (e.g. "HbA1c, Glycated Hemoglobin") character-for-character.
+  // Find the best catalog match for a recommended test/package name.
   const findCatalogMatch = (wanted: string, items: CatalogEntry[]): CatalogEntry | undefined => {
     const nw = normalizeName(wanted);
     if (!nw) return undefined;
+
+    // Direct Alias map for quick short codes
+    const ALIAS_MAP: Record<string, string> = {
+      'cbc': 'COMPLETE BLOOD COUNT (CBC)',
+      'hba1c': 'HBA1C, GLYCATED HEMOGLOBIN',
+      'tsh': 'THYROID STIMULATING HORMONE (TSH)',
+      'thyroid': 'THYROID PROFILE (T3, T4, TSH)',
+      'thyroid profile': 'THYROID PROFILE (T3, T4, TSH)',
+      'vit d': 'VITAMIN D (25-OH)',
+      'vitamin d': 'VITAMIN D (25-OH)',
+      'vitamind': 'VITAMIN D (25-OH)',
+      'vit b12': 'VITAMIN B12',
+      'vitamin b12': 'VITAMIN B12',
+      'vitaminb12': 'VITAMIN B12',
+      'lipid': 'LIPID PROFILE',
+      'lipid profile': 'LIPID PROFILE',
+      'cholesterol': 'LIPID PROFILE',
+      'lft': 'LIVER FUNCTION TEST (LFT)',
+      'liver': 'LIVER FUNCTION TEST (LFT)',
+      'kft': 'KIDNEY FUNCTION TEST (KFT)',
+      'kidney': 'KIDNEY FUNCTION TEST (KFT)',
+      'fbs': 'FASTING BLOOD SUGAR (FBS)',
+      'fasting sugar': 'FASTING BLOOD SUGAR (FBS)',
+      'ppbs': 'POSTPRANDIAL BLOOD SUGAR (PPBS)',
+      'urine': 'URINE ROUTINE & MICROSCOPY',
+    };
+
+    if (ALIAS_MAP[nw]) {
+      const aliasTarget = normalizeName(ALIAS_MAP[nw]);
+      const aliasMatch = items.find((c) => normalizeName(c.name) === aliasTarget || normalizeName(c.name).includes(aliasTarget));
+      if (aliasMatch) return aliasMatch;
+    }
+
     let match = items.find((c) => normalizeName(c.name) === nw);
     if (match) return match;
     match = items.find((c) => {
@@ -376,13 +424,22 @@ export default function BookPage() {
       setFormData(prev => ({ ...prev, collectionType: 'center' }));
     }
 
-    const rawWanted = [
-      ...params.getAll('tests').map(t => t.trim()),
+    const rawParams = [
+      ...params.getAll('tests'),
       params.get('test') || '',
       params.get('package') || '',
       params.get('pkg') || '',
       params.get('packageId') || '',
+      params.get('code') || '',
     ].filter(Boolean);
+
+    const rawWanted: string[] = [];
+    for (const p of rawParams) {
+      for (const part of p.split(',')) {
+        const trimmed = part.trim();
+        if (trimmed) rawWanted.push(trimmed);
+      }
+    }
     
     const isSpidyOffer = (name?: string | null) => {
       if (!name) return false;
@@ -431,12 +488,25 @@ export default function BookPage() {
     if (matches.length) {
       setSelectedItems(prev => {
         const existingIds = new Set(prev.map(p => p.id));
-        return [...prev, ...matches.filter(m => !existingIds.has(m.id))];
+        const updated = [...prev, ...matches.filter(m => !existingIds.has(m.id))];
+        try {
+          const cartNames = updated.map(u => u.name);
+          localStorage.setItem('qxl_cart', JSON.stringify(cartNames));
+          window.dispatchEvent(new CustomEvent('cartChange'));
+        } catch {}
+        return updated;
       });
     }
     setUnmatchedRecommended(unmatched);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [catalog]);
+
+  useEffect(() => {
+    if (selectedItems.length > 0) {
+      const totalAmt = selectedItems.reduce((sum, item) => sum + (item.price || 0), 0);
+      trackChatGPTBookingStart(selectedItems.map(i => i.name), totalAmt);
+    }
+  }, [selectedItems]);
 
   useEffect(() => {
     if (!user) return;
@@ -616,6 +686,11 @@ export default function BookPage() {
       }
       setCreatedBookings(created);
       setSubmitted(true);
+      trackChatGPTBookingCompleted(
+        created.map((b) => b.id).join(','),
+        total,
+        selectedItems.map((i) => i.name)
+      );
       try {
         localStorage.removeItem('qxl_cart');
         window.dispatchEvent(new CustomEvent('cartChange'));

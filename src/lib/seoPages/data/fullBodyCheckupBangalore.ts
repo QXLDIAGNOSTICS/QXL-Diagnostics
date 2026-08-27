@@ -15,7 +15,7 @@ export const fullBodyCheckupBangalore: SeoLandingData = {
   aiOverviewPoints: [
     "70+ Parameters in Comprehensive Panels",
     "Free Home Collection Across Bengaluru",
-    "NABL-Accredited Laboratory (MC-10025)",
+    "NABL-Accredited Laboratory (MC-6849)",
     "Specialist-Reviewed Digital Reports",
   ],
   highlights: [
@@ -42,38 +42,34 @@ export const fullBodyCheckupBangalore: SeoLandingData = {
   ],
   sections: [
     {
-      heading: "Why a Full Body Checkup Every Year Is Worth It",
+      heading: "What 'Full Body Checkup' Actually Means in Medical Practice",
       paragraphs: [
-        "Most serious chronic conditions in urban India — type 2 diabetes, fatty liver disease, high cholesterol, thyroid disorders, anaemia, vitamin D deficiency — develop silently for years. By the time symptoms demand attention, damage is already established and more expensive to manage. An annual full body checkup flips this: it finds the trend while it's still a lifestyle conversation instead of a prescription.",
-        "In Bengaluru's work culture — long commutes, desk jobs, irregular meals, poor sleep — metabolic risk accumulates early. We recommend a baseline checkup for every adult over 25, then annually, or every six months if you have existing diabetes, thyroid issues, obesity or a family history of heart disease.",
+        "'Full body checkup' is a popular consumer term rather than a single standardized medical test. In clinical diagnostics, it refers to a curated battery of preventive blood and urine investigations designed to evaluate major metabolic organ systems (liver, kidneys, thyroid, cardiovascular lipids, cellular blood counts, and metabolic glycemic control).",
+        "It is important to understand that a laboratory blood checkup assesses chemical, cellular, and hormonal parameters — it does not replace diagnostic imaging (such as ultrasound, X-rays, or CT scans) or physical clinical examination by a doctor when specific organ symptoms are present.",
       ],
     },
     {
-      heading: "What Gets Tested — and What Each Part Tells You",
+      heading: "Comparing Packages: Basic vs. Comprehensive vs. Executive Screening",
       paragraphs: [
-        "Our comprehensive panels are curated by doctors rather than assembled from a price list:",
+        "To prevent over-testing and ensure patients receive maximum clinical value, QXL structures full body checkups into distinct tiers:",
       ],
       bullets: [
-        "Haematology (CBC) — anaemia, infection, platelet and immunity status",
-        "Diabetes screen — fasting blood sugar plus HbA1c for the 3-month average",
-        "Lipid profile — total cholesterol, LDL, HDL, triglycerides and ratios",
-        "Liver function test — enzymes, bilirubin and protein status (fatty liver detection)",
-        "Kidney function test — creatinine, urea, uric acid and electrolytes",
-        "Thyroid profile — TSH with FT3/FT4 for complete thyroid assessment",
-        "Urine routine — early kidney, diabetes and infection clues",
-        "Vitamin D & B12 (comprehensive variants) — the two most common urban deficiencies",
+        "Basic Preventive Panel (Essential Screening): Covers CBC, Fasting Blood Sugar, Lipid Profile, Liver Function (AST/ALT), Serum Creatinine, and Urine Routine. Ideal for young adults under 30 without chronic disease history.",
+        "Comprehensive Wellness Panel (Full Body Pro): Includes everything in Basic plus HbA1c (3-month sugar), Complete LFT (11 markers), Complete KFT (Electrolytes, Uric Acid, BUN), Thyroid Profile (T3, T4, TSH), Vitamin D3, and Vitamin B12. Best for adults 30–50 or those experiencing fatigue.",
+        "Executive Health & Cardiac Risk Panel: Includes full Comprehensive parameters plus specialized cardiac/inflammatory markers (hs-CRP, Homocysteine, ApoB/ApoA1 ratios) and microalbuminuria screening. Recommended for adults over 50 or individuals with a family history of early heart disease or hypertension.",
+      ],
+    },
+    {
+      heading: "Who Needs a Full Body Checkup — and Who May Not Need Every Test",
+      paragraphs: [
+        "Annual preventive screening is beneficial for individuals with sedentary desk jobs, high stress levels, family history of diabetes/hypertension, or unexplained fatigue. However, young asymptomatic individuals under 25 without risk factors may not require expensive 100-parameter ultra-panels when a targeted basic metabolic screen is clinically sufficient.",
+        "When abnormal results are flagged on your QXL report — such as elevated liver enzymes (SGPT) or borderline HbA1c — our medical team provides clear guidance on whether immediate medical follow-up, repeat testing, or lifestyle modification is indicated.",
       ],
     },
     {
       heading: "One Morning, Fully From Home",
       paragraphs: [
         "The entire checkup happens from your home: book an early-morning slot, fast overnight (8–12 hours, water allowed), and our phlebotomist completes collection in minutes. Reports arrive digitally — usually the same day — organised parameter-by-parameter with clear flags on anything outside range. If significant abnormalities appear, our team proactively explains next steps and can connect you with the right specialist.",
-      ],
-    },
-    {
-      heading: "Choose the Depth That Fits You",
-      paragraphs: [
-        "Not everyone needs the same panel. Younger adults do well with core metabolic screening; professionals above 35 benefit from adding vitamins and detailed cardiac markers; seniors should include urine microalbumin and fuller organ profiling; and women planning pregnancy need targeted additions like thyroid antibodies and iron studies. Explore our dedicated packages or call +91 9964 639 639 — we'll help you pick honestly, without upselling.",
       ],
     },
   ],
@@ -126,8 +122,8 @@ export const fullBodyCheckupBangalore: SeoLandingData = {
   ],
   faqs: [
     {
-      q: "Which is the best full body checkup in Bangalore?",
-      a: "The best full body checkup is one that matches your age, risk factors and family history, performed at an accredited lab. QXL Diagnostics offers doctor-curated full body panels at our NABL-accredited (MC-10025) Bengaluru laboratory with free home collection and same-day reports — call +91 9964 639 639 and we'll help you choose without overselling.",
+      q: "How do I choose the right full body checkup package?",
+      a: "Evaluate your age, lifestyle, and family medical history. Adults under 30 without symptoms usually need a basic metabolic screen. Adults 30+ benefit from adding HbA1c, thyroid, and vitamin D/B12. Individuals with hypertension, obesity, or cardiac risk should choose executive panels including hs-CRP and lipid sub-fractions. QXL Diagnostics provides clear package comparisons to help you choose without overselling.",
     },
     {
       q: "How many parameters are tested in a full body checkup?",
@@ -159,3 +155,4 @@ export const fullBodyCheckupBangalore: SeoLandingData = {
     { label: "Kidney Function Test", href: "/kidney-function-test", desc: "Creatinine, urea & filtration health" },
   ],
 };
+

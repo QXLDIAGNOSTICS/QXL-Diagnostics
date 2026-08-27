@@ -71,8 +71,12 @@ export default function DrShantakumarMurudaPage() {
       <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-14 border-b border-sky-900">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-gradient-to-br from-sky-400 to-[#2563eb] text-white font-black text-4xl flex items-center justify-center border-4 border-white/20 shadow-xl shrink-0">
-              SM
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden border-4 border-white/20 shadow-xl shrink-0 relative bg-slate-800">
+              <img
+                src="/images/dr_shantakumar_new.jpg"
+                alt="Dr. Shantakumar Muruda MD"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div className="space-y-3 text-center md:text-left">
               <span className="inline-block bg-[#D69A18] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest">
@@ -133,6 +137,28 @@ export default function DrShantakumarMurudaPage() {
                     <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                     <span>{item}</span>
                   </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Reviewed Medical Articles & Clinical Publications */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-xs space-y-4">
+              <h2 className="text-xl font-extrabold text-[#0f2d5e] border-b border-gray-100 pb-3">Reviewed Medical Articles &amp; Clinical Guides</h2>
+              <div className="space-y-3">
+                {[
+                  { title: "HbA1c Test: Diabetes Diagnosis, Fasting Requirements & Reference Ranges", href: "/hba1c-test" },
+                  { title: "Lipid Profile Test: Understanding Cholesterol Ratios & Cardiac Risk", href: "/lipid-profile-test" },
+                  { title: "NABL Accreditation & ISO 15189 Standards in Clinical Laboratory Practice", href: "/nabl-accredited-lab-bangalore" },
+                  { title: "Full Body Health Checkup: Clinical Parameter Selection & Guidance", href: "/full-body-checkup-bangalore" },
+                  { title: "Blood Test Preparation: Fasting vs Non-Fasting Guidelines", href: "/blood-test-bangalore" },
+                ].map((art, idx) => (
+                  <Link key={idx} href={art.href} className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-sky-50 border border-slate-200 hover:border-sky-200 transition-all group">
+                    <div className="flex items-center gap-3">
+                      <FileText className="w-4 h-4 text-blue-600 shrink-0" />
+                      <span className="text-xs font-bold text-slate-800 group-hover:text-blue-600 transition-colors">{art.title}</span>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 shrink-0 transition-colors" />
+                  </Link>
                 ))}
               </div>
             </div>

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
+import { trackChatGPTTestView } from "@/lib/chatgptAnalytics";
 import {
   Award,
   ShieldCheck,
@@ -129,6 +130,10 @@ function buildJsonLd(data: SeoLandingData) {
 
 export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
   const jsonLd = buildJsonLd(data);
+
+  useEffect(() => {
+    trackChatGPTTestView(data.medicalTestName || data.h1Lead, data.slug, data.price);
+  }, [data]);
 
   return (
     <div className="bg-white text-slate-800">
@@ -439,7 +444,7 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
             Ready to Book? Get Tested with QXL Diagnostics Today
           </h2>
           <p className="text-slate-300 text-sm font-medium max-w-2xl mx-auto">
-            Free home sample collection across Bengaluru • NABL-accredited laboratory (MC-10025) •
+            Free home sample collection across Bengaluru • NABL-accredited laboratory (MC-6849) •
             Same-day digital reports for most routine tests.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">

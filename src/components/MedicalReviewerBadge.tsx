@@ -19,7 +19,7 @@ export default function MedicalReviewerBadge({
       <span>
         Medically Reviewed by{" "}
         <Link
-          href="/doctors/dr-shantakumar-muruda-6f7b6161"
+          href="/dr-shantakumar-muruda"
           className="font-bold underline hover:text-emerald-300 transition-colors"
         >
           {doctorName}, {qualifications}

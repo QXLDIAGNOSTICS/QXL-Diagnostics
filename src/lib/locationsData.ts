@@ -95,7 +95,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Uttarahalli",
     slug: "uttarahalli",
     nearestLab: "Kengeri Main Lab (Mysore Road)",
-    description: "At-home diagnostic lab services in Uttarahalli, Channasandra, and Subramanyapura. Safe blood collection by expert certified technicians.",
+    description: "At-home diagnostic lab services in Uttarahalli, Channasandra, and Subramanyapura. Safe blood collection by expert phlebotomy specialists.",
     pincodes: ["560061"],
     popularTests: ["Diabetes Profile", "Thyroid Care", "Full Body Wellness", "Fever Panel"]
   },
@@ -149,7 +149,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Koramangala",
     slug: "koramangala",
     nearestLab: "Central Processing Hub",
-    description: "Doorstep diagnostic services in Koramangala 1st to 8th Blocks. Certified medical laboratory processing for all routine & specialty diagnostic tests.",
+    description: "Doorstep diagnostic services in Koramangala 1st to 8th Blocks. NABL accredited medical laboratory processing for all routine & specialty diagnostic tests.",
     pincodes: ["560034", "560095"],
     popularTests: ["Full Body Health Profile", "HbA1c Sugar Test", "CBC", "Lipid & Liver Panel"]
   },
@@ -221,7 +221,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Indiranagar",
     slug: "indiranagar",
     nearestLab: "Central Processing Hub",
-    description: "At-home blood collection service in Indiranagar 1st & 2nd Stages, 100ft Road, and Defense Colony. Fast booking & doctor-certified reports.",
+    description: "At-home blood collection service in Indiranagar 1st & 2nd Stages, 100ft Road, and Defense Colony. Fast booking & doctor-validated reports.",
     pincodes: ["560038"],
     popularTests: ["Master Wellness Check", "Thyroid Profile", "Vitamin D3", "HbA1c"]
   },
@@ -329,7 +329,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Vidyaranyapura",
     slug: "vidyaranyapura",
     nearestLab: "Yelahanka North Hub",
-    description: "Prompt doorstep blood collection in Vidyaranyapura, BEL Layout, and NTI Layout. Certified phlebotomists & painless blood draw.",
+    description: "Prompt doorstep blood collection in Vidyaranyapura, BEL Layout, and NTI Layout. Painless blood draw by phlebotomy specialists.",
     pincodes: ["560097"],
     popularTests: ["Full Body Checkup", "Thyroid Profile", "HbA1c", "Lipid Test"]
   },
@@ -428,7 +428,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Shivajinagar",
     slug: "shivajinagar",
     nearestLab: "Central Processing Hub",
-    description: "Doorstep blood test collection in Shivajinagar, Commercial Street area, and Russell Market. Certified laboratory testing.",
+    description: "Doorstep blood test collection in Shivajinagar, Commercial Street area, and Russell Market. NABL accredited laboratory testing.",
     pincodes: ["560001", "560051"],
     popularTests: ["Fever Profile", "Diabetes Screening", "Lipid Panel", "CBC"]
   },

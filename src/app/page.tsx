@@ -24,6 +24,7 @@ import RunningTextMarquee from "../components/RunningTextMarquee";
 import RakshaOfferCard from "../components/rakshaBandhan/RakshaOfferCard";
 import MobileTrustBadges from "../components/MobileTrustBadges";
 import SmartSearchBar from "../components/SmartSearchBar";
+import { isCampaignActive } from "../lib/rakshaBandhanConfig";
 
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
@@ -957,17 +958,13 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Evergreen SEO H1 — never change this to a campaign/festive title */}
-      <h1 className="sr-only">NABL-Accredited Diagnostic Lab in Bengaluru — Home Collection &amp; Same-Day Reports</h1>
-      <p className="sr-only">Doctor-led NABL-accredited super-speciality diagnostic laboratory. Advanced blood tests, histopathology, molecular diagnostics and free home sample collection across Bengaluru.</p>
-
       {/* ── DESKTOP VIEW (hidden lg:flex) ── */}
       <div className="hidden lg:flex flex-col w-full">
         {/* ── Hero Slider ── */}
         <section className="pt-6 pb-4 relative group overflow-hidden">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div
-              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row h-[400px] md:h-[420px] shadow-lg border border-amber-200/50"
+              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row min-h-[360px] md:h-[420px] shadow-lg border border-amber-200/50"
               style={{ background: 'linear-gradient(135deg, #FFF4E6 0%, #FFFFFF 40%, #FFFFFF 60%, #E8F5E9 100%)' }}
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -978,8 +975,8 @@ export default function Home() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 1.0 }}
-                  className="absolute inset-0 w-full h-full flex flex-col md:flex-row"
+                  transition={{ duration: 0.7 }}
+                  className="relative md:absolute inset-0 w-full h-full flex flex-col md:flex-row"
                 >
                   {activeSlide?.imageOnly ? (
                     <React.Fragment>
@@ -1011,10 +1008,10 @@ export default function Home() {
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="w-full md:w-[55%] px-8 md:px-12 py-8 h-full flex flex-col justify-center z-20 relative text-left overflow-hidden"
+                        className="w-full md:w-[55%] px-5 sm:px-8 md:px-12 py-6 sm:py-8 h-full flex flex-col justify-center z-20 relative text-left overflow-hidden"
                       >
                         {/* Badge */}
-                        <div className="flex flex-wrap items-center gap-2 mb-3">
+                        <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
                           <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 text-[9px] font-black px-3.5 py-1.5 rounded-full tracking-widest uppercase shadow-md border border-amber-300 truncate max-w-[90%]">
                             <span>{activeSlide.badge}</span>
                           </span>
@@ -1025,24 +1022,24 @@ export default function Home() {
                         </div>
 
                         {/* Title — single compact block */}
-                        <h2 className="text-[22px] md:text-[28px] leading-[1.15] font-black text-[#0f2d5e] mb-1 pr-4">
+                        <h2 className="text-[18px] sm:text-[22px] md:text-[28px] leading-[1.15] font-black text-[#0f2d5e] mb-1 pr-4">
                           {activeSlide.title}
                         </h2>
-                        <p className="text-[16px] md:text-[20px] leading-[1.2] font-extrabold text-[#2563eb] mb-2 pr-4">
+                        <p className="text-[14px] sm:text-[16px] md:text-[20px] leading-[1.2] font-extrabold text-[#2563eb] mb-2 pr-4">
                           {activeSlide.titleAccent}
                         </p>
 
                         {/* Short subtitle only */}
-                        <p className="text-[12px] text-slate-600 font-medium mb-3 max-w-sm leading-snug line-clamp-2">
+                        <p className="text-[11px] sm:text-[12px] text-slate-600 font-medium mb-3 max-w-sm leading-snug line-clamp-2">
                           {activeSlide.subtitle}
                         </p>
 
                         {/* Feature pills — max 4, single row */}
-                        <div className="flex flex-wrap gap-1.5 mb-4">
+                        <div className="flex flex-wrap gap-1.5 mb-3 sm:mb-4">
                           {activeSlide.features.slice(0, 4).map((f: string, i: number) => (
                             <span
                               key={f}
-                              className={`text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border ${
+                              className={`text-[9.5px] sm:text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border ${
                                 i % 3 === 0
                                   ? "bg-blue-50 border-blue-300 text-blue-800"
                                   : i % 3 === 1
@@ -1056,10 +1053,10 @@ export default function Home() {
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className="flex flex-wrap items-center gap-2 mb-3">
+                        <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
                           <Link
                             href={activeSlide.ctaLink}
-                            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-6 py-2.5 rounded-full text-[12px] shadow-md hover:shadow-lg active:scale-95 transition-all uppercase tracking-wide border border-amber-200"
+                            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] shadow-md hover:shadow-lg active:scale-95 transition-all uppercase tracking-wide border border-amber-200"
                           >
                             <span className="flex items-center gap-1.5">
                               <span>{activeSlide.cta}</span>
@@ -1068,7 +1065,7 @@ export default function Home() {
                           </Link>
                           <a
                             href={activeSlide.ctaSecondaryLink}
-                            className="bg-white hover:bg-slate-50 text-slate-700 font-bold px-4 py-2.5 rounded-full text-[11px] uppercase tracking-wide border border-blue-300/80 shadow-sm transition-all"
+                            className="bg-white hover:bg-slate-50 text-slate-700 font-bold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[10.5px] sm:text-[11px] uppercase tracking-wide border border-blue-300/80 shadow-sm transition-all"
                           >
                             {activeSlide.ctaSecondary}
                           </a>
@@ -1076,12 +1073,12 @@ export default function Home() {
 
                       </motion.div>
 
-                      {/* Image / Decorative — right side, flush 50% */}
+                      {/* Image / Decorative — right side on desktop, bottom or full card on mobile */}
                       <motion.div
                         initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute top-0 right-0 bottom-0 w-[50%] h-full z-10 flex items-center justify-center overflow-hidden rounded-r-3xl"
+                        className="relative md:absolute top-0 right-0 bottom-0 w-full md:w-[50%] h-[180px] sm:h-[220px] md:h-full z-10 flex items-center justify-center overflow-hidden rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none"
                         style={{ background: activeSlide.noImage ? 'linear-gradient(135deg, #FFF8EE 0%, #FFFBF0 50%, #F0FFF4 100%)' : 'transparent' }}
                       >
                         {activeSlide.noImage ? (
@@ -1115,7 +1112,21 @@ export default function Home() {
                 </motion.div>
               </AnimatePresence>
 
-              {/* Slide dots removed as requested */}
+              {/* Slide Indicator Dots */}
+              {slides.length > 1 && (
+                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-slate-900/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                  {slides.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentSlide(i)}
+                      aria-label={`Go to slide ${i + 1}`}
+                      className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                        i === currentSlide ? "w-6 bg-amber-400" : "w-2 bg-white/60 hover:bg-white"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
 
             </div>
           </div>
@@ -1425,7 +1436,9 @@ export default function Home() {
         </section>
 
         {/* ── Raksha Bandhan Festive Offer Section ── */}
-        <RakshaOfferCard onOpenBooking={(title) => setSelectedPackage({ name: title || "Raksha Bandhan Special Health Checkup", price: "800", old_price: "5800", includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary (21)" })} />
+        {isCampaignActive() && (
+          <RakshaOfferCard onOpenBooking={(title) => setSelectedPackage({ name: title || "Raksha Bandhan Special Health Checkup", price: "800", old_price: "5800", includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary (21)" })} />
+        )}
 
         {/* ── Speciality Tests ── */}
         <section className="py-14 bg-gradient-to-b from-transparent to-blue-50/50 border-t border-blue-100">
@@ -1701,11 +1714,81 @@ export default function Home() {
           </div>
 
 
-          {/* Carousel dots */}
-          <div className="flex justify-center items-center gap-2 mt-3.5 mb-2.5">
-            <span className="w-6 h-2 rounded-full bg-[#D69A18]" />
-            <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
-            <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+          {/* Mobile Hero Slider Carousel (Proper Spacing & Alignment) */}
+          <div className="relative w-full rounded-2xl overflow-hidden my-3 shadow-sm border border-amber-200/70 bg-gradient-to-br from-[#FFF8EE] via-white to-[#F0FFF4] p-4 flex flex-col gap-2 min-h-[175px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentMobileSlide}
+                initial={{ opacity: 0, x: 8 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -8 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-row items-center justify-between gap-3 sm:gap-4 w-full h-full"
+              >
+                {/* Left Side — Badges, Title & CTAs */}
+                <div className="flex-1 flex flex-col justify-center gap-1.5 z-10 min-w-0 pr-1">
+                  <div className="flex items-center gap-1.5 flex-wrap">
+                    <span className="bg-amber-400 text-slate-950 text-[8.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">
+                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.badge || "DOCTOR-LED LAB"}
+                    </span>
+                    <span className="bg-emerald-100 text-emerald-800 text-[8.5px] font-black px-2 py-0.5 rounded-full">
+                      NABL MC-6849
+                    </span>
+                  </div>
+
+                  <div className="flex flex-col gap-0.5 my-0.5">
+                    <h3 className="text-[14px] sm:text-[15px] font-black text-[#0f2d5e] leading-snug line-clamp-2">
+                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.title}
+                    </h3>
+                    <p className="text-[11.5px] font-extrabold text-[#2563eb] leading-snug line-clamp-1">
+                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.titleAccent}
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2 mt-1 flex-wrap">
+                    <Link
+                      href={mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.ctaLink || "/packages"}
+                      className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-3.5 py-1.5 rounded-full text-[10px] uppercase tracking-wide shadow-xs active:scale-95 transition-transform whitespace-nowrap"
+                    >
+                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.cta || "Book Now"} →
+                    </Link>
+                    <a
+                      href="tel:+919964639639"
+                      className="bg-white text-slate-700 font-bold px-3 py-1.5 rounded-full text-[10px] border border-slate-200 shadow-2xs whitespace-nowrap"
+                    >
+                      Call
+                    </a>
+                  </div>
+                </div>
+
+                {/* Right Side — Poster Image (Full Cover, Edge-to-Edge) */}
+                {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.image && (
+                  <div className="w-[165px] xs:w-[180px] sm:w-[200px] h-[115px] xs:h-[125px] sm:h-[140px] relative rounded-xl overflow-hidden shrink-0 shadow-xs border border-amber-200/80 bg-white ml-auto self-center">
+                    <img
+                      src={mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.image}
+                      alt={mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.title}
+                      className="w-full h-full object-cover object-center rounded-xl"
+                    />
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Interactive Dots for Mobile Slider */}
+            {mobileSlides.length > 1 && (
+              <div className="flex justify-center items-center gap-1.5 mt-1.5">
+                {mobileSlides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentMobileSlide(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                      i === (currentMobileSlide % mobileSlides.length) ? "w-5 bg-[#D69A18]" : "w-1.5 bg-slate-300"
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
@@ -1765,7 +1848,7 @@ export default function Home() {
         <section className="py-4 px-4 bg-[#f8faff] border-t border-slate-100 my-4 sm:my-6">
           <div className="rounded-2xl bg-gradient-to-br from-[#FFF8EB] via-white to-amber-50/60 p-5 border border-[#F3DBA7] shadow-sm">
             <span className="inline-block bg-[#D69A18] text-white text-[10px] font-black px-3 py-1 rounded-full tracking-wider uppercase mb-2.5 shadow-2xs">
-              24×7 DIAGNOSTIC SERVICES
+              24×7 ONLINE BOOKING & SUPPORT
             </span>
             <h3 className="text-[20px] font-black text-[#0f2d5e] leading-tight mb-1">
               NABL Accredited Diagnostics
@@ -1834,9 +1917,11 @@ export default function Home() {
         </section>
 
         {/* ── Raksha Bandhan Festive Offer Section ── */}
-        <div className="my-4 sm:my-6">
-          <RakshaOfferCard onOpenBooking={(title) => setSelectedPackage({ name: title || "Raksha Bandhan Special Health Checkup", price: "800", old_price: "5800", includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary (21)" })} />
-        </div>
+        {isCampaignActive() && (
+          <div className="my-4 sm:my-6">
+            <RakshaOfferCard onOpenBooking={(title) => setSelectedPackage({ name: title || "Raksha Bandhan Special Health Checkup", price: "800", old_price: "5800", includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary (21)" })} />
+          </div>
+        )}
 
         {/* ── Explore by Health Need (Exact 2nd Reference Image Design) ── */}
         <section className="py-5 px-4 bg-slate-50/60 border-t border-slate-100 my-4 sm:my-6">
@@ -1905,11 +1990,6 @@ export default function Home() {
         {/* ── AI Powered Diagnostics ── */}
         <div className="my-4 sm:my-6">
           <AiDiagnostics />
-        </div>
-
-        {/* ── Home Collection Section ── */}
-        <div className="my-4 sm:my-6">
-          <HomeCollectionSection />
         </div>
 
         {/* ── Meet Our Team (Large Scrollable Carousel) ── */}
@@ -2033,7 +2113,7 @@ export default function Home() {
 
               <div className="pt-2 text-xs text-slate-500 flex items-center gap-4 font-semibold">
                 <span>🏠 Free Home Collection</span>
-                <span>📋 NABL Accredited (MC-10025)</span>
+                <span>📋 NABL Accredited (MC-6849)</span>
               </div>
             </div>
 
@@ -2061,7 +2141,7 @@ export default function Home() {
                 style={{ color: '#ffffff' }}
               >
                 <span className="!text-white font-black" style={{ color: '#ffffff' }}>BOOK NOW</span>
-                <span className="animate-pulse !text-white font-black" style={{ color: '#ffffff' }}>→</span>
+                <span className="!text-white font-black" style={{ color: '#ffffff' }}>→</span>
               </Link>
             </div>
           </motion.div>

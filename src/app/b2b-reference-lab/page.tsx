@@ -5,7 +5,7 @@ import { ShieldCheck, Building2, Stethoscope, FileText, Phone, Mail, Award, Cloc
 
 export const metadata: Metadata = {
   title: "B2B Reference Laboratory Services Bengaluru | QXL Diagnostics",
-  description: "B2B diagnostic testing, reference lab partnerships, and hospital laboratory outsourcing across Bengaluru. NABL accredited (MC-10025), ISO 15189:2022 standards.",
+  description: "B2B diagnostic testing, reference lab partnerships, and hospital laboratory outsourcing across Bengaluru. NABL accredited (MC-6849), ISO 15189:2022 standards.",
 };
 
 export default function B2bReferenceLabPage() {
@@ -22,7 +22,7 @@ export default function B2bReferenceLabPage() {
               Super-Speciality Reference Laboratory Partner for Bengaluru Hospitals &amp; Clinics
             </h1>
             <p className="text-blue-100 text-base md:text-lg mb-8 leading-relaxed font-medium">
-              Outsource specialized pathology, histopathology, molecular testing, and rare bio-assays to our NABL-accredited (MC-10025) central laboratory in Kengeri, Mysuru Road.
+              Outsource specialized pathology, histopathology, molecular testing, and rare bio-assays to our NABL-accredited (MC-6849) central laboratory in Kengeri, Mysuru Road.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#partner-form" className="bg-white text-[#0f2d5e] font-black px-7 py-3.5 rounded-full text-sm uppercase tracking-wider hover:bg-slate-100 transition-all shadow-lg">
@@ -43,7 +43,7 @@ export default function B2bReferenceLabPage() {
             <Award className="w-10 h-10 text-[#2563eb] mb-4" />
             <h3 className="text-lg font-bold text-[#0f2d5e] mb-2">NABL Accredited Quality</h3>
             <p className="text-slate-600 text-xs leading-relaxed font-medium">
-              Processed under Certificate MC-10025 according to ISO 15189:2022 standards with daily multi-rule Westgard IQC.
+              Processed under Certificate MC-6849 according to ISO 15189:2022 standards with daily multi-rule Westgard IQC.
             </p>
           </div>
           <div className="glass-card p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">

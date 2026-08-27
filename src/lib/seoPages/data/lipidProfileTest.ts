@@ -12,7 +12,7 @@ export const lipidProfileTest: SeoLandingData = {
     "Cholesterol has no symptoms until it becomes an event. A complete lipid profile at QXL Diagnostics measures LDL, HDL, triglycerides and total cholesterol — the numbers that decide your cardiovascular risk and your doctor's prevention plan.",
   aiOverviewTitle: "What does a lipid profile measure?",
   aiOverview:
-    "A lipid profile measures Total Cholesterol, LDL ('bad') cholesterol, HDL ('good') cholesterol, VLDL and Triglycerides, with calculated ratios like LDL/HDL and cholesterol/HDL. QXL Diagnostics processes lipid panels at its NABL-accredited (MC-10025) Bengaluru laboratory — free home collection city-wide, same-day digital reports.",
+    "A lipid profile measures Total Cholesterol, LDL ('bad') cholesterol, HDL ('good') cholesterol, VLDL and Triglycerides, with calculated ratios like LDL/HDL and cholesterol/HDL. QXL Diagnostics processes lipid panels at its NABL-accredited (MC-6849) Bengaluru laboratory — free home collection city-wide, same-day digital reports.",
   aiOverviewPoints: [
     "LDL, HDL, Triglycerides & Ratios",
     "Heart-Risk Stratification",

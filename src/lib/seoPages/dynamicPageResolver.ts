@@ -162,7 +162,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
     whyImportant: [
       "Investigate symptoms, establish baseline health information, or diagnose & monitor disease.",
       "Suitable for routine screening, preventive health checks, and physician-requested investigations.",
-      "Processed at NABL-accredited super speciality diagnostic laboratory (MC-10025)."
+      "Processed at NABL-accredited super speciality diagnostic laboratory (MC-6849)."
     ],
     faqs: [
       { question: "Can I book a blood test at home in Bangalore?", answer: "Yes, home blood sample collection is available across Bengaluru subject to service availability." },
@@ -1375,7 +1375,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
       slug: cleanSlug,
       title: explicitData.title || `${cleanSlug} | QXL Diagnostics`,
       metaDescription: explicitData.subtitle || `Book ${cleanSlug} in Bangalore with NABL accredited precision and doorstep collection.`,
-      badge: "NABL ACCREDITED LAB (MC-10025) · FREE HOME COLLECTION",
+      badge: "NABL ACCREDITED LAB (MC-6849) · FREE HOME COLLECTION",
       h1Title: explicitData.h1Title || cleanSlug.replace(/-/g, ' '),
       subtitle: explicitData.subtitle || "High accuracy diagnostic investigation performed by QXL Diagnostics.",
       price: explicitData.price || "499",
@@ -1396,7 +1396,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
       ],
       whyImportant: explicitData.whyImportant || [
         "Provides accurate baseline health data for your doctor.",
-        "Conducted at NABL accredited super speciality laboratory (MC-10025).",
+        "Conducted at NABL accredited super speciality laboratory (MC-6849).",
         "Digital PDF report delivered directly to your WhatsApp & Email."
       ],
       faqs: explicitData.faqs || [
@@ -1451,7 +1451,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
       whyImportant: [
         "Provides accurate baseline clinical data for your doctor.",
         "Detects early underlying health changes before symptoms develop.",
-        "Processed at NABL-accredited ISO 15189:2022 laboratory (MC-10025)."
+        "Processed at NABL-accredited ISO 15189:2022 laboratory (MC-6849)."
       ],
       faqs: matchedTest.faqs || [
         { question: `Do I need to fast for ${matchedTest.name}?`, answer: matchedTest.preparation },
@@ -1503,7 +1503,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
   return {
     slug: cleanSlug,
     title: `${formattedName} in Bangalore | QXL Diagnostics NABL Lab`,
-    metaDescription: `Book ${formattedName} in Bangalore. NABL accredited lab (MC-10025), free doorstep sample collection, same-day reports on WhatsApp & Email.`,
+    metaDescription: `Book ${formattedName} in Bangalore. NABL accredited lab (MC-6849), free doorstep sample collection, same-day reports on WhatsApp & Email.`,
     badge: `NABL ACCREDITED · FREE DOORSTEP COLLECTION`,
     h1Title: `${formattedName} in Bangalore`,
     subtitle: `High-accuracy ${formattedName} performed by QXL Diagnostics with NABL-accredited precision, fast doorstep blood collection, and doctor-validated reports.`,
@@ -1525,7 +1525,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
     ],
     whyImportant: [
       "Provides actionable health insights for early diagnosis.",
-      "Conducted at NABL accredited ISO 15189 laboratory (MC-10025).",
+      "Conducted at NABL accredited ISO 15189 laboratory (MC-6849).",
       "Doctor-reviewed PDF report sent directly to your WhatsApp and Email."
     ],
     faqs: [

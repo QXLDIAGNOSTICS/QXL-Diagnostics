@@ -127,7 +127,7 @@ export default async function DoctorDetailPage({ params }: Props) {
                   </div>
                   <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
                     <span className="font-bold text-slate-900 block">Accreditation Leadership</span>
-                    <span className="text-slate-600">Head of NABL ISO 15189:2022 Quality Management (MC-10025)</span>
+                    <span className="text-slate-600">Head of NABL ISO 15189:2022 Quality Management (MC-6849)</span>
                   </div>
                   <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
                     <span className="font-bold text-slate-900 block">Clinical Expertise</span>

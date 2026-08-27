@@ -21,6 +21,7 @@ const FALLBACK_LOGO =
   "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
 
 import { getActiveCampaign } from '../lib/campaignScheduler';
+import { isCampaignActive } from '../lib/rakshaBandhanConfig';
 
 function useHeaderCountdown() {
   const target = useRef(new Date('2026-08-31T23:59:59+05:30').getTime()).current;
@@ -236,32 +237,24 @@ export default function Header() {
           boxShadow: '0 8px 40px rgba(255, 153, 51, 0.10), 0 1px 0 rgba(255,255,255,0.9) inset, 0 -1px 0 rgba(19, 136, 8, 0.15) inset'
         }}
       >
-        {/* Top Announcement Bar — Desktop (Green Container with Live Countdown & Shimmer) */}
-        <div className="hidden lg:flex bg-gradient-to-r from-[#138808] via-[#15803d] to-[#138808] text-white text-[11px] font-black py-2 px-3 items-center justify-center relative overflow-hidden z-20 shadow-xs border-b border-emerald-600/30">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-sweep pointer-events-none" />
-          <div className="flex flex-row items-center justify-center gap-3 max-w-[1400px] mx-auto w-full flex-wrap z-10">
-            <span className="bg-amber-400 text-slate-950 text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0 shadow-xs flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5 text-slate-950" viewBox="0 0 100 100" fill="currentColor">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="4 4" />
-                <circle cx="50" cy="50" r="20" />
-              </svg>
-              <span>RAKSHA BANDHAN OFFER @ ₹800</span>
-            </span>
-            <span className="text-emerald-200 font-bold shrink-0">•</span>
-            <span className="bg-black/25 text-amber-300 text-[10.5px] font-extrabold px-3 py-0.5 rounded-full border border-amber-300/30 shrink-0 shadow-inner">
-              LIMITED PERIOD OFFER • VALID TILL AUGUST 31
-            </span>
-            <span className="text-emerald-200 font-bold shrink-0">•</span>
-            <span className="font-extrabold text-white text-[11px] tracking-wide shrink-0">
-              FREE HOME COLLECTION AVAILABLE
-            </span>
-            <span className="text-emerald-200 font-bold text-[10px] shrink-0">|</span>
-            <Link
-              href="/raksha-bandhan-health-checkup-bangalore"
-              className="inline-flex items-center justify-center gap-1 bg-amber-400 hover:bg-amber-300 text-slate-950 text-[10px] font-black px-3.5 py-1 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all shrink-0 uppercase tracking-wider cursor-pointer border border-amber-200"
-            >
-              CLAIM ₹800 OFFER →
-            </Link>
+        {/* Top Announcement Bar — Desktop (Light Green Compact Ticker with Smooth Marquee) */}
+        <div className="hidden lg:flex bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 text-white text-[11px] font-bold py-1 px-3 items-center overflow-hidden border-b border-emerald-500/40 shadow-xs relative">
+          <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] w-max cursor-pointer" style={{ animationDuration: '45s' }}>
+            {[1, 2].map((repeatKey) => (
+              <div key={repeatKey} className="flex items-center gap-4 shrink-0 mr-8">
+                <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">NABL ACCREDITED (MC-6849)</span>
+                <span className="text-emerald-200 font-bold">•</span>
+                <h1 className="text-[11px] font-black !text-white inline-flex items-center gap-1 m-0 p-0">
+                  <span>Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</span>
+                </h1>
+                <span className="text-emerald-200 font-bold">•</span>
+                <span className="text-emerald-100 text-[11px] font-bold">300+ Tests &amp; Preventive Checkup Packages</span>
+                <span className="text-emerald-200 font-bold">•</span>
+                <span className="text-emerald-100 text-[11px] font-bold">Free Doorstep Home Collection Across All Bengaluru Localities</span>
+                <span className="text-emerald-200 font-bold">•</span>
+                <a href="tel:+919964639639" className="text-amber-300 font-extrabold hover:underline text-[11px]">24×7 Support: +91 9964 639 639</a>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -503,19 +496,33 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Right Header Action: Cart Icon (Navigates directly to /book) */}
-        <Link
-          href="/book"
-          className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer"
-          aria-label="View Cart and Checkout"
-        >
-          <ShoppingCart className="w-4 h-4 text-[#0f2d5e]" strokeWidth={2.0} />
-          {cartCount > 0 && (
-            <span className="absolute -top-1 -right-1 bg-amber-500 text-white font-black text-[9px] w-4 h-4 rounded-full flex items-center justify-center border border-white shadow-xs">
-              {cartCount}
-            </span>
-          )}
-        </Link>
+        {/* Right Header Action: Cart & Profile Icons */}
+        <div className="flex items-center gap-1.5 shrink-0">
+          <Link
+            href="/book"
+            className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer"
+            aria-label="View Cart and Checkout"
+          >
+            <ShoppingCart className="w-4 h-4 text-[#0f2d5e]" strokeWidth={2.0} />
+            {cartCount > 0 && (
+              <span className="absolute -top-1 -right-1 bg-amber-500 text-white font-black text-[9px] w-4 h-4 rounded-full flex items-center justify-center border border-white shadow-xs">
+                {cartCount}
+              </span>
+            )}
+          </Link>
+
+          <Link
+            href={user ? "/profile" : "/login"}
+            className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] active:scale-95 transition-transform shrink-0 cursor-pointer"
+            aria-label="User Profile"
+          >
+            {user ? (
+              <span className="text-xs font-black text-[#0f2d5e]">{userInitial}</span>
+            ) : (
+              <User className="w-4 h-4 text-[#0f2d5e]" strokeWidth={2.0} />
+            )}
+          </Link>
+        </div>
       </div>
 
       {/* Spacer for Fixed Top Header (60px) */}
@@ -864,7 +871,21 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Tab 3: Bookings */}
+          {/* Tab 3 (CENTER): AI Chat */}
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent('openAiChat'))}
+            className="flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative text-[#2563eb] cursor-pointer"
+          >
+            <div className="w-6 h-6 rounded-full bg-gradient-to-r from-blue-600 via-sky-500 to-blue-600 text-white flex items-center justify-center shadow-xs">
+              <MessageSquareText className="w-3.5 h-3.5 text-white" />
+            </div>
+            <span className="text-[10px] font-black text-[#2563eb] tracking-tight">
+              AI Chat
+            </span>
+          </button>
+
+          {/* Tab 4: Bookings */}
           <Link
             href="/book"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
@@ -880,7 +901,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Tab 4: Reports */}
+          {/* Tab 5: Reports */}
           <Link
             href="/report"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
@@ -893,22 +914,6 @@ export default function Header() {
             <FileText className={`w-5 h-5 ${pathname?.startsWith('/report') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/report') ? 2.4 : 1.8} />
             <span className={`text-[10px] ${pathname?.startsWith('/report') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
               Reports
-            </span>
-          </Link>
-
-          {/* Tab 5: Profile */}
-          <Link
-            href={user ? "/profile" : "/login"}
-            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
-              pathname?.startsWith('/profile') || pathname?.startsWith('/login') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
-            }`}
-          >
-            {(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) && (
-              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
-            )}
-            <User className={`w-5 h-5 ${pathname?.startsWith('/profile') || pathname?.startsWith('/login') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/profile') || pathname?.startsWith('/login') ? 2.4 : 1.8} />
-            <span className={`text-[10px] ${pathname?.startsWith('/profile') || pathname?.startsWith('/login') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
-              Profile
             </span>
           </Link>
         </nav>

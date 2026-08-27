@@ -46,10 +46,41 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const EMAIL = "info@qxldiagnostics.com";
 
 /** NABL certificate number — must match Google Business / accreditation docs */
-export const NABL_CERTIFICATE = "MC-10025";
-export const NABL_ACCREDITATION_TEXT = "NABL-accredited medical laboratory (ISO 15189:2022), Certificate No. MC-10025";
+export const NABL_CERTIFICATE = "MC-6849";
+export const NABL_ACCREDITATION_TEXT = "NABL-accredited medical laboratory (ISO 15189:2022) · Certificate No. MC-6849";
 /** Medical-lab quality standard (not ISO 9001) */
 export const ISO_STANDARD = "ISO 15189:2022";
+
+/** Centralized Business Hours specification to differentiate physical walk-ins vs 24x7 support */
+export const BUSINESS_HOURS = {
+  kengeri: {
+    display: "Mon–Sat: 7:00 AM – 9:00 PM, Sun: 7:00 AM – 2:00 PM",
+    opens: "07:00",
+    closes: "21:00",
+    sunOpens: "07:00",
+    sunCloses: "14:00",
+  },
+  yelahanka: {
+    display: "Mon–Sat: 7:00 AM – 9:00 PM, Sun: 7:00 AM – 2:00 PM",
+    opens: "07:00",
+    closes: "21:00",
+    sunOpens: "07:00",
+    sunCloses: "14:00",
+  },
+  phone_support: {
+    display: "24×7 Online Booking & Phone Support (+91 9964 639 639)",
+    hours: "24x7",
+  },
+  home_collection: {
+    display: "Daily: 6:00 AM – 8:00 PM across Bengaluru",
+    opens: "06:00",
+    closes: "20:00",
+  },
+  lab_processing: {
+    display: "24×7 Central NABL Laboratory Sample Processing",
+    hours: "24x7",
+  }
+};
 
 export interface BusinessLocation {
   slug: string;

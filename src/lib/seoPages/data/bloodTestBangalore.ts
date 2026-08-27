@@ -6,9 +6,9 @@ export const bloodTestBangalore: SeoLandingData = {
   pageType: "service",
   heroBadge: "300+ Blood Tests | Free Home Collection in Bengaluru",
   h1Lead: "Blood Test in Bangalore —",
-  h1Highlight: "NABL Lab, Home Collection, Same-Day Reports",
+  h1Highlight: "NABL Accredited Lab, Home Collection, Same-Day Reports",
   heroIntro:
-    "Book any blood test in Bengaluru with QXL Diagnostics. From a routine CBC to advanced hormone and autoimmune panels, your sample is collected at home by certified phlebotomists and tested at our NABL-accredited (MC-10025) super-speciality laboratory.",
+    "Book any blood test in Bengaluru with QXL Diagnostics. From routine CBC and diabetes profiles to advanced hormone, autoimmune, and molecular panels, your sample is collected at home by certified phlebotomists and tested at our NABL-accredited (MC-6849) super-speciality laboratory.",
   aiOverviewTitle: "Booking a blood test with QXL",
   aiOverview:
     "QXL Diagnostics offers 300+ blood tests across biochemistry, haematology, hormones, vitamins, immunity and infection markers in Bangalore. Free home sample collection is available city-wide, most routine reports are delivered the same day, and every abnormal result is reviewed by a specialist consultant before release.",
@@ -42,34 +42,38 @@ export const bloodTestBangalore: SeoLandingData = {
   ],
   sections: [
     {
-      heading: "Blood Testing in Bangalore, Done Properly",
+      heading: "Understanding Blood Tests: Clinical Foundations & Utility",
       paragraphs: [
-        "A blood test is often the first step in understanding fatigue, fever, diabetes risk, thyroid problems, cholesterol, vitamin deficiency or something more serious. What matters is not just that the test gets done — it's whether the number you receive can be trusted when your doctor makes a decision with it.",
-        "QXL Diagnostics runs one of Bengaluru's most rigorously controlled laboratory workflows. Samples are barcoded at collection, transported under temperature control, analysed on automated platforms, and screened for biological plausibility before reporting. Anything critical or unusual is escalated to the relevant consultant — clinical biochemistry results to our founder Dr. Shantakumar Muruda, haematology to Dr. Naveen Kumar N, and infection or autoimmune serology to Dr. Ajitha Pillai.",
+        "A blood test is a quantitative laboratory investigation performed on whole blood, plasma, or serum to evaluate organ function, cellular health, metabolic balance, and disease biomarkers. Because circulating blood continuously bathes every major organ system in the body, biochemical changes in blood cells, proteins, electrolytes, enzymes, and hormones provide a direct window into underlying physiological health.",
+        "At QXL Diagnostics, blood testing is conducted strictly within NABL-accredited (MC-6849) quality workflows under the direct supervision of Clinical Biochemist Dr. Shantakumar Muruda (MD) and consultant pathologists. Whether ordered for routine wellness screening or complex diagnostic workups, every sample is barcode-tracked and verified against internal multi-rule Westgard quality control standards.",
       ],
     },
     {
-      heading: "Most Booked Blood Tests at QXL",
+      heading: "Major Categories of Diagnostic Blood Tests",
       paragraphs: [
-        "These are the investigations our patients in Kengeri, Yelahanka and across Bengaluru book most often — all available with free home collection:",
+        "Diagnostic blood investigations are divided into specialized laboratory disciplines depending on the biomarkers measured:",
       ],
       bullets: [
-        "Complete Blood Count (CBC) — anaemia, infection and immunity screening",
-        "HbA1c & Blood Sugar (Fasting/PP) — diabetes diagnosis and monitoring",
-        "Thyroid Profile (TSH, FT3, FT4) — thyroid function assessment",
-        "Lipid Profile — cholesterol and heart-risk screening",
-        "Liver Function Test (LFT) & Kidney Function Test (KFT)",
-        "Vitamin D & Vitamin B12 — deficiency detection",
-        "Iron Studies, Ferritin, ESR, CRP, Uric Acid",
-        "Hormone panels — thyroid, PCOS, fertility, testosterone, prolactin",
-        "Tumour markers — PSA, CEA, CA-125, CA 19-9",
-        "Allergy profiles, dengue/malaria/typhoid panels and RT-PCR testing",
+        "Haematology (CBC, ESR, Coagulation): Evaluates red blood cells (anaemia), white blood cells (infection/immunity), and platelets (clotting function).",
+        "Clinical Biochemistry (Glucose, Lipids, LFT, KFT): Quantifies blood glucose, HbA1c, liver enzymes (SGOT/SGPT), renal markers (Creatinine/Urea), and serum cholesterol.",
+        "Endocrinology & Hormone Assays (TSH, Insulin, Cortisol, Reproductive Hormones): Assesses thyroid function, metabolic regulation, and adrenal/gonadal hormones.",
+        "Nutritional & Vitamin Panels (Vitamin D, B12, Iron, Ferritin, Electrolytes): Measures essential micro-nutrients required for nerve function, bone density, and cellular energy.",
+        "Immunology & Serology (ANA, Anti-CCP, Viral Serology): Screens for systemic autoimmune conditions, bacterial antibodies, and acute viral infections.",
+        "Molecular Diagnostics (RT-PCR): Detects pathogen genetic material with ultra-high analytical sensitivity for precision infectious disease diagnosis.",
       ],
     },
     {
-      heading: "How to Prepare for Your Blood Test",
+      heading: "Fasting vs. Non-Fasting Blood Test Preparation",
       paragraphs: [
-        "Some tests need preparation and others don't. Fasting blood sugar, lipid profile and many hormone assays require 8–12 hours of overnight fasting — water is fine, but skip tea, coffee and food. HbA1c, CBC, thyroid and most vitamin tests do not require fasting. Stay well hydrated before collection; it makes venipuncture easier. Tell the phlebotomist about any blood-thinning medication. When you book, we confirm the exact preparation for your specific panel so there are no surprises.",
+        "Correct patient preparation is critical to avoid pre-analytical errors. Tests such as Fasting Blood Sugar (FBS), Lipid Profile, Serum Iron, and Vitamin B12 require 8 to 12 hours of overnight fasting (only plain water permitted) because recent food intake temporarily alters circulating triglycerides, glucose, and serum iron concentrations.",
+        "Conversely, tests like Complete Blood Count (CBC), HbA1c, Thyroid Profile (TSH), Vitamin D, and Routine Antibody Panels do not require fasting and can be collected at any time during normal operating hours.",
+      ],
+    },
+    {
+      heading: "How Blood Samples Are Collected & Interpreted",
+      paragraphs: [
+        "Venous blood is drawn using single-use sterile vacuum collection tubes (vacutainers) containing specific anticoagulants or clot activators tailored to the test ordered (EDTA for CBC, Sodium Fluoride for glucose, SST gel tubes for serum biochemistry). For home collection across Bengaluru, phlebotomists transport samples in sealed, temperature-controlled cold-chain containers to maintain cellular and enzymatic stability.",
+        "Test results are presented alongside age- and gender-specific reference ranges. When a parameter falls outside defined physiological limits (abnormal or critical panic values), QXL's medical team conducts delta-checks against historical records and notifies the treating clinician for prompt medical review.",
       ],
     },
     {
