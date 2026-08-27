@@ -34,6 +34,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/home",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/home/",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/our_team/dr-shantakumar-muruda-md",
         destination: "/dr-shantakumar-muruda",
         permanent: true,
@@ -136,8 +146,8 @@ const nextConfig: NextConfig = {
       { source: "/oncology", destination: "/specialities/oncology", permanent: true },
       { source: "/urology", destination: "/specialities/urology", permanent: true },
       { source: "/gastroenterology", destination: "/specialities/gastroenterology", permanent: true },
-      { source: "/specialities/womens-health", destination: "/specialities/women-s-health", permanent: true },
-      { source: "/specialities/womenshealth", destination: "/specialities/women-s-health", permanent: true },
+      { source: "/specialities/women-s-health", destination: "/specialities/womens-health", permanent: true },
+      { source: "/specialities/womenshealth", destination: "/specialities/womens-health", permanent: true },
       // P2.3 Legacy WordPress & Short Doctor URL mappings
       { source: "/urology-3", destination: "/specialities/urology", permanent: true },
       { source: "/doctors/dr-shantakumar-muruda-6f7b6161", destination: "/dr-shantakumar-muruda", permanent: true },

@@ -233,24 +233,32 @@ export default function BookPage() {
         }
 
         const defaultFallbackTests: CatalogEntry[] = [
-          { id: "test-cbc", name: "COMPLETE BLOOD COUNT (CBC)", kind: 'test', price: 395, home_collection_available: true },
-          { id: "test-hba1c", name: "HBA1C, GLYCATED HEMOGLOBIN", kind: 'test', price: 610, home_collection_available: true },
-          { id: "test-tsh", name: "THYROID STIMULATING HORMONE (TSH)", kind: 'test', price: 350, home_collection_available: true },
-          { id: "test-thyroid-profile", name: "THYROID PROFILE (T3, T4, TSH)", kind: 'test', price: 550, home_collection_available: true },
-          { id: "test-vit-d", name: "VITAMIN D (25-OH)", kind: 'test', price: 1200, home_collection_available: true },
-          { id: "test-vit-b12", name: "VITAMIN B12", kind: 'test', price: 950, home_collection_available: true },
-          { id: "test-lipid", name: "LIPID PROFILE", kind: 'test', price: 800, home_collection_available: true },
-          { id: "test-lft", name: "LIVER FUNCTION TEST (LFT)", kind: 'test', price: 850, home_collection_available: true },
-          { id: "test-kft", name: "KIDNEY FUNCTION TEST (KFT)", kind: 'test', price: 850, home_collection_available: true },
-          { id: "test-fbs", name: "FASTING BLOOD SUGAR (FBS)", kind: 'test', price: 150, home_collection_available: true },
-          { id: "test-ppbs", name: "POSTPRANDIAL BLOOD SUGAR (PPBS)", kind: 'test', price: 150, home_collection_available: true },
-          { id: "test-urine", name: "URINE ROUTINE & MICROSCOPY", kind: 'test', price: 200, home_collection_available: true },
-          { id: "test-bile", name: "BILE ACIDS - SERUM", kind: 'test', price: 2500, home_collection_available: true },
-          { id: "test-shbg", name: "SEX HORMONE BINDING GLOBULIN (SHBG)", kind: 'test', price: 2900, home_collection_available: true }
+          { id: "cbc", name: "Complete Blood Count (CBC / Hemogram)", kind: 'test', price: 350, home_collection_available: true },
+          { id: "hba1c", name: "HbA1c (Glycated Haemoglobin)", kind: 'test', price: 350, home_collection_available: true },
+          { id: "tsh", name: "Thyroid Stimulating Hormone (TSH Ultrasensitive)", kind: 'test', price: 250, home_collection_available: true },
+          { id: "thyroid-profile", name: "Thyroid Profile Total (T3, T4, TSH)", kind: 'test', price: 550, home_collection_available: true },
+          { id: "vit-d", name: "Vitamin D3 (25-OH Hydroxy Vitamin D)", kind: 'test', price: 990, home_collection_available: true },
+          { id: "vit-b12", name: "Vitamin B12 (Serum Cobalamin)", kind: 'test', price: 890, home_collection_available: true },
+          { id: "lipid-profile", name: "Lipid Profile (Cholesterol Panel)", kind: 'test', price: 650, home_collection_available: true },
+          { id: "lft", name: "Liver Function Test (LFT Complete)", kind: 'test', price: 750, home_collection_available: true },
+          { id: "kft", name: "Kidney Function Test (KFT / RFT Complete)", kind: 'test', price: 690, home_collection_available: true },
+          { id: "fbs", name: "Fasting Blood Sugar (FBS)", kind: 'test', price: 150, home_collection_available: true },
+          { id: "ppbs", name: "Post Prandial Blood Sugar (PPBS)", kind: 'test', price: 150, home_collection_available: true },
+          { id: "urine-routine", name: "Complete Urine Examination (CUE / Routine)", kind: 'test', price: 250, home_collection_available: true },
+          { id: "crp", name: "C-Reactive Protein (CRP Quantitative)", kind: 'test', price: 450, home_collection_available: true },
+          { id: "esr", name: "Erythrocyte Sedimentation Rate (ESR)", kind: 'test', price: 180, home_collection_available: true },
+          { id: "creatinine", name: "Serum Creatinine & eGFR Calculation", kind: 'test', price: 220, home_collection_available: true },
+          { id: "uric-acid", name: "Serum Uric Acid Test (Gout Screening)", kind: 'test', price: 250, home_collection_available: true },
+          { id: "iron-profile", name: "Iron Profile (Serum Iron, TIBC, % Saturation)", kind: 'test', price: 850, home_collection_available: true },
+          { id: "ferritin", name: "Serum Ferritin Test (Iron Storage Marker)", kind: 'test', price: 650, home_collection_available: true },
+          { id: "amh", name: "Anti-Mullerian Hormone (AMH - Ovarian Reserve)", kind: 'test', price: 1950, home_collection_available: true },
+          { id: "spep", name: "Serum Protein Electrophoresis (SPEP / M-Band)", kind: 'test', price: 1600, home_collection_available: true },
+          { id: "ana-ifa", name: "ANA Profile (HEp-2 IFA Pattern + 12 ENA Antibodies)", kind: 'test', price: 1450, home_collection_available: true },
+          { id: "psa", name: "Prostate Specific Antigen Total (PSA)", kind: 'test', price: 750, home_collection_available: true }
         ];
         
         for (const ft of defaultFallbackTests) {
-          if (!isSpidyOffer(ft.name) && !merged.some(m => m.name.toLowerCase() === ft.name.toLowerCase())) {
+          if (!isSpidyOffer(ft.name) && !merged.some(m => m.name.toLowerCase() === ft.name.toLowerCase() || m.id === ft.id)) {
             merged.push(ft);
           }
         }

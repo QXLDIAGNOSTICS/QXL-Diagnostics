@@ -7,12 +7,14 @@ import { PHONE_DISPLAY, WHATSAPP_LINK, NABL_CERTIFICATE, ISO_STANDARD } from "@/
 
 type Props = { params: Promise<{ slug: string }> };
 
+const INVALID_SLUGS = new Set(["home", "urology-3", "test", "demo", "sample", "admin", "login", "index"]);
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   
-  // Guard against internal system paths
-  if (slug.includes('.') || slug.startsWith('_')) {
-    return { title: "Not Found" };
+  // Guard against internal system paths or obsolete slugs
+  if (slug.includes('.') || slug.startsWith('_') || INVALID_SLUGS.has(slug.toLowerCase())) {
+    return { title: "Page Not Found | QXL Diagnostics" };
   }
 
   const pageData = getDynamicPageData(slug);
@@ -36,8 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CatchAllSlugPage({ params }: Props) {
   const { slug } = await params;
 
-  // Filter out internal static assets or system requests
-  if (slug.includes('.') || slug.startsWith('_')) {
+  // Filter out internal static assets, system requests, or invalid slugs
+  if (slug.includes('.') || slug.startsWith('_') || INVALID_SLUGS.has(slug.toLowerCase())) {
     notFound();
   }
 

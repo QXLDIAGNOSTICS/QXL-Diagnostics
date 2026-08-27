@@ -244,9 +244,9 @@ export default function Header() {
               <div key={repeatKey} className="flex items-center gap-4 shrink-0 mr-8">
                 <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">NABL ACCREDITED (MC-6849)</span>
                 <span className="text-emerald-200 font-bold">•</span>
-                <h1 className="text-[11px] font-black !text-white inline-flex items-center gap-1 m-0 p-0">
+                <div className="brand-strip text-[11px] font-black !text-white inline-flex items-center gap-1 m-0 p-0">
                   <span>Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</span>
-                </h1>
+                </div>
                 <span className="text-emerald-200 font-bold">•</span>
                 <span className="text-emerald-100 text-[11px] font-bold">300+ Tests &amp; Preventive Checkup Packages</span>
                 <span className="text-emerald-200 font-bold">•</span>

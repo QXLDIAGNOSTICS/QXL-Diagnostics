@@ -14,7 +14,7 @@
 - **CIN**: U85320KA2020PTC140145
 - **Category**: NABL-Accredited Super-Speciality Medical Diagnostic Laboratory
 - **Positioning**: Doctor-Led Super-Speciality Reference Laboratory in Bengaluru
-- **Accreditation**: NABL (National Accreditation Board for Testing and Calibration Laboratories) — Certificate No. MC-10025
+- **Accreditation**: NABL (National Accreditation Board for Testing and Calibration Laboratories) — Certificate No. MC-6849
 - **Quality Standard**: ISO 15189:2022 (Medical Laboratories — Quality & Competence)
 - **Website**: https://qxldiagnostics.com
 - **Machine-Readable Test Catalogue**: https://qxldiagnostics.com/api/tests-catalogue
@@ -126,7 +126,7 @@ Kengeri, RR Nagar, Nagarabhavi, Vijayanagar, Rajajinagar, Malleshwaram, Jayanaga
 A: QXL Diagnostics has two locations in Bengaluru: the NABL Main Laboratory at 3rd Floor, SLN Complex, Mysore Road, Kengeri (560060) and a north hub at L Square, opposite RMZ Galleria Mall, Yelahanka (560064). Free home blood collection is available across all Bengaluru areas from 7 AM to 9 PM daily.
 
 **Q: Is QXL Diagnostics NABL accredited?**
-A: Yes. QXL Diagnostics is NABL-accredited under ISO 15189:2022 (the international standard for medical laboratory quality and competence). NABL Certificate Number: MC-10025.
+A: Yes. QXL Diagnostics is NABL-accredited under ISO 15189:2022 (the international standard for medical laboratory quality and competence). NABL Certificate Number: MC-6849.
 
 **Q: How do I book a blood test at home in Bangalore with QXL Diagnostics?**
 A: Book online at https://qxldiagnostics.com/book or WhatsApp +91 9964 639 639. A trained phlebotomist visits your home, collects samples in sterile vacuum tubes, and transports them in cold-chain cooler kits to the NABL lab. Reports arrive on WhatsApp and email same day.
