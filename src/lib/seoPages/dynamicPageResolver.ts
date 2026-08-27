@@ -48,6 +48,102 @@ export interface DynamicPageData {
 
 
 const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
+  "ana-test-bangalore": {
+    title: "ANA Profile Test in Bangalore | Autoimmune IFA Screen | QXL",
+    h1Title: "ANA Profile Test (HEp-2 IFA) in Bangalore",
+    subtitle: "Gold-standard Indirect Immunofluorescence (IFA) assay for Antinuclear Antibodies on HEp-2 cell substrate with 12-parameter ENA correlation.",
+    price: "1450",
+    oldPrice: "2200",
+    discountPercent: "34% OFF",
+    parametersCount: "12 Parameters (IFA Pattern + ENA Correlation)",
+    sampleType: "Serum",
+    fastingRequired: "No fasting required.",
+    turnaroundTime: "24 Hours (Next Day)",
+    overview: [
+      "The Antinuclear Antibody (ANA) profile test by Indirect Immunofluorescence (IFA) on HEp-2 cells is the gold standard investigation for systemic autoimmune conditions.",
+      "Identifies nuclear staining patterns (homogeneous, speckled, nucleolar, centromere) and titer strength to evaluate Systemic Lupus Erythematosus (SLE), Sjogren's syndrome, Scleroderma, and MCTD."
+    ],
+    whyImportant: [
+      "HEp-2 substrate IFA technology for pattern recognition.",
+      "Pathologist-reviewed immunofluorescence traces.",
+      "Free home collection across Bengaluru with temperature-controlled transport."
+    ],
+    faqs: [
+      { question: "What does a positive ANA test mean?", answer: "A positive ANA (titer ≥ 1:80) indicates immune system autoantibody production. It requires correlation with staining patterns and specific ENA panels to confirm autoimmune disease." },
+      { question: "Is fasting required for ANA test?", answer: "No fasting is required for the ANA blood draw." }
+    ],
+    category: "Autoimmune Diagnostics",
+    clinicalSignificance: "ANA IFA on HEp-2 cells remains the primary screening recommendation of the American College of Rheumatology (ACR). At QXL Diagnostics, immunofluorescence patterns are evaluated by consultant pathologists and correlated with clinical presentation.",
+    whenToTest: ["Persistent joint pain & morning stiffness", "Butterfly rash across nose & cheeks", "Photosensitivity", "Raynaud's phenomenon (fingers turning white/blue)", "Unexplained chronic fatigue"],
+    doctorNote: "A positive ANA is a clue, not a diagnosis. I always evaluate the titer strength (1:160 vs 1:40) and staining pattern before ordering extended ENA blot testing to identify specific target antigens like anti-dsDNA or anti-Sm.",
+    doctorSlug: "dr-naveen-kumar-n",
+    doctorName: "Dr. Naveen Kumar N",
+    doctorQuals: "DCP, DNB Pathology"
+  },
+  "spep-test-bangalore": {
+    title: "SPEP Test Bangalore | Serum Protein Electrophoresis | QXL",
+    h1Title: "Serum Protein Electrophoresis (SPEP) Test in Bangalore",
+    subtitle: "Separates serum proteins into Albumin and Globulin fractions (Alpha-1, Alpha-2, Beta, Gamma) to detect M-spikes and monoclonal gammopathies.",
+    price: "1600",
+    oldPrice: "2400",
+    discountPercent: "33% OFF",
+    parametersCount: "6 Protein Fractions",
+    sampleType: "Serum",
+    fastingRequired: "No fasting required.",
+    turnaroundTime: "24–48 Hours",
+    overview: [
+      "Serum Protein Electrophoresis (SPEP) quantifies serum protein fractions to identify monoclonal immunoglobulin spikes (M-protein) associated with Multiple Myeloma and MGUS.",
+      "Followed by Immunofixation Electrophoresis (IFE) for heavy and light chain characterization."
+    ],
+    whyImportant: [
+      "Densitometric trace analysis for precise M-band quantification.",
+      "Essential evaluation for bone pain, unexplained anaemia, and high ESR.",
+      "Senior pathologist review on all abnormal electrophoretic patterns."
+    ],
+    faqs: [
+      { question: "What is an M-spike on SPEP?", answer: "An M-spike indicates a monoclonal protein produced by abnormal plasma cells, requiring further evaluation for Multiple Myeloma or MGUS." },
+      { question: "Is fasting required for SPEP?", answer: "Fasting is not mandatory, though morning sample collection is preferred." }
+    ],
+    category: "Histopathology & Protein Diagnostics",
+    clinicalSignificance: "SPEP is critical in evaluating patients with unexplained anemia, bone lesions, hypercalcemia, or proteinuria. The presence of a localized band in the gamma region warrants reflex immunofixation.",
+    whenToTest: ["Unexplained bone pain or rib fractures", "Persistently high ESR > 100", "Megaloblastic or unexplained anaemia", "Proteinuria or renal insufficiency"],
+    doctorNote: "When I identify an M-band on SPEP densitometry, I immediately advise Immunofixation Electrophoresis (IFE) and serum free light chains (Kappa/Lambda) to establish baseline quantification before treatment.",
+    doctorSlug: "dr-pritilata-rout",
+    doctorName: "Dr. Pritilata Rout",
+    doctorQuals: "MD Pathology (NIMHANS)"
+  },
+  "double-marker-test-bangalore": {
+    title: "Double Marker Test Bangalore | First Trimester Screening | QXL",
+    h1Title: "First Trimester Double Marker Screening in Bangalore",
+    subtitle: "Measures PAPP-A and Free β-hCG levels between 11w0d and 13w6d of pregnancy, combined with NT scan data for fetal risk assessment.",
+    price: "2200",
+    oldPrice: "3200",
+    discountPercent: "31% OFF",
+    parametersCount: "2 Biomarkers + FMF Software Risk Calculation",
+    sampleType: "Serum Blood + NT Scan Data",
+    fastingRequired: "No fasting required.",
+    turnaroundTime: "24 Hours",
+    overview: [
+      "First Trimester Double Marker screening combines maternal blood markers (PAPP-A & Free β-hCG) with NT ultrasound measurements to evaluate risk for Down Syndrome (Trisomy 21), Edwards Syndrome (Trisomy 18), and Patau Syndrome (Trisomy 13).",
+      "Calculated using FMF-accredited software algorithms."
+    ],
+    whyImportant: [
+      "Optimal window 11 to 13.6 weeks of gestation.",
+      "Chemiluminescent immunoassay for precise MoM calculations.",
+      "Free doorstep sample collection across Bengaluru."
+    ],
+    faqs: [
+      { question: "When should the Double Marker test be done?", answer: "Between 11 weeks + 0 days and 13 weeks + 6 days of pregnancy." },
+      { question: "Is ultrasound needed before Double Marker blood test?", answer: "Yes, an NT scan CRL and NT millimeter measurement are required for the risk software calculation." }
+    ],
+    category: "Maternal & Prenatal Diagnostics",
+    clinicalSignificance: "First trimester prenatal screening provides early non-invasive risk assessment for major fetal chromosomal abnormalities.",
+    whenToTest: ["11 to 13.6 weeks pregnancy screening", "Maternal age above 35 years", "Obstetrician-directed risk evaluation"],
+    doctorNote: "Double Marker screening provides a risk ratio, not a diagnostic result. Screen-positive results are followed up with non-invasive prenatal testing (NIPT) or amniocentesis after detailed genetic counseling.",
+    doctorSlug: "dr-ajitha-pillai",
+    doctorName: "Dr. Ajitha Pillai",
+    doctorQuals: "MD Microbiology & Serology Specialist"
+  },
   "blood-test-bangalore": {
     title: "Blood Test in Bangalore | Home Collection | QXL Diagnostics",
     h1Title: "Blood Test in Bangalore – Home Sample Collection Available",

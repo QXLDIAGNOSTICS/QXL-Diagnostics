@@ -98,8 +98,44 @@ const FEATURED_ARTICLES = [
     reviewerSlug: "dr-ajitha-pillai",
     published: "August 22, 2026",
     lastReviewed: "August 2026",
-    summary: "Diagnostic window for NS1 vs IgM antibodies, daily hematocrit monitoring for plasma leakage, and critical alert thresholds for platelet counts below 50,000/µL.",
-    references: ["NVBDCP Dengue Management Guidelines 2025", "WHO Dengue Guidelines for Diagnosis"]
+    summary: "Understanding the diagnostic window of NS1 antigen (days 1–5) versus IgM/IgG antibodies, and establishing daily platelet monitoring protocols in Bengaluru monsoon fever cases.",
+    references: ["NVBDCP Dengue Management Guidelines", "WHO Dengue Guidelines for Diagnosis 2025"]
+  },
+  {
+    title: "Positive ANA Test Result: Does It Always Mean Autoimmune Disease?",
+    category: "Autoimmune Diagnostics",
+    slug: "positive-ana-test-interpretation",
+    reviewer: "Dr. Naveen Kumar N",
+    quals: "DCP, DNB Pathology",
+    reviewerSlug: "dr-naveen-kumar-n",
+    published: "August 24, 2026",
+    lastReviewed: "August 2026",
+    summary: "Evaluating low-titer (1:40/1:80) versus high-titer (≥1:160) ANA patterns, physiological positive ANAs in healthy adults, and when to order extended ENA 12-antigen antibody blots.",
+    references: ["ACR Guidelines for Autoimmune Disease Screening 2025", "ICAP Pattern Classification"]
+  },
+  {
+    title: "Serum Protein Electrophoresis (SPEP): Evaluating M-Spikes & Monoclonal Gammopathies",
+    category: "Laboratory Interpretation",
+    slug: "spep-m-spike-evaluation-guide",
+    reviewer: "Dr. Pritilata Rout",
+    quals: "MD Pathology (NIMHANS)",
+    reviewerSlug: "dr-pritilata-rout",
+    published: "August 25, 2026",
+    lastReviewed: "August 2026",
+    summary: "How densitometric agarose gel electrophoresis quantifies albumin and globulin fractions, identifying monoclonal M-bands, and reflex immunofixation for Multiple Myeloma and MGUS.",
+    references: ["International Myeloma Working Group (IMWG) Criteria 2025", "CAP Electrophoresis Manual"]
+  },
+  {
+    title: "Elevated Serum Ferritin with Normal Iron & TIBC: Differential Diagnostic Approach",
+    category: "Diabetes & Metabolism",
+    slug: "high-ferritin-normal-iron-guide",
+    reviewer: "Dr. Shantakumar Muruda",
+    quals: "MD Biochemistry, NABL Lead Assessor",
+    reviewerSlug: "dr-shantakumar-muruda",
+    published: "August 26, 2026",
+    lastReviewed: "August 2026",
+    summary: "Ferritin as an acute-phase reactant vs iron overload indicator — differentiating non-alcoholic fatty liver disease (NAFLD), metabolic syndrome, and inflammatory states from hereditary hemochromatosis.",
+    references: ["EASL Clinical Practice Guidelines on Hemochromatosis", "TIF Guidelines for Iron Assessment"]
   }
 ];
 

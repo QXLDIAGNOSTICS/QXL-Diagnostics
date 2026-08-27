@@ -509,7 +509,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Yelachenahalli",
     slug: "yelachenahalli",
     nearestLab: "Kengeri Main Lab (Mysore Road)",
-    description: "Free doorstep blood test collection in Yelachenahalli, Kanakapura Main Road metro belt. NABL lab certified quality.",
+    description: "Free doorstep blood test collection in Yelachenahalli, Kanakapura Main Road metro belt. NABL accredited quality.",
     pincodes: ["560078"],
     popularTests: ["Diabetes Care", "Thyroid Profile", "HbA1c", "Full Body Checkup"]
   },

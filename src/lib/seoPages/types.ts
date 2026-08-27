@@ -93,4 +93,18 @@ export interface SeoLandingData {
   pageType: "service" | "test";
   /** For test pages: the MedicalTest name used in structured data */
   medicalTestName?: string;
+
+  /** Structured Test Metadata for Above-the-fold display & AEO/SEO */
+  price?: number;
+  originalPrice?: number;
+  synonyms?: string[];
+  reportTat?: string;
+  fastingRequired?: boolean;
+  fastingDuration?: string;
+  sampleType?: string;
+  parametersCount?: number;
+  reviewerName?: string;
+  reviewerSlug?: string;
+  reviewerQuals?: string;
+  references?: string[];
 }

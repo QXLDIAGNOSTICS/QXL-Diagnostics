@@ -179,6 +179,53 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
                   +91 9964 639 639
                 </a>
               </div>
+
+              {/* Above-The-Fold Structured Test Card */}
+              {data.pageType === "test" && (data.price || data.reportTat || data.sampleType) && (
+                <div className="mt-6 p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+                  {data.price && (
+                    <div>
+                      <span className="text-[10px] text-sky-200 font-bold uppercase tracking-wider block">Test Price</span>
+                      <div className="flex items-baseline gap-1.5">
+                        <span className="text-xl font-black text-amber-400">₹{data.price}</span>
+                        {data.originalPrice && (
+                          <span className="text-xs text-slate-400 line-through font-medium">₹{data.originalPrice}</span>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  {data.reportTat && (
+                    <div>
+                      <span className="text-[10px] text-sky-200 font-bold uppercase tracking-wider block">Report TAT</span>
+                      <span className="text-sm font-extrabold text-white">{data.reportTat}</span>
+                    </div>
+                  )}
+                  {data.fastingRequired !== undefined && (
+                    <div>
+                      <span className="text-[10px] text-sky-200 font-bold uppercase tracking-wider block">Fasting Rule</span>
+                      <span className="text-sm font-extrabold text-white">{data.fastingRequired ? (data.fastingDuration || "Required") : "No Fasting Required"}</span>
+                    </div>
+                  )}
+                  {data.sampleType && (
+                    <div>
+                      <span className="text-[10px] text-sky-200 font-bold uppercase tracking-wider block">Sample Type</span>
+                      <span className="text-sm font-extrabold text-white">{data.sampleType}</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Medical Reviewer Attribution */}
+              {data.reviewerName && (
+                <div className="pt-2 flex items-center gap-2 text-xs font-semibold text-sky-200">
+                  <UserCheck className="w-4 h-4 text-emerald-400" />
+                  <span>Medically Reviewed by</span>
+                  <Link href={`/${data.reviewerSlug || "dr-naveen-kumar-n"}`} className="font-extrabold text-white hover:underline">
+                    {data.reviewerName}
+                  </Link>
+                  {data.reviewerQuals && <span className="text-sky-300">({data.reviewerQuals})</span>}
+                </div>
+              )}
             </div>
 
             {/* AI / Search answer box */}
@@ -201,6 +248,20 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
                   </div>
                 ))}
               </div>
+
+              {/* Test Aliases / Synonyms */}
+              {data.synonyms && data.synonyms.length > 0 && (
+                <div className="mt-4 pt-3 border-t border-white/15">
+                  <span className="text-[10px] text-sky-300 font-extrabold uppercase tracking-wider block mb-1.5">Also Known As (Aliases):</span>
+                  <div className="flex flex-wrap gap-1">
+                    {data.synonyms.map((syn, sIdx) => (
+                      <span key={sIdx} className="bg-white/15 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
+                        {syn}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

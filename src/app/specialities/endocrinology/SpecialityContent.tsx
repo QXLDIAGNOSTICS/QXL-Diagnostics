@@ -126,7 +126,7 @@ export default function EndocrinologyPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited & Certified", desc: "Equipped with state-of-the-art instruments meeting NABL/ISO 15189 standards." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited Laboratory", desc: "Equipped with state-of-the-art instruments meeting NABL/ISO 15189 standards." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Hormonal Assays Specialists", desc: "Expert-reviewed results utilizing chemiluminescence for premium specificity." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "AI-Powered Diagnostics", desc: "Smart interpretation and result flagging systems for clinical correlation." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Certified Phlebotomists", desc: "Painless home sample collection at your convenience across Bengaluru." }
