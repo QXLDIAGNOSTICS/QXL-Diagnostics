@@ -129,7 +129,7 @@ export default function EndocrinologyPage() {
                   { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited Laboratory", desc: "Equipped with state-of-the-art instruments meeting NABL/ISO 15189 standards." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Hormonal Assays Specialists", desc: "Expert-reviewed results utilizing chemiluminescence for premium specificity." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "AI-Powered Diagnostics", desc: "Smart interpretation and result flagging systems for clinical correlation." },
-                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Certified Phlebotomists", desc: "Painless home sample collection at your convenience across Bengaluru." }
+                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Trained Phlebotomy Specialists", desc: "Painless home sample collection at your convenience across Bengaluru." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-3">
                     <div className="mt-0.5 bg-sky-100 p-1.5 rounded-lg flex-shrink-0">{item.icon}</div>

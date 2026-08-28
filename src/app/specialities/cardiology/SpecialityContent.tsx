@@ -122,7 +122,7 @@ export default function CardiologyPage() {
                   { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL-Accredited Laboratory", desc: "Accredited testing with ISO 15189 quality standards ensuring every result is reliable." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Expert-Reviewed Reports", desc: "Consultant biochemists and pathologists review critical and super speciality panels." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "AI-Assisted Diagnostics", desc: "AI-powered result flagging and pattern recognition for faster clinical decisions." },
-                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Free Home Collection", desc: "Certified phlebotomists visit your home across Bengaluru at your preferred time." },
+                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Free Home Collection", desc: "Trained phlebotomy specialists visit your home across Bengaluru at your preferred time." },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-3">
                     <div className="mt-0.5 bg-sky-100 p-1.5 rounded-lg flex-shrink-0">{item.icon}</div>

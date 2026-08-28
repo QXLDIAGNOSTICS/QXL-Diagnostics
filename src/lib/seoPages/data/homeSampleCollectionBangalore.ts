@@ -4,11 +4,11 @@ export const homeSampleCollectionBangalore: SeoLandingData = {
   slug: "/home-sample-collection-bangalore",
   breadcrumbLabel: "Home Sample Collection Bangalore",
   pageType: "service",
-  heroBadge: "Free Home Collection Across Bengaluru | Certified Phlebotomists",
+  heroBadge: "Free Home Collection Across Bengaluru | Trained Phlebotomy Specialists",
   h1Lead: "Home Sample Collection in Bangalore —",
   h1Highlight: "Lab-Quality Testing From Your Living Room",
   heroIntro:
-    "Skip the traffic and the waiting room. QXL Diagnostics sends certified phlebotomists to your home anywhere in Bengaluru, collects your sample safely, and delivers NABL-accredited reports to your phone — often the same day.",
+    "Skip the traffic and the waiting room. QXL Diagnostics sends trained phlebotomy specialists to your home anywhere in Bengaluru, collects your sample safely, and delivers NABL-accredited reports to your phone — often the same day.",
   aiOverviewTitle: "How does home sample collection work?",
   aiOverview:
     "QXL Diagnostics offers free home sample collection across Bangalore. Book online or on WhatsApp (+91 9964 639 639), choose a time slot, and a trained phlebotomist arrives with sterile single-use equipment. Samples travel in cold-chain boxes to our NABL-accredited (MC-6849) laboratory, with same-day digital reports for most routine tests.",
@@ -26,7 +26,7 @@ export const homeSampleCollectionBangalore: SeoLandingData = {
     },
     {
       icon: "syringe",
-      title: "Certified Phlebotomists",
+      title: "Trained Phlebotomy Specialists",
       desc: "Trained, background-verified staff using sterile single-use needles and tubes, following bedside labelling protocols.",
     },
     {

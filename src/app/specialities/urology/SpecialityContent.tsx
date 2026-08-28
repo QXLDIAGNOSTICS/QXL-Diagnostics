@@ -110,11 +110,16 @@ export default function UrologyPage() {
               </div>
             </section>
 
+            {/* Clinical Disclaimer Callout */}
+            <div className="bg-amber-50/90 border border-amber-200 rounded-2xl p-5 text-xs text-amber-900 leading-relaxed font-semibold">
+              ⚠️ <strong>Clinical Disclaimer:</strong> Total PSA and Free/Total PSA ratio determinations assist clinicians in evaluating prostate health, but are not standalone diagnostic tests for prostate cancer. PSA levels can fluctuate due to benign prostatic hyperplasia (BPH), prostatitis, recent physical examination, or urinary retention. All laboratory results must be evaluated alongside clinical history, physical examination, and diagnostic imaging by a qualified urologist.
+            </div>
+
             {/* Clinical Usefulness */}
             <section className="bg-white border border-gray-200 rounded-2xl p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2"><Stethoscope className="w-5 h-5 text-sky-600" /> For Clinicians</h2>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                Our kidney profiles utilize standard enzymatic methods for serum creatinine to avoid chromogen interference. We calculate eGFR using the CKD-EPI equation for accurate chronic kidney disease staging. For prostate evaluations, providing simultaneous Free and Total PSA assists in distinguishing benign prostatic hyperplasia (BPH) from early malignant changes.
+                Our kidney profiles utilize standard enzymatic methods for serum creatinine to avoid chromogen interference. We calculate eGFR using the CKD-EPI equation for accurate chronic kidney disease staging. For prostate evaluations, providing simultaneous Free and Total PSA assists clinicians in distinguishing benign prostatic hyperplasia (BPH) from early malignant changes when evaluated alongside clinical findings.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
                 UTI culture plates are read by consultant microbiologists using standardized antibiotic panels. Clinician consults are available at +91 9964 639 639.

@@ -168,22 +168,35 @@ export default function AiChat() {
   };
 
   const getMockReply = (text: string, file: File | null): string => {
+    const lower = text.toLowerCase();
+    if (
+      lower.includes('chest pain') ||
+      lower.includes('shortness of breath') ||
+      lower.includes('difficulty breathing') ||
+      lower.includes('stroke') ||
+      lower.includes('unconscious') ||
+      lower.includes('fainting') ||
+      lower.includes('severe bleeding') ||
+      lower.includes('anaphylaxis')
+    ) {
+      return "🚨 **EMERGENCY MEDICAL CARE NOTICE**\n\nIf you or someone near you is experiencing critical or life-threatening symptoms (such as severe chest pain, acute shortness of breath, stroke symptoms, sudden numbness, or heavy bleeding), **please call local emergency services (108) or proceed immediately to the nearest hospital emergency department.**\n\n*QXL Diagnostics provides outpatient laboratory testing and does not provide emergency medical diagnosis or treatment.*";
+    }
     let replyMessage = "Thank you for your query! For accurate information, please call us at +91 9964 639 639 or WhatsApp us. Our team will be happy to assist you.";
-    if ((text.toLowerCase().includes('booking') || text.toLowerCase().includes('bookings')) && text.toLowerCase().includes('my')) {
+    if ((lower.includes('booking') || lower.includes('bookings')) && lower.includes('my')) {
       replyMessage = user
         ? "I can see you're signed in, but I couldn't reach your account data right now. Please open Profile > Bookings, or try again in a moment."
         : "Please log in to your QXL account to view your bookings.";
-    } else if (text.toLowerCase().includes('package') || text.toLowerCase().includes('checkup')) {
+    } else if (lower.includes('package') || lower.includes('checkup')) {
       replyMessage = "We offer a range of health packages starting from ₹1,899. Our popular ones include Full Body Checkup (86+ parameters), Senior Citizen Packages, and Women's Health Packages. Visit our Packages page or call +91 9964 639 639 to book!";
-    } else if (text.toLowerCase().includes('home') || text.toLowerCase().includes('collection')) {
-      replyMessage = "Yes! We provide free home sample collection across Bengaluru. Our certified phlebotomists will visit at your preferred time. Book via WhatsApp or call +91 9964 639 639.";
-    } else if (text.toLowerCase().includes('location') || text.toLowerCase().includes('lab') || text.toLowerCase().includes('where')) {
+    } else if (lower.includes('home') || lower.includes('collection')) {
+      replyMessage = "Yes! We provide free home sample collection across Bengaluru. Our trained phlebotomy specialists will visit at your preferred time. Book via WhatsApp or call +91 9964 639 639.";
+    } else if (lower.includes('location') || lower.includes('lab') || lower.includes('where')) {
       replyMessage = "We have two centers in Bengaluru:\n1. Main Lab: SLN Complex, Mysore Road, Kengeri – 560 060\n2. North Hub: L Square, opposite RMZ Galleria Mall, Yelahanka – 560064\nBoth are Open 24x7.";
-    } else if (text.toLowerCase().includes('cbc') || text.toLowerCase().includes('blood')) {
+    } else if (lower.includes('cbc') || lower.includes('blood')) {
       replyMessage = "CBC (Complete Blood Count) is a test that evaluates 24 parameters of your blood including RBC, WBC, Hemoglobin, Platelets, and more. It helps detect anemia, infections, and blood disorders. Price: ₹395 at QXL.";
-    } else if (text.toLowerCase().includes('report') || text.toLowerCase().includes('how long')) {
+    } else if (lower.includes('report') || lower.includes('how long')) {
       replyMessage = "Most routine tests (like CBC, Thyroid, Sugar) have same-day reporting. You will receive a WhatsApp message and email with the secure link to download your digital report once it's ready.";
-    } else if (text.toLowerCase().includes('fast') || text.toLowerCase().includes('empty stomach')) {
+    } else if (lower.includes('fast') || lower.includes('empty stomach')) {
       replyMessage = "Fasting requirements depend on the test. Tests like Fasting Blood Sugar (FBS) or Lipid Profile usually require 10-12 hours of fasting. Please drink only water during this time. CBC or Thyroid tests typically do not require fasting.";
     }
     if (file) {

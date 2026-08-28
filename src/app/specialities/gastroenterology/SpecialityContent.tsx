@@ -104,6 +104,11 @@ export default function GastroenterologyPage() {
               <p className="text-gray-700 text-sm leading-relaxed">Our gastroenterology panel supports accurate diagnosis and monitoring of liver disease, IBD, malabsorption syndromes, and H. pylori. Fecal calprotectin helps differentiate IBD from IBS non-invasively. Quantitative PCR for HBV/HCV DNA supports treatment decisions. Our autoimmune liver panel aids diagnosis of AIH, PBC, and PSC. All reports include interpretation notes. Doctor enquiries: +91 9964 639 639.</p>
             </section>
 
+            {/* Clinical Disclaimer Callout */}
+            <div className="bg-amber-50/90 border border-amber-200 rounded-2xl p-5 text-xs text-amber-900 leading-relaxed font-semibold">
+              ⚠️ <strong>Clinical Disclaimer:</strong> Liver function parameters (SGOT, SGPT, Bilirubin, ALP), viral hepatitis markers, and stool biomarkers (such as Fecal Calprotectin and H. pylori antigen) serve as diagnostic adjuncts under medical supervision. Abnormal readings can occur across various transient or benign inflammatory conditions and do not constitute standalone diagnostic proof of structural liver or intestinal pathology. Clinical correlation by a qualified gastroenterologist is essential.
+            </div>
+
             <section className="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
@@ -111,7 +116,7 @@ export default function GastroenterologyPage() {
                   { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL-Accredited Laboratory", desc: "Quality-assured testing for all GI and hepatology markers." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Expert-Reviewed Reports", desc: "Consultant pathologists review all super speciality gastroenterology panels." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Stool & Molecular Testing", desc: "Fecal calprotectin, HpSA, and PCR-based quantitative hepatitis panels." },
-                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Sample Collection", desc: "Certified phlebotomists collect blood and stool samples at your home across Bengaluru." },
+                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Sample Collection", desc: "Trained phlebotomy specialists collect blood and stool samples at your home across Bengaluru." },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-3">
                     <div className="mt-0.5 bg-sky-100 p-1.5 rounded-lg flex-shrink-0">{item.icon}</div>

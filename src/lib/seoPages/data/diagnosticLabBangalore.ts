@@ -32,7 +32,7 @@ export const diagnosticLabBangalore: SeoLandingData = {
     {
       icon: "home",
       title: "Free Home Sample Collection",
-      desc: "Certified phlebotomists collect samples at your doorstep anywhere in Bengaluru, with temperature-controlled transport to our laboratory.",
+      desc: "Trained phlebotomy specialists collect samples at your doorstep anywhere in Bengaluru, with temperature-controlled transport to our laboratory.",
     },
     {
       icon: "clock",
@@ -106,7 +106,7 @@ export const diagnosticLabBangalore: SeoLandingData = {
     },
     {
       title: "Sample Collection",
-      desc: "A certified phlebotomist visits your home at a slot you choose, or walk in to Kengeri or Yelahanka.",
+      desc: "A trained phlebotomy specialist visits your home at a slot you choose, or walk in to Kengeri or Yelahanka.",
     },
     {
       title: "Laboratory Analysis",

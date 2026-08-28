@@ -104,7 +104,7 @@ export const liverFunctionTest: SeoLandingData = {
   },
   steps: [
     { title: "Book Your LFT", desc: "Fast overnight if possible; morning home slots available city-wide." },
-    { title: "Sample Collection", desc: "Standard venous draw by certified phlebotomist at home or centre." },
+    { title: "Sample Collection", desc: "Standard venous draw by trained phlebotomy specialist at home or centre." },
     { title: "Biochemistry Analysis", desc: "Automated spectrophotometric assays under NABL quality control." },
     { title: "Report & Context", desc: "Same-day digital report with pattern-based flags your doctor can act on." },
   ],

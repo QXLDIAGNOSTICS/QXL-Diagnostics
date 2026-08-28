@@ -254,16 +254,16 @@ function WhyChooseSlider() {
 // ── Promo: QXL Packages Slider — Desktop ──────────────────────────────────────
 const promoSlides = [
   {
-    name: "Raksha Bandhan Special Checkup",
-    price: "₹800",
-    original: "₹5,800",
-    tag: "FESTIVE OFFER",
-    desc: "Comprehensive 80 health parameters screening covering 8 major health areas — gift health to your sibling.",
+    name: "Q-Master Full Body Health Checkup",
+    price: "₹1,900",
+    original: "₹4,800",
+    tag: "MOST BOOKED",
+    desc: "Comprehensive 80 health parameters screening covering liver, kidney, heart, diabetes, thyroid, bone & blood count.",
     includes: ["CBC (26), HbA1c & Glucose (3)", "Lipid Profile (8), Liver Function (11)", "Kidney Function (8), Thyroid Profile (3)", "Bone, Mineral & Urine Analysis (21)"],
     tests: "80 Parameters",
-    image: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
     imgBg: "#FFF7ED",
-    ctaLink: "/raksha-bandhan-health-checkup-bangalore",
+    ctaLink: "/full-body-checkup-bangalore",
   },
   {
     name: "Q-Screen Diabetes Package",
@@ -725,24 +725,24 @@ export default function Home() {
 
   const mobileOfferBanners = [
     {
-      badge: "🎁 SPECIAL OFFER",
-      title: "Raksha Bandhan Checkup",
-      sub: "Comprehensive 80 essential health parameters",
-      price: "₹800",
-      bgGradient: "bg-gradient-to-br from-sky-50/95 via-cyan-50/90 to-blue-50/80 border border-sky-200/90 shadow-sm",
-      badgeStyle: "bg-sky-100 text-sky-950 border border-sky-200",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
-      ctaLink: "/raksha-bandhan-health-checkup-bangalore"
-    },
-    {
       badge: "🩺 MOST POPULAR",
-      title: "Full Body Checkup",
-      sub: "Complete Liver, Kidney, Heart & Diabetes Panel",
+      title: "Full Body Health Checkup",
+      sub: "Complete Liver, Kidney, Heart, Thyroid & Diabetes Panel",
       price: "₹1,900",
       bgGradient: "bg-gradient-to-br from-indigo-50/95 via-blue-50/90 to-sky-50/80 border border-indigo-200/90 shadow-sm",
       badgeStyle: "bg-indigo-100 text-indigo-950 border border-indigo-200",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
-      ctaLink: "/packages"
+      ctaLink: "/full-body-checkup-bangalore"
+    },
+    {
+      badge: "🩸 ROUTINE SCREENING",
+      title: "CBC & Blood Count",
+      sub: "24 Haematology Parameters with Free Home Collection",
+      price: "₹350",
+      bgGradient: "bg-gradient-to-br from-sky-50/95 via-cyan-50/90 to-blue-50/80 border border-sky-200/90 shadow-sm",
+      badgeStyle: "bg-sky-100 text-sky-950 border border-sky-200",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
+      ctaLink: "/tests/cbc-test-bangalore"
     }
   ];
 
@@ -835,7 +835,11 @@ export default function Home() {
     // Load dynamic locations & packages safely for rendering
     setLocations(cmsStore.getAll("locations"));
     const fallbackPackages = cmsStore.getAll("packages").filter(p => !isSpidyOffer(p.name, p.price)).sort((a, b) => Number(a.price) - Number(b.price));
-    setRecommendedPackages([rakshaBandhanPackage, ...fallbackPackages.filter(p => p.id !== 'raksha-bandhan-800')]);
+    if (isCampaignActive()) {
+      setRecommendedPackages([rakshaBandhanPackage, ...fallbackPackages.filter(p => p.id !== 'raksha-bandhan-800')]);
+    } else {
+      setRecommendedPackages(fallbackPackages.filter(p => p.id !== 'raksha-bandhan-800'));
+    }
 
     if (api && api.packages) {
       api.packages.list()
@@ -843,7 +847,11 @@ export default function Home() {
           if (data && data.length > 0) {
             const cleanData = data.filter((p: any) => !isSpidyOffer(p.name, p.price));
             const sorted = cleanData.sort((a, b) => Number(a.price) - Number(b.price));
-            setRecommendedPackages([rakshaBandhanPackage, ...sorted.filter(p => p.id !== 'raksha-bandhan-800')]);
+            if (isCampaignActive()) {
+              setRecommendedPackages([rakshaBandhanPackage, ...sorted.filter(p => p.id !== 'raksha-bandhan-800')]);
+            } else {
+              setRecommendedPackages(sorted.filter(p => p.id !== 'raksha-bandhan-800'));
+            }
           }
         })
         .catch(() => {

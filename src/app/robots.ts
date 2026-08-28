@@ -41,6 +41,8 @@ export default function robots(): MetadataRoute.Robots {
           '/my-bookings/',
           '/my-reports',
           '/my-reports/',
+          '/home',
+          '/home/',
           '/payment-terms/',
           '/unsubscribe/',
         ],

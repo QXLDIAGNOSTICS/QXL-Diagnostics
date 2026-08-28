@@ -105,7 +105,7 @@ export const kidneyFunctionTest: SeoLandingData = {
   },
   steps: [
     { title: "Book Your Panel", desc: "Morning slots ideal; stay hydrated with water before collection." },
-    { title: "Home Collection", desc: "Certified phlebotomist draws a small sample at your doorstep." },
+    { title: "Home Collection", desc: "Trained phlebotomy specialist draws a small sample at your doorstep." },
     { title: "NABL Lab Analysis", desc: "Automated enzymatic and ISE methods under daily quality control." },
     { title: "Report & Trends", desc: "Same-day digital report with eGFR staging and abnormal-value review." },
   ],

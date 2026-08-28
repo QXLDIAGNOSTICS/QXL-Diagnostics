@@ -177,7 +177,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
   "home-blood-collection-bangalore": {
     title: "Home Blood Collection Bangalore | Blood Test at Home | QXL",
     h1Title: "Home Blood Collection in Bangalore",
-    subtitle: "Home blood collection allows patients to have laboratory samples collected at their residence without travelling to a diagnostic centre by certified phlebotomists.",
+    subtitle: "Home blood collection allows patients to have laboratory samples collected at their residence without travelling to a diagnostic centre by trained phlebotomy specialists.",
     price: "350",
     oldPrice: "500",
     discountPercent: "30% OFF",
@@ -1441,7 +1441,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
       turnaroundTime: matchedTest.turnaround || "6 to 12 Hours",
       overview: [
         `${matchedTest.name} is a vital diagnostic test conducted by QXL Diagnostics across Bangalore using automated, high-precision analyzer instruments.`,
-        `Samples are collected directly at your home by NABL-accredited phlebotomists using sterile single-use vacuum tubes and transported in temperature-controlled cold-chain kits.`
+        `Samples are collected directly at your home by trained phlebotomy specialists using sterile single-use vacuum tubes and transported in temperature-controlled cold-chain kits.`
       ],
       parametersList: [
         `${matchedTest.name} Core Parameters`,
@@ -1516,7 +1516,7 @@ export function getDynamicPageData(slug: string): DynamicPageData {
     turnaroundTime: "Same Day (6–12 Hours)",
     overview: [
       `${formattedName} is an essential investigation offered by QXL Diagnostics for patients in Bangalore.`,
-      `Samples are collected at home by certified phlebotomists using sterile single-use vacuum tubes and transported in temperature-controlled cooler containers to our NABL accredited main laboratory.`
+      `Samples are collected at home by trained phlebotomy specialists using sterile single-use vacuum tubes and transported in temperature-controlled cooler containers to our NABL accredited main laboratory.`
     ],
     parametersList: [
       `${formattedName} Primary Parameters`,

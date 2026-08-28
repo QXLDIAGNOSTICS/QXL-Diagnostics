@@ -121,6 +121,11 @@ export default function OncologyPage() {
               </p>
             </section>
 
+            {/* Clinical Disclaimer Callout */}
+            <div className="bg-amber-50/90 border border-amber-200 rounded-2xl p-5 text-xs text-amber-900 leading-relaxed font-semibold">
+              ⚠️ <strong>Clinical Disclaimer:</strong> Tumor marker assays (such as CEA, CA 125, PSA, and CA 19-9) are diagnostic adjuncts used for screening guidance, treatment monitoring, and post-therapy surveillance under medical supervision. Elevated tumor marker levels can occur in benign inflammatory conditions and do not constitute standalone diagnostic proof of cancer. Definitive diagnosis requires comprehensive clinical examination, imaging, and histopathology (biopsy) evaluated by a qualified oncologist.
+            </div>
+
             {/* Why QXL */}
             <section className="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
@@ -129,7 +134,7 @@ export default function OncologyPage() {
                   { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL-Accredited Lab", desc: "Meets international standards for diagnostic testing and quality assurance." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "High-Sensitivity Assays", desc: "Using advanced chemiluminescence platforms for precise result quantification." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Consultant-Reviewed Reports", desc: "Expert biochemists and pathologists verify every critical tumor marker profile." },
-                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Collection Service", desc: "Safe, sterile home collections across Bengaluru by NABL-accredited phlebotomists." }
+                  { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Collection Service", desc: "Safe, sterile home collections across Bengaluru by trained phlebotomy specialists." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-3">
                     <div className="mt-0.5 bg-sky-100 p-1.5 rounded-lg flex-shrink-0">{item.icon}</div>

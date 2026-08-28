@@ -4,7 +4,7 @@ import { homeSampleCollectionBangalore } from "@/lib/seoPages/data/homeSampleCol
 
 export const metadata: Metadata = {
   title: "Home Sample Collection in Bangalore | Free | QXL Diagnostics",
-  description: "Free home sample collection across Bangalore by certified phlebotomists. Cold-chain transport to our NABL lab, same-day reports. Book on WhatsApp +91 9964 639 639.",
+  description: "Free home sample collection across Bangalore by trained phlebotomy specialists. Cold-chain transport to our NABL lab, same-day reports. Book on WhatsApp +91 9964 639 639.",
   alternates: {
     canonical: "https://qxldiagnostics.com/home-sample-collection-bangalore",
   },

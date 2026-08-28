@@ -122,7 +122,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "BTM Layout",
     slug: "btm-layout",
     nearestLab: "Central Processing Hub",
-    description: "Reliable home collection service in BTM Layout 1st & 2nd Stages. Fast blood drawing, painless procedure, and 100% accurate lab reports.",
+    description: "Reliable home collection service in BTM Layout 1st & 2nd Stages. Fast blood drawing, painless procedure, and quality-controlled, high-precision lab reports.",
     pincodes: ["560068", "560076"],
     popularTests: ["Fever Profile", "Diabetes Checkup", "Liver Function Test", "Full Body Checkup"]
   },

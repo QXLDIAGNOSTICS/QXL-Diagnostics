@@ -103,7 +103,7 @@ export const vitaminB12Test: SeoLandingData = {
   },
   steps: [
     { title: "Book Your Test", desc: "Online or WhatsApp +91 9964 639 639 — no fasting needed." },
-    { title: "Home Collection", desc: "Small venous sample drawn by our certified phlebotomist at your doorstep." },
+    { title: "Home Collection", desc: "Small venous sample drawn by our trained phlebotomy specialist at your doorstep." },
     { title: "Accredited Analysis", desc: "Serum B12 quantified on validated platforms under NABL quality systems." },
     { title: "Report & Guidance", desc: "Same-day digital report with clear bands and follow-up test suggestions if borderline." },
   ],

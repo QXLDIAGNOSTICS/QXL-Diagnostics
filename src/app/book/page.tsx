@@ -1070,7 +1070,7 @@ export default function BookPage() {
                             />
                             <div className="flex flex-col gap-1">
                               <span className="text-sm font-black text-[#0f2d5e] flex items-center gap-1.5"><Home className="w-4 h-4 text-[#D69A18]" /> Home Sample Collection</span>
-                              <span className="text-xs text-slate-500 font-medium leading-relaxed mt-1">Certified phlebotomist visits your doorstep across Bengaluru</span>
+                              <span className="text-xs text-slate-500 font-medium leading-relaxed mt-1">Trained phlebotomy specialist visits your doorstep across Bengaluru</span>
                               <span className="text-[10px] font-black text-emerald-700 bg-emerald-50 w-fit px-2 py-0.5 rounded-full mt-1">FREE COLLECTION</span>
                             </div>
                           </label>

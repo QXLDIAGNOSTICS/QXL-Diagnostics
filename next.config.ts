@@ -64,17 +64,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/uncategorized/:slug*",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/founder",
-        destination: "/team",
-        permanent: false,
-      },
-      {
-        source: "/our-specialities",
+        source: "/our_specialities",
         destination: "/speciality-tests",
         permanent: true,
       },
@@ -152,8 +142,6 @@ const nextConfig: NextConfig = {
       { source: "/urology-3", destination: "/specialities/urology", permanent: true },
       { source: "/doctors/dr-shantakumar-muruda-6f7b6161", destination: "/dr-shantakumar-muruda", permanent: true },
       { source: "/doctors/dr-shantakumar-muruda", destination: "/dr-shantakumar-muruda", permanent: true },
-      { source: "/our_team/naveen-kumar", destination: "/dr-naveen-kumar-n", permanent: true },
-      { source: "/our_team/dr-shantakumar-muruda-md", destination: "/dr-shantakumar-muruda", permanent: true },
       { source: "/uncategorized/:slug*", destination: "/", permanent: true },
       { source: "/endocrinology-2/:slug*", destination: "/specialities/endocrinology", permanent: true },
       { source: "/endocrinology-2", destination: "/specialities/endocrinology", permanent: true },

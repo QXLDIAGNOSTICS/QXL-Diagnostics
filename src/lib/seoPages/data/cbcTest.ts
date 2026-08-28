@@ -113,7 +113,7 @@ export const cbcTest: SeoLandingData = {
   },
   steps: [
     { title: "Book Online or on WhatsApp", desc: "Choose home collection or walk-in at Kengeri/Yelahanka. No fasting needed." },
-    { title: "Quick Sample Draw", desc: "A certified phlebotomist collects a small blood sample in sterile EDTA tubes." },
+    { title: "Quick Sample Draw", desc: "A trained phlebotomy specialist collects a small blood sample in sterile EDTA tubes." },
     { title: "Automated Analysis + QC", desc: "Counts run on calibrated haematology analysers with same-shift quality control." },
     { title: "Same-Day Report", desc: "Digital report with all parameters, reference ranges and pathologist comments where relevant." },
   ],

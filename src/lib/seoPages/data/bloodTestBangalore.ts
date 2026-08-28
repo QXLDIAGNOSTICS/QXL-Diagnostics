@@ -8,7 +8,7 @@ export const bloodTestBangalore: SeoLandingData = {
   h1Lead: "Blood Test in Bangalore —",
   h1Highlight: "NABL Accredited Lab, Home Collection, Same-Day Reports",
   heroIntro:
-    "Book any blood test in Bengaluru with QXL Diagnostics. From routine CBC and diabetes profiles to advanced hormone, autoimmune, and molecular panels, your sample is collected at home by certified phlebotomists and tested at our NABL-accredited (MC-6849) super-speciality laboratory.",
+    "Book any blood test in Bengaluru with QXL Diagnostics. From routine CBC and diabetes profiles to advanced hormone, autoimmune, and molecular panels, your sample is collected at home by trained phlebotomy specialists and tested at our NABL-accredited (MC-6849) super-speciality laboratory.",
   aiOverviewTitle: "Booking a blood test with QXL",
   aiOverview:
     "QXL Diagnostics offers 300+ blood tests across biochemistry, haematology, hormones, vitamins, immunity and infection markers in Bangalore. Free home sample collection is available city-wide, most routine reports are delivered the same day, and every abnormal result is reviewed by a specialist consultant before release.",
@@ -88,7 +88,7 @@ export const bloodTestBangalore: SeoLandingData = {
     items: [
       {
         title: "Free Home Collection",
-        desc: "No hidden visit charges. Certified phlebotomists, sterile single-use equipment, and convenient early-morning slots.",
+        desc: "No hidden visit charges. Trained phlebotomy specialists, sterile single-use equipment, and convenient early-morning slots.",
       },
       {
         title: "Same-Day Digital Reports",
@@ -137,7 +137,7 @@ export const bloodTestBangalore: SeoLandingData = {
     },
     {
       q: "Can I get a blood test at home in Bangalore?",
-      a: "Yes. QXL Diagnostics provides free home blood sample collection across Bengaluru. A certified phlebotomist visits at your chosen slot, collects the sample using sterile single-use equipment, and transports it under cold-chain conditions to our NABL-accredited laboratory.",
+      a: "Yes. QXL Diagnostics provides free home blood sample collection across Bengaluru. A trained phlebotomy specialist visits at your chosen slot, collects the sample using sterile single-use equipment, and transports it under cold-chain conditions to our NABL-accredited laboratory.",
     },
     {
       q: "Do I need to fast before my blood test?",

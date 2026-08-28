@@ -50,7 +50,7 @@ const QA_DATA = {
       id: 'g3',
       category: 'general',
       question: 'Do you provide home sample collection?',
-      answer: 'Yes! We offer professional home blood sample collection across Bengaluru. A certified phlebotomist will visit your home at your preferred time to safely collect samples.'
+      answer: 'Yes! We offer professional home blood sample collection across Bengaluru. A trained phlebotomy specialist will visit your home at your preferred time to safely collect samples.'
     },
     {
       id: 'g4',
@@ -138,7 +138,7 @@ const QA_DATA = {
       id: 'hc1',
       category: 'home_collection',
       question: 'How does home sample collection work?',
-      answer: 'Our home collection process is simple:\n1. Book online or via WhatsApp (+91 9964 639 639).\n2. Select your preferred date and time slot.\n3. A certified phlebotomist visits your home to collect samples safely.\n4. Samples are transported in temperature-controlled kits to our lab.\n5. Secure digital reports are delivered online within 24 hours.'
+      answer: 'Our home collection process is simple:\n1. Book online or via WhatsApp (+91 9964 639 639).\n2. Select your preferred date and time slot.\n3. A trained phlebotomy specialist visits your home to collect samples safely.\n4. Samples are transported in temperature-controlled kits to our lab.\n5. Secure digital reports are delivered online within 24 hours.'
     },
     {
       id: 'hc2',
@@ -611,10 +611,10 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
               Next-Gen Technology
             </span>
             <Heading className="text-[#0f2d5e] text-xl sm:text-3xl md:text-4xl font-black leading-tight">
-              AI-Powered Diagnostics
+              AI-Assisted Laboratory Workflows
             </Heading>
             <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
-              At QXL Diagnostics, we integrate Artificial Intelligence into core testing processes for faster turnaround times, precision accuracy, and deeper clinical insights.
+              At QXL Diagnostics, smart internal quality control algorithms, automated delta checks, and intelligent symptom guidance support our laboratory processes — while every single report is verified and signed off by consultant pathologists.
             </p>
             <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5 pt-2">
               {features.map((feature, idx) => (

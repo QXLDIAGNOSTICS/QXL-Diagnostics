@@ -114,7 +114,7 @@ export const hba1cTest: SeoLandingData = {
   },
   steps: [
     { title: "Book Anytime", desc: "No fasting — pick any slot that suits you, home visit or walk-in." },
-    { title: "Simple Blood Draw", desc: "A few millilitres of blood collected by our certified phlebotomist." },
+    { title: "Simple Blood Draw", desc: "A few millilitres of blood collected by our trained phlebotomy specialist." },
     { title: "NABL Lab Analysis", desc: "Analysed on calibrated platforms with same-shift quality control at our Bengaluru lab." },
     { title: "Report & Next Steps", desc: "Same-day digital report; flagged values explained and shared with your doctor on request." },
   ],

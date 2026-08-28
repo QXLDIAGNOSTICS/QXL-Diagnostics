@@ -105,7 +105,7 @@ export const lipidProfileTest: SeoLandingData = {
   },
   steps: [
     { title: "Book a Morning Slot", desc: "Fast 10–12 hours overnight; water is fine. We collect early at your home." },
-    { title: "Quick Collection", desc: "Small venous sample by certified phlebotomist — then go ahead and eat." },
+    { title: "Quick Collection", desc: "Small venous sample by trained phlebotomy specialist — then go ahead and eat." },
     { title: "NABL Lab Analysis", desc: "Enzymatic assays on calibrated analysers under daily quality control." },
     { title: "Report + Ratios", desc: "Same-day digital report with all fractions, ratios and abnormal flags explained." },
   ],

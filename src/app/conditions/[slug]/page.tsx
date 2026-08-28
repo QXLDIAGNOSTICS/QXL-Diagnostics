@@ -112,7 +112,7 @@ export default async function ConditionPage({ params }: Props) {
         <div className="lg:col-span-4 space-y-6">
           <div className="bg-gradient-to-br from-blue-900 to-indigo-900 text-white p-6 rounded-2xl shadow-xl space-y-4">
             <h3 className="text-lg font-extrabold text-white">Book Home Sample Collection</h3>
-            <p className="text-xs text-blue-100">Sample draw by certified phlebotomists. NABL-accredited processing with 6-hour report delivery.</p>
+            <p className="text-xs text-blue-100">Sample draw by trained phlebotomy specialists. NABL-accredited processing with 6-hour report delivery.</p>
             <Link
               href="/home-blood-collection-bangalore"
               className="block text-center bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-wider shadow-lg transition-all"

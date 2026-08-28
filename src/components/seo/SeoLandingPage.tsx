@@ -113,7 +113,7 @@ function buildJsonLd(data: SeoLandingData) {
       name: data.medicalTestName,
       url,
       description,
-      howPerformed: "A small blood sample is collected by a certified phlebotomist at home or at a QXL centre and analysed at our NABL-accredited laboratory.",
+      howPerformed: "A small blood sample is collected by a trained phlebotomy specialist at home or at a QXL centre and analysed at our NABL-accredited laboratory.",
       normalRange: "Reference ranges are printed on every report and interpreted against your age and sex. Please consult your doctor for clinical interpretation.",
       offers: {
         "@type": "Offer",

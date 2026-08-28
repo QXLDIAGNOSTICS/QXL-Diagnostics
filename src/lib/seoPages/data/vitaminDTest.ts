@@ -104,7 +104,7 @@ export const vitaminDTest: SeoLandingData = {
   },
   steps: [
     { title: "Book Your Slot", desc: "Online or WhatsApp +91 9964 639 639 — no fasting needed." },
-    { title: "Home Blood Draw", desc: "Certified phlebotomist collects a small sample at your convenience." },
+    { title: "Home Blood Draw", desc: "Trained phlebotomy specialist collects a small sample at your convenience." },
     { title: "Calibrated Assay", desc: "25-OH D measured on validated immunoassay platforms under NABL quality control." },
     { title: "Report + Retest Plan", desc: "Same-day digital report with deficiency grading and retest timing guidance." },
   ],

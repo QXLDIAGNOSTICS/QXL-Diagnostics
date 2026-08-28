@@ -26,7 +26,7 @@ export default function GiftHealthStepsSection({ onOpenBooking }: GiftHealthStep
     {
       step: "03",
       title: "Get Your Sample Collected",
-      description: "Our certified phlebotomist visits your home anywhere in Bengaluru for safe, hygienic blood collection.",
+      description: "Our trained phlebotomy specialist visits your home anywhere in Bengaluru for safe, hygienic blood collection.",
       icon: Home,
       color: "bg-amber-50 text-amber-700",
     },

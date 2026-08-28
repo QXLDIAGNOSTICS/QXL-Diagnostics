@@ -60,7 +60,7 @@ const defaultBanners = [
     imageFit: "cover",
     bgFrom: "#eff6ff",
     bgTo: "#dbeafe",
-    features: ["NABL Accredited Medical Laboratory", "CAP Standards", "Highly Skilled Team", "100% Accurate"]
+    features: ["NABL Accredited Medical Laboratory", "CAP Standards", "Highly Skilled Team", "ISO 15189 Precision Controls"]
   },
   {
     id: "banner-4",
