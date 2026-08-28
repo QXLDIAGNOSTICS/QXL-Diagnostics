@@ -1760,7 +1760,7 @@ export default function Home() {
                       {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.badge || "DOCTOR-LED LAB"}
                     </span>
                     <span className="bg-emerald-100 text-emerald-800 text-[8px] xs:text-[8.5px] font-black px-2 py-0.5 rounded-full border border-emerald-300 whitespace-nowrap">
-                      FESTIVE @ ₹800
+                      FESTIVE @ ₹800 · VALID AUG 2026
                     </span>
                   </div>
 
