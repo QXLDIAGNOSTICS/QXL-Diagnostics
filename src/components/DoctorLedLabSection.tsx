@@ -19,9 +19,15 @@ export default function DoctorLedLabSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column: Content */}
           <div className="lg:col-span-7">
-            <span className="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 border border-emerald-300 shadow-xs">
-              <Stethoscope className="w-4 h-4 text-emerald-700" /> DOCTOR-LED SUPER SPECIALITY LAB
-            </span>
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              <span className="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest border border-emerald-300 shadow-xs">
+                <Stethoscope className="w-4 h-4 text-emerald-700" /> DOCTOR-LED SUPER SPECIALITY LAB
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-amber-50 text-slate-800 text-xs font-extrabold px-3.5 py-1.5 rounded-full border border-amber-200 shadow-2xs">
+                <span className="text-amber-500 font-black">4.9 ★★★★★</span> (500+ Google Reviews)
+              </span>
+            </div>
+
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#0284c7] leading-tight mb-6">
               Bengaluru's Doctor-Led Diagnostic Laboratory
             </h2>

@@ -140,6 +140,7 @@ const nextConfig: NextConfig = {
       { source: "/specialities/womenshealth", destination: "/specialities/womens-health", permanent: true },
       // P2.3 Legacy WordPress & Short Doctor URL mappings
       { source: "/urology-3", destination: "/specialities/urology", permanent: true },
+      { source: "/urology-3/", destination: "/specialities/urology", permanent: true },
       { source: "/doctors/dr-shantakumar-muruda-6f7b6161", destination: "/dr-shantakumar-muruda", permanent: true },
       { source: "/doctors/dr-shantakumar-muruda", destination: "/dr-shantakumar-muruda", permanent: true },
       { source: "/uncategorized/:slug*", destination: "/", permanent: true },

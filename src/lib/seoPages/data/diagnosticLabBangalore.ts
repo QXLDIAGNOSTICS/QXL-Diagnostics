@@ -75,7 +75,7 @@ export const diagnosticLabBangalore: SeoLandingData = {
     items: [
       {
         title: "Barcode-Tracked Samples",
-        desc: "Every sample is barcoded at collection and tracked through centrifugation, analysis and archiving — eliminating manual identification errors.",
+        desc: "Every sample is barcoded at collection and tracked through centrifugation, analysis and archiving — helping reduce manual identification errors.",
       },
       {
         title: "Daily Quality Control",

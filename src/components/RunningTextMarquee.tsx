@@ -41,8 +41,14 @@ export default function RunningTextMarquee() {
       {/* ── Line 1: Blue Ticker (Diagnostic Tests) ── */}
       <div className="relative w-full overflow-hidden flex items-center bg-[#0f2d5e] py-2 shadow-xs">
         <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] cursor-pointer" style={{ animationDuration: '65s' }}>
-          {[...tickerItems1, ...tickerItems1].map((item, idx) => (
-            <span key={idx} className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
+          {tickerItems1.map((item, idx) => (
+            <span key={`t1-p-${idx}`} className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
+              <span>{item}</span>
+              <span className="text-blue-300">★</span>
+            </span>
+          ))}
+          {tickerItems1.map((item, idx) => (
+            <span key={`t1-d-${idx}`} aria-hidden="true" className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
               <span>{item}</span>
               <span className="text-blue-300">★</span>
             </span>
@@ -53,8 +59,14 @@ export default function RunningTextMarquee() {
       {/* ── Line 2: Sky Blue Ticker (Doctor-Led Lab & Accreditation) ── */}
       <div className="relative w-full overflow-hidden flex items-center bg-[#2563eb] py-2 shadow-xs">
         <div className="flex whitespace-nowrap animate-marquee-reverse hover:[animation-play-state:paused] cursor-pointer" style={{ animationDuration: '65s' }}>
-          {[...tickerItems2, ...tickerItems2].map((item, idx) => (
-            <span key={idx} className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
+          {tickerItems2.map((item, idx) => (
+            <span key={`t2-p-${idx}`} className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
+              <span>{item}</span>
+              <span className="text-sky-200">✦</span>
+            </span>
+          ))}
+          {tickerItems2.map((item, idx) => (
+            <span key={`t2-d-${idx}`} aria-hidden="true" className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
               <span>{item}</span>
               <span className="text-sky-200">✦</span>
             </span>
@@ -65,14 +77,21 @@ export default function RunningTextMarquee() {
       {/* ── Line 3: Teal Ticker (Home Collection) ── */}
       <div className="relative w-full overflow-hidden flex items-center bg-teal-700 py-2 shadow-xs">
         <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] cursor-pointer" style={{ animationDuration: '65s' }}>
-          {[...tickerItems3, ...tickerItems3].map((item, idx) => (
-            <span key={idx} className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
+          {tickerItems3.map((item, idx) => (
+            <span key={`t3-p-${idx}`} className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
+              <span>{item}</span>
+              <span className="text-teal-200">☘</span>
+            </span>
+          ))}
+          {tickerItems3.map((item, idx) => (
+            <span key={`t3-d-${idx}`} aria-hidden="true" className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
               <span>{item}</span>
               <span className="text-teal-200">☘</span>
             </span>
           ))}
         </div>
       </div>
+
 
     </div>
   );

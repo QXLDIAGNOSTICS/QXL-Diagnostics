@@ -95,7 +95,7 @@ export const aiHelper = {
       description: `Complete diagnostic evaluation tailored for "${prompt}". Processed using NABL standard automated analyzers.`,
       bgFrom: "#eff6ff",
       bgTo: "#dbeafe",
-      features: ["Certified Accuracy", "Phlebotomist Home Visit", "Online Report PDF", "Free Consult"],
+      features: ["NABL-Accredited Accuracy", "Phlebotomist Home Visit", "Online Report PDF", "Free Consult"],
       cta: "Book Now",
       ctaLink: "/book"
     };
@@ -120,7 +120,7 @@ export const aiHelper = {
   generateSEO: async (pageName: string): Promise<AISEOOutput> => {
     await new Promise((resolve) => setTimeout(resolve, 800));
     return {
-      title: `${pageName} | Certified Diagnostic Screenings | QXL Diagnostics`,
+      title: `${pageName} | NABL-Accredited Diagnostic Screenings | QXL Diagnostics`,
       description: `Book diagnostic services for ${pageName} online. Best labs in Bengaluru featuring NABL standard processing, home blood sample collection, and instant electronic reports.`,
       keywords: `qxl diagnostics, ${pageName.toLowerCase()}, blood tests, diagnostics center, health checkup`
     };
@@ -135,10 +135,11 @@ Thank you for reaching out to QXL Diagnostics regarding "${subject}".
 
 We have received your message: "${message.substring(0, 60)}..." 
 
-One of our certified medical coordinators will contact you shortly on your provided phone number to assist with scheduling, collection timings, and test requirements. If this is an urgent inquiry, you can connect directly with our WhatsApp Support at +91 9964 639 639.
+One of our medical coordinators will contact you shortly on your provided phone number to assist with scheduling, collection timings, and test requirements. If this is an urgent inquiry, you can connect directly with our WhatsApp Support at +91 9964 639 639.
 
 Warm regards,
 Patient Care Team
 QXL Diagnostics`;
   }
 };
+

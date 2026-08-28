@@ -367,7 +367,7 @@ const defaultSettings = {
     supportEmail: "info@qxldiagnostics.com",
   hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
   northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
-  workingHours: "Open 24x7",
+  workingHours: "Centres: Mon–Sat 7 AM–9 PM, Sun 7 AM–2 PM (24×7 Lab Processing)",
   copyrightText: "© 2026 QXL Diagnostics. All rights reserved.",
   footerDesc: "QXL Diagnostics is a super speciality diagnostic laboratory in Bengaluru offering advanced pathology, microbiology, immunology, molecular diagnostics, histopathology, cytology and precision diagnostic services for patients, clinicians and hospitals.",
   // Contact info — now comes from backend API via SiteSettings

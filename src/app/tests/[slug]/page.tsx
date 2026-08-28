@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Phone, CheckCircle2, ShieldCheck, Activity, Clock, ArrowRight, Beaker, Calendar } from "lucide-react";
 import { getDynamicPageData } from "@/lib/seoPages/dynamicPageResolver";
 import { PHONE_DISPLAY, WHATSAPP_LINK, NABL_CERTIFICATE, ISO_STANDARD, SITE_URL } from "@/lib/businessInfo";
@@ -74,6 +75,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const pageData = getDynamicPageData(slug);
+  if (!pageData) {
+    return { title: "Test Not Found | QXL Diagnostics" };
+  }
   const links = getTestInternalLinks(slug);
   const canonical = `${SITE_URL}/tests/${slug}`;
 
@@ -112,6 +116,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function TestPage({ params }: Props) {
   const { slug } = await params;
   const data = getDynamicPageData(slug);
+  if (!data) {
+    notFound();
+  }
+
 
   // Merge data-layer internal links with resolver data
   const links = getTestInternalLinks(slug);

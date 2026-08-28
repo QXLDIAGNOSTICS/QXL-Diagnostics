@@ -8,12 +8,16 @@ import Footer from '@/components/Footer';
 import MobileTrustBadges from '@/components/MobileTrustBadges';
 import HomeCollectionClientForm from './HomeCollectionClientForm';
 
+const SITE_URL = "https://qxldiagnostics.com";
+
 export const metadata: Metadata = {
-  title: "Home Blood Sample Collection in Bangalore | QXL Diagnostics",
-  description: "Book home blood collection across Bengaluru. NABL-accredited diagnostic laboratory (MC-6849), certified phlebotomy specialists, temperature-controlled cold chain transport & same-day reports.",
-  keywords: ["home blood collection bangalore", "blood test at home bangalore", "home sample collection", "lab test at home bengaluru", "NABL home blood test"],
-  alternates: {
-    canonical: "https://qxldiagnostics.com/home-blood-collection-bangalore",
+  title: "Home Blood Collection Bangalore | QXL Diagnostics",
+  description: "Book home blood collection across Bengaluru. NABL-accredited diagnostic laboratory (MC-6849), trained phlebotomy specialists, temperature-controlled cold chain transport & same-day reports.",
+  alternates: { canonical: `${SITE_URL}/home-blood-collection-bangalore` },
+  openGraph: {
+    title: "Home Blood Collection in Bangalore | QXL Diagnostics",
+    description: "Book home blood collection across Bengaluru. NABL-accredited laboratory, trained phlebotomists & same-day reports.",
+    url: `${SITE_URL}/home-blood-collection-bangalore`,
   },
 };
 

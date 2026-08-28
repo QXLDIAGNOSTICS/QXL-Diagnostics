@@ -965,9 +965,10 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen w-full">
       {/* ── DESKTOP VIEW (hidden lg:flex) ── */}
       <div className="hidden lg:flex flex-col w-full">
+
         {/* ── Hero Slider ── */}
         <section className="pt-6 pb-4 relative group overflow-hidden">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
@@ -1421,7 +1422,8 @@ export default function Home() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-extrabold">✓</span>
-                    <span>100% sterile vacuum containers used for collection</span>
+                    <span>Sterile, single-use collection equipment & vacuum tubes</span>
+
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-extrabold">✓</span>
@@ -1678,16 +1680,16 @@ export default function Home() {
           </div>
         </section>
 
+        <BlogSlider />
         <ReviewsSection />
         <FaqSection />
       </div>
 
-      {/* ── MOBILE VIEW (lg:hidden) — EXACT REFERENCE DESIGN ── */}
-      <div className="lg:hidden flex flex-col w-full max-w-full overflow-x-hidden bg-white pt-[68px] pb-[85px]">
+      {/* ── MOBILE VIEW (lg:hidden) — EXACT MATCH TO REFERENCE DESIGN SCREENSHOT ── */}
+      <div className="lg:hidden flex flex-col w-full max-w-full overflow-x-hidden bg-white pt-2 pb-[85px]">
 
-        {/* ── Top Header Section (Greeting + Search + Amber Banner + Dots) ── */}
+        {/* Top Header & Greeting Section */}
         <div className="bg-white px-4 pt-3 sm:pt-4 pb-2">
-          {/* Greeting */}
           <p className="text-[13.5px] sm:text-[14.5px] font-medium text-slate-500 mb-1">{greeting},</p>
           <h2 className="text-[23px] sm:text-[26px] font-black text-[#0f2d5e] leading-[1.18] mb-3 sm:mb-4">
             Take charge of your<br />health today!
@@ -1699,7 +1701,7 @@ export default function Home() {
           </div>
 
           {/* Popular Search Chips */}
-          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-1.5 mb-3.5 sm:mb-4">
+          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-1.5 mb-3 sm:mb-4">
             <span className="text-[10px] font-black text-slate-400 uppercase shrink-0">Popular:</span>
             {[
               { label: "Full Body Checkup", href: "/packages" },
@@ -1721,77 +1723,106 @@ export default function Home() {
             ))}
           </div>
 
+          {/* ── Mobile Hero Carousel Card (Strict CSS Grid: Column 1 Text / Column 2 Poster Image) ── */}
+          <div className="relative w-full rounded-3xl overflow-hidden my-3 shadow-md border border-amber-300/80 bg-gradient-to-br from-[#FFF8EE] via-white to-[#F0FFF4] p-2.5 sm:p-4 flex flex-col gap-2">
+            
+            {/* Round Blue Navigation Arrows (< & >) on left/right edges */}
+            <button
+              type="button"
+              onClick={() => setCurrentMobileSlide((prev) => (prev - 1 + mobileSlides.length) % mobileSlides.length)}
+              className="absolute left-1.5 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-90 transition-transform cursor-pointer border border-white/60"
+              aria-label="Previous Slide"
+            >
+              <ChevronLeft className="w-4 h-4 text-white stroke-[3]" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setCurrentMobileSlide((prev) => (prev + 1) % mobileSlides.length)}
+              className="absolute right-1.5 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-90 transition-transform cursor-pointer border border-white/60"
+              aria-label="Next Slide"
+            >
+              <ChevronRight className="w-4 h-4 text-white stroke-[3]" />
+            </button>
 
-          {/* Mobile Hero Slider Carousel (Proper Spacing & Alignment) */}
-          <div className="relative w-full rounded-2xl overflow-hidden my-3 shadow-sm border border-amber-200/70 bg-gradient-to-br from-[#FFF8EE] via-white to-[#F0FFF4] p-4 flex flex-col gap-2 min-h-[175px]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentMobileSlide}
-                initial={{ opacity: 0, x: 8 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -8 }}
-                transition={{ duration: 0.3 }}
-                className="flex flex-row items-center justify-between gap-3 sm:gap-4 w-full h-full"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.25 }}
+                className="grid grid-cols-[1fr_125px] xs:grid-cols-[1fr_140px] items-center gap-2.5 w-full z-10 pl-7 pr-7 py-1 min-h-[165px]"
               >
-                {/* Left Side — Badges, Title & CTAs */}
-                <div className="flex-1 flex flex-col justify-center gap-1.5 z-10 min-w-0 pr-1">
-                  <div className="flex items-center gap-1.5 flex-wrap">
-                    <span className="bg-amber-400 text-slate-950 text-[8.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">
+                {/* Column 1: Text, Badges & CTAs */}
+                <div className="flex flex-col justify-center gap-1.5 min-w-0 text-left overflow-hidden">
+                  <div className="flex items-center gap-1 flex-wrap">
+                    <span className="bg-amber-500 text-slate-950 text-[8px] xs:text-[8.5px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs whitespace-nowrap">
                       {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.badge || "DOCTOR-LED LAB"}
                     </span>
-                    <span className="bg-emerald-100 text-emerald-800 text-[8.5px] font-black px-2 py-0.5 rounded-full">
-                      NABL MC-6849
+                    <span className="bg-emerald-100 text-emerald-800 text-[8px] xs:text-[8.5px] font-black px-2 py-0.5 rounded-full border border-emerald-300 whitespace-nowrap">
+                      FESTIVE @ ₹800
                     </span>
                   </div>
 
                   <div className="flex flex-col gap-0.5 my-0.5">
-                    <h3 className="text-[14px] sm:text-[15px] font-black text-[#0f2d5e] leading-snug line-clamp-2">
-                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.title}
+                    <h3 className="text-[12.5px] xs:text-[13.5px] font-black text-[#0f2d5e] leading-snug line-clamp-2 uppercase tracking-tight">
+                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.title || "PREVENTIVE FULL BODY DIAGNOSTICS"}
                     </h3>
-                    <p className="text-[11.5px] font-extrabold text-[#2563eb] leading-snug line-clamp-1">
-                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.titleAccent}
+                    <p className="text-[10px] xs:text-[11px] font-black text-[#2563eb] leading-snug line-clamp-1 uppercase">
+                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.titleAccent || "DOCTOR-LED LABORATORY TESTING"}
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-2 mt-1 flex-wrap">
+                  {/* Parameter Tags */}
+                  <div className="flex flex-wrap gap-1 my-0.5">
+                    <span className="bg-blue-50 border border-blue-200 text-[#2563eb] text-[8px] font-black px-1.5 py-0.5 rounded-full whitespace-nowrap">✓ 80 Parameters</span>
+                    <span className="bg-emerald-50 border border-emerald-200 text-emerald-700 text-[8px] font-black px-1.5 py-0.5 rounded-full whitespace-nowrap">✓ Free Home Collection</span>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
                     <Link
-                      href={mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.ctaLink || "/packages"}
-                      className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-3.5 py-1.5 rounded-full text-[10px] uppercase tracking-wide shadow-xs active:scale-95 transition-transform whitespace-nowrap"
+                      href={mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.ctaLink || "/book?package=Full+Body+Health+Checkup"}
+                      className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-3 py-1 rounded-full text-[9px] xs:text-[9.5px] uppercase tracking-wide shadow-xs active:scale-95 transition-transform whitespace-nowrap"
                     >
-                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.cta || "Book Now"} →
+                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.cta || "BOOK NOW"} →
                     </Link>
                     <a
                       href="tel:+919964639639"
-                      className="bg-white text-slate-700 font-bold px-3 py-1.5 rounded-full text-[10px] border border-slate-200 shadow-2xs whitespace-nowrap"
+                      className="bg-white text-slate-700 font-bold px-2 py-1 rounded-full text-[9px] border border-slate-200 shadow-2xs whitespace-nowrap"
                     >
-                      Call
+                      CALL
                     </a>
                   </div>
                 </div>
 
-                {/* Right Side — Poster Image (Full Cover, Edge-to-Edge) */}
+                {/* Column 2: Poster Image (Rendered fully without cropping using object-contain) */}
                 {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.image && (
-                  <div className="w-[165px] xs:w-[180px] sm:w-[200px] h-[115px] xs:h-[125px] sm:h-[140px] relative rounded-xl overflow-hidden shrink-0 shadow-xs border border-amber-200/80 bg-white ml-auto self-center">
+                  <div className="w-full h-[120px] xs:h-[135px] relative rounded-2xl overflow-hidden shrink-0 shadow-sm border border-amber-200 bg-white justify-self-end self-center flex items-center justify-center p-1">
                     <img
                       src={mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.image}
                       alt={mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.title}
-                      className="w-full h-full object-cover object-center rounded-xl"
+                      className="w-full h-full object-contain object-center rounded-xl"
                     />
                   </div>
                 )}
               </motion.div>
             </AnimatePresence>
 
-            {/* Interactive Dots for Mobile Slider */}
+
+
+
+
+            {/* Slide Dots */}
             {mobileSlides.length > 1 && (
-              <div className="flex justify-center items-center gap-1.5 mt-1.5">
+              <div className="flex justify-center items-center gap-1.5 mt-1 z-10">
                 {mobileSlides.map((_, i) => (
                   <button
                     key={i}
+                    type="button"
                     onClick={() => setCurrentMobileSlide(i)}
                     aria-label={`Go to slide ${i + 1}`}
-                    className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                      i === (currentMobileSlide % mobileSlides.length) ? "w-5 bg-[#D69A18]" : "w-1.5 bg-slate-300"
+                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                      i === (currentMobileSlide % mobileSlides.length) ? "w-6 bg-[#D69A18]" : "w-2 bg-slate-300"
                     }`}
                   />
                 ))}
@@ -1800,146 +1831,63 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── Book a Test Section (Responsive Grid & Icons) ── */}
-        <div className="bg-white px-4 pt-3.5 sm:pt-4 pb-5 sm:pb-6 border-t border-slate-100">
-          <div className="flex items-center justify-between mb-3.5 sm:mb-4">
-            <span className="text-[17px] sm:text-[18px] font-black text-[#0f2d5e]">Book a Test</span>
-            <Link href="/tests" className="text-[12.5px] sm:text-[13.5px] font-extrabold text-[#D69A18] hover:underline">View All</Link>
+
+
+        {/* ── Book a Test 4-Icon Grid ── */}
+        <div className="bg-white px-4 pt-3.5 pb-5 border-t border-slate-100">
+          <div className="flex items-center justify-between mb-3.5">
+            <span className="text-[17px] font-black text-[#0f2d5e]">Book a Test</span>
+            <Link href="/tests" className="text-[12.5px] font-extrabold text-[#D69A18] hover:underline">View All</Link>
           </div>
 
-          <div className="grid grid-cols-4 gap-2 sm:gap-3">
-            {/* 1. Popular Tests */}
+          <div className="grid grid-cols-4 gap-2">
             <Link href="/tests" className="flex flex-col items-center gap-1 active:scale-95 transition-transform">
-              <div className="w-[56px] sm:w-[64px] h-[56px] sm:h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
-                <Microscope className="w-6 sm:w-7 h-6 sm:h-7 text-[#D69A18]" strokeWidth={1.8} />
+              <div className="w-[56px] h-[56px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
+                <Microscope className="w-6 h-6 text-[#D69A18]" strokeWidth={1.8} />
               </div>
-              <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Popular<br />Tests</span>
+              <span className="text-[10.5px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Popular<br />Tests</span>
             </Link>
 
-            {/* 2. Health Packages */}
             <Link href="/packages" className="flex flex-col items-center gap-1 active:scale-95 transition-transform">
-              <div className="w-[56px] sm:w-[64px] h-[56px] sm:h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
-                <svg className="w-6 sm:w-7 h-6 sm:h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
+              <div className="w-[56px] h-[56px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
+                <svg className="w-6 h-6 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v1.281m7.5 0a48.667 48.667 0 00-7.5 0" />
                 </svg>
               </div>
-              <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Health<br />Packages</span>
+              <span className="text-[10.5px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Health<br />Packages</span>
             </Link>
 
-            {/* 3. Home Collection */}
             <Link href="/home-collection" className="flex flex-col items-center gap-1 active:scale-95 transition-transform">
-              <div className="w-[56px] sm:w-[64px] h-[56px] sm:h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
-                <svg className="w-6 sm:w-7 h-6 sm:h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
+              <div className="w-[56px] h-[56px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
+                <svg className="w-6 h-6 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
               </div>
-              <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Home<br />Collection</span>
+              <span className="text-[10.5px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Home<br />Collection</span>
             </Link>
 
-            {/* 4. Upload Prescription */}
             <button
+              type="button"
               onClick={() => setIsPrescriptionModalOpen(true)}
               className="flex flex-col items-center gap-1 active:scale-95 transition-transform cursor-pointer"
             >
-              <div className="w-[56px] sm:w-[64px] h-[56px] sm:h-[64px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
-                <svg className="w-6 sm:w-7 h-6 sm:h-7 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
+              <div className="w-[56px] h-[56px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
+                <svg className="w-6 h-6 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                 </svg>
               </div>
-              <span className="text-[10.5px] sm:text-[11px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Upload<br />Prescription</span>
+              <span className="text-[10.5px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Upload<br />Prescription</span>
             </button>
           </div>
         </div>
 
-
-        {/* ── 24×7 Diagnostic Services Mobile Banner ── */}
-        <section className="py-4 px-4 bg-[#f8faff] border-t border-slate-100 my-4 sm:my-6">
-          <div className="rounded-2xl bg-gradient-to-br from-[#FFF8EB] via-white to-amber-50/60 p-5 border border-[#F3DBA7] shadow-sm">
-            <span className="inline-block bg-[#D69A18] text-white text-[10px] font-black px-3 py-1 rounded-full tracking-wider uppercase mb-2.5 shadow-2xs">
-              24×7 ONLINE BOOKING & SUPPORT
-            </span>
-            <h3 className="text-[20px] font-black text-[#0f2d5e] leading-tight mb-1">
-              NABL Accredited Diagnostics
-            </h3>
-            <p className="text-[13px] font-bold text-[#D69A18] mb-3.5">
-              Doctor-Led Diagnostic Lab in Bengaluru
-            </p>
-
-            <div className="grid grid-cols-2 gap-2.5 mb-4 bg-white/70 p-3 rounded-xl border border-amber-100/80">
-              {["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"].map(s => (
-                <div key={s} className="flex items-center gap-1.5">
-                  <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span className="text-[11.5px] font-bold text-slate-800 leading-tight">{s}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="text-[11.5px] text-slate-500 font-semibold mb-4 leading-normal">
-              Available at all QXL centres &amp; partner facilities across Bengaluru.
-            </p>
-
-            <a
-              href="tel:+919964639639"
-              className="w-full bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold text-sm py-3 px-5 rounded-xl shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer"
-              style={{ color: '#ffffff' }}
-            >
-              <Phone className="w-4 h-4 text-white" />
-              <span className="!text-white font-black" style={{ color: '#ffffff' }}>Call +91 9964 639 639</span>
-            </a>
-          </div>
-        </section>
-
-        {/* ── Recommended Packages Carousel Mobile ── */}
-        <section className="py-4 px-4 bg-white border-t border-slate-100 my-4 sm:my-6">
-          <div className="flex justify-between items-center mb-3">
-            <div>
-              <span className="text-[10px] font-black text-[#D69A18] uppercase tracking-wider block">Health Packages</span>
-              <h3 className="text-[17px] font-black text-[#0f2d5e]">Recommended Packages</h3>
-            </div>
-            <Link href="/packages" className="text-xs font-bold text-[#D69A18]">View All</Link>
-          </div>
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none">
-            {recommendedPackages.map((pkg) => (
-              <div key={pkg.name} className="w-[260px] shrink-0 snap-start bg-white border border-slate-200 rounded-2xl p-4 shadow-xs flex flex-col justify-between">
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="bg-[#FFF8EB] text-[#D69A18] text-[9.5px] font-black px-2.5 py-0.5 rounded-full border border-[#F3DBA7] uppercase">{pkg.tag || "PACKAGE"}</span>
-                    <span className="text-[10px] font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || pkg.originalPrice || 5800)) * 100)}% OFF</span>
-                  </div>
-                  <h4 className="font-extrabold text-[#0f2d5e] text-sm leading-tight mb-1">{pkg.name}</h4>
-                  <p className="text-[11px] text-slate-500 font-medium line-clamp-2 mb-2">{pkg.includes}</p>
-                </div>
-                <div>
-                  <div className="flex items-baseline gap-2 mb-3">
-                    <span className="text-lg font-black text-slate-900">₹{pkg.price}</span>
-                    <span className="text-xs text-slate-400 line-through">₹{pkg.old_price || pkg.original_price || pkg.originalPrice || "5800"}</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <button type="button" onClick={() => setSelectedPackage(pkg)} className="flex-1 py-2 rounded-xl text-[10px] font-extrabold border border-slate-200 text-slate-700 bg-slate-50">Details</button>
-                    <Link href={`/book?package=${encodeURIComponent(pkg.name)}`} className="flex-1 py-2 rounded-xl text-[10px] font-extrabold bg-[#D69A18] text-white text-center">BOOK NOW</Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ── Raksha Bandhan Festive Offer Section ── */}
-        {isCampaignActive() && (
-          <div className="my-4 sm:my-6">
-            <RakshaOfferCard onOpenBooking={(title) => setSelectedPackage({ name: title || "Raksha Bandhan Special Health Checkup", price: "800", old_price: "5800", includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary (21)" })} />
-          </div>
-        )}
-
-        {/* ── Explore by Health Need (Exact 2nd Reference Image Design) ── */}
-        <section className="py-5 px-4 bg-slate-50/60 border-t border-slate-100 my-4 sm:my-6">
-          {/* Header */}
+        {/* ── Explore by Health Need (Organ Cards Carousel) ── */}
+        <section className="py-5 px-4 bg-slate-50/60 border-t border-slate-100 my-4">
           <div className="flex justify-between items-center mb-4">
             <h3 className="text-[19px] font-black text-[#0f2d5e]">Explore by Health Need</h3>
             <Link href="/specialities/womens-health" className="text-xs font-bold text-slate-500 hover:text-[#0f2d5e]">View All</Link>
           </div>
 
-          {/* 1. Top Featured Card: Full Body Checkups */}
           <Link
             href="/book?package=Full+Body+Health+Checkup"
             className="bg-white rounded-3xl p-4 border border-[#F3DBA7] shadow-xs flex items-center justify-between gap-3 mb-4 active:scale-[0.99] transition-all cursor-pointer group"
@@ -1962,7 +1910,6 @@ export default function Home() {
             </span>
           </Link>
 
-          {/* 2. Horizontal Organ/Health Cards Carousel */}
           <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-2 scrollbar-none">
             {[
               { label: "Heart", href: "/specialities/cardiology", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png" },
@@ -1990,58 +1937,23 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Why Choose QXL ── */}
-        <div className="my-4 sm:my-6">
+        {/* ── Why Choose QXL & AI Diagnostics ── */}
+        <div className="my-4">
           <WhyChooseSlider />
         </div>
-
-        {/* ── AI Powered Diagnostics ── */}
-        <div className="my-4 sm:my-6">
+        <div className="my-4">
           <AiDiagnostics />
         </div>
 
-        {/* ── Meet Our Team (Large Scrollable Carousel) ── */}
-        <section className="py-5 px-4 bg-white border-t border-slate-100 my-4 sm:my-6">
-          <div className="flex justify-between items-center mb-3">
-            <div>
-              <span className="text-[10px] font-black text-[#D69A18] uppercase tracking-wider block">Our Experts</span>
-              <h3 className="text-[18px] font-black text-[#0f2d5e]">Meet Our Team</h3>
-            </div>
-            <span className="text-[11px] font-extrabold text-slate-400">Scroll &rarr;</span>
-          </div>
-
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-3 scrollbar-none">
-            {[
-              { name: "Dr. Shantakumar Muruda", role: "Founder & CEO", qual: "MD, BIOCHEMISTRY", slug: "dr-shantakumar-muruda", img: "/images/dr_shantakumar_new.jpg", pos: "object-cover object-center" },
-              { name: "Dr. Ajitha Pillai", role: "Senior Consultant", qual: "MD, MICROBIOLOGY", slug: "dr-ajitha-pillai", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg", pos: "object-[center_top]" },
-              { name: "Dr. Naveen Kumar N", role: "Consultant Pathologist", qual: "DCP, DNB PATHOLOGY", slug: "dr-naveen-kumar-n", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg", pos: "object-[center_top]" },
-              { name: "Dr. Pritilata Rout", role: "Senior Consultant", qual: "MD, PATHOLOGY", slug: "dr-pritilata-rout", img: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png", pos: "object-[center_top]" },
-            ].map(d => (
-              <Link
-                key={d.name}
-                href={`/${d.slug}`}
-                className="w-[180px] shrink-0 snap-start bg-[#FFF8EB] border border-[#F3DBA7] p-4 rounded-3xl text-center flex flex-col items-center justify-between shadow-xs hover:shadow-md transition-all active:scale-95 group"
-              >
-                <div className="w-24 h-24 rounded-full overflow-hidden border-3 border-[#D69A18] mb-3 shrink-0 bg-white shadow-md relative">
-                  <img src={d.img} alt={d.name} className={`w-full h-full object-cover ${d.pos} group-hover:scale-105 transition-transform duration-300`} />
-                </div>
-                <div className="flex flex-col items-center text-center">
-                  <h4 className="font-black text-[#0f2d5e] text-sm leading-tight mb-1">{d.name}</h4>
-                  <span className="text-[11px] font-extrabold text-[#D69A18] block">{d.role}</span>
-                  <span className="text-[10px] font-extrabold text-slate-500 block mt-2 bg-white/80 px-2.5 py-0.5 rounded-full border border-amber-200/60">{d.qual}</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* ── Blog & Reviews ── */}
-        <div className="my-4 sm:my-6 space-y-4 sm:space-y-6">
+        {/* ── Blog, Reviews & FAQ ── */}
+        <div className="my-4 space-y-4">
           <BlogSlider />
           <ReviewsSection />
           <FaqSection />
         </div>
       </div>
+
+
 
 
       <PrescriptionModal isOpen={isPrescriptionModalOpen} onClose={() => setIsPrescriptionModalOpen(false)} />

@@ -18,6 +18,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const pageData = getDynamicPageData(slug);
+  if (!pageData) {
+    return { title: "Page Not Found | QXL Diagnostics" };
+  }
 
   return {
     title: pageData.title,
@@ -44,6 +47,10 @@ export default async function CatchAllSlugPage({ params }: Props) {
   }
 
   const data = getDynamicPageData(slug);
+  if (!data) {
+    notFound();
+  }
+
 
   const jsonLdSchema = {
     "@context": "https://schema.org",

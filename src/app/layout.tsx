@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     canonical: "https://qxldiagnostics.com",
   },
   description:
-    "QXL Diagnostics — NABL-accredited super speciality diagnostic lab in Bengaluru (MC-6849). 300+ tests, home collection, same-day reports. Book now.",
+    "NABL-accredited (MC-6849) super speciality diagnostic lab in Bengaluru. 300+ blood tests, free home sample collection across the city, same-day WhatsApp reports.",
   manifest: "/manifest.json",
   authors: [{ name: "QXL Diagnostics" }],
   creator: "QXL Diagnostics",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://qxldiagnostics.com",
     siteName: "QXL Diagnostics",
-    title: "QXL Diagnostics | NABL Accredited Diagnostic Lab Bengaluru",
+    title: "QXL Diagnostics Bengaluru | Doctor-Led NABL Accredited Lab",
     description:
-      "Advanced diagnostic testing in Bengaluru. NABL accredited (MC-6849), home collection, 300+ tests, same-day digital reports. Book now at +91 9964 639 639.",
+      "Advanced diagnostic testing in Bengaluru. NABL accredited (MC-6849), free doorstep sample collection, 300+ tests, same-day digital reports.",
     images: [
       {
         url: "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
@@ -48,6 +48,7 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     title: "QXL Diagnostics | NABL Accredited Lab Bengaluru",

@@ -310,10 +310,11 @@ const findAnswer = (query: string): { text: string; relatedQuestions?: string[] 
   
   if (q.includes('home collection') || q.includes('home sample') || q.includes('technician visit')) {
     return {
-      text: "🏠 **Home Sample Collection Booking**\n\nWe offer convenient home sample collection across Bengaluru!\n\n**How it works:**\n1. Book online or message us on WhatsApp.\n2. Choose a date and time slot (available 6:00 AM - 8:00 PM).\n3. Our certified health technician visits you.\n4. Secure digital reports are delivered within 24 hours.\n\nWould you like me to schedule a collection slot for you today?",
+      text: "🏠 **Home Sample Collection Booking**\n\nWe offer convenient home sample collection across Bengaluru!\n\n**How it works:**\n1. Book online or message us on WhatsApp.\n2. Choose a date and time slot (available 6:00 AM - 8:00 PM).\n3. Our trained phlebotomy specialist visits you.\n4. Secure digital reports are delivered within 24 hours.\n\nWould you like me to schedule a collection slot for you today?",
       relatedQuestions: ["Is there any extra charge?", "Is fasting required?"]
     };
   }
+
 
   if (q.includes('book blood test') || q.includes('book appointment') || q.includes('how to book') || q.includes('book test')) {
     return {
@@ -467,8 +468,9 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
     {
       icon: <Microscope className="w-5 h-5 text-[#D69A18]" />,
       title: "Doctor-Led Interpretation",
-      desc: "Every single certified laboratory report is evaluated and signed off by senior consultant pathologists."
+      desc: "Every laboratory report is evaluated and signed off by senior consultant pathologists."
     }
+
   ];
 
   // Conversation Starters shown at the top of the chat

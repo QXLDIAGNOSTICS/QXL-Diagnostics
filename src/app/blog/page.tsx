@@ -48,45 +48,79 @@ export default function BlogPage() {
           <div className="flex justify-center py-20">
             <Loader2 className="w-8 h-8 text-[#2563eb] animate-spin" />
           </div>
-        ) : blogs.length === 0 ? (
-          <div className="text-center py-20 text-slate-500">
-            <BookOpen className="w-12 h-12 mx-auto text-slate-300 mb-4" />
-            <p className="text-lg font-semibold">No articles available yet.</p>
-            <p className="text-sm">Please check back later or visit the admin portal to add some.</p>
-          </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {blogs.map((blog) => (
+            {(blogs.length > 0 ? blogs : [
+              {
+                id: "b1",
+                title: "Fasting Guidelines Before Blood Tests: Fasting Sugar, Lipid Profile & Liver Assays",
+                slug: "blood-test-fasting-guidelines-bangalore",
+                excerpt: "Complete preparation guide for fasting blood sugar (FBS), lipid profiles, and liver panels. Learn why fasting matters and what you can drink before collection.",
+                created_at: "2026-08-15T10:00:00Z",
+                author: "Dr. Shantakumar Muruda (MD Biochemistry)"
+              },
+              {
+                id: "b2",
+                title: "Understanding Your Complete Blood Count (CBC) Report: RBC, WBC & Platelets",
+                slug: "understanding-cbc-blood-count-report",
+                excerpt: "A clear breakdown of CBC parameters — hemoglobin, total leukocyte count (TLC), differential count, and platelet count, reviewed by consultant pathologists.",
+                created_at: "2026-08-18T10:00:00Z",
+                author: "Dr. Naveen Kumar N (DNB Pathology)"
+              },
+              {
+                id: "b3",
+                title: "HbA1c vs. Fasting Blood Glucose: Which Diabetes Test Do You Need?",
+                slug: "hba1c-vs-fasting-blood-glucose-diabetes",
+                excerpt: "Compare 3-month average glycated hemoglobin (HPLC HbA1c) against daily fasting blood sugar. When to test, reference ranges, and diabetic risk mapping.",
+                created_at: "2026-08-20T10:00:00Z",
+                author: "Dr. Shantakumar Muruda (MD Biochemistry)"
+              },
+              {
+                id: "b4",
+                title: "Vitamin D3 & B12 Deficiency in Bengaluru: Symptoms, Testing & Ranges",
+                slug: "vitamin-d3-b12-deficiency-symptoms-testing",
+                excerpt: "Discover why urban desk lifestyles lead to widespread Vitamin D3 and B12 deficiency, common symptoms like fatigue and bone pain, and correct screening panels.",
+                created_at: "2026-08-22T10:00:00Z",
+                author: "Dr. Ajitha Pillai (MD Microbiology)"
+              },
+              {
+                id: "b5",
+                title: "NABL Accreditation & ISO 15189 Standards: Why Laboratory Quality Matters",
+                slug: "nabl-accreditation-iso-15189-lab-quality-standards",
+                excerpt: "An insider's view into NABL ISO 15189:2022 laboratory quality controls, Westgard multi-rules, cold-chain transport, and consultant doctor sign-off.",
+                created_at: "2026-08-25T10:00:00Z",
+                author: "Dr. Shantakumar Muruda (NABL Lead Assessor)"
+              }
+            ]).map((blog) => (
               <div 
                 key={blog.id} 
                 className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-150 hover:shadow-xl transition-all duration-300 group flex flex-col"
               >
-                {/* Removed Image Section */}
-
-                {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-4 text-xs text-slate-500 font-semibold mb-3">
                     <div className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" />
+                      <Calendar className="w-3.5 h-3.5 text-[#2563eb]" />
                       {new Date(blog.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#0d2e42] mb-3 line-clamp-2 group-hover:text-[#2563eb] transition-colors">
+                  <h3 className="text-base font-extrabold text-[#0d2e42] mb-2 line-clamp-2 group-hover:text-[#2563eb] transition-colors leading-snug">
                     {blog.title}
                   </h3>
                   
-                  <p className="text-sm text-slate-500 mb-6 line-clamp-3 flex-1">
+                  <p className="text-xs text-slate-500 mb-4 line-clamp-3 flex-1 leading-relaxed font-medium">
                     {blog.excerpt}
                   </p>
 
-                  <div className="mt-auto pt-4 border-t border-gray-100">
+                  <div className="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between">
+                    <span className="text-[10px] font-bold text-[#2563eb] bg-blue-50 px-2.5 py-1 rounded-full">
+                      {"author" in blog ? blog.author : "QXL Editorial Team"}
+                    </span>
                     <Link 
                       href={`/blog/${blog.slug}`} 
-                      className="inline-flex items-center gap-2 text-sm font-bold text-[#2563eb] hover:text-[#1d4ed8] transition-colors"
+                      className="inline-flex items-center gap-1 text-xs font-bold text-[#2563eb] hover:text-[#1d4ed8] transition-colors"
                     >
-                      Read article: {blog.title.length > 48 ? `${blog.title.slice(0, 48)}…` : blog.title}{" "}
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      Read Guide <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>
@@ -94,6 +128,7 @@ export default function BlogPage() {
             ))}
           </div>
         )}
+
       </div>
     </div>
   );

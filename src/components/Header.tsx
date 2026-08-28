@@ -474,7 +474,7 @@ export default function Header() {
               alt={settings.siteName || "QXL Diagnostics"}
               width={180}
               height={48}
-              className="h-8 xs:h-9 w-auto object-contain max-h-[36px]"
+              className="h-7 xs:h-8 w-auto object-contain max-h-[32px] xs:max-h-[36px]"
               style={{ imageRendering: '-webkit-optimize-contrast' }}
               onError={(e) => {
                 e.currentTarget.src = FALLBACK_LOGO;
@@ -483,17 +483,23 @@ export default function Header() {
             <span className="logo-text-other hidden font-black text-base text-[#0f2d5e]">QXL Diagnostics</span>
           </Link>
 
-          {/* Location Button Pill Right After Logo */}
+          {/* Location Button Pill Right After Logo — Crisp White Color & Perfect Alignment */}
           <button
             type="button"
             onClick={() => setShowLocationModal(true)}
-            className="flex items-center gap-1 bg-[#FFFBF0] border border-[#F3DBA7] px-2.5 py-1 rounded-full text-[11.5px] font-black text-[#0f2d5e] shrink-0 active:scale-95 transition-transform cursor-pointer ml-0.5"
+            className="flex items-center gap-1.5 bg-white border border-slate-200 hover:border-amber-300 px-2.5 py-1 rounded-full text-[11px] xs:text-[11.5px] font-black text-[#0f2d5e] shrink-0 active:scale-95 transition-all cursor-pointer shadow-2xs"
             aria-label="Change Location"
+            title={location || "Bangalore"}
           >
-            <MapPin className="w-3.5 h-3.5 text-[#D69A18] shrink-0" />
-            <span className="truncate max-w-[95px]">{location || "Bengaluru"}</span>
+            <div className="w-4 h-4 rounded-full bg-amber-50 flex items-center justify-center shrink-0 border border-amber-200/80">
+              <MapPin className="w-2.5 h-2.5 text-[#D69A18] shrink-0" />
+            </div>
+            <span className="whitespace-nowrap font-black text-[#0f2d5e]">Bangalore</span>
             <ChevronDown className="w-3 h-3 text-[#D69A18] shrink-0" />
           </button>
+
+
+
         </div>
 
         {/* Right Header Action: Cart & Profile Icons */}

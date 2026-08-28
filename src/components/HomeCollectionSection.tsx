@@ -74,32 +74,13 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
             Experience world-class diagnostic services without leaving the comfort of your home. Available across all major locations in Bengaluru.
           </p>
 
-          {/* Scrolling Steps Container */}
-          <div className="steps-marquee-container relative w-full overflow-hidden mb-6 py-1">
-            {/* Gradients on edges for smooth fading */}
-            <div className="absolute left-0 top-0 bottom-0 w-6 md:w-16 bg-gradient-to-r from-[#FFFBF0] to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-6 md:w-16 bg-gradient-to-l from-[#FFFBF0] to-transparent z-10 pointer-events-none" />
-
-            <div className="animate-steps-marquee">
-              {/* Primary step list for search crawlers & screen readers */}
+          {/* 7 Home Collection Process Steps */}
+          <div className="relative w-full mb-6 py-1">
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-3 scrollbar-none justify-start lg:justify-center">
               {steps.map((step, idx) => (
                 <div 
-                  key={`primary-${idx}`} 
-                  className="bg-white border border-[#F3DBA7] p-4 rounded-2xl flex flex-col items-center text-center w-[210px] sm:w-[240px] flex-shrink-0 whitespace-normal hover:border-[#D69A18] shadow-2xs transition-all duration-300"
-                >
-                  <div className="w-11 h-11 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mb-3 shrink-0">
-                    {step.icon}
-                  </div>
-                  <h3 className="font-extrabold text-[#0f2d5e] text-xs sm:text-[13px] mb-1 leading-snug">{step.title}</h3>
-                  <p className="text-slate-500 text-[11px] leading-relaxed font-medium">{step.desc}</p>
-                </div>
-              ))}
-              {/* Visual loop duplicate set — hidden from search crawlers & screen readers */}
-              {steps.map((step, idx) => (
-                <div 
-                  key={`duplicate-${idx}`} 
-                  aria-hidden="true"
-                  className="bg-white border border-[#F3DBA7] p-4 rounded-2xl flex flex-col items-center text-center w-[210px] sm:w-[240px] flex-shrink-0 whitespace-normal hover:border-[#D69A18] shadow-2xs transition-all duration-300"
+                  key={idx} 
+                  className="bg-white border border-[#F3DBA7] p-4 rounded-2xl flex flex-col items-center text-center w-[200px] sm:w-[220px] shrink-0 snap-start hover:border-[#D69A18] shadow-2xs transition-all duration-300"
                 >
                   <div className="w-11 h-11 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mb-3 shrink-0">
                     {step.icon}
@@ -110,6 +91,7 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
               ))}
             </div>
           </div>
+
 
           <Link
             href="/book"
