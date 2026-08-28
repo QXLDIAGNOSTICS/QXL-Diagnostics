@@ -1030,12 +1030,12 @@ export default function Home() {
                           </span>
                         </div>
 
-                        {/* Title — single compact block */}
-                        <h2 className="text-[18px] sm:text-[22px] md:text-[28px] leading-[1.15] font-black text-[#0f2d5e] mb-1 pr-4">
-                          {activeSlide.title}
-                        </h2>
-                        <p className="text-[14px] sm:text-[16px] md:text-[20px] leading-[1.2] font-extrabold text-[#2563eb] mb-2 pr-4">
-                          {activeSlide.titleAccent}
+                        {/* H1 Title — Keyword Rich for Search Engines */}
+                        <h1 className="text-[18px] sm:text-[22px] md:text-[26px] leading-[1.15] font-black text-[#0f2d5e] mb-1 pr-4">
+                          NABL-Accredited Diagnostic Lab in Bengaluru — Home Collection & Same-Day Reports
+                        </h1>
+                        <p className="text-[13px] sm:text-[15px] md:text-[18px] leading-[1.2] font-extrabold text-[#2563eb] mb-2 pr-4">
+                          {activeSlide.title} {activeSlide.titleAccent ? `· ${activeSlide.titleAccent}` : ''}
                         </p>
 
                         {/* Short subtitle only */}

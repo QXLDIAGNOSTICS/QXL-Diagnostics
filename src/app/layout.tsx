@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     canonical: "https://qxldiagnostics.com",
   },
   description:
-    "NABL-accredited (MC-6849) super speciality diagnostic lab in Bengaluru. 300+ blood tests, free home sample collection across the city, same-day WhatsApp reports.",
+    "NABL-accredited diagnostic lab in Bengaluru (MC-6849). 300+ tests, free home collection, doctor-reviewed reports in 24 hrs.",
   manifest: "/manifest.json",
   authors: [{ name: "QXL Diagnostics" }],
   creator: "QXL Diagnostics",
