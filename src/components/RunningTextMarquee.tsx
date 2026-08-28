@@ -57,36 +57,36 @@ export default function RunningTextMarquee() {
       </div>
 
       {/* ── Line 2: Sky Blue Ticker (Doctor-Led Lab & Accreditation) ── */}
-      <div className="relative w-full overflow-hidden flex items-center bg-[#2563eb] py-2 shadow-xs">
+      <div className="relative w-full overflow-hidden flex items-center bg-[#38b6f4] py-2 shadow-xs">
         <div className="flex whitespace-nowrap animate-marquee-reverse hover:[animation-play-state:paused] cursor-pointer" style={{ animationDuration: '65s' }}>
           {tickerItems2.map((item, idx) => (
             <span key={`t2-p-${idx}`} className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
               <span>{item}</span>
-              <span className="text-sky-200">✦</span>
+              <span className="text-sky-100">✦</span>
             </span>
           ))}
           {tickerItems2.map((item, idx) => (
             <span key={`t2-d-${idx}`} aria-hidden="true" className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
               <span>{item}</span>
-              <span className="text-sky-200">✦</span>
+              <span className="text-sky-100">✦</span>
             </span>
           ))}
         </div>
       </div>
 
-      {/* ── Line 3: Teal Ticker (Home Collection) ── */}
-      <div className="relative w-full overflow-hidden flex items-center bg-teal-700 py-2 shadow-xs">
+      {/* ── Line 3: Vibrant Blue Ticker (Home Collection) ── */}
+      <div className="relative w-full overflow-hidden flex items-center bg-[#0284c7] py-2 shadow-xs">
         <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] cursor-pointer" style={{ animationDuration: '65s' }}>
           {tickerItems3.map((item, idx) => (
             <span key={`t3-p-${idx}`} className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
               <span>{item}</span>
-              <span className="text-teal-200">☘</span>
+              <span className="text-sky-200">☘</span>
             </span>
           ))}
           {tickerItems3.map((item, idx) => (
             <span key={`t3-d-${idx}`} aria-hidden="true" className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">
               <span>{item}</span>
-              <span className="text-teal-200">☘</span>
+              <span className="text-sky-200">☘</span>
             </span>
           ))}
         </div>

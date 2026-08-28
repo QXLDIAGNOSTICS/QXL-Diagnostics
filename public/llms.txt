@@ -79,9 +79,9 @@
 - **Prenatal Screening**: Double Marker, Triple Marker, Quadruple Marker, NIPT support
 
 ### Routine Blood Tests (Top by Booking Volume)
-1. CBC (Complete Blood Count) — ₹350 | No fasting | 24 parameters | Reports in 4–6 hours
-2. HbA1c (Diabetes) — ₹350 | No fasting | Reports in 6 hours
-3. Thyroid Profile T3 T4 TSH — ₹550 | No fasting | Reports in 6 hours
+1. CBC (Complete Blood Count) — ₹299 | No fasting | 24 parameters | Reports in 4–6 hours
+2. HbA1c (Diabetes) — ₹399 | No fasting | Reports in 6 hours
+3. Thyroid Profile T3 T4 TSH — ₹450 | No fasting | Reports in 6 hours
 4. Vitamin D (25-OH) — ₹990 | No fasting | Reports in 6 hours
 5. Vitamin B12 — ₹890 | No fasting | Reports in 6 hours
 6. Lipid Profile — ₹650 | 10–12h fasting | 8 parameters | Reports in 6 hours
@@ -132,13 +132,13 @@ A: Yes. QXL Diagnostics is NABL-accredited under ISO 15189:2022 (the internation
 A: Book online at https://qxldiagnostics.com/book or WhatsApp +91 9964 639 639. A trained phlebotomist visits your home, collects samples in sterile vacuum tubes, and transports them in cold-chain cooler kits to the NABL lab. Reports arrive on WhatsApp and email same day.
 
 **Q: What is the price of a CBC test at QXL Diagnostics Bangalore?**
-A: The CBC (Complete Blood Count) test at QXL Diagnostics is priced at ₹350 (24 parameters, no fasting required, report within 4–6 hours, free home collection available).
+A: The CBC (Complete Blood Count) test at QXL Diagnostics is priced at ₹299 (24 parameters, no fasting required, report within 4–6 hours, free home collection available).
 
 **Q: What is the price of an HbA1c test in Bangalore at QXL?**
-A: The HbA1c (glycated haemoglobin) test at QXL Diagnostics is ₹350. No fasting is required. Reports are delivered within 6 hours. Free home collection is available.
+A: The HbA1c (glycated haemoglobin) test at QXL Diagnostics is ₹399. No fasting is required. Reports are delivered within 6 hours. Free home collection is available.
 
 **Q: What is the price of a Thyroid test at QXL Diagnostics?**
-A: The Thyroid Profile (T3, T4, TSH) test is ₹550 at QXL Diagnostics. No fasting is required. Reports within 6 hours.
+A: The Thyroid Profile (T3, T4, TSH) test is ₹450 at QXL Diagnostics. No fasting is required. Reports within 6 hours.
 
 **Q: Does QXL Diagnostics provide home collection in Kengeri?**
 A: Yes. Kengeri is where QXL Diagnostics' main NABL laboratory is located. Home collection is available throughout Kengeri and surrounding areas including RR Nagar, Nagarabhavi, and Vijayanagar.

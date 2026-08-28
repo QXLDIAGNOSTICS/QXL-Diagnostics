@@ -237,21 +237,21 @@ export default function Header() {
           boxShadow: '0 8px 40px rgba(255, 153, 51, 0.10), 0 1px 0 rgba(255,255,255,0.9) inset, 0 -1px 0 rgba(19, 136, 8, 0.15) inset'
         }}
       >
-        {/* Top Announcement Bar — Desktop (Light Green Compact Ticker with Smooth Marquee) */}
-        <div className="hidden lg:flex bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 text-white text-[11px] font-bold py-1 px-3 items-center overflow-hidden border-b border-emerald-500/40 shadow-xs relative">
+        {/* Top Announcement Bar — Desktop (Sky Blue Ticker with Smooth Marquee) */}
+        <div className="hidden lg:flex bg-[#38b6f4] text-white text-[11px] font-black py-1 px-3 items-center overflow-hidden border-b border-sky-400/60 shadow-xs relative">
           <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] w-max cursor-pointer" style={{ animationDuration: '45s' }}>
             {[1, 2].map((repeatKey) => (
               <div key={repeatKey} className="flex items-center gap-4 shrink-0 mr-8">
                 <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">NABL ACCREDITED (MC-6849)</span>
-                <span className="text-emerald-200 font-bold">•</span>
+                <span className="text-sky-100 font-bold">•</span>
                 <div className="brand-strip text-[11px] font-black !text-white inline-flex items-center gap-1 m-0 p-0">
                   <span>Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</span>
                 </div>
-                <span className="text-emerald-200 font-bold">•</span>
-                <span className="text-emerald-100 text-[11px] font-bold">300+ Tests &amp; Preventive Checkup Packages</span>
-                <span className="text-emerald-200 font-bold">•</span>
-                <span className="text-emerald-100 text-[11px] font-bold">Free Doorstep Home Collection Across All Bengaluru Localities</span>
-                <span className="text-emerald-200 font-bold">•</span>
+                <span className="text-sky-100 font-bold">•</span>
+                <span className="text-white text-[11px] font-black">300+ Tests &amp; Preventive Checkup Packages</span>
+                <span className="text-sky-100 font-bold">•</span>
+                <span className="text-white text-[11px] font-black">Free Doorstep Home Collection Across All Bengaluru Localities</span>
+                <span className="text-sky-100 font-bold">•</span>
                 <a href="tel:+919964639639" className="text-amber-300 font-extrabold hover:underline text-[11px]">24×7 Support: +91 9964 639 639</a>
               </div>
             ))}

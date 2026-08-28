@@ -1366,7 +1366,7 @@ export default function Home() {
         </section>
 
         {/* ── Home Collection & Offer Ticker Bar ── */}
-        <div className="w-full bg-[#059669] text-white py-3 px-2 overflow-x-auto whitespace-nowrap flex items-center z-20 shadow-inner border-y border-emerald-700/60 relative my-2">
+        <div className="w-full bg-[#38b6f4] text-white py-3 px-2 overflow-x-auto whitespace-nowrap flex items-center z-20 shadow-inner border-y border-sky-400/60 relative my-2">
           <style dangerouslySetInnerHTML={{__html: `::-webkit-scrollbar { display: none; }`}} />
           <div className="flex items-center gap-4 w-max min-w-full px-4 animate-marquee-fast hover:[animation-play-state:paused]">
             {[1, 2].map((repeatKey) => (
@@ -1374,29 +1374,29 @@ export default function Home() {
                 <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
                   NABL ACCREDITED LAB
                 </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="text-sky-100 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
                   DOCTOR-LED DIAGNOSTICS &amp; 300+ TEST PANELS
                 </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="text-sky-100 font-bold shrink-0">•</span>
 
                 <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
                   🏡 HOME COLLECTION AVAILABLE
                 </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="text-sky-100 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
                   FREE HOME SAMPLE COLLECTION ACROSS BENGALURU · SAME DAY DIGITAL REPORTS
                 </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="text-sky-100 font-bold shrink-0">•</span>
 
                 <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
                   ⚡ NABL ACCREDITED LAB
                 </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="text-sky-100 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
                   EXPERT DOCTOR-REVIEWED REPORTS · FAST & RELIABLE
                 </span>
-                <span className="text-emerald-200 font-bold shrink-0">•</span>
+                <span className="text-sky-100 font-bold shrink-0">•</span>
               </React.Fragment>
             ))}
           </div>

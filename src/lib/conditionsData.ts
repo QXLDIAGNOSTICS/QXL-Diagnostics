@@ -20,7 +20,7 @@ export const CONDITIONS_DATA: Record<string, ConditionItem> = {
     category: "Metabolic & Diabetes",
     symptoms: ["Increased thirst (polydipsia)", "Frequent urination (polyuria)", "Unexplained weight loss", "Chronic fatigue", "Blurred vision"],
     recommendedTests: [
-      { name: "HbA1c Glycated Haemoglobin", slug: "hba1c-test-bangalore", price: "450", description: "Reflects average blood sugar over 2–3 months without fasting." },
+      { name: "HbA1c Glycated Haemoglobin", slug: "hba1c-test-bangalore", price: "399", description: "Reflects average blood sugar over 2–3 months without fasting." },
       { name: "Fasting Blood Sugar (FBS)", slug: "fasting-blood-sugar-test-bangalore", price: "150", description: "Measures baseline glucose after 8–10 hours overnight fast." },
       { name: "Fasting Insulin & HOMA-IR", slug: "homa-ir-test-bangalore", price: "650", description: "Evaluates cellular insulin resistance and hyperinsulinaemia." },
       { name: "C-Peptide Blood Test", slug: "c-peptide-test-bangalore", price: "750", description: "Measures natural pancreatic insulin production." }
@@ -72,7 +72,7 @@ export const CONDITIONS_DATA: Record<string, ConditionItem> = {
     category: "Haematology & Nutrition",
     symptoms: ["Pale skin and inner eyelids", "Shortness of breath on mild exertion", "Dizziness & lightheadedness", "Cold hands and feet", "Brittle nails or unusual cravings (pica)"],
     recommendedTests: [
-      { name: "CBC (Complete Blood Count)", slug: "cbc-test-bangalore", price: "350", description: "Measures Haemoglobin, RBC, WBC, and Platelet count." },
+      { name: "CBC (Complete Blood Count)", slug: "cbc-test-bangalore", price: "299", description: "Measures Haemoglobin, RBC, WBC, and Platelet count." },
       { name: "Iron Profile & Ferritin", slug: "iron-profile-test-bangalore", price: "850", description: "Complete iron availability, TIBC, and tissue iron storage." },
       { name: "Vitamin B12 Blood Test", slug: "vitamin-b12-test-bangalore", price: "600", description: "Evaluates cobalamin levels for megaloblastic anaemia." }
     ],

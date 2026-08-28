@@ -15,9 +15,9 @@ import { SITE_URL, BUSINESS_NAME, NABL_CERTIFICATE, ISO_STANDARD, PHONE_DISPLAY,
 
 const TESTS_CATALOGUE = [
   // ── Priority 1–10: Core patient acquisition ─────────────────────────────
-  { slug: "cbc-test-bangalore",           name: "Complete Blood Count (CBC)",        category: "Haematology",      price: 350,  oldPrice: 500,  fasting: false,  sampleType: "EDTA Whole Blood",   turnaround: "4-6 hours",  parameters: 24, homeCollection: true },
-  { slug: "hba1c-test-bangalore",         name: "HbA1c (Glycated Haemoglobin)",      category: "Diabetes",         price: 350,  oldPrice: 500,  fasting: false,  sampleType: "EDTA Whole Blood",   turnaround: "6 hours",    parameters: 2,  homeCollection: true },
-  { slug: "thyroid-test-bangalore",       name: "Thyroid Profile (T3, T4, TSH)",     category: "Endocrinology",    price: 550,  oldPrice: 800,  fasting: false,  sampleType: "Serum",              turnaround: "6 hours",    parameters: 3,  homeCollection: true },
+  { slug: "cbc-test-bangalore",           name: "Complete Blood Count (CBC)",        category: "Haematology",      price: 299,  oldPrice: 450,  fasting: false,  sampleType: "EDTA Whole Blood",   turnaround: "4-6 hours",  parameters: 24, homeCollection: true },
+  { slug: "hba1c-test-bangalore",         name: "HbA1c (Glycated Haemoglobin)",      category: "Diabetes",         price: 399,  oldPrice: 600,  fasting: false,  sampleType: "EDTA Whole Blood",   turnaround: "6 hours",    parameters: 2,  homeCollection: true },
+  { slug: "thyroid-test-bangalore",       name: "Thyroid Profile (T3, T4, TSH)",     category: "Endocrinology",    price: 450,  oldPrice: 750,  fasting: false,  sampleType: "Serum",              turnaround: "6 hours",    parameters: 3,  homeCollection: true },
   { slug: "vitamin-d-test-bangalore",     name: "Vitamin D (25-OH) Test",            category: "Nutrition",        price: 990,  oldPrice: 1500, fasting: false,  sampleType: "Serum",              turnaround: "6 hours",    parameters: 1,  homeCollection: true },
   { slug: "vitamin-b12-test-bangalore",   name: "Vitamin B12 (Cobalamin) Test",      category: "Nutrition",        price: 890,  oldPrice: 1300, fasting: false,  sampleType: "Serum",              turnaround: "6 hours",    parameters: 1,  homeCollection: true },
   { slug: "lipid-profile-test-bangalore", name: "Lipid Profile (Full Cholesterol Panel)", category: "Cardiology",  price: 650,  oldPrice: 950,  fasting: true,   sampleType: "Serum",              turnaround: "6 hours",    parameters: 8,  homeCollection: true },
