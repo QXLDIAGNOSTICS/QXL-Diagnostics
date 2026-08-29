@@ -1226,18 +1226,18 @@ export default function Home() {
               {/* Left 8 Columns: Main Page Content & Packages */}
               <div className="lg:col-span-8 flex flex-col justify-between text-left h-full">
                 {/* Recommended Packages — Open 2-Column Responsive Grid (No Swiping Needed) */}
-                <div className="bg-white border border-slate-200/80 rounded-3xl p-5 sm:p-6 shadow-sm h-full flex flex-col justify-between">
-                  <div className="flex justify-between items-center mb-5">
+                <div className="bg-white border border-slate-200/80 rounded-3xl p-4 sm:p-5 shadow-sm h-full flex flex-col justify-between">
+                  <div className="flex justify-between items-center mb-3 sm:mb-4">
                     <div>
                       <span className="text-[10px] font-black text-[#D69A18] uppercase tracking-widest">Health Packages</span>
-                      <h2 className="text-[#0f2d5e] text-xl sm:text-2xl font-black mt-0.5">Recommended Packages</h2>
-                      <p className="text-slate-500 text-xs sm:text-sm font-semibold mt-0.5">Popular general health panels — trusted by thousands</p>
+                      <h2 className="text-[#0f2d5e] text-lg sm:text-xl font-black mt-0.5">Recommended Packages</h2>
+                      <p className="text-slate-500 text-xs font-semibold mt-0.5">Popular general health panels — trusted by thousands</p>
                     </div>
                     
                     <button
                       type="button"
                       onClick={() => setShowAllPackages(!showAllPackages)}
-                      className="border-2 border-[#D69A18] text-[#D69A18] font-black px-4 py-1.5 rounded-full text-xs hover:bg-[#FFF8EB] transition-all shadow-2xs cursor-pointer flex items-center gap-1.5"
+                      className="border-2 border-[#D69A18] text-[#D69A18] font-black px-3.5 py-1 rounded-full text-xs hover:bg-[#FFF8EB] transition-all shadow-2xs cursor-pointer flex items-center gap-1.5 shrink-0"
                     >
                       <span>{showAllPackages ? "Show Less" : "View All Packages"}</span>
                       <span className="text-xs">{showAllPackages ? "▲" : "▼"}</span>
@@ -1245,31 +1245,31 @@ export default function Home() {
                   </div>
 
                   {/* Open 2-Column Responsive Grid matching Image 3 layout */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 flex-grow">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 flex-grow">
                     {(showAllPackages ? recommendedPackages : recommendedPackages.slice(0, 4)).map((pkg, idx) => (
                       <div
                         key={pkg.id || pkg.name || idx}
-                        className="bg-white border border-slate-200/90 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#D69A18] transition-all flex flex-col justify-between text-left group"
+                        className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:border-[#D69A18] transition-all flex flex-col justify-between text-left group"
                       >
-                        {/* Top Header Box — Compact & sleek 115px height for clean price card alignment */}
-                        <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-3.5 sm:p-4 text-white relative min-h-[115px] flex flex-col justify-between">
+                        {/* Top Header Box — Compact 95px height for crisp card-to-card alignment */}
+                        <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-3 sm:p-3.5 text-white relative min-h-[95px] flex flex-col justify-between">
                           {/* Top Row: Tag left, Discount right */}
-                          <div className="flex items-center justify-between gap-2 mb-1 w-full shrink-0">
+                          <div className="flex items-center justify-between gap-2 mb-0.5 w-full shrink-0">
                             <span 
-                              className="bg-[#D69A18] !text-white px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider shadow-2xs shrink-0"
+                              className="bg-[#D69A18] !text-white px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-wider shadow-2xs shrink-0"
                               style={{ color: '#ffffff' }}
                             >
                               {idx === 0 ? "✨ ₹800 SPECIAL" : (pkg.tag || "CHECKUP")}
                             </span>
 
-                            <span className="bg-amber-400 text-slate-950 text-[9.5px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">
+                            <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">
                               {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || 5800)) * 100)}% OFF
                             </span>
                           </div>
 
-                          {/* Title — Clean 1-line truncation with full tooltip so all card titles match perfectly */}
+                          {/* Title — Clean 1-line truncation */}
                           <h3 
-                            className="font-extrabold !text-white text-sm sm:text-[15px] leading-tight truncate my-1 drop-shadow-xs"
+                            className="font-extrabold !text-white text-xs sm:text-sm leading-tight truncate my-0.5 drop-shadow-xs"
                             style={{ color: '#ffffff' }}
                             title={pkg.name}
                           >
@@ -1277,12 +1277,12 @@ export default function Home() {
                           </h3>
 
                           {/* Price Row — Compact & crisp */}
-                          <div className="flex items-baseline gap-2 mt-auto shrink-0">
-                            <span className="text-[11px] text-blue-200/80 line-through font-bold">
+                          <div className="flex items-baseline gap-1.5 mt-auto shrink-0">
+                            <span className="text-[10px] text-blue-200/80 line-through font-bold">
                               ₹{pkg.old_price || pkg.original_price || "5800"}
                             </span>
                             <span 
-                              className="text-xl sm:text-2xl font-black !text-white"
+                              className="text-lg sm:text-xl font-black !text-white"
                               style={{ color: '#ffffff' }}
                             >
                               ₹{pkg.price}
@@ -1291,46 +1291,46 @@ export default function Home() {
                         </div>
 
                         {/* Card Body */}
-                        <div className="p-4 flex flex-col justify-between flex-1 gap-3.5 bg-white">
-                          {/* Parameters & TAT Stats Row matching Image 3 */}
-                          <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700 border-b border-slate-100 pb-3">
-                            <div className="flex items-center gap-1.5">
-                              <Dna className="w-4 h-4 text-[#D69A18] shrink-0" />
-                              <span className="text-[11px] leading-tight font-extrabold text-[#0f2d5e]">
-                                {pkg.param_count || (idx === 0 ? "80" : idx === 1 ? "92" : idx === 2 ? "117" : "80")} parameters included
+                        <div className="p-3 sm:p-3.5 flex flex-col justify-between flex-1 gap-2.5 bg-white">
+                          {/* Parameters & TAT Stats Row */}
+                          <div className="grid grid-cols-2 gap-1.5 text-[10.5px] font-bold text-slate-700 border-b border-slate-100 pb-2">
+                            <div className="flex items-center gap-1">
+                              <Dna className="w-3.5 h-3.5 text-[#D69A18] shrink-0" />
+                              <span className="leading-tight font-extrabold text-[#0f2d5e] truncate">
+                                {pkg.param_count || (idx === 0 ? "80" : idx === 1 ? "92" : idx === 2 ? "117" : "80")} parameters
                               </span>
                             </div>
-                            <div className="flex items-center gap-1.5">
-                              <FileText className="w-4 h-4 text-slate-400 shrink-0" />
-                              <span className="text-[11px] leading-tight text-slate-600 font-bold">
-                                Reports within 12 hours
+                            <div className="flex items-center gap-1">
+                              <FileText className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                              <span className="leading-tight text-slate-600 font-bold truncate">
+                                Reports 12h
                               </span>
                             </div>
                           </div>
 
-                          {/* Description / Includes — Formatted with proper comma spacing & fixed 42px min-height */}
-                          <div className="min-h-[42px] flex items-center">
-                            <p className="text-[11.5px] text-slate-500 font-medium line-clamp-2 leading-relaxed m-0">
+                          {/* Description / Includes */}
+                          <div className="min-h-[30px] flex items-center">
+                            <p className="text-[10.5px] text-slate-500 font-medium line-clamp-1 leading-normal m-0">
                               {typeof pkg.includes === 'string'
                                 ? pkg.includes.replace(/([a-zA-Z\)])([A-Z])/g, '$1, $2')
                                 : Array.isArray(pkg.includes)
                                   ? pkg.includes.join(', ')
-                                  : "CBC, Diabetes & Glucose, Lipid Profile, Liver & Kidney Function Tests, Thyroid & Urine Routine."}
+                                  : "CBC, Diabetes, Lipid, Liver & Kidney Function Tests, Thyroid."}
                             </p>
                           </div>
 
-                          {/* TWO BUTTONS Row matching Image 3 */}
-                          <div className="grid grid-cols-2 gap-2.5 pt-1 mt-auto">
+                          {/* TWO BUTTONS Row */}
+                          <div className="grid grid-cols-2 gap-2 pt-0.5 mt-auto">
                             <button
                               type="button"
                               onClick={() => setSelectedPackage(pkg)}
-                              className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e]/5 font-black py-2.5 px-2.5 rounded-2xl text-[11px] sm:text-xs transition-colors cursor-pointer"
+                              className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e]/5 font-black py-2 px-2 rounded-xl text-[10.5px] sm:text-[11px] transition-colors cursor-pointer"
                             >
                               View Details
                             </button>
                             <Link
                               href={`/book?package=${encodeURIComponent(pkg.name)}`}
-                              className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2.5 px-2.5 rounded-2xl text-[11px] sm:text-xs shadow-xs hover:shadow-md transition-all uppercase tracking-wider active:scale-95 block"
+                              className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2 px-2 rounded-xl text-[10.5px] sm:text-[11px] shadow-xs hover:shadow-md transition-all uppercase tracking-wider active:scale-95 block"
                             >
                               Add to Cart
                             </Link>
