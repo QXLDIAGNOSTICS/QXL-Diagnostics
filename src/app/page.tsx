@@ -1422,6 +1422,53 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── 24×7 Diagnostic Services Banner (Directly After Speciality Tests) ── */}
+        <section className="py-6 bg-transparent">
+          <div className="max-w-[1260px] mx-auto px-4 w-full">
+            <div className="rounded-[28px] overflow-hidden shadow-xl border border-white/50 relative bg-gradient-to-r from-[#FF9933]/10 via-white to-[#138808]/10 p-6 md:p-10 text-left">
+              {/* Background Decoration */}
+              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#138808]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#FF9933]/15 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+              
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="flex-1 text-left">
+                  <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3.5 shadow-sm">
+                    24×7 DIAGNOSTIC SERVICES
+                  </span>
+                  <h2 className="text-[26px] md:text-[34px] leading-[1.1] font-black text-[#0b132b] mb-2">
+                    NABL Accredited Diagnostics
+                  </h2>
+                  <h3 className="text-[20px] md:text-[24px] leading-[1.2] font-black text-[#2563eb] mb-4">
+                    Doctor-Led Diagnostic Lab in Bengaluru
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                    {["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"].map(service => (
+                      <div key={service} className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
+                        <span className="text-slate-700 font-extrabold text-sm">{service}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs sm:text-sm font-bold text-slate-600 mb-5">
+                    Available at all QXL centres &amp; partner facilities across Bengaluru.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <a href="tel:+919964639639" className="bg-[#2563eb] text-white font-black px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all text-xs uppercase tracking-widest flex items-center gap-2 border border-white/40">
+                      Call +91 9964 639 639
+                    </a>
+                  </div>
+                </div>
+                
+                {/* 24/7 Badge */}
+                <div className="w-40 h-40 md:w-56 md:h-56 rounded-full bg-white/80 border-8 border-white shadow-2xl flex flex-col items-center justify-center flex-shrink-0 relative">
+                  <span className="text-5xl md:text-6xl font-black text-[#000080] tracking-tighter">24<span className="text-[#FF9933]">/</span>7</span>
+                  <span className="text-xs font-black tracking-widest text-[#138808] uppercase mt-1">Care &amp; Precision</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ── Why Choose QXL — Feature Slides Under Speciality Tests ── */}
         <WhyChooseSlider />
 
@@ -1631,54 +1678,6 @@ export default function Home() {
         {/* ── Reviews (What Our Patients Say), Blog & FAQ ── */}
         <ReviewsSection />
         <BlogSlider />
-
-        {/* ── 24×7 Diagnostic Services Banner (Top of FAQ) ── */}
-        <section className="py-8 bg-transparent">
-          <div className="max-w-[1260px] mx-auto px-4 w-full">
-            <div className="rounded-[28px] overflow-hidden shadow-xl border border-white/50 relative bg-gradient-to-r from-[#FF9933]/10 via-white to-[#138808]/10 p-6 md:p-10 text-left">
-              {/* Background Decoration */}
-              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#138808]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#FF9933]/15 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
-              
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                <div className="flex-1 text-left">
-                  <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3.5 shadow-sm">
-                    24×7 DIAGNOSTIC SERVICES
-                  </span>
-                  <h2 className="text-[26px] md:text-[34px] leading-[1.1] font-black text-[#0b132b] mb-2">
-                    NABL Accredited Diagnostics
-                  </h2>
-                  <h3 className="text-[20px] md:text-[24px] leading-[1.2] font-black text-[#2563eb] mb-4">
-                    Doctor-Led Diagnostic Lab in Bengaluru
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
-                    {["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"].map(service => (
-                      <div key={service} className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
-                        <span className="text-slate-700 font-extrabold text-sm">{service}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-xs sm:text-sm font-bold text-slate-600 mb-5">
-                    Available at all QXL centres &amp; partner facilities across Bengaluru.
-                  </p>
-                  <div className="flex flex-wrap items-center gap-4">
-                    <a href="tel:+919964639639" className="bg-[#2563eb] text-white font-black px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all text-xs uppercase tracking-widest flex items-center gap-2 border border-white/40">
-                      Call +91 9964 639 639
-                    </a>
-                  </div>
-                </div>
-                
-                {/* 24/7 Badge */}
-                <div className="w-40 h-40 md:w-56 md:h-56 rounded-full bg-white/80 border-8 border-white shadow-2xl flex flex-col items-center justify-center flex-shrink-0 relative">
-                  <span className="text-5xl md:text-6xl font-black text-[#000080] tracking-tighter">24<span className="text-[#FF9933]">/</span>7</span>
-                  <span className="text-xs font-black tracking-widest text-[#138808] uppercase mt-1">Care &amp; Precision</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <FaqSection />
       </div>
 
