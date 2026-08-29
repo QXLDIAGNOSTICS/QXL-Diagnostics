@@ -1981,6 +1981,11 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Featured Diagnostics & Packages Slider (Swipe left to right) ── */}
+        <div className="my-4">
+          <FeaturedTestsSlider />
+        </div>
+
         {/* ── AI Diagnostics & Why Choose QXL ── */}
         <div className="my-4">
           <AiDiagnostics />
@@ -1989,12 +1994,11 @@ export default function Home() {
           <WhyChooseSlider />
         </div>
 
-        {/* ── Reviews (What Our Patients Say), Blog, FAQ & Featured Diagnostics Slider ── */}
+        {/* ── Reviews (What Our Patients Say), Blog & FAQ ── */}
         <div className="my-4 space-y-4">
           <ReviewsSection />
           <BlogSlider />
           <FaqSection />
-          <FeaturedTestsSlider />
         </div>
       </div>
 
