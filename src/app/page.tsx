@@ -1251,29 +1251,39 @@ export default function Home() {
                         key={pkg.id || pkg.name || idx}
                         className="bg-white border border-slate-200/90 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#D69A18] transition-all flex flex-col justify-between text-left group"
                       >
-                        {/* Top Header Box — Navy Blue to Royal Blue Gradient (No Green) */}
-                        <div className="bg-gradient-to-r from-[#0f2d5e] via-[#1b3a6b] to-[#1e40af] p-4 text-white relative">
-                          <div className="flex justify-between items-start mb-1.5 gap-2 pr-14">
-                            <span className="bg-[#D69A18] text-white px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider shadow-2xs">
+                        {/* Top Header Box — Deep Blue Gradient with guaranteed pure white text & fixed height alignment */}
+                        <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-4 text-white relative min-h-[145px] flex flex-col justify-between">
+                          {/* Top Row: Tag left, Discount right */}
+                          <div className="flex items-center justify-between gap-2 mb-1 w-full">
+                            <span 
+                              className="bg-[#D69A18] !text-white px-2.5 py-0.5 rounded-full text-[9.5px] font-black uppercase tracking-wider shadow-2xs shrink-0"
+                              style={{ color: '#ffffff' }}
+                            >
                               {idx === 0 ? "✨ ₹800 SPECIAL" : (pkg.tag || "CHECKUP")}
+                            </span>
+
+                            <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0">
+                              {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || 5800)) * 100)}% OFF
                             </span>
                           </div>
 
-                          {/* Discount Badge top right */}
-                          <span className="absolute top-3.5 right-3.5 bg-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                            {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || 5800)) * 100)}% OFF
-                          </span>
-
-                          <h3 className="font-black text-white text-base sm:text-lg leading-snug mb-2 pr-10">
+                          {/* Title — Enforce Pure White Text (#ffffff) */}
+                          <h3 
+                            className="font-black !text-white text-base sm:text-lg leading-snug my-1 drop-shadow-xs"
+                            style={{ color: '#ffffff' }}
+                          >
                             {pkg.name}
                           </h3>
 
-                          {/* Price Row inside top box */}
-                          <div className="flex items-baseline gap-2">
-                            <span className="text-xs text-slate-300 line-through font-bold">
+                          {/* Price Row — Enforce Pure White Text (#ffffff) */}
+                          <div className="flex items-baseline gap-2 mt-auto pt-1">
+                            <span className="text-xs text-blue-200/80 line-through font-bold">
                               ₹{pkg.old_price || pkg.original_price || "5800"}
                             </span>
-                            <span className="text-2xl font-black text-white">
+                            <span 
+                              className="text-2xl font-black !text-white"
+                              style={{ color: '#ffffff' }}
+                            >
                               ₹{pkg.price}
                             </span>
                           </div>

@@ -184,19 +184,28 @@ export default function FeaturedTestsSlider() {
                   key={idx}
                   className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/90 flex flex-col justify-between hover:shadow-md transition-all group"
                 >
-                  {/* Card Header — Deep Navy to Royal Blue Gradient (No Green) */}
-                  <div className="bg-gradient-to-r from-[#0f2d5e] via-[#1b3a6b] to-[#1e40af] p-5 text-white relative">
-                    <span className="absolute top-4 right-4 bg-[#D69A18] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  {/* Card Header — Deep Navy to Royal Blue Gradient with pure white text (#ffffff) & fixed height */}
+                  <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-5 text-white relative min-h-[145px] flex flex-col justify-between">
+                    <span 
+                      className="absolute top-4 right-4 bg-[#D69A18] !text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs"
+                      style={{ color: '#ffffff' }}
+                    >
                       {item.badge}
                     </span>
-                    <h3 className="font-extrabold text-base sm:text-lg text-white mb-3 pr-16 leading-snug">
+                    <h3 
+                      className="font-extrabold text-base sm:text-lg !text-white my-1 pr-16 leading-snug"
+                      style={{ color: '#ffffff' }}
+                    >
                       {item.name}
                     </h3>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-xs text-slate-300 line-through font-semibold">
+                    <div className="flex items-baseline gap-2 mt-auto">
+                      <span className="text-xs text-blue-200/80 line-through font-semibold">
                         {item.oldPrice}
                       </span>
-                      <span className="text-xl sm:text-2xl font-black text-white">
+                      <span 
+                        className="text-xl sm:text-2xl font-black !text-white"
+                        style={{ color: '#ffffff' }}
+                      >
                         {item.price}
                       </span>
                       <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-md uppercase ml-auto">
