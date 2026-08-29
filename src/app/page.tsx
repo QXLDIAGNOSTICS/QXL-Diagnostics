@@ -1629,8 +1629,9 @@ export default function Home() {
           </div>
         </section>
 
-        <BlogSlider />
+        {/* ── Reviews (What Our Patients Say), Blog & FAQ ── */}
         <ReviewsSection />
+        <BlogSlider />
 
         {/* ── 24×7 Diagnostic Services Banner (Top of FAQ) ── */}
         <section className="py-8 bg-transparent">
@@ -1932,10 +1933,10 @@ export default function Home() {
           <AiDiagnostics />
         </div>
 
-        {/* ── Blog, Reviews & FAQ ── */}
+        {/* ── Reviews (What Our Patients Say), Blog & FAQ ── */}
         <div className="my-4 space-y-4">
-          <BlogSlider />
           <ReviewsSection />
+          <BlogSlider />
           <FaqSection />
         </div>
       </div>
