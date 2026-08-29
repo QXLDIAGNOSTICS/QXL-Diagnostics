@@ -895,7 +895,6 @@ export default function Home() {
       title: "Book Home Sample Collection in",
       titleAccent: "Bengaluru",
       subtitle: "Safe, reliable and convenient sample collection from the comfort of your home.",
-      showForm: true,
       cta: "Schedule Home Collection",
       ctaLink: "/home-collection",
       ctaSecondary: "Call +91 9964 639 639",
@@ -973,7 +972,7 @@ export default function Home() {
         <section className="pt-6 pb-4 relative group overflow-hidden">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div
-              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row min-h-[440px] md:h-[465px] shadow-sm border border-slate-200/90 bg-white"
+              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row min-h-[360px] md:h-[420px] shadow-sm border border-slate-200/90 bg-white"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -1070,18 +1069,14 @@ export default function Home() {
 
                       </motion.div>
 
-                      {/* Image / Form Widget — right side on desktop */}
+                      {/* Image / Decorative — right side on desktop */}
                       <motion.div
                         initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="relative md:absolute top-0 right-0 bottom-0 w-full md:w-[48%] h-auto md:h-full z-20 flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
+                        className="relative md:absolute top-0 right-0 bottom-0 w-full md:w-[48%] h-[200px] sm:h-[240px] md:h-full z-10 flex items-center justify-center overflow-hidden rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none"
                       >
-                        {activeSlide.showForm ? (
-                          <div className="w-full max-w-[440px] my-auto">
-                            <StickyBookingForm />
-                          </div>
-                        ) : activeSlide.noImage ? (
+                        {activeSlide.noImage ? (
                           <div className="flex flex-col items-center justify-center w-full h-full px-6 text-center gap-3">
                             {/* Pookkalam flower motif */}
                             <div className="text-[72px] leading-none select-none" aria-hidden="true">🌸</div>
