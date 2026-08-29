@@ -184,22 +184,22 @@ export default function FeaturedTestsSlider() {
                   key={idx}
                   className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/90 flex flex-col justify-between hover:shadow-md transition-all group"
                 >
-                  {/* Card Header — Emerald Teal Gradient matching screenshot */}
-                  <div className="bg-gradient-to-r from-[#1b4d3e] to-[#2d6a57] p-5 text-white relative">
-                    <span className="absolute top-4 right-4 bg-emerald-400/30 border border-emerald-300/40 text-emerald-100 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  {/* Card Header — Deep Navy to Royal Blue Gradient (No Green) */}
+                  <div className="bg-gradient-to-r from-[#0f2d5e] via-[#1b3a6b] to-[#1e40af] p-5 text-white relative">
+                    <span className="absolute top-4 right-4 bg-[#D69A18] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                       {item.badge}
                     </span>
                     <h3 className="font-extrabold text-base sm:text-lg text-white mb-3 pr-16 leading-snug">
                       {item.name}
                     </h3>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-xs text-emerald-200/75 line-through font-semibold">
+                      <span className="text-xs text-slate-300 line-through font-semibold">
                         {item.oldPrice}
                       </span>
                       <span className="text-xl sm:text-2xl font-black text-white">
                         {item.price}
                       </span>
-                      <span className="bg-emerald-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-md uppercase ml-auto">
+                      <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-md uppercase ml-auto">
                         {item.discount}
                       </span>
                     </div>
@@ -209,12 +209,12 @@ export default function FeaturedTestsSlider() {
                   <div className="p-5 flex flex-col justify-between flex-1 gap-4">
                     <div className="grid grid-cols-2 gap-3 text-xs text-slate-700 font-bold border-b border-slate-100 pb-4">
                       <div className="flex items-center gap-2">
-                        <Dna className="w-4 h-4 text-emerald-600 shrink-0" />
-                        <span className="text-[11px] leading-tight">{item.params} included</span>
+                        <Dna className="w-4 h-4 text-[#D69A18] shrink-0" />
+                        <span className="text-[11px] leading-tight font-extrabold text-[#0f2d5e]">{item.params} included</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <FileText className="w-4 h-4 text-slate-400 shrink-0" />
-                        <span className="text-[11px] leading-tight">{item.tat}</span>
+                        <span className="text-[11px] leading-tight text-slate-600">{item.tat}</span>
                       </div>
                     </div>
 
@@ -222,7 +222,7 @@ export default function FeaturedTestsSlider() {
                     <div className="grid grid-cols-2 gap-3 mt-1">
                       <Link
                         href={`/book?package=${encodeURIComponent(item.name)}`}
-                        className="w-full text-center border-2 border-[#1b4d3e] text-[#1b4d3e] hover:bg-[#1b4d3e]/5 font-black py-2.5 px-3 rounded-2xl text-xs transition-colors"
+                        className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e]/5 font-black py-2.5 px-3 rounded-2xl text-xs transition-colors"
                       >
                         View Details
                       </Link>
@@ -244,17 +244,17 @@ export default function FeaturedTestsSlider() {
             <div className="w-full bg-slate-50 border border-slate-200/80 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row items-center gap-8 shadow-xs">
               {/* Left Test Card */}
               <div className="w-full lg:w-1/3 bg-white rounded-3xl overflow-hidden shadow-md border border-slate-200">
-                <div className="bg-gradient-to-r from-[#1b4d3e] to-[#2d6a57] p-5 text-white relative">
-                  <span className="absolute top-4 right-4 bg-emerald-400/30 border border-emerald-300/40 text-emerald-100 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
+                <div className="bg-gradient-to-r from-[#0f2d5e] via-[#1b3a6b] to-[#1e40af] p-5 text-white relative">
+                  <span className="absolute top-4 right-4 bg-[#D69A18] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
                     {current.testCard.badge}
                   </span>
                   <h3 className="font-extrabold text-lg text-white mb-2 pr-12">
                     {current.testCard.name}
                   </h3>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-xs text-emerald-200/75 line-through">{current.testCard.oldPrice}</span>
+                    <span className="text-xs text-slate-300 line-through">{current.testCard.oldPrice}</span>
                     <span className="text-2xl font-black text-white">{current.testCard.price}</span>
-                    <span className="bg-emerald-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-md ml-auto">
+                    <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-md ml-auto">
                       {current.testCard.discount}
                     </span>
                   </div>
@@ -262,16 +262,16 @@ export default function FeaturedTestsSlider() {
                 <div className="p-5 space-y-4">
                   <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700">
                     <div className="flex items-center gap-1.5">
-                      <FileText className="w-4 h-4 text-emerald-600" />
+                      <FileText className="w-4 h-4 text-[#D69A18]" />
                       <span>{current.testCard.tat}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Dna className="w-4 h-4 text-emerald-600" />
+                      <Dna className="w-4 h-4 text-[#D69A18]" />
                       <span>{current.testCard.params}</span>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-3 pt-2">
-                    <Link href={`/book?package=${encodeURIComponent(current.testCard.name)}`} className="text-center border-2 border-[#1b4d3e] text-[#1b4d3e] font-black py-2 rounded-xl text-xs">
+                    <Link href={`/book?package=${encodeURIComponent(current.testCard.name)}`} className="text-center border-2 border-[#0f2d5e] text-[#0f2d5e] font-black py-2 rounded-xl text-xs">
                       View Details
                     </Link>
                     <Link href={`/book?package=${encodeURIComponent(current.testCard.name)}`} className="text-center bg-[#D69A18] text-white font-black py-2 rounded-xl text-xs uppercase tracking-wider shadow-xs">
@@ -283,8 +283,8 @@ export default function FeaturedTestsSlider() {
 
               {/* Right Banner Content */}
               <div className="flex-1 space-y-4 text-left">
-                <span className="inline-flex items-center gap-1.5 bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
+                <span className="inline-flex items-center gap-1.5 bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#D69A18]" />
                   NABL ACCREDITED PATHOLOGY
                 </span>
                 <h3 className="text-3xl sm:text-4xl font-black text-[#0f2d5e] leading-tight">

@@ -716,6 +716,7 @@ export default function Home() {
   const [recommendedPackages, setRecommendedPackages] = useState<any[]>([]);
   const [cartItems, setCartItems] = useState<string[]>([]);
   const [selectedPackage, setSelectedPackage] = useState<any | null>(null);
+  const [showAllPackages, setShowAllPackages] = useState(false);
   const [formState, setFormState] = useState({ name: '', phone: '', service: 'Home Collection', message: '' });
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [showContactServiceDropdown, setShowContactServiceDropdown] = useState(false);
@@ -1226,64 +1227,115 @@ export default function Home() {
               <div className="lg:col-span-8 flex flex-col justify-between text-left h-full">
                 {/* Recommended Packages — Open 2-Column Responsive Grid (No Swiping Needed) */}
                 <div className="bg-white border border-slate-200/80 rounded-3xl p-5 sm:p-6 shadow-sm h-full flex flex-col justify-between">
-                  <div className="flex justify-between items-center mb-4">
+                  <div className="flex justify-between items-center mb-5">
                     <div>
-                      <span className="text-[10px] font-extrabold text-[#D69A18] uppercase tracking-widest">Health Packages</span>
+                      <span className="text-[10px] font-black text-[#D69A18] uppercase tracking-widest">Health Packages</span>
                       <h2 className="text-[#0f2d5e] text-xl sm:text-2xl font-black mt-0.5">Recommended Packages</h2>
                       <p className="text-slate-500 text-xs sm:text-sm font-semibold mt-0.5">Popular general health panels — trusted by thousands</p>
                     </div>
                     
-                    <Link href="/packages" className="border-2 border-[#D69A18] text-[#D69A18] font-extrabold px-4 py-1.5 rounded-full text-xs hover:bg-[#FFF8EB] transition-all shadow-2xs">
-                      View All Packages
-                    </Link>
+                    <button
+                      type="button"
+                      onClick={() => setShowAllPackages(!showAllPackages)}
+                      className="border-2 border-[#D69A18] text-[#D69A18] font-black px-4 py-1.5 rounded-full text-xs hover:bg-[#FFF8EB] transition-all shadow-2xs cursor-pointer flex items-center gap-1.5"
+                    >
+                      <span>{showAllPackages ? "Show Less" : "View All Packages"}</span>
+                      <span className="text-xs">{showAllPackages ? "▲" : "▼"}</span>
+                    </button>
                   </div>
 
-                  {/* Open 2-Column Grid — All Packages Visible Directly */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4.5 flex-grow">
-                    {recommendedPackages.slice(0, 6).map((pkg, idx) => (
+                  {/* Open 2-Column Responsive Grid matching Image 3 layout */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 flex-grow">
+                    {(showAllPackages ? recommendedPackages : recommendedPackages.slice(0, 4)).map((pkg, idx) => (
                       <div
                         key={pkg.id || pkg.name || idx}
-                        className="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-xs hover:shadow-lg hover:border-[#D69A18] transition-all flex flex-col justify-between min-h-[200px] relative text-left group"
+                        className="bg-white border border-slate-200/90 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#D69A18] transition-all flex flex-col justify-between text-left group"
                       >
-                        <div>
-                          <div className="flex justify-between items-start mb-2 gap-2">
-                            <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase ${
-                              idx === 0
-                                ? 'bg-[#D69A18] text-white shadow-2xs'
-                                : 'bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18]'
-                            }`}>
-                              {idx === 0 ? "✨ ₹800 SPECIAL" : (pkg.tag || "PACKAGE")}
-                            </span>
-                            <span className="bg-emerald-50 text-emerald-700 font-black text-[9.5px] px-2 py-0.5 rounded-full">
-                              {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || 5800)) * 100)}% OFF
+                        {/* Top Header Box — Navy Blue to Royal Blue Gradient (No Green) */}
+                        <div className="bg-gradient-to-r from-[#0f2d5e] via-[#1b3a6b] to-[#1e40af] p-4 text-white relative">
+                          <div className="flex justify-between items-start mb-1.5 gap-2 pr-14">
+                            <span className="bg-[#D69A18] text-white px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider shadow-2xs">
+                              {idx === 0 ? "✨ ₹800 SPECIAL" : (pkg.tag || "CHECKUP")}
                             </span>
                           </div>
 
-                          <h3 className="font-extrabold text-[#0f2d5e] text-sm sm:text-[15px] leading-snug mb-1.5 group-hover:text-[#D69A18] transition-colors">
+                          {/* Discount Badge top right */}
+                          <span className="absolute top-3.5 right-3.5 bg-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                            {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || 5800)) * 100)}% OFF
+                          </span>
+
+                          <h3 className="font-black text-white text-base sm:text-lg leading-snug mb-2 pr-10">
                             {pkg.name}
                           </h3>
 
-                          <p className="text-xs text-slate-500 font-medium line-clamp-3 leading-relaxed mb-3">
-                            {pkg.includes}
-                          </p>
+                          {/* Price Row inside top box */}
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-xs text-slate-300 line-through font-bold">
+                              ₹{pkg.old_price || pkg.original_price || "5800"}
+                            </span>
+                            <span className="text-2xl font-black text-white">
+                              ₹{pkg.price}
+                            </span>
+                          </div>
                         </div>
 
-                        <div>
-                          <div className="flex items-baseline gap-2 mb-2.5">
-                            <span className="text-xl font-black text-[#0f2d5e]">₹{pkg.price}</span>
-                            <span className="text-xs text-slate-400 line-through font-bold">₹{pkg.old_price || pkg.original_price || "5800"}</span>
+                        {/* Card Body */}
+                        <div className="p-4 flex flex-col justify-between flex-1 gap-3.5">
+                          {/* Parameters & TAT Stats Row matching Image 3 */}
+                          <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700 border-b border-slate-100 pb-3">
+                            <div className="flex items-center gap-1.5">
+                              <Dna className="w-4 h-4 text-[#D69A18] shrink-0" />
+                              <span className="text-[11px] leading-tight font-extrabold text-[#0f2d5e]">
+                                {pkg.param_count || (idx === 0 ? "80" : idx === 1 ? "92" : idx === 2 ? "117" : "80")} parameters included
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <FileText className="w-4 h-4 text-slate-400 shrink-0" />
+                              <span className="text-[11px] leading-tight text-slate-600 font-bold">
+                                Reports within 12 hours
+                              </span>
+                            </div>
                           </div>
 
-                          <Link
-                            href={`/book?package=${encodeURIComponent(pkg.name)}`}
-                            className="w-full bg-[#D69A18] hover:bg-[#C58B12] text-white font-extrabold text-xs py-2.5 rounded-xl text-center shadow-xs block transition-all uppercase tracking-wider active:scale-95"
-                          >
-                            Book Package
-                          </Link>
+                          {/* Description / Includes */}
+                          <p className="text-[11.5px] text-slate-500 font-medium line-clamp-2 leading-relaxed">
+                            {pkg.includes}
+                          </p>
+
+                          {/* TWO BUTTONS Row matching Image 3 */}
+                          <div className="grid grid-cols-2 gap-2.5 pt-1">
+                            <button
+                              type="button"
+                              onClick={() => setSelectedPackage(pkg)}
+                              className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e]/5 font-black py-2.5 px-3 rounded-2xl text-xs transition-colors cursor-pointer"
+                            >
+                              View Details
+                            </button>
+                            <Link
+                              href={`/book?package=${encodeURIComponent(pkg.name)}`}
+                              className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2.5 px-3 rounded-2xl text-xs shadow-xs hover:shadow-md transition-all uppercase tracking-wider active:scale-95 block"
+                            >
+                              Add to Cart
+                            </Link>
+                          </div>
                         </div>
                       </div>
                     ))}
                   </div>
+
+                  {/* Show All Packages Bottom Trigger */}
+                  {!showAllPackages && recommendedPackages.length > 4 && (
+                    <div className="text-center mt-5">
+                      <button
+                        type="button"
+                        onClick={() => setShowAllPackages(true)}
+                        className="bg-[#0f2d5e] hover:bg-[#1e3a8a] text-white font-black px-8 py-3 rounded-full text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer inline-flex items-center gap-2"
+                      >
+                        <span>Show All {recommendedPackages.length} Packages</span>
+                        <span className="text-sm">&rarr;</span>
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
 
