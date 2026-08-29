@@ -1524,11 +1524,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Why Choose QXL — Feature Slides Under Speciality Tests ── */}
-        <WhyChooseSlider />
-
         {/* ── AI Powered Diagnostics ── */}
         <AiDiagnostics />
+
+        {/* ── Why Choose QXL — Feature Slides (The QXL Difference) ── */}
+        <WhyChooseSlider />
 
         {/* ── Home Collection ── */}
         <HomeCollectionSection />
@@ -1981,12 +1981,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Why Choose QXL & AI Diagnostics ── */}
-        <div className="my-4">
-          <WhyChooseSlider />
-        </div>
+        {/* ── AI Diagnostics & Why Choose QXL ── */}
         <div className="my-4">
           <AiDiagnostics />
+        </div>
+        <div className="my-4">
+          <WhyChooseSlider />
         </div>
 
         {/* ── Reviews (What Our Patients Say), Blog, FAQ & Featured Diagnostics Slider ── */}
