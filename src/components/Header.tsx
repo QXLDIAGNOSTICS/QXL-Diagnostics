@@ -443,25 +443,24 @@ export default function Header() {
 
     {/* ── MOBILE HEADER (lg:hidden) — Universal Top Bar on All Pages ── */}
     <div className="lg:hidden flex flex-col w-full">
-      <div className="fixed top-0 left-0 right-0 z-[9999] bg-white flex items-center justify-between px-3 h-[60px] border-b border-slate-100 shadow-2xs max-w-full overflow-hidden">
-        <div className="flex items-center gap-2 min-w-0">
+      <div className="fixed top-0 left-0 right-0 z-[9999] bg-white flex items-center justify-between px-2.5 sm:px-4 h-[60px] border-b border-slate-100 shadow-2xs max-w-full overflow-hidden">
+        {/* Left Side: Menu + Logo + Location Pill */}
+        <div className="flex items-center gap-1.5 xs:gap-2 min-w-0 shrink">
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
+            className="w-8 h-8 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
             aria-label="Open Navigation Menu"
           >
             <Menu className="w-5 h-5 text-[#0f2d5e]" strokeWidth={2.2} />
           </button>
 
-
-
           <Link href="/" className="flex items-center py-0.5 shrink-0">
             <img
               src={settings.logoImage || FALLBACK_LOGO}
               alt={settings.siteName || "QXL Diagnostics"}
-              width={180}
-              height={48}
-              className="h-7 xs:h-8 w-auto object-contain max-h-[32px] xs:max-h-[36px]"
+              width={140}
+              height={36}
+              className="h-6 xs:h-7 w-auto object-contain max-h-[26px] xs:max-h-[30px]"
               style={{ imageRendering: '-webkit-optimize-contrast' }}
               onError={(e) => {
                 e.currentTarget.src = FALLBACK_LOGO;
@@ -470,30 +469,29 @@ export default function Header() {
             <span className="logo-text-other hidden font-black text-base text-[#0f2d5e]">QXL Diagnostics</span>
           </Link>
 
-          {/* Location Button Pill Right After Logo — Crisp White Color & Perfect Alignment */}
+          {/* Location Button Pill Right After Logo — Compact & Crisp */}
           <button
             type="button"
             onClick={() => setShowLocationModal(true)}
-            className="flex items-center gap-1.5 bg-white border border-slate-200 hover:border-amber-300 px-2.5 py-1 rounded-full text-[11px] xs:text-[11.5px] font-black text-[#0f2d5e] shrink-0 active:scale-95 transition-all cursor-pointer shadow-2xs"
+            className="flex items-center gap-1 bg-white border border-slate-200 hover:border-amber-300 px-2 py-0.5 rounded-full text-[10px] xs:text-[11px] font-black text-[#0f2d5e] shrink active:scale-95 transition-all cursor-pointer shadow-2xs min-w-0"
             aria-label="Change Location"
             title={location || "Bangalore"}
           >
-            <div className="w-4 h-4 rounded-full bg-amber-50 flex items-center justify-center shrink-0 border border-amber-200/80">
+            <div className="w-3.5 h-3.5 rounded-full bg-amber-50 flex items-center justify-center shrink-0 border border-amber-200/80">
               <MapPin className="w-2.5 h-2.5 text-[#D69A18] shrink-0" />
             </div>
-            <span className="whitespace-nowrap font-black text-[#0f2d5e]">Bangalore</span>
-            <ChevronDown className="w-3 h-3 text-[#D69A18] shrink-0" />
+            <span className="truncate max-w-[65px] xs:max-w-[90px] font-black text-[#0f2d5e]">
+              {isMounted ? getShortLocationName(location) : "Bangalore"}
+            </span>
+            <ChevronDown className="w-2.5 h-2.5 text-[#D69A18] shrink-0" />
           </button>
-
-
-
         </div>
 
-        {/* Right Header Action: Cart & Profile Icons */}
-        <div className="flex items-center gap-1.5 shrink-0">
+        {/* Right Side: Cart & Profile Icons */}
+        <div className="flex items-center gap-1.5 shrink-0 ml-1">
           <Link
             href="/book"
-            className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer"
+            className="w-8.5 h-8.5 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer"
             aria-label="View Cart and Checkout"
           >
             <ShoppingCart className="w-4 h-4 text-[#0f2d5e]" strokeWidth={2.0} />
@@ -506,7 +504,7 @@ export default function Header() {
 
           <Link
             href={user ? "/profile" : "/login"}
-            className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] active:scale-95 transition-transform shrink-0 cursor-pointer"
+            className="w-8.5 h-8.5 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] active:scale-95 transition-transform shrink-0 cursor-pointer"
             aria-label="User Profile"
           >
             {user ? (
