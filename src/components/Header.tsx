@@ -227,14 +227,12 @@ export default function Header() {
 
   return (
     <>
-      {/* Spatial liquid glass header — Indian Flag Theme */}
+      {/* Pure Solid White Header */}
       <header
-        className="w-full relative lg:sticky lg:top-0 z-50"
+        className="w-full relative lg:sticky lg:top-0 z-50 bg-white border-b border-slate-200/80 shadow-xs"
         style={{
-          background: 'linear-gradient(135deg, rgba(255, 153, 51, 0.08) 0%, rgba(255,255,255,0.95) 50%, rgba(19, 136, 8, 0.05) 100%)',
-          backdropFilter: 'blur(28px) saturate(200%) brightness(1.05)',
-          WebkitBackdropFilter: 'blur(28px) saturate(200%) brightness(1.05)',
-          boxShadow: '0 8px 40px rgba(255, 153, 51, 0.10), 0 1px 0 rgba(255,255,255,0.9) inset, 0 -1px 0 rgba(19, 136, 8, 0.15) inset'
+          background: '#ffffff',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.03)'
         }}
       >
         {/* Top Announcement Bar — Desktop (Deep Navy Bar with Smooth Marquee) */}
@@ -256,14 +254,6 @@ export default function Header() {
               </div>
             ))}
           </div>
-        </div>
-
-
-        {/* Liquid glass orb decorations — spatial depth */}
-        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div style={{ position:'absolute', top:'-40px', left:'-60px', width:'200px', height:'200px', borderRadius:'50%', background:'radial-gradient(circle, rgba(255, 153, 51, 0.15) 0%, transparent 70%)', filter:'blur(30px)' }} />
-          <div style={{ position:'absolute', top:'-30px', right:'10%', width:'160px', height:'160px', borderRadius:'50%', background:'radial-gradient(circle, rgba(0, 0, 128, 0.10) 0%, transparent 70%)', filter:'blur(24px)' }} />
-          <div style={{ position:'absolute', bottom:'-20px', left:'40%', width:'220px', height:'80px', borderRadius:'50%', background:'radial-gradient(circle, rgba(19, 136, 8, 0.15) 0%, transparent 70%)', filter:'blur(20px)' }} />
         </div>
 
       {/* ── DESKTOP HEADER (lg:block) ── */}
@@ -354,7 +344,7 @@ export default function Header() {
             {/* Search Bar — liquid glass input */}
             <div className="flex-1 max-w-[600px] mx-6 hidden md:block relative z-30">
               <div className="flex items-center w-full relative group">
-                <div className="w-full transition-all duration-300 group-hover:shadow-[0_4px_20px_rgba(255,153,51,0.15)]" style={{ borderRadius: '999px', background: 'rgba(255,255,255,0.65)', border: '1px solid rgba(255, 153, 51, 0.35)', backdropFilter: 'blur(12px)', boxShadow: '0 2px 16px rgba(255, 153, 51, 0.08), inset 0 1px 0 rgba(255,255,255,0.85)' }}>
+                <div className="w-full transition-all duration-300 rounded-full bg-white border border-slate-200 shadow-sm focus-within:border-[#0f2d5e] focus-within:ring-2 focus-within:ring-[#0f2d5e]/10">
                   <SmartSearchBar placeholder={settings.searchPlaceholder || "Search Tests"} isMobile={false} />
                 </div>
               </div>
@@ -432,14 +422,11 @@ export default function Header() {
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="relative shrink-0 inline-flex items-center justify-center px-1.5 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg uppercase tracking-wide whitespace-nowrap leading-none transition-all duration-300 text-[#0b132b] hover:text-[#000080]"
-                      style={isActive ? {
-                        background: 'linear-gradient(135deg, rgba(255, 153, 51, 0.15), rgba(255, 153, 51, 0.05))',
-                        color: '#000080',
-                        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 4px rgba(255, 153, 51, 0.05)'
-                      } : undefined}
-                      onMouseEnter={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'rgba(255, 153, 51, 0.1)'; }}
-                      onMouseLeave={e => { if (!isActive) (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+                      className={`relative shrink-0 inline-flex items-center justify-center px-1.5 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg uppercase tracking-wide whitespace-nowrap leading-none transition-all duration-200 ${
+                        isActive
+                          ? "bg-[#FFF8EB] text-[#D69A18] font-black border border-[#F3DBA7]"
+                          : "text-[#0f2d5e] hover:bg-slate-100 hover:text-[#D69A18]"
+                      }`}
                     >
                       {item.label}
                     </Link>

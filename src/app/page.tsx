@@ -140,7 +140,7 @@ function WhyChooseSlider() {
   const slide = whySlides[active];
 
   return (
-    <section className="py-4 sm:py-8 bg-gradient-to-b from-amber-50/40 via-white to-amber-50/20 border-t border-[#F3DBA7]/40 relative overflow-hidden">
+    <section className="py-4 sm:py-8 bg-white border-t border-slate-100 relative overflow-hidden">
       <div className="max-w-[1260px] mx-auto px-4 relative z-10">
         
         {/* Header */}
