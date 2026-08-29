@@ -1777,7 +1777,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* ── Mobile Hero Carousel Card — EXACT MATCH TO REFERENCE DESIGN SCREENSHOT ── */}
+          {/* ── Mobile Hero Promo Card ── */}
           {(() => {
             const promoSlides = [
               {
@@ -1791,84 +1791,49 @@ export default function Home() {
                 image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
                 bg: "bg-[#FDE272]",
               },
-              {
-                id: "home-collection",
-                title: "Doorstep Sample Collection",
-                subtitle: "Trained Phlebotomist • Fast Reports",
-                price: "₹0 Fee",
-                oldPrice: "₹250",
-                cta: "Schedule Now",
-                ctaLink: "/home-blood-collection-bangalore",
-                image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150236/Assets-QXL/legacy-assets/image/senior_bp_check.png",
-                bg: "bg-[#FDE272]",
-              },
             ];
-            const currentPromo = promoSlides[currentMobileSlide % promoSlides.length];
+            const currentPromo = promoSlides[0];
 
             return (
               <div className="relative w-full rounded-[28px] overflow-hidden my-3 shadow-md bg-[#FDE272] text-left p-2.5 sm:p-4">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={currentPromo.id}
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.98 }}
-                    transition={{ duration: 0.25 }}
-                    className="grid grid-cols-[1.15fr_0.85fr] items-center gap-2 w-full z-10 min-h-[160px] xs:min-h-[175px]"
-                  >
-                    {/* Left Column: Text, Subtitle, Price & Book Now Pill Button */}
-                    <div className="flex flex-col justify-center text-left pl-3 xs:pl-4 pr-1 py-3 overflow-hidden">
-                      <h3 className="text-[19px] xs:text-[21px] font-black text-[#0B2545] leading-[1.18] tracking-tight mb-1">
-                        {currentPromo.title}
-                      </h3>
-                      <p className="text-xs xs:text-sm font-bold text-slate-800/80 mb-2">
-                        {currentPromo.subtitle}
-                      </p>
+                <div className="grid grid-cols-[1.15fr_0.85fr] items-center gap-2 w-full z-10 min-h-[160px] xs:min-h-[175px]">
+                  {/* Left Column: Text, Subtitle, Price & Book Now Pill Button */}
+                  <div className="flex flex-col justify-center text-left pl-3 xs:pl-4 pr-1 py-3 overflow-hidden">
+                    <h3 className="text-[19px] xs:text-[21px] font-black text-[#0B2545] leading-[1.18] tracking-tight mb-1">
+                      {currentPromo.title}
+                    </h3>
+                    <p className="text-xs xs:text-sm font-bold text-slate-800/80 mb-2">
+                      {currentPromo.subtitle}
+                    </p>
 
-                      <div className="flex items-baseline gap-2 mb-2.5">
-                        <span className="text-2xl xs:text-3xl font-black text-[#0B2545] tracking-tight">
-                          {currentPromo.price}
+                    <div className="flex items-baseline gap-2 mb-2.5">
+                      <span className="text-2xl xs:text-3xl font-black text-[#0B2545] tracking-tight">
+                        {currentPromo.price}
+                      </span>
+                      {currentPromo.oldPrice && (
+                        <span className="text-xs xs:text-sm font-bold text-slate-500/80 line-through tracking-tight">
+                          {currentPromo.oldPrice}
                         </span>
-                        {currentPromo.oldPrice && (
-                          <span className="text-xs xs:text-sm font-bold text-slate-500/80 line-through tracking-tight">
-                            {currentPromo.oldPrice}
-                          </span>
-                        )}
-                      </div>
-
-                      <Link
-                        href={currentPromo.ctaLink}
-                        className="bg-white hover:bg-slate-50 text-[#0B2545] font-black text-xs xs:text-sm px-4 xs:px-5 py-2.5 rounded-full shadow-md inline-flex items-center gap-1.5 transition-transform active:scale-95 border-none w-fit cursor-pointer mt-1"
-                      >
-                        <span>{currentPromo.cta}</span>
-                        <ChevronRight className="w-4 h-4 text-[#D69A18] stroke-[3]" />
-                      </Link>
+                      )}
                     </div>
 
-                    {/* Right Column: Clean Photography Image (Aligned perfectly without text collisions) */}
-                    <div className="relative w-full h-[135px] xs:h-[155px] flex items-center justify-center overflow-hidden shrink-0 rounded-2xl shadow-xs border border-amber-300/40 bg-white">
-                      <img
-                        src={currentPromo.image}
-                        alt={currentPromo.title}
-                        className="w-full h-full object-cover object-center rounded-2xl"
-                      />
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
+                    <Link
+                      href={currentPromo.ctaLink}
+                      className="bg-white hover:bg-slate-50 text-[#0B2545] font-black text-xs xs:text-sm px-4 xs:px-5 py-2.5 rounded-full shadow-md inline-flex items-center gap-1.5 transition-transform active:scale-95 border-none w-fit cursor-pointer mt-1"
+                    >
+                      <span>{currentPromo.cta}</span>
+                      <ChevronRight className="w-4 h-4 text-[#D69A18] stroke-[3]" />
+                    </Link>
+                  </div>
 
-                {/* Slide Indicator Dots at bottom */}
-                <div className="flex justify-center items-center gap-1.5 pb-2.5 pt-1 z-10">
-                  {promoSlides.map((_, i) => (
-                    <button
-                      key={i}
-                      type="button"
-                      onClick={() => setCurrentMobileSlide(i)}
-                      aria-label={`Go to slide ${i + 1}`}
-                      className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                        i === (currentMobileSlide % promoSlides.length) ? "w-6 bg-[#0B2545]" : "w-2 bg-[#0B2545]/30"
-                      }`}
+                  {/* Right Column: Photography Image */}
+                  <div className="relative w-full h-[135px] xs:h-[155px] flex items-center justify-center overflow-hidden shrink-0 rounded-2xl shadow-xs border border-amber-300/40 bg-white">
+                    <img
+                      src={currentPromo.image}
+                      alt={currentPromo.title}
+                      className="w-full h-full object-cover object-center rounded-2xl"
                     />
-                  ))}
+                  </div>
                 </div>
               </div>
             );
