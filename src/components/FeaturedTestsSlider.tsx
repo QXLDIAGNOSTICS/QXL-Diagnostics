@@ -184,24 +184,23 @@ export default function FeaturedTestsSlider() {
                   key={idx}
                   className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/90 flex flex-col justify-between hover:shadow-md transition-all group"
                 >
-                  {/* Card Header — Fixed 160px height for 100% perfect card-to-card alignment */}
-                  <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-5 text-white relative h-[160px] flex flex-col justify-between">
+                  {/* Card Header — Compact 115px height for clean card alignment */}
+                  <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-3.5 sm:p-4 text-white relative min-h-[115px] flex flex-col justify-between">
                     <span 
-                      className="absolute top-4 right-4 bg-[#D69A18] !text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs"
+                      className="absolute top-3.5 right-3.5 bg-[#D69A18] !text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs"
                       style={{ color: '#ffffff' }}
                     >
                       {item.badge}
                     </span>
-                    <div className="h-[48px] flex items-center my-1 pr-16">
-                      <h3 
-                        className="font-extrabold text-base sm:text-lg !text-white leading-snug line-clamp-2 m-0"
-                        style={{ color: '#ffffff' }}
-                      >
-                        {item.name}
-                      </h3>
-                    </div>
+                    <h3 
+                      className="font-extrabold text-sm sm:text-[15px] !text-white leading-tight truncate my-1 pr-16"
+                      style={{ color: '#ffffff' }}
+                      title={item.name}
+                    >
+                      {item.name}
+                    </h3>
                     <div className="flex items-baseline gap-2 mt-auto shrink-0">
-                      <span className="text-xs text-blue-200/80 line-through font-semibold">
+                      <span className="text-[11px] text-blue-200/80 line-through font-semibold">
                         {item.oldPrice}
                       </span>
                       <span 
@@ -210,7 +209,7 @@ export default function FeaturedTestsSlider() {
                       >
                         {item.price}
                       </span>
-                      <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-md uppercase ml-auto">
+                      <span className="bg-amber-400 text-slate-950 text-[9.5px] font-black px-2 py-0.5 rounded-md uppercase ml-auto">
                         {item.discount}
                       </span>
                     </div>

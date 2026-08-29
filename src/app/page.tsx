@@ -1251,39 +1251,38 @@ export default function Home() {
                         key={pkg.id || pkg.name || idx}
                         className="bg-white border border-slate-200/90 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#D69A18] transition-all flex flex-col justify-between text-left group"
                       >
-                        {/* Top Header Box — Fixed 160px height for 100% perfect card-to-card alignment */}
-                        <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-4 sm:p-4.5 text-white relative h-[160px] flex flex-col justify-between">
+                        {/* Top Header Box — Compact & sleek 115px height for clean price card alignment */}
+                        <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-3.5 sm:p-4 text-white relative min-h-[115px] flex flex-col justify-between">
                           {/* Top Row: Tag left, Discount right */}
                           <div className="flex items-center justify-between gap-2 mb-1 w-full shrink-0">
                             <span 
-                              className="bg-[#D69A18] !text-white px-2.5 py-0.5 rounded-full text-[9.5px] font-black uppercase tracking-wider shadow-2xs shrink-0"
+                              className="bg-[#D69A18] !text-white px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider shadow-2xs shrink-0"
                               style={{ color: '#ffffff' }}
                             >
                               {idx === 0 ? "✨ ₹800 SPECIAL" : (pkg.tag || "CHECKUP")}
                             </span>
 
-                            <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shrink-0">
+                            <span className="bg-amber-400 text-slate-950 text-[9.5px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">
                               {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || 5800)) * 100)}% OFF
                             </span>
                           </div>
 
-                          {/* Title — Fixed 48px height with flex alignment so 1-line & 2-line titles match perfectly */}
-                          <div className="h-[48px] flex items-center my-1">
-                            <h3 
-                              className="font-black !text-white text-sm sm:text-base leading-snug line-clamp-2 drop-shadow-xs m-0"
-                              style={{ color: '#ffffff' }}
-                            >
-                              {pkg.name}
-                            </h3>
-                          </div>
+                          {/* Title — Clean 1-line truncation with full tooltip so all card titles match perfectly */}
+                          <h3 
+                            className="font-extrabold !text-white text-sm sm:text-[15px] leading-tight truncate my-1 drop-shadow-xs"
+                            style={{ color: '#ffffff' }}
+                            title={pkg.name}
+                          >
+                            {pkg.name}
+                          </h3>
 
-                          {/* Price Row — Positioned cleanly at bottom of header box */}
+                          {/* Price Row — Compact & crisp */}
                           <div className="flex items-baseline gap-2 mt-auto shrink-0">
-                            <span className="text-xs text-blue-200/80 line-through font-bold">
+                            <span className="text-[11px] text-blue-200/80 line-through font-bold">
                               ₹{pkg.old_price || pkg.original_price || "5800"}
                             </span>
                             <span 
-                              className="text-2xl font-black !text-white"
+                              className="text-xl sm:text-2xl font-black !text-white"
                               style={{ color: '#ffffff' }}
                             >
                               ₹{pkg.price}
