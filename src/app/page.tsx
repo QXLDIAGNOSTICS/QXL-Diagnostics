@@ -900,8 +900,8 @@ export default function Home() {
       ctaLink: "/home-collection",
       ctaSecondary: "Call +91 9964 639 639",
       ctaSecondaryLink: "tel:+919964639639",
-      image: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
-      imageFit: "contain",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
+      imageFit: "cover",
       bgFrom: "#ffffff", bgTo: "#fff8eb",
       features: ["Trained Phlebotomists", "Tamper-proof Collection", "Hygienic & Safe Process", "Reports On Time"],
     },
@@ -916,8 +916,8 @@ export default function Home() {
       ctaLink: "/book?package=Full%20Body%20Checkup%20(80%20Params)",
       ctaSecondary: "Call +91 9964 639 639",
       ctaSecondaryLink: "tel:+919964639639",
-      image: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
-      imageFit: "contain",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
+      imageFit: "cover",
       bgFrom: "#fff7ed", bgTo: "#f0fdf4",
       features: ["80 Health Parameters", "₹800 Only (Worth ₹5,800)", "Free Doorstep Sample Pickup", "Doctor Reviewed Reports"],
     },
@@ -1099,7 +1099,7 @@ export default function Home() {
                           <img
                             src={activeSlide.image}
                             alt={activeSlide.title}
-                            className="w-full h-full object-contain object-center rounded-2xl p-1.5"
+                            className="w-full h-full object-cover object-center rounded-2xl shadow-sm"
                           />
                         )}
                       </motion.div>
@@ -1357,7 +1357,7 @@ export default function Home() {
               </div>
 
               {/* Right 4 Columns: Sticky Booking Form */}
-              <div className="hidden lg:block lg:col-span-4">
+              <div className="hidden lg:block lg:col-span-4 h-full">
                 <StickyBookingForm />
               </div>
 
