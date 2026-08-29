@@ -44,6 +44,21 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/doctors/dr-shantakumar-muruda-6f7b6161",
+        destination: "/dr-shantakumar-muruda",
+        permanent: true,
+      },
+      {
+        source: "/doctors/dr-shantakumar-muruda-6f7b6161/",
+        destination: "/dr-shantakumar-muruda",
+        permanent: true,
+      },
+      {
+        source: "/doctors/dr-shantakumar-muruda-:hash*",
+        destination: "/dr-shantakumar-muruda",
+        permanent: true,
+      },
+      {
         source: "/our_team/dr-shantakumar-muruda-md",
         destination: "/dr-shantakumar-muruda",
         permanent: true,

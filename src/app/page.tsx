@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone, Sparkles, Microscope } from "lucide-react";
+import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone, Sparkles, Microscope, Dna } from "lucide-react";
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
 import { api } from '../lib/api';

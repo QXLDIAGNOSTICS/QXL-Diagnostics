@@ -5,6 +5,7 @@ import { api, type TestCatalogItem, type HealthPackage, type Booking } from '../
 import { useAuth } from '../../lib/useAuth';
 import RazorpayCheckoutButton from '../../components/RazorpayCheckoutButton';
 import { trackChatGPTBookingStart, trackChatGPTBookingCompleted } from '../../lib/chatgptAnalytics';
+import { matchMasterItem, MASTER_CATALOGUE } from '@/lib/masterCatalogue';
 
 
 type CatalogEntry = {
@@ -366,40 +367,31 @@ export default function BookPage() {
 
   // Find the best catalog match for a recommended test/package name.
   const findCatalogMatch = (wanted: string, items: CatalogEntry[]): CatalogEntry | undefined => {
+    // First try master catalogue matching
+    const masterMatch = matchMasterItem(wanted);
+    if (masterMatch) {
+      const matchInItems = items.find(c => 
+        c.id === masterMatch.id || 
+        normalizeName(c.name) === normalizeName(masterMatch.name) ||
+        normalizeName(c.name).includes(normalizeName(masterMatch.shortName))
+      );
+      if (matchInItems) return matchInItems;
+      
+      // Return converted master item entry
+      return {
+        id: masterMatch.id,
+        name: masterMatch.name,
+        kind: masterMatch.kind,
+        price: masterMatch.price,
+        old_price: masterMatch.mrp,
+        home_collection_available: masterMatch.homeCollectionAvailable,
+        parameters: masterMatch.paramText,
+        includes: masterMatch.includes,
+      };
+    }
+
     const nw = normalizeName(wanted);
     if (!nw) return undefined;
-
-    // Direct Alias map for quick short codes
-    const ALIAS_MAP: Record<string, string> = {
-      'cbc': 'COMPLETE BLOOD COUNT (CBC)',
-      'hba1c': 'HBA1C, GLYCATED HEMOGLOBIN',
-      'tsh': 'THYROID STIMULATING HORMONE (TSH)',
-      'thyroid': 'THYROID PROFILE (T3, T4, TSH)',
-      'thyroid profile': 'THYROID PROFILE (T3, T4, TSH)',
-      'vit d': 'VITAMIN D (25-OH)',
-      'vitamin d': 'VITAMIN D (25-OH)',
-      'vitamind': 'VITAMIN D (25-OH)',
-      'vit b12': 'VITAMIN B12',
-      'vitamin b12': 'VITAMIN B12',
-      'vitaminb12': 'VITAMIN B12',
-      'lipid': 'LIPID PROFILE',
-      'lipid profile': 'LIPID PROFILE',
-      'cholesterol': 'LIPID PROFILE',
-      'lft': 'LIVER FUNCTION TEST (LFT)',
-      'liver': 'LIVER FUNCTION TEST (LFT)',
-      'kft': 'KIDNEY FUNCTION TEST (KFT)',
-      'kidney': 'KIDNEY FUNCTION TEST (KFT)',
-      'fbs': 'FASTING BLOOD SUGAR (FBS)',
-      'fasting sugar': 'FASTING BLOOD SUGAR (FBS)',
-      'ppbs': 'POSTPRANDIAL BLOOD SUGAR (PPBS)',
-      'urine': 'URINE ROUTINE & MICROSCOPY',
-    };
-
-    if (ALIAS_MAP[nw]) {
-      const aliasTarget = normalizeName(ALIAS_MAP[nw]);
-      const aliasMatch = items.find((c) => normalizeName(c.name) === aliasTarget || normalizeName(c.name).includes(aliasTarget));
-      if (aliasMatch) return aliasMatch;
-    }
 
     let match = items.find((c) => normalizeName(c.name) === nw);
     if (match) return match;
@@ -408,22 +400,10 @@ export default function BookPage() {
       return nc.includes(nw) || nw.includes(nc);
     });
     if (match) return match;
-    const wantedTokens = new Set(nw.split(' ').filter((t) => t.length > 2));
-    if (wantedTokens.size === 0) return undefined;
-    let bestOverlap = 0;
-    for (const c of items) {
-      const cTokens = normalizeName(c.name).split(' ').filter((t) => t.length > 2);
-      const overlap = cTokens.filter((t) => wantedTokens.has(t)).length;
-      if (overlap > bestOverlap && overlap >= Math.min(wantedTokens.size, cTokens.length) * 0.5) {
-        bestOverlap = overlap;
-        match = c;
-      }
-    }
-    return match;
+    return undefined;
   };
 
   useEffect(() => {
-    if (catalog.length === 0) return;
     const params = new URLSearchParams(window.location.search);
     
     // Check collection type parameter (?center= or ?collection=center)
@@ -485,9 +465,20 @@ export default function BookPage() {
     const unmatched: string[] = [];
     for (const w of filteredWanted) {
       let match = findCatalogMatch(w, catalog);
-      if (!match && (w.toLowerCase().includes('package') || w.toLowerCase().includes('checkup') || w.toLowerCase().includes('full body'))) {
-        // Fallback to first active package in catalog
-        match = catalog.find(c => c.kind === 'package');
+      if (!match) {
+        const masterMatch = matchMasterItem(w);
+        if (masterMatch) {
+          match = {
+            id: masterMatch.id,
+            name: masterMatch.name,
+            kind: masterMatch.kind,
+            price: masterMatch.price,
+            old_price: masterMatch.mrp,
+            home_collection_available: masterMatch.homeCollectionAvailable,
+            parameters: masterMatch.paramText,
+            includes: masterMatch.includes,
+          };
+        }
       }
       if (match && !isSpidyOffer(match.name)) matches.push(match);
       else if (!isSpidyOffer(w)) unmatched.push(w);
