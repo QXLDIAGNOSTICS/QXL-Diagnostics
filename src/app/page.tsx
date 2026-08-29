@@ -633,7 +633,7 @@ function MobilePromoHighlightSlider() {
 
 function QuickBookingForm({ formState, setFormState, handleContactSubmit, formStatus }: any) {
   return (
-    <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-[2.5rem] border border-blue-100 shadow-[0_8px_30px_rgba(37,99,235,0.08)] relative z-10">
+    <div className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-[2.5rem] border border-blue-100 shadow-[0_8px_30px_rgba(37,99,235,0.08)] relative z-10 text-left">
       <div className="mb-3 md:mb-6">
         <h3 className="text-lg md:text-xl font-bold text-[#0f2d5e] mb-0.5 md:mb-1">Request a Call Back</h3>
         <p className="text-xs md:text-sm text-slate-500 font-medium">Leave your number and we'll call you right away.</p>
@@ -900,7 +900,7 @@ export default function Home() {
       ctaLink: "/home-collection",
       ctaSecondary: "Call +91 9964 639 639",
       ctaSecondaryLink: "tel:+919964639639",
-      image: "/images/posters/e630d3d6-7600-4a93-a304-02c0b772dfe9.jpeg",
+      image: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
       imageFit: "contain",
       bgFrom: "#ffffff", bgTo: "#fff8eb",
       features: ["Trained Phlebotomists", "Tamper-proof Collection", "Hygienic & Safe Process", "Reports On Time"],
@@ -1012,7 +1012,7 @@ export default function Home() {
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="w-full md:w-[55%] px-5 sm:px-8 md:px-12 py-6 sm:py-8 h-full flex flex-col justify-center z-20 relative text-left overflow-hidden bg-white"
+                        className="w-full md:w-[50%] px-5 sm:px-8 md:px-10 py-6 sm:py-8 h-full flex flex-col justify-center z-20 relative text-left overflow-hidden bg-white"
                       >
                         {/* Tagline / Badge */}
                         <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -1070,12 +1070,12 @@ export default function Home() {
 
                       </motion.div>
 
-                      {/* Image / Decorative — right side on desktop */}
+                      {/* Image / Decorative — right side on desktop (50% width uncropped container) */}
                       <motion.div
                         initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="relative md:absolute top-0 right-0 bottom-0 w-full md:w-[48%] h-[200px] sm:h-[240px] md:h-full z-10 flex items-center justify-center overflow-hidden rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none"
+                        className="relative md:absolute top-0 right-0 bottom-0 w-full md:w-[50%] h-[200px] sm:h-[240px] md:h-full z-10 flex items-center justify-center overflow-hidden rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none p-2 sm:p-3 bg-white"
                       >
                         {activeSlide.noImage ? (
                           <div className="flex flex-col items-center justify-center w-full h-full px-6 text-center gap-3">
@@ -1733,11 +1733,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Reviews (What Our Patients Say), Blog, FAQ & Featured Diagnostics Slider ── */}
+        {/* ── Reviews (What Our Patients Say), Blog & FAQ ── */}
         <ReviewsSection />
         <BlogSlider />
         <FaqSection />
-        <FeaturedTestsSlider />
       </div>
 
       {/* ── MOBILE VIEW (lg:hidden) — EXACT MATCH TO REFERENCE DESIGN SCREENSHOT ── */}
