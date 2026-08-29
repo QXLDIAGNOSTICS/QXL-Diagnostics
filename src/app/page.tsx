@@ -1251,10 +1251,10 @@ export default function Home() {
                         key={pkg.id || pkg.name || idx}
                         className="bg-white border border-slate-200/90 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-[#D69A18] transition-all flex flex-col justify-between text-left group"
                       >
-                        {/* Top Header Box — Deep Blue Gradient with guaranteed pure white text & fixed height alignment */}
-                        <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-4 text-white relative min-h-[145px] flex flex-col justify-between">
+                        {/* Top Header Box — Fixed 160px height for 100% perfect card-to-card alignment */}
+                        <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-4 sm:p-4.5 text-white relative h-[160px] flex flex-col justify-between">
                           {/* Top Row: Tag left, Discount right */}
-                          <div className="flex items-center justify-between gap-2 mb-1 w-full">
+                          <div className="flex items-center justify-between gap-2 mb-1 w-full shrink-0">
                             <span 
                               className="bg-[#D69A18] !text-white px-2.5 py-0.5 rounded-full text-[9.5px] font-black uppercase tracking-wider shadow-2xs shrink-0"
                               style={{ color: '#ffffff' }}
@@ -1267,16 +1267,18 @@ export default function Home() {
                             </span>
                           </div>
 
-                          {/* Title — Enforce Pure White Text (#ffffff) */}
-                          <h3 
-                            className="font-black !text-white text-base sm:text-lg leading-snug my-1 drop-shadow-xs"
-                            style={{ color: '#ffffff' }}
-                          >
-                            {pkg.name}
-                          </h3>
+                          {/* Title — Fixed 48px height with flex alignment so 1-line & 2-line titles match perfectly */}
+                          <div className="h-[48px] flex items-center my-1">
+                            <h3 
+                              className="font-black !text-white text-sm sm:text-base leading-snug line-clamp-2 drop-shadow-xs m-0"
+                              style={{ color: '#ffffff' }}
+                            >
+                              {pkg.name}
+                            </h3>
+                          </div>
 
-                          {/* Price Row — Enforce Pure White Text (#ffffff) */}
-                          <div className="flex items-baseline gap-2 mt-auto pt-1">
+                          {/* Price Row — Positioned cleanly at bottom of header box */}
+                          <div className="flex items-baseline gap-2 mt-auto shrink-0">
                             <span className="text-xs text-blue-200/80 line-through font-bold">
                               ₹{pkg.old_price || pkg.original_price || "5800"}
                             </span>
@@ -1290,7 +1292,7 @@ export default function Home() {
                         </div>
 
                         {/* Card Body */}
-                        <div className="p-4 flex flex-col justify-between flex-1 gap-3.5">
+                        <div className="p-4 flex flex-col justify-between flex-1 gap-3.5 bg-white">
                           {/* Parameters & TAT Stats Row matching Image 3 */}
                           <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700 border-b border-slate-100 pb-3">
                             <div className="flex items-center gap-1.5">
@@ -1307,23 +1309,25 @@ export default function Home() {
                             </div>
                           </div>
 
-                          {/* Description / Includes */}
-                          <p className="text-[11.5px] text-slate-500 font-medium line-clamp-2 leading-relaxed">
-                            {pkg.includes}
-                          </p>
+                          {/* Description / Includes — Formatted with proper comma spacing & fixed 42px min-height */}
+                          <div className="min-h-[42px] flex items-center">
+                            <p className="text-[11.5px] text-slate-500 font-medium line-clamp-2 leading-relaxed m-0">
+                              {pkg.includes ? pkg.includes.replace(/([a-zA-Z\)])([A-Z])/g, '$1, $2') : "CBC, Diabetes & Glucose, Lipid Profile, Liver & Kidney Function Tests, Thyroid & Urine Routine."}
+                            </p>
+                          </div>
 
                           {/* TWO BUTTONS Row matching Image 3 */}
-                          <div className="grid grid-cols-2 gap-2.5 pt-1">
+                          <div className="grid grid-cols-2 gap-2.5 pt-1 mt-auto">
                             <button
                               type="button"
                               onClick={() => setSelectedPackage(pkg)}
-                              className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e]/5 font-black py-2.5 px-3 rounded-2xl text-xs transition-colors cursor-pointer"
+                              className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e]/5 font-black py-2.5 px-2.5 rounded-2xl text-[11px] sm:text-xs transition-colors cursor-pointer"
                             >
                               View Details
                             </button>
                             <Link
                               href={`/book?package=${encodeURIComponent(pkg.name)}`}
-                              className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2.5 px-3 rounded-2xl text-xs shadow-xs hover:shadow-md transition-all uppercase tracking-wider active:scale-95 block"
+                              className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2.5 px-2.5 rounded-2xl text-[11px] sm:text-xs shadow-xs hover:shadow-md transition-all uppercase tracking-wider active:scale-95 block"
                             >
                               Add to Cart
                             </Link>
@@ -1627,6 +1631,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ── Featured Diagnostics & Packages Slider (Placed under Book a Test at Home) ── */}
+        <FeaturedTestsSlider />
 
         {/* ── Form and Maps ── */}
         <section className="py-16 bg-transparent border-t border-gray-150">

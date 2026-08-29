@@ -184,21 +184,23 @@ export default function FeaturedTestsSlider() {
                   key={idx}
                   className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/90 flex flex-col justify-between hover:shadow-md transition-all group"
                 >
-                  {/* Card Header — Deep Navy to Royal Blue Gradient with pure white text (#ffffff) & fixed height */}
-                  <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-5 text-white relative min-h-[145px] flex flex-col justify-between">
+                  {/* Card Header — Fixed 160px height for 100% perfect card-to-card alignment */}
+                  <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-5 text-white relative h-[160px] flex flex-col justify-between">
                     <span 
                       className="absolute top-4 right-4 bg-[#D69A18] !text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs"
                       style={{ color: '#ffffff' }}
                     >
                       {item.badge}
                     </span>
-                    <h3 
-                      className="font-extrabold text-base sm:text-lg !text-white my-1 pr-16 leading-snug"
-                      style={{ color: '#ffffff' }}
-                    >
-                      {item.name}
-                    </h3>
-                    <div className="flex items-baseline gap-2 mt-auto">
+                    <div className="h-[48px] flex items-center my-1 pr-16">
+                      <h3 
+                        className="font-extrabold text-base sm:text-lg !text-white leading-snug line-clamp-2 m-0"
+                        style={{ color: '#ffffff' }}
+                      >
+                        {item.name}
+                      </h3>
+                    </div>
+                    <div className="flex items-baseline gap-2 mt-auto shrink-0">
                       <span className="text-xs text-blue-200/80 line-through font-semibold">
                         {item.oldPrice}
                       </span>
