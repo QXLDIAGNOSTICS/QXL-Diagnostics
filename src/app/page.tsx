@@ -1793,9 +1793,9 @@ export default function Home() {
               },
               {
                 id: "home-collection",
-                title: "Free Home Collection",
-                subtitle: "Same-Day Reports",
-                price: "Free",
+                title: "Doorstep Sample Collection",
+                subtitle: "Trained Phlebotomist • Fast Reports",
+                price: "₹0 Fee",
                 oldPrice: "₹250",
                 cta: "Schedule Now",
                 ctaLink: "/home-blood-collection-bangalore",
