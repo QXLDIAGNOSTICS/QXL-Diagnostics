@@ -889,8 +889,22 @@ export default function Home() {
   // ── Happy Onam Campaign Poster Slides ─────────────────────
   // ── Package & Home Collection Hero Slides ────────────────────────────────
   const contentSlides = [
-
-
+    {
+      badge: "✨ SPECIAL OFFER · 80 HEALTH PARAMETERS",
+      title: "FULL BODY HEALTH CHECKUP @ ₹800",
+      titleAccent: "NABL ACCREDITED DOCTOR-LED DIAGNOSTICS",
+      subtitle: "Comprehensive 8-organ screening: Complete Blood Count (26), HbA1c & Fasting Sugar (3), Lipid (8), Liver (11), Kidney (8), Thyroid (3) & Bone Minerals (21).",
+      subtitleAccent: "Only ₹800 (Worth ₹5,800 · 86% OFF) · Same-Day Digital Reports",
+      description: "Trusted diagnostic testing by Bengaluru's NABL accredited super speciality laboratory.",
+      cta: "Book Package @ ₹800",
+      ctaLink: "/book?package=Full%20Body%20Checkup%20(80%20Params)",
+      ctaSecondary: "Call +91 9964 639 639",
+      ctaSecondaryLink: "tel:+919964639639",
+      image: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
+      imageFit: "contain",
+      bgFrom: "#fff7ed", bgTo: "#f0fdf4",
+      features: ["80 Health Parameters", "₹800 Only (Worth ₹5,800)", "Free Doorstep Sample Pickup", "Doctor Reviewed Reports"],
+    },
     {
       badge: "DOCTOR-LED SUPER SPECIALITY LAB",
       title: "NABL ACCREDITED DIAGNOSTIC CARE",
@@ -906,22 +920,6 @@ export default function Home() {
       imageFit: "contain",
       bgFrom: "#f0fdf4", bgTo: "#eff6ff",
       features: ["NABL Accredited", "Doctor Reviewed", "24x7 Diagnostics", "Bengaluru Home Collection"],
-    },
-    {
-      badge: "HEALTH CHECKUP · 8 ORGAN SYSTEMS",
-      title: "PREVENTIVE FULL BODY DIAGNOSTICS",
-      titleAccent: "DOCTOR-LED LABORATORY TESTING",
-      subtitle: "Comprehensive organ screening for heart, liver, kidney, thyroid, blood count & bone minerals.",
-      subtitleAccent: "Only ₹800 · 6-Hour Digital Reports Delivered on WhatsApp",
-      description: "Trusted diagnostic testing by Bengaluru's NABL accredited super speciality laboratory.",
-      cta: "Book Package @ ₹800",
-      ctaLink: "/packages",
-      ctaSecondary: "Call +91 9964 639 639",
-      ctaSecondaryLink: "tel:+919964639639",
-      image: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
-      imageFit: "contain",
-      bgFrom: "#fff7ed", bgTo: "#f0fdf4",
-      features: ["80 Health Parameters", "8 Major Health Areas", "Free Home Collection", "₹800 Only (Worth ₹5,800)"],
     },
   ];
 
@@ -1032,16 +1030,16 @@ export default function Home() {
                           </span>
                         </div>
 
-                        {/* H1 Title — Keyword Rich for Search Engines */}
-                        <h1 className="text-[18px] sm:text-[22px] md:text-[26px] leading-[1.15] font-black text-[#0f2d5e] mb-1 pr-4">
-                          NABL-Accredited Diagnostic Lab in Bengaluru — Home Collection & Same-Day Reports
+                        {/* H1 Title — Prominent Hero Banner Heading */}
+                        <h1 className="text-[22px] sm:text-[26px] md:text-[30px] leading-[1.12] font-black text-[#0f2d5e] mb-1 pr-4">
+                          {activeSlide.title}
                         </h1>
-                        <p className="text-[13px] sm:text-[15px] md:text-[18px] leading-[1.2] font-extrabold text-[#2563eb] mb-2 pr-4">
-                          {activeSlide.title} {activeSlide.titleAccent ? `· ${activeSlide.titleAccent}` : ''}
+                        <p className="text-[13px] sm:text-[15px] md:text-[17px] leading-[1.2] font-extrabold text-[#D69A18] mb-2 pr-4">
+                          {activeSlide.titleAccent || 'NABL ACCREDITED DOCTOR-LED DIAGNOSTICS'}
                         </p>
 
-                        {/* Short subtitle only */}
-                        <p className="text-[11px] sm:text-[12px] text-slate-600 font-medium mb-3 max-w-sm leading-snug line-clamp-2">
+                        {/* Subtitle */}
+                        <p className="text-[11.5px] sm:text-[13px] text-slate-600 font-semibold mb-3 max-w-md leading-relaxed">
                           {activeSlide.subtitle}
                         </p>
 
