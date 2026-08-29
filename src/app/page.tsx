@@ -1312,7 +1312,11 @@ export default function Home() {
                           {/* Description / Includes — Formatted with proper comma spacing & fixed 42px min-height */}
                           <div className="min-h-[42px] flex items-center">
                             <p className="text-[11.5px] text-slate-500 font-medium line-clamp-2 leading-relaxed m-0">
-                              {pkg.includes ? pkg.includes.replace(/([a-zA-Z\)])([A-Z])/g, '$1, $2') : "CBC, Diabetes & Glucose, Lipid Profile, Liver & Kidney Function Tests, Thyroid & Urine Routine."}
+                              {typeof pkg.includes === 'string'
+                                ? pkg.includes.replace(/([a-zA-Z\)])([A-Z])/g, '$1, $2')
+                                : Array.isArray(pkg.includes)
+                                  ? pkg.includes.join(', ')
+                                  : "CBC, Diabetes & Glucose, Lipid Profile, Liver & Kidney Function Tests, Thyroid & Urine Routine."}
                             </p>
                           </div>
 
