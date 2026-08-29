@@ -54,7 +54,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/doctors/dr-shantakumar-muruda-:hash*",
+        source: "/doctors/dr-shantakumar-muruda-:hash",
         destination: "/dr-shantakumar-muruda",
         permanent: true,
       },
