@@ -27,6 +27,7 @@ import SmartSearchBar from "../components/SmartSearchBar";
 import { isCampaignActive } from "../lib/rakshaBandhanConfig";
 import ScooterPhlebotomistSvg from "../components/ScooterPhlebotomistSvg";
 import StickyBookingForm from "../components/StickyBookingForm";
+import FeaturedTestsSlider from "../components/FeaturedTestsSlider";
 
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
@@ -1665,10 +1666,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Reviews (What Our Patients Say), Blog & FAQ ── */}
+        {/* ── Reviews (What Our Patients Say), Blog, FAQ & Featured Diagnostics Slider ── */}
         <ReviewsSection />
         <BlogSlider />
         <FaqSection />
+        <FeaturedTestsSlider />
       </div>
 
       {/* ── MOBILE VIEW (lg:hidden) — EXACT MATCH TO REFERENCE DESIGN SCREENSHOT ── */}
@@ -1921,11 +1923,12 @@ export default function Home() {
           <AiDiagnostics />
         </div>
 
-        {/* ── Reviews (What Our Patients Say), Blog & FAQ ── */}
+        {/* ── Reviews (What Our Patients Say), Blog, FAQ & Featured Diagnostics Slider ── */}
         <div className="my-4 space-y-4">
           <ReviewsSection />
           <BlogSlider />
           <FaqSection />
+          <FeaturedTestsSlider />
         </div>
       </div>
 
