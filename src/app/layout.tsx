@@ -609,13 +609,8 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-         {/* Global Tricolour Background */}
-         <div className="fixed inset-0 -z-50 pointer-events-none bg-gradient-to-br from-[#f0fdf4] via-white to-[#fff7ed]">
-            {/* Soft Green Glow (Top Left - Logo Side) */}
-            <div className="absolute top-0 left-0 w-[80vw] h-[50vh] bg-emerald-500/6 blur-[120px] rounded-full -translate-x-1/4 -translate-y-1/4" />
-            {/* Soft Saffron Glow (Bottom Right) */}
-            <div className="absolute bottom-0 right-0 w-[80vw] h-[50vh] bg-amber-500/6 blur-[120px] rounded-full translate-x-1/4 translate-y-1/4" />
-         </div>
+         {/* Global Pure White Background */}
+         <div className="fixed inset-0 -z-50 pointer-events-none bg-white" />
 
         {/* Hidden Google Translate mount point — must be first in body */}
         <div

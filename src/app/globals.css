@@ -92,10 +92,12 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-transparent text-foreground;
+    background-color: #ffffff !important;
+    @apply bg-white text-foreground;
   }
   html {
-    @apply font-sans;
+    background-color: #ffffff !important;
+    @apply font-sans bg-white;
     font-size: 19px !important;
   }
 }
