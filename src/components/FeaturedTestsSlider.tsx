@@ -176,13 +176,13 @@ export default function FeaturedTestsSlider() {
         {/* Slide Content Renderers */}
         <div className="relative min-h-[360px] flex items-center justify-center">
 
-          {/* ── Slide Type 1 & 2: Grid of Test / Checkup Cards ── */}
+          {/* ── Slide Type 1 & 2: Grid / Swipe Carousel of Test / Checkup Cards ── */}
           {(current.type === "packages" || current.type === "tests") && current.items && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <div className="flex md:grid md:grid-cols-3 overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 w-full pb-3 scrollbar-none">
               {current.items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/90 flex flex-col justify-between hover:shadow-md transition-all group"
+                  className="w-[85%] sm:w-[320px] md:w-full shrink-0 snap-center bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/90 flex flex-col justify-between hover:shadow-md transition-all group text-left"
                 >
                   {/* Card Header — Compact 115px height for clean card alignment */}
                   <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-3.5 sm:p-4 text-white relative min-h-[115px] flex flex-col justify-between">
@@ -216,8 +216,8 @@ export default function FeaturedTestsSlider() {
                   </div>
 
                   {/* Card Body */}
-                  <div className="p-5 flex flex-col justify-between flex-1 gap-4">
-                    <div className="grid grid-cols-2 gap-3 text-xs text-slate-700 font-bold border-b border-slate-100 pb-4">
+                  <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 gap-4">
+                    <div className="grid grid-cols-2 gap-3 text-xs text-slate-700 font-bold border-b border-slate-100 pb-3 sm:pb-4">
                       <div className="flex items-center gap-2">
                         <Dna className="w-4 h-4 text-[#D69A18] shrink-0" />
                         <span className="text-[11px] leading-tight font-extrabold text-[#0f2d5e]">{item.params} included</span>
@@ -232,13 +232,13 @@ export default function FeaturedTestsSlider() {
                     <div className="grid grid-cols-2 gap-3 mt-1">
                       <Link
                         href={`/book?package=${encodeURIComponent(item.name)}`}
-                        className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e]/5 font-black py-2.5 px-3 rounded-2xl text-xs transition-colors"
+                        className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e]/5 font-black py-2.5 px-3 rounded-2xl text-xs transition-colors block"
                       >
                         View Details
                       </Link>
                       <Link
                         href={`/book?package=${encodeURIComponent(item.name)}`}
-                        className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2.5 px-3 rounded-2xl text-xs shadow-xs hover:shadow-md transition-all uppercase tracking-wider"
+                        className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2.5 px-3 rounded-2xl text-xs shadow-xs hover:shadow-md transition-all uppercase tracking-wider block"
                       >
                         Add to Cart
                       </Link>
