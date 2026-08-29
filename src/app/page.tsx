@@ -1532,7 +1532,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <BlogSlider />
 
         {/* ── Form and Maps ── */}
         <section className="py-16 bg-transparent border-t border-gray-150">
