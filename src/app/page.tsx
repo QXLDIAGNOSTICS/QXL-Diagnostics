@@ -25,6 +25,8 @@ import RakshaOfferCard from "../components/rakshaBandhan/RakshaOfferCard";
 import MobileTrustBadges from "../components/MobileTrustBadges";
 import SmartSearchBar from "../components/SmartSearchBar";
 import { isCampaignActive } from "../lib/rakshaBandhanConfig";
+import ScooterPhlebotomistSvg from "../components/ScooterPhlebotomistSvg";
+import StickyBookingForm from "../components/StickyBookingForm";
 
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
@@ -698,7 +700,15 @@ function useCountdown() {
 
 export default function Home() {
   const countdown = useCountdown();
+  const packageScrollRef = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const scrollPackages = (direction: 'left' | 'right') => {
+    if (packageScrollRef.current) {
+      const scrollAmount = direction === 'left' ? -270 : 270;
+      packageScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
   const [location, setLocation] = useState("Bengaluru");
   const [isPrescriptionModalOpen, setIsPrescriptionModalOpen] = useState(false);
   const [locations, setLocations] = useState<any[]>([]);
@@ -835,11 +845,7 @@ export default function Home() {
     // Load dynamic locations & packages safely for rendering
     setLocations(cmsStore.getAll("locations"));
     const fallbackPackages = cmsStore.getAll("packages").filter(p => !isSpidyOffer(p.name, p.price)).sort((a, b) => Number(a.price) - Number(b.price));
-    if (isCampaignActive()) {
-      setRecommendedPackages([rakshaBandhanPackage, ...fallbackPackages.filter(p => p.id !== 'raksha-bandhan-800')]);
-    } else {
-      setRecommendedPackages(fallbackPackages.filter(p => p.id !== 'raksha-bandhan-800'));
-    }
+    setRecommendedPackages([rakshaBandhanPackage, ...fallbackPackages.filter(p => p.id !== 'raksha-bandhan-800')]);
 
     if (api && api.packages) {
       api.packages.list()
@@ -847,11 +853,7 @@ export default function Home() {
           if (data && data.length > 0) {
             const cleanData = data.filter((p: any) => !isSpidyOffer(p.name, p.price));
             const sorted = cleanData.sort((a, b) => Number(a.price) - Number(b.price));
-            if (isCampaignActive()) {
-              setRecommendedPackages([rakshaBandhanPackage, ...sorted.filter(p => p.id !== 'raksha-bandhan-800')]);
-            } else {
-              setRecommendedPackages(sorted.filter(p => p.id !== 'raksha-bandhan-800'));
-            }
+            setRecommendedPackages([rakshaBandhanPackage, ...sorted.filter(p => p.id !== 'raksha-bandhan-800')]);
           }
         })
         .catch(() => {
@@ -1153,68 +1155,76 @@ export default function Home() {
           </button>
         </section>
 
-        {/* ── Action Cards ── */}
-        <section className="pt-2 pb-6 z-30 relative -mt-4">
+        {/* ── Action Cards — Warm Gold Amber Theme & Larger Buttons ── */}
+        <section className="pt-2 pb-5 z-30 relative -mt-3">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+              
+              {/* Card 1: Upload Prescription */}
               <Link href="/upload-prescription"
-                className="bg-white rounded-2xl p-5 border border-gray-150 shadow-sm flex items-center justify-between group hover:shadow-[0_12px_30px_rgba(37,99,235,0.12)] hover:border-blue-400/50 hover:scale-[1.015] transition-all duration-300">
+                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#F3DBA7]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#D69A18] hover:scale-[1.015] transition-all duration-300">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[#dbeafe] flex items-center justify-center mr-4 flex-shrink-0">
-                    <FileText className="w-6 h-6 text-[#2563eb]" />
+                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mr-3.5 flex-shrink-0 shadow-2xs">
+                    <FileText className="w-5.5 h-5.5 text-[#D69A18]" />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-[14px]">Upload Prescription</h3>
+                  <div className="text-left">
+                    <h3 className="font-extrabold text-[#0f2d5e] text-[14px]">Upload Prescription</h3>
+                    <p className="text-[11px] text-slate-500 font-medium">Quick order lookup</p>
                   </div>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
-                  <ChevronRight className="w-4 h-4 text-[#2563eb] group-hover:text-white transition-colors" />
+                <div className="w-8.5 h-8.5 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center flex-shrink-0 group-hover:bg-[#D69A18] group-hover:border-[#D69A18] transition-all shadow-2xs">
+                  <ChevronRight className="w-4.5 h-4.5 text-[#D69A18] group-hover:text-white transition-colors" />
                 </div>
               </Link>
 
+              {/* Card 2: Home Sample Collection with Scooter Icon */}
               <Link href="/home-collection"
-                className="bg-white rounded-2xl p-5 border border-gray-150 shadow-sm flex items-center justify-between group hover:shadow-[0_12px_30px_rgba(37,99,235,0.12)] hover:border-blue-400/50 hover:scale-[1.015] transition-all duration-300">
+                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#F3DBA7]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#D69A18] hover:scale-[1.015] transition-all duration-300">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[#dbeafe] flex items-center justify-center mr-4 flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-[#2563eb]" />
+                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mr-3.5 flex-shrink-0 p-0.5 shadow-2xs">
+                    <ScooterPhlebotomistSvg className="w-9 h-9 object-contain" />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-[14px]">Home Sample Collection</h3>
+                  <div className="text-left">
+                    <h3 className="font-extrabold text-[#0f2d5e] text-[14px]">Home Sample Collection</h3>
+                    <p className="text-[11px] text-slate-500 font-medium">Free sample pickup</p>
                   </div>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
-                  <ChevronRight className="w-4 h-4 text-[#2563eb] group-hover:text-white transition-colors" />
+                <div className="w-8.5 h-8.5 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center flex-shrink-0 group-hover:bg-[#D69A18] group-hover:border-[#D69A18] transition-all shadow-2xs">
+                  <ChevronRight className="w-4.5 h-4.5 text-[#D69A18] group-hover:text-white transition-colors" />
                 </div>
               </Link>
 
+              {/* Card 3: Doctor Enquiry */}
               <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer"
-                className="bg-white rounded-2xl p-5 border border-gray-150 shadow-sm flex items-center justify-between group hover:shadow-[0_12px_30px_rgba(37,99,235,0.12)] hover:border-blue-400/50 hover:scale-[1.015] transition-all duration-300">
+                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#F3DBA7]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#D69A18] hover:scale-[1.015] transition-all duration-300">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[#dbeafe] flex items-center justify-center mr-4 flex-shrink-0">
-                    <MessageCircle className="w-6 h-6 text-[#2563eb]" />
+                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mr-3.5 flex-shrink-0 shadow-2xs">
+                    <MessageCircle className="w-5.5 h-5.5 text-[#D69A18]" />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-[14px]">Doctor Enquiry</h3>
+                  <div className="text-left">
+                    <h3 className="font-extrabold text-[#0f2d5e] text-[14px]">Doctor Enquiry</h3>
+                    <p className="text-[11px] text-slate-500 font-medium">Chat on WhatsApp</p>
                   </div>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
-                  <ChevronRight className="w-4 h-4 text-[#2563eb] group-hover:text-white transition-colors" />
+                <div className="w-8.5 h-8.5 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center flex-shrink-0 group-hover:bg-[#D69A18] group-hover:border-[#D69A18] transition-all shadow-2xs">
+                  <ChevronRight className="w-4.5 h-4.5 text-[#D69A18] group-hover:text-white transition-colors" />
                 </div>
               </a>
 
+              {/* Card 4: Partner with us */}
               <Link href="/franchise"
-                className="bg-white rounded-2xl p-5 border border-gray-150 shadow-sm flex items-center justify-between group hover:shadow-[0_12px_30px_rgba(37,99,235,0.12)] hover:border-blue-400/50 hover:scale-[1.015] transition-all duration-300">
+                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#F3DBA7]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#D69A18] hover:scale-[1.015] transition-all duration-300">
                 <div className="flex items-center">
-                  <div className="w-12 h-12 rounded-2xl bg-[#dbeafe] flex items-center justify-center mr-4 flex-shrink-0">
-                    <Building2 className="w-6 h-6 text-[#2563eb]" />
+                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mr-3.5 flex-shrink-0 shadow-2xs">
+                    <Building2 className="w-5.5 h-5.5 text-[#D69A18]" />
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-[14px]">Partner with us</h3>
-                    <p className="text-[11px] text-slate-400 font-medium">Lab partner or franchise?</p>
+                  <div className="text-left">
+                    <h3 className="font-extrabold text-[#0f2d5e] text-[14px]">Partner with us</h3>
+                    <p className="text-[11px] text-slate-500 font-medium">Lab or franchise</p>
                   </div>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-[#dbeafe] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563eb] transition-colors">
-                  <ChevronRight className="w-4 h-4 text-[#2563eb] group-hover:text-white transition-colors" />
+                <div className="w-8.5 h-8.5 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center flex-shrink-0 group-hover:bg-[#D69A18] group-hover:border-[#D69A18] transition-all shadow-2xs">
+                  <ChevronRight className="w-4.5 h-4.5 text-[#D69A18] group-hover:text-white transition-colors" />
                 </div>
               </Link>
             </div>
@@ -1223,144 +1233,81 @@ export default function Home() {
 
 
 
-        {/* ── 24x7 Diagnostic Lab Banner ── */}
-        <section className="py-8 z-30 relative">
+        {/* ── Main Content & Sticky Booking Form Scroll Section ── */}
+        <section className="py-4 z-30 relative">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
-            <div className="rounded-[28px] overflow-hidden shadow-xl border border-white/50 relative bg-gradient-to-r from-[#FF9933]/10 via-white to-[#138808]/10 p-8 md:p-12">
-              {/* Background Decoration */}
-              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#138808]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#FF9933]/15 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
               
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                <div className="flex-1 text-left">
-                  <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3.5 shadow-sm">
-                    24×7 DIAGNOSTIC SERVICES
-                  </span>
-                  <h2 className="text-[28px] md:text-[38px] leading-[1.1] font-extrabold text-[#0b132b] mb-2">
-                    NABL Accredited Diagnostics
-                  </h2>
-                  <h3 className="text-[22px] md:text-[28px] leading-[1.2] font-extrabold text-[#2563eb] mb-4">
-                    Doctor-Led Diagnostic Lab in Bengaluru
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-                    {["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"].map(service => (
-                      <div key={service} className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-emerald-600" />
-                        <span className="text-slate-700 font-bold text-sm">{service}</span>
+              {/* Left 8 Columns: Main Page Content & Packages */}
+              <div className="lg:col-span-8 flex flex-col justify-between text-left h-full">
+                {/* Recommended Packages — Open 2-Column Responsive Grid (No Swiping Needed) */}
+                <div className="bg-white border border-slate-200/80 rounded-3xl p-5 sm:p-6 shadow-sm h-full flex flex-col justify-between">
+                  <div className="flex justify-between items-center mb-4">
+                    <div>
+                      <span className="text-[10px] font-extrabold text-[#D69A18] uppercase tracking-widest">Health Packages</span>
+                      <h2 className="text-[#0f2d5e] text-xl sm:text-2xl font-black mt-0.5">Recommended Packages</h2>
+                      <p className="text-slate-500 text-xs sm:text-sm font-semibold mt-0.5">Popular general health panels — trusted by thousands</p>
+                    </div>
+                    
+                    <Link href="/packages" className="border-2 border-[#D69A18] text-[#D69A18] font-extrabold px-4 py-1.5 rounded-full text-xs hover:bg-[#FFF8EB] transition-all shadow-2xs">
+                      View All Packages
+                    </Link>
+                  </div>
+
+                  {/* Open 2-Column Grid — All Packages Visible Directly */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4.5 flex-grow">
+                    {recommendedPackages.slice(0, 6).map((pkg, idx) => (
+                      <div
+                        key={pkg.id || pkg.name || idx}
+                        className="bg-white border border-slate-200/90 rounded-2xl p-4 shadow-xs hover:shadow-lg hover:border-[#D69A18] transition-all flex flex-col justify-between min-h-[200px] relative text-left group"
+                      >
+                        <div>
+                          <div className="flex justify-between items-start mb-2 gap-2">
+                            <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase ${
+                              idx === 0
+                                ? 'bg-[#D69A18] text-white shadow-2xs'
+                                : 'bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18]'
+                            }`}>
+                              {idx === 0 ? "✨ ₹800 SPECIAL" : (pkg.tag || "PACKAGE")}
+                            </span>
+                            <span className="bg-emerald-50 text-emerald-700 font-black text-[9.5px] px-2 py-0.5 rounded-full">
+                              {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || 5800)) * 100)}% OFF
+                            </span>
+                          </div>
+
+                          <h3 className="font-extrabold text-[#0f2d5e] text-sm sm:text-[15px] leading-snug mb-1.5 group-hover:text-[#D69A18] transition-colors">
+                            {pkg.name}
+                          </h3>
+
+                          <p className="text-xs text-slate-500 font-medium line-clamp-3 leading-relaxed mb-3">
+                            {pkg.includes}
+                          </p>
+                        </div>
+
+                        <div>
+                          <div className="flex items-baseline gap-2 mb-2.5">
+                            <span className="text-xl font-black text-[#0f2d5e]">₹{pkg.price}</span>
+                            <span className="text-xs text-slate-400 line-through font-bold">₹{pkg.old_price || pkg.original_price || "5800"}</span>
+                          </div>
+
+                          <Link
+                            href={`/book?package=${encodeURIComponent(pkg.name)}`}
+                            className="w-full bg-[#D69A18] hover:bg-[#C58B12] text-white font-extrabold text-xs py-2.5 rounded-xl text-center shadow-xs block transition-all uppercase tracking-wider active:scale-95"
+                          >
+                            Book Package
+                          </Link>
+                        </div>
                       </div>
                     ))}
                   </div>
-                  <p className="text-sm font-semibold text-slate-600 mb-6">
-                    Available at all QXL centres & partner facilities across Bengaluru.
-                  </p>
-                  <div className="flex flex-wrap items-center gap-4">
-                    <a href="tel:+919964639639" className="bg-[#2563eb] text-white font-black px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm uppercase tracking-widest flex items-center gap-2 border border-white/40">
-                      Call +91 9964 639 639
-                    </a>
-                    <a href="https://www.qxldiagnostics.com" target="_blank" rel="noreferrer" className="text-[#000080] font-bold text-sm hover:underline">
-                      www.qxldiagnostics.com
-                    </a>
-                  </div>
-                </div>
-                
-                {/* 24/7 Graphic */}
-                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-white/80 border-8 border-white shadow-2xl flex flex-col items-center justify-center flex-shrink-0 relative">
-                  <div className="absolute inset-0 border-4 border-dashed border-[#138808]/30 rounded-full animate-[spin_30s_linear_infinite]" />
-                  <span className="text-6xl md:text-7xl font-black text-[#000080] tracking-tighter">24<span className="text-[#FF9933]">/</span>7</span>
-                  <span className="text-xs md:text-sm font-bold tracking-widest text-[#138808] uppercase mt-1">Care & Precision</span>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* ── Recommended Packages ── */}
-        <section className="py-10 bg-transparent border-t border-gray-100">
-          <div className="max-w-[1260px] mx-auto px-4 w-full">
-            <div className="flex justify-between items-end mb-7">
-              <div>
-                <span className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Health Packages</span>
-                <h2 className="text-[#0f2d5e] text-2xl font-extrabold mt-0.5">Recommended Packages</h2>
-                <p className="text-slate-500 text-xs font-semibold mt-1">Our most popular general health panels — trusted by thousands</p>
+              {/* Right 4 Columns: Sticky Booking Form */}
+              <div className="hidden lg:block lg:col-span-4">
+                <StickyBookingForm />
               </div>
-              <Link href="/packages" className="border border-blue-600 text-blue-600 font-extrabold px-5 py-2 rounded-full text-xs hover:bg-blue-50 transition-all">
-                View All
-              </Link>
-            </div>
 
-            <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-6 scrollbar-hide">
-              {recommendedPackages.map((pkg, idx) => (
-                <motion.div
-                  key={pkg.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.35, delay: idx * 0.05 }}
-                  whileHover={{ y: -4 }}
-                  className="w-[280px] md:w-[300px] flex-shrink-0 snap-start bg-white border border-gray-150 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-blue-400/50 transition-all flex flex-col group h-[385px] text-left relative z-10 duration-300"
-                >
-                  {/* Card Header (Pills) */}
-                  <div className="w-full bg-[#f0f9ff] px-4 py-3 flex justify-between items-center border-b border-sky-100/50">
-                    <div className="flex items-center gap-1.5 flex-wrap">
-                      {pkg.most_booked ? (
-                        <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-3 py-1 rounded-full text-[10px] font-extrabold shadow-[0_0_12px_rgba(249,115,22,0.4)] flex items-center gap-1 border border-orange-400 tracking-wider">
-                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-                          MOST BOOKED
-                        </span>
-                      ) : (
-                        <span className="bg-[#2563eb] text-white px-3 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase">{pkg.tag || "PACKAGE"}</span>
-                      )}
-                    </div>
-                    <span className="bg-[#f0fdf4] text-[#16a34a] border border-[#dcfce7] px-3 py-1 rounded-full text-[10px] font-extrabold">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || pkg.originalPrice || 5800)) * 100)}% OFF</span>
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="p-4 flex flex-col flex-grow justify-between">
-                    <div>
-                      <div className="flex justify-between items-start mb-2 gap-2">
-                        <h3 className="font-extrabold text-[#0f2d5e] text-[15px] leading-tight hover:text-[#2563eb] transition-colors">{pkg.name}</h3>
-                      </div>
-                      
-                      {/* Parameter Box */}
-                      <div className="mb-3">
-                        <div className="bg-[#eff6ff] border border-sky-150/40 text-[#1d4ed8] text-[10.5px] font-medium px-3 py-2.5 rounded-xl h-[52px] flex items-center overflow-hidden leading-normal">
-                          <p className="line-clamp-2">{pkg.includes}</p>
-                        </div>
-                      </div>
-
-                      {/* Home Collection Notice */}
-                      <p className="text-[10px] text-slate-500 font-bold mb-3 flex items-center gap-1.5">
-                        🏠 Free Home Collection Available
-                      </p>
-                    </div>
-
-                    {/* Pricing */}
-                    <div className="flex items-baseline gap-2 mb-4">
-                      <span className="text-xl font-extrabold text-slate-900">₹{pkg.price}</span>
-                      <span className="text-xs text-slate-400 line-through font-semibold">₹{pkg.old_price || pkg.original_price || pkg.originalPrice || "5800"}</span>
-                      <span className="text-[11px] font-extrabold text-[#16a34a]">{Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || pkg.originalPrice || 5800)) * 100)}% OFF</span>
-                    </div>
-
-                    {/* Buttons */}
-                    <div className="flex gap-2 items-center mt-auto">
-                      <button
-                        type="button"
-                        onClick={() => setSelectedPackage(pkg)}
-                        className="flex-1 h-9 rounded-xl text-[10px] font-extrabold uppercase tracking-wider transition-all border border-slate-200 text-slate-700 hover:bg-slate-50 cursor-pointer flex items-center justify-center"
-                      >
-                        Details
-                      </button>
-
-                      <Link
-                        href={`/book?package=${encodeURIComponent(pkg.name)}`}
-                        className="flex-grow bg-[#2563eb] hover:bg-[#1d4ed8] text-white rounded-xl text-[10px] shadow-sm uppercase tracking-wider flex items-center justify-center gap-1 font-extrabold transition-all h-9 flex items-center justify-center text-center"
-                      >
-                        BOOK NOW
-                      </Link>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>
@@ -1402,48 +1349,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── Quick Booking Form (Full Details, 2-Column Desktop) ── */}
-        <section className="hidden lg:block py-16 bg-transparent border-y border-blue-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/50 to-sky-200/30 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
-          
-          <div className="max-w-[1260px] mx-auto px-4 w-full relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              {/* Left Column: Text & Features */}
-              <div className="lg:col-span-7 lg:pr-8">
-                <span className="inline-block bg-white text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-4 shadow-sm border border-blue-100">Quick Booking</span>
-                <h2 className="text-[#0f2d5e] text-4xl lg:text-5xl font-black mb-5 leading-tight">Book a Test at Home</h2>
-                <p className="text-slate-600 text-lg font-medium leading-relaxed mb-8 max-w-xl">
-                  Safe, hygienic, and incredibly fast. Search for your tests, choose a time slot, and our expert phlebotomists will arrive at your doorstep. Get accurate reports digitally within 24 hours.
-                </p>
-                <ul className="space-y-4 text-sm font-semibold text-slate-700">
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-extrabold">✓</span>
-                    <span>NABL Accredited accuracy and reliability</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-extrabold">✓</span>
-                    <span>Sterile, single-use collection equipment & vacuum tubes</span>
 
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-extrabold">✓</span>
-                    <span>Strict cold-chain logistics ensures sample integrity</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-extrabold">✓</span>
-                    <span>Secure digital reports delivered straight to WhatsApp</span>
-                  </li>
-                </ul>
-              </div>
-              
-              {/* Right Column: Booking Widget */}
-              <div className="lg:col-span-5 relative">
-                {/* Add a subtle highlight behind the form */}
-                <QuickBookingForm formState={formState} setFormState={setFormState} handleContactSubmit={handleContactSubmit} formStatus={formStatus} />
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* ── Raksha Bandhan Festive Offer Section ── */}
         {isCampaignActive() && (
@@ -1581,8 +1487,53 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Promo Highlights Slider — After Meet Our Team ── */}
+        {/* ── Promo Highlights Slider — Featured Packages & Offers ── */}
         <PromoHighlightSlider />
+
+        {/* ── Quick Booking Form (Book a Test at Home + Request a Call Back) ── */}
+        <section className="py-16 bg-gradient-to-b from-sky-50/50 via-white to-transparent border-y border-blue-100 relative overflow-hidden text-left">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-100/50 to-sky-200/30 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3 pointer-events-none" />
+          
+          <div className="max-w-[1260px] mx-auto px-4 w-full relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              {/* Left Column: Text & Features */}
+              <div className="lg:col-span-7 lg:pr-6 text-left">
+                <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 shadow-2xs">
+                  QUICK BOOKING
+                </span>
+                <h2 className="text-[#0f2d5e] text-3xl sm:text-4xl lg:text-5xl font-black mb-4 leading-tight">
+                  Book a Test at Home
+                </h2>
+                <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed mb-6 max-w-xl">
+                  Safe, hygienic, and incredibly fast. Search for your tests, choose a time slot, and our expert phlebotomists will arrive at your doorstep. Get accurate reports digitally within 24 hours.
+                </p>
+                <ul className="space-y-3.5 text-xs sm:text-sm font-extrabold text-slate-700">
+                  <li className="flex items-center gap-3">
+                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-black">✓</span>
+                    <span>NABL Accredited accuracy and reliability</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-black">✓</span>
+                    <span>Sterile, single-use collection equipment &amp; vacuum tubes</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-black">✓</span>
+                    <span>Strict cold-chain logistics ensures sample integrity</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-black">✓</span>
+                    <span>Secure digital reports delivered straight to WhatsApp</span>
+                  </li>
+                </ul>
+              </div>
+              
+              {/* Right Column: Request a Call Back Widget */}
+              <div className="lg:col-span-5 relative">
+                <QuickBookingForm formState={formState} setFormState={setFormState} handleContactSubmit={handleContactSubmit} formStatus={formStatus} />
+              </div>
+            </div>
+          </div>
+        </section>
         <BlogSlider />
 
         {/* ── Form and Maps ── */}
@@ -1682,6 +1633,54 @@ export default function Home() {
 
         <BlogSlider />
         <ReviewsSection />
+
+        {/* ── 24×7 Diagnostic Services Banner (Top of FAQ) ── */}
+        <section className="py-8 bg-transparent">
+          <div className="max-w-[1260px] mx-auto px-4 w-full">
+            <div className="rounded-[28px] overflow-hidden shadow-xl border border-white/50 relative bg-gradient-to-r from-[#FF9933]/10 via-white to-[#138808]/10 p-6 md:p-10 text-left">
+              {/* Background Decoration */}
+              <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#138808]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#FF9933]/15 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+              
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="flex-1 text-left">
+                  <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3.5 shadow-sm">
+                    24×7 DIAGNOSTIC SERVICES
+                  </span>
+                  <h2 className="text-[26px] md:text-[34px] leading-[1.1] font-black text-[#0b132b] mb-2">
+                    NABL Accredited Diagnostics
+                  </h2>
+                  <h3 className="text-[20px] md:text-[24px] leading-[1.2] font-black text-[#2563eb] mb-4">
+                    Doctor-Led Diagnostic Lab in Bengaluru
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                    {["Blood tests", "Pathology tests", "Preventive health checkups", "Home sample collection"].map(service => (
+                      <div key={service} className="flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-600 shrink-0" />
+                        <span className="text-slate-700 font-extrabold text-sm">{service}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs sm:text-sm font-bold text-slate-600 mb-5">
+                    Available at all QXL centres &amp; partner facilities across Bengaluru.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <a href="tel:+919964639639" className="bg-[#2563eb] text-white font-black px-6 py-3 rounded-full shadow-lg hover:shadow-xl hover:bg-blue-700 transition-all text-xs uppercase tracking-widest flex items-center gap-2 border border-white/40">
+                      Call +91 9964 639 639
+                    </a>
+                  </div>
+                </div>
+                
+                {/* 24/7 Badge */}
+                <div className="w-40 h-40 md:w-56 md:h-56 rounded-full bg-white/80 border-8 border-white shadow-2xl flex flex-col items-center justify-center flex-shrink-0 relative">
+                  <span className="text-5xl md:text-6xl font-black text-[#000080] tracking-tighter">24<span className="text-[#FF9933]">/</span>7</span>
+                  <span className="text-xs font-black tracking-widest text-[#138808] uppercase mt-1">Care &amp; Precision</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <FaqSection />
       </div>
 
@@ -1723,112 +1722,102 @@ export default function Home() {
             ))}
           </div>
 
-          {/* ── Mobile Hero Carousel Card (Strict CSS Grid: Column 1 Text / Column 2 Poster Image) ── */}
-          <div className="relative w-full rounded-3xl overflow-hidden my-3 shadow-md border border-amber-300/80 bg-gradient-to-br from-[#FFF8EE] via-white to-[#F0FFF4] p-2.5 sm:p-4 flex flex-col gap-2">
-            
-            {/* Round Blue Navigation Arrows (< & >) on left/right edges */}
-            <button
-              type="button"
-              onClick={() => setCurrentMobileSlide((prev) => (prev - 1 + mobileSlides.length) % mobileSlides.length)}
-              className="absolute left-1.5 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-90 transition-transform cursor-pointer border border-white/60"
-              aria-label="Previous Slide"
-            >
-              <ChevronLeft className="w-4 h-4 text-white stroke-[3]" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setCurrentMobileSlide((prev) => (prev + 1) % mobileSlides.length)}
-              className="absolute right-1.5 top-1/2 -translate-y-1/2 z-30 w-8 h-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-md active:scale-90 transition-transform cursor-pointer border border-white/60"
-              aria-label="Next Slide"
-            >
-              <ChevronRight className="w-4 h-4 text-white stroke-[3]" />
-            </button>
+          {/* ── Mobile Hero Carousel Card — EXACT MATCH TO REFERENCE DESIGN SCREENSHOT ── */}
+          {(() => {
+            const promoSlides = [
+              {
+                id: "full-body",
+                title: "Full Body Health Checkup",
+                subtitle: "80 Parameters",
+                price: "₹800",
+                oldPrice: "₹5,000",
+                cta: "Book Now",
+                ctaLink: "/book?package=Full+Body+Health+Checkup",
+                image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
+                bg: "bg-[#FDE272]",
+              },
+              {
+                id: "home-collection",
+                title: "Free Home Collection",
+                subtitle: "Same-Day Reports",
+                price: "Free",
+                oldPrice: "₹250",
+                cta: "Schedule Now",
+                ctaLink: "/home-blood-collection-bangalore",
+                image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150236/Assets-QXL/legacy-assets/image/senior_bp_check.png",
+                bg: "bg-[#FDE272]",
+              },
+            ];
+            const currentPromo = promoSlides[currentMobileSlide % promoSlides.length];
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentMobileSlide}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.25 }}
-                className="grid grid-cols-[1fr_125px] xs:grid-cols-[1fr_140px] items-center gap-2.5 w-full z-10 pl-7 pr-7 py-1 min-h-[165px]"
-              >
-                {/* Column 1: Text, Badges & CTAs */}
-                <div className="flex flex-col justify-center gap-1.5 min-w-0 text-left overflow-hidden">
-                  <div className="flex items-center gap-1 flex-wrap">
-                    <span className="bg-amber-500 text-slate-950 text-[8px] xs:text-[8.5px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs whitespace-nowrap">
-                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.badge || "DOCTOR-LED LAB"}
-                    </span>
-                    <span className="bg-emerald-100 text-emerald-800 text-[8px] xs:text-[8.5px] font-black px-2 py-0.5 rounded-full border border-emerald-300 whitespace-nowrap">
-                      FESTIVE @ ₹800 · VALID AUG 2026
-                    </span>
-                  </div>
+            return (
+              <div className="relative w-full rounded-[28px] overflow-hidden my-3 shadow-md bg-[#FDE272] text-left p-2.5 sm:p-4">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentPromo.id}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.25 }}
+                    className="grid grid-cols-[1.15fr_0.85fr] items-center gap-2 w-full z-10 min-h-[160px] xs:min-h-[175px]"
+                  >
+                    {/* Left Column: Text, Subtitle, Price & Book Now Pill Button */}
+                    <div className="flex flex-col justify-center text-left pl-3 xs:pl-4 pr-1 py-3 overflow-hidden">
+                      <h3 className="text-[19px] xs:text-[21px] font-black text-[#0B2545] leading-[1.18] tracking-tight mb-1">
+                        {currentPromo.title}
+                      </h3>
+                      <p className="text-xs xs:text-sm font-bold text-slate-800/80 mb-2">
+                        {currentPromo.subtitle}
+                      </p>
 
-                  <div className="flex flex-col gap-0.5 my-0.5">
-                    <h3 className="text-[12.5px] xs:text-[13.5px] font-black text-[#0f2d5e] leading-snug line-clamp-2 uppercase tracking-tight">
-                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.title || "PREVENTIVE FULL BODY DIAGNOSTICS"}
-                    </h3>
-                    <p className="text-[10px] xs:text-[11px] font-black text-[#2563eb] leading-snug line-clamp-1 uppercase">
-                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.titleAccent || "DOCTOR-LED LABORATORY TESTING"}
-                    </p>
-                  </div>
+                      <div className="flex items-baseline gap-2 mb-2.5">
+                        <span className="text-2xl xs:text-3xl font-black text-[#0B2545] tracking-tight">
+                          {currentPromo.price}
+                        </span>
+                        {currentPromo.oldPrice && (
+                          <span className="text-xs xs:text-sm font-bold text-slate-500/80 line-through tracking-tight">
+                            {currentPromo.oldPrice}
+                          </span>
+                        )}
+                      </div>
 
-                  {/* Parameter Tags */}
-                  <div className="flex flex-wrap gap-1 my-0.5">
-                    <span className="bg-blue-50 border border-blue-200 text-[#2563eb] text-[8px] font-black px-1.5 py-0.5 rounded-full whitespace-nowrap">✓ 80 Parameters</span>
-                    <span className="bg-emerald-50 border border-emerald-200 text-emerald-700 text-[8px] font-black px-1.5 py-0.5 rounded-full whitespace-nowrap">✓ Free Home Collection</span>
-                  </div>
+                      <Link
+                        href={currentPromo.ctaLink}
+                        className="bg-white hover:bg-slate-50 text-[#0B2545] font-black text-xs xs:text-sm px-4 xs:px-5 py-2.5 rounded-full shadow-md inline-flex items-center gap-1.5 transition-transform active:scale-95 border-none w-fit cursor-pointer mt-1"
+                      >
+                        <span>{currentPromo.cta}</span>
+                        <ChevronRight className="w-4 h-4 text-[#D69A18] stroke-[3]" />
+                      </Link>
+                    </div>
 
-                  <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
-                    <Link
-                      href={mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.ctaLink || "/book?package=Full+Body+Health+Checkup"}
-                      className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-3 py-1 rounded-full text-[9px] xs:text-[9.5px] uppercase tracking-wide shadow-xs active:scale-95 transition-transform whitespace-nowrap"
-                    >
-                      {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.cta || "BOOK NOW"} →
-                    </Link>
-                    <a
-                      href="tel:+919964639639"
-                      className="bg-white text-slate-700 font-bold px-2 py-1 rounded-full text-[9px] border border-slate-200 shadow-2xs whitespace-nowrap"
-                    >
-                      CALL
-                    </a>
-                  </div>
-                </div>
+                    {/* Right Column: Clean Photography Image (Aligned perfectly without text collisions) */}
+                    <div className="relative w-full h-[135px] xs:h-[155px] flex items-center justify-center overflow-hidden shrink-0 rounded-2xl shadow-xs border border-amber-300/40 bg-white">
+                      <img
+                        src={currentPromo.image}
+                        alt={currentPromo.title}
+                        className="w-full h-full object-cover object-center rounded-2xl"
+                      />
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
 
-                {/* Column 2: Poster Image (Rendered fully without cropping using object-contain) */}
-                {mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.image && (
-                  <div className="w-full h-[120px] xs:h-[135px] relative rounded-2xl overflow-hidden shrink-0 shadow-sm border border-amber-200 bg-white justify-self-end self-center flex items-center justify-center p-1">
-                    <img
-                      src={mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.image}
-                      alt={mobileSlides[currentMobileSlide % (mobileSlides.length || 1)]?.title}
-                      className="w-full h-full object-contain object-center rounded-xl"
+                {/* Slide Indicator Dots at bottom */}
+                <div className="flex justify-center items-center gap-1.5 pb-2.5 pt-1 z-10">
+                  {promoSlides.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => setCurrentMobileSlide(i)}
+                      aria-label={`Go to slide ${i + 1}`}
+                      className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                        i === (currentMobileSlide % promoSlides.length) ? "w-6 bg-[#0B2545]" : "w-2 bg-[#0B2545]/30"
+                      }`}
                     />
-                  </div>
-                )}
-              </motion.div>
-            </AnimatePresence>
-
-
-
-
-
-            {/* Slide Dots */}
-            {mobileSlides.length > 1 && (
-              <div className="flex justify-center items-center gap-1.5 mt-1 z-10">
-                {mobileSlides.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => setCurrentMobileSlide(i)}
-                    aria-label={`Go to slide ${i + 1}`}
-                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                      i === (currentMobileSlide % mobileSlides.length) ? "w-6 bg-[#D69A18]" : "w-2 bg-slate-300"
-                    }`}
-                  />
-                ))}
+                  ))}
+                </div>
               </div>
-            )}
-          </div>
+            );
+          })()}
         </div>
 
 

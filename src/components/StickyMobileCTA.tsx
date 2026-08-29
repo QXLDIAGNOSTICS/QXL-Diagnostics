@@ -11,7 +11,7 @@ export default function StickyMobileCTA() {
         <motion.a
           whileTap={{ scale: 0.95 }}
           href="tel:+919964639639"
-          className="flex flex-col items-center justify-center py-3 gap-1 text-sky-700 hover:bg-sky-50 active:bg-sky-100 transition-colors"
+          className="flex flex-col items-center justify-center py-3 gap-1 text-[#D69A18] hover:bg-amber-50 active:bg-amber-100 transition-colors"
           aria-label="Call QXL Diagnostics"
         >
           <Phone className="w-5 h-5" strokeWidth={2.2} />
@@ -22,11 +22,11 @@ export default function StickyMobileCTA() {
         <motion.div whileTap={{ scale: 0.95 }} className="w-full h-full">
           <Link
             href="/book"
-            className="flex flex-col items-center justify-center py-3 gap-1 bg-[#2563eb] text-white hover:bg-[#1d4ed8] active:bg-[#1e40af] transition-colors h-full relative"
+            className="flex flex-col items-center justify-center py-3 gap-1 bg-[#D69A18] text-white hover:bg-[#C58B12] active:bg-[#B47C09] transition-colors h-full relative"
             aria-label="Book a Test at QXL Diagnostics"
           >
-            <CalendarCheck className="w-5 h-5 z-10" strokeWidth={2.2} />
-            <span className="text-[10px] font-bold tracking-tight leading-none z-10">Book Test</span>
+            <CalendarCheck className="w-5 h-5 z-10 text-white" strokeWidth={2.2} />
+            <span className="text-[10px] font-bold tracking-tight leading-none z-10 text-white">Book Test</span>
           </Link>
         </motion.div>
 
@@ -34,7 +34,7 @@ export default function StickyMobileCTA() {
         <motion.div whileTap={{ scale: 0.95 }} className="w-full h-full">
           <Link
             href="/upload-prescription"
-            className="flex flex-col items-center justify-center py-3 gap-1 text-sky-700 hover:bg-sky-50 active:bg-sky-100 transition-colors h-full"
+            className="flex flex-col items-center justify-center py-3 gap-1 text-[#D69A18] hover:bg-amber-50 active:bg-amber-100 transition-colors h-full"
             aria-label="Upload Prescription to QXL Diagnostics"
           >
             <FileText className="w-5 h-5" strokeWidth={2.2} />

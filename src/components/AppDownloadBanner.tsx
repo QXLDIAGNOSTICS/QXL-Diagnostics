@@ -297,9 +297,9 @@ export default function AppDownloadBanner() {
               disabled={installing}
               className="flex items-center gap-2.5 font-extrabold px-7 py-3.5 rounded-2xl text-sm shadow-lg transition-all hover:scale-105 active:scale-95 disabled:opacity-70 cursor-pointer"
               style={{
-                background: "linear-gradient(135deg, #1d4ed8 0%, #0ea5e9 100%)",
+                background: "linear-gradient(135deg, #D69A18 0%, #E08500 100%)",
                 color: "white",
-                boxShadow: "0 8px 28px rgba(14,165,233,0.35)",
+                boxShadow: "0 8px 28px rgba(214,154,24,0.35)",
               }}
               aria-label="Install QXL Diagnostics app"
             >
@@ -372,7 +372,7 @@ export default function AppDownloadBanner() {
                     alert("To install QXL Diagnostics:\n\n• On iPhone/iOS: Tap 'Share' in Safari → 'Add to Home Screen'\n• On Android/Chrome: Tap 3 dots menu → 'Install App'");
                   }
                 }}
-                className="w-full bg-gradient-to-r from-[#2563eb] to-[#0284c7] hover:from-blue-700 hover:to-sky-700 text-white font-black py-3.5 px-6 rounded-2xl shadow-lg active:scale-95 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-3 cursor-pointer"
+                className="w-full bg-gradient-to-r from-[#D69A18] to-[#E08500] hover:from-amber-600 hover:to-amber-700 text-white font-black py-3.5 px-6 rounded-2xl shadow-lg active:scale-95 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-3 cursor-pointer"
               >
                 <Download className="w-4 h-4 text-white" />
                 <span>INSTALL APP NOW</span>

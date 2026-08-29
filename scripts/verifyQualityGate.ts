@@ -6,7 +6,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = process.cwd();
 
 interface AuditCheck {
   id: string;
@@ -82,7 +82,7 @@ runCheck('NAP-01', 'Local SEO & NAP', 'Helpline standardized to +91 9964 639 639
 runCheck('ROUTE-01', 'Route Hygiene', '/home 301 redirect and 404 dynamic catch-all guard', () => {
   const config = fs.readFileSync(path.join(ROOT, 'next.config.ts'), 'utf8');
   const slugPage = fs.readFileSync(path.join(ROOT, 'src/app/[slug]/page.tsx'), 'utf8');
-  const has301 = config.includes('/home') && config.includes('destination: \'/\'');
+  const has301 = config.includes('/home') && (config.includes('destination: \'/\'') || config.includes('destination: "/"'));
   const hasGuard = slugPage.includes('INVALID_SLUGS') && slugPage.includes('home');
   return { passed: has301 && hasGuard, details: 'Permanent 301 redirect and dynamic 404 guard active' };
 });

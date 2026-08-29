@@ -237,8 +237,8 @@ export default function Header() {
           boxShadow: '0 8px 40px rgba(255, 153, 51, 0.10), 0 1px 0 rgba(255,255,255,0.9) inset, 0 -1px 0 rgba(19, 136, 8, 0.15) inset'
         }}
       >
-        {/* Top Announcement Bar — Desktop (Sky Blue Ticker with Smooth Marquee) */}
-        <div className="hidden lg:flex bg-[#38b6f4] text-white text-[11px] font-black py-1 px-3 items-center overflow-hidden border-b border-sky-400/60 shadow-xs relative">
+        {/* Top Announcement Bar — Desktop (Deep Navy Bar with Smooth Marquee) */}
+        <div className="hidden lg:flex bg-[#0B2545] text-white text-[11px] font-black py-1 px-3 items-center overflow-hidden border-b border-amber-500/20 shadow-xs relative">
           <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] w-max cursor-pointer" style={{ animationDuration: '45s' }}>
             {[1, 2].map((repeatKey) => (
               <div key={repeatKey} className="flex items-center gap-4 shrink-0 mr-8">
@@ -382,10 +382,10 @@ export default function Header() {
                   style={{ background: 'rgba(224,242,254,0.6)', border: '1px solid rgba(125,199,232,0.3)', backdropFilter: 'blur(8px)' }}
                   title={userDisplayName}
                 >
-                  <span className="w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-extrabold flex-shrink-0" style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)', boxShadow: '0 2px 8px rgba(14,165,233,0.35)' }}>
+                  <span className="w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-extrabold flex-shrink-0" style={{ background: 'linear-gradient(135deg, #D69A18 0%, #E08500 100%)', boxShadow: '0 2px 8px rgba(214,154,24,0.35)' }}>
                     {userInitial}
                   </span>
-                  <span className="text-[12px] font-extrabold text-[#0369a1] truncate">{userDisplayName}</span>
+                  <span className="text-[12px] font-extrabold text-[#0B2545] truncate">{userDisplayName}</span>
                 </Link>
               )}
               {/* Language Switcher */}
@@ -394,10 +394,10 @@ export default function Header() {
               <Link
                 href="/book"
                 className="hidden xl:flex items-center justify-center w-9 h-9 rounded-full relative transition-all duration-200 hover:scale-105"
-                style={{ background: 'rgba(224,242,254,0.65)', border: '1px solid rgba(125,199,232,0.35)', backdropFilter: 'blur(8px)', boxShadow: '0 2px 12px rgba(14,165,233,0.15), inset 0 1px 0 rgba(255,255,255,0.85)' }}
+                style={{ background: 'rgba(255,248,235,0.75)', border: '1px solid rgba(243,219,167,0.6)', backdropFilter: 'blur(8px)', boxShadow: '0 2px 12px rgba(214,154,24,0.15), inset 0 1px 0 rgba(255,255,255,0.85)' }}
                 title="Cart / Booked Tests"
               >
-                <ShoppingCart className="w-4 h-4 text-[#0284c7]" />
+                <ShoppingCart className="w-4 h-4 text-[#D69A18]" />
                 {cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold text-white" style={{ background: 'linear-gradient(135deg, #f87171 0%, #ef4444 100%)', boxShadow: '0 2px 6px rgba(239,68,68,0.4)' }}>
                     {cartCount}
@@ -408,7 +408,7 @@ export default function Header() {
               <Link
                 href="/book"
                 className="hidden xl:inline-flex items-center font-black px-6 py-2.5 rounded-full text-[11px] uppercase tracking-wider whitespace-nowrap active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
-                style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%)', color: '#ffffff' }}
+                style={{ background: 'linear-gradient(135deg, #D69A18 0%, #E08500 100%)', color: '#ffffff' }}
               >
                 <span className="!text-white font-black flex items-center gap-1.5" style={{ color: '#ffffff' }}>
                   <span>BOOK A TEST</span>

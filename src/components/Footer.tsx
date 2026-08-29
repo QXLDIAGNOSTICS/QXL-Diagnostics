@@ -24,8 +24,8 @@ const specialities = [
   { label: "Urology", href: "/specialities/urology" },
 ];
 
-/** Near-black navy base + frosted glass panels (no color gradients). */
-const BASE = "#060a12";
+/** Deep navy base + frosted glass panels matching QXL design mockup. */
+const BASE = "#082142";
 const GLASS = "rgba(255, 255, 255, 0.04)";
 const GLASS_BORDER = "1px solid rgba(255, 255, 255, 0.08)";
 const GLASS_SOFT = "rgba(148, 163, 184, 0.06)";

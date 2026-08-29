@@ -51,38 +51,38 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: #FFFFFF;
+  --foreground: #0B2545;
+  --card: #FFFFFF;
+  --card-foreground: #0B2545;
+  --popover: #FFFFFF;
+  --popover-foreground: #0B2545;
+  --primary: #D69A18;
+  --primary-foreground: #FFFFFF;
+  --secondary: #FFF8EB;
+  --secondary-foreground: #0B2545;
+  --muted: #F8FAFC;
+  --muted-foreground: #64748B;
+  --accent: #E08500;
+  --accent-foreground: #FFFFFF;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #D69A18;
+  --chart-1: #D69A18;
+  --chart-2: #E08500;
+  --chart-3: #0B2545;
+  --chart-4: #C58B12;
+  --chart-5: #082142;
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0B2545;
+  --sidebar-primary: #D69A18;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FFF8EB;
+  --sidebar-accent-foreground: #0B2545;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #D69A18;
 }
 
 
@@ -106,44 +106,44 @@
 
 /* ── Design Tokens ── */
 :root {
-  /* Brand palette — India Theme */
-  --sky-50:  #f0f9ff;
-  --sky-100: #e0f2fe;
-  --sky-200: #bae6fd;
-  --sky-300: #7dd3fc;
-  --sky-400: #38bdf8;
-  --sky-500: #0ea5e9;
-  --sky-600: #0284c7;
-  --sky-700: #0369a1;
-  --sky-800: #075985;
-  --sky-900: #0c4a6e;
+  /* Brand palette — Warm Gold & Deep Navy (Exact QXL Diagnostic Mockup Scheme) */
+  --sky-50:  #fff8eb;
+  --sky-100: #fff1d6;
+  --sky-200: #fde3ac;
+  --sky-300: #fbc774;
+  --sky-400: #f6a63c;
+  --sky-500: #d69a18;
+  --sky-600: #e08500;
+  --sky-700: #c58b12;
+  --sky-800: #9c6806;
+  --sky-900: #082142;
 
-  /* Legacy compat - Original Blue Theme for Buttons */
-  --primary:       #0ea5e9;
-  --accent:        #38bdf8;
-  --accent-light:  #f0f9ff;
-  --accent-hover:  #0284c7;
+  /* Primary Accent & Navy Theme */
+  --primary:       #D69A18;
+  --accent:        #E08500;
+  --accent-light:  #FFF8EB;
+  --accent-hover:  #C58B12;
   --white:         #FFFFFF;
-  --bg-light:      #ffffff;
-  --text-main:     #0b132b;
-  --text-muted:    #4a5568;
-  --border:        rgba(125, 199, 232, 0.25);
+  --bg-light:      #F8FAFC;
+  --text-main:     #0B2545;
+  --text-muted:    #64748B;
+  --border:        #E2E8F0;
   --success:       #10b981; 
-  --theme-primary: #0284c7;
-  --theme-secondary: #0ea5e9;
+  --theme-primary: #D69A18;
+  --theme-secondary: #E08500;
 
   /* Liquid glass tokens */
-  --glass-bg:      rgba(255, 255, 255, 0.65);
-  --glass-bg-2:    rgba(255, 255, 255, 0.85);
-  --glass-border:  rgba(255, 153, 51, 0.25);
-  --glass-shadow:  0 8px 40px rgba(255, 153, 51, 0.10), 0 1px 0 rgba(255,255,255,0.9) inset;
+  --glass-bg:      rgba(255, 255, 255, 0.75);
+  --glass-bg-2:    rgba(255, 255, 255, 0.90);
+  --glass-border:  rgba(214, 154, 24, 0.25);
+  --glass-shadow:  0 8px 40px rgba(214, 154, 24, 0.10), 0 1px 0 rgba(255,255,255,0.9) inset;
   --glass-blur:    blur(24px) saturate(180%);
 
   /* Spatial depth */
-  --depth-1: 0 2px 8px rgba(0, 0, 128, 0.08);
-  --depth-2: 0 8px 32px rgba(0, 0, 128, 0.12);
-  --depth-3: 0 20px 60px rgba(0, 0, 128, 0.18);
-  --depth-4: 0 40px 100px rgba(0, 0, 128, 0.24);
+  --depth-1: 0 2px 8px rgba(8, 33, 66, 0.08);
+  --depth-2: 0 8px 32px rgba(8, 33, 66, 0.12);
+  --depth-3: 0 20px 60px rgba(8, 33, 66, 0.18);
+  --depth-4: 0 40px 100px rgba(8, 33, 66, 0.24);
 }
 
 /* ── Body — spatial sky gradient ── */
@@ -269,20 +269,20 @@ img { max-width: 100%; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #ffffff !important;
-  background: linear-gradient(135deg, rgba(255, 153, 51, 0.92) 0%, rgba(230, 138, 46, 0.95) 100%) !important; /* Saffron Button */
+  background: linear-gradient(135deg, #D69A18 0%, #E08500 100%) !important; /* Ochre Warm Amber Button */
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
   border: 1px solid rgba(255,255,255,0.45) !important;
-  box-shadow: 0 4px 20px rgba(255, 153, 51, 0.35), inset 0 1px 0 rgba(255,255,255,0.5) !important;
-  text-shadow: 0 1px 2px rgba(204, 122, 41, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(214, 154, 24, 0.35), inset 0 1px 0 rgba(255,255,255,0.5) !important;
+  text-shadow: 0 1px 2px rgba(197, 139, 18, 0.3) !important;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 .btn-sky:hover, .glass-btn:hover {
   transform: translateY(-2px) scale(1.02) !important;
-  box-shadow: 0 8px 30px rgba(255, 153, 51, 0.55), inset 0 1px 0 rgba(255,255,255,0.6) !important;
+  box-shadow: 0 8px 30px rgba(214, 154, 24, 0.55), inset 0 1px 0 rgba(255,255,255,0.6) !important;
   color: #ffffff !important;
-  background: linear-gradient(135deg, rgba(255, 153, 51, 1) 0%, rgba(204, 122, 41, 1) 100%) !important;
+  background: linear-gradient(135deg, #C58B12 0%, #C67300 100%) !important;
 }
 .btn-sky:active, .glass-btn:active { transform: scale(0.96) !important; }
 
