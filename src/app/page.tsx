@@ -894,6 +894,7 @@ export default function Home() {
       title: "Book Home Sample Collection in",
       titleAccent: "Bengaluru",
       subtitle: "Safe, reliable and convenient sample collection from the comfort of your home.",
+      showForm: true,
       cta: "Schedule Home Collection",
       ctaLink: "/home-collection",
       ctaSecondary: "Call +91 9964 639 639",
@@ -971,8 +972,7 @@ export default function Home() {
         <section className="pt-6 pb-4 relative group overflow-hidden">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div
-              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row min-h-[360px] md:h-[420px] shadow-lg border border-amber-200/50"
-              style={{ background: 'linear-gradient(135deg, #FFF4E6 0%, #FFFFFF 40%, #FFFFFF 60%, #E8F5E9 100%)' }}
+              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row min-h-[440px] md:h-[465px] shadow-sm border border-slate-200/90 bg-white"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -983,7 +983,7 @@ export default function Home() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.7 }}
-                  className="relative md:absolute inset-0 w-full h-full flex flex-col md:flex-row"
+                  className="relative md:absolute inset-0 w-full h-full flex flex-col md:flex-row bg-white"
                 >
                   {activeSlide?.imageOnly ? (
                     <React.Fragment>
@@ -992,7 +992,7 @@ export default function Home() {
                         initial={{ opacity: 0, scale: 1.02 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.7 }}
-                        className="absolute inset-0 w-full h-full"
+                        className="absolute inset-0 w-full h-full bg-white"
                       >
                         <Image
                           src={activeSlide.image}
@@ -1006,16 +1006,12 @@ export default function Home() {
                     </React.Fragment>
                   ) : (
                     <React.Fragment>
-                      {/* Decorative Festive Background */}
-                      <div className="absolute top-0 right-0 w-[450px] h-[450px] bg-amber-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
-                      <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-emerald-500/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
-
                       {/* Content — left side */}
                       <motion.div
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="w-full md:w-[55%] px-5 sm:px-8 md:px-12 py-6 sm:py-8 h-full flex flex-col justify-center z-20 relative text-left overflow-hidden"
+                        className="w-full md:w-[55%] px-5 sm:px-8 md:px-12 py-6 sm:py-8 h-full flex flex-col justify-center z-20 relative text-left overflow-hidden bg-white"
                       >
                         {/* Tagline / Badge */}
                         <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -1073,15 +1069,18 @@ export default function Home() {
 
                       </motion.div>
 
-                      {/* Image / Decorative — right side on desktop, bottom or full card on mobile */}
+                      {/* Image / Form Widget — right side on desktop */}
                       <motion.div
                         initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="relative md:absolute top-0 right-0 bottom-0 w-full md:w-[50%] h-[180px] sm:h-[220px] md:h-full z-10 flex items-center justify-center overflow-hidden rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none"
-                        style={{ background: activeSlide.noImage ? 'linear-gradient(135deg, #FFF8EE 0%, #FFFBF0 50%, #F0FFF4 100%)' : 'transparent' }}
+                        className="relative md:absolute top-0 right-0 bottom-0 w-full md:w-[48%] h-auto md:h-full z-20 flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
                       >
-                        {activeSlide.noImage ? (
+                        {activeSlide.showForm ? (
+                          <div className="w-full max-w-[440px] my-auto">
+                            <StickyBookingForm />
+                          </div>
+                        ) : activeSlide.noImage ? (
                           <div className="flex flex-col items-center justify-center w-full h-full px-6 text-center gap-3">
                             {/* Pookkalam flower motif */}
                             <div className="text-[72px] leading-none select-none" aria-hidden="true">🌸</div>
