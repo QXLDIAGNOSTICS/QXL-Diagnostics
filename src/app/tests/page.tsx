@@ -821,7 +821,7 @@ export default function TestsPage() {
   };
 
   return (
-    <div className="bg-[#f8fafc] min-h-screen pb-24">
+    <div className="bg-white min-h-screen pb-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
