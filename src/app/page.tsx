@@ -890,6 +890,20 @@ export default function Home() {
   // ── Package & Home Collection Hero Slides ────────────────────────────────
   const contentSlides = [
     {
+      badge: "Trusted • Accurate • On Time",
+      title: "Book Home Sample Collection in",
+      titleAccent: "Bengaluru",
+      subtitle: "Safe, reliable and convenient sample collection from the comfort of your home.",
+      cta: "Schedule Home Collection",
+      ctaLink: "/home-collection",
+      ctaSecondary: "Call +91 9964 639 639",
+      ctaSecondaryLink: "tel:+919964639639",
+      image: "/images/posters/e630d3d6-7600-4a93-a304-02c0b772dfe9.jpeg",
+      imageFit: "contain",
+      bgFrom: "#ffffff", bgTo: "#fff8eb",
+      features: ["Trained Phlebotomists", "Tamper-proof Collection", "Hygienic & Safe Process", "Reports On Time"],
+    },
+    {
       badge: "✨ SPECIAL OFFER · 80 HEALTH PARAMETERS",
       title: "FULL BODY HEALTH CHECKUP @ ₹800",
       titleAccent: "NABL ACCREDITED DOCTOR-LED DIAGNOSTICS",
@@ -904,22 +918,6 @@ export default function Home() {
       imageFit: "contain",
       bgFrom: "#fff7ed", bgTo: "#f0fdf4",
       features: ["80 Health Parameters", "₹800 Only (Worth ₹5,800)", "Free Doorstep Sample Pickup", "Doctor Reviewed Reports"],
-    },
-    {
-      badge: "DOCTOR-LED SUPER SPECIALITY LAB",
-      title: "NABL ACCREDITED DIAGNOSTIC CARE",
-      titleAccent: "PRECISION BLOOD & PATHOLOGY TESTING",
-      subtitle: "State-of-the-art laboratory testing backed by senior consultant pathologists and microbiologists.",
-      subtitleAccent: "Free Home Collection Available Across All Areas in Bengaluru",
-      description: "Trusted by thousands of families and clinicians across Bengaluru for ultra-precise diagnostic testing.",
-      cta: "Book a Test Now",
-      ctaLink: "/book",
-      ctaSecondary: "Call +91 9964 639 639",
-      ctaSecondaryLink: "tel:+919964639639",
-      image: "/images/posters/e630d3d6-7600-4a93-a304-02c0b772dfe9.jpeg",
-      imageFit: "contain",
-      bgFrom: "#f0fdf4", bgTo: "#eff6ff",
-      features: ["NABL Accredited", "Doctor Reviewed", "24x7 Diagnostics", "Bengaluru Home Collection"],
     },
   ];
 
@@ -1019,62 +1017,55 @@ export default function Home() {
                         transition={{ duration: 0.3 }}
                         className="w-full md:w-[55%] px-5 sm:px-8 md:px-12 py-6 sm:py-8 h-full flex flex-col justify-center z-20 relative text-left overflow-hidden"
                       >
-                        {/* Badge */}
-                        <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
-                          <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 text-[9px] font-black px-3.5 py-1.5 rounded-full tracking-widest uppercase shadow-md border border-amber-300 truncate max-w-[90%]">
-                            <span>{activeSlide.badge}</span>
+                        {/* Tagline / Badge */}
+                        <div className="flex flex-wrap items-center gap-2 mb-2">
+                          <span className="inline-flex items-center gap-1.5 bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
+                            {activeSlide.badge}
                           </span>
-
-                          <span className="inline-flex items-center gap-1 bg-emerald-50 border border-emerald-300 text-emerald-800 text-[9.5px] font-black px-2.5 py-0.5 rounded-full shadow-xs">
-                            FESTIVE SPECIAL @ ₹800
+                          <span className="inline-flex items-center gap-1 bg-emerald-50 border border-emerald-300 text-emerald-800 text-[9.5px] font-black px-2.5 py-0.5 rounded-full shadow-2xs">
+                            ✓ NABL MC-6849
                           </span>
                         </div>
 
-                        {/* H1 Title — Prominent Hero Banner Heading */}
-                        <h1 className="text-[22px] sm:text-[26px] md:text-[30px] leading-[1.12] font-black text-[#0f2d5e] mb-1 pr-4">
-                          {activeSlide.title}
+                        {/* Title matching Image 2 */}
+                        <h1 className="text-[26px] sm:text-[32px] md:text-[36px] leading-[1.1] font-black text-[#0f2d5e] mb-2 pr-2">
+                          {activeSlide.title} <span className="text-[#D69A18]">{activeSlide.titleAccent}</span>
                         </h1>
-                        <p className="text-[13px] sm:text-[15px] md:text-[17px] leading-[1.2] font-extrabold text-[#D69A18] mb-2 pr-4">
-                          {activeSlide.titleAccent || 'NABL ACCREDITED DOCTOR-LED DIAGNOSTICS'}
-                        </p>
 
                         {/* Subtitle */}
-                        <p className="text-[11.5px] sm:text-[13px] text-slate-600 font-semibold mb-3 max-w-md leading-relaxed">
+                        <p className="text-[12.5px] sm:text-[14px] text-slate-600 font-semibold mb-4 max-w-lg leading-relaxed">
                           {activeSlide.subtitle}
                         </p>
 
-                        {/* Feature pills — max 4, single row */}
-                        <div className="flex flex-wrap gap-1.5 mb-3 sm:mb-4">
+                        {/* 4 Feature Pills matching Image 2 bottom row */}
+                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
                           {activeSlide.features.slice(0, 4).map((f: string, i: number) => (
-                            <span
+                            <div
                               key={f}
-                              className={`text-[9.5px] sm:text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border ${
-                                i % 3 === 0
-                                  ? "bg-blue-50 border-blue-300 text-blue-800"
-                                  : i % 3 === 1
-                                  ? "bg-sky-50 border-sky-300 text-sky-800"
-                                  : "bg-emerald-50 border-emerald-300 text-emerald-800"
-                              }`}
+                              className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-xl p-2 flex items-center gap-1.5 shadow-2xs"
                             >
-                              ✓ {f}
-                            </span>
+                              <span className="text-sm shrink-0">
+                                {i === 0 ? "🩺" : i === 1 ? "🔒" : i === 2 ? "🛡️" : "⚡"}
+                              </span>
+                              <span className="text-[9.5px] sm:text-[10px] font-extrabold text-[#0f2d5e] leading-tight">
+                                {f}
+                              </span>
+                            </div>
                           ))}
                         </div>
 
                         {/* CTA Buttons */}
-                        <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
+                        <div className="flex flex-wrap items-center gap-3">
                           <Link
                             href={activeSlide.ctaLink}
-                            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-[12px] shadow-md hover:shadow-lg active:scale-95 transition-all uppercase tracking-wide border border-amber-200"
+                            className="bg-[#D69A18] hover:bg-[#C58B12] text-white font-black px-6 py-2.5 rounded-full text-xs shadow-md hover:shadow-lg active:scale-95 transition-all uppercase tracking-wider flex items-center gap-2 cursor-pointer"
                           >
-                            <span className="flex items-center gap-1.5">
-                              <span>{activeSlide.cta}</span>
-                              <span className="text-sm">→</span>
-                            </span>
+                            <span>{activeSlide.cta}</span>
+                            <span className="text-sm">→</span>
                           </Link>
                           <a
                             href={activeSlide.ctaSecondaryLink}
-                            className="bg-white hover:bg-slate-50 text-slate-700 font-bold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[10.5px] sm:text-[11px] uppercase tracking-wide border border-blue-300/80 shadow-sm transition-all"
+                            className="bg-white hover:bg-slate-50 text-[#0f2d5e] font-black px-4 py-2.5 rounded-full text-xs uppercase tracking-wider border border-[#F3DBA7] shadow-2xs transition-all"
                           >
                             {activeSlide.ctaSecondary}
                           </a>
