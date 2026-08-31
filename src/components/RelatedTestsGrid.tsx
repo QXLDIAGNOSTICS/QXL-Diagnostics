@@ -33,7 +33,7 @@ export default function RelatedTestsGrid({ tests, heading = 'Related Tests at QX
           return (
             <Link
               key={item.slug}
-              href={`/tests/${item.slug}`}
+              href={`/${item.slug}`}
               className="group flex items-center justify-between gap-3 bg-slate-50 hover:bg-sky-50 border border-slate-200 hover:border-sky-300 rounded-2xl p-4 transition-all"
             >
               <div className="flex items-center gap-3 min-w-0">

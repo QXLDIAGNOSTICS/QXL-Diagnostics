@@ -96,7 +96,7 @@ export default async function ConditionPage({ params }: Props) {
                   <div className="flex items-center gap-3 shrink-0">
                     <span className="text-lg font-black text-slate-900">₹{t.price}</span>
                     <Link
-                      href={`/tests/${t.slug}`}
+                      href={`/${t.slug}`}
                       className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-1 uppercase tracking-wider"
                     >
                       View Test <ArrowRight className="w-3.5 h-3.5" />

@@ -1,7 +1,7 @@
 import type { SeoLandingData } from "../types";
 
 export const spepTest: SeoLandingData = {
-  slug: "/tests/spep-test-bangalore",
+  slug: "/spep-test-bangalore",
   breadcrumbLabel: "SPEP Test",
   pageType: "test",
   medicalTestName: "Serum Protein Electrophoresis (SPEP) Test",

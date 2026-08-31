@@ -15,11 +15,11 @@ import {
 import { motion } from "framer-motion";
 
 const popularTests = [
-  { name: "CBC", href: "/tests/cbc" },
-  { name: "Vitamin D", href: "/tests/vitamin-d" },
-  { name: "HbA1c", href: "/tests/hba1c" },
-  { name: "Thyroid Profile", href: "/tests/thyroid-profile" },
-  { name: "Lipid Profile", href: "/tests/lipid-profile" },
+  { name: "CBC", href: "/cbc" },
+  { name: "Vitamin D", href: "/vitamin-d" },
+  { name: "HbA1c", href: "/hba1c" },
+  { name: "Thyroid Profile", href: "/thyroid-profile" },
+  { name: "Lipid Profile", href: "/lipid-profile" },
 ];
 
 const popularPackages = [

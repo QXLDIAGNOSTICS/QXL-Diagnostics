@@ -52,7 +52,7 @@ export default function ChatGPTAnalyticsPage() {
             </div>
           </div>
           <Link
-            href="/tests/cbc-test-bangalore?utm_source=chatgpt.com&utm_medium=referral"
+            href="/cbc-test-bangalore?utm_source=chatgpt.com&utm_medium=referral"
             className="bg-[#2563eb] text-white text-xs font-bold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition-all flex items-center gap-1.5 shrink-0"
           >
             Test ChatGPT Link <ArrowRight className="w-3.5 h-3.5" />

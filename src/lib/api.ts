@@ -624,12 +624,12 @@ export const api = {
   },
   tests: {
     list: (q?: string) => get<TestCatalogItem[]>(`/tests${q ? `?q=${encodeURIComponent(q)}` : ''}`),
-    get: (id: string) => get<TestCatalogItem>(`/tests/${id}`),
+    get: (id: string) => get<TestCatalogItem>(`/${id}`),
     adminList: (limit = 200, offset = 0) =>
       get<{ items: TestCatalogItem[]; count: number }>(`/tests/admin?limit=${limit}&offset=${offset}`),
     create: (data: TestCatalogCreate) => post<TestCatalogItem>('/tests', data),
-    update: (id: string, data: TestCatalogUpdate) => patch<TestCatalogItem>(`/tests/${id}`, data),
-    remove: (id: string) => del<void>(`/tests/${id}`),
+    update: (id: string, data: TestCatalogUpdate) => patch<TestCatalogItem>(`/${id}`, data),
+    remove: (id: string) => del<void>(`/${id}`),
   },
   bookings: {
     create: (data: BookingCreate) => post<Booking>('/bookings', data),

@@ -1,7 +1,7 @@
 import type { SeoLandingData } from "../types";
 
 export const anaTest: SeoLandingData = {
-  slug: "/tests/ana-test-bangalore",
+  slug: "/ana-test-bangalore",
   breadcrumbLabel: "ANA Test",
   pageType: "test",
   medicalTestName: "Antinuclear Antibody (ANA by IFA) Profile Test",

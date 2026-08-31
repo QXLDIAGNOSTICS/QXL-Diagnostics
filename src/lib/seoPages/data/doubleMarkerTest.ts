@@ -1,7 +1,7 @@
 import type { SeoLandingData } from "../types";
 
 export const doubleMarkerTest: SeoLandingData = {
-  slug: "/tests/double-marker-test-bangalore",
+  slug: "/double-marker-test-bangalore",
   breadcrumbLabel: "Double Marker Test",
   pageType: "test",
   medicalTestName: "First Trimester Double Marker Screening Test",
