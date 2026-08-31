@@ -2,6 +2,7 @@ import { topTests } from '../testsData';
 import { prenatalScreeningPagesWithAliases } from './prenatalScreeningData';
 import { masterExtractedPagesData } from './extractedMasterData';
 import { excel100TestsData } from './excel100TestsData';
+import { cms100MasterData } from './cms100MasterData';
 
 export interface ReferenceRange {
   label: string;
@@ -47,6 +48,26 @@ export interface DynamicPageData {
   whenToTest?: string[];
   /** 2–3 sentences of deeper clinical significance — for AI extractable blocks. */
   clinicalSignificance?: string;
+  // ── 69-Field Bulk Template & Textbook Attributes ───────────────────────
+  testCode?: string;
+  aliases?: string[];
+  department?: string;
+  speciality?: string;
+  vacutainer?: string;
+  sampleVolume?: string;
+  method?: string;
+  indications?: string;
+  interpretation?: string;
+  limitations?: string[];
+  interferences?: string[];
+  preparationBullets?: string[];
+  aeoPhrases?: string[];
+  geoPhrases?: string[];
+  aieoEntities?: string[];
+  textbookReferences?: string[];
+  preanalyticalNotes?: string;
+  interpretiveNotes?: string;
+  validationNotes?: string;
 }
 
 
@@ -1397,6 +1418,11 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
     cleanSlug = SIMPLE_SLUG_MAP[cleanSlug];
   }
   
+  // ── Phase 0: Check CMS 100 Bulk Template Master Records ──────────────────
+  if (cms100MasterData[cleanSlug]) {
+    return cms100MasterData[cleanSlug];
+  }
+
   // ── Phase 1: Check Excel Master 100 Dedicated Test Definitions ───────────
   if (excel100TestsData[cleanSlug]) {
     return excel100TestsData[cleanSlug];
