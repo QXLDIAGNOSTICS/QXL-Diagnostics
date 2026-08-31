@@ -5,14 +5,14 @@ import { CheckCircle2, ArrowRight, ShieldCheck, Award } from 'lucide-react';
 export const ALL_PACKAGES = [
   {
     id: "raksha-bandhan-800",
-    name: "Raksha Bandhan Special Health Checkup",
+    name: "Full Body Health Checkup (80 Params)",
     price: "800",
     old_price: "5800",
     save_amount: "5000",
     discountPercent: "86% OFF",
     parameters: "80 Parameters",
     includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary Markers (21).",
-    tag: "RAKSHA BANDHAN OFFER",
+    tag: "SPECIAL PREVENTIVE OFFER",
     most_booked: true,
     benefits: ["80 Health Parameters", "8 Major Organ Systems", "Free Doorstep Home Collection"]
   },

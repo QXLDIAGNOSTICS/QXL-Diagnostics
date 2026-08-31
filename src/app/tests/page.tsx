@@ -215,7 +215,7 @@ export default function TestsPage() {
               {selectedCategory === "All Categories" ? "All Diagnostic Tests" : selectedCategory}
             </h2>
             <p className="text-xs text-slate-500 font-semibold mt-0.5">
-              Showing {filteredTests.length} test{filteredTests.length !== 1 ? "s" : ""} available in Bengaluru
+              Showing {filteredTests.length} popular test{filteredTests.length !== 1 ? "s" : ""} (from 300+ total catalogue) available in Bengaluru
             </p>
           </div>
 

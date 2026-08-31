@@ -91,7 +91,7 @@ const defaultDoctors = [
 const defaultPackages = [
   {
     id: "raksha-bandhan-800",
-    name: "Raksha Bandhan Special Health Checkup",
+    name: "Full Body Health Checkup (80 Params)",
     price: "800",
     old_price: "5800",
     original_price: "5800",

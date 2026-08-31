@@ -2,23 +2,22 @@ import type { Metadata } from "next";
 import RakshaBandhanClientPage from "./RakshaBandhanClientPage";
 
 export const metadata: Metadata = {
-  title: "Raksha Bandhan Health Checkup in Bengaluru | QXL Diagnostics",
-  description: "Celebrate Raksha Bandhan with a special health checkup from QXL Diagnostics. Explore preventive health testing and convenient home sample collection in Bengaluru.",
+  title: "Full Body Health Checkup (80 Params - ₹800) in Bengaluru | QXL Diagnostics",
+  description: "Comprehensive 80-parameter full body health checkup package from QXL Diagnostics (₹800). Includes free doorstep home sample collection across Bengaluru.",
   keywords: [
-    "Raksha Bandhan health checkup",
-    "Raksha Bandhan health offer Bangalore",
+    "full body checkup Bangalore",
+    "full body health checkup 80 parameters",
     "health checkup offer Bengaluru",
     "QXL Diagnostics health check",
     "NABL lab home sample collection Bengaluru",
-    "sibling health checkup package",
-    "full body checkup offer Bangalore",
+    "preventive health checkup package",
   ],
   alternates: {
     canonical: "https://qxldiagnostics.com/raksha-bandhan-health-checkup-bangalore",
   },
   openGraph: {
-    title: "Raksha Bandhan Health Checkup in Bengaluru | QXL Diagnostics",
-    description: "Celebrate Raksha Bandhan with a special ₹800 preventive health checkup (80 Health Parameters · 8 Major Health Areas) from QXL Diagnostics. Free home sample collection across Bengaluru.",
+    title: "Full Body Health Checkup (80 Params - ₹800) in Bengaluru | QXL Diagnostics",
+    description: "Special ₹800 preventive full body health checkup (80 Health Parameters · 8 Major Health Areas) from QXL Diagnostics. Free home sample collection across Bengaluru.",
     url: "https://qxldiagnostics.com/raksha-bandhan-health-checkup-bangalore",
     siteName: "QXL Diagnostics",
     images: [
@@ -26,7 +25,7 @@ export const metadata: Metadata = {
         url: "https://qxldiagnostics.com/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
         width: 1200,
         height: 630,
-        alt: "Raksha Bandhan Health Checkup Offer - QXL Diagnostics",
+        alt: "Full Body Health Checkup Offer - QXL Diagnostics",
       },
     ],
     locale: "en_IN",
@@ -34,8 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Raksha Bandhan Health Checkup in Bengaluru | QXL Diagnostics",
-    description: "Gift your sibling an 80-parameter preventive health checkup for ₹800 from QXL Diagnostics with free home collection.",
+    title: "Full Body Health Checkup (80 Params - ₹800) in Bengaluru | QXL Diagnostics",
+    description: "An 80-parameter preventive full body health checkup for ₹800 from QXL Diagnostics with free home collection.",
     images: ["https://qxldiagnostics.com/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg"],
   },
 };

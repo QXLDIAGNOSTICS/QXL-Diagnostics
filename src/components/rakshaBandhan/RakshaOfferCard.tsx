@@ -27,7 +27,7 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
         <div className="text-center max-w-2xl mx-auto mb-4">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10.5px] sm:text-xs font-black uppercase tracking-wider shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-[#D69A18]" />
-            <span>FESTIVE CAMPAIGN OFFER</span>
+            <span>SPECIAL PREVENTIVE OFFER</span>
           </div>
         </div>
 
@@ -38,7 +38,7 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
           <div className="bg-gradient-to-r from-[#15803d] via-[#16a34a] to-[#15803d] p-3.5 sm:p-5 text-white px-4 sm:px-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 relative overflow-hidden text-left border-b border-emerald-700/50">
             <div className="flex flex-wrap items-center gap-2 z-10">
               <span className="p-1 px-2.5 rounded-lg bg-[#D69A18] text-white font-black text-[10px] sm:text-xs uppercase tracking-wider shadow-2xs shrink-0">
-                🎁 RAKSHA BANDHAN OFFER
+                ✨ SPECIAL OFFER
               </span>
               <h2 className="font-black text-sm sm:text-lg !text-white leading-tight">
                 {RAKSHA_CAMPAIGN_CONFIG.offerTitle}
@@ -134,7 +134,7 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
                 <div className="p-2 px-3 bg-[#FFF8EB] border border-[#F3DBA7] rounded-xl text-[11px] font-bold text-[#D69A18] flex items-center justify-between gap-2">
                   <span className="flex items-center gap-1.5 font-extrabold text-xs">
                     <Sparkles className="w-3.5 h-3.5 text-[#D69A18] shrink-0" />
-                    <span>7-DAY EXCLUSIVE OFFER</span>
+                    <span>SPECIAL PREVENTIVE OFFER</span>
                   </span>
                   <span className="bg-[#D69A18] text-white px-2.5 py-0.5 rounded-md text-[10px] font-black shrink-0">₹800 ONLY</span>
                 </div>

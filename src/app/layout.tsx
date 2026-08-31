@@ -415,7 +415,7 @@ const doctorsSchema = {
 const rakshaOfferSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Raksha Bandhan Special Full Body Health Checkup",
+  "name": "Full Body Health Checkup (80 Params)",
   "image": "https://qxldiagnostics.com/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
   "description": "Comprehensive 80 Health Parameters full body preventive checkup in Bengaluru including CBC (26), HbA1c & Fasting Glucose (3), Heart & Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary Markers (21). Free home sample collection across Bengaluru.",
   "brand": {

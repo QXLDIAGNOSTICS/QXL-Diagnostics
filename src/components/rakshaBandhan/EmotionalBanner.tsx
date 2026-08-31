@@ -20,7 +20,7 @@ export default function EmotionalBanner({ onOpenBooking }: EmotionalBannerProps)
         {/* Top Festive Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-amber-300 text-xs font-bold uppercase tracking-widest mx-auto">
           <HeartHandshake className="w-4 h-4 text-amber-400" />
-          <span>RAKSHA BANDHAN PROMISE OF HEALTH</span>
+          <span>PREVENTIVE PROMISE OF HEALTH</span>
         </div>
 
         {/* Headline */}
@@ -30,7 +30,7 @@ export default function EmotionalBanner({ onOpenBooking }: EmotionalBannerProps)
 
         {/* Subtext */}
         <p className="text-lg sm:text-xl text-cyan-100 font-medium max-w-2xl mx-auto leading-relaxed">
-          This Raksha Bandhan, make health part of the promise.
+          Prioritise proactive wellness and care for your family.
         </p>
 
         {/* CTA Area */}

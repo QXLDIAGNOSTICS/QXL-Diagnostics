@@ -127,7 +127,7 @@ export default function BookPage() {
         const fallbackPackages = [
           {
             id: "raksha-bandhan-800",
-            name: "Raksha Bandhan Special Health Checkup",
+            name: "Full Body Health Checkup (80 Params)",
             kind: 'package' as const,
             price: 800,
             old_price: 5800,
@@ -281,7 +281,7 @@ export default function BookPage() {
         const fallbackPackages: CatalogEntry[] = [
           {
             id: "raksha-bandhan-800",
-            name: "Raksha Bandhan Special Health Checkup",
+            name: "Full Body Health Checkup (80 Params)",
             kind: 'package' as const,
             price: 800,
             old_price: 5800,

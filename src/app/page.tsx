@@ -804,7 +804,7 @@ export default function Home() {
     
     const rakshaBandhanPackage = {
       id: "raksha-bandhan-800",
-      name: "Raksha Bandhan Special Health Checkup",
+      name: "Full Body Health Checkup (80 Params)",
       price: "800",
       originalPrice: "5800",
       original_price: "5800",
@@ -1406,7 +1406,7 @@ export default function Home() {
 
         {/* ── Raksha Bandhan Festive Offer Section ── */}
         {isCampaignActive() && (
-          <RakshaOfferCard onOpenBooking={(title) => setSelectedPackage({ name: title || "Raksha Bandhan Special Health Checkup", price: "800", old_price: "5800", includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary (21)" })} />
+          <RakshaOfferCard onOpenBooking={(title) => setSelectedPackage({ name: title || "Full Body Health Checkup (80 Params)", price: "800", old_price: "5800", includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary (21)" })} />
         )}
 
         {/* ── Speciality Tests ── */}

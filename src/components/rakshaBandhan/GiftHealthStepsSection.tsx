@@ -12,7 +12,7 @@ export default function GiftHealthStepsSection({ onOpenBooking }: GiftHealthStep
     {
       step: "01",
       title: "Choose a Health Check",
-      description: "Select our curated Raksha Bandhan Health Checkup (64 Parameters) or tailored Men's/Women's wellness panels.",
+      description: "Select our curated Full Body Health Checkup (80 Parameters) or tailored Men's/Women's wellness panels.",
       icon: Gift,
       color: "bg-blue-50 text-[#0A5DAA]",
     },
@@ -40,15 +40,15 @@ export default function GiftHealthStepsSection({ onOpenBooking }: GiftHealthStep
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider">
             <Heart className="w-3.5 h-3.5 text-amber-600" />
-            <span>MEANINGFUL CELEBRATION</span>
+            <span>PREVENTIVE WELLNESS</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Don't Just Gift a Rakhi. Gift a Health Check.
+            Gift Your Loved Ones the Gift of Health.
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 font-medium max-w-2xl mx-auto">
-            A thoughtful health check can be a meaningful way to show your loved ones that you care.
+            A thoughtful health check can be a meaningful way to show your family that you care.
           </p>
         </div>
 

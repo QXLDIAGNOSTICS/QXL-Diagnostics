@@ -13,7 +13,7 @@ interface BookingModalProps {
 export default function BookingModal({
   isOpen,
   onClose,
-  selectedPackageDefault = "Raksha Bandhan Health Checkup (₹800)",
+  selectedPackageDefault = "Full Body Health Checkup (80 Params - ₹800)",
 }: BookingModalProps) {
   const [packageName, setPackageName] = useState(selectedPackageDefault);
   const [fullName, setFullName] = useState("");
@@ -63,7 +63,7 @@ export default function BookingModal({
           
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-300/30 text-amber-200 text-xs font-semibold mb-2">
             <HeartHandshake className="w-3.5 h-3.5" />
-            <span>RAKSHA BANDHAN OFFER • ₹800 ONLY</span>
+            <span>SPECIAL OFFER • ₹800 ONLY</span>
           </div>
           
           <h3 className="text-xl font-bold text-white">Book Your Health Checkup</h3>
@@ -115,8 +115,8 @@ export default function BookingModal({
                   onChange={(e) => setPackageName(e.target.value)}
                   className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-[#00A8A8] focus:bg-white transition-all font-medium"
                 >
-                  <option value="Raksha Bandhan Health Checkup (₹800)">
-                    Raksha Bandhan Special Checkup (64 Parameters - ₹800)
+                  <option value="Full Body Health Checkup (80 Params - ₹800)">
+                    Full Body Special Checkup (80 Parameters - ₹800)
                   </option>
                   <option value="Women's Health Check (₹800)">
                     Women's Health Check (Special ₹800)
@@ -124,8 +124,8 @@ export default function BookingModal({
                   <option value="Men's Health Check (₹800)">
                     Men's Health Check (Special ₹800)
                   </option>
-                  <option value="Sibling Duo Package (2 Checkups - ₹1500)">
-                    Sibling Duo Combo (2 Members - Special ₹1,500)
+                  <option value="Family Duo Package (2 Checkups - ₹1500)">
+                    Family Duo Combo (2 Members - Special ₹1,500)
                   </option>
                 </select>
               </div>

@@ -21,13 +21,13 @@ import RakshaFooterSection from "@/components/rakshaBandhan/RakshaFooterSection"
 
 export default function RakshaBandhanClientPage() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState<string>("Raksha Bandhan Health Checkup (₹800)");
+  const [selectedPackage, setSelectedPackage] = useState<string>("Full Body Health Checkup (80 Params - ₹800)");
 
   const handleOpenBooking = (pkgTitle?: string) => {
     if (pkgTitle) {
       setSelectedPackage(`${pkgTitle} (₹800)`);
     } else {
-      setSelectedPackage("Raksha Bandhan Health Checkup (₹800)");
+      setSelectedPackage("Full Body Health Checkup (80 Params - ₹800)");
     }
     setIsBookingModalOpen(true);
   };
@@ -43,7 +43,7 @@ export default function RakshaBandhanClientPage() {
               SPECIAL OFFER
             </span>
             <span className="truncate">
-              Raksha Bandhan Preventive Health Checkup @ ₹800 (80 Health Parameters) • Free Home Sample Collection across Bengaluru
+              Full Body Preventive Health Checkup @ ₹800 (80 Health Parameters) • Free Home Sample Collection across Bengaluru
             </span>
           </div>
 
@@ -124,7 +124,7 @@ export default function RakshaBandhanClientPage() {
             </h2>
 
             <p className="text-base sm:text-lg text-slate-600 font-medium max-w-xl mx-auto">
-              Book your Raksha Bandhan Health Check with QXL Diagnostics today. Fast, reliable diagnostic testing across Bengaluru.
+              Book your Full Body Health Checkup with QXL Diagnostics today. Fast, reliable diagnostic testing across Bengaluru.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
