@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Lab Test Directory | Individual Blood & Diagnostic Tests",
   description:
-    "Browse QXL Diagnostics' full catalog of individual lab tests with prices, preparation instructions, and turnaround times. NABL accredited, home sample collection in Bengaluru.",
+    "Browse QXL Diagnostics' full catalog of individual lab tests with prices, preparation instructions, and turnaround times. NABL Certified, home sample collection in Bengaluru.",
   alternates: { canonical: "/tests" },
   openGraph: {
     title: "Lab Test Directory | QXL Diagnostics",

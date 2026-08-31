@@ -29,7 +29,7 @@ export const thyroidTest: SeoLandingData = {
     "A complete thyroid profile at QXL Diagnostics measures TSH with Free T3 and Free T4 — the full picture your doctor needs to diagnose hypothyroidism, hyperthyroidism and autoimmune thyroid disease. Home collection across Bengaluru, same-day reports.",
   aiOverviewTitle: "What does a thyroid profile include?",
   aiOverview:
-    "QXL's thyroid test in Bangalore measures Thyroid Stimulating Hormone (TSH) plus Free T3 and Free T4, with Anti-TPO antibodies available for autoimmune thyroiditis (Hashimoto's/Graves'). Testing is done on chemiluminescence immunoassay platforms at our NABL-accredited laboratory, with free home sample collection across Bengaluru.",
+    "QXL's thyroid test in Bangalore measures Thyroid Stimulating Hormone (TSH) plus Free T3 and Free T4, with Anti-TPO antibodies available for autoimmune thyroiditis (Hashimoto's/Graves'). Testing is done on chemiluminescence immunoassay platforms at our NABL Certified laboratory, with free home sample collection across Bengaluru.",
   aiOverviewPoints: [
     "TSH, FT3, FT4 Complete Profile",
     "Anti-TPO Antibody Available",
@@ -122,7 +122,7 @@ export const thyroidTest: SeoLandingData = {
   steps: [
     { title: "Book Your Profile", desc: "Choose TSH-only or the complete T3/T4/TSH panel; add Anti-TPO if advised." },
     { title: "Home Collection", desc: "Morning slots preferred for those on thyroid medication; otherwise any time works." },
-    { title: "CLIA Analysis", desc: "Chemiluminescence immunoassay at our NABL-accredited Bengaluru laboratory." },
+    { title: "CLIA Analysis", desc: "Chemiluminescence immunoassay at our NABL Certified Bengaluru laboratory." },
     { title: "Same-Day Report", desc: "Digital delivery with clear flags; abnormal results reviewed by our medical team." },
   ],
   faqs: [

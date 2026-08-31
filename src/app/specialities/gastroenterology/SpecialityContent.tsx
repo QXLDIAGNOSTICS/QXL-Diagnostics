@@ -113,7 +113,7 @@ export default function GastroenterologyPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL-Accredited Laboratory", desc: "Quality-assured testing for all GI and hepatology markers." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Laboratory", desc: "Quality-assured testing for all GI and hepatology markers." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Expert-Reviewed Reports", desc: "Consultant pathologists review all super speciality gastroenterology panels." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Stool & Molecular Testing", desc: "Fecal calprotectin, HpSA, and PCR-based quantitative hepatitis panels." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Sample Collection", desc: "Trained phlebotomy specialists collect blood and stool samples at your home across Bengaluru." },

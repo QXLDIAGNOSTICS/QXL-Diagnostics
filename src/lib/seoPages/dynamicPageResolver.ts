@@ -186,7 +186,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
     whyImportant: [
       "Investigate symptoms, establish baseline health information, or diagnose & monitor disease.",
       "Suitable for routine screening, preventive health checks, and physician-requested investigations.",
-      "Processed at NABL-accredited super speciality diagnostic laboratory (MC-6849)."
+      "Processed at NABL Certified super speciality diagnostic laboratory (MC-6849)."
     ],
     faqs: [
       { question: "Can I book a blood test at home in Bangalore?", answer: "Yes, home blood sample collection is available across Bengaluru subject to service availability." },
@@ -622,7 +622,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
   "dengue-test-bangalore": {
     title: "Dengue Test Bangalore | NS1, IgM & Dengue Testing | QXL",
     h1Title: "Dengue Blood Test in Bangalore",
-    subtitle: "Rapid NABL-accredited diagnostic screening for acute Dengue infection including Dengue NS1 Antigen, IgM & IgG Antibodies, and Complete Platelet Count.",
+    subtitle: "Rapid NABL Certified diagnostic screening for acute Dengue infection including Dengue NS1 Antigen, IgM & IgG Antibodies, and Complete Platelet Count.",
     price: "600",
     oldPrice: "900",
     discountPercent: "33% OFF",
@@ -1181,7 +1181,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
     whyImportant: [
       "Measures protective anti-atherogenic HDL protein particles.",
       "Calculates ApoB/ApoA1 balance ratio.",
-      "NABL-accredited clinical chemistry platform."
+      "NABL Certified clinical chemistry platform."
     ],
     faqs: [
       { question: "What is the ApoB/ApoA1 ratio?", answer: "It is the ratio of bad atherogenic particles (ApoB) to good protective particles (ApoA1), serving as a strong cardiovascular risk indicator." }
@@ -1444,8 +1444,8 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
     return {
       slug: cleanSlug,
       title: explicitData.title || `${cleanSlug} | QXL Diagnostics`,
-      metaDescription: explicitData.subtitle || `Book ${cleanSlug} in Bangalore with NABL accredited precision and doorstep collection.`,
-      badge: "NABL ACCREDITED LAB (MC-6849) · FREE HOME COLLECTION",
+      metaDescription: explicitData.subtitle || `Book ${cleanSlug} in Bangalore with NABL Certified precision and doorstep collection.`,
+      badge: "NABL certified lab (MC-6849) · FREE HOME COLLECTION",
       h1Title: explicitData.h1Title || cleanSlug.replace(/-/g, ' '),
       subtitle: explicitData.subtitle || "High accuracy diagnostic investigation performed by QXL Diagnostics.",
       price: explicitData.price || "499",
@@ -1466,7 +1466,7 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
       ],
       whyImportant: explicitData.whyImportant || [
         "Provides accurate baseline health data for your doctor.",
-        "Conducted at NABL accredited super speciality laboratory (MC-6849).",
+        "Conducted at NABL Certified super speciality laboratory (MC-6849).",
         "Digital PDF report delivered directly to your WhatsApp & Email."
       ],
       faqs: explicitData.faqs || [
@@ -1488,8 +1488,8 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
     return {
       slug: cleanSlug,
       title: `${matchedTest.name} in Bangalore | Price, Fasting & Home Collection | QXL Diagnostics`,
-      metaDescription: `Book ${matchedTest.name} at home in Bangalore. NABL accredited lab, same-day reports, sterile sample collection. Starting at ₹${matchedTest.price}.`,
-      badge: "NABL ACCREDITED LAB · FREE HOME COLLECTION",
+      metaDescription: `Book ${matchedTest.name} at home in Bangalore. NABL Certified lab, same-day reports, sterile sample collection. Starting at ₹${matchedTest.price}.`,
+      badge: "NABL certified lab · FREE HOME COLLECTION",
       h1Title: `${matchedTest.name} in Bangalore`,
       subtitle: matchedTest.description,
       price: matchedTest.price,
@@ -1511,7 +1511,7 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
       whyImportant: [
         "Provides accurate baseline clinical data for your doctor.",
         "Detects early underlying health changes before symptoms develop.",
-        "Processed at NABL-accredited ISO 15189:2022 laboratory (MC-6849)."
+        "Processed at NABL Certified ISO 15189:2022 laboratory (MC-6849)."
       ],
       faqs: matchedTest.faqs || [
         { question: `Do I need to fast for ${matchedTest.name}?`, answer: matchedTest.preparation },

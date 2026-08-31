@@ -55,7 +55,7 @@ export default function FeaturedTestsSlider() {
       id: "slide-2",
       type: "tests",
       title: "Most Booked Tests in Bangalore",
-      subtitle: "Fast, accurate NABL accredited pathology and blood tests with same-day reports.",
+      subtitle: "Fast, accurate NABL Certified pathology and blood tests with same-day reports.",
       items: [
         {
           name: "Glycosylated Haemoglobin (HbA1c)",
@@ -115,7 +115,7 @@ export default function FeaturedTestsSlider() {
       id: "slide-4",
       type: "banner-clinic",
       title: "Own a clinic or diagnostic centre?",
-      subtitle: "Unlock full diagnostic capabilities today. Partner with Bengaluru's NABL Accredited Super Speciality Lab.",
+      subtitle: "Unlock full diagnostic capabilities today. Partner with Bengaluru's NABL Certified Super Speciality Lab.",
       trustedCount: "Trusted by 500+ doctors & healthcare facilities",
       cta: "Partner With Us",
       ctaLink: "/partner-with-us",

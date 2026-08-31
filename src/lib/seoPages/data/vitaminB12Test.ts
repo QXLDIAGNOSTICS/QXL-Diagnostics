@@ -12,7 +12,7 @@ export const vitaminB12Test: SeoLandingData = {
     "Tingling hands, constant tiredness, poor memory, mood dips — vitamin B12 deficiency causes all of them, and India's largely vegetarian diet makes it extremely common. Get a precise serum B12 test at QXL Diagnostics with free home collection across Bengaluru.",
   aiOverviewTitle: "What does the B12 test show?",
   aiOverview:
-    "The serum Vitamin B12 test measures cobalamin levels supporting red blood cell formation, DNA synthesis and the myelin sheath protecting nerves. Levels below ~200 pg/mL indicate deficiency; 200–300 pg/mL is borderline and may need confirmatory tests. QXL Diagnostics performs the assay at its NABL-accredited Bengaluru laboratory with same-day reporting and home collection.",
+    "The serum Vitamin B12 test measures cobalamin levels supporting red blood cell formation, DNA synthesis and the myelin sheath protecting nerves. Levels below ~200 pg/mL indicate deficiency; 200–300 pg/mL is borderline and may need confirmatory tests. QXL Diagnostics performs the assay at its NABL Certified Bengaluru laboratory with same-day reporting and home collection.",
   aiOverviewPoints: [
     "Detects Deficiency Before Nerve Damage",
     "Critical for Vegetarians & Seniors",

@@ -26,7 +26,7 @@ export const cbcTest: SeoLandingData = {
   h1Lead: "CBC Test in Bangalore —",
   h1Highlight: "Essential Blood Health Assessment",
   heroIntro:
-    "The Complete Blood Count (CBC) provides key cellular insights — assisting in evaluation of anaemia, infections, immunity and general health. Book with QXL Diagnostics for home collection across Bengaluru and same-day NABL-accredited reports.",
+    "The Complete Blood Count (CBC) provides key cellular insights — assisting in evaluation of anaemia, infections, immunity and general health. Book with QXL Diagnostics for home collection across Bengaluru and same-day NABL Certified reports.",
   aiOverviewTitle: "What does a CBC test measure?",
   aiOverview:
     "A CBC (Complete Blood Count) measures haemoglobin, red blood cells, white blood cells and platelets, plus derived indices like MCV, MCH and MCHC. It detects anaemia, identifies infections and inflammation, and may identify cellular abnormalities requiring further clinical evaluation. At QXL Diagnostics Bangalore it requires no fasting, takes minutes to collect at home, and is reported the same day.",

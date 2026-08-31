@@ -16,7 +16,7 @@ export default function RunningTextMarquee() {
   ];
 
   const tickerItems2 = [
-    "🔬 NABL ACCREDITED LABORATORY (MC-6849)",
+    "🔬 NABL certified laboratory (MC-6849)",
     "🏆 DR. SHANTAKUMAR MURUDA — CLINICAL BIOCHEMIST (MD) & FOUNDER",
     "🧬 CLINICAL BIOCHEMISTRY & MOLECULAR DIAGNOSTICS",
     "🧫 MICROBIOLOGY & IMMUNOLOGY HORMONAL PANELS",

@@ -59,7 +59,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Mysore Road",
     slug: "mysore-road",
     nearestLab: "Kengeri Main Lab (Mysore Road)",
-    description: "Located near Mysore Road? Book free doorstep sample collection or visit QXL Diagnostics Kengeri Main Lab. NABL accredited facility for high precision diagnostics.",
+    description: "Located near Mysore Road? Book free doorstep sample collection or visit QXL Diagnostics Kengeri Main Lab. NABL Certified facility for high precision diagnostics.",
     pincodes: ["560026", "560039", "560060"],
     popularTests: ["Cardiac Risk Profile", "Allergy Testing", "Full Body Health Check", "Vitamin Profile"]
   },
@@ -86,7 +86,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "JP Nagar",
     slug: "jp-nagar",
     nearestLab: "Kengeri Main Lab / Central Hub",
-    description: "Fast and professional sample collection at home in JP Nagar 1st to 8th Phases. NABL accredited lab quality, cold-chain preservation, and fast digital reports.",
+    description: "Fast and professional sample collection at home in JP Nagar 1st to 8th Phases. NABL Certified lab quality, cold-chain preservation, and fast digital reports.",
     pincodes: ["560078"],
     popularTests: ["Full Body Checkup", "Thyroid Panel", "Liver Function Test", "Complete Blood Count"]
   },
@@ -131,7 +131,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Bommanahalli",
     slug: "bommanahalli",
     nearestLab: "Central Processing Hub",
-    description: "QXL Diagnostics offers doorstep blood collection in Bommanahalli, Begur Road, and Hongasandra. Affordable pricing and NABL accredited quality.",
+    description: "QXL Diagnostics offers doorstep blood collection in Bommanahalli, Begur Road, and Hongasandra. Affordable pricing and NABL Certified quality.",
     pincodes: ["560068"],
     popularTests: ["Complete Blood Count (CBC)", "HbA1c", "Thyroid T3 T4 TSH", "Lipid Profile"]
   },
@@ -149,7 +149,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Koramangala",
     slug: "koramangala",
     nearestLab: "Central Processing Hub",
-    description: "Doorstep diagnostic services in Koramangala 1st to 8th Blocks. NABL accredited medical laboratory processing for all routine & specialty diagnostic tests.",
+    description: "Doorstep diagnostic services in Koramangala 1st to 8th Blocks. NABL Certified medical laboratory processing for all routine & specialty diagnostic tests.",
     pincodes: ["560034", "560095"],
     popularTests: ["Full Body Health Profile", "HbA1c Sugar Test", "CBC", "Lipid & Liver Panel"]
   },
@@ -185,7 +185,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Whitefield",
     slug: "whitefield",
     nearestLab: "Yelahanka North Hub / Express Hub",
-    description: "Get NABL-accredited diagnostic testing with our seamless home collection service across Whitefield, ITPL, Kadugodi, and Hope Farm. Same-day reports.",
+    description: "Get NABL Certified diagnostic testing with our seamless home collection service across Whitefield, ITPL, Kadugodi, and Hope Farm. Same-day reports.",
     pincodes: ["560066"],
     popularTests: ["Executive Health Package", "Thyroid T3 T4 TSH", "Liver & Kidney Panel", "CBC Test"]
   },
@@ -293,7 +293,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Nagawara",
     slug: "nagawara",
     nearestLab: "Yelahanka North Hub",
-    description: "Free home sample collection in Nagawara, Manyata Tech Park area, and AC Post. NABL accredited quality diagnostics.",
+    description: "Free home sample collection in Nagawara, Manyata Tech Park area, and AC Post. NABL Certified quality diagnostics.",
     pincodes: ["560045"],
     popularTests: ["Executive Health Check", "Thyroid Care", "HbA1c", "Lipid Profile"]
   },
@@ -365,7 +365,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Yeshwanthpur",
     slug: "yeshwanthpur",
     nearestLab: "Kengeri Main Lab / Express Hub",
-    description: "Free home blood sample collection in Yeshwanthpur, APMC Yard, and Mathikere. NABL accredited laboratory accuracy.",
+    description: "Free home blood sample collection in Yeshwanthpur, APMC Yard, and Mathikere. NABL Certified laboratory accuracy.",
     pincodes: ["560022"],
     popularTests: ["CBC", "Thyroid Profile", "Vitamin B12", "Lipid Profile"]
   },
@@ -428,7 +428,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Shivajinagar",
     slug: "shivajinagar",
     nearestLab: "Central Processing Hub",
-    description: "Doorstep blood test collection in Shivajinagar, Commercial Street area, and Russell Market. NABL accredited laboratory testing.",
+    description: "Doorstep blood test collection in Shivajinagar, Commercial Street area, and Russell Market. NABL Certified laboratory testing.",
     pincodes: ["560001", "560051"],
     popularTests: ["Fever Profile", "Diabetes Screening", "Lipid Panel", "CBC"]
   },
@@ -437,7 +437,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Vasanth Nagar",
     slug: "vasanth-nagar",
     nearestLab: "Central Processing Hub",
-    description: "Home blood collection in Vasanth Nagar, High Grounds, and Palace Road. Precise NABL accredited diagnostic testing.",
+    description: "Home blood collection in Vasanth Nagar, High Grounds, and Palace Road. Precise NABL Certified diagnostic testing.",
     pincodes: ["560052"],
     popularTests: ["Executive Wellness", "Thyroid Profile", "Vitamin D3", "HbA1c"]
   },
@@ -509,7 +509,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Yelachenahalli",
     slug: "yelachenahalli",
     nearestLab: "Kengeri Main Lab (Mysore Road)",
-    description: "Free doorstep blood test collection in Yelachenahalli, Kanakapura Main Road metro belt. NABL accredited quality.",
+    description: "Free doorstep blood test collection in Yelachenahalli, Kanakapura Main Road metro belt. NABL Certified quality.",
     pincodes: ["560078"],
     popularTests: ["Diabetes Care", "Thyroid Profile", "HbA1c", "Full Body Checkup"]
   },

@@ -26,7 +26,7 @@ export default function Accreditations({ decorativeHeading = false }: Props) {
                 <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
                   <div className="w-2 h-2 rounded-full bg-emerald-400"></div>
                 </div>
-                <span className="text-white text-sm font-bold">NABL Accredited ({NABL_CERTIFICATE})</span>
+                <span className="text-white text-sm font-bold">NABL Certified ({NABL_CERTIFICATE})</span>
               </li>
               <li className="flex items-center gap-3">
                 <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
@@ -52,7 +52,7 @@ export default function Accreditations({ decorativeHeading = false }: Props) {
           <div className="md:w-1/2 flex items-center justify-center md:justify-end gap-6">
             {/* NABL Badge */}
             <div className="bg-white p-4 rounded-3xl shadow-xl flex flex-col items-center justify-center w-40 h-40 transform hover:-translate-y-2 transition-transform relative">
-              <img src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png" alt="NABL Accredited Lab" className="w-full h-auto object-contain" />
+              <img src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png" alt="NABL Certified Lab" className="w-full h-auto object-contain" />
               <span className="text-black font-extrabold text-[11px] mt-2 text-center absolute bottom-2">{NABL_CERTIFICATE.replace('-', ' - ')}</span>
             </div>
             

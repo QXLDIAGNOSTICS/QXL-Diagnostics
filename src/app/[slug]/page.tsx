@@ -187,7 +187,7 @@ export default async function CatchAllSlugPage({ params }: Props) {
                 <div className="flex items-start gap-3">
                   <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
-                    <p className="font-extrabold text-white text-sm">NABL Accredited ({NABL_CERTIFICATE})</p>
+                    <p className="font-extrabold text-white text-sm">NABL Certified ({NABL_CERTIFICATE})</p>
                     <p className="text-sky-200 mt-0.5">{ISO_STANDARD} quality compliance</p>
                   </div>
                 </div>

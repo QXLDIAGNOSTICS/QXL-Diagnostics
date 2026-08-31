@@ -6,9 +6,9 @@ export const bloodTestBangalore: SeoLandingData = {
   pageType: "service",
   heroBadge: "300+ Blood Tests | Free Home Collection in Bengaluru",
   h1Lead: "Blood Test in Bangalore —",
-  h1Highlight: "NABL Accredited Lab, Home Collection, Same-Day Reports",
+  h1Highlight: "NABL Certified Lab, Home Collection, Same-Day Reports",
   heroIntro:
-    "Book any blood test in Bengaluru with QXL Diagnostics. From routine CBC and diabetes profiles to advanced hormone, autoimmune, and molecular panels, your sample is collected at home by trained phlebotomy specialists and tested at our NABL-accredited (MC-6849) super-speciality laboratory.",
+    "Book any blood test in Bengaluru with QXL Diagnostics. From routine CBC and diabetes profiles to advanced hormone, autoimmune, and molecular panels, your sample is collected at home by trained phlebotomy specialists and tested at our NABL Certified (MC-6849) super-speciality laboratory.",
   aiOverviewTitle: "Booking a blood test with QXL",
   aiOverview:
     "QXL Diagnostics offers 300+ blood tests across biochemistry, haematology, hormones, vitamins, immunity and infection markers in Bangalore. Free home sample collection is available city-wide, most routine reports are delivered the same day, and every abnormal result is reviewed by a specialist consultant before release.",
@@ -45,7 +45,7 @@ export const bloodTestBangalore: SeoLandingData = {
       heading: "Understanding Blood Tests: Clinical Foundations & Utility",
       paragraphs: [
         "A blood test is a quantitative laboratory investigation performed on whole blood, plasma, or serum to evaluate organ function, cellular health, metabolic balance, and disease biomarkers. Because circulating blood continuously bathes every major organ system in the body, biochemical changes in blood cells, proteins, electrolytes, enzymes, and hormones provide a direct window into underlying physiological health.",
-        "At QXL Diagnostics, blood testing is conducted strictly within NABL-accredited (MC-6849) quality workflows under the direct supervision of Clinical Biochemist Dr. Shantakumar Muruda (MD) and consultant pathologists. Whether ordered for routine wellness screening or complex diagnostic workups, every sample is barcode-tracked and verified against internal multi-rule Westgard quality control standards.",
+        "At QXL Diagnostics, blood testing is conducted strictly within NABL Certified (MC-6849) quality workflows under the direct supervision of Clinical Biochemist Dr. Shantakumar Muruda (MD) and consultant pathologists. Whether ordered for routine wellness screening or complex diagnostic workups, every sample is barcode-tracked and verified against internal multi-rule Westgard quality control standards.",
       ],
     },
     {
@@ -137,7 +137,7 @@ export const bloodTestBangalore: SeoLandingData = {
     },
     {
       q: "Can I get a blood test at home in Bangalore?",
-      a: "Yes. QXL Diagnostics provides free home blood sample collection across Bengaluru. A trained phlebotomy specialist visits at your chosen slot, collects the sample using sterile single-use equipment, and transports it under cold-chain conditions to our NABL-accredited laboratory.",
+      a: "Yes. QXL Diagnostics provides free home blood sample collection across Bengaluru. A trained phlebotomy specialist visits at your chosen slot, collects the sample using sterile single-use equipment, and transports it under cold-chain conditions to our NABL Certified laboratory.",
     },
     {
       q: "Do I need to fast before my blood test?",

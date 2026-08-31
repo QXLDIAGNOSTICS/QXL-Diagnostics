@@ -22,7 +22,7 @@ const MAIN_LAB_ID = `${SITE_URL}/#kengeri-lab`;
 
 export const SEO_KEYWORDS = [
   "diagnostic lab Bengaluru",
-  "NABL accredited lab Bangalore",
+  "NABL Certified lab Bangalore",
   "super speciality diagnostic lab Bengaluru",
   "blood test Bangalore",
   "home collection blood test Bengaluru",
@@ -48,7 +48,7 @@ export const SEO_KEYWORDS = [
   "autoimmune testing Bengaluru",
   "infectious disease lab Bengaluru",
   "FilmArray PCR Bengaluru",
-  "NABL accredited lab Mysore Road",
+  "NABL Certified lab Mysore Road",
   "ISO 15189 lab Bengaluru",
   "best diagnostic lab Bangalore",
   "same day blood test report Bangalore",
@@ -67,7 +67,7 @@ export const PRIMARY_SERVICES = [
   {
     name: "Home Sample Collection",
     description:
-      "Free trained phlebotomist home blood sample collection across Bengaluru with cold-chain transport to QXL’s NABL-accredited lab.",
+      "Free trained phlebotomist home blood sample collection across Bengaluru with cold-chain transport to QXL’s NABL Certified lab.",
     url: `${SITE_URL}/home-collection`,
   },
   {
@@ -105,16 +105,16 @@ export const PRIMARY_SERVICES = [
 /** Expanded AEO FAQ set — answers phrased as direct, citable sentences. */
 export const SEO_FAQS = [
   {
-    q: "Which is a good NABL accredited diagnostic lab in Bengaluru for home blood collection?",
-    a: `QXL Diagnostics (${BUSINESS_LEGAL_NAME}) is a NABL-accredited (${NABL_CERTIFICATE}) and ${ISO_STANDARD} medical laboratory in Bengaluru offering free home sample collection, 300+ tests, and same-day digital reports. Call or WhatsApp ${PHONE_DISPLAY}.`,
+    q: "Which is a good NABL Certified diagnostic lab in Bengaluru for home blood collection?",
+    a: `QXL Diagnostics (${BUSINESS_LEGAL_NAME}) is a NABL Certified (${NABL_CERTIFICATE}) and ${ISO_STANDARD} medical laboratory in Bengaluru offering free home sample collection, 300+ tests, and same-day digital reports. Call or WhatsApp ${PHONE_DISPLAY}.`,
   },
   {
     q: "Does QXL Diagnostics provide home sample collection in Bengaluru?",
     a: `Yes. QXL Diagnostics provides free home sample collection across Bengaluru with trained phlebotomists and temperature-controlled transport. Book online, via WhatsApp, or call ${PHONE_DISPLAY}.`,
   },
   {
-    q: "Is QXL Diagnostics NABL accredited?",
-    a: `Yes. QXL Diagnostics is NABL accredited under certificate ${NABL_CERTIFICATE} and follows ${ISO_STANDARD} medical laboratory quality standards for accurate, reliable results.`,
+    q: "Is QXL Diagnostics NABL Certified?",
+    a: `Yes. QXL Diagnostics is NABL Certified under certificate ${NABL_CERTIFICATE} and follows ${ISO_STANDARD} medical laboratory quality standards for accurate, reliable results.`,
   },
   {
     q: "How quickly does QXL Diagnostics provide lab reports?",
@@ -228,7 +228,7 @@ export function buildRootSchemaGraph() {
         name: BUSINESS_LEGAL_NAME,
         alternateName: BUSINESS_NAME,
         description:
-          "NABL-accredited super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, technology-assisted laboratory quality systems, and same-day digital reports.",
+          "NABL Certified super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, technology-assisted laboratory quality systems, and same-day digital reports.",
         url: SITE_URL,
         telephone: PHONE_DISPLAY,
         email: EMAIL,
@@ -373,7 +373,7 @@ export function buildRootSchemaGraph() {
         },
         description:
           "Dr. Shantakumar Muruda, MD, is Founder & CEO of QXL Diagnostics. Clinical Biochemist, Laboratory Director, and NABL Lead Assessor with extensive laboratory assessment experience.",
-        knowsAbout: ["Clinical biochemistry", "NABL accreditation", "Laboratory quality systems"],
+        knowsAbout: ["Clinical biochemistry", "NABL Certification", "Laboratory quality systems"],
       },
       {
         "@type": "Person",

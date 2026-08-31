@@ -64,7 +64,7 @@ export default function Page() {
       "longitude": 77.4850301,
     },
     "medicalSpecialty": ["Pathology", "LaboratoryMedicine", "DiagnosticLab"],
-    "accreditation": "NABL Accredited Laboratory (MC-6849)",
+    "accreditation": "NABL Certified Laboratory (MC-6849)",
     "areaServed": "Bengaluru",
   };
 

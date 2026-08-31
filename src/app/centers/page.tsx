@@ -250,7 +250,7 @@ export default function CentersPage() {
                 QXL Diagnostic Labs &amp; Collection Centres
               </h1>
               <p className="text-slate-600 text-xs sm:text-sm font-medium max-w-xl">
-                Locate QXL NABL-accredited laboratory hubs across Bengaluru. Search by 6-digit pincode, area, or GPS distance.
+                Locate QXL NABL Certified laboratory hubs across Bengaluru. Search by 6-digit pincode, area, or GPS distance.
               </p>
             </div>
 

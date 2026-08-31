@@ -126,7 +126,7 @@ export default function BoneDisordersPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited Laboratory", desc: "Strict adherence to NABL quality assurance programs for metabolic assays." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Laboratory", desc: "Strict adherence to NABL quality assurance programs for metabolic assays." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Autoimmune Assay Experts", desc: "Advanced ANA IFA profiling and molecular PCR screening for joint disorders." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Expert-Reviewed Panels", desc: "Senior biochemists and pathologists review critical and autoimmune markers." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Comfortable Home Collection", desc: "Expert phlebotomists trained in senior care and gentle blood extraction." }
@@ -161,7 +161,7 @@ export default function BoneDisordersPage() {
             {/* CTA Banner */}
             <section className="bg-gradient-to-r from-sky-600 to-sky-800 rounded-2xl p-6 md:p-8 text-white shadow-xl">
               <h3 className="text-xl md:text-2xl font-extrabold mb-2 text-white">Book Your Bone/Arthritis Profile</h3>
-              <p className="text-sky-100 text-sm md:text-base mb-6 font-medium leading-relaxed">Same-day reports. Safe, NABL-accredited home sample collection available across Bengaluru.</p>
+              <p className="text-sky-100 text-sm md:text-base mb-6 font-medium leading-relaxed">Same-day reports. Safe, NABL Certified home sample collection available across Bengaluru.</p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/book" className="bg-white font-extrabold px-6 py-3 rounded-full text-sm hover:bg-sky-50 transition-all shadow-md cursor-pointer flex items-center gap-1.5" style={{ color: '#0369a1' }}>
                   Book a Test

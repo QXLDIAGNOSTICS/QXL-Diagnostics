@@ -107,7 +107,7 @@ export default function InsightsPage() {
               QXL Clinical Insights &amp; Health Reports
             </h1>
             <p className="text-sky-100 text-sm md:text-base leading-relaxed mb-6 font-medium">
-              Anonymized, aggregated population health statistics, biomarker trends, and disease prevalence studies generated from NABL-accredited diagnostic laboratory testing across Bengaluru.
+              Anonymized, aggregated population health statistics, biomarker trends, and disease prevalence studies generated from NABL Certified diagnostic laboratory testing across Bengaluru.
             </p>
             <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-sky-200">
               <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">

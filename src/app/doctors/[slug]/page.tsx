@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = `${doctor.name}${doctor.qualification ? ` — ${doctor.qualification}` : ""}`;
   const description =
     doctor.bio ||
-    `${doctor.name} is a ${doctor.specialization || "consultant"} at QXL Diagnostics, a NABL-accredited diagnostic laboratory in Bengaluru.`;
+    `${doctor.name} is a ${doctor.specialization || "consultant"} at QXL Diagnostics, a NABL Certified diagnostic laboratory in Bengaluru.`;
   return {
     title,
     description,

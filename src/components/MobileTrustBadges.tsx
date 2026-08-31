@@ -6,7 +6,7 @@ export default function MobileTrustBadges() {
   const badges = [
     {
       icon: Award,
-      title: "NABL Accredited",
+      title: "NABL Certified",
       subtitle: "Laboratory"
     },
     {

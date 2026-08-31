@@ -4,16 +4,16 @@ export const diagnosticLabBangalore: SeoLandingData = {
   slug: "/diagnostic-lab-bangalore",
   breadcrumbLabel: "Diagnostic Lab Bangalore",
   pageType: "service",
-  heroBadge: "NABL Accredited Laboratory (MC-6849) | ISO 15189:2022",
+  heroBadge: "NABL Certified Laboratory (MC-6849) | ISO 15189:2022",
   h1Lead: "Diagnostic Lab in Bangalore —",
-  h1Highlight: "Doctor-Led, NABL Accredited, Trusted by Bengaluru",
+  h1Highlight: "Doctor-Led, NABL Certified, Trusted by Bengaluru",
   heroIntro:
     "QXL Diagnostics is a super-speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection across the city, and same-day digital reports for most routine investigations — every report reviewed under specialist medical supervision.",
   aiOverviewTitle: "Why choose QXL Diagnostics?",
   aiOverview:
-    "QXL Diagnostics is a doctor-led, NABL-accredited (MC-6849) super-speciality diagnostic lab in Bangalore following ISO 15189:2022 quality standards. Founded by Clinical Biochemist Dr. Shantakumar Muruda, QXL combines advanced automation, molecular diagnostics and consultant-reviewed reporting with free home sample collection across Bengaluru.",
+    "QXL Diagnostics is a doctor-led, NABL Certified (MC-6849) super-speciality diagnostic lab in Bangalore following ISO 15189:2022 quality standards. Founded by Clinical Biochemist Dr. Shantakumar Muruda, QXL combines advanced automation, molecular diagnostics and consultant-reviewed reporting with free home sample collection across Bengaluru.",
   aiOverviewPoints: [
-    "NABL Accreditation: MC-6849",
+    "NABL Certification: MC-6849",
     "ISO 15189:2022 Quality Standards",
     "300+ Tests & Health Packages",
     "Free Home Collection Across Bengaluru",
@@ -21,7 +21,7 @@ export const diagnosticLabBangalore: SeoLandingData = {
   highlights: [
     {
       icon: "award",
-      title: "NABL Accredited Quality",
+      title: "NABL Certified Quality",
       desc: "Accredited under NABL certificate MC-6849 and operating to ISO 15189:2022 medical laboratory standards with daily internal and external quality control.",
     },
     {
@@ -119,8 +119,8 @@ export const diagnosticLabBangalore: SeoLandingData = {
   ],
   faqs: [
     {
-      q: "How do I choose a NABL-accredited diagnostic lab in Bangalore?",
-      a: "When selecting an accredited laboratory, evaluate: (1) Active NABL accreditation scope & certificate number; (2) Implementation of ISO 15189:2022 quality systems; (3) Specialist medical expertise for report verification; (4) Test availability and turnaround time; (5) Temperature-controlled cold-chain home collection. QXL Diagnostics meets all these criteria under NABL Certificate MC-6849 with 300+ tests and doctor-led reporting across Bengaluru.",
+      q: "How do I choose a NABL Certified diagnostic lab in Bangalore?",
+      a: "When selecting an certified laboratory, evaluate: (1) Active NABL Certification scope & certificate number; (2) Implementation of ISO 15189:2022 quality systems; (3) Specialist medical expertise for report verification; (4) Test availability and turnaround time; (5) Temperature-controlled cold-chain home collection. QXL Diagnostics meets all these criteria under NABL Certificate MC-6849 with 300+ tests and doctor-led reporting across Bengaluru.",
     },
     {
       q: "Where is QXL Diagnostics located in Bangalore?",
@@ -149,6 +149,6 @@ export const diagnosticLabBangalore: SeoLandingData = {
     { label: "Home Sample Collection", href: "/home-sample-collection-bangalore", desc: "Free doorstep collection across Bengaluru" },
     { label: "Full Body Checkup Bangalore", href: "/full-body-checkup-bangalore", desc: "Comprehensive preventive screening packages" },
     { label: "Health Checkup Packages", href: "/health-checkup-packages-bangalore", desc: "Age- and lifestyle-based health packages" },
-    { label: "NABL Accredited Lab", href: "/nabl-accredited-lab-bangalore", desc: "Why NABL accreditation matters for your reports" },
+    { label: "NABL Certified Lab", href: "/nabl-accredited-lab-bangalore", desc: "Why NABL Certification matters for your reports" },
   ],
 };

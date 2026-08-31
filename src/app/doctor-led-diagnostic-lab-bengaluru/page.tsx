@@ -23,10 +23,10 @@ import { WHATSAPP_LINK } from "../../lib/businessInfo";
 
 export const metadata: Metadata = {
   title: "Doctor-Led Diagnostic Lab in Bengaluru | QXL Diagnostics",
-  description: "Discover QXL Diagnostics, a NABL-accredited, doctor-led diagnostic lab in Bengaluru combining advanced technology, quality systems and specialist medical review.",
+  description: "Discover QXL Diagnostics, a NABL Certified, doctor-led diagnostic lab in Bengaluru combining advanced technology, quality systems and specialist medical review.",
   keywords: [
     "doctor-led diagnostic lab in Bengaluru",
-    "NABL-accredited diagnostic laboratory Bengaluru",
+    "NABL Certified diagnostic laboratory Bengaluru",
     "accurate blood test lab Bangalore",
     "super-speciality diagnostic lab Bengaluru",
     "advanced pathology and molecular diagnostics Bengaluru",
@@ -101,7 +101,7 @@ export default function DoctorLedSeoPage() {
               <div className="flex-1 space-y-5 text-center lg:text-left">
                 <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 px-4 py-1.5 rounded-full text-sky-300 text-xs font-black uppercase tracking-wider">
                   <Award className="w-4 h-4 text-amber-400" />
-                  <span>NABL Accredited Laboratory (MC-6849) | ISO 15189:2022</span>
+                  <span>NABL Certified Laboratory (MC-6849) | ISO 15189:2022</span>
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
@@ -143,7 +143,7 @@ export default function DoctorLedSeoPage() {
                 </h2>
 
                 <p className="text-slate-200 text-xs sm:text-sm font-medium leading-relaxed mb-6">
-                  QXL Diagnostics is a doctor-led, NABL-accredited super-speciality diagnostic laboratory in Bengaluru. Founded by Clinical Biochemist Dr. Shantakumar Muruda, QXL combines advanced laboratory technology, discipline-specific quality control and oversight by specialists in biochemistry, pathology, microbiology and histopathology to deliver clinically meaningful reports.
+                  QXL Diagnostics is a doctor-led, NABL Certified super-speciality diagnostic laboratory in Bengaluru. Founded by Clinical Biochemist Dr. Shantakumar Muruda, QXL combines advanced laboratory technology, discipline-specific quality control and oversight by specialists in biochemistry, pathology, microbiology and histopathology to deliver clinically meaningful reports.
                 </p>
 
                 <div className="space-y-2 border-t border-white/10 pt-4 text-xs font-semibold text-slate-300">
@@ -153,7 +153,7 @@ export default function DoctorLedSeoPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                    <span>NABL Accreditation: MC-6849</span>
+                    <span>NABL Certification: MC-6849</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
@@ -236,7 +236,7 @@ export default function DoctorLedSeoPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs font-bold text-slate-700">
                   <div className="flex items-center gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                    <span>NABL Accredited Quality Systems</span>
+                    <span>NABL Certified Quality Systems</span>
                   </div>
                   <div className="flex items-center gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500" />

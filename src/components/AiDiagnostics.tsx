@@ -92,7 +92,7 @@ const QA_DATA = {
       id: 'g10',
       category: 'general',
       question: 'Are your reports accurate?',
-      answer: 'Absolutely. QXL Diagnostics follows strict international quality standards and is NABL accredited. We use fully automated, advanced analysers and every report is reviewed by our senior doctors.'
+      answer: 'Absolutely. QXL Diagnostics follows strict international quality standards and is NABL Certified. We use fully automated, advanced analysers and every report is reviewed by our senior doctors.'
     },
 
     // Blood Test Questions

@@ -2,16 +2,16 @@ import type { SeoLandingData } from "../types";
 
 export const nablAccreditedLabBangalore: SeoLandingData = {
   slug: "/nabl-accredited-lab-bangalore",
-  breadcrumbLabel: "NABL Accredited Lab Bangalore",
+  breadcrumbLabel: "NABL Certified Lab Bangalore",
   pageType: "service",
   heroBadge: `NABL Certificate MC-6849 | ${"ISO 15189:2022"} Standards`,
-  h1Lead: "NABL Accredited Lab in Bangalore —",
+  h1Lead: "NABL Certified Lab in Bangalore —",
   h1Highlight: "Accreditation That Protects Your Diagnosis",
   heroIntro:
     "QXL Diagnostics is accredited by the National Accreditation Board for Testing and Calibration Laboratories (certificate MC-6849) and operates to ISO 15189:2022 medical laboratory standards — independently audited proof that our testing is competent, controlled and consistent.",
-  aiOverviewTitle: "What does NABL accreditation mean here?",
+  aiOverviewTitle: "What does NABL Certification mean here?",
   aiOverview:
-    "NABL accreditation (QXL certificate MC-6849) means an independent national accreditation body has audited QXL Diagnostics' Bengaluru laboratory for technical competence under ISO 15189:2022 — covering staff qualifications, instrument calibration, quality control, reporting practices and traceability.",
+    "NABL Certification (QXL certificate MC-6849) means an independent national accreditation body has audited QXL Diagnostics' Bengaluru laboratory for technical competence under ISO 15189:2022 — covering staff qualifications, instrument calibration, quality control, reporting practices and traceability.",
   aiOverviewPoints: [
     "Independently Audited Competence",
     "ISO 15189:2022 Medical Lab Standard",
@@ -42,9 +42,9 @@ export const nablAccreditedLabBangalore: SeoLandingData = {
   ],
   sections: [
     {
-      heading: "What NABL Accreditation Means for Patients",
+      heading: "What NABL Certification Means for Patients",
       paragraphs: [
-        "Any lab can print 'quality assured' on a report. NABL accreditation (an autonomous body under Quality Council of India) is different: it is an independent assessment of whether a laboratory's people, processes and instruments can produce results that are accurate and traceable under defined scope requirements. To earn and keep it, a lab must document everything — how samples are accepted, how instruments are calibrated against national standards, how staff are trained and competency-checked, how results are verified before release, and how errors are investigated.",
+        "Any lab can print 'quality assured' on a report. NABL Certification (an autonomous body under Quality Council of India) is different: it is an independent assessment of whether a laboratory's people, processes and instruments can produce results that are accurate and traceable under defined scope requirements. To earn and keep it, a lab must document everything — how samples are accepted, how instruments are calibrated against national standards, how staff are trained and competency-checked, how results are verified before release, and how errors are investigated.",
         "For you as a patient, that translates into one practical benefit: when your doctor makes a decision based on a QXL report — starting insulin, adjusting thyroid medication, investigating anaemia — the number behind that decision has been produced inside an audited system designed to make mistakes visible before they reach you.",
       ],
     },
@@ -65,7 +65,7 @@ export const nablAccreditedLabBangalore: SeoLandingData = {
     {
       heading: "Why Your Doctor Cares About the Lab Behind the Report",
       paragraphs: [
-        "Clinicians increasingly insist on NABL-accredited laboratories because interpretation depends on reliability. A borderline TSH, a creatinine trending upward, or an HbA1c deciding medication changes must be trustworthy across visits and instruments. Accredited labs also maintain result traceability and archived data, so historical comparisons remain valid years later — essential for chronic disease management.",
+        "Clinicians increasingly insist on NABL Certified laboratories because interpretation depends on reliability. A borderline TSH, a creatinine trending upward, or an HbA1c deciding medication changes must be trustworthy across visits and instruments. certified labs also maintain result traceability and archived data, so historical comparisons remain valid years later — essential for chronic disease management.",
       ],
     },
     {
@@ -106,12 +106,12 @@ export const nablAccreditedLabBangalore: SeoLandingData = {
   },
   faqs: [
     {
-      q: "Which labs in Bangalore are NABL accredited?",
-      a: "Several large chains and independent laboratories in Bangalore hold NABL accreditation. QXL Diagnostics is accredited under certificate MC-6849 operating to ISO 15189:2022 standards. Always verify a lab's certificate number on the official NABL portal rather than relying on advertising claims.",
+      q: "Which labs in Bangalore are NABL Certified?",
+      a: "Several large chains and independent laboratories in Bangalore hold NABL Certification. QXL Diagnostics is accredited under certificate MC-6849 operating to ISO 15189:2022 standards. Always verify a lab's certificate number on the official NABL portal rather than relying on advertising claims.",
     },
     {
-      q: "Is NABL accreditation really important for blood tests?",
-      a: "Yes. NABL accreditation independently verifies a laboratory's technical competence — calibration, quality control, staff competency and reporting practices. For tests that drive treatment decisions (sugar, thyroid, cholesterol, kidney function), this reliability directly affects your care.",
+      q: "Is NABL Certification really important for blood tests?",
+      a: "Yes. NABL Certification independently verifies a laboratory's technical competence — calibration, quality control, staff competency and reporting practices. For tests that drive treatment decisions (sugar, thyroid, cholesterol, kidney function), this reliability directly affects your care.",
     },
     {
       q: "What is the difference between NABL and ISO certification?",
@@ -123,18 +123,18 @@ export const nablAccreditedLabBangalore: SeoLandingData = {
     },
     {
       q: "Does accreditation affect report turnaround time?",
-      a: "Not negatively. Accredited labs run disciplined workflows, which is why QXL delivers same-day digital reports for most routine tests while maintaining full quality-control gates before release.",
+      a: "Not negatively. certified labs run disciplined workflows, which is why QXL delivers same-day digital reports for most routine tests while maintaining full quality-control gates before release.",
     },
     {
-      q: "Do home-collected samples still get tested at the accredited lab?",
-      a: "Yes. Samples collected at your home are transported under controlled conditions to the same NABL-accredited facility and analysed through identical quality-controlled processes as walk-in samples.",
+      q: "Do home-collected samples still get tested at the certified lab?",
+      a: "Yes. Samples collected at your home are transported under controlled conditions to the same NABL Certified facility and analysed through identical quality-controlled processes as walk-in samples.",
     },
   ],
   relatedLinks: [
     { label: "Diagnostic Lab Bangalore", href: "/diagnostic-lab-bangalore", desc: "Our full super-speciality service range" },
     { label: "Blood Test Bangalore", href: "/blood-test-bangalore", desc: "300+ accredited tests, home collection" },
     { label: "Pathology Lab Bangalore", href: "/pathology-lab-bangalore", desc: "Consultant-reported histopathology & cytology" },
-    { label: "Full Body Checkup", href: "/full-body-checkup-bangalore", desc: "Preventive panels at an accredited lab" },
+    { label: "Full Body Checkup", href: "/full-body-checkup-bangalore", desc: "Preventive panels at an certified lab" },
     { label: "Quality & Accreditation", href: "/quality-accreditation", desc: "More on our quality commitments" },
     { label: "Book a Test", href: "/book", desc: "Experience accredited testing yourself" },
   ],

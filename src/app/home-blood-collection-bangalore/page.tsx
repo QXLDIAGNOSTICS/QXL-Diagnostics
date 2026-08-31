@@ -12,11 +12,11 @@ const SITE_URL = "https://qxldiagnostics.com";
 
 export const metadata: Metadata = {
   title: "Home Blood Collection Bangalore | QXL Diagnostics",
-  description: "Book home blood collection across Bengaluru. NABL-accredited diagnostic laboratory (MC-6849), trained phlebotomy specialists, temperature-controlled cold chain transport & same-day reports.",
+  description: "Book home blood collection across Bengaluru. NABL Certified diagnostic laboratory (MC-6849), trained phlebotomy specialists, temperature-controlled cold chain transport & same-day reports.",
   alternates: { canonical: `${SITE_URL}/home-blood-collection-bangalore` },
   openGraph: {
     title: "Home Blood Collection in Bangalore | QXL Diagnostics",
-    description: "Book home blood collection across Bengaluru. NABL-accredited laboratory, trained phlebotomists & same-day reports.",
+    description: "Book home blood collection across Bengaluru. NABL Certified laboratory, trained phlebotomists & same-day reports.",
     url: `${SITE_URL}/home-blood-collection-bangalore`,
   },
 };
@@ -103,7 +103,7 @@ export default function HomeBloodCollectionPage() {
             <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-amber-200 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
                 <Award className="w-4 h-4 text-amber-300" />
-                NABL-Accredited Medical Laboratory (MC-6849)
+                NABL Certified Medical Laboratory (MC-6849)
               </div>
               
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight text-white drop-shadow-sm">
@@ -111,7 +111,7 @@ export default function HomeBloodCollectionPage() {
               </h1>
 
               <p className="text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl">
-                Professional, hygienic home blood draw by QXL-trained phlebotomy specialists. Samples transported in temperature-monitored cold chain containers to our NABL-accredited laboratory.
+                Professional, hygienic home blood draw by QXL-trained phlebotomy specialists. Samples transported in temperature-monitored cold chain containers to our NABL Certified laboratory.
               </p>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
@@ -186,7 +186,7 @@ export default function HomeBloodCollectionPage() {
               <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center font-black text-lg">3</div>
               <h3 className="font-bold text-slate-900 text-lg">NABL Lab Processing & MD Review</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Samples are processed on automated analyzers at our NABL-accredited facility (MC-6849), reviewed by consultant pathologists/biochemists, and delivered digitally.
+                Samples are processed on automated analyzers at our NABL Certified facility (MC-6849), reviewed by consultant pathologists/biochemists, and delivered digitally.
               </p>
             </div>
           </div>

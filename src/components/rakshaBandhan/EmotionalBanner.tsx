@@ -48,7 +48,7 @@ export default function EmotionalBanner({ onOpenBooking }: EmotionalBannerProps)
         <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-cyan-200">
           <div className="flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-amber-300" />
-            <span>NABL Accredited Lab ({RAKSHA_CAMPAIGN_CONFIG.nablCertNumber})</span>
+            <span>NABL Certified Lab ({RAKSHA_CAMPAIGN_CONFIG.nablCertNumber})</span>
           </div>
           <span className="text-cyan-400 hidden sm:inline">•</span>
           <span>Free Bengaluru Home Collection</span>

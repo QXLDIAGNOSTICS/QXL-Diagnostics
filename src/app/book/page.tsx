@@ -1089,7 +1089,7 @@ export default function BookPage() {
                             />
                             <div className="flex flex-col gap-1 w-full">
                               <span className="text-sm font-black text-[#0f2d5e] flex items-center gap-1.5"><Building2 className="w-4 h-4 text-[#D69A18]" /> Walk-in Lab Center</span>
-                              <span className="text-xs text-slate-500 font-medium leading-relaxed mt-1">Visit a QXL NABL Accredited Laboratory in Bengaluru</span>
+                              <span className="text-xs text-slate-500 font-medium leading-relaxed mt-1">Visit a QXL NABL Certified Laboratory in Bengaluru</span>
                               <span className="text-[10px] font-black text-amber-800 bg-amber-100 w-fit px-2 py-0.5 rounded-full mt-1">PHYSICAL WALK-IN</span>
                             </div>
                           </label>
@@ -1547,7 +1547,7 @@ export default function BookPage() {
               <ul className="space-y-4 text-sm font-semibold text-slate-700">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                  <span>Advanced NABL accredited lab with strict quality control.</span>
+                  <span>Advanced NABL Certified lab with strict quality control.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />

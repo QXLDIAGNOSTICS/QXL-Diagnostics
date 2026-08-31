@@ -45,7 +45,7 @@ export default function DoctorLedManifesto() {
             <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center font-extrabold text-lg">03</div>
             <h3 className="font-extrabold text-slate-900 text-lg">Verified Quality Systems</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Testing is supported by NABL-accredited laboratory processes (MC-6849), ISO 15189:2022 standards, and daily multi-rule Westgard IQC.
+              Testing is supported by NABL Certified laboratory processes (MC-6849), ISO 15189:2022 standards, and daily multi-rule Westgard IQC.
             </p>
           </div>
 
@@ -167,9 +167,9 @@ export default function DoctorLedManifesto() {
             </div>
 
             <div className="space-y-2">
-              <h4 className="font-bold text-slate-900 text-sm">What does NABL accreditation mean?</h4>
+              <h4 className="font-bold text-slate-900 text-sm">What does NABL Certification mean?</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
-                NABL accreditation (Certificate MC-6849) indicates that a laboratory has been independently assessed against defined technical and quality requirements under ISO 15189:2022 standards for competence, equipment calibration, personnel qualifications, and traceability.
+                NABL Certification (Certificate MC-6849) indicates that a laboratory has been independently assessed against defined technical and quality requirements under ISO 15189:2022 standards for competence, equipment calibration, personnel qualifications, and traceability.
               </p>
             </div>
 

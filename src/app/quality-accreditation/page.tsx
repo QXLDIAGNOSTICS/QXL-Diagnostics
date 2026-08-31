@@ -8,8 +8,8 @@ export default function QualityAccreditationPage() {
   const qualityPillars = [
     {
       icon: Award,
-      title: "ISO 15189:2022 NABL Accreditation",
-      desc: "Our central reference laboratory operates under strict NABL Accreditation (Certificate No. MC-6849) for medical laboratories, adhering to International ISO 15189:2022 standards.",
+      title: "ISO 15189:2022 NABL Certification",
+      desc: "Our central reference laboratory operates under strict NABL Certification (Certificate No. MC-6849) for medical laboratories, adhering to International ISO 15189:2022 standards.",
     },
     {
       icon: BarChart3,
@@ -41,7 +41,7 @@ export default function QualityAccreditationPage() {
   const standards = [
     {
       metric: "MC-6849",
-      label: "NABL Accreditation Scope",
+      label: "NABL Certification Scope",
       sub: "ISO 15189:2022 Certified Standard",
     },
     {
@@ -68,7 +68,7 @@ export default function QualityAccreditationPage() {
         <div className="max-w-[1260px] mx-auto px-4 w-full relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-cyan-200 text-xs font-bold uppercase tracking-wider mb-4">
             <ShieldCheck className="w-4 h-4 text-teal-300" />
-            <span>NABL ACCREDITED LABORATORY (MC-6849)</span>
+            <span>NABL certified laboratory (MC-6849)</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-black text-white mb-3 tracking-tight leading-tight">
             Quality Assurance & Clinical Excellence
@@ -146,7 +146,7 @@ export default function QualityAccreditationPage() {
                   When a lab result falls outside safe physiological limits (such as critical blood glucose, severe potassium derangements, or acute cardiac markers), QXL Diagnostic protocol mandates immediate verbal telephone notification to the ordering physician or patient, followed by prompt digital delivery.
                 </p>
                 <div className="pt-2 text-xs text-cyan-300 font-bold">
-                  * NABL accreditation applies to investigations included within our current accredited scope (Certificate No. MC-6849).
+                  * NABL Certification applies to investigations included within our current accredited scope (Certificate No. MC-6849).
                 </div>
               </div>
               <div className="lg:col-span-4 flex flex-col items-center lg:items-end gap-3">

@@ -113,7 +113,7 @@ function buildJsonLd(data: SeoLandingData) {
       name: data.medicalTestName,
       url,
       description,
-      howPerformed: "A small blood sample is collected by a trained phlebotomy specialist at home or at a QXL centre and analysed at our NABL-accredited laboratory.",
+      howPerformed: "A small blood sample is collected by a trained phlebotomy specialist at home or at a QXL centre and analysed at our NABL Certified laboratory.",
       normalRange: "Reference ranges are printed on every report and interpreted against your age and sex. Please consult your doctor for clinical interpretation.",
       offers: {
         "@type": "Offer",
@@ -465,7 +465,7 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
             Ready to Book? Get Tested with QXL Diagnostics Today
           </h2>
           <p className="text-slate-300 text-sm font-medium max-w-2xl mx-auto">
-            Free home sample collection across Bengaluru • NABL-accredited laboratory (MC-6849) •
+            Free home sample collection across Bengaluru • NABL Certified laboratory (MC-6849) •
             Same-day digital reports for most routine tests.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">

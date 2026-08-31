@@ -5,7 +5,7 @@ import { SITE_URL, NABL_CERTIFICATE, ISO_STANDARD, PHONE_DISPLAY, EMAIL } from '
 
 export const metadata: Metadata = {
   title: "For Doctors & Reference Lab Services Bangalore | QXL Diagnostics",
-  description: "B2B reference laboratory services, hospital lab outsourcing, critical value alerts, and specialist pathologist consultation in Bengaluru. NABL accredited (MC-6849).",
+  description: "B2B reference laboratory services, hospital lab outsourcing, critical value alerts, and specialist pathologist consultation in Bengaluru. NABL Certified (MC-6849).",
   alternates: { canonical: `${SITE_URL}/for-doctors` },
   keywords: [
     "reference lab Bangalore",
@@ -34,7 +34,7 @@ export default function ForDoctorsPage() {
       "@type": "DiagnosticLab",
       "name": "QXL Diagnostics Super Speciality Lab",
       "url": SITE_URL,
-      "hasCredential": `NABL Accreditation ${NABL_CERTIFICATE}`
+      "hasCredential": `NABL Certification ${NABL_CERTIFICATE}`
     }
   };
 
@@ -53,7 +53,7 @@ export default function ForDoctorsPage() {
               QXL Diagnostics — Doctor-Led Reference Laboratory
             </h1>
             <p className="text-sky-100 text-sm md:text-base leading-relaxed mb-6 font-medium">
-              Comprehensive B2B reference laboratory support for hospitals, nursing homes, polyclinics, and private practitioners across Bengaluru. Outsource your specialized pathology, histopathology, molecular PCR, and autoimmune testing to NABL-accredited experts.
+              Comprehensive B2B reference laboratory support for hospitals, nursing homes, polyclinics, and private practitioners across Bengaluru. Outsource your specialized pathology, histopathology, molecular PCR, and autoimmune testing to NABL Certified experts.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <a
@@ -77,7 +77,7 @@ export default function ForDoctorsPage() {
       <div className="bg-white border-b border-slate-200 py-4">
         <div className="max-w-[1260px] mx-auto px-4 flex flex-wrap items-center justify-between gap-4 text-xs font-extrabold text-slate-700">
           <span className="flex items-center gap-1.5 text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
-            <ShieldCheck className="w-4 h-4" /> NABL Accredited ({NABL_CERTIFICATE})
+            <ShieldCheck className="w-4 h-4" /> NABL Certified ({NABL_CERTIFICATE})
           </span>
           <span className="flex items-center gap-1.5 text-sky-700 bg-sky-50 px-3 py-1.5 rounded-full border border-sky-200">
             <Activity className="w-4 h-4" /> {ISO_STANDARD} Medical Laboratory Quality Standards
@@ -125,7 +125,7 @@ export default function ForDoctorsPage() {
                 },
                 {
                   title: "Hospital Lab Management",
-                  desc: "End-to-end outsourcing of hospital satellite laboratories, including NABL accreditation compliance, Westgard IQC setup, and technician staffing.",
+                  desc: "End-to-end outsourcing of hospital satellite laboratories, including NABL Certification compliance, Westgard IQC setup, and technician staffing.",
                   icon: Building2,
                   badge: "Turnkey Solution"
                 },

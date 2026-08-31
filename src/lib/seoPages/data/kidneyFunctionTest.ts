@@ -12,7 +12,7 @@ export const kidneyFunctionTest: SeoLandingData = {
     "Kidney disease whispers for years, then shouts. A Kidney Function Test at QXL Diagnostics tracks creatinine, urea, uric acid and electrolytes — catching decline while there's still time to act. Free home collection across Bengaluru.",
   aiOverviewTitle: "What does a KFT measure?",
   aiOverview:
-    "A Kidney Function Test at QXL Diagnostics measures serum creatinine, blood urea, estimated GFR (eGFR), uric acid and electrolytes (sodium, potassium, chloride, bicarbonate). It screens and monitors chronic kidney disease, dehydration effects, hypertension- and diabetes-related damage — at our NABL-accredited Bengaluru laboratory with same-day reports.",
+    "A Kidney Function Test at QXL Diagnostics measures serum creatinine, blood urea, estimated GFR (eGFR), uric acid and electrolytes (sodium, potassium, chloride, bicarbonate). It screens and monitors chronic kidney disease, dehydration effects, hypertension- and diabetes-related damage — at our NABL Certified Bengaluru laboratory with same-day reports.",
   aiOverviewPoints: [
     "Creatinine + Urea + eGFR",
     "Electrolyte Panel Included",

@@ -19,14 +19,14 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://qxldiagnostics.com"),
   title: {
-    default: "QXL Diagnostics Bengaluru | Doctor-Led NABL Accredited Lab",
+    default: "QXL Diagnostics Bengaluru | Doctor-Led NABL Certified Lab",
     template: "%s | QXL Diagnostics Bengaluru",
   },
   alternates: {
     canonical: "https://qxldiagnostics.com",
   },
   description:
-    "NABL-accredited diagnostic lab in Bengaluru (MC-6849). 300+ tests, free home collection, doctor-reviewed reports in 24 hrs.",
+    "NABL Certified diagnostic lab in Bengaluru (MC-6849). 300+ tests, free home collection, doctor-reviewed reports in 24 hrs.",
   manifest: "/manifest.json",
   authors: [{ name: "QXL Diagnostics" }],
   creator: "QXL Diagnostics",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://qxldiagnostics.com",
     siteName: "QXL Diagnostics",
-    title: "QXL Diagnostics Bengaluru | Doctor-Led NABL Accredited Lab",
+    title: "QXL Diagnostics Bengaluru | Doctor-Led NABL Certified Lab",
     description:
-      "Advanced diagnostic testing in Bengaluru. NABL accredited (MC-6849), free doorstep sample collection, 300+ tests, same-day digital reports.",
+      "Advanced diagnostic testing in Bengaluru. NABL Certified (MC-6849), free doorstep sample collection, 300+ tests, same-day digital reports.",
     images: [
       {
         url: "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "QXL Diagnostics | NABL Accredited Lab Bengaluru",
+    title: "QXL Diagnostics | NABL Certified Lab Bengaluru",
     description:
-      "NABL accredited diagnostic lab in Bengaluru. Home collection, 300+ tests, same-day reports.",
+      "NABL Certified diagnostic lab in Bengaluru. Home collection, 300+ tests, same-day reports.",
     images: [
       "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
     ],
@@ -83,7 +83,7 @@ const localBusinessSchema = {
   legalName: "Qualitify Healthtech Pvt Ltd",
   alternateName: ["QXL Diagnostics", "QXL Diagnostics Bengaluru", "QXL Diagnostics Bangalore"],
   description:
-    "NABL-accredited (MC-6849) doctor-led super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, and same-day digital reports.",
+    "NABL Certified (MC-6849) doctor-led super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, and same-day digital reports.",
   url: "https://qxldiagnostics.com",
   telephone: "+91-9964-639639",
   email: "info@qxldiagnostics.com",
@@ -92,7 +92,7 @@ const localBusinessSchema = {
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
     credentialCategory: "Laboratory Accreditation",
-    name: "NABL Accreditation Certificate MC-6849",
+    name: "NABL Certification Certificate MC-6849",
     description: "ISO 15189:2022 accreditation from National Accreditation Board for Testing and Calibration Laboratories (NABL), Government of India",
     recognizedBy: {
       "@type": "Organization",
@@ -168,10 +168,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Is QXL Diagnostics NABL accredited?",
+      name: "Is QXL Diagnostics NABL Certified?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, QXL Diagnostics is NABL accredited and follows ISO 15189 standards for medical laboratory testing, ensuring the highest quality and accuracy of results.",
+        text: "Yes, QXL Diagnostics is NABL Certified and follows ISO 15189 standards for medical laboratory testing, ensuring the highest quality and accuracy of results.",
       },
     },
     {
@@ -195,15 +195,15 @@ const faqSchema = {
       name: "Which is the best diagnostic lab in Bangalore?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "QXL Diagnostics is considered one of the best diagnostic labs in Bangalore, offering NABL accredited, doctor-led super speciality testing.",
+        text: "QXL Diagnostics is considered one of the best diagnostic labs in Bangalore, offering NABL Certified, doctor-led super speciality testing.",
       },
     },
     {
       "@type": "Question",
-      name: "Which diagnostic labs in Bangalore are NABL accredited?",
+      name: "Which diagnostic labs in Bangalore are NABL Certified?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "QXL Diagnostics is fully NABL accredited, ensuring all pathology and diagnostic tests meet strict national and international quality standards.",
+        text: "QXL Diagnostics is fully NABL Certified, ensuring all pathology and diagnostic tests meet strict national and international quality standards.",
       },
     },
     {
@@ -328,8 +328,8 @@ const speakableSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "@id": "https://qxldiagnostics.com",
-  "name": "QXL Diagnostics — NABL Accredited Super Speciality Lab Bengaluru",
-  "description": "NABL-accredited (MC-6849) diagnostic laboratory in Bengaluru. Free home collection, 300+ tests, same-day reports.",
+  "name": "QXL Diagnostics — NABL Certified Super Speciality Lab Bengaluru",
+  "description": "NABL Certified (MC-6849) diagnostic laboratory in Bengaluru. Free home collection, 300+ tests, same-day reports.",
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": [

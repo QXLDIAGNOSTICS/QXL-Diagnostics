@@ -8,7 +8,7 @@ import PopularPackagesGrid from '@/components/PopularPackagesGrid';
 
 export const metadata: Metadata = {
   title: "Doctor-Led Diagnostics & Reference Lab Expertise | QXL Diagnostics",
-  description: "At QXL Diagnostics, laboratory medicine is led by doctors—not just machines. NABL-accredited (MC-6849) routine & super-speciality reference diagnostics across Bengaluru.",
+  description: "At QXL Diagnostics, laboratory medicine is led by doctors—not just machines. NABL Certified (MC-6849) routine & super-speciality reference diagnostics across Bengaluru.",
   keywords: ["doctor led diagnostics bangalore", "pathologist led lab bengaluru", "NABL reference laboratory", "super speciality diagnostic lab", "QXL diagnostics doctor led"],
   alternates: {
     canonical: "https://qxldiagnostics.com/doctor-led-diagnostics",
@@ -91,7 +91,7 @@ export default function DoctorLedDiagnosticsPage() {
             <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center font-black text-sm">03</div>
             <h3 className="font-extrabold text-slate-900 text-base">Verified Quality Systems</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Testing is supported by NABL-accredited laboratory processes (MC-6849), ISO 15189:2022 standards, and daily multi-rule Westgard IQC.
+              Testing is supported by NABL Certified laboratory processes (MC-6849), ISO 15189:2022 standards, and daily multi-rule Westgard IQC.
             </p>
           </div>
 
@@ -225,7 +225,7 @@ export default function DoctorLedDiagnosticsPage() {
             <ul className="space-y-2 text-xs text-slate-600">
               <li className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" /> Broad speciality referral test menu</li>
               <li className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" /> Standardized sample cold-chain logistics</li>
-              <li className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" /> NABL accredited quality processing</li>
+              <li className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" /> NABL Certified quality processing</li>
             </ul>
           </div>
         </div>

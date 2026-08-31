@@ -102,7 +102,7 @@ export default function ReviewsSection({ decorativeHeading = false }: { decorati
         id: 'r12',
         author_name: 'Arjun Desai',
         rating: 5,
-        content: 'One of the most trusted labs in the city. Their NABL accreditation gives me confidence in their reports. Will visit again.',
+        content: 'One of the most trusted labs in the city. Their NABL Certification gives me confidence in their reports. Will visit again.',
         source: 'Google',
         created_at: new Date().toISOString()
       },
@@ -150,7 +150,7 @@ export default function ReviewsSection({ decorativeHeading = false }: { decorati
         id: 'r18',
         author_name: 'Shalini Hegde',
         rating: 5,
-        content: 'Clean lab, polite desk staff, and quick tests. They are NABL accredited, which gives peace of mind. Very efficient.',
+        content: 'Clean lab, polite desk staff, and quick tests. They are NABL Certified, which gives peace of mind. Very efficient.',
         source: 'Google',
         created_at: new Date().toISOString()
       },

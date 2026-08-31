@@ -63,7 +63,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
                   <ShieldCheck className="w-4 h-4 text-[#D69A18]" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-slate-900">NABL Accredited</div>
+                  <div className="text-xs font-bold text-slate-900">NABL Certified</div>
                   <div className="text-[11px] text-slate-500">Lab ({RAKSHA_CAMPAIGN_CONFIG.nablCertNumber})</div>
                 </div>
               </div>
@@ -196,7 +196,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
                   <div className="flex items-center gap-3 bg-slate-900/40 backdrop-blur-md p-3.5 rounded-xl border border-white/10">
                     <UserCheck className="w-5 h-5 text-teal-300 shrink-0" />
                     <div className="text-xs">
-                      <div className="font-bold text-white">NABL Accredited Laboratory</div>
+                      <div className="font-bold text-white">NABL Certified Laboratory</div>
                       <div className="text-[11px] text-cyan-200">Certificate No: {RAKSHA_CAMPAIGN_CONFIG.nablCertNumber} • Bengaluru</div>
                     </div>
                   </div>

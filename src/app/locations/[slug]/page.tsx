@@ -56,13 +56,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (areaLoc) {
     return {
       title: `Blood Test at Home in ${areaLoc.name} | QXL Diagnostics`,
-      description: `Book blood test with free home collection in ${areaLoc.name}, Bengaluru. NABL accredited lab, CBC, HbA1c, thyroid, lipid & full body checkup packages with same-day reports.`,
+      description: `Book blood test with free home collection in ${areaLoc.name}, Bengaluru. NABL Certified lab, CBC, HbA1c, thyroid, lipid & full body checkup packages with same-day reports.`,
       alternates: {
         canonical: `https://qxldiagnostics.com/locations/${slug}`,
       },
       openGraph: {
         title: `Blood Test at Home in ${areaLoc.name} | QXL Diagnostics`,
-        description: `Free home sample collection in ${areaLoc.name}, Bengaluru. NABL accredited lab, same-day reports.`,
+        description: `Free home sample collection in ${areaLoc.name}, Bengaluru. NABL Certified lab, same-day reports.`,
         url: `https://qxldiagnostics.com/locations/${slug}`,
         locale: "en_IN",
         type: "website",
@@ -109,7 +109,7 @@ export default async function CombinedLocationPage({ params }: Props) {
             </p>
             <h1 className="text-3xl md:text-4xl font-extrabold mb-3 leading-tight !text-white" style={{ color: '#ffffff' }}>{loc.name}</h1>
             <p className="text-blue-100 text-sm md:text-base max-w-2xl leading-relaxed">
-              NABL-accredited ({NABL_CERTIFICATE}) · {ISO_STANDARD} · Free home sample collection near{" "}
+              NABL Certified ({NABL_CERTIFICATE}) · {ISO_STANDARD} · Free home sample collection near{" "}
               {loc.shortName}. Same-day digital reports for most routine tests.
             </p>
             <div className="flex flex-wrap gap-3 mt-6">
@@ -301,8 +301,8 @@ export default async function CombinedLocationPage({ params }: Props) {
                       <ShieldCheck className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Accredited (MC-6849)</h3>
-                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Processed at our NABL-accredited ISO 15189:2022 laboratory with multi-level MD doctor verification.</p>
+                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Certified (MC-6849)</h3>
+                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Processed at our NABL Certified ISO 15189:2022 laboratory with multi-level MD doctor verification.</p>
                     </div>
                   </div>
                   

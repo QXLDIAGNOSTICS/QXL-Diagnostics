@@ -11,7 +11,7 @@ export const pathologyLabBangalore: SeoLandingData = {
     "QXL Diagnostics is a super-speciality pathology laboratory in Bengaluru where biopsies, cytology specimens and clinical pathology samples are reported by senior consultant pathologists — not outsourced, not rushed.",
   aiOverviewTitle: "What does QXL's pathology department cover?",
   aiOverview:
-    "The pathology department at QXL Diagnostics in Bangalore covers histopathology (biopsy reporting), cytopathology (FNAC and PAP smears), haematology and clinical pathology. Senior Consultant Histopathologist Dr. Pritilata Rout and Consultant Pathologist Dr. Naveen Kumar N lead specialist reporting, supported by NABL-accredited (MC-6849) quality systems.",
+    "The pathology department at QXL Diagnostics in Bangalore covers histopathology (biopsy reporting), cytopathology (FNAC and PAP smears), haematology and clinical pathology. Senior Consultant Histopathologist Dr. Pritilata Rout and Consultant Pathologist Dr. Naveen Kumar N lead specialist reporting, supported by NABL Certified (MC-6849) quality systems.",
   aiOverviewPoints: [
     "Histopathology & Biopsy Reporting",
     "FNAC & PAP Smear Cytology",
@@ -145,14 +145,14 @@ export const pathologyLabBangalore: SeoLandingData = {
     },
     {
       q: "Is a pathology lab the same as a diagnostic lab?",
-      a: "A diagnostic lab is the broader term — it includes biochemistry, microbiology, molecular and imaging-adjacent services. A pathology lab specifically handles tissue (histopathology), cells (cytology) and blood/body-fluid examination. QXL Diagnostics offers both under one NABL-accredited roof.",
+      a: "A diagnostic lab is the broader term — it includes biochemistry, microbiology, molecular and imaging-adjacent services. A pathology lab specifically handles tissue (histopathology), cells (cytology) and blood/body-fluid examination. QXL Diagnostics offers both under one NABL Certified roof.",
     },
   ],
   relatedLinks: [
     { label: "Diagnostic Lab Bangalore", href: "/diagnostic-lab-bangalore", desc: "Full-service NABL super-speciality laboratory" },
     { label: "Blood Test Bangalore", href: "/blood-test-bangalore", desc: "300+ blood tests with home collection" },
     { label: "CBC Test", href: "/cbc-test", desc: "Complete blood count & haematology screening" },
-    { label: "NABL Accredited Lab", href: "/nabl-accredited-lab-bangalore", desc: "Accreditation details & quality systems" },
+    { label: "NABL Certified Lab", href: "/nabl-accredited-lab-bangalore", desc: "Accreditation details & quality systems" },
     { label: "Book a Test", href: "/book", desc: "Schedule collection online in minutes" },
     { label: "Our Doctors", href: "/doctors", desc: "Meet our consultant specialists" },
   ],

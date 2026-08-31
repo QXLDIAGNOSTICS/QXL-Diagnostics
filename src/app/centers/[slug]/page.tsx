@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Center Not Found | QXL Diagnostics" };
   }
   const title = `${center.name} — Diagnostic Centre in ${center.city}`;
-  const description = `Visit QXL Diagnostics' ${center.name} at ${center.address}, ${center.city}. NABL-accredited testing, home sample collection, and same-day reports. Call ${center.phone || ""}.`;
+  const description = `Visit QXL Diagnostics' ${center.name} at ${center.address}, ${center.city}. NABL Certified testing, home sample collection, and same-day reports. Call ${center.phone || ""}.`;
   return {
     title,
     description,
@@ -107,7 +107,7 @@ export default async function CenterDetailPage({ params }: Props) {
             <div className="flex items-center gap-2 mb-2">
               {center.is_nabl && (
                 <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wide">
-                  <Shield className="w-3 h-3" /> NABL Accredited
+                  <Shield className="w-3 h-3" /> NABL Certified
                 </span>
               )}
             </div>

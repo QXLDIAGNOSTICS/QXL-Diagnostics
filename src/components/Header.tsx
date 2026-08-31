@@ -200,12 +200,12 @@ export default function Header() {
   // by city so any newly added location/city shows up here automatically —
   // falls back to a static seed list only while the API hasn't loaded yet.
   const fallbackBranches = [
-    { id: "loc-1", name: "Bangalore – QXL Diagnostics Super Speciality Reference Laboratory (NABL Accredited) (Kengeri)", city: "Bengaluru" },
+    { id: "loc-1", name: "Bangalore – QXL Diagnostics Super Speciality Reference Laboratory (NABL Certified) (Kengeri)", city: "Bengaluru" },
     { id: "loc-2", name: "Nayandahalli (Mysuru Road) – Spandana Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
     { id: "loc-3", name: "Nagarabhavi – Astrio Multispeciality Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
     { id: "loc-4", name: "Chandra Layout – Nandi Diagnostics, Powered by QXL Diagnostics", city: "Bengaluru" },
     { id: "loc-5", name: "Yelahanka Old Town – Shushrusha Hospital, Powered by QXL Diagnostics", city: "Bengaluru" },
-    { id: "loc-6", name: "Yelahanka (Galleria Mall) – North City Specialities Powered by QXL Diagnostics (NABL Accredited)", city: "Bengaluru" },
+    { id: "loc-6", name: "Yelahanka (Galleria Mall) – North City Specialities Powered by QXL Diagnostics (NABL Certified)", city: "Bengaluru" },
     { id: "loc-7", name: "Sanjaynagar – Nisarga Diagnostics, Powered by QXL Diagnostics", city: "Bengaluru" },
     { id: "loc-8", name: "Vidyaranyapura – Dr. Abhi Kollur's Clinic, Powered by QXL Diagnostics", city: "Bengaluru" },
   ];
@@ -243,7 +243,7 @@ export default function Header() {
                 <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">NABL ACCREDITED (MC-6849)</span>
                 <span className="text-sky-100 font-bold">•</span>
                 <div className="brand-strip text-[11px] font-black !text-white inline-flex items-center gap-1 m-0 p-0">
-                  <span>Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</span>
+                  <span>Doctor-Led NABL Certified Diagnostic Lab in Bengaluru</span>
                 </div>
                 <span className="text-sky-100 font-bold">•</span>
                 <span className="text-white text-[11px] font-black">300+ Tests &amp; Preventive Checkup Packages</span>

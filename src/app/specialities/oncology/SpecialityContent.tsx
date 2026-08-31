@@ -56,7 +56,7 @@ export default function OncologyPage() {
             {/* Intro */}
             <section>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Early detection and rigorous surveillance are vital components of modern oncology care. QXL Diagnostics provides NABL accredited tumor marker testing, employing advanced chemiluminescent immunoassay (CLIA) platforms to ensure highly reproducible quantitative results.
+                Early detection and rigorous surveillance are vital components of modern oncology care. QXL Diagnostics provides NABL Certified tumor marker testing, employing advanced chemiluminescent immunoassay (CLIA) platforms to ensure highly reproducible quantitative results.
               </p>
             </section>
 
@@ -131,7 +131,7 @@ export default function OncologyPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL-Accredited Lab", desc: "Meets international standards for diagnostic testing and quality assurance." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Lab", desc: "Meets international standards for diagnostic testing and quality assurance." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "High-Sensitivity Assays", desc: "Using advanced chemiluminescence platforms for precise result quantification." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Consultant-Reviewed Reports", desc: "Expert biochemists and pathologists verify every critical tumor marker profile." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Collection Service", desc: "Safe, sterile home collections across Bengaluru by trained phlebotomy specialists." }

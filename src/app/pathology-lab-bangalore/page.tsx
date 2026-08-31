@@ -4,7 +4,7 @@ import { pathologyLabBangalore } from "@/lib/seoPages/data/pathologyLabBangalore
 
 export const metadata: Metadata = {
   title: "Pathology Lab in Bangalore | Consultant-Reported | QXL Diagnostics",
-  description: "Super-speciality pathology lab in Bangalore — histopathology, FNAC, PAP smear & clinical pathology reported by senior consultant pathologists. NABL accredited.",
+  description: "Super-speciality pathology lab in Bangalore — histopathology, FNAC, PAP smear & clinical pathology reported by senior consultant pathologists. NABL Certified.",
   alternates: {
     canonical: "https://qxldiagnostics.com/pathology-lab-bangalore",
   },

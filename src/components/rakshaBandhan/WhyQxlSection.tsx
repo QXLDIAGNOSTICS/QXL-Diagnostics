@@ -7,7 +7,7 @@ import { RAKSHA_CAMPAIGN_CONFIG } from "@/lib/rakshaBandhanConfig";
 export default function WhyQxlSection() {
   const features = [
     {
-      title: "NABL Accredited Laboratory",
+      title: "NABL Certified Laboratory",
       description: `Formal accreditation (MC-6849) adhering strictly to ISO 15189:2022 medical quality standards.`,
       icon: ShieldCheck,
       badge: "NABL ACCREDITED",

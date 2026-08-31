@@ -14,7 +14,7 @@ export async function GET() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": `${BUSINESS_NAME} — Complete Diagnostic Test Catalogue`,
-    "description": `Full list of laboratory tests offered by ${BUSINESS_NAME}, a NABL-accredited (${NABL_CERTIFICATE}, ${ISO_STANDARD}) super-speciality diagnostic laboratory in Bengaluru, Karnataka, India.`,
+    "description": `Full list of laboratory tests offered by ${BUSINESS_NAME}, a NABL Certified (${NABL_CERTIFICATE}, ${ISO_STANDARD}) super-speciality diagnostic laboratory in Bengaluru, Karnataka, India.`,
     "url": `${SITE_URL}/api/tests-catalogue`,
     "numberOfItems": MASTER_CATALOGUE.length,
     "provider": {
@@ -61,7 +61,7 @@ export async function GET() {
         },
         "preparation": test.fastingInstruction,
         "relevantSpecialty": { "@type": "MedicalSpecialty", "name": test.category },
-        "howPerformed": `Blood sample collected at your home across Bengaluru or at QXL lab, processed at NABL-accredited laboratory (${NABL_CERTIFICATE}). Accreditation applies to tests included within our current accredited scope.`,
+        "howPerformed": `Blood sample collected at your home across Bengaluru or at QXL lab, processed at NABL Certified laboratory (${NABL_CERTIFICATE}). Accreditation applies to tests included within our current accredited scope.`,
         "normalRange": "Refer to test page for reference ranges",
         "usesDevice": { "@type": "MedicalDevice", "name": "Automated Clinical Chemistry / Immunoassay Analyser" }
       }

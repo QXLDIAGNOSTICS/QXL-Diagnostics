@@ -47,7 +47,7 @@ export const EMAIL = "info@qxldiagnostics.com";
 
 /** NABL certificate number — must match Google Business / accreditation docs */
 export const NABL_CERTIFICATE = "MC-6849";
-export const NABL_ACCREDITATION_TEXT = "NABL-accredited medical laboratory (ISO 15189:2022) · Certificate No. MC-6849";
+export const NABL_ACCREDITATION_TEXT = "NABL Certified medical laboratory (ISO 15189:2022) · Certificate No. MC-6849";
 /** Medical-lab quality standard (not ISO 9001) */
 export const ISO_STANDARD = "ISO 15189:2022";
 

@@ -5,7 +5,7 @@ import testGuideData from "@/lib/testGuideData.json";
 
 export const metadata: Metadata = {
   title: "Comprehensive Diagnostic Test Guide",
-  description: "Explore our comprehensive directory of diagnostic tests, health packages, and screening panels at QXL Diagnostics, Bengaluru. NABL accredited.",
+  description: "Explore our comprehensive directory of diagnostic tests, health packages, and screening panels at QXL Diagnostics, Bengaluru. NABL Certified.",
   keywords: ["diagnostic test directory", "health packages", "test guide", "QXL tests list", "Bangalore diagnostic packages"],
 };
 
@@ -18,7 +18,7 @@ export default function DiagnosticGuidePage() {
         <div className="text-center space-y-6 mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-2">
             <ShieldCheck className="w-4 h-4" />
-            <span>NABL Accredited (MC-6849) | ISO 15189:2022</span>
+            <span>NABL Certified (MC-6849) | ISO 15189:2022</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
             Comprehensive <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Diagnostic Test Guide</span>

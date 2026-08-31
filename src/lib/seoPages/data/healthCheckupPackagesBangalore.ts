@@ -8,13 +8,13 @@ export const healthCheckupPackagesBangalore: SeoLandingData = {
   h1Lead: "Health Checkup Packages in Bangalore —",
   h1Highlight: "Preventive Screening Designed by Doctors",
   heroIntro:
-    "From executive screenings to senior-citizen and women's health panels, QXL Diagnostics offers doctor-curated health checkup packages tested at our NABL-accredited Bengaluru laboratory — with free home collection and same-day digital reports.",
+    "From executive screenings to senior-citizen and women's health panels, QXL Diagnostics offers doctor-curated health checkup packages tested at our NABL Certified Bengaluru laboratory — with free home collection and same-day digital reports.",
   aiOverviewTitle: "Which package is right for you?",
   aiOverview:
-    "QXL Diagnostics Bangalore offers preventive health packages for every life stage: full body checkups, executive health checkups for working professionals, annual and comprehensive panels, senior citizen checkups, diabetes and heart risk profiles, and dedicated women's and men's packages. All are processed at our NABL-accredited (MC-6849) laboratory with free home sample collection across Bengaluru.",
+    "QXL Diagnostics Bangalore offers preventive health packages for every life stage: full body checkups, executive health checkups for working professionals, annual and comprehensive panels, senior citizen checkups, diabetes and heart risk profiles, and dedicated women's and men's packages. All are processed at our NABL Certified (MC-6849) laboratory with free home sample collection across Bengaluru.",
   aiOverviewPoints: [
     "Panels for Every Age & Risk Group",
-    "NABL-Accredited Lab Processing",
+    "NABL Certified Lab Processing",
     "Free Home Collection, City-Wide",
     "Same-Day Digital Reports",
   ],
@@ -45,7 +45,7 @@ export const healthCheckupPackagesBangalore: SeoLandingData = {
       heading: "One Size Doesn't Fit All Health",
       paragraphs: [
         "A 28-year-old software engineer, a 45-year-old mother of two and a 68-year-old with hypertension should not be sold the same 'master health checkup'. Their risks differ, so their screening should differ. That's why QXL's package range is structured by age, gender and condition rather than a single bloated panel — you pay for relevance, not repetition.",
-        "Every package runs through the same NABL-accredited (MC-6849) laboratory workflow: barcode-tracked samples, daily quality control, and specialist review of abnormal findings before reports are released. Packages simply bundle the right tests at better value than booking them individually.",
+        "Every package runs through the same NABL Certified (MC-6849) laboratory workflow: barcode-tracked samples, daily quality control, and specialist review of abnormal findings before reports are released. Packages simply bundle the right tests at better value than booking them individually.",
       ],
     },
     {
@@ -86,7 +86,7 @@ export const healthCheckupPackagesBangalore: SeoLandingData = {
         desc: "Doorstep sample collection anywhere in Bengaluru, including early-morning fasting slots.",
       },
       {
-        title: "NABL-Accredited Testing",
+        title: "NABL Certified Testing",
         desc: "All parameters processed under NABL MC-6849 quality systems at our super-speciality laboratory.",
       },
       {

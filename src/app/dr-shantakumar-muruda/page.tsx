@@ -148,7 +148,7 @@ export default function DrShantakumarMurudaPage() {
                 {[
                   { title: "HbA1c Test: Diabetes Diagnosis, Fasting Requirements & Reference Ranges", href: "/hba1c-test" },
                   { title: "Lipid Profile Test: Understanding Cholesterol Ratios & Cardiac Risk", href: "/lipid-profile-test" },
-                  { title: "NABL Accreditation & ISO 15189 Standards in Clinical Laboratory Practice", href: "/nabl-accredited-lab-bangalore" },
+                  { title: "NABL Certification & ISO 15189 Standards in Clinical Laboratory Practice", href: "/nabl-accredited-lab-bangalore" },
                   { title: "Full Body Health Checkup: Clinical Parameter Selection & Guidance", href: "/full-body-checkup-bangalore" },
                   { title: "Blood Test Preparation: Fasting vs Non-Fasting Guidelines", href: "/blood-test-bangalore" },
                 ].map((art, idx) => (
