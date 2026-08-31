@@ -2,52 +2,12 @@ import { MetadataRoute } from 'next';
 import { serverApi } from '@/lib/serverApi';
 import { LOCATIONS } from '@/lib/businessInfo';
 import { homeCollectionAreas } from '@/lib/locationsData';
-
-// Top-100 priority test pages (SEO Master Plan priority order)
-const TOP_100_TEST_PAGES = [
-  // Priority 21–25: High-volume routine tests
-  "cbc-test-bangalore", "thyroid-test-bangalore", "vitamin-d-test-bangalore",
-  "hba1c-test-bangalore", "lipid-profile-test-bangalore",
-  // Prenatal Screening Pack (Volume 4)
-  "double-marker", "papp-a", "free-beta-hcg", "triple-marker", "quadruple-marker",
-  // Priority 26–35: Routine metabolic tests
-  "liver-function-test-bangalore", "kidney-function-test-bangalore",
-  "vitamin-b12-test-bangalore", "blood-sugar-test-bangalore", "urine-test-bangalore",
-  "crp-test-bangalore", "esr-test-bangalore", "creatinine-test-bangalore",
-  "uric-acid-test-bangalore", "iron-profile-test-bangalore",
-  // Priority 36–50: Preventive & fertility
-  "ferritin-test-bangalore", "diabetes-profile-test-bangalore",
-  "thyroid-profile-test-bangalore", "amh-test-bangalore", "pcos-test-bangalore",
-  "beta-hcg-test-bangalore", "double-marker-test-bangalore",
-  "female-hormone-test-bangalore", "fsh-test-bangalore", "lh-test-bangalore",
-  // Priority 51–65: Prenatal & autoimmune
-  "triple-marker-test-bangalore", "quadruple-marker-test-bangalore",
-  "antenatal-profile-test-bangalore", "allergy-test-bangalore",
-  "food-allergy-test-bangalore", "food-intolerance-test-bangalore",
-  "total-ige-test-bangalore", "autoimmune-profile-test-bangalore",
-  "ana-test-bangalore", "ana-profile-test-bangalore", "ana-ifa-test-bangalore",
-  "anti-dsdna-test-bangalore", "ena-profile-test-bangalore",
-  "anti-ccp-test-bangalore", "rheumatoid-factor-test-bangalore",
-  // Priority 66–75: Histopathology & molecular
-  "anca-test-bangalore", "histopathology-test-bangalore", "biopsy-test-bangalore",
-  "immunohistochemistry-test-bangalore", "molecular-diagnostic-test-bangalore",
-  "pcr-test-bangalore", "genetic-test-bangalore", "flow-cytometry-test-bangalore",
-  "ngs-test-bangalore",
-  // Priority 76–90: Super speciality & cardiac
-  "therapeutic-drug-monitoring-test-bangalore", "mass-spectrometry-test-bangalore",
-  "tumor-marker-test-bangalore", "cancer-marker-test-bangalore",
-  "psa-test-bangalore", "ca-125-test-bangalore", "cea-test-bangalore",
-  "afp-test-bangalore", "troponin-test-bangalore", "nt-probnp-test-bangalore",
-  "d-dimer-test-bangalore", "cardiac-biomarker-test-bangalore",
-  "testosterone-test-bangalore", "prolactin-test-bangalore", "cortisol-test-bangalore",
-  // Priority 91–100: GI, oncology, B2B supporting tests
-  "stool-test-bangalore", "calprotectin-test-bangalore", "h-pylori-test-bangalore",
-  "dengue-test-bangalore", "malaria-test-bangalore", "typhoid-test-bangalore",
-  "hiv-test-bangalore", "hepatitis-b-test-bangalore", "hepatitis-c-test-bangalore",
-  "urine-culture-test-bangalore",
-];
+import { cms100MasterData } from '@/lib/seoPages/cms100MasterData';
 
 const BASE_URL = 'https://qxldiagnostics.com';
+
+// Dynamic 100 test slugs directly from cms100MasterData
+const TOP_100_SLUGS = Object.keys(cms100MasterData);
 
 // SEO landing pages & High Priority Google Ads URLs
 const SEO_PAGES: { url: string; priority: number; changeFrequency: "daily" | "weekly" | "monthly" }[] = [
@@ -69,21 +29,6 @@ const SEO_PAGES: { url: string; priority: number; changeFrequency: "daily" | "we
   { url: "/heart-health-checkup", priority: 0.9, changeFrequency: "monthly" },
   { url: "/womens-health-checkup", priority: 0.9, changeFrequency: "monthly" },
   { url: "/mens-health-checkup", priority: 0.9, changeFrequency: "monthly" },
-  { url: "/cbc-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/hba1c-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/blood-sugar-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/lipid-profile-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/thyroid-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/vitamin-d-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/vitamin-b12-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/liver-function-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/kidney-function-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/urine-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/crp-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/iron-profile-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/allergy-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/food-sensitivity-test", priority: 0.85, changeFrequency: "monthly" },
-  { url: "/hormone-test", priority: 0.85, changeFrequency: "monthly" },
   { url: "/locations/whitefield", priority: 0.9, changeFrequency: "monthly" },
   { url: "/diagnostic-lab-electronic-city", priority: 0.9, changeFrequency: "monthly" },
   { url: "/diagnostic-lab-koramangala", priority: 0.9, changeFrequency: "monthly" },
@@ -216,7 +161,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/tests`,
+      url: `${BASE_URL}/test-directory`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
@@ -317,12 +262,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: 'monthly',
         priority: 0.6,
       })),
-    // ── Top-100 Priority Test Pages ──────────────────────────────────────────
-    ...TOP_100_TEST_PAGES.map((slug): MetadataRoute.Sitemap[number] => ({
-      url: `${BASE_URL}/tests/${slug}`,
+    // ── Direct Top-Level 100 Priority Test Pages ───────────────────────────────
+    ...TOP_100_SLUGS.map((slug): MetadataRoute.Sitemap[number] => ({
+      url: `${BASE_URL}/${slug}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.95,
     })),
     // ── B2B / Reference Laboratory Pages ────────────────────────────────────
     {
@@ -369,4 +314,3 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 }
-
