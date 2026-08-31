@@ -41,7 +41,7 @@ export default function HowItWorksSection() {
           </h2>
 
           <p className="text-base text-slate-600 font-medium">
-            3 simple steps to get your Raksha Bandhan health checkup completed seamlessly.
+            3 simple steps to get your health checkup completed seamlessly.
           </p>
         </div>
 

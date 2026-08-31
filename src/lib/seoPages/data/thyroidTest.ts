@@ -15,6 +15,13 @@ export const thyroidTest: SeoLandingData = {
   reviewerName: "Dr. Shantakumar Muruda",
   reviewerSlug: "dr-shantakumar-muruda",
   reviewerQuals: "MD Biochemistry, NABL Lead Assessor",
+  publishedDate: "2026-01-15",
+  lastReviewedDate: "August 2026",
+  references: [
+    "American Thyroid Association (ATA) Guidelines for Diagnosis and Management of Thyroid Disease.",
+    "Indian Thyroid Society (ITS) Consensus Guidelines for Thyroid Disorders in India.",
+    "NABL ISO 15189:2022 Immunoassay Reference Standards."
+  ],
   heroBadge: "TSH + FT3 + FT4 Complete Profile | Home Collection",
   h1Lead: "Thyroid Test in Bangalore —",
   h1Highlight: "Answers for Fatigue, Weight & Mood Changes",

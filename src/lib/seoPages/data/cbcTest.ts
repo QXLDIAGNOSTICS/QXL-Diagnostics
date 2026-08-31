@@ -8,21 +8,29 @@ export const cbcTest: SeoLandingData = {
   price: 299,
   originalPrice: 450,
   synonyms: ["CBC", "Hemogram", "Complete Blood Count", "CBP", "Full Blood Count", "Haemogram"],
-  reportTat: "6–12 Hours (Same Day)",
+  reportTat: "6 Hours (Same Day)",
   fastingRequired: false,
   sampleType: "EDTA Venous Blood",
   parametersCount: 26,
   reviewerName: "Dr. Naveen Kumar N",
   reviewerSlug: "dr-naveen-kumar-n",
   reviewerQuals: "DCP, DNB Pathology",
+  publishedDate: "2026-01-15",
+  lastReviewedDate: "August 2026",
+  references: [
+    "World Health Organization (WHO). Haemoglobin concentrations for the diagnosis of anaemia and assessment of severity. WHO/NMH/NHD/MNM/11.1.",
+    "Clinical and Laboratory Standards Institute (CLSI). H20-A2: Quantitative Hematology: Performance Guidelines for Automated Hematology Analyzers.",
+    "NABL ISO 15189:2022 Quality Guidelines for Hematology Reference Laboratories."
+  ],
   heroBadge: "Complete Blood Count | No Fasting Required | Home Collection",
   h1Lead: "CBC Test in Bangalore —",
-  h1Highlight: "Your Body's First Warning System",
+  h1Highlight: "Essential Blood Health Assessment",
   heroIntro:
-    "The Complete Blood Count is the most informative single blood test in medicine — screening for anaemia, infections, blood disorders and immunity status in one draw. Book with QXL Diagnostics for home collection across Bengaluru and same-day NABL-accredited reports.",
+    "The Complete Blood Count (CBC) provides key cellular insights — assisting in evaluation of anaemia, infections, immunity and general health. Book with QXL Diagnostics for home collection across Bengaluru and same-day NABL-accredited reports.",
   aiOverviewTitle: "What does a CBC test measure?",
   aiOverview:
-    "A CBC (Complete Blood Count) measures haemoglobin, red blood cells, white blood cells and platelets, plus derived indices like MCV, MCH and MCHC. It detects anaemia, identifies infections and inflammation, screens blood cancers, and monitors treatment effects. At QXL Diagnostics Bangalore it requires no fasting, takes minutes to collect at home, and is reported the same day.",
+    "A CBC (Complete Blood Count) measures haemoglobin, red blood cells, white blood cells and platelets, plus derived indices like MCV, MCH and MCHC. It detects anaemia, identifies infections and inflammation, and may identify cellular abnormalities requiring further clinical evaluation. At QXL Diagnostics Bangalore it requires no fasting, takes minutes to collect at home, and is reported the same day.",
+
   aiOverviewPoints: [
     "24+ Parameters in One Test",
     "No Fasting Needed",

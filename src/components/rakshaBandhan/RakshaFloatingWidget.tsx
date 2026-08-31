@@ -72,7 +72,7 @@ export default function RakshaFloatingWidget() {
           <div className="flex flex-col text-left pr-1">
             <div className="flex items-center gap-1.5 text-amber-400 text-[10px] font-black tracking-widest uppercase">
               <Sparkles className="w-3 h-3 animate-pulse text-amber-300" />
-              <span>Raksha Bandhan @ ₹800</span>
+              <span>Full Body Checkup @ ₹800</span>
             </div>
             
             <div className="text-white text-xs font-black tracking-tight leading-tight flex items-center gap-2 mt-0.5">
@@ -81,7 +81,7 @@ export default function RakshaFloatingWidget() {
 
             {/* Transparent Campaign Period Badge */}
             <div className="mt-1 flex items-center gap-1 text-[10px] text-amber-300 font-extrabold bg-amber-950/80 px-2 py-0.5 rounded border border-amber-500/40">
-              <span>VALID TILL AUGUST 31</span>
+              <span>LIMITED TIME OFFER</span>
             </div>
           </div>
 

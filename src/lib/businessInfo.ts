@@ -54,27 +54,27 @@ export const ISO_STANDARD = "ISO 15189:2022";
 /** Centralized Business Hours specification to differentiate physical walk-ins vs 24x7 support */
 export const BUSINESS_HOURS = {
   kengeri: {
-    display: "Mon–Sat: 7:00 AM – 9:00 PM, Sun: 7:00 AM – 2:00 PM",
-    opens: "07:00",
-    closes: "21:00",
-    sunOpens: "07:00",
-    sunCloses: "14:00",
+    display: "Walk-in: 6:30 AM – 8:00 PM (Mon–Sun); 24x7 Emergency Processing",
+    opens: "06:30",
+    closes: "20:00",
+    sunOpens: "06:30",
+    sunCloses: "20:00",
   },
   yelahanka: {
-    display: "Mon–Sat: 7:00 AM – 9:00 PM, Sun: 7:00 AM – 2:00 PM",
+    display: "Walk-in: 7:00 AM – 8:00 PM (Mon–Sun)",
     opens: "07:00",
-    closes: "21:00",
+    closes: "20:00",
     sunOpens: "07:00",
-    sunCloses: "14:00",
+    sunCloses: "20:00",
   },
   phone_support: {
     display: "24×7 Online Booking & Phone Support (+91 9964 639 639)",
     hours: "24x7",
   },
   home_collection: {
-    display: "Daily: 6:00 AM – 8:00 PM across Bengaluru",
-    opens: "06:00",
-    closes: "20:00",
+    display: "Doorstep Visits: 7:00 AM – 9:00 PM (Mon–Sun)",
+    opens: "07:00",
+    closes: "21:00",
   },
   lab_processing: {
     display: "24×7 Central NABL Laboratory Sample Processing",
@@ -116,7 +116,7 @@ export const LOCATIONS: BusinessLocation[] = [
     lat: 12.9113827,
     lng: 77.4850301,
     isNabl: true,
-    hours: "Mon–Sat 7:00 AM–9:00 PM, Sun 7:00 AM–2:00 PM",
+    hours: "Walk-in: 6:30 AM – 8:00 PM (Mon–Sun)",
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=QXL+Diagnostics+Kengeri+Bengaluru",
   },
   {
@@ -133,7 +133,7 @@ export const LOCATIONS: BusinessLocation[] = [
     lat: 13.1007,
     lng: 77.5963,
     isNabl: true,
-    hours: "Mon–Sat 7:00 AM–9:00 PM, Sun 7:00 AM–2:00 PM",
+    hours: "Walk-in: 7:00 AM – 8:00 PM (Mon–Sun)",
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=QXL+Diagnostics+Yelahanka+Bengaluru",
   },
 ];

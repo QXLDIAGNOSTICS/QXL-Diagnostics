@@ -61,7 +61,7 @@ export default function CallbackModal() {
       aria-label="Request a Call Back"
     >
       <div
-        className="relative w-full max-w-[320px] rounded-[24px] overflow-hidden shadow-2xl"
+        className="relative w-full max-w-[460px] rounded-[28px] overflow-hidden shadow-2xl"
         style={{ background: "white" }}
       >
         {/* Close button */}
@@ -75,7 +75,7 @@ export default function CallbackModal() {
 
         {/* Top Section — light blue brand header */}
         <div
-          className="relative overflow-hidden px-5 pt-6 pb-5 flex flex-col items-center text-center border-b border-sky-100"
+          className="relative overflow-hidden px-6 pt-4 pb-3 flex flex-col items-center text-center border-b border-sky-100"
           style={{
             background: "linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%)",
           }}
@@ -86,107 +86,111 @@ export default function CallbackModal() {
             <div style={{ position:"absolute", bottom:"-10px", left:"-10px", width:"80px", height:"80px", borderRadius:"50%", background:"radial-gradient(circle,rgba(14,165,233,0.15) 0%,transparent 70%)", filter:"blur(16px)" }} />
           </div>
 
-          {/* Icon */}
-          <div className="relative z-10 w-11 h-11 rounded-[14px] flex items-center justify-center mb-2 shadow-sm bg-white border border-sky-200">
-            <Phone className="w-5 h-5 text-[#0ea5e9]" />
+          {/* Icon & Heading Row */}
+          <div className="flex items-center gap-3 relative z-10 mb-1">
+            <div className="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm bg-white border border-sky-200 shrink-0">
+              <Phone className="w-4 h-4 text-[#0ea5e9]" />
+            </div>
+            <h2 className="text-[#0f2d5e] text-lg font-black text-left">
+              Request a Call Back
+            </h2>
           </div>
-
-          <h2 className="relative z-10 text-[#0f2d5e] text-[17px] font-black mb-1 leading-tight">
-            Request a Call Back
-          </h2>
-          <p className="relative z-10 text-slate-500 text-[11px] font-medium leading-relaxed max-w-[200px]">
+          <p className="relative z-10 text-slate-500 text-[11px] font-medium leading-normal max-w-[340px]">
             Our team will call you within 30 minutes during working hours.
           </p>
         </div>
 
         {/* Bottom Section — light blue liquid glass form */}
         <div
-          className="px-5 pt-4 pb-5"
+          className="px-6 pt-3.5 pb-4"
           style={{
             background: "linear-gradient(135deg, rgba(224,242,254,0.85) 0%, rgba(240,249,255,0.9) 100%)",
             backdropFilter: "blur(16px)",
           }}
         >
           {status === "success" ? (
-            <div className="flex flex-col items-center gap-2 py-4">
-              <CheckCircle className="w-10 h-10 text-emerald-500" />
+            <div className="flex flex-col items-center gap-2 py-3">
+              <CheckCircle className="w-9 h-9 text-emerald-500" />
               <p className="text-[#0f2d5e] font-bold text-center text-sm">We&apos;ll call you shortly!</p>
-              <p className="text-slate-500 text-[11px] text-center max-w-[200px]">Thank you, {name}. Our team will reach you at {phone}.</p>
+              <p className="text-slate-500 text-[11px] text-center max-w-[260px]">Thank you, {name}. Our team will reach you at {phone}.</p>
               <button
                 onClick={handleClose}
-                className="mt-2 bg-[#1d4ed8] text-white font-extrabold px-6 py-2 rounded-full text-xs hover:bg-[#1e40af] transition-all shadow"
+                className="mt-1 bg-[#1d4ed8] text-white font-extrabold px-6 py-1.5 rounded-full text-xs hover:bg-[#1e40af] transition-all shadow"
               >
                 Done
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-              {/* Name field */}
-              <div>
-                <label className="text-[10px] font-bold text-[#0f2d5e] block mb-1">Your Name</label>
-                <div
-                  className="flex items-center gap-2 rounded-[14px] px-3 py-2.5"
-                  style={{
-                    background: "rgba(255,255,255,0.7)",
-                    backdropFilter: "blur(12px)",
-                    border: "1.5px solid rgba(125,199,232,0.45)",
-                    boxShadow: "0 2px 12px rgba(14,165,233,0.08), inset 0 1px 0 rgba(255,255,255,0.9)",
-                  }}
-                >
-                  <svg className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                  <input
-                    type="text"
-                    required
-                    placeholder="e.g. Rahul Sharma"
-                    value={name}
-                    onChange={(e) => setName(e.target.value.replace(/[^a-zA-Z\s]/g, ''))}
-                    className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium"
-                  />
+            <form onSubmit={handleSubmit} className="flex flex-col gap-2.5">
+              {/* Name & Phone in 2 columns for wider modal layout */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {/* Name field */}
+                <div>
+                  <label className="text-[10px] font-bold text-[#0f2d5e] block mb-0.5">Your Name</label>
+                  <div
+                    className="flex items-center gap-2 rounded-xl px-3 py-1.5"
+                    style={{
+                      background: "rgba(255,255,255,0.75)",
+                      backdropFilter: "blur(12px)",
+                      border: "1.5px solid rgba(125,199,232,0.45)",
+                      boxShadow: "0 2px 8px rgba(14,165,233,0.06)",
+                    }}
+                  >
+                    <svg className="w-3.5 h-3.5 text-[#0284c7] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Rahul Sharma"
+                      value={name}
+                      onChange={(e) => setName(e.target.value.replace(/[^a-zA-Z\s]/g, ''))}
+                      className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              {/* Phone field */}
-              <div>
-                <label className="text-[10px] font-bold text-[#0f2d5e] block mb-1">Phone Number</label>
-                <div
-                  className="flex items-center gap-2 rounded-[14px] px-3 py-2.5"
-                  style={{
-                    background: "rgba(255,255,255,0.7)",
-                    backdropFilter: "blur(12px)",
-                    border: "1.5px solid rgba(125,199,232,0.45)",
-                    boxShadow: "0 2px 12px rgba(14,165,233,0.08), inset 0 1px 0 rgba(255,255,255,0.9)",
-                  }}
-                >
-                  <span className="text-xs font-extrabold text-[#0284c7] flex-shrink-0 border-r border-sky-200 pr-2 mr-0.5">+91</span>
-                  <input
-                    type="tel"
-                    required
-                    placeholder="9964 639 639"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
-                    className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium"
-                  />
+                {/* Phone field */}
+                <div>
+                  <label className="text-[10px] font-bold text-[#0f2d5e] block mb-0.5">Phone Number</label>
+                  <div
+                    className="flex items-center gap-2 rounded-xl px-3 py-1.5"
+                    style={{
+                      background: "rgba(255,255,255,0.75)",
+                      backdropFilter: "blur(12px)",
+                      border: "1.5px solid rgba(125,199,232,0.45)",
+                      boxShadow: "0 2px 8px rgba(14,165,233,0.06)",
+                    }}
+                  >
+                    <span className="text-xs font-extrabold text-[#0284c7] flex-shrink-0 border-r border-sky-200 pr-1.5 mr-0.5">+91</span>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="9964 639 639"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
+                      className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium"
+                    />
+                  </div>
                 </div>
               </div>
 
               {/* Message field */}
               <div>
-                <label className="text-[10px] font-bold text-[#0f2d5e] block mb-1">Message (Optional)</label>
+                <label className="text-[10px] font-bold text-[#0f2d5e] block mb-0.5">Message (Optional)</label>
                 <div
-                  className="flex items-start gap-2 rounded-[14px] px-3 py-2.5"
+                  className="flex items-start gap-2 rounded-xl px-3 py-1.5"
                   style={{
-                    background: "rgba(255,255,255,0.7)",
+                    background: "rgba(255,255,255,0.75)",
                     backdropFilter: "blur(12px)",
                     border: "1.5px solid rgba(125,199,232,0.45)",
-                    boxShadow: "0 2px 12px rgba(14,165,233,0.08), inset 0 1px 0 rgba(255,255,255,0.9)",
+                    boxShadow: "0 2px 8px rgba(14,165,233,0.06)",
                   }}
                 >
-                  <textarea
-                    rows={2}
+                  <input
+                    type="text"
                     placeholder="Any specific requirements?"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium resize-none"
+                    className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium"
                   />
                 </div>
               </div>
@@ -195,30 +199,32 @@ export default function CallbackModal() {
                 <p className="text-red-500 text-xs font-bold text-center">Something went wrong. Please try again.</p>
               )}
 
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="w-full font-extrabold py-3 rounded-2xl text-xs transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-70 mt-1"
-                style={{
-                  background: "linear-gradient(135deg, #1d4ed8 0%, #0ea5e9 100%)",
-                  color: "white",
-                  boxShadow: "0 8px 20px rgba(14,165,233,0.3)",
-                }}
-              >
-                {status === "loading" ? (
-                  <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Submitting…</>
-                ) : (
-                  <><Phone className="w-3.5 h-3.5" /> Call Me Back</>
-                )}
-              </button>
+              <div className="flex items-center gap-3 mt-1">
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="flex-1 font-extrabold py-2.5 rounded-xl text-xs transition-all shadow-md flex items-center justify-center gap-2 disabled:opacity-70"
+                  style={{
+                    background: "linear-gradient(135deg, #1d4ed8 0%, #0ea5e9 100%)",
+                    color: "white",
+                    boxShadow: "0 4px 14px rgba(14,165,233,0.25)",
+                  }}
+                >
+                  {status === "loading" ? (
+                    <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Submitting…</>
+                  ) : (
+                    <><Phone className="w-3.5 h-3.5" /> Call Me Back</>
+                  )}
+                </button>
 
-              <button
-                type="button"
-                onClick={handleClose}
-                className="text-slate-400 text-[10px] font-semibold text-center hover:text-slate-600 transition-colors mt-0.5"
-              >
-                No thanks, maybe later
-              </button>
+                <button
+                  type="button"
+                  onClick={handleClose}
+                  className="text-slate-400 text-[10px] font-semibold hover:text-slate-600 transition-colors px-2"
+                >
+                  No thanks, maybe later
+                </button>
+              </div>
             </form>
           )}
         </div>

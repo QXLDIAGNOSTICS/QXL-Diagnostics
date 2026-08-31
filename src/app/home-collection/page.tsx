@@ -25,7 +25,7 @@ export default function HomeCollectionPage() {
     <div className="bg-[#f8faff] min-h-screen pb-16">
       {/* Page Header (Clean White Design without duplicate back button) */}
       <div className="bg-white border-b border-slate-100 p-4 shadow-2xs">
-        <h1 className="font-black text-lg tracking-tight text-[#0f2d5e]">Home Collection</h1>
+        <span className="font-black text-lg tracking-tight text-[#0f2d5e]">Home Collection</span>
       </div>
 
       {/* ── Mobile Screen 3 Mockup Hero & Feature Checklist ── */}

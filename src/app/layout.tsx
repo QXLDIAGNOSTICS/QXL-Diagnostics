@@ -600,6 +600,9 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-full flex flex-col relative selection:bg-amber-200 selection:text-amber-900">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100000] focus:px-4 focus:py-2 focus:bg-[#2563eb] focus:text-white focus:font-extrabold focus:rounded-lg shadow-lg">
+          Skip to main content
+        </a>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

@@ -1,13 +1,13 @@
 export const packagesData = [
   {
     id: "pkg-800",
-    name: "Raksha Bandhan Special Health Checkup",
+    name: "Full Body Health Checkup (80 Params)",
     price: "800",
     old_price: "5800",
     save: "5000",
     includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary Markers (21).",
     parameters: "80 Parameters",
-    tag: "RAKSHA BANDHAN OFFER",
+    tag: "SPECIAL PREVENTIVE OFFER",
     highlights: ["80 Health Parameters", "8 Major Organ Systems", "Free Doorstep Home Collection"],
     most_booked: true
   },

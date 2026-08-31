@@ -4,33 +4,28 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { X, ShoppingBag, Trash2, ArrowRight, Plus } from "lucide-react";
 import { cmsStore } from "@/lib/cmsStore";
+import { matchMasterItem } from "@/lib/masterCatalogue";
 
 interface CartDrawerProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const itemPriceMap: Record<string, number> = {
-  "Complete Blood Count (CBC)": 200,
-  "Thyroid Profile (Total)": 650,
-  "Liver Function Test (LFT)": 650,
-  "Kidney Function Test (KFT)": 650,
-  "Lipid Profile": 750,
-  "HbA1c": 350,
-  "HbA1c (Glycated Hemoglobin)": 350,
-  "Vitamin D (25 OH)": 900,
-  "Vitamin B12": 600,
-  "Freedom 80 Health Check": 800,
-  "Raksha Bandhan Health Checkup": 800,
-  "Raksha Bandhan Special Health Checkup": 800,
-  "Advance Whole Body Checkup": 1999,
-  "Diabetes Care Package": 599,
-  "Heart Care Package": 699,
-};
-
 export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const [cartItems, setCartItems] = useState<string[]>([]);
   const [mounted, setMounted] = useState(false);
+
+  const getItemPrice = (name: string): number => {
+    const matchedMaster = matchMasterItem(name);
+    if (matchedMaster?.price) return matchedMaster.price;
+    const tests = cmsStore.getAll("tests");
+    const matchedTest = tests.find((t) => t.name.toLowerCase() === name.toLowerCase());
+    if (matchedTest?.price) return Number(matchedTest.price);
+    const pkgs = cmsStore.getAll("packages");
+    const matchedPkg = pkgs.find((p) => p.name.toLowerCase() === name.toLowerCase());
+    if (matchedPkg?.price) return Number(matchedPkg.price);
+    return 500;
+  };
 
   const loadCart = () => {
     try {
@@ -70,17 +65,8 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   if (!isOpen) return null;
 
   // Calculate total price
-  const subtotal = cartItems.reduce((acc, name) => {
-    if (itemPriceMap[name]) return acc + itemPriceMap[name];
-    // Check local CMS store
-    const tests = cmsStore.getAll("tests");
-    const matchedTest = tests.find((t) => t.name.toLowerCase() === name.toLowerCase());
-    if (matchedTest?.price) return acc + Number(matchedTest.price);
-    const pkgs = cmsStore.getAll("packages");
-    const matchedPkg = pkgs.find((p) => p.name.toLowerCase() === name.toLowerCase());
-    if (matchedPkg?.price) return acc + Number(matchedPkg.price);
-    return acc + 500; // default estimated price
-  }, 0);
+  const subtotal = cartItems.reduce((acc, name) => acc + getItemPrice(name), 0);
+
 
   return (
     <div className="fixed inset-0 z-[100002] flex justify-end">
@@ -153,7 +139,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
               <div className="space-y-2.5">
                 {cartItems.map((name) => {
-                  const price = itemPriceMap[name] || 500;
+                  const price = getItemPrice(name);
                   return (
                     <div
                       key={name}

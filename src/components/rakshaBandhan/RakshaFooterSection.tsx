@@ -61,7 +61,7 @@ export default function RakshaFooterSection() {
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/raksha-bandhan-health-checkup-bangalore#rakhi-offer-card" className="text-amber-400 hover:underline">
-                  Raksha Bandhan Checkup (₹800)
+                  Full Body Checkup (₹800)
                 </Link>
               </li>
               <li>

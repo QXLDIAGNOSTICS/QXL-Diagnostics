@@ -15,6 +15,13 @@ export const hba1cTest: SeoLandingData = {
   reviewerName: "Dr. Shantakumar Muruda",
   reviewerSlug: "dr-shantakumar-muruda",
   reviewerQuals: "MD Biochemistry, NABL Lead Assessor",
+  publishedDate: "2026-01-15",
+  lastReviewedDate: "August 2026",
+  references: [
+    "American Diabetes Association (ADA). Standards of Care in Diabetes—2026. Diabetes Care.",
+    "World Health Organization (WHO). Use of Glycated Haemoglobin (HbA1c) in the Diagnosis of Diabetes Mellitus.",
+    "NABL ISO 15189:2022 Clinical Biochemistry Standards."
+  ],
   heroBadge: "3-Month Sugar Memory | No Fasting | Home Collection",
   h1Lead: "HbA1c Test in Bangalore —",
   h1Highlight: "The Honest Picture of Your Blood Sugar",

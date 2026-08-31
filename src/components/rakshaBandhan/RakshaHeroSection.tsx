@@ -45,9 +45,9 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
-              This Raksha Bandhan, <br />
+              Gift Your Family, <br />
               <span className="text-[#D69A18]">
-                Gift Health.
+                The Gift of Health.
               </span>
             </h1>
 
@@ -103,7 +103,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
                 onClick={scrollToOffer}
                 className="py-4 px-8 bg-white border-2 border-[#0A5DAA]/20 hover:border-[#0A5DAA] text-[#0A5DAA] text-base font-bold rounded-2xl shadow-sm hover:bg-blue-50/50 transition-all flex items-center justify-center gap-2 uppercase tracking-wide"
               >
-                <span>VIEW RAKHI OFFER</span>
+                <span>VIEW SPECIAL OFFER</span>
               </button>
             </div>
 
@@ -131,30 +131,30 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
               
               {/* Offer Floating Badge */}
               <div className="absolute -top-5 -left-5 z-20 bg-gradient-to-r from-amber-500 to-orange-500 text-white p-4 rounded-2xl shadow-xl border border-white/20 transform -rotate-3">
-                <div className="text-[10px] font-bold tracking-widest uppercase text-amber-100">Raksha Bandhan Price</div>
-                <div className="text-3xl font-black leading-none mt-0.5">₹800 <span className="text-xs font-normal line-through text-amber-200">₹2,400</span></div>
-                <div className="text-[11px] font-bold text-amber-100 mt-1">SAVE 66% TODAY</div>
+                <div className="text-[10px] font-bold tracking-widest uppercase text-amber-100">Special Offer Price</div>
+                <div className="text-3xl font-black leading-none mt-0.5">₹800 <span className="text-xs font-normal line-through text-amber-200">₹5,800</span></div>
+                <div className="text-[11px] font-bold text-amber-100 mt-1">SAVE 86% TODAY</div>
               </div>
 
               {/* Campaign Visual Card */}
               <div className="relative rounded-3xl p-6 bg-gradient-to-br from-[#0A5DAA] via-[#084B8A] to-[#00A8A8] text-white shadow-2xl overflow-hidden border border-white/20 text-left">
-                {/* Decorative Festive Saffron Background Accent */}
+                {/* Decorative Saffron Background Accent */}
                 <div className="absolute top-0 right-0 w-40 h-40 bg-amber-400/20 rounded-full blur-2xl pointer-events-none" />
                 
                 <div className="relative space-y-6">
-                  {/* Top Raksha Bandhan Header */}
+                  {/* Top Header */}
                   <div className="flex items-center justify-between border-b border-white/10 pb-4">
                     <div className="flex items-center gap-2">
                       <div className="w-9 h-9 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-amber-300">
                         <Heart className="w-5 h-5 fill-amber-300" />
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-amber-300 uppercase tracking-widest">QXL Festive Panel</div>
-                        <div className="text-sm font-black text-white">Raksha Bandhan Special</div>
+                        <div className="text-xs font-bold text-amber-300 uppercase tracking-widest">QXL Preventive Panel</div>
+                        <div className="text-sm font-black text-white">Full Body Special</div>
                       </div>
                     </div>
                     <span className="px-2.5 py-1 rounded-full bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase">
-                      66% OFF
+                      86% OFF
                     </span>
                   </div>
 
@@ -162,7 +162,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15 space-y-4">
                     <div className="flex items-center justify-between text-xs text-cyan-100">
                       <span className="font-semibold">Preventive Health Package</span>
-                      <span className="font-extrabold text-amber-300">64 Parameters</span>
+                      <span className="font-extrabold text-amber-300">80 Parameters</span>
                     </div>
 
                     <div className="space-y-2.5">
@@ -205,7 +205,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
                     onClick={() => onOpenBooking(RAKSHA_CAMPAIGN_CONFIG.offerTitle)}
                     className="w-full py-3.5 px-4 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black rounded-xl shadow-lg transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2"
                   >
-                    <span>CLAIM RAKSHA BANDHAN OFFER (₹800)</span>
+                    <span>CLAIM SPECIAL OFFER (₹800)</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
 

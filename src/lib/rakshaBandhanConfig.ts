@@ -79,22 +79,20 @@ export function campaignSecondsRemaining(config?: Pick<RakshaCampaignConfig, 'en
 
 export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
   // ── Campaign window ────────────────────────────────────────────────────────
-  // Raksha Bandhan 2026 — update these two dates for every new campaign.
-  // Components that render offer UI MUST guard with: isCampaignActive()
-  startsAt: "2026-08-08T00:00:00+05:30",
-  endsAt:   "2026-08-22T23:59:59+05:30",
+  startsAt: "2026-08-01T00:00:00+05:30",
+  endsAt:   "2027-12-31T23:59:59+05:30",
   // ──────────────────────────────────────────────────────────────────────────
-  campaignBadge: "7-DAY SPECIAL OFFER @ ₹800",
-  heroHeadline: "This Raksha Bandhan, Gift Health.",
-  heroSubheadline: "Celebrate the bond that lasts a lifetime with an 80-parameter preventive health check from QXL Diagnostics.",
-  offerHeading: "7-Day Exclusive Raksha Bandhan Offer",
-  offerTitle: "Raksha Bandhan Health Checkup (80 Parameters)",
+  campaignBadge: "SPECIAL HEALTH OFFER @ ₹800",
+  heroHeadline: "Gift Your Family the Gift of Good Health.",
+  heroSubheadline: "Prioritise wellness with an 80-parameter comprehensive full body health check from QXL Diagnostics.",
+  offerHeading: "Exclusive Full Body Preventive Health Offer",
+  offerTitle: "Full Body Health Checkup (80 Parameters)",
   specialPrice: 800,
   originalPrice: 5800,
   currencySymbol: "₹",
   discountBadgeText: "86% OFF (SAVE ₹5,000)",
   parameterCount: 80,
-  offerValidityText: "FESTIVE CAMPAIGN OFFER • VALID TILL AUGUST 31, 2026",
+  offerValidityText: "SPECIAL PREVENTIVE HEALTH OFFER • VALID TODAY",
   disclaimerText: "Offer price includes 80 key health parameters and free doorstep blood collection across Bengaluru. Subject to daily phlebotomy slot availability.",
   contactPhoneDisplay: "+91 9964 639 639",
   contactPhoneE164: "+919964639639",
@@ -147,7 +145,7 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
     {
       id: "womens-health-check",
       title: "Women's Health Check",
-      subtitle: "Tailored preventive screening for sisters to monitor thyroid, iron levels, bone health & metabolic wellness.",
+      subtitle: "Tailored preventive screening for women to monitor thyroid, iron levels, bone health & metabolic wellness.",
       targetGender: "Women",
       specialPrice: 800,
       originalPrice: 2400,
@@ -158,7 +156,7 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
     {
       id: "mens-health-check",
       title: "Men's Health Check",
-      subtitle: "Comprehensive health evaluation for brothers focused on cardiac markers, liver health, sugar & vital parameters.",
+      subtitle: "Comprehensive health evaluation for men focused on cardiac markers, liver health, sugar & vital parameters.",
       targetGender: "Men",
       specialPrice: 800,
       originalPrice: 2400,
@@ -170,12 +168,12 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
 
   faqItems: [
     {
-      question: "What is the Raksha Bandhan health offer?",
-      answer: "The Raksha Bandhan health offer is a specially curated preventive health checkup package provided by QXL Diagnostics at a campaign price of ₹800 (worth ₹5,800). It covers 80 essential health parameters across 8 major health areas including CBC, HbA1c, Liver Function, Kidney Function, Thyroid Profile, Lipid Profile, Bone/Mineral Health, and Urine Routine.",
+      question: "What is included in the ₹800 full body health offer?",
+      answer: "The ₹800 full body health offer is a specially curated preventive health checkup package provided by QXL Diagnostics (worth ₹5,800). It covers 80 essential health parameters across 8 major health areas including CBC, HbA1c, Liver Function, Kidney Function, Thyroid Profile, Lipid Profile, Bone/Mineral Health, and Urine Routine.",
     },
     {
       question: "What tests are included in the package?",
-      answer: "The Raksha Bandhan health package includes 80 comprehensive diagnostic parameters across 8 major health areas: Complete Blood Count, HbA1c & Fasting Sugar, Heart & Lipid Profile, Liver Function Test, Kidney Function Test, Thyroid Screening, Bone & Mineral Health, and Urinary Routine.",
+      answer: "The full body health package includes 80 comprehensive diagnostic parameters across 8 major health areas: Complete Blood Count, HbA1c & Fasting Sugar, Heart & Lipid Profile, Liver Function Test, Kidney Function Test, Thyroid Screening, Bone & Mineral Health, and Urinary Routine.",
     },
     {
       question: "How can I book the health check?",
@@ -186,8 +184,8 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
       answer: "Yes! QXL Diagnostics offers convenient Home Sample Collection across Bengaluru. Our trained phlebotomists maintain strict cold-chain safety protocols to collect samples right from the comfort of your home.",
     },
     {
-      question: "Can siblings book together?",
-      answer: "Absolutely! You can book health checks for both yourself and your sibling in a single request. We offer scheduled home collection visits for multiple family members together.",
+      question: "Can multiple family members book together?",
+      answer: "Absolutely! You can book health checks for yourself and family members in a single request. We offer scheduled home collection visits for multiple family members together.",
     },
     {
       question: "Where is QXL Diagnostics located?",
@@ -198,8 +196,8 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
       answer: "Your test reports will be processed at our NABL-accredited central laboratory (MC-6849) and sent directly to your registered WhatsApp and email within 6 to 12 hours. Hard copies can also be provided upon request.",
     },
     {
-      question: "How long is the Raksha Bandhan offer valid?",
-      answer: "The Raksha Bandhan Special Offer is a limited-time festive promotion valid throughout the campaign duration. Slots are subject to daily availability, so early booking is recommended.",
+      question: "How long is the ₹800 offer valid?",
+      answer: "The ₹800 Special Full Body Offer is available for online bookings across Bengaluru. Slots are subject to daily phlebotomy availability, so early booking is recommended.",
     },
   ],
 };

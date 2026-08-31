@@ -57,7 +57,7 @@ export default function ReportPage() {
       <div className="lg:hidden flex flex-col w-full pb-12">
         {/* Screen Header (Clean White Design without duplicate back button) */}
         <div className="bg-white border-b border-slate-100 p-4 shadow-2xs">
-          <h1 className="font-black text-lg tracking-tight text-[#0f2d5e]">My Reports</h1>
+          <span className="font-black text-lg tracking-tight text-[#0f2d5e]">My Reports</span>
         </div>
 
         {loading || fetchingBookings ? (

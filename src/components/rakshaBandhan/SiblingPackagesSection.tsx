@@ -19,15 +19,15 @@ export default function SiblingPackagesSection({ onOpenBooking }: SiblingPackage
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-[#0A5DAA] text-xs font-bold uppercase tracking-wider">
             <UserCheck className="w-3.5 h-3.5" />
-            <span>SIBLING WELLNESS PANELS</span>
+            <span>PREVENTIVE WELLNESS PANELS</span>
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-            Two Siblings. One Healthy Bond.
+            Comprehensive Health Checks for Men & Women.
           </h2>
 
           <p className="text-base sm:text-lg text-slate-600 font-medium">
-            This Raksha Bandhan, make your celebration meaningful by encouraging each other to stay on top of your health.
+            Proactive health checkups tailored for men and women to monitor vital health parameters.
           </p>
         </div>
 

@@ -221,15 +221,17 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
                 </div>
               )}
 
-              {/* Medical Reviewer Attribution */}
+              {/* Medical Reviewer Attribution & E-E-A-T Block */}
               {data.reviewerName && (
-                <div className="pt-2 flex items-center gap-2 text-xs font-semibold text-sky-200">
-                  <UserCheck className="w-4 h-4 text-emerald-400" />
+                <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-semibold text-sky-200">
+                  <UserCheck className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>Medically Reviewed by</span>
                   <Link href={`/${data.reviewerSlug || "dr-naveen-kumar-n"}`} className="font-extrabold text-white hover:underline">
                     {data.reviewerName}
                   </Link>
                   {data.reviewerQuals && <span className="text-sky-300">({data.reviewerQuals})</span>}
+                  <span className="text-sky-400">•</span>
+                  <span className="text-slate-300">Last Reviewed: {data.lastReviewedDate || "August 2026"}</span>
                 </div>
               )}
             </div>
@@ -325,7 +327,25 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
             )}
           </article>
         ))}
+
+        {/* E-E-A-T Medical Governance & References Block */}
+        {data.references && data.references.length > 0 && (
+          <div className="mt-12 p-6 rounded-2xl bg-slate-50 border border-slate-200">
+            <h3 className="text-sm font-black text-[#0f2d5e] uppercase tracking-wider mb-2">
+              Medical Editorial Governance &amp; Authoritative References
+            </h3>
+            <p className="text-xs text-slate-500 mb-3 font-medium">
+              Medical content on QXL Diagnostics is authored, verified, and reviewed against international pathology standards and published guidelines:
+            </p>
+            <ul className="list-disc pl-5 space-y-1 text-xs text-slate-600 font-semibold">
+              {data.references.map((ref, idx) => (
+                <li key={idx}>{ref}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </section>
+
 
       {/* ── Feature group (what's included etc.) ────────────── */}
       {data.featureGroup && (

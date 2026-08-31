@@ -106,5 +106,8 @@ export interface SeoLandingData {
   reviewerName?: string;
   reviewerSlug?: string;
   reviewerQuals?: string;
+  publishedDate?: string;
+  lastReviewedDate?: string;
   references?: string[];
 }
+

@@ -28,7 +28,7 @@ export default function HomeBloodCollectionPage() {
       <div className="lg:hidden flex flex-col w-full pb-16">
         {/* Mobile Amber Header (#D69A18) without duplicate back button */}
         <div className="bg-[#D69A18] text-white p-3.5 px-4 shadow-md">
-          <h1 className="font-extrabold text-base tracking-wide text-white">Home Collection</h1>
+          <span className="font-extrabold text-base tracking-wide text-white">Home Collection</span>
         </div>
 
         {/* Hero & Feature Checklist (Matching Screenshot 3) */}

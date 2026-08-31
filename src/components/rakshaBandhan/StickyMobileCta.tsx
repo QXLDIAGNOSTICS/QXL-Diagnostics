@@ -10,7 +10,7 @@ interface StickyMobileCtaProps {
 
 export default function StickyMobileCta({ onOpenBooking }: StickyMobileCtaProps) {
   const whatsappUrl = `https://wa.me/${RAKSHA_CAMPAIGN_CONFIG.whatsappNumber}?text=${encodeURIComponent(
-    "Hi QXL Diagnostics, I would like to book the Raksha Bandhan Health Checkup offer (₹800)."
+    "Hi QXL Diagnostics, I would like to book the Full Body Health Checkup offer (80 Params - ₹800)."
   )}`;
 
   return (

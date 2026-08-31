@@ -440,7 +440,7 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
     includes: "FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, Liver Function Test, Kidney Function Test, TSH, CBC, ESR, Urine Routine & Microscopy."
   },
   {
-    id: "pkg-[#0f2d5e]",
+    id: "pkg-master-pro",
     name: "Q-Master Health Pro Package",
     shortName: "Q-Master Health Pro Package",
     category: "Preventive Package",
@@ -459,6 +459,69 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
     homeCollectionAvailable: true,
     kind: "package",
     includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, Liver Function Tests, Kidney Screen, Thyroid Function Tests, Vitamin D, Vitamin B12, CBC, ESR, Urine Routine, hs-CRP."
+  },
+  {
+    id: "pkg-oncoscreen",
+    name: "Q-Oncoscreen Package",
+    shortName: "Q-Oncoscreen Package",
+    category: "Preventive Package",
+    price: 7900,
+    mrp: 13600,
+    parametersCount: 12,
+    paramText: "12 Tumor & Inflammatory Biomarkers",
+    fasting: false,
+    fastingInstruction: "No Fasting Required",
+    sampleType: "Blood & Stool",
+    tat: "24-48 Hours",
+    slug: "/book?package=Q-Oncoscreen%20Package",
+    icon: "🎗️",
+    popular: false,
+    aliases: ["q-oncoscreen package", "oncoscreen package", "cancer marker screening package"],
+    homeCollectionAvailable: true,
+    kind: "package",
+    includes: "AFP, CEA, Beta HCG, PSA (Male), CA-125 (Female), CA-19.9, CBC, ESR, Urine Routine, Calprotectin, FOBT, Protein Electrophoresis."
+  },
+  {
+    id: "pkg-arthritis",
+    name: "Q-Advanced Arthritis & Autoimmune Panel",
+    shortName: "Q-Arthritis Panel",
+    category: "Preventive Package",
+    price: 6900,
+    mrp: 12660,
+    parametersCount: 30,
+    paramText: "30 Parameters",
+    fasting: true,
+    fastingInstruction: "8-10 Hrs Fasting Required",
+    sampleType: "Blood & Urine",
+    tat: "24 Hours",
+    slug: "/book?package=Q-Advanced%20Arthritis%20and%20Autoimmune%20Panel",
+    icon: "🦴",
+    popular: false,
+    aliases: ["q-arthritis panel", "arthritis package", "autoimmune panel package"],
+    homeCollectionAvailable: true,
+    kind: "package",
+    includes: "RF, Anti-CCP, ANA Autoimmune Tests, Calcium, Phosphorus, Vitamin D3, Iron Studies, Thyroid, DHEA-S, Cortisol, Lipid, LFT, KFT, CBC, ESR."
+  },
+  {
+    id: "pkg-cardiac",
+    name: "Q-Hypertension & Cardiovascular Risk Assessment",
+    shortName: "Q-Cardiac Risk Assessment",
+    category: "Preventive Package",
+    price: 9000,
+    mrp: 18900,
+    parametersCount: 22,
+    paramText: "22 Cardiovascular Biomarkers",
+    fasting: true,
+    fastingInstruction: "10-12 Hrs Fasting Required",
+    sampleType: "Blood & Urine",
+    tat: "24 Hours",
+    slug: "/book?package=Q-Hypertension%20and%20Cardiovascular%20Risk%20Assessment%20Package",
+    icon: "❤️",
+    popular: false,
+    aliases: ["cardiac risk package", "hypertension package", "cardiovascular risk assessment"],
+    homeCollectionAvailable: true,
+    kind: "package",
+    includes: "Lipid + Apo Panel, Lipoprotein(a), hs-CRP, Fibrinogen, Homocysteine, NT-proBNP, Kidney Screen, Thyroid, Cortisol, Magnesium, Insulin, CBC."
   }
 ];
 
@@ -512,3 +575,4 @@ export function matchMasterItem(query: string): MasterCatalogEntry | undefined {
 
   return undefined;
 }
+

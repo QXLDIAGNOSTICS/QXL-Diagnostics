@@ -57,6 +57,7 @@ export default function BookPage() {
     date: '',
     time: '',
     collectionType: 'home' as 'home' | 'center',
+    selectedCenter: 'kengeri-main-lab' as 'kengeri-main-lab' | 'yelahanka-north-hub',
   });
 
   const [currentStep, setCurrentStep] = useState(1);
@@ -66,8 +67,19 @@ export default function BookPage() {
   }, []);
 
   // ── Master catalog (the only source of truth for bookable items) ──────────
-  const [catalog, setCatalog] = useState<CatalogEntry[]>([]);
-  const [catalogLoading, setCatalogLoading] = useState(true);
+  const [catalog, setCatalog] = useState<CatalogEntry[]>(() =>
+    MASTER_CATALOGUE.map(m => ({
+      id: m.id,
+      name: m.name,
+      kind: m.kind,
+      price: m.price,
+      old_price: m.mrp,
+      home_collection_available: m.homeCollectionAvailable,
+      parameters: m.paramText,
+      includes: m.includes,
+    }))
+  );
+  const [catalogLoading, setCatalogLoading] = useState(false);
   const [selectedItems, setSelectedItems] = useState<CatalogEntry[]>([]);
   const [testInput, setTestInput] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -768,7 +780,7 @@ export default function BookPage() {
                   </div>
 
                   <button 
-                    onClick={() => { setSubmitted(false); setHasPaid(false); setCreatedBookings([]); setFormData({ name: user?.name || '', phone: user?.phone || '', email: user?.email || '', address: '', date: '', time: '', collectionType: 'home' }); setSelectedItems([]); setTestInput(''); setUnmatchedRecommended([]); }} 
+                    onClick={() => { setSubmitted(false); setHasPaid(false); setCreatedBookings([]); setFormData({ name: user?.name || '', phone: user?.phone || '', email: user?.email || '', address: '', date: '', time: '', collectionType: 'home', selectedCenter: 'kengeri-main-lab' }); setSelectedItems([]); setTestInput(''); setUnmatchedRecommended([]); }} 
                     className="text-[#2563eb] font-bold hover:underline text-xs uppercase tracking-wider"
                   >
                     Book Another Test
@@ -1075,13 +1087,66 @@ export default function BookPage() {
                               onChange={() => setFormData({...formData, collectionType: 'center'})}
                               className="text-[#D69A18] focus:ring-[#D69A18] mr-3 w-4 h-4 mt-1 shrink-0"
                             />
-                            <div className="flex flex-col gap-1">
+                            <div className="flex flex-col gap-1 w-full">
                               <span className="text-sm font-black text-[#0f2d5e] flex items-center gap-1.5"><Building2 className="w-4 h-4 text-[#D69A18]" /> Walk-in Lab Center</span>
-                              <span className="text-xs font-extrabold text-[#0f2d5e] mt-1">QXL Main Reference Lab (Kengeri)</span>
-                              <span className="text-[11px] text-slate-500 font-medium leading-relaxed">3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru</span>
+                              <span className="text-xs text-slate-500 font-medium leading-relaxed mt-1">Visit a QXL NABL Accredited Laboratory in Bengaluru</span>
+                              <span className="text-[10px] font-black text-amber-800 bg-amber-100 w-fit px-2 py-0.5 rounded-full mt-1">PHYSICAL WALK-IN</span>
                             </div>
                           </label>
                         </div>
+
+                        {/* Physical Walk-in Center Selector */}
+                        {formData.collectionType === 'center' && (
+                          <div className="mt-4 p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
+                            <h3 className="text-xs font-extrabold text-[#0f2d5e] uppercase tracking-wider flex items-center gap-1.5">
+                              <Building2 className="w-4 h-4 text-[#D69A18]" />
+                              Select Walk-in Center Location:
+                            </h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                              {/* Kengeri Main Lab */}
+                              <div
+                                onClick={() => setFormData({...formData, selectedCenter: 'kengeri-main-lab'})}
+                                className={`p-3.5 rounded-xl border cursor-pointer transition-all ${formData.selectedCenter === 'kengeri-main-lab' ? 'border-[#D69A18] bg-white ring-2 ring-[#D69A18]/30 shadow-sm' : 'border-slate-200 bg-white hover:border-slate-300'}`}
+                              >
+                                <div className="flex items-center gap-2 mb-1">
+                                  <input
+                                    type="radio"
+                                    name="selectedCenter"
+                                    checked={formData.selectedCenter === 'kengeri-main-lab'}
+                                    onChange={() => setFormData({...formData, selectedCenter: 'kengeri-main-lab'})}
+                                    className="text-[#D69A18] focus:ring-[#D69A18]"
+                                  />
+                                  <span className="text-xs font-black text-[#0f2d5e]">Kengeri Main Reference Lab</span>
+                                </div>
+                                <p className="text-[11px] text-slate-600 pl-5 leading-tight">
+                                  3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060
+                                </p>
+                                <span className="text-[10px] font-bold text-amber-700 block pl-5 mt-1">Walk-in: 6:30 AM – 8:00 PM (Mon–Sun)</span>
+                              </div>
+
+                              {/* Yelahanka North Hub */}
+                              <div
+                                onClick={() => setFormData({...formData, selectedCenter: 'yelahanka-north-hub'})}
+                                className={`p-3.5 rounded-xl border cursor-pointer transition-all ${formData.selectedCenter === 'yelahanka-north-hub' ? 'border-[#D69A18] bg-white ring-2 ring-[#D69A18]/30 shadow-sm' : 'border-slate-200 bg-white hover:border-slate-300'}`}
+                              >
+                                <div className="flex items-center gap-2 mb-1">
+                                  <input
+                                    type="radio"
+                                    name="selectedCenter"
+                                    checked={formData.selectedCenter === 'yelahanka-north-hub'}
+                                    onChange={() => setFormData({...formData, selectedCenter: 'yelahanka-north-hub'})}
+                                    className="text-[#D69A18] focus:ring-[#D69A18]"
+                                  />
+                                  <span className="text-xs font-black text-[#0f2d5e]">Yelahanka North Hub</span>
+                                </div>
+                                <p className="text-[11px] text-slate-600 pl-5 leading-tight">
+                                  L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru 560064
+                                </p>
+                                <span className="text-[10px] font-bold text-amber-700 block pl-5 mt-1">Walk-in: 7:00 AM – 8:00 PM (Mon–Sun)</span>
+                              </div>
+                            </div>
+                          </div>
+                        )}
 
                         {formData.collectionType === 'home' && centerOnlyItems.length > 0 && (
                           <div className="mt-3 flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
@@ -1486,7 +1551,7 @@ export default function BookPage() {
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                  <span>100% sterile vacuum containers for collection.</span>
+                  <span>sterile, single-use collection equipment and vacuum tubes.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
