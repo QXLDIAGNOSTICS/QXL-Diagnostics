@@ -1,6 +1,7 @@
 import { topTests } from '../testsData';
 import { prenatalScreeningPagesWithAliases } from './prenatalScreeningData';
 import { masterExtractedPagesData } from './extractedMasterData';
+import { excel100TestsData } from './excel100TestsData';
 
 export interface ReferenceRange {
   label: string;
@@ -1396,12 +1397,17 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
     cleanSlug = SIMPLE_SLUG_MAP[cleanSlug];
   }
   
-  // ── Phase 1: Check Prenatal Screening Pack (Volume 4) ────────────────────
+  // ── Phase 1: Check Excel Master 100 Dedicated Test Definitions ───────────
+  if (excel100TestsData[cleanSlug]) {
+    return excel100TestsData[cleanSlug];
+  }
+
+  // ── Phase 2: Check Prenatal Screening Pack (Volume 4) ────────────────────
   if (prenatalScreeningPagesWithAliases[cleanSlug]) {
     return prenatalScreeningPagesWithAliases[cleanSlug];
   }
   
-  // ── Phase 2: Check Master Extracted 194 Diagnostic Test Definitions ─────────
+  // ── Phase 3: Check Master Extracted 194 Diagnostic Test Definitions ─────────
   if (masterExtractedPagesData[cleanSlug]) {
     return masterExtractedPagesData[cleanSlug];
   }
