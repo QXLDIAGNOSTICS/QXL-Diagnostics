@@ -44,6 +44,26 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/founder",
+        destination: "/team",
+        permanent: true,
+      },
+      {
+        source: "/founder/",
+        destination: "/team",
+        permanent: true,
+      },
+      {
+        source: "/my-bookings",
+        destination: "/dashboard",
+        permanent: true,
+      },
+      {
+        source: "/my-reports",
+        destination: "/report",
+        permanent: true,
+      },
+      {
         source: "/doctors/dr-shantakumar-muruda-6f7b6161",
         destination: "/dr-shantakumar-muruda",
         permanent: true,

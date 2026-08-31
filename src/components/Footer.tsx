@@ -49,7 +49,7 @@ export default function Footer() {
     navItems: [
       {label: "Home", href: "/", visible: true},
       {label: "About Us", href: "/about", visible: true},
-      {label: "Founder & Consultants", href: "/founder", visible: true},
+      {label: "Founder & Consultants", href: "/team", visible: true},
       {label: "Our Specialities", href: "/specialities", visible: true},
       {label: "Packages", href: "/packages", visible: true},
       {label: "Find Nearest Centre", href: "/centers", visible: true},

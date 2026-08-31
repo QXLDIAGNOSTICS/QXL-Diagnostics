@@ -1541,7 +1541,7 @@ export default function Home() {
               </p>
               <div className="w-16 h-1 bg-[#2563eb] mx-auto rounded-full mt-4" />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
               {[
                 { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", role: "Founder & CEO", slug: "dr-shantakumar-muruda", image: "/images/dr_shantakumar_new.jpg", imagePosition: "center top", imageScale: 1.3, imageTranslateY: "-24%" },
                 { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", role: "Senior Consultant", slug: "dr-pritilata-rout", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
@@ -1551,7 +1551,7 @@ export default function Home() {
                 <Link
                   href={`/${doc.slug}`}
                   key={doc.name}
-                  className="group rounded-3xl overflow-hidden flex flex-col text-center transition-all duration-300 hover:-translate-y-1"
+                  className="group rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col text-center transition-all duration-300 hover:-translate-y-1"
                   style={{
                     background: 'linear-gradient(180deg, #ffffff 0%, #f0f9ff 100%)',
                     border: '1px solid rgba(125,199,232,0.3)',
@@ -1566,17 +1566,17 @@ export default function Home() {
                         transform: doc.imageScale ? `scale(${doc.imageScale}) ${doc.imageTranslateY ? `translateY(${doc.imageTranslateY})` : ''}` : 'none'
                       }}
                       onError={(e) => { e.currentTarget.srcset = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"; }} />
-                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 h-12 sm:h-16 bg-gradient-to-t from-white to-transparent" />
                   </div>
-                  <div className="px-4 pb-5 pt-1">
-                    <h3 className="font-extrabold text-[#0c4a6e] text-[15px] mb-1.5 leading-snug">{doc.name}</h3>
+                  <div className="px-2.5 sm:px-4 pb-3.5 sm:pb-5 pt-1">
+                    <h3 className="font-extrabold text-[#0c4a6e] text-xs sm:text-[15px] mb-1 leading-snug truncate">{doc.name}</h3>
                     <span
-                      className="inline-block text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full mb-2"
+                      className="inline-block text-white text-[9px] sm:text-[10px] font-extrabold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full mb-1.5"
                       style={{ background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)' }}
                     >
                       {doc.role}
                     </span>
-                    <p className="text-[11px] font-bold text-[#0284c7] uppercase tracking-wider">{doc.qual}</p>
+                    <p className="text-[10px] sm:text-[11px] font-bold text-[#0284c7] uppercase tracking-wider truncate">{doc.qual}</p>
                   </div>
                 </Link>
               ))}

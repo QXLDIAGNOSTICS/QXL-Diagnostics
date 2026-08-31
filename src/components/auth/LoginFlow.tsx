@@ -20,9 +20,9 @@ export interface LoginFlowProps {
 }
 
 const defaultInputClass =
-  "w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-500";
+  "w-full bg-slate-50 border border-slate-200 rounded-2xl px-4 py-3.5 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#00A8A8] focus:bg-white transition-all font-medium";
 const defaultButtonClass =
-  "block w-full bg-[#2563eb] text-white font-bold py-3.5 rounded-xl hover:bg-[#1d4ed8] transition-colors uppercase tracking-wider text-xs shadow-md text-center disabled:opacity-50 disabled:cursor-not-allowed";
+  "w-full py-4 px-6 bg-gradient-to-r from-[#0A5DAA] to-[#00A8A8] hover:from-[#084b8a] hover:to-[#008f8f] text-white font-extrabold rounded-2xl shadow-lg transition-all text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
 
 export default function LoginFlow({
   onComplete,
