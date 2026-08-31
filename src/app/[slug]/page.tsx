@@ -415,7 +415,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
             {/* NABL Quality Card */}
             <div className="bg-[#0f2d5e] text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-28 h-28 bg-[#2563eb]/20 rounded-full blur-2xl" />
-              <h3 className="text-base font-extrabold mb-4 border-b border-white/10 pb-3 relative z-10">NABL Quality Guarantees</h3>
+              <h3 className="text-base font-extrabold !text-white text-white mb-4 border-b border-white/10 pb-3 relative z-10" style={{ color: '#ffffff' }}>NABL Quality Guarantees</h3>
               
               <div className="space-y-4 text-xs font-semibold relative z-10">
                 <div className="flex items-start gap-3">

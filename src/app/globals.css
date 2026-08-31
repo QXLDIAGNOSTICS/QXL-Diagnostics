@@ -201,6 +201,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+/* Ensure headings inside dark blue cards or dark gradients always render pure white text */
+.bg-\[\#0f2d5e\] h1, .bg-\[\#0f2d5e\] h2, .bg-\[\#0f2d5e\] h3, .bg-\[\#0f2d5e\] h4, .bg-\[\#0f2d5e\] h5, .bg-\[\#0f2d5e\] h6,
+.bg-gradient-to-br h1, .bg-gradient-to-br h2, .bg-gradient-to-br h3, .bg-gradient-to-br h4, .bg-gradient-to-br h5, .bg-gradient-to-br h6,
+[class*="bg-[#0f2d5e]"] h1, [class*="bg-[#0f2d5e]"] h2, [class*="bg-[#0f2d5e]"] h3, [class*="bg-[#0f2d5e]"] h4, [class*="bg-[#0f2d5e]"] h5, [class*="bg-[#0f2d5e]"] h6 {
+  color: #ffffff !important;
+}
+
 a {
   text-decoration: none;
   color: inherit;
