@@ -1,5 +1,6 @@
 import { topTests } from '../testsData';
 import { prenatalScreeningPagesWithAliases } from './prenatalScreeningData';
+import { masterExtractedPagesData } from './extractedMasterData';
 
 export interface ReferenceRange {
   label: string;
@@ -1398,6 +1399,11 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
   // ── Phase 1: Check Prenatal Screening Pack (Volume 4) ────────────────────
   if (prenatalScreeningPagesWithAliases[cleanSlug]) {
     return prenatalScreeningPagesWithAliases[cleanSlug];
+  }
+  
+  // ── Phase 2: Check Master Extracted 194 Diagnostic Test Definitions ─────────
+  if (masterExtractedPagesData[cleanSlug]) {
+    return masterExtractedPagesData[cleanSlug];
   }
   
   // Check explicit clinical mappings next
