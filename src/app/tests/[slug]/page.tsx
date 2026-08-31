@@ -39,6 +39,7 @@ export function generateStaticParams() {
     "dhea-s-test-bangalore", "fsh-test-bangalore", "lh-test-bangalore", "amh-test-bangalore", "fertility-test-bangalore",
     "beta-hcg-test-bangalore", "pregnancy-blood-test-bangalore", "double-marker-test-bangalore", "triple-marker-test-bangalore",
     "quadruple-marker-test-bangalore", "papp-a-test-bangalore", "free-beta-hcg-test-bangalore", "prenatal-screening-test-bangalore",
+    "double-marker", "papp-a", "free-beta-hcg", "triple-marker", "quadruple-marker",
     "ana-test-bangalore", "ana-profile-test-bangalore", "ana-ifa-test-bangalore", "anti-dsdna-test-bangalore",
     "ena-profile-test-bangalore", "anti-ccp-test-bangalore", "rheumatoid-factor-test-bangalore", "anca-test-bangalore",
     "c3-complement-test-bangalore", "c4-complement-test-bangalore", "autoimmune-profile-test-bangalore",

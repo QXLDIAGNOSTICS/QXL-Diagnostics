@@ -1,4 +1,5 @@
 import { topTests } from '../testsData';
+import { prenatalScreeningPagesWithAliases } from './prenatalScreeningData';
 
 export interface ReferenceRange {
   label: string;
@@ -1366,9 +1367,14 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
 };
 
 export function getDynamicPageData(slug: string): DynamicPageData | null {
-  const cleanSlug = slug.toLowerCase().replace(/^\/|\/$/g, '');
+  const cleanSlug = slug.toLowerCase().replace(/^\/|\/$/g, '').replace(/^tests\//, '');
   
-  // Check explicit clinical mappings first
+  // ── Phase 1: Check Prenatal Screening Pack (Volume 4) ────────────────────
+  if (prenatalScreeningPagesWithAliases[cleanSlug]) {
+    return prenatalScreeningPagesWithAliases[cleanSlug];
+  }
+  
+  // Check explicit clinical mappings next
   if (CLINICAL_PAGES_DATA[cleanSlug]) {
     const explicitData = CLINICAL_PAGES_DATA[cleanSlug];
     return {

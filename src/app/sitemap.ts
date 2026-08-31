@@ -8,6 +8,8 @@ const TOP_100_TEST_PAGES = [
   // Priority 21–25: High-volume routine tests
   "cbc-test-bangalore", "thyroid-test-bangalore", "vitamin-d-test-bangalore",
   "hba1c-test-bangalore", "lipid-profile-test-bangalore",
+  // Prenatal Screening Pack (Volume 4)
+  "double-marker", "papp-a", "free-beta-hcg", "triple-marker", "quadruple-marker",
   // Priority 26–35: Routine metabolic tests
   "liver-function-test-bangalore", "kidney-function-test-bangalore",
   "vitamin-b12-test-bangalore", "blood-sugar-test-bangalore", "urine-test-bangalore",
