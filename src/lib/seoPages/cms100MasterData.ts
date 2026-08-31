@@ -93,7 +93,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-001",
+    "testCode": "QXL-CMS-001",
+    "draftCode": "QXL-DRAFT-001",
     "aliases": [
       "CBC",
       "Complete Blood Count test",
@@ -121,9 +122,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "EDTA Whole Blood",
     "fastingRequired": "No fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Haemoglobin A1c (HbA1c) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Haemoglobin A1c (HbA1c) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -157,7 +158,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Haemoglobin A1c (HbA1c) test?",
-        "answer": "The Haemoglobin A1c (HbA1c) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Haemoglobin A1c (HbA1c) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Haemoglobin A1c test?",
@@ -199,14 +200,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-002",
+    "testCode": "QXL-CMS-002",
+    "draftCode": "QXL-DRAFT-002",
     "aliases": [
       "HbA1c",
       "Haemoglobin A1c test",
       "Haemoglobin A1c Bangalore",
       "HbA1c report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate haemoglobin a1c baseline and clinical changes.",
     "limitations": [
@@ -227,9 +229,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "8 to 10 hours overnight fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Fasting Plasma Glucose (Fasting Blood Sugar) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Fasting Plasma Glucose (Fasting Blood Sugar) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -263,7 +265,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Fasting Plasma Glucose (Fasting Blood Sugar) test?",
-        "answer": "The Fasting Plasma Glucose (Fasting Blood Sugar) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Fasting Plasma Glucose (Fasting Blood Sugar) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Fasting Plasma Glucose test?",
@@ -305,14 +307,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-003",
+    "testCode": "QXL-CMS-003",
+    "draftCode": "QXL-DRAFT-003",
     "aliases": [
       "Fasting Blood Sugar",
       "Fasting Plasma Glucose test",
       "Fasting Plasma Glucose Bangalore",
       "Fasting Blood Sugar report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate fasting plasma glucose baseline and clinical changes.",
     "limitations": [
@@ -333,9 +336,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "8 to 10 hours overnight fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Postprandial Blood Glucose (PPBS) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Postprandial Blood Glucose (PPBS) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -369,7 +372,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Postprandial Blood Glucose (PPBS) test?",
-        "answer": "The Postprandial Blood Glucose (PPBS) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Postprandial Blood Glucose (PPBS) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Postprandial Blood Glucose test?",
@@ -411,14 +414,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-004",
+    "testCode": "QXL-CMS-004",
+    "draftCode": "QXL-DRAFT-004",
     "aliases": [
       "PPBS",
       "Postprandial Blood Glucose test",
       "Postprandial Blood Glucose Bangalore",
       "PPBS report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate postprandial blood glucose baseline and clinical changes.",
     "limitations": [
@@ -439,9 +443,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "8 to 10 hours overnight fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Random Plasma Glucose (Random Blood Sugar) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Random Plasma Glucose (Random Blood Sugar) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -475,7 +479,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Random Plasma Glucose (Random Blood Sugar) test?",
-        "answer": "The Random Plasma Glucose (Random Blood Sugar) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Random Plasma Glucose (Random Blood Sugar) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Random Plasma Glucose test?",
@@ -517,14 +521,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-005",
+    "testCode": "QXL-CMS-005",
+    "draftCode": "QXL-DRAFT-005",
     "aliases": [
       "Random Blood Sugar",
       "Random Plasma Glucose test",
       "Random Plasma Glucose Bangalore",
       "Random Blood Sugar report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate random plasma glucose baseline and clinical changes.",
     "limitations": [
@@ -623,7 +628,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-006",
+    "testCode": "QXL-CMS-006",
+    "draftCode": "QXL-DRAFT-006",
     "aliases": [
       "Thyroid Profile",
       "Thyroid Profile (TSH, Free T4 and Free T3) test",
@@ -729,7 +735,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-007",
+    "testCode": "QXL-CMS-007",
+    "draftCode": "QXL-DRAFT-007",
     "aliases": [
       "TSH",
       "Thyroid-Stimulating Hormone test",
@@ -835,7 +842,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-008",
+    "testCode": "QXL-CMS-008",
+    "draftCode": "QXL-DRAFT-008",
     "aliases": [
       "FT3",
       "Free Triiodothyronine test",
@@ -941,7 +949,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-009",
+    "testCode": "QXL-CMS-009",
+    "draftCode": "QXL-DRAFT-009",
     "aliases": [
       "FT4",
       "Free Thyroxine test",
@@ -969,9 +978,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "8 to 10 hours overnight fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Lipid Profile (Lipid Profile) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Lipid Profile (Lipid Profile) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -1005,7 +1014,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Lipid Profile (Lipid Profile) test?",
-        "answer": "The Lipid Profile (Lipid Profile) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Lipid Profile (Lipid Profile) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Lipid Profile test?",
@@ -1047,14 +1056,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-010",
+    "testCode": "QXL-CMS-010",
+    "draftCode": "QXL-DRAFT-010",
     "aliases": [
       "Lipid Profile",
       "Lipid Profile test",
       "Lipid Profile Bangalore",
       "Lipid Profile report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate lipid profile baseline and clinical changes.",
     "limitations": [
@@ -1075,9 +1085,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "No fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Liver Function Test Panel (Liver Function Test) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Liver Function Test Panel (Liver Function Test) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -1111,7 +1121,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Liver Function Test Panel (Liver Function Test) test?",
-        "answer": "The Liver Function Test Panel (Liver Function Test) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Liver Function Test Panel (Liver Function Test) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Liver Function Test Panel test?",
@@ -1153,14 +1163,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-011",
+    "testCode": "QXL-CMS-011",
+    "draftCode": "QXL-DRAFT-011",
     "aliases": [
       "Liver Function Test",
       "Liver Function Test Panel test",
       "Liver Function Test Panel Bangalore",
       "Liver Function Test report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate liver function test panel baseline and clinical changes.",
     "limitations": [
@@ -1181,9 +1192,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "No fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Kidney Function Test Panel (Kidney Function Test) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Kidney Function Test Panel (Kidney Function Test) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -1217,7 +1228,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Kidney Function Test Panel (Kidney Function Test) test?",
-        "answer": "The Kidney Function Test Panel (Kidney Function Test) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Kidney Function Test Panel (Kidney Function Test) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Kidney Function Test Panel test?",
@@ -1259,14 +1270,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-012",
+    "testCode": "QXL-CMS-012",
+    "draftCode": "QXL-DRAFT-012",
     "aliases": [
       "Kidney Function Test",
       "Kidney Function Test Panel test",
       "Kidney Function Test Panel Bangalore",
       "Kidney Function Test report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate kidney function test panel baseline and clinical changes.",
     "limitations": [
@@ -1365,7 +1377,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-013",
+    "testCode": "QXL-CMS-013",
+    "draftCode": "QXL-DRAFT-013",
     "aliases": [
       "Creatinine",
       "Creatinine with Estimated Glomerular Filtration Rate test",
@@ -1393,9 +1406,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "No fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Uric Acid (Uric Acid) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Uric Acid (Uric Acid) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -1429,7 +1442,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Uric Acid (Uric Acid) test?",
-        "answer": "The Uric Acid (Uric Acid) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Uric Acid (Uric Acid) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Uric Acid test?",
@@ -1471,14 +1484,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-014",
+    "testCode": "QXL-CMS-014",
+    "draftCode": "QXL-DRAFT-014",
     "aliases": [
       "Uric Acid",
       "Uric Acid test",
       "Uric Acid Bangalore",
       "Uric Acid report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate uric acid baseline and clinical changes.",
     "limitations": [
@@ -1577,7 +1591,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-015",
+    "testCode": "QXL-CMS-015",
+    "draftCode": "QXL-DRAFT-015",
     "aliases": [
       "CRP",
       "C-Reactive Protein test",
@@ -1683,7 +1698,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-016",
+    "testCode": "QXL-CMS-016",
+    "draftCode": "QXL-DRAFT-016",
     "aliases": [
       "ESR",
       "Erythrocyte Sedimentation Rate test",
@@ -1789,7 +1805,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-017",
+    "testCode": "QXL-CMS-017",
+    "draftCode": "QXL-DRAFT-017",
     "aliases": [
       "Vitamin D",
       "25-Hydroxy Vitamin D test",
@@ -1817,9 +1834,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "No fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Vitamin B12 (Vitamin B12) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Vitamin B12 (Vitamin B12) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -1853,7 +1870,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Vitamin B12 (Vitamin B12) test?",
-        "answer": "The Vitamin B12 (Vitamin B12) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Vitamin B12 (Vitamin B12) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Vitamin B12 test?",
@@ -1895,14 +1912,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-018",
+    "testCode": "QXL-CMS-018",
+    "draftCode": "QXL-DRAFT-018",
     "aliases": [
       "Vitamin B12",
       "Vitamin B12 test",
       "Vitamin B12 Bangalore",
       "Vitamin B12 report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate vitamin b12 baseline and clinical changes.",
     "limitations": [
@@ -2001,7 +2019,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-019",
+    "testCode": "QXL-CMS-019",
+    "draftCode": "QXL-DRAFT-019",
     "aliases": [
       "Ferritin",
       "Ferritin test",
@@ -2107,7 +2126,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-020",
+    "testCode": "QXL-CMS-020",
+    "draftCode": "QXL-DRAFT-020",
     "aliases": [
       "Iron Profile",
       "Iron Profile test",
@@ -2135,9 +2155,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "No fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Total Calcium (Calcium) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Total Calcium (Calcium) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -2171,7 +2191,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Total Calcium (Calcium) test?",
-        "answer": "The Total Calcium (Calcium) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Total Calcium (Calcium) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Total Calcium test?",
@@ -2213,14 +2233,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-021",
+    "testCode": "QXL-CMS-021",
+    "draftCode": "QXL-DRAFT-021",
     "aliases": [
       "Calcium",
       "Total Calcium test",
       "Total Calcium Bangalore",
       "Calcium report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate total calcium baseline and clinical changes.",
     "limitations": [
@@ -2241,9 +2262,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "No fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Magnesium (Magnesium) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Magnesium (Magnesium) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -2277,7 +2298,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Magnesium (Magnesium) test?",
-        "answer": "The Magnesium (Magnesium) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Magnesium (Magnesium) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Magnesium test?",
@@ -2319,14 +2340,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-022",
+    "testCode": "QXL-CMS-022",
+    "draftCode": "QXL-DRAFT-022",
     "aliases": [
       "Magnesium",
       "Magnesium test",
       "Magnesium Bangalore",
       "Magnesium report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate magnesium baseline and clinical changes.",
     "limitations": [
@@ -2347,9 +2369,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "No fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Electrolyte Panel (Electrolytes) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Electrolyte Panel (Electrolytes) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -2383,7 +2405,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Electrolyte Panel (Electrolytes) test?",
-        "answer": "The Electrolyte Panel (Electrolytes) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Electrolyte Panel (Electrolytes) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Electrolyte Panel test?",
@@ -2425,14 +2447,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-023",
+    "testCode": "QXL-CMS-023",
+    "draftCode": "QXL-DRAFT-023",
     "aliases": [
       "Electrolytes",
       "Electrolyte Panel test",
       "Electrolyte Panel Bangalore",
       "Electrolytes report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate electrolyte panel baseline and clinical changes.",
     "limitations": [
@@ -2531,7 +2554,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-024",
+    "testCode": "QXL-CMS-024",
+    "draftCode": "QXL-DRAFT-024",
     "aliases": [
       "Urine Routine",
       "Urine Routine Examination test",
@@ -2559,9 +2583,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "sampleType": "Serum",
     "fastingRequired": "No fasting required.",
     "turnaroundTime": "6 Hours",
-    "category": "Clinical Biochemistry",
+    "category": "Clinical Chemistry",
     "overview": [
-      "The Total Protein (Total Protein) is an essential diagnostic laboratory investigation performed in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru.",
+      "The Total Protein (Total Protein) is an essential diagnostic laboratory investigation performed in the Clinical Chemistry department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Certified central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
@@ -2595,7 +2619,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What is the Total Protein (Total Protein) test?",
-        "answer": "The Total Protein (Total Protein) is an essential clinical investigation in the Clinical Biochemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Total Protein (Total Protein) is an essential clinical investigation in the Clinical Chemistry department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
         "question": "Why has my doctor recommended a Total Protein test?",
@@ -2637,14 +2661,15 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-025",
+    "testCode": "QXL-CMS-025",
+    "draftCode": "QXL-DRAFT-025",
     "aliases": [
       "Total Protein",
       "Total Protein test",
       "Total Protein Bangalore",
       "Total Protein report"
     ],
-    "department": "Clinical Biochemistry",
+    "department": "Clinical Chemistry",
     "sampleVolume": "2 mL",
     "indications": "Evaluate total protein baseline and clinical changes.",
     "limitations": [
@@ -2743,7 +2768,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-026",
+    "testCode": "QXL-CMS-026",
+    "draftCode": "QXL-DRAFT-026",
     "aliases": [
       "Insulin",
       "Insulin, Serum test",
@@ -2849,7 +2875,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-027",
+    "testCode": "QXL-CMS-027",
+    "draftCode": "QXL-DRAFT-027",
     "aliases": [
       "C-peptide",
       "C-Peptide test",
@@ -2955,7 +2982,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-028",
+    "testCode": "QXL-CMS-028",
+    "draftCode": "QXL-DRAFT-028",
     "aliases": [
       "HOMA-IR",
       "HOMA-IR Calculation test",
@@ -3061,7 +3089,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-029",
+    "testCode": "QXL-CMS-029",
+    "draftCode": "QXL-DRAFT-029",
     "aliases": [
       "Microalbumin",
       "Urine Albumin-Creatinine Ratio test",
@@ -3167,7 +3196,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-030",
+    "testCode": "QXL-CMS-030",
+    "draftCode": "QXL-DRAFT-030",
     "aliases": [
       "ApoB",
       "Apolipoprotein B test",
@@ -3273,7 +3303,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-031",
+    "testCode": "QXL-CMS-031",
+    "draftCode": "QXL-DRAFT-031",
     "aliases": [
       "Lp(a)",
       "Lipoprotein(a) test",
@@ -3379,7 +3410,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-032",
+    "testCode": "QXL-CMS-032",
+    "draftCode": "QXL-DRAFT-032",
     "aliases": [
       "Homocysteine",
       "Homocysteine test",
@@ -3485,7 +3517,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-033",
+    "testCode": "QXL-CMS-033",
+    "draftCode": "QXL-DRAFT-033",
     "aliases": [
       "hs-CRP",
       "High-Sensitivity C-Reactive Protein test",
@@ -3591,7 +3624,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-034",
+    "testCode": "QXL-CMS-034",
+    "draftCode": "QXL-DRAFT-034",
     "aliases": [
       "Testosterone",
       "Total Testosterone test",
@@ -3697,7 +3731,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-035",
+    "testCode": "QXL-CMS-035",
+    "draftCode": "QXL-DRAFT-035",
     "aliases": [
       "Free Testosterone",
       "Free Testosterone test",
@@ -3803,7 +3838,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-036",
+    "testCode": "QXL-CMS-036",
+    "draftCode": "QXL-DRAFT-036",
     "aliases": [
       "Prolactin",
       "Prolactin test",
@@ -3909,7 +3945,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-037",
+    "testCode": "QXL-CMS-037",
+    "draftCode": "QXL-DRAFT-037",
     "aliases": [
       "LH",
       "Luteinizing Hormone test",
@@ -4015,7 +4052,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-038",
+    "testCode": "QXL-CMS-038",
+    "draftCode": "QXL-DRAFT-038",
     "aliases": [
       "FSH",
       "Follicle-Stimulating Hormone test",
@@ -4121,7 +4159,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-039",
+    "testCode": "QXL-CMS-039",
+    "draftCode": "QXL-DRAFT-039",
     "aliases": [
       "Estradiol",
       "Estradiol test",
@@ -4227,7 +4266,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-040",
+    "testCode": "QXL-CMS-040",
+    "draftCode": "QXL-DRAFT-040",
     "aliases": [
       "Progesterone",
       "Progesterone test",
@@ -4333,7 +4373,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-041",
+    "testCode": "QXL-CMS-041",
+    "draftCode": "QXL-DRAFT-041",
     "aliases": [
       "AMH",
       "Anti-M\u00fcllerian Hormone test",
@@ -4439,7 +4480,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-042",
+    "testCode": "QXL-CMS-042",
+    "draftCode": "QXL-DRAFT-042",
     "aliases": [
       "Cortisol",
       "Cortisol test",
@@ -4545,7 +4587,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-043",
+    "testCode": "QXL-CMS-043",
+    "draftCode": "QXL-DRAFT-043",
     "aliases": [
       "DHEAS",
       "Dehydroepiandrosterone Sulfate test",
@@ -4651,7 +4694,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-044",
+    "testCode": "QXL-CMS-044",
+    "draftCode": "QXL-DRAFT-044",
     "aliases": [
       "beta-hCG",
       "Quantitative Beta Human Chorionic Gonadotropin test",
@@ -4757,7 +4801,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-045",
+    "testCode": "QXL-CMS-045",
+    "draftCode": "QXL-DRAFT-045",
     "aliases": [
       "Double Marker",
       "First-Trimester Double Marker Screen test",
@@ -4863,7 +4908,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-046",
+    "testCode": "QXL-CMS-046",
+    "draftCode": "QXL-DRAFT-046",
     "aliases": [
       "PAPP-A",
       "Pregnancy-Associated Plasma Protein A test",
@@ -4969,7 +5015,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-047",
+    "testCode": "QXL-CMS-047",
+    "draftCode": "QXL-DRAFT-047",
     "aliases": [
       "Free beta-hCG",
       "Free Beta Human Chorionic Gonadotropin test",
@@ -5075,7 +5122,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-048",
+    "testCode": "QXL-CMS-048",
+    "draftCode": "QXL-DRAFT-048",
     "aliases": [
       "Triple Marker",
       "Second-Trimester Triple Marker Screen test",
@@ -5181,7 +5229,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-049",
+    "testCode": "QXL-CMS-049",
+    "draftCode": "QXL-DRAFT-049",
     "aliases": [
       "Quadruple Marker",
       "Second-Trimester Quadruple Marker Screen test",
@@ -5287,7 +5336,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-050",
+    "testCode": "QXL-CMS-050",
+    "draftCode": "QXL-DRAFT-050",
     "aliases": [
       "ANA",
       "Antinuclear Antibody Screen test",
@@ -5393,7 +5443,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-051",
+    "testCode": "QXL-CMS-051",
+    "draftCode": "QXL-DRAFT-051",
     "aliases": [
       "ANA Profile",
       "Antinuclear Antibody Profile test",
@@ -5499,7 +5550,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-052",
+    "testCode": "QXL-CMS-052",
+    "draftCode": "QXL-DRAFT-052",
     "aliases": [
       "ANA IFA",
       "Antinuclear Antibody by HEp-2 Indirect Immunofluorescence test",
@@ -5605,7 +5657,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-053",
+    "testCode": "QXL-CMS-053",
+    "draftCode": "QXL-DRAFT-053",
     "aliases": [
       "Anti-dsDNA",
       "Anti-Double-Stranded DNA Antibody test",
@@ -5711,7 +5764,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-054",
+    "testCode": "QXL-CMS-054",
+    "draftCode": "QXL-DRAFT-054",
     "aliases": [
       "ENA Profile",
       "Extractable Nuclear Antigen Profile test",
@@ -5817,7 +5871,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-055",
+    "testCode": "QXL-CMS-055",
+    "draftCode": "QXL-DRAFT-055",
     "aliases": [
       "Anti-CCP",
       "Anti-Cyclic Citrullinated Peptide Antibody test",
@@ -5923,7 +5978,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-056",
+    "testCode": "QXL-CMS-056",
+    "draftCode": "QXL-DRAFT-056",
     "aliases": [
       "Rheumatoid Factor",
       "Rheumatoid Factor test",
@@ -6029,7 +6085,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-057",
+    "testCode": "QXL-CMS-057",
+    "draftCode": "QXL-DRAFT-057",
     "aliases": [
       "ANCA",
       "Antineutrophil Cytoplasmic Antibodies by IFA test",
@@ -6135,7 +6192,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-058",
+    "testCode": "QXL-CMS-058",
+    "draftCode": "QXL-DRAFT-058",
     "aliases": [
       "PR3",
       "Proteinase 3 Antibody test",
@@ -6241,7 +6299,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-059",
+    "testCode": "QXL-CMS-059",
+    "draftCode": "QXL-DRAFT-059",
     "aliases": [
       "MPO",
       "Myeloperoxidase Antibody test",
@@ -6347,7 +6406,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-060",
+    "testCode": "QXL-CMS-060",
+    "draftCode": "QXL-DRAFT-060",
     "aliases": [
       "C3",
       "Complement Component C3 test",
@@ -6453,7 +6513,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-061",
+    "testCode": "QXL-CMS-061",
+    "draftCode": "QXL-DRAFT-061",
     "aliases": [
       "C4",
       "Complement Component C4 test",
@@ -6559,7 +6620,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-062",
+    "testCode": "QXL-CMS-062",
+    "draftCode": "QXL-DRAFT-062",
     "aliases": [
       "Total IgE",
       "Total Immunoglobulin E test",
@@ -6665,7 +6727,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-063",
+    "testCode": "QXL-CMS-063",
+    "draftCode": "QXL-DRAFT-063",
     "aliases": [
       "Specific IgE",
       "Allergen-Specific Immunoglobulin E test",
@@ -6771,7 +6834,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-064",
+    "testCode": "QXL-CMS-064",
+    "draftCode": "QXL-DRAFT-064",
     "aliases": [
       "Allergy Profile",
       "Allergy Profile test",
@@ -6877,7 +6941,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-065",
+    "testCode": "QXL-CMS-065",
+    "draftCode": "QXL-DRAFT-065",
     "aliases": [
       "Food Intolerance Test",
       "Food-Specific IgG Panel (Food Intolerance) test",
@@ -6983,7 +7048,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-066",
+    "testCode": "QXL-CMS-066",
+    "draftCode": "QXL-DRAFT-066",
     "aliases": [
       "PSA",
       "Total Prostate-Specific Antigen test",
@@ -7089,7 +7155,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-067",
+    "testCode": "QXL-CMS-067",
+    "draftCode": "QXL-DRAFT-067",
     "aliases": [
       "Free PSA",
       "Free Prostate-Specific Antigen test",
@@ -7195,7 +7262,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-068",
+    "testCode": "QXL-CMS-068",
+    "draftCode": "QXL-DRAFT-068",
     "aliases": [
       "CA-125",
       "Cancer Antigen 125 test",
@@ -7301,7 +7369,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-069",
+    "testCode": "QXL-CMS-069",
+    "draftCode": "QXL-DRAFT-069",
     "aliases": [
       "CEA",
       "Carcinoembryonic Antigen test",
@@ -7407,7 +7476,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-070",
+    "testCode": "QXL-CMS-070",
+    "draftCode": "QXL-DRAFT-070",
     "aliases": [
       "AFP",
       "Alpha-Fetoprotein Tumour Marker test",
@@ -7513,7 +7583,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-071",
+    "testCode": "QXL-CMS-071",
+    "draftCode": "QXL-DRAFT-071",
     "aliases": [
       "CA 19-9",
       "Cancer Antigen 19-9 test",
@@ -7619,7 +7690,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-072",
+    "testCode": "QXL-CMS-072",
+    "draftCode": "QXL-DRAFT-072",
     "aliases": [
       "CA 15-3",
       "Cancer Antigen 15-3 test",
@@ -7725,7 +7797,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-073",
+    "testCode": "QXL-CMS-073",
+    "draftCode": "QXL-DRAFT-073",
     "aliases": [
       "beta-hCG tumour marker",
       "Beta-hCG Tumour Marker test",
@@ -7831,7 +7904,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-074",
+    "testCode": "QXL-CMS-074",
+    "draftCode": "QXL-DRAFT-074",
     "aliases": [
       "Troponin",
       "High-Sensitivity Cardiac Troponin test",
@@ -7937,7 +8011,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-075",
+    "testCode": "QXL-CMS-075",
+    "draftCode": "QXL-DRAFT-075",
     "aliases": [
       "NT-proBNP",
       "N-Terminal pro-B-Type Natriuretic Peptide test",
@@ -8043,7 +8118,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-076",
+    "testCode": "QXL-CMS-076",
+    "draftCode": "QXL-DRAFT-076",
     "aliases": [
       "CK-MB",
       "Creatine Kinase-MB Mass test",
@@ -8149,7 +8225,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-077",
+    "testCode": "QXL-CMS-077",
+    "draftCode": "QXL-DRAFT-077",
     "aliases": [
       "ApoB",
       "Apolipoprotein B (Advanced Lipid) test",
@@ -8255,7 +8332,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-078",
+    "testCode": "QXL-CMS-078",
+    "draftCode": "QXL-DRAFT-078",
     "aliases": [
       "Lp(a)",
       "Lipoprotein(a) (Genomic Lipid) test",
@@ -8361,7 +8439,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-079",
+    "testCode": "QXL-CMS-079",
+    "draftCode": "QXL-DRAFT-079",
     "aliases": [
       "SPEP",
       "Serum Protein Electrophoresis test",
@@ -8467,7 +8546,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-080",
+    "testCode": "QXL-CMS-080",
+    "draftCode": "QXL-DRAFT-080",
     "aliases": [
       "Immunofixation",
       "Serum Immunofixation Electrophoresis test",
@@ -8573,7 +8653,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-081",
+    "testCode": "QXL-CMS-081",
+    "draftCode": "QXL-DRAFT-081",
     "aliases": [
       "Serum Free Light Chains",
       "Serum Free Light Chains with Kappa/Lambda Ratio test",
@@ -8679,7 +8760,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-082",
+    "testCode": "QXL-CMS-082",
+    "draftCode": "QXL-DRAFT-082",
     "aliases": [
       "Urine Protein Electrophoresis",
       "Urine Protein Electrophoresis test",
@@ -8785,7 +8867,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-083",
+    "testCode": "QXL-CMS-083",
+    "draftCode": "QXL-DRAFT-083",
     "aliases": [
       "Dengue NS1",
       "Dengue NS1 Antigen test",
@@ -8891,7 +8974,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-084",
+    "testCode": "QXL-CMS-084",
+    "draftCode": "QXL-DRAFT-084",
     "aliases": [
       "Dengue IgM/IgG",
       "Dengue IgM and IgG Antibodies test",
@@ -8997,7 +9081,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-085",
+    "testCode": "QXL-CMS-085",
+    "draftCode": "QXL-DRAFT-085",
     "aliases": [
       "Malaria",
       "Malaria Parasite Detection test",
@@ -9103,7 +9188,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-086",
+    "testCode": "QXL-CMS-086",
+    "draftCode": "QXL-DRAFT-086",
     "aliases": [
       "Typhoid",
       "Typhoid Fever Diagnostic Testing test",
@@ -9209,7 +9295,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-087",
+    "testCode": "QXL-CMS-087",
+    "draftCode": "QXL-DRAFT-087",
     "aliases": [
       "HBsAg",
       "Hepatitis B Surface Antigen test",
@@ -9315,7 +9402,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-088",
+    "testCode": "QXL-CMS-088",
+    "draftCode": "QXL-DRAFT-088",
     "aliases": [
       "HCV",
       "Hepatitis C Antibody test",
@@ -9421,7 +9509,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-089",
+    "testCode": "QXL-CMS-089",
+    "draftCode": "QXL-DRAFT-089",
     "aliases": [
       "HIV screening",
       "HIV-1/2 Antigen and Antibody Screening test",
@@ -9527,7 +9616,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-090",
+    "testCode": "QXL-CMS-090",
+    "draftCode": "QXL-DRAFT-090",
     "aliases": [
       "H1N1 PCR",
       "Influenza A(H1N1) RT-PCR test",
@@ -9633,7 +9723,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-091",
+    "testCode": "QXL-CMS-091",
+    "draftCode": "QXL-DRAFT-091",
     "aliases": [
       "AQP4/NMO",
       "Aquaporin-4 IgG Antibody test",
@@ -9739,7 +9830,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-092",
+    "testCode": "QXL-CMS-092",
+    "draftCode": "QXL-DRAFT-092",
     "aliases": [
       "MOG Antibody",
       "Myelin Oligodendrocyte Glycoprotein IgG1 Antibody test",
@@ -9845,7 +9937,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-093",
+    "testCode": "QXL-CMS-093",
+    "draftCode": "QXL-DRAFT-093",
     "aliases": [
       "Anti-NMDA receptor antibody",
       "N-Methyl-D-Aspartate Receptor Antibody test",
@@ -9951,7 +10044,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-094",
+    "testCode": "QXL-CMS-094",
+    "draftCode": "QXL-DRAFT-094",
     "aliases": [
       "Paraneoplastic panel",
       "Paraneoplastic Neurologic Antibody Panel test",
@@ -10057,7 +10151,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-095",
+    "testCode": "QXL-CMS-095",
+    "draftCode": "QXL-DRAFT-095",
     "aliases": [
       "Autoimmune encephalitis panel",
       "Autoimmune Encephalitis Antibody Panel test",
@@ -10163,7 +10258,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-096",
+    "testCode": "QXL-CMS-096",
+    "draftCode": "QXL-DRAFT-096",
     "aliases": [
       "Oligoclonal bands",
       "Oligoclonal Bands, Paired CSF and Serum test",
@@ -10269,7 +10365,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-097",
+    "testCode": "QXL-CMS-097",
+    "draftCode": "QXL-DRAFT-097",
     "aliases": [
       "Coeliac Profile",
       "Coeliac Disease Antibody Profile test",
@@ -10375,7 +10472,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-098",
+    "testCode": "QXL-CMS-098",
+    "draftCode": "QXL-DRAFT-098",
     "aliases": [
       "Anti-TPO",
       "Thyroid Peroxidase Antibody test",
@@ -10481,7 +10579,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-099",
+    "testCode": "QXL-CMS-099",
+    "draftCode": "QXL-DRAFT-099",
     "aliases": [
       "Thyroglobulin antibody",
       "Thyroglobulin Antibody test",
@@ -10587,7 +10686,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-LIS-100",
+    "testCode": "QXL-CMS-100",
+    "draftCode": "QXL-DRAFT-100",
     "aliases": [
       "Flow Cytometry",
       "Flow Cytometry Immunophenotyping test",
