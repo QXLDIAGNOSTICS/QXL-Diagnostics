@@ -101,7 +101,7 @@ export default function StickyBookingForm() {
         <div className="pt-4 mt-4 border-t border-slate-100 flex flex-col gap-2.5 shrink-0">
           <div className="flex items-center justify-between text-[11px] font-extrabold text-slate-600">
             <span className="flex items-center gap-1 text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full text-[10px]">
-              ✓ NABL MC-6849
+              ✓ NABL MC-10025
             </span>
             <span className="text-slate-500 font-bold">Free Doorstep Pickup</span>
           </div>

@@ -34,6 +34,26 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/quality-and-accreditation",
+        destination: "/quality-accreditation",
+        permanent: true,
+      },
+      {
+        source: "/quality-and-accreditation/",
+        destination: "/quality-accreditation",
+        permanent: true,
+      },
+      {
+        source: "/quality",
+        destination: "/quality-accreditation",
+        permanent: true,
+      },
+      {
+        source: "/quality/",
+        destination: "/quality-accreditation",
+        permanent: true,
+      },
+      {
         source: "/home",
         destination: "/",
         permanent: true,

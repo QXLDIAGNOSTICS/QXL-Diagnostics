@@ -98,7 +98,7 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
   contactPhoneE164: "+919964639639",
   whatsappNumber: "919964639639",
   labLocation: "Bengaluru, Karnataka",
-  nablCertNumber: "MC-6849",
+  nablCertNumber: "MC-10025",
   isHomeSampleCollectionAvailable: true,
   heroImage: "/images/raksha_bandhan_hero.png",
   bannerImage: "/images/raksha_bandhan_banner.png",
@@ -193,7 +193,7 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
     },
     {
       question: "How do I receive my report?",
-      answer: "Your test reports will be processed at our NABL Certified central laboratory (MC-6849) and sent directly to your registered WhatsApp and email within 6 to 12 hours. Hard copies can also be provided upon request.",
+      answer: "Your test reports will be processed at our NABL Certified central laboratory (MC-10025) and sent directly to your registered WhatsApp and email within 6 to 12 hours. Hard copies can also be provided upon request.",
     },
     {
       question: "How long is the ₹800 offer valid?",

@@ -3,6 +3,8 @@ import React from 'react';
 import { ShieldCheck, Award, Microscope, Stethoscope, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
+import { NABL_CERTIFICATE } from '@/lib/businessInfo';
+
 export default function DoctorLedLabSection() {
   const departments = [
     { title: "Clinical Biochemistry", desc: "Automated high-precision metabolic & enzymatic profiles." },
@@ -32,7 +34,7 @@ export default function DoctorLedLabSection() {
               Bengaluru's Doctor-Led Diagnostic Laboratory
             </h2>
             <p className="text-slate-700 text-base md:text-lg font-bold leading-relaxed mb-8">
-              QXL Diagnostics is a doctor-led, NABL Certified (MC-6849) super-speciality diagnostic laboratory in Bengaluru, combining advanced laboratory technology, quality systems and specialist medical review for accurate, timely results.
+              QXL Diagnostics is a doctor-led, NABL accredited ({NABL_CERTIFICATE}) super-speciality diagnostic laboratory in Bengaluru, combining advanced laboratory technology, quality systems and specialist medical review for accurate, timely results.
             </p>
 
             {/* Department Grid */}
@@ -50,13 +52,13 @@ export default function DoctorLedLabSection() {
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
-                href="/about"
+                href="/quality-accreditation"
                 className="bg-gradient-to-r from-amber-500 via-[#0284c7] to-emerald-600 hover:from-amber-600 hover:to-emerald-700 text-white font-black px-7 py-3.5 rounded-full text-sm shadow-md active:scale-95 transition-all uppercase tracking-wider"
               >
                 Learn About Our Lab Standards →
               </Link>
               <Link
-                href="/founder"
+                href="/team"
                 className="bg-white hover:bg-slate-50 text-slate-800 font-black px-6 py-3.5 rounded-full text-sm border border-emerald-300/80 shadow-xs transition-all"
               >
                 Consultant Specialists
@@ -77,7 +79,7 @@ export default function DoctorLedLabSection() {
                   <Award className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="text-xs font-black text-[#2563eb] uppercase tracking-wider">NABL ACCREDITED (MC-6849)</div>
+                  <div className="text-xs font-black text-[#2563eb] uppercase tracking-wider">NABL ACCREDITED ({NABL_CERTIFICATE})</div>
                   <div className="text-sm font-extrabold text-[#0f2d5e]">Direct Doctor Verification for Every Report</div>
                 </div>
               </div>

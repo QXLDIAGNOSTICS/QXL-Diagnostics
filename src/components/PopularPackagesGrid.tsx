@@ -159,7 +159,7 @@ export default function PopularPackagesGrid() {
                   </div>
 
                   <Link
-                    href={`/book?package=${encodeURIComponent(pkg.name)}`}
+                    href={`/book?package=${pkg.id === 'raksha-bandhan-800' ? 'q-full-body-80' : pkg.id}`}
                     className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white"
                   >
                     Book Package @ ₹{pkg.price} <ArrowRight className="w-4 h-4" />

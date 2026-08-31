@@ -257,16 +257,16 @@ function WhyChooseSlider() {
 // ── Promo: QXL Packages Slider — Desktop ──────────────────────────────────────
 const promoSlides = [
   {
-    name: "Q-Master Full Body Health Checkup",
-    price: "₹1,900",
-    original: "₹4,800",
+    name: "Full Body Health Checkup (80 Params)",
+    price: "₹800",
+    original: "₹5,800",
     tag: "MOST BOOKED",
     desc: "Comprehensive 80 health parameters screening covering liver, kidney, heart, diabetes, thyroid, bone & blood count.",
     includes: ["CBC (26), HbA1c & Glucose (3)", "Lipid Profile (8), Liver Function (11)", "Kidney Function (8), Thyroid Profile (3)", "Bone, Mineral & Urine Analysis (21)"],
     tests: "80 Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
     imgBg: "#FFF7ED",
-    ctaLink: "/full-body-checkup-bangalore",
+    ctaLink: "/book?package=q-full-body-80",
   },
   {
     name: "Q-Screen Diabetes Package",
@@ -275,58 +275,58 @@ const promoSlides = [
     tag: "DIABETES CARE",
     desc: "Advanced diabetes monitoring with kidney microalbumin, C-Peptide, and comprehensive metabolic markers.",
     includes: ["FBS, HbA1c, eAG, C-Peptide", "Urine Microalbumin, Protein/Creatinine", "Lipid Profile, Liver & Kidney Function", "TSH, CBC, ESR, Urine Routine"],
-    tests: "18+ Tests",
+    tests: "16+ Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
     imgBg: "#E8F5E9",
-    ctaLink: "/packages",
+    ctaLink: "/book?package=q-screen-diabetes",
   },
   {
-    name: "Q-Master Health Pro",
+    name: "Q-Master Health Pro Package",
     price: "₹4,600",
     original: "₹9,600",
-    tag: "MOST BOOKED",
+    tag: "MOST BOOKED PRO",
     desc: "Our premium all-in-one health package covering metabolic, cardiac, hormonal, nutritional and inflammatory markers.",
     includes: ["FBS, HbA1c, Lipid + Apo Panel", "Full Thyroid (T3, T4, TSH), Vit D & B12", "Kidney Screen (7 markers), LFT", "H.pylori IgG, hs-CRP, CBC, ESR"],
-    tests: "25+ Tests",
+    tests: "92 Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
     imgBg: "#EDE7F6",
-    ctaLink: "/packages",
+    ctaLink: "/book?package=q-master-health-pro",
   },
   {
-    name: "Q-Arthritis & Autoimmune Panel",
+    name: "Q-Advanced Arthritis & Autoimmune Panel",
     price: "₹6,900",
     original: "₹12,660",
     tag: "AUTOIMMUNE",
     desc: "Targets arthritis, autoimmune and hormonal markers — comprehensive joint and immune function assessment.",
     includes: ["RF, Anti-CCP, ANA Autoimmune Tests", "Bone Health: Calcium, Phosphorus, Vit D", "Iron Studies, Thyroid, DHEA-S, Cortisol", "Lipid, LFT, KFT, CBC, ESR"],
-    tests: "30+ Tests",
+    tests: "22+ Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150166/Assets-QXL/legacy-assets/image/elderly_bp_check.jpg",
     imgBg: "#E3F2FD",
-    ctaLink: "/packages",
+    ctaLink: "/book?package=q-advanced-arthritis",
   },
   {
-    name: "Q-Oncoscreen Package",
+    name: "Q-Oncology Biomarker Panel",
     price: "₹7,900",
     original: "₹13,600",
     tag: "CANCER SCREENING",
     desc: "Comprehensive cancer marker panel for early detection across multiple organs, plus blood and stool analysis.",
     includes: ["AFP, CEA, Beta HCG, PSA (Male)", "CA-125 (Female), CA-19.9", "CBC, ESR, Urine Routine", "Calprotectin, FOBT, Protein Electrophoresis"],
-    tests: "12+ Markers",
+    tests: "15+ Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
     imgBg: "#E8EAF6",
-    ctaLink: "/packages",
+    ctaLink: "/book?package=q-oncology-biomarker",
   },
   {
-    name: "Q-Hypertension & Cardiac Risk",
+    name: "Q-Cardiovascular Risk Assessment Package",
     price: "₹9,000",
     original: "₹18,900",
     tag: "CARDIAC CARE",
     desc: "Advanced cardiovascular risk profiling with inflammation, clotting, heart stress and metabolic biomarkers.",
     includes: ["Lipid + Apo Panel, Lipoprotein(a), hs-CRP", "Fibrinogen, Homocysteine, NT-proBNP", "Kidney Screen, Thyroid (T3, T4, TSH)", "Cortisol, Magnesium, Insulin, CBC"],
-    tests: "22+ Tests",
+    tests: "25+ Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
     imgBg: "#E8F5E9",
-    ctaLink: "/packages",
+    ctaLink: "/book?package=q-cardiovascular-risk",
   },
 ];
 
@@ -738,13 +738,13 @@ export default function Home() {
   const mobileOfferBanners = [
     {
       badge: "🩺 MOST POPULAR",
-      title: "Full Body Health Checkup",
+      title: "Full Body Health Checkup (80 Params)",
       sub: "Complete Liver, Kidney, Heart, Thyroid & Diabetes Panel",
-      price: "₹1,900",
+      price: "₹800",
       bgGradient: "bg-gradient-to-br from-indigo-50/95 via-blue-50/90 to-sky-50/80 border border-indigo-200/90 shadow-sm",
       badgeStyle: "bg-indigo-100 text-indigo-950 border border-indigo-200",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
-      ctaLink: "/full-body-checkup-bangalore"
+      ctaLink: "/book?package=q-full-body-80"
     },
     {
       badge: "🩸 ROUTINE SCREENING",
@@ -1020,7 +1020,7 @@ export default function Home() {
                             {activeSlide.badge}
                           </span>
                           <span className="inline-flex items-center gap-1 bg-emerald-50 border border-emerald-300 text-emerald-800 text-[9.5px] font-black px-2.5 py-0.5 rounded-full shadow-2xs">
-                            ✓ NABL MC-6849
+                            ✓ NABL MC-10025
                           </span>
                         </div>
 
@@ -2092,7 +2092,7 @@ export default function Home() {
 
               <div className="pt-2 text-xs text-slate-500 flex items-center gap-4 font-semibold">
                 <span>🏠 Free Home Collection</span>
-                <span>📋 NABL Certified (MC-6849)</span>
+                <span>📋 NABL Certified (MC-10025)</span>
               </div>
             </div>
 

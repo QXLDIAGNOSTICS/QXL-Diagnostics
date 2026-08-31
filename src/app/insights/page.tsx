@@ -1,89 +1,26 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BarChart3, ShieldCheck, Calendar, FileText, ArrowRight, Download, PieChart, TrendingUp, Users } from 'lucide-react';
+import { BarChart3, ShieldCheck, AlertTriangle, FileText, ArrowRight, CheckCircle2, Lock, Scale, HelpCircle } from 'lucide-react';
 import { SITE_URL, NABL_CERTIFICATE } from '@/lib/businessInfo';
 
 export const metadata: Metadata = {
-  title: "QXL Clinical Insights & Bengaluru Health Reports | QXL Diagnostics",
-  description: "Anonymized, aggregated clinical laboratory insights and population health data on Vitamin D deficiency, diabetes prediabetes rates, and thyroid trends across Bengaluru.",
+  title: "QXL Clinical Insights & Population Health Data Governance | QXL Diagnostics",
+  description: "Official Population Health Research & Clinical Data Governance framework for QXL Diagnostics Bengaluru. LIS data verification and methodology protocols.",
   alternates: { canonical: `${SITE_URL}/insights` },
   openGraph: {
-    title: "QXL Clinical Insights & Population Health Reports",
-    description: "Original clinical data, epidemiology trends, and laboratory statistics from QXL Diagnostics Bengaluru.",
+    title: "QXL Clinical Insights & Laboratory Data Governance",
+    description: "Methodology, data verification hold, and clinical research standards at QXL Diagnostics Bengaluru.",
     url: `${SITE_URL}/insights`,
     type: "website",
   },
 };
 
-const INSIGHT_REPORTS = [
-  {
-    id: "vitamin-d-bengaluru-2026",
-    title: "QXL Bengaluru Vitamin D Deficiency Study 2026",
-    period: "January – July 2026",
-    sampleSize: "14,250 Serum 25-OH Vitamin D Tests",
-    keyFinding: "78.4% of urban Bengaluru adults tested had Vitamin D deficiency (<20 ng/mL) or insufficiency (20–30 ng/mL).",
-    author: "Dr. Shantakumar Muruda, MD",
-    slug: "vitamin-d-bengaluru-study-2026",
-    statHighlights: [
-      { label: "Deficient (<20 ng/mL)", value: "54.2%" },
-      { label: "Insufficient (20–30 ng/mL)", value: "24.2%" },
-      { label: "Optimal (>40 ng/mL)", value: "9.6%" },
-    ],
-    summary: "Analysis of 14,250 anonymized 25-OH Vitamin D immunoassay results processed at QXL Diagnostics across 40+ Bengaluru localities. Young working professionals aged 25–40 showed the highest deficiency rate (82.1%), strongly associated with indoor desk lifestyles."
-  },
-  {
-    id: "diabetes-prediabetes-bengaluru-2026",
-    title: "QXL Bengaluru Diabetes & Prediabetes Screening Report",
-    period: "Q1–Q2 2026",
-    sampleSize: "18,900 HPLC HbA1c Tests",
-    keyFinding: "31.8% of screened individuals met WHO criteria for Prediabetes (HbA1c 5.7%–6.4%), with 18.5% meeting Diabetes criteria (HbA1c ≥6.5%).",
-    author: "Dr. Shantakumar Muruda, MD",
-    slug: "diabetes-prediabetes-bengaluru-report-2026",
-    statHighlights: [
-      { label: "Normal (<5.7%)", value: "49.7%" },
-      { label: "Prediabetes (5.7–6.4%)", value: "31.8%" },
-      { label: "Diabetes (≥6.5%)", value: "18.5%" },
-    ],
-    summary: "Gold-standard HPLC HbA1c measurements reveal a substantial prediabetic burden in urban Bengaluru. Notably, 42% of individuals with prediabetic HbA1c levels had normal fasting blood sugar, highlighting the importance of HbA1c for early screening."
-  },
-  {
-    id: "womens-thyroid-trends-2026",
-    title: "QXL Women's Thyroid Health & Anti-TPO Autoimmune Report",
-    period: "Q1–Q2 2026",
-    sampleSize: "9,600 Thyroid Profiles & Anti-TPO Antibodies",
-    keyFinding: "22.4% of tested Bengaluru women exhibited TSH >4.5 mIU/L, with 68% of hypothyroid cases testing positive for Anti-TPO autoantibodies.",
-    author: "Dr. Naveen Kumar N, DNB",
-    slug: "womens-thyroid-autoimmune-trends-2026",
-    statHighlights: [
-      { label: "Subclinical Hypothyroid", value: "16.1%" },
-      { label: "Overt Hypothyroid", value: "6.3%" },
-      { label: "Anti-TPO Positive", value: "68.0%" },
-    ],
-    summary: "Autoimmune Hashimoto's thyroiditis is the leading driver of hypothyroidism among women in Bengaluru. Subclinical hypothyroidism was most frequently detected in women aged 28–45 seeking routine fertility or wellness screening."
-  },
-  {
-    id: "senior-citizen-biomarker-2026",
-    title: "QXL Senior Citizen Biomarker & Renal Function Report",
-    period: "Q1–Q2 2026",
-    sampleSize: "6,400 Preventive Health Panels (Age 60+)",
-    keyFinding: "38.2% of tested seniors had an eGFR below 60 mL/min/1.73m² (Stage 3 CKD), despite 45% having 'normal' serum creatinine levels.",
-    author: "Dr. Shantakumar Muruda, MD",
-    slug: "senior-citizen-biomarker-renal-report-2026",
-    statHighlights: [
-      { label: "eGFR <60 (Stage 3 CKD)", value: "38.2%" },
-      { label: "Hyperuricaemia (>7.2)", value: "29.1%" },
-      { label: "Elevated hs-CRP", value: "34.5%" },
-    ],
-    summary: "This report underscores why relying solely on serum creatinine in elderly patients leads to under-diagnosing renal decline. Automatic eGFR reporting at QXL identified early renal impairment in over 2,400 senior citizens."
-  }
-];
-
 export default function InsightsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "DataCatalog",
-    "name": "QXL Clinical Insights & Population Health Data",
-    "description": "Anonymized clinical laboratory data, epidemiological findings, and biomarker reports from QXL Diagnostics Bengaluru.",
+    "name": "QXL Clinical Insights & Population Health Data Governance",
+    "description": "Clinical data governance, methodology protocols, and LIS data verification standards at QXL Diagnostics Bengaluru.",
     "url": `${SITE_URL}/insights`,
     "publisher": {
       "@type": "DiagnosticLab",
@@ -100,87 +37,146 @@ export default function InsightsPage() {
       <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-14 border-b border-sky-900">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="inline-block bg-[#D69A18] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">
-              Epidemiological &amp; Clinical Data
+            <span className="inline-block bg-amber-500 text-slate-950 text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">
+              Clinical Laboratory Data Governance
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight text-white" style={{ color: '#ffffff' }}>
-              QXL Clinical Insights &amp; Health Reports
+              QXL Clinical Insights &amp; Population Health Governance
             </h1>
             <p className="text-sky-100 text-sm md:text-base leading-relaxed mb-6 font-medium">
-              Anonymized, aggregated population health statistics, biomarker trends, and disease prevalence studies generated from NABL Certified diagnostic laboratory testing across Bengaluru.
+              A rigorous framework for anonymized, aggregated population health statistics, biomarker epidemiological trends, and diagnostic data verification derived directly from NABL accredited laboratory testing across Bengaluru.
             </p>
             <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-sky-200">
               <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" /> NABL Quality Governance ({NABL_CERTIFICATE})
+                <ShieldCheck className="w-4 h-4 text-emerald-400" /> NABL Accredited Quality ({NABL_CERTIFICATE})
               </span>
               <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
-                <BarChart3 className="w-4 h-4 text-sky-300" /> Fully Anonymized Aggregated Data
+                <Lock className="w-4 h-4 text-sky-300" /> Strictly Anonymized Secondary LIS Data
               </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Governance & Privacy Banner */}
-      <div className="bg-white border-b border-slate-200 py-4">
-        <div className="max-w-[1260px] mx-auto px-4 flex flex-wrap items-center justify-between gap-4 text-xs font-medium text-slate-600">
-          <span>🔒 <strong>Privacy &amp; Data Governance:</strong> All studies use strictly anonymized, de-identified secondary data compliant with DPDP 2023 guidelines.</span>
-          <span className="font-extrabold text-[#0f2d5e]">Medical Oversight: Dr. Shantakumar Muruda, MD</span>
+      {/* Medical Review & Data Audit Hold Alert */}
+      <section className="py-8 max-w-[1260px] mx-auto px-4">
+        <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row items-start gap-5">
+          <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
+            <AlertTriangle className="w-6 h-6 text-amber-600" />
+          </div>
+          <div className="space-y-3 flex-1">
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <span className="bg-amber-200 text-amber-900 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+                Medical Review &amp; LIS Audit Hold Active
+              </span>
+              <span className="text-xs font-bold text-amber-800">Status: Rigorous Methodology Audit</span>
+            </div>
+            <h2 className="text-xl font-extrabold text-amber-950">
+              Clinical Insights Medical Audit Notice
+            </h2>
+            <p className="text-xs sm:text-sm text-amber-900 leading-relaxed font-medium">
+              In accordance with QXL Diagnostics medical authority guidelines, all published population health statistics, sample sizes, and prevalence figures are subject to strict primary LIS (Laboratory Information System) data extraction and statistical validation.
+            </p>
+            <p className="text-xs sm:text-sm text-amber-900 leading-relaxed font-medium">
+              Prior illustrative website copy and unverified statistical estimates have been withdrawn under a <strong>Medical Review Hold</strong>. Only fully validated, reproducible datasets with documented inclusion/exclusion criteria, exact sampling dates, and consultant pathologist review will be released on this portal.
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Reports Grid */}
-      <section className="py-12">
+      {/* Methodological Standards & Governance Framework */}
+      <section className="py-8">
         <div className="max-w-[1260px] mx-auto px-4 space-y-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <span className="text-xs text-[#2563eb] font-extrabold uppercase tracking-wider">Original Laboratory Research</span>
-              <h2 className="text-2xl font-extrabold text-[#0f2d5e]">Published Population Health Studies</h2>
+          <div>
+            <span className="text-xs text-[#2563eb] font-extrabold uppercase tracking-wider">Research Standards</span>
+            <h2 className="text-2xl font-extrabold text-[#0f2d5e]">QXL Laboratory Research Protocol</h2>
+            <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">
+              Every future clinical dataset published by QXL Diagnostics will strictly adhere to the following methodological criteria:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-xs space-y-3">
+              <div className="w-10 h-10 rounded-2xl bg-blue-50 text-[#2563eb] flex items-center justify-center font-bold">
+                <BarChart3 className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-extrabold text-[#0f2d5e]">1. LIS Data Derivation</h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                100% of sample counts, biological reference ranges, and prevalence figures are extracted directly from bidirectional LIS database queries run on calibrated analyzers.
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-xs space-y-3">
+              <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
+                <Scale className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-extrabold text-[#0f2d5e]">2. Standardized Diagnostic Cutoffs</h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                Diagnostic classifications follow precise clinical guidelines:
+              </p>
+              <ul className="text-[11px] text-slate-600 space-y-1 font-medium bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+                <li>• <strong>HbA1c Prediabetes:</strong> 5.7%–6.4% (ADA / WHO criteria)</li>
+                <li>• <strong>HbA1c Diabetes:</strong> ≥6.5% (ADA / WHO criteria)</li>
+                <li>• <strong>Vitamin D Deficiency:</strong> &lt;20 ng/mL (Endocrine Society)</li>
+                <li>• <strong>eGFR Impairment:</strong> &lt;60 mL/min/1.73m² (KDIGO guidelines)</li>
+              </ul>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-xs space-y-3">
+              <div className="w-10 h-10 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
+                <Lock className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-extrabold text-[#0f2d5e]">3. Patient Privacy &amp; DPDP Compliance</h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                All epidemiological queries undergo strict de-identification removing patient identifiers, names, phone numbers, and addresses in full compliance with DPDP 2023 guidelines.
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-xs space-y-3">
+              <div className="w-10 h-10 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+                <FileText className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-extrabold text-[#0f2d5e]">4. Sampling &amp; Limitation Transparency</h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                Every study explicitly documents sampling window, age/gender distributions, inclusion/exclusion criteria, and sampling limitations (e.g. urban self-referred population bias).
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-xs space-y-3">
+              <div className="w-10 h-10 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center font-bold">
+                <CheckCircle2 className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-extrabold text-[#0f2d5e]">5. Medical Director Sign-off</h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                No population health report is published without prior review and authorization by Founder &amp; Clinical Biochemist Dr. Shantakumar Muruda (MD) and consultant pathologists.
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-xs space-y-3">
+              <div className="w-10 h-10 rounded-2xl bg-sky-50 text-[#2563eb] flex items-center justify-center font-bold">
+                <HelpCircle className="w-5 h-5" />
+              </div>
+              <h3 className="text-base font-extrabold text-[#0f2d5e]">6. Verification Queries</h3>
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                Researchers and medical institutions seeking aggregated data for public health studies can contact our Quality &amp; Research Desk at <a href="mailto:info@qxldiagnostics.com" className="text-[#2563eb] font-bold hover:underline">info@qxldiagnostics.com</a>.
+              </p>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {INSIGHT_REPORTS.map((report) => (
-              <div key={report.id} className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 shadow-xs flex flex-col justify-between space-y-6">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between gap-2 border-b border-gray-100 pb-3">
-                    <span className="text-xs font-bold text-slate-400">{report.period}</span>
-                    <span className="bg-sky-50 text-[#2563eb] text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-sky-100">
-                      N = {report.sampleSize}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-extrabold text-[#0f2d5e] leading-snug">
-                    {report.title}
-                  </h3>
-
-                  <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-amber-900 text-xs font-bold leading-relaxed">
-                    💡 <strong>Key Finding:</strong> {report.keyFinding}
-                  </div>
-
-                  <p className="text-slate-600 text-xs leading-relaxed font-medium">
-                    {report.summary}
-                  </p>
-
-                  {/* Stat Highlights */}
-                  <div className="grid grid-cols-3 gap-2 pt-2">
-                    {report.statHighlights.map((stat, idx) => (
-                      <div key={idx} className="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-center">
-                        <span className="text-lg font-black text-[#2563eb] block">{stat.value}</span>
-                        <span className="text-[10px] text-slate-500 font-bold leading-tight block mt-0.5">{stat.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className="font-bold text-slate-500">Principal Investigator: {report.author}</span>
-                  <span className="text-[#2563eb] font-extrabold flex items-center gap-1">Full Methodology <ArrowRight className="w-3.5 h-3.5" /></span>
-                </div>
-              </div>
-            ))}
+          <div className="bg-white border border-slate-200 rounded-3xl p-6 text-center space-y-3">
+            <h3 className="text-lg font-extrabold text-[#0f2d5e]">Looking for Clinical Diagnostic Testing?</h3>
+            <p className="text-xs text-slate-600 max-w-xl mx-auto font-medium">
+              Explore our NABL accredited test catalogue or learn more about our quality control protocols.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 pt-1">
+              <Link href="/tests" className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xs font-extrabold px-5 py-2.5 rounded-full transition-all">
+                Browse Test Catalogue
+              </Link>
+              <Link href="/quality-accreditation" className="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-5 py-2.5 rounded-full transition-all">
+                View NABL Accreditation
+              </Link>
+            </div>
           </div>
-
         </div>
       </section>
     </div>

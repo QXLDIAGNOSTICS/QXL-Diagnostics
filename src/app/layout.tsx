@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     canonical: "https://qxldiagnostics.com",
   },
   description:
-    "NABL Certified diagnostic lab in Bengaluru (MC-6849). 300+ tests, free home collection, doctor-reviewed reports in 24 hrs.",
+    "NABL Certified diagnostic lab in Bengaluru (MC-10025). 300+ tests, free home collection, doctor-reviewed reports in 24 hrs.",
   manifest: "/manifest.json",
   authors: [{ name: "QXL Diagnostics" }],
   creator: "QXL Diagnostics",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "QXL Diagnostics",
     title: "QXL Diagnostics Bengaluru | Doctor-Led NABL Certified Lab",
     description:
-      "Advanced diagnostic testing in Bengaluru. NABL Certified (MC-6849), free doorstep sample collection, 300+ tests, same-day digital reports.",
+      "Advanced diagnostic testing in Bengaluru. NABL Certified (MC-10025), free doorstep sample collection, 300+ tests, same-day digital reports.",
     images: [
       {
         url: "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
@@ -83,7 +83,7 @@ const localBusinessSchema = {
   legalName: "Qualitify Healthtech Pvt Ltd",
   alternateName: ["QXL Diagnostics", "QXL Diagnostics Bengaluru", "QXL Diagnostics Bangalore"],
   description:
-    "NABL Certified (MC-6849) doctor-led super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, and same-day digital reports.",
+    "NABL Certified (MC-10025) doctor-led super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, and same-day digital reports.",
   url: "https://qxldiagnostics.com",
   telephone: "+91-9964-639639",
   email: "info@qxldiagnostics.com",
@@ -92,7 +92,7 @@ const localBusinessSchema = {
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
     credentialCategory: "Laboratory Accreditation",
-    name: "NABL Certification Certificate MC-6849",
+    name: "NABL Certification Certificate MC-10025",
     description: "ISO 15189:2022 accreditation from National Accreditation Board for Testing and Calibration Laboratories (NABL), Government of India",
     recognizedBy: {
       "@type": "Organization",
@@ -329,7 +329,7 @@ const speakableSchema = {
   "@type": "WebPage",
   "@id": "https://qxldiagnostics.com",
   "name": "QXL Diagnostics — NABL Certified Super Speciality Lab Bengaluru",
-  "description": "NABL Certified (MC-6849) diagnostic laboratory in Bengaluru. Free home collection, 300+ tests, same-day reports.",
+  "description": "NABL Certified (MC-10025) diagnostic laboratory in Bengaluru. Free home collection, 300+ tests, same-day reports.",
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": [

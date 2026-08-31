@@ -3,7 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { MapPin, Phone, Clock, Shield, Search, Compass, AlertCircle, ExternalLink, Sparkles, Navigation, CheckCircle2, Building2 } from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { api } from '../../lib/api';
+import { PHONE_DISPLAY, PHONE_E164, EMAIL, NABL_CERTIFICATE } from '@/lib/businessInfo';
 
 function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number) {
   const R = 6371; // km
@@ -23,7 +26,6 @@ function isOpenNow(hoursString: string): boolean {
   if (hoursString.includes("24x7")) return true;
   const now = new Date();
   const currentHour = now.getHours();
-  // Most centers open 6:30 AM to 8:00 PM (6.5 to 20)
   return currentHour >= 6 && currentHour < 20;
 }
 
@@ -36,7 +38,7 @@ const DEFAULT_CENTERS = [
     locality: "Kengeri",
     address: "3rd Floor, SLN Complex, Mysuru Road, Kengeri, Bengaluru – 560060",
     city: "Bengaluru",
-    phone: "+91 9964 639 639",
+    phone: PHONE_DISPLAY,
     hours: "Walk-in: 6:30 AM – 8:00 PM (Mon–Sun) | Lab Operations: 24x7",
     lat: 12.9113827,
     lng: 77.4850301,
@@ -51,7 +53,7 @@ const DEFAULT_CENTERS = [
     locality: "Yelahanka",
     address: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560064",
     city: "Bengaluru",
-    phone: "+91 9964 639 639",
+    phone: PHONE_DISPLAY,
     hours: "Walk-in: 7:00 AM – 8:00 PM (Mon–Sun)",
     lat: 13.0991,
     lng: 77.5968,
@@ -66,7 +68,7 @@ const DEFAULT_CENTERS = [
     locality: "Jayanagar",
     address: "Non-Walk-In Service Dispatch Hub (Coverage: Jayanagar, JP Nagar, Banashankari & South Bengaluru)",
     city: "Bengaluru",
-    phone: "+91 9964 639 639",
+    phone: PHONE_DISPLAY,
     hours: "Doorstep Home Collection: 7:00 AM – 9:00 PM (Mon–Sun)",
     lat: 12.9250,
     lng: 77.5838,
@@ -81,7 +83,7 @@ const DEFAULT_CENTERS = [
     locality: "Indiranagar",
     address: "Non-Walk-In Service Dispatch Hub (Coverage: Indiranagar, HAL 2nd Stage, Domlur & Central Bengaluru)",
     city: "Bengaluru",
-    phone: "+91 9964 639 639",
+    phone: PHONE_DISPLAY,
     hours: "Doorstep Home Collection: 7:00 AM – 9:00 PM (Mon–Sun)",
     lat: 12.9719,
     lng: 77.6412,
@@ -96,7 +98,7 @@ const DEFAULT_CENTERS = [
     locality: "Whitefield",
     address: "Non-Walk-In Service Dispatch Hub (Coverage: Whitefield, ITPL, Kadugodi, Hope Farm, Brookefield & EPIP Zone)",
     city: "Bengaluru",
-    phone: "+91 9964 639 639",
+    phone: PHONE_DISPLAY,
     hours: "Doorstep Home Collection: 7:00 AM – 9:00 PM (Mon–Sun)",
     lat: 12.9863,
     lng: 77.7337,
@@ -204,12 +206,11 @@ export default function CentersPage() {
     return `https://maps.google.com/maps?q=${encodeURIComponent(q)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
   };
 
-  // Build JSON-LD MedicalClinic & LocalBusiness schemas
   const centersJsonLd = {
     "@context": "https://schema.org",
     "@graph": centers.map((c) => ({
       "@type": ["MedicalClinic", "LocalBusiness"],
-      "@id": `https://www.qxldiagnostics.com/centers#${c.slug || c.id}`,
+      "@id": `https://qxldiagnostics.com/centers#${c.slug || c.id}`,
       "name": c.name,
       "address": {
         "@type": "PostalAddress",
@@ -219,7 +220,8 @@ export default function CentersPage() {
         "postalCode": c.pincode || "560060",
         "addressCountry": "IN"
       },
-      "telephone": c.phone || "+91 9964 639 639",
+      "telephone": PHONE_E164,
+      "email": EMAIL,
       "openingHours": "Mo-Su 06:30-20:00",
       "geo": c.lat && c.lng ? {
         "@type": "GeoCoordinates",
@@ -229,7 +231,7 @@ export default function CentersPage() {
       "parentOrganization": {
         "@type": "DiagnosticLab",
         "name": "QXL Diagnostics Super Speciality Lab",
-        "url": "https://www.qxldiagnostics.com"
+        "url": "https://qxldiagnostics.com"
       }
     }))
   };
@@ -237,9 +239,10 @@ export default function CentersPage() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50/50">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(centersJsonLd) }} />
+      <Header />
 
       {/* Page Hero */}
-      <section className="py-4 sm:py-8 bg-white border-b border-slate-100 flex-shrink-0">
+      <section className="py-6 sm:py-8 bg-white border-b border-slate-100 flex-shrink-0">
         <div className="max-w-[1260px] mx-auto px-3 sm:px-6 w-full">
           <div className="bg-[#FFFBF0] p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-[#F3DBA7] shadow-2xs flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="space-y-1.5 text-left">
@@ -250,11 +253,10 @@ export default function CentersPage() {
                 QXL Diagnostic Labs &amp; Collection Centres
               </h1>
               <p className="text-slate-600 text-xs sm:text-sm font-medium max-w-xl">
-                Locate QXL NABL Certified laboratory hubs across Bengaluru. Search by 6-digit pincode, area, or GPS distance.
+                Locate QXL NABL Accredited ({NABL_CERTIFICATE}) laboratory hubs across Bengaluru. Search by 6-digit pincode, area, or GPS distance.
               </p>
             </div>
 
-            {/* GPS tracker button */}
             <div className="flex flex-col items-start md:items-end gap-2 shrink-0">
               <button
                 onClick={handleTrackLocation}
@@ -283,13 +285,11 @@ export default function CentersPage() {
       <section className="flex-1 w-full max-w-[1260px] mx-auto px-3 sm:px-6 py-4 sm:py-6 mb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full">
           
-          {/* Left panel: search and list (5/12 columns) */}
+          {/* Left panel */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             
-            {/* Search and Filters */}
             <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs space-y-3 text-left">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {/* Text search */}
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#D69A18]" />
                   <input
@@ -301,7 +301,6 @@ export default function CentersPage() {
                   />
                 </div>
 
-                {/* Pincode search (6-digit) */}
                 <div className="relative">
                   <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-emerald-600" />
                   <input
@@ -315,7 +314,6 @@ export default function CentersPage() {
                 </div>
               </div>
 
-              {/* Locality filter pills */}
               <div className="flex flex-wrap gap-1.5 pt-1">
                 {["All Localities", ...uniqueLocalities].map((loc) => (
                   <button
@@ -333,7 +331,6 @@ export default function CentersPage() {
               </div>
             </div>
 
-            {/* Centres list */}
             <div className="flex-1 overflow-y-auto space-y-3.5 max-h-[60vh] lg:max-h-[680px] pr-1">
               {filteredCenters.length === 0 ? (
                 <div className="bg-white p-6 rounded-2xl border border-slate-200 text-center text-slate-500 text-xs font-semibold">
@@ -353,7 +350,6 @@ export default function CentersPage() {
                         isSelected ? "border-[#D69A18] ring-2 ring-[#D69A18]/20" : "border-slate-200 hover:border-amber-300"
                       }`}
                     >
-                      {/* Open/Closed and Nearest badges */}
                       <div className="flex items-center gap-2 absolute top-3.5 right-3.5">
                         <span className={`text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
                           open ? "bg-emerald-100 text-emerald-800 border border-emerald-300" : "bg-slate-100 text-slate-600"
@@ -373,7 +369,6 @@ export default function CentersPage() {
                           <span>{center.name}</span>
                         </h3>
 
-                        {/* Distance info */}
                         {center.distance !== null && (
                           <p className="text-[10.5px] text-emerald-700 font-extrabold mb-2">
                             📍 {center.distance.toFixed(1)} km away from your location
@@ -391,7 +386,7 @@ export default function CentersPage() {
                           </div>
                           <div className="flex items-center gap-1.5">
                             <Phone className="w-3.5 h-3.5 text-[#D69A18] shrink-0" />
-                            <a href={`tel:${(center.phone || "+91 9964 639 639").replace(/ /g, '')}`} className="hover:underline font-bold text-slate-700">{center.phone || "+91 9964 639 639"}</a>
+                            <a href={`tel:${PHONE_E164}`} className="hover:underline font-bold text-slate-700">{center.phone || PHONE_DISPLAY}</a>
                           </div>
                         </div>
                       </div>
@@ -421,7 +416,7 @@ export default function CentersPage() {
             </div>
           </div>
 
-          {/* Right panel: dynamic interactive map (7/12 columns) */}
+          {/* Right panel: map */}
           <div className="lg:col-span-7 h-[360px] sm:h-[480px] lg:h-[760px] flex flex-col text-left">
             {selectedCenter ? (
               <div className="bg-white rounded-2xl sm:rounded-3xl p-3 border border-slate-200 shadow-sm flex flex-col h-full overflow-hidden">
@@ -467,6 +462,8 @@ export default function CentersPage() {
           
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

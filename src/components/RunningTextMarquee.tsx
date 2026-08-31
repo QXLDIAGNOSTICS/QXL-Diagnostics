@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+import { NABL_CERTIFICATE } from "@/lib/businessInfo";
 
 export default function RunningTextMarquee() {
   const tickerItems1 = [
@@ -16,7 +16,7 @@ export default function RunningTextMarquee() {
   ];
 
   const tickerItems2 = [
-    "🔬 NABL certified laboratory (MC-6849)",
+    `🔬 NABL accredited laboratory (${NABL_CERTIFICATE})`,
     "🏆 DR. SHANTAKUMAR MURUDA — CLINICAL BIOCHEMIST (MD) & FOUNDER",
     "🧬 CLINICAL BIOCHEMISTRY & MOLECULAR DIAGNOSTICS",
     "🧫 MICROBIOLOGY & IMMUNOLOGY HORMONAL PANELS",

@@ -11,7 +11,7 @@ export const pathologyLabBangalore: SeoLandingData = {
     "QXL Diagnostics is a super-speciality pathology laboratory in Bengaluru where biopsies, cytology specimens and clinical pathology samples are reported by senior consultant pathologists — not outsourced, not rushed.",
   aiOverviewTitle: "What does QXL's pathology department cover?",
   aiOverview:
-    "The pathology department at QXL Diagnostics in Bangalore covers histopathology (biopsy reporting), cytopathology (FNAC and PAP smears), haematology and clinical pathology. Senior Consultant Histopathologist Dr. Pritilata Rout and Consultant Pathologist Dr. Naveen Kumar N lead specialist reporting, supported by NABL Certified (MC-6849) quality systems.",
+    "The pathology department at QXL Diagnostics in Bangalore covers histopathology (biopsy reporting), cytopathology (FNAC and PAP smears), haematology and clinical pathology. Senior Consultant Histopathologist Dr. Pritilata Rout and Consultant Pathologist Dr. Naveen Kumar N lead specialist reporting, supported by NABL Certified (MC-10025) quality systems.",
   aiOverviewPoints: [
     "Histopathology & Biopsy Reporting",
     "FNAC & PAP Smear Cytology",

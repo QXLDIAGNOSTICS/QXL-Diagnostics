@@ -25,8 +25,8 @@ export const CAMPAIGNS: Campaign[] = [
 ];
 
 export const STANDARD_ANNOUNCEMENT = {
-  announcementText: "NABL Certified Medical Laboratory (MC-6849) • Free Home Blood Collection Across Bengaluru • 6-Hour Digital Reports",
-  badgeText: "NABL ACCREDITED (MC-6849)",
+  announcementText: "NABL Certified Medical Laboratory (MC-10025) • Free Home Blood Collection Across Bengaluru • 6-Hour Digital Reports",
+  badgeText: "NABL ACCREDITED (MC-10025)",
   ctaText: "BOOK A TEST NOW",
   ctaLink: "/book",
 };

@@ -45,11 +45,11 @@ export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export const EMAIL = "info@qxldiagnostics.com";
 
-/** NABL certificate number — must match Google Business / accreditation docs */
-export const NABL_CERTIFICATE = "MC-6849";
-export const NABL_ACCREDITATION_TEXT = "NABL Certified medical laboratory (ISO 15189:2022) · Certificate No. MC-6849";
-/** Medical-lab quality standard (not ISO 9001) */
-export const ISO_STANDARD = "ISO 15189:2022";
+import { NABL_CERTIFICATE as CONFIG_NABL_CERT, ISO_STANDARD as CONFIG_ISO, NABL_ACCREDITATION_TEXT as CONFIG_TEXT } from '@/config/accreditation';
+
+export const NABL_CERTIFICATE = CONFIG_NABL_CERT;
+export const NABL_ACCREDITATION_TEXT = CONFIG_TEXT;
+export const ISO_STANDARD = CONFIG_ISO;
 
 /** Centralized Business Hours specification to differentiate physical walk-ins vs 24x7 support */
 export const BUSINESS_HOURS = {
