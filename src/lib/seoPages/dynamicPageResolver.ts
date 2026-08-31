@@ -1366,8 +1366,34 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
   }
 };
 
+const SIMPLE_SLUG_MAP: Record<string, string> = {
+  "cbc": "cbc-test-bangalore",
+  "hba1c": "hba1c-test-bangalore",
+  "thyroid": "thyroid-test-bangalore",
+  "vitamin-d": "vitamin-d-test-bangalore",
+  "vitamin-b12": "vitamin-b12-test-bangalore",
+  "lipid-profile": "lipid-profile-test-bangalore",
+  "lft": "liver-function-test-bangalore",
+  "kft": "kidney-function-test-bangalore",
+  "ana": "ana-test-bangalore",
+  "spep": "spep-test-bangalore",
+  "psa": "psa-test-bangalore",
+  "crp": "crp-test-bangalore",
+  "esr": "esr-test-bangalore",
+  "ferritin": "ferritin-test-bangalore",
+  "iron-profile": "iron-profile-test-bangalore",
+  "dengue": "dengue-test-bangalore",
+  "malaria": "malaria-test-bangalore",
+  "typhoid": "typhoid-test-bangalore",
+  "hiv": "hiv-test-bangalore",
+  "hbsag": "hepatitis-b-test-bangalore"
+};
+
 export function getDynamicPageData(slug: string): DynamicPageData | null {
-  const cleanSlug = slug.toLowerCase().replace(/^\/|\/$/g, '').replace(/^tests\//, '');
+  let cleanSlug = slug.toLowerCase().replace(/^\/|\/$/g, '').replace(/^tests\//, '');
+  if (SIMPLE_SLUG_MAP[cleanSlug]) {
+    cleanSlug = SIMPLE_SLUG_MAP[cleanSlug];
+  }
   
   // ── Phase 1: Check Prenatal Screening Pack (Volume 4) ────────────────────
   if (prenatalScreeningPagesWithAliases[cleanSlug]) {
