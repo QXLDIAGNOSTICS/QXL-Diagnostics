@@ -50,6 +50,7 @@ export interface DynamicPageData {
   clinicalSignificance?: string;
   // ── 69-Field Bulk Template & Textbook Attributes ───────────────────────
   testCode?: string;
+  draftCode?: string;
   aliases?: string[];
   department?: string;
   speciality?: string;
