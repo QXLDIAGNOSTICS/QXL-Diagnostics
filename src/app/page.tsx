@@ -1956,6 +1956,54 @@ export default function Home() {
           <WhyChooseSlider />
         </div>
 
+        {/* ── Meet Our Team (Mobile View) ── */}
+        <div className="my-4">
+          <section className="py-6 bg-transparent border-t border-blue-100">
+            <div className="max-w-[1260px] mx-auto px-4 w-full">
+              <div className="mb-6 text-center">
+                <span className="inline-block bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-1.5">Our Experts</span>
+                <h2 className="text-[#0f2d5e] text-2xl font-extrabold mb-1.5">Meet Our Team</h2>
+                <p className="text-slate-600 text-xs font-medium max-w-2xl mx-auto">
+                  Over four decades of clinical medical expertise in precision pathology & diagnostics.
+                </p>
+                <div className="w-12 h-1 bg-[#2563eb] mx-auto rounded-full mt-3" />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", role: "Founder & CEO", slug: "dr-shantakumar-muruda", image: "/images/dr_shantakumar_new.jpg", imagePosition: "center top", imageScale: 1.3, imageTranslateY: "-24%" },
+                  { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", role: "Senior Consultant", slug: "dr-pritilata-rout", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
+                  { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", role: "Senior Consultant", slug: "dr-ajitha-pillai", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
+                  { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", role: "Consultant Pathologist", slug: "dr-naveen-kumar-n", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
+                ].map((doc: any) => (
+                  <Link
+                    href={`/${doc.slug}`}
+                    key={doc.name}
+                    className="group rounded-2xl overflow-hidden flex flex-col text-center transition-all duration-300 hover:-translate-y-1 bg-white border border-sky-100 shadow-sm"
+                  >
+                    <div className="relative aspect-square overflow-hidden bg-sky-50">
+                      <Image src={doc.image} alt={doc.name} width={280} height={280}
+                        className="w-full h-full object-cover"
+                        style={{ 
+                          objectPosition: doc.imagePosition || 'top',
+                          transform: doc.imageScale ? `scale(${doc.imageScale}) ${doc.imageTranslateY ? `translateY(${doc.imageTranslateY})` : ''}` : 'none'
+                        }}
+                        onError={(e) => { e.currentTarget.srcset = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"; }} />
+                      <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-white to-transparent" />
+                    </div>
+                    <div className="px-2.5 pb-3 pt-1">
+                      <h3 className="font-extrabold text-[#0c4a6e] text-xs mb-1 leading-tight truncate">{doc.name}</h3>
+                      <span className="inline-block text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full mb-1 bg-gradient-to-r from-sky-400 to-sky-600">
+                        {doc.role}
+                      </span>
+                      <p className="text-[10px] font-bold text-[#0284c7] uppercase tracking-wider truncate">{doc.qual}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        </div>
+
         {/* ── Reviews (What Our Patients Say), Blog & FAQ ── */}
         <div className="my-4 space-y-4">
           <ReviewsSection />
