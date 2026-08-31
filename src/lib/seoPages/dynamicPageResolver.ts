@@ -26,7 +26,7 @@ export interface DynamicPageData {
   fastingRequired: string;
   turnaroundTime: string;
   overview: string[];
-  parametersList: string[];
+  parametersList?: string[];
   whyImportant: string[];
   faqs: { question: string; answer: string }[];
   category: string;
