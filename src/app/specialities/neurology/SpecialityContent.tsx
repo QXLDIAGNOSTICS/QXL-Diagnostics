@@ -107,7 +107,7 @@ export default function NeurologyPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Laboratory", desc: "ISO 15189 accredited testing for super speciality panels." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited Laboratory", desc: "ISO 15189 accredited testing for super speciality panels." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Expert-Reviewed Reports", desc: "Consultant neurologist-supported reporting and interpretation notes." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Advanced Molecular Platforms", desc: "FilmArray PCR, CBA, ELISA for autoimmune and neuro-infectious testing." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Urgent Priority Processing", desc: "Emergency CSF/autoimmune panel processing available on doctor request." },

@@ -55,7 +55,7 @@ export default function TeamPage() {
       description: "Consultant Pathologist with extensive experience in clinical pathology, driving accurate diagnostics and continuous quality improvement.",
       experience: "10+ years",
       expertise: "Pathology, Histopathology, Hematology, Laboratory Quality Management",
-      achievements: "Pivotal role in continuous NABL certification maintenance.",
+      achievements: "Pivotal role in continuous NABL Accreditation maintenance.",
       contribution: "Oversees routine pathology, histopathology and hematology, ensuring laboratory operations consistently meet rigorous regulatory standards."
     }
   ];

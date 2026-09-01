@@ -78,7 +78,7 @@ export const aiHelper = {
         description: "Designed for metabolic regulation, fatigue evaluation, and polycystic ovarian health checks. Reclaim your biological energy balance.",
         bgFrom: "#fdf2f8",
         bgTo: "#fce7f3",
-        features: ["Thyroid Full Profile", "PCOS Screen", "Vitamins & Calcium", "NABL Certified"],
+        features: ["Thyroid Full Profile", "PCOS Screen", "Vitamins & Calcium", "NABL Accredited"],
         cta: "Schedule Test",
         ctaLink: "/book"
       };
@@ -95,7 +95,7 @@ export const aiHelper = {
       description: `Complete diagnostic evaluation tailored for "${prompt}". Processed using NABL standard automated analyzers.`,
       bgFrom: "#eff6ff",
       bgTo: "#dbeafe",
-      features: ["NABL Certified Accuracy", "Phlebotomist Home Visit", "Online Report PDF", "Free Consult"],
+      features: ["NABL Accredited Accuracy", "Phlebotomist Home Visit", "Online Report PDF", "Free Consult"],
       cta: "Book Now",
       ctaLink: "/book"
     };
@@ -120,7 +120,7 @@ export const aiHelper = {
   generateSEO: async (pageName: string): Promise<AISEOOutput> => {
     await new Promise((resolve) => setTimeout(resolve, 800));
     return {
-      title: `${pageName} | NABL Certified Diagnostic Screenings | QXL Diagnostics`,
+      title: `${pageName} | NABL Accredited Diagnostic Screenings | QXL Diagnostics`,
       description: `Book diagnostic services for ${pageName} online. Best labs in Bengaluru featuring NABL standard processing, home blood sample collection, and instant electronic reports.`,
       keywords: `qxl diagnostics, ${pageName.toLowerCase()}, blood tests, diagnostics center, health checkup`
     };

@@ -168,7 +168,7 @@ export default function DoctorLedManifesto() {
             </div>
 
             <div className="space-y-2">
-              <h4 className="font-bold text-slate-900 text-sm">What does NABL Certification mean?</h4>
+              <h4 className="font-bold text-slate-900 text-sm">What does NABL Accreditation mean?</h4>
               <p className="text-xs text-slate-600 leading-relaxed">
                 NABL Accreditation (Certificate {NABL_CERTIFICATE}) indicates that a laboratory has been independently assessed against defined technical and quality requirements under ISO 15189:2022 standards for competence, equipment calibration, personnel qualifications, and traceability.
               </p>

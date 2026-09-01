@@ -64,7 +64,7 @@ export default function Page() {
                 </div>
             </div>
             <div class="footer-bottom">
-                © 2026 QXL Diagnostics. All rights reserved. | NABL Certified Diagnostic Lab Bengaluru
+                © 2026 QXL Diagnostics. All rights reserved. | NABL Accredited Diagnostic Lab Bengaluru
             </div>
         </div>
     </footer>

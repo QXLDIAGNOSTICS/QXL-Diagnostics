@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: [
       pageData.h1Title,
       `${pageData.category} Bangalore`,
-      "NABL Certified lab Bangalore",
+      "NABL Accredited lab Bangalore",
       "home blood collection Bangalore",
       "QXL Diagnostics",
       "blood test Bengaluru",
@@ -85,7 +85,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
     "name": data.h1Title,
     "description": data.metaDescription,
     "url": `${SITE_URL}/${slug}`,
-    "usesDevice": { "@type": "MedicalDevice", "name": "Automated Clinical Analyser — NABL Certified" },
+    "usesDevice": { "@type": "MedicalDevice", "name": "Automated Clinical Analyser — NABL Accredited" },
     "normalRange": data.referenceRanges
       ? data.referenceRanges.map(r => ({
           "@type": "MedicalIntangible",
@@ -111,7 +111,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
       },
       "hasCredential": {
         "@type": "EducationalOccupationalCredential",
-        "name": `NABL Certification ${NABL_CERTIFICATE}`,
+        "name": `NABL Accreditation ${NABL_CERTIFICATE}`,
         "credentialCategory": "ISO 15189:2022 Medical Laboratory"
       }
     },
@@ -232,7 +232,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
       <div className="bg-white border-b border-slate-100 py-3">
         <div className="max-w-[1260px] mx-auto px-4 flex flex-wrap items-center gap-4 justify-center sm:justify-start">
           <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
-            <ShieldCheck className="w-3.5 h-3.5" /> NABL Certified ({NABL_CERTIFICATE})
+            <ShieldCheck className="w-3.5 h-3.5" /> NABL Accredited ({NABL_CERTIFICATE})
           </span>
           <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-sky-700 bg-sky-50 px-3 py-1.5 rounded-full border border-sky-200">
             <Activity className="w-3.5 h-3.5" /> Free Home Sample Collection
@@ -421,7 +421,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
                 <div className="flex items-start gap-3">
                   <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
-                    <p className="font-extrabold text-white text-sm">NABL Certified ({NABL_CERTIFICATE})</p>
+                    <p className="font-extrabold text-white text-sm">NABL Accredited ({NABL_CERTIFICATE})</p>
                     <p className="text-sky-200 mt-0.5">{ISO_STANDARD} quality compliance</p>
                   </div>
                 </div>

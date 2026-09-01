@@ -53,7 +53,7 @@ export default function HomeCollectionAreasPage() {
             Home Blood Sample Collection Coverage Areas
           </h1>
           <p className="text-sky-100 text-sm sm:text-base font-medium max-w-2xl">
-            Doorstep phlebotomy coverage across all 4 zones of Bengaluru with temperature-controlled cold-chain sample transport to our NABL Certified central lab.
+            Doorstep phlebotomy coverage across all 4 zones of Bengaluru with temperature-controlled cold-chain sample transport to our NABL Accredited central lab.
           </p>
         </div>
       </section>

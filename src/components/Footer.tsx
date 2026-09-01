@@ -45,7 +45,7 @@ export default function Footer() {
     workingHours: "Centres: Mon–Sat 7 AM–9 PM, Sun 7 AM–2 PM (24×7 Lab Processing)",
     whatsappNumber: "+91 9964 639 639",
     copyrightText: `© ${year} QXL Diagnostics. All rights reserved.`,
-    footerDesc: "QXL Diagnostics is a NABL Certified super speciality diagnostic laboratory in Bengaluru offering advanced pathology, molecular diagnostics, histopathology, and AI-assisted precision diagnostics.",
+    footerDesc: "QXL Diagnostics is a NABL Accredited super speciality diagnostic laboratory in Bengaluru offering advanced pathology, molecular diagnostics, histopathology, and AI-assisted precision diagnostics.",
     navItems: [
       {label: "Home", href: "/", visible: true},
       {label: "About Us", href: "/about", visible: true},
@@ -108,7 +108,7 @@ export default function Footer() {
         <div className="max-w-[1260px] mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div>
             <h3 className="!text-white font-black text-[#ffffff] text-lg sm:text-xl tracking-tight" style={{ color: '#ffffff' }}>Book a Test Today</h3>
-            <p className="!text-white/90 text-xs sm:text-sm font-semibold mt-0.5" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Free home sample collection · NABL Certified · Same-day reports</p>
+            <p className="!text-white/90 text-xs sm:text-sm font-semibold mt-0.5" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Free home sample collection · NABL Accredited · Same-day reports</p>
           </div>
           <div className="flex gap-2.5 flex-wrap justify-center">
             <a
@@ -164,7 +164,7 @@ export default function Footer() {
               >
                 <img
                   src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/nabl.png"
-                  alt="NABL Certified ISO 15189"
+                  alt="NABL Accredited ISO 15189"
                   width={120} height={60}
                   className="h-10 sm:h-12 max-w-full w-auto object-contain"
                 />
@@ -238,7 +238,7 @@ export default function Footer() {
                   <Phone className="w-3.5 h-3.5 text-[#D69A18]" />
                 </div>
                 <div>
-                  <a href={`tel:${settings.phone_e164 || settings.contactPhone || '+919964639639'}`} className="text-white text-xs font-extrabold hover:text-[#D69A18] transition-colors">
+                  <a href={`tel:${(settings.phone_e164 || settings.contactPhone || '+919964639639').replace(/\s+/g, '')}`} className="text-white text-xs font-extrabold hover:text-[#D69A18] transition-colors">
                     {settings.phone_display || settings.contactPhone || '+91 9964 639 639'}
                   </a>
                   <span className="text-white/40 text-[10px] font-semibold block">{settings.workingHours}</span>
@@ -271,7 +271,7 @@ export default function Footer() {
             {settings.copyrightText || `© ${year} QXL Diagnostics. All rights reserved.`}
           </p>
           <p className="text-white/35 text-[11px] font-semibold text-center">
-            {currentDate && `Last updated: ${currentDate} · `}NABL Certified Medical Laboratory · {ISO_STANDARD} · Bengaluru, Karnataka
+            {currentDate && `Last updated: ${currentDate} · `}NABL Accredited Medical Laboratory · {ISO_STANDARD} · Bengaluru, Karnataka
           </p>
           <div className="flex gap-3 items-center justify-center flex-wrap my-1">
             {[

@@ -26,7 +26,7 @@ export const hba1cTest: SeoLandingData = {
   h1Lead: "HbA1c Test in Bangalore —",
   h1Highlight: "The Honest Picture of Your Blood Sugar",
   heroIntro:
-    "Unlike a daily sugar reading, HbA1c reveals your average blood glucose over the past 2–3 months — no fasting, no day-of anxiety. Tested at QXL Diagnostics' NABL Certified Bengaluru lab with free home collection and same-day reports.",
+    "Unlike a daily sugar reading, HbA1c reveals your average blood glucose over the past 2–3 months — no fasting, no day-of anxiety. Tested at QXL Diagnostics' NABL Accredited Bengaluru lab with free home collection and same-day reports.",
   aiOverviewTitle: "What does the HbA1c test show?",
   aiOverview:
     "HbA1c measures the percentage of haemoglobin that has glucose attached, reflecting average blood sugar over roughly 8–12 weeks. Values below 5.7% are normal, 5.7–6.4% indicate prediabetes, and 6.5% or above on appropriate testing supports diabetes diagnosis. Diabetics typically target below 7%, individualised by their doctor.",
@@ -86,7 +86,7 @@ export const hba1cTest: SeoLandingData = {
     {
       heading: "Important Caveats",
       paragraphs: [
-        "Conditions affecting red blood cells — anaemia, recent transfusion, haemoglobinopathies, advanced kidney disease — can skew HbA1c. Our pathologists flag such interference when CBC data suggests it, and alternative assessments (fructosamine, glucose curves) can be advised through your doctor. This clinical vigilance is part of what NABL Certified, doctor-led reporting means at QXL.",
+        "Conditions affecting red blood cells — anaemia, recent transfusion, haemoglobinopathies, advanced kidney disease — can skew HbA1c. Our pathologists flag such interference when CBC data suggests it, and alternative assessments (fructosamine, glucose curves) can be advised through your doctor. This clinical vigilance is part of what NABL Accredited, doctor-led reporting means at QXL.",
       ],
     },
   ],

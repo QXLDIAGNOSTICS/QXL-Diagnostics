@@ -706,7 +706,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                   />
                   <div className="flex flex-col gap-1">
                     <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5 text-[#0f2d5e]" /> Walk-in Lab Center</span>
-                    <span className="text-[10px] text-slate-400 font-semibold block leading-snug">Visit our Bengaluru lab (Kengeri – Super Speciality Reference Laboratory (NABL Certified))</span>
+                    <span className="text-[10px] text-slate-400 font-semibold block leading-snug">Visit our Bengaluru lab (Kengeri – Super Speciality Reference Laboratory (NABL Accredited))</span>
                   </div>
                 </label>
               </div>
@@ -887,7 +887,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
             <ul className="space-y-4 text-xs font-semibold">
               <li className="flex items-start gap-2.5">
                 <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 text-[11px] font-extrabold shadow-sm">✓</span>
-                <span>Advanced NABL Certified standards with expert validation</span>
+                <span>Advanced NABL Accredited standards with expert validation</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 text-[11px] font-extrabold shadow-sm">✓</span>

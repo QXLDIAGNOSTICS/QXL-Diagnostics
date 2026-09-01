@@ -4,7 +4,7 @@ import SpecialityContent from "./SpecialityContent";
 
 const TITLE = "Urology Testing: Renal Function & Prostate Screening Bengaluru";
 const DESCRIPTION =
-  "Enzymatic kidney function profiles, microalbuminuria screening, urinary stone risk evaluations, and high-precision Free/Total PSA ratios — NABL Certified lab in Bengaluru.";
+  "Enzymatic kidney function profiles, microalbuminuria screening, urinary stone risk evaluations, and high-precision Free/Total PSA ratios — NABL Accredited lab in Bengaluru.";
 
 export const metadata: Metadata = {
   title: TITLE,

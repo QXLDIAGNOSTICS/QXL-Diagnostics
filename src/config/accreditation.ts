@@ -2,7 +2,7 @@
  * Canonical Accreditation & Quality Governance Constants for QXL Diagnostics.
  *
  * Primary NABL Accreditation: MC-10025 (ISO 15189:2022)
- * Do NOT hardcode "MC-10025" or "NABL Certified" elsewhere in the codebase.
+ * Do NOT hardcode "MC-10025" or "NABL Accredited" elsewhere in the codebase.
  */
 
 export const NABL_CERTIFICATE = "MC-10025";

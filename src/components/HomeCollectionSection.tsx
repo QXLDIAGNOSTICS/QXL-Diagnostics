@@ -28,7 +28,7 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
     },
     {
       icon: <FlaskConical className="w-5 h-5 text-[#D69A18]" />,
-      title: "NABL Certified Labs",
+      title: "NABL Accredited Labs",
       desc: "All samples are analyzed in our fully accredited, state-of-the-art laboratory."
     },
     {

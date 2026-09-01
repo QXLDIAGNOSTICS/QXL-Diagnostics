@@ -911,7 +911,7 @@ export default function Home() {
       titleAccent: "NABL ACCREDITED DOCTOR-LED DIAGNOSTICS",
       subtitle: "Comprehensive 8-organ screening: Complete Blood Count (26), HbA1c & Fasting Sugar (3), Lipid (8), Liver (11), Kidney (8), Thyroid (3) & Bone Minerals (21).",
       subtitleAccent: "Only ₹800 (Worth ₹5,800 · 86% OFF) · Same-Day Digital Reports",
-      description: "Trusted diagnostic testing by Bengaluru's NABL Certified super speciality laboratory.",
+      description: "Trusted diagnostic testing by Bengaluru's NABL Accredited super speciality laboratory.",
       cta: "Book Package @ ₹800",
       ctaLink: "/book?package=Full%20Body%20Checkup%20(80%20Params)",
       ctaSecondary: "Call +91 9964 639 639",
@@ -1372,7 +1372,7 @@ export default function Home() {
             {[1, 2].map((repeatKey) => (
               <React.Fragment key={repeatKey}>
                 <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  NABL certified lab
+                  NABL Accredited lab
                 </span>
                 <span className="text-sky-100 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
@@ -1390,7 +1390,7 @@ export default function Home() {
                 <span className="text-sky-100 font-bold shrink-0">•</span>
 
                 <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  ⚡ NABL certified lab
+                  ⚡ NABL Accredited lab
                 </span>
                 <span className="text-sky-100 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
@@ -1488,7 +1488,7 @@ export default function Home() {
                     24×7 DIAGNOSTIC SERVICES
                   </span>
                   <h2 className="text-[26px] md:text-[34px] leading-[1.1] font-black text-[#0b132b] mb-2">
-                    NABL Certified Diagnostics
+                    NABL Accredited Diagnostics
                   </h2>
                   <h3 className="text-[20px] md:text-[24px] leading-[1.2] font-black text-[#2563eb] mb-4">
                     Doctor-Led Diagnostic Lab in Bengaluru
@@ -1607,7 +1607,7 @@ export default function Home() {
                 <ul className="space-y-3.5 text-xs sm:text-sm font-extrabold text-slate-700">
                   <li className="flex items-center gap-3">
                     <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-black">✓</span>
-                    <span>NABL Certified accuracy and reliability</span>
+                    <span>NABL Accredited accuracy and reliability</span>
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0 text-xs font-black">✓</span>
@@ -2092,7 +2092,7 @@ export default function Home() {
 
               <div className="pt-2 text-xs text-slate-500 flex items-center gap-4 font-semibold">
                 <span>🏠 Free Home Collection</span>
-                <span>📋 NABL Certified (MC-10025)</span>
+                <span>📋 NABL Accredited (MC-10025)</span>
               </div>
             </div>
 

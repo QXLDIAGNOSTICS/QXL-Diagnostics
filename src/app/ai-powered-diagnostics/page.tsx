@@ -25,7 +25,7 @@ export default function AIPoweredDiagnosticsPage() {
           <div className="prose prose-lg prose-blue max-w-none text-slate-700">
             <p className="text-xl font-medium text-slate-600 mb-8 leading-relaxed">
               Explore our comprehensive ai-powered diagnostics services at QXL Diagnostics. 
-              Our NABL Certified laboratories are equipped with the latest technology to ensure precise and reliable results.
+              Our NABL Accredited laboratories are equipped with the latest technology to ensure precise and reliable results.
             </p>
             <p>
               Please contact us at +91 9964 639 639 or email info@qxldiagnostics.com for more detailed information about this service. 

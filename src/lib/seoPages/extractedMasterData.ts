@@ -4,8 +4,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "complete-blood-count-cbc-\u2014--tests-complete-blood-count-cbc": {
     "slug": "complete-blood-count-cbc-\u2014--tests-complete-blood-count-cbc",
     "title": "Complete Blood Count (CBC) \u2014 /tests/complete-blood-count-cbc: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Complete Blood Count (CBC) \u2014 /tests/complete-blood-count-cbc at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Complete Blood Count (CBC) \u2014 /tests/complete-blood-count-cbc at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Complete Blood Count (CBC) \u2014 /tests/complete-blood-count-cbc in Bangalore",
     "subtitle": "Complete Blood Count (CBC) \u2014 /tests/complete-blood-count-cbc is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -22,7 +22,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Complete Blood Count (CBC) \u2014 /tests/complete-blood-count-cbc.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -42,8 +42,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "hba1c-glycated-haemoglobin-\u2014--tests-hba1c-test": {
     "slug": "hba1c-glycated-haemoglobin-\u2014--tests-hba1c-test",
     "title": "HbA1c (Glycated Haemoglobin) \u2014 /tests/hba1c-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book HbA1c (Glycated Haemoglobin) \u2014 /tests/hba1c-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book HbA1c (Glycated Haemoglobin) \u2014 /tests/hba1c-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HbA1c (Glycated Haemoglobin) \u2014 /tests/hba1c-test in Bangalore",
     "subtitle": "HbA1c (Glycated Haemoglobin) \u2014 /tests/hba1c-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -60,7 +60,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for HbA1c (Glycated Haemoglobin) \u2014 /tests/hba1c-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -80,8 +80,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "fasting-blood-sugar-fbs-\u2014--tests-fasting-blood-sugar-test": {
     "slug": "fasting-blood-sugar-fbs-\u2014--tests-fasting-blood-sugar-test",
     "title": "Fasting Blood Sugar (FBS) \u2014 /tests/fasting-blood-sugar-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Fasting Blood Sugar (FBS) \u2014 /tests/fasting-blood-sugar-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Fasting Blood Sugar (FBS) \u2014 /tests/fasting-blood-sugar-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Fasting Blood Sugar (FBS) \u2014 /tests/fasting-blood-sugar-test in Bangalore",
     "subtitle": "Fasting Blood Sugar (FBS) \u2014 /tests/fasting-blood-sugar-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -98,7 +98,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Fasting Blood Sugar (FBS) \u2014 /tests/fasting-blood-sugar-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -118,8 +118,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "post-prandial-blood-sugar-ppbs-\u2014--tests-ppbs-test": {
     "slug": "post-prandial-blood-sugar-ppbs-\u2014--tests-ppbs-test",
     "title": "Post-Prandial Blood Sugar (PPBS) \u2014 /tests/ppbs-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Post-Prandial Blood Sugar (PPBS) \u2014 /tests/ppbs-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Post-Prandial Blood Sugar (PPBS) \u2014 /tests/ppbs-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Post-Prandial Blood Sugar (PPBS) \u2014 /tests/ppbs-test in Bangalore",
     "subtitle": "Post-Prandial Blood Sugar (PPBS) \u2014 /tests/ppbs-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -136,7 +136,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Post-Prandial Blood Sugar (PPBS) \u2014 /tests/ppbs-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -156,8 +156,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "random-blood-sugar-rbs-\u2014--tests-random-blood-sugar-test": {
     "slug": "random-blood-sugar-rbs-\u2014--tests-random-blood-sugar-test",
     "title": "Random Blood Sugar (RBS) \u2014 /tests/random-blood-sugar-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Random Blood Sugar (RBS) \u2014 /tests/random-blood-sugar-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Random Blood Sugar (RBS) \u2014 /tests/random-blood-sugar-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Random Blood Sugar (RBS) \u2014 /tests/random-blood-sugar-test in Bangalore",
     "subtitle": "Random Blood Sugar (RBS) \u2014 /tests/random-blood-sugar-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -174,7 +174,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Random Blood Sugar (RBS) \u2014 /tests/random-blood-sugar-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -194,8 +194,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "thyroid-profile-t3-t4-tsh-\u2014--tests-thyroid-profile-test": {
     "slug": "thyroid-profile-t3-t4-tsh-\u2014--tests-thyroid-profile-test",
     "title": "Thyroid Profile (T3, T4, TSH) \u2014 /tests/thyroid-profile-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Thyroid Profile (T3, T4, TSH) \u2014 /tests/thyroid-profile-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Thyroid Profile (T3, T4, TSH) \u2014 /tests/thyroid-profile-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Thyroid Profile (T3, T4, TSH) \u2014 /tests/thyroid-profile-test in Bangalore",
     "subtitle": "Thyroid Profile (T3, T4, TSH) \u2014 /tests/thyroid-profile-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -212,7 +212,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Thyroid Profile (T3, T4, TSH) \u2014 /tests/thyroid-profile-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -232,8 +232,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "tsh-thyroid-stimulating-hormone-\u2014--tests-tsh-test": {
     "slug": "tsh-thyroid-stimulating-hormone-\u2014--tests-tsh-test",
     "title": "TSH (Thyroid Stimulating Hormone) \u2014 /tests/tsh-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book TSH (Thyroid Stimulating Hormone) \u2014 /tests/tsh-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book TSH (Thyroid Stimulating Hormone) \u2014 /tests/tsh-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "TSH (Thyroid Stimulating Hormone) \u2014 /tests/tsh-test in Bangalore",
     "subtitle": "TSH (Thyroid Stimulating Hormone) \u2014 /tests/tsh-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -250,7 +250,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for TSH (Thyroid Stimulating Hormone) \u2014 /tests/tsh-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -270,8 +270,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "free-t3-ft3-\u2014--tests-ft3-test": {
     "slug": "free-t3-ft3-\u2014--tests-ft3-test",
     "title": "Free T3 (FT3) \u2014 /tests/ft3-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Free T3 (FT3) \u2014 /tests/ft3-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Free T3 (FT3) \u2014 /tests/ft3-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free T3 (FT3) \u2014 /tests/ft3-test in Bangalore",
     "subtitle": "Free T3 (FT3) \u2014 /tests/ft3-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -288,7 +288,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Free T3 (FT3) \u2014 /tests/ft3-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -308,8 +308,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "free-t4-ft4-\u2014--tests-ft4-test": {
     "slug": "free-t4-ft4-\u2014--tests-ft4-test",
     "title": "Free T4 (FT4) \u2014 /tests/ft4-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Free T4 (FT4) \u2014 /tests/ft4-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Free T4 (FT4) \u2014 /tests/ft4-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free T4 (FT4) \u2014 /tests/ft4-test in Bangalore",
     "subtitle": "Free T4 (FT4) \u2014 /tests/ft4-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -326,7 +326,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Free T4 (FT4) \u2014 /tests/ft4-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -346,8 +346,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "lipid-profile-\u2014--tests-lipid-profile-test": {
     "slug": "lipid-profile-\u2014--tests-lipid-profile-test",
     "title": "Lipid Profile \u2014 /tests/lipid-profile-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Lipid Profile \u2014 /tests/lipid-profile-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Lipid Profile \u2014 /tests/lipid-profile-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Lipid Profile \u2014 /tests/lipid-profile-test in Bangalore",
     "subtitle": "Lipid Profile \u2014 /tests/lipid-profile-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -364,7 +364,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Lipid Profile \u2014 /tests/lipid-profile-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -384,8 +384,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "liver-function-test-lft-\u2014--tests-liver-function-test": {
     "slug": "liver-function-test-lft-\u2014--tests-liver-function-test",
     "title": "Liver Function Test (LFT) \u2014 /tests/liver-function-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Liver Function Test (LFT) \u2014 /tests/liver-function-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Liver Function Test (LFT) \u2014 /tests/liver-function-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Liver Function Test (LFT) \u2014 /tests/liver-function-test in Bangalore",
     "subtitle": "Liver Function Test (LFT) \u2014 /tests/liver-function-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -402,7 +402,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Liver Function Test (LFT) \u2014 /tests/liver-function-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -422,8 +422,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "kidney-function-test-kft---rft-\u2014--tests-kidney-function-test": {
     "slug": "kidney-function-test-kft---rft-\u2014--tests-kidney-function-test",
     "title": "Kidney Function Test (KFT / RFT) \u2014 /tests/kidney-function-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Kidney Function Test (KFT / RFT) \u2014 /tests/kidney-function-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Kidney Function Test (KFT / RFT) \u2014 /tests/kidney-function-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Kidney Function Test (KFT / RFT) \u2014 /tests/kidney-function-test in Bangalore",
     "subtitle": "Kidney Function Test (KFT / RFT) \u2014 /tests/kidney-function-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -440,7 +440,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Kidney Function Test (KFT / RFT) \u2014 /tests/kidney-function-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -460,8 +460,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "serum-creatinine-\u2014--tests-creatinine-test": {
     "slug": "serum-creatinine-\u2014--tests-creatinine-test",
     "title": "Serum Creatinine \u2014 /tests/creatinine-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Serum Creatinine \u2014 /tests/creatinine-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Serum Creatinine \u2014 /tests/creatinine-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Serum Creatinine \u2014 /tests/creatinine-test in Bangalore",
     "subtitle": "Serum Creatinine \u2014 /tests/creatinine-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -478,7 +478,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Serum Creatinine \u2014 /tests/creatinine-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -498,8 +498,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "uric-acid-\u2014--tests-uric-acid-test": {
     "slug": "uric-acid-\u2014--tests-uric-acid-test",
     "title": "Uric Acid \u2014 /tests/uric-acid-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Uric Acid \u2014 /tests/uric-acid-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Uric Acid \u2014 /tests/uric-acid-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Uric Acid \u2014 /tests/uric-acid-test in Bangalore",
     "subtitle": "Uric Acid \u2014 /tests/uric-acid-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -516,7 +516,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Uric Acid \u2014 /tests/uric-acid-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -536,8 +536,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "c-reactive-protein-crp-\u2014--tests-crp-test": {
     "slug": "c-reactive-protein-crp-\u2014--tests-crp-test",
     "title": "C-Reactive Protein (CRP) \u2014 /tests/crp-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book C-Reactive Protein (CRP) \u2014 /tests/crp-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book C-Reactive Protein (CRP) \u2014 /tests/crp-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "C-Reactive Protein (CRP) \u2014 /tests/crp-test in Bangalore",
     "subtitle": "C-Reactive Protein (CRP) \u2014 /tests/crp-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -554,7 +554,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for C-Reactive Protein (CRP) \u2014 /tests/crp-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -574,8 +574,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "esr-erythrocyte-sedimentation-rate-\u2014--tests-esr-test": {
     "slug": "esr-erythrocyte-sedimentation-rate-\u2014--tests-esr-test",
     "title": "ESR (Erythrocyte Sedimentation Rate) \u2014 /tests/esr-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book ESR (Erythrocyte Sedimentation Rate) \u2014 /tests/esr-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book ESR (Erythrocyte Sedimentation Rate) \u2014 /tests/esr-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ESR (Erythrocyte Sedimentation Rate) \u2014 /tests/esr-test in Bangalore",
     "subtitle": "ESR (Erythrocyte Sedimentation Rate) \u2014 /tests/esr-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -592,7 +592,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ESR (Erythrocyte Sedimentation Rate) \u2014 /tests/esr-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -612,8 +612,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "vitamin-d-25-hydroxy-vitamin-d-\u2014--tests-vitamin-d-test": {
     "slug": "vitamin-d-25-hydroxy-vitamin-d-\u2014--tests-vitamin-d-test",
     "title": "Vitamin D (25-Hydroxy Vitamin D) \u2014 /tests/vitamin-d-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Vitamin D (25-Hydroxy Vitamin D) \u2014 /tests/vitamin-d-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Vitamin D (25-Hydroxy Vitamin D) \u2014 /tests/vitamin-d-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Vitamin D (25-Hydroxy Vitamin D) \u2014 /tests/vitamin-d-test in Bangalore",
     "subtitle": "Vitamin D (25-Hydroxy Vitamin D) \u2014 /tests/vitamin-d-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -630,7 +630,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Vitamin D (25-Hydroxy Vitamin D) \u2014 /tests/vitamin-d-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -650,8 +650,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "vitamin-b12-cobalamin-\u2014--tests-vitamin-b12-test": {
     "slug": "vitamin-b12-cobalamin-\u2014--tests-vitamin-b12-test",
     "title": "Vitamin B12 (Cobalamin) \u2014 /tests/vitamin-b12-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Vitamin B12 (Cobalamin) \u2014 /tests/vitamin-b12-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Vitamin B12 (Cobalamin) \u2014 /tests/vitamin-b12-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Vitamin B12 (Cobalamin) \u2014 /tests/vitamin-b12-test in Bangalore",
     "subtitle": "Vitamin B12 (Cobalamin) \u2014 /tests/vitamin-b12-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -668,7 +668,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Vitamin B12 (Cobalamin) \u2014 /tests/vitamin-b12-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -688,8 +688,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "ferritin-\u2014--tests-ferritin-test": {
     "slug": "ferritin-\u2014--tests-ferritin-test",
     "title": "Ferritin \u2014 /tests/ferritin-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Ferritin \u2014 /tests/ferritin-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Ferritin \u2014 /tests/ferritin-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Ferritin \u2014 /tests/ferritin-test in Bangalore",
     "subtitle": "Ferritin \u2014 /tests/ferritin-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -706,7 +706,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Ferritin \u2014 /tests/ferritin-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -726,8 +726,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "iron-profile-iron-studies-\u2014--tests-iron-profile": {
     "slug": "iron-profile-iron-studies-\u2014--tests-iron-profile",
     "title": "Iron Profile (Iron Studies) \u2014 /tests/iron-profile: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Iron Profile (Iron Studies) \u2014 /tests/iron-profile at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Iron Profile (Iron Studies) \u2014 /tests/iron-profile at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Iron Profile (Iron Studies) \u2014 /tests/iron-profile in Bangalore",
     "subtitle": "Iron Profile (Iron Studies) \u2014 /tests/iron-profile is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -744,7 +744,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Iron Profile (Iron Studies) \u2014 /tests/iron-profile.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -764,8 +764,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "serum-calcium-\u2014--tests-calcium-test": {
     "slug": "serum-calcium-\u2014--tests-calcium-test",
     "title": "Serum Calcium \u2014 /tests/calcium-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Serum Calcium \u2014 /tests/calcium-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Serum Calcium \u2014 /tests/calcium-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Serum Calcium \u2014 /tests/calcium-test in Bangalore",
     "subtitle": "Serum Calcium \u2014 /tests/calcium-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -782,7 +782,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Serum Calcium \u2014 /tests/calcium-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -802,8 +802,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "serum-magnesium-\u2014--tests-magnesium-test": {
     "slug": "serum-magnesium-\u2014--tests-magnesium-test",
     "title": "Serum Magnesium \u2014 /tests/magnesium-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Serum Magnesium \u2014 /tests/magnesium-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Serum Magnesium \u2014 /tests/magnesium-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Serum Magnesium \u2014 /tests/magnesium-test in Bangalore",
     "subtitle": "Serum Magnesium \u2014 /tests/magnesium-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -820,7 +820,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Serum Magnesium \u2014 /tests/magnesium-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -840,8 +840,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "electrolytes-sodium-potassium-chloride-\u2014--tests-electrolytes-test": {
     "slug": "electrolytes-sodium-potassium-chloride-\u2014--tests-electrolytes-test",
     "title": "Electrolytes (Sodium, Potassium, Chloride) \u2014 /tests/electrolytes-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Electrolytes (Sodium, Potassium, Chloride) \u2014 /tests/electrolytes-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Electrolytes (Sodium, Potassium, Chloride) \u2014 /tests/electrolytes-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Electrolytes (Sodium, Potassium, Chloride) \u2014 /tests/electrolytes-test in Bangalore",
     "subtitle": "Electrolytes (Sodium, Potassium, Chloride) \u2014 /tests/electrolytes-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -858,7 +858,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Electrolytes (Sodium, Potassium, Chloride) \u2014 /tests/electrolytes-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -878,8 +878,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "urine-routine-and-microscopy-\u2014--tests-urine-routine": {
     "slug": "urine-routine-and-microscopy-\u2014--tests-urine-routine",
     "title": "Urine Routine and Microscopy \u2014 /tests/urine-routine: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Urine Routine and Microscopy \u2014 /tests/urine-routine at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Urine Routine and Microscopy \u2014 /tests/urine-routine at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Urine Routine and Microscopy \u2014 /tests/urine-routine in Bangalore",
     "subtitle": "Urine Routine and Microscopy \u2014 /tests/urine-routine is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -896,7 +896,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Urine Routine and Microscopy \u2014 /tests/urine-routine.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -916,8 +916,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "total-protein-and-albumin-\u2014--tests-total-protein-test": {
     "slug": "total-protein-and-albumin-\u2014--tests-total-protein-test",
     "title": "Total Protein and Albumin \u2014 /tests/total-protein-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Total Protein and Albumin \u2014 /tests/total-protein-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Total Protein and Albumin \u2014 /tests/total-protein-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Total Protein and Albumin \u2014 /tests/total-protein-test in Bangalore",
     "subtitle": "Total Protein and Albumin \u2014 /tests/total-protein-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -934,7 +934,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Total Protein and Albumin \u2014 /tests/total-protein-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -955,7 +955,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "complete-blood-count-cbc",
     "title": "CBC Test: Normal Range, Purpose & Results | QXL",
     "metaDescription": "What a CBC test measures, normal ranges for haemoglobin, WBC and platelets in Indian adults, how to prepare, and what high or low results mean.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CBC Test (Complete Blood Count): What It Measures and How to Read Your Report",
     "subtitle": "A complete blood count (CBC) measures the three cell lines in your blood \u2014 red cells, white cells and platelets \u2014 in a single 2 mL sample. It is used to detect anaemia, infection, inflammation, bleeding disorders and blood cancers. No fasting is needed and results are usually available the same day.",
     "price": "499",
@@ -972,7 +972,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Complete Blood Count (CBC).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1025,7 +1025,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "hba1c-test",
     "title": "HbA1c Test: Normal Range, Diabetes Cut-offs | QXL",
     "metaDescription": "HbA1c normal range is below 5.7%. Learn what HbA1c measures, the prediabetes and diabetes cut-offs used in India, whether fasting is needed.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HbA1c Test: Normal Range, Diabetes Cut-offs and What Your Number Means",
     "subtitle": "HbA1c measures the percentage of your haemoglobin that has sugar attached to it, which reflects your average blood glucose over the previous 8\u201312 weeks. Below 5.7% is normal, 5.7\u20136.4% is prediabetes and 6.5% or above on two occasions confirms diabetes. No fasting is required.",
     "price": "499",
@@ -1043,7 +1043,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for HbA1c (Glycated Haemoglobin).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1096,7 +1096,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "fasting-blood-sugar-test",
     "title": "Fasting Blood Sugar Test: Normal Range | QXL",
     "metaDescription": "Fasting blood sugar normal range is 70\u201399 mg/dL. See the prediabetes and diabetes cut-offs, how many hours to fast, whether water is allowed.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Fasting Blood Sugar Test: Normal Range, Preparation and What High Results Mean",
     "subtitle": "Fasting blood sugar measures plasma glucose after 8\u201312 hours without food. Normal is 70\u201399 mg/dL, 100\u2013125 mg/dL indicates prediabetes and 126 mg/dL or above on two occasions indicates diabetes. Plain water is allowed and encouraged during the fast.",
     "price": "499",
@@ -1109,11 +1109,11 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "category": "Core & Routine Blood Tests",
     "overview": [
       "After 8\u201312 hours without food, blood glucose is being maintained entirely by the liver releasing stored glucose, under the restraint of insulin. The fasting value therefore measures how well basal insulin secretion and liver insulin sensitivity are working. It is the earliest routinely measured abnormality in the progression toward type 2 diabetes, usually rising before the post-meal value becomes clearly abnormal in some people and after it in others.",
-      "The sample is collected into a grey-top sodium fluoride tube. Fluoride blocks glycolysis in the tube \u2014 without it, blood cells continue consuming glucose and the measured value falls by roughly 5\u20137% per hour, which is enough to turn a diabetic value into a prediabetic one. This is one of the most common preanalytical errors in diagnostics and one of the specific reasons NABL Certification matters."
+      "The sample is collected into a grey-top sodium fluoride tube. Fluoride blocks glycolysis in the tube \u2014 without it, blood cells continue consuming glucose and the measured value falls by roughly 5\u20137% per hour, which is enough to turn a diabetic value into a prediabetic one. This is one of the most common preanalytical errors in diagnostics and one of the specific reasons NABL Accreditation matters."
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Fasting Blood Sugar (FBS).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1166,7 +1166,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ppbs-test",
     "title": "PPBS Test: Normal Range & Timing | QXL",
     "metaDescription": "PPBS normal range is below 140 mg/dL two hours after a meal. Learn exactly when to start the two-hour clock, what to eat.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "PPBS Test: Post-Prandial Blood Sugar Normal Range and Correct Timing",
     "subtitle": "PPBS measures blood glucose exactly two hours after the first bite of a meal. Below 140 mg/dL is normal, 140\u2013199 mg/dL indicates impaired glucose tolerance and 200 mg/dL or above suggests diabetes. The two-hour clock starts when you start eating, not when you finish.",
     "price": "499",
@@ -1183,7 +1183,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Post-Prandial Blood Sugar (PPBS).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1236,7 +1236,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "random-blood-sugar-test",
     "title": "Random Blood Sugar Test: Normal Range and When It Is Used",
     "metaDescription": "Random blood sugar normal range is below 140 mg/dL. Understand when an RBS is useful, what 200 mg/dL means.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Random Blood Sugar (RBS): Normal Range and What the Result Tells You",
     "subtitle": "A random blood sugar is a glucose measurement taken at any time, with no reference to meals. Below 140 mg/dL is normal, 140\u2013199 mg/dL is indeterminate and needs a fasting test or HbA1c, and 200 mg/dL or above with classic diabetes symptoms is diagnostic of diabetes on its own.",
     "price": "499",
@@ -1253,7 +1253,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Random Blood Sugar (RBS).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1306,7 +1306,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "thyroid-profile-test",
     "title": "Thyroid Profile Test: Normal Range & Results | QXL",
     "metaDescription": "Thyroid profile normal ranges for TSH, T3 and T4, what high TSH with low T4 means, whether fasting is needed, and the best time of day to give the sample.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Thyroid Profile (T3, T4, TSH): Normal Ranges and How to Read the Pattern",
     "subtitle": "A thyroid profile measures TSH from the pituitary along with T3 and T4 from the thyroid gland. High TSH with low T4 means hypothyroidism; low TSH with high T3 or T4 means hyperthyroidism. Fasting is not required, but a morning sample between 8 and 10 a.m. is preferred because TSH follows a daily rhythm.",
     "price": "499",
@@ -1324,7 +1324,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Thyroid Profile (T3, T4, TSH).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1377,7 +1377,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "tsh-test",
     "title": "TSH Test: Normal Range, High and Low TSH Meaning | QXL",
     "metaDescription": "TSH normal range is 0.4\u20134.0 \u00b5IU/mL. Find out what high TSH and low TSH mean, the pregnancy-specific ranges, the best time of day for the test.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "TSH Test: Normal Range and What High or Low TSH Actually Means",
     "subtitle": "TSH is the pituitary hormone that tells the thyroid how hard to work, and it is the single most sensitive screening test for thyroid disease. Normal is 0.4\u20134.0 \u00b5IU/mL. A high TSH means an underactive thyroid and a low TSH means an overactive one. No fasting is needed, but a morning sample is preferred.",
     "price": "499",
@@ -1395,7 +1395,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for TSH (Thyroid Stimulating Hormone).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1448,7 +1448,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ft3-test",
     "title": "Free T3 (FT3) Test: Normal Range and What It Shows | QXL",
     "metaDescription": "Free T3 normal range is 2.3\u20134.2 pg/mL. Learn when FT3 is more useful than total T3, what high FT3 means in T3 toxicosis.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free T3 (FT3) Test: Normal Range, High and Low Results Explained",
     "subtitle": "Free T3 measures the small, unbound fraction of triiodothyronine that is biologically active. Normal is 2.3\u20134.2 pg/mL. FT3 is most useful for confirming and monitoring hyperthyroidism, particularly T3 toxicosis, where T4 is normal but T3 is high. It is not a good screening test on its own.",
     "price": "499",
@@ -1466,7 +1466,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Free T3 (FT3).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1519,7 +1519,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ft4-test",
     "title": "Free T4 (FT4) Test: Normal Range, High and Low Meaning | QXL",
     "metaDescription": "Free T4 normal range is 0.8\u20131.8 ng/dL. Understand when FT4 is needed alongside TSH, what low FT4 with high TSH means.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free T4 (FT4) Test: Normal Range and How It Completes the Thyroid Picture",
     "subtitle": "Free T4 measures the unbound, active fraction of thyroxine. Normal is 0.8\u20131.8 ng/dL. Read together with TSH, it separates overt from subclinical thyroid disease: high TSH with low FT4 is overt hypothyroidism, while high TSH with normal FT4 is subclinical. No fasting is required.",
     "price": "499",
@@ -1536,7 +1536,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Free T4 (FT4).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1589,7 +1589,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "lipid-profile-test",
     "title": "Lipid Profile Test: Normal Range for Cholesterol | QXL",
     "metaDescription": "Lipid profile normal ranges for total cholesterol, LDL, HDL, triglycerides and non-HDL.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Lipid Profile Test: Normal Ranges for Cholesterol, LDL, HDL and Triglycerides",
     "subtitle": "A lipid profile measures total cholesterol, LDL, HDL, triglycerides and non-HDL cholesterol to estimate cardiovascular risk. Desirable values are total cholesterol below 200 mg/dL, LDL below 100 mg/dL, HDL above 40 mg/dL in men and 50 in women, and triglycerides below 150 mg/dL. A 9\u201312 hour fast is preferred but not always necessary.",
     "price": "499",
@@ -1607,7 +1607,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Lipid Profile.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1660,7 +1660,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "liver-function-test",
     "title": "Liver Function Test: Normal Range for SGPT, SGOT | QXL",
     "metaDescription": "LFT normal ranges for SGPT (ALT), SGOT (AST), bilirubin, ALP, GGT, albumin and protein.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Liver Function Test (LFT): Normal Ranges and What Raised Enzymes Mean",
     "subtitle": "A liver function test measures enzymes released when liver cells are injured (SGPT/ALT and SGOT/AST), markers of bile flow (bilirubin, ALP, GGT) and proteins the liver makes (albumin, total protein). Normal SGPT is up to about 40 U/L. A mildly raised SGPT in India most often reflects fatty liver. Fasting is not essential but is usually preferred.",
     "price": "499",
@@ -1677,7 +1677,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Liver Function Test (LFT).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1730,7 +1730,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "kidney-function-test",
     "title": "Kidney Function Test: Normal Range for Urea | QXL",
     "metaDescription": "KFT normal ranges for blood urea, creatinine, uric acid, eGFR and electrolytes. Understand what raised creatinine means, the eGFR stages of kidney disease.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Kidney Function Test (KFT): Normal Ranges, eGFR Stages and What Results Mean",
     "subtitle": "A kidney function test measures blood urea, creatinine, uric acid, electrolytes and calculated eGFR to assess how well the kidneys are filtering. Normal creatinine is 0.7\u20131.3 mg/dL in men and 0.6\u20131.1 mg/dL in women, with an eGFR above 90 mL/min/1.73m\u00b2. An 8-hour fast is preferred.",
     "price": "499",
@@ -1748,7 +1748,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Kidney Function Test (KFT / RFT).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1801,7 +1801,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "creatinine-test",
     "title": "Creatinine Test: Normal Range and What High Creatinine Means",
     "metaDescription": "Creatinine normal range is 0.7\u20131.3 mg/dL in men and 0.6\u20131.1 mg/dL in women. Learn what raises creatinine, what eGFR adds.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Serum Creatinine Test: Normal Range and How to Interpret a High Result",
     "subtitle": "Creatinine is a waste product of muscle metabolism cleared almost entirely by the kidneys, so its blood level rises when filtration falls. Normal is 0.7\u20131.3 mg/dL in men and 0.6\u20131.1 mg/dL in women. Creatinine should always be read as an eGFR, which adjusts for age and sex.",
     "price": "499",
@@ -1815,11 +1815,11 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "overview": [
       "Creatine in muscle breaks down to creatinine at a nearly constant rate proportional to muscle mass. The kidneys filter it out freely and reabsorb almost none of it, which makes blood creatinine an unusually clean marker of glomerular filtration. When the kidneys filter less, creatinine accumulates.",
       "The relationship is not linear but hyperbolic. A rise from 0.8 to 1.6 mg/dL \u2014 still barely above the reference interval \u2014 represents a loss of roughly half of kidney function. This is why the calculated eGFR, not the raw creatinine, is what should be read, and why a creatinine sitting at the top of the range in an older adult deserves attention rather than reassurance.",
-      "QXL Diagnostics measures creatinine by an IDMS-traceable enzymatic or compensated Jaffe method and reports the CKD-EPI eGFR alongside every result, which is the standard NABL Certified laboratories are expected to meet."
+      "QXL Diagnostics measures creatinine by an IDMS-traceable enzymatic or compensated Jaffe method and reports the CKD-EPI eGFR alongside every result, which is the standard NABL Accredited laboratories are expected to meet."
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Serum Creatinine.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1872,7 +1872,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "uric-acid-test",
     "title": "Uric Acid Test: Normal Range, High Uric Acid & Gout | QXL",
     "metaDescription": "Uric acid normal range is 3.5\u20137.2 mg/dL in men and 2.6\u20136.0 mg/dL in women. Learn what causes high uric acid, when it means gout, foods to avoid.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Uric Acid Test: Normal Range, Causes of High Uric Acid and What to Do",
     "subtitle": "Uric acid is the end product of purine breakdown, cleared mainly by the kidneys. Normal is 3.5\u20137.2 mg/dL in men and 2.6\u20136.0 mg/dL in women. Levels above 7 mg/dL raise the risk of gout and kidney stones, but most people with high uric acid never develop symptoms and do not automatically need medication.",
     "price": "499",
@@ -1890,7 +1890,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Uric Acid.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -1943,7 +1943,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "crp-test",
     "title": "CRP Test: Normal Range and What High CRP Means | QXL",
     "metaDescription": "CRP normal range is below 5 mg/L. Learn what a high CRP means, how it differs from ESR and hs-CRP, how fast it rises in infection.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CRP Test: Normal Range, High CRP Causes and How It Differs from ESR",
     "subtitle": "C-reactive protein is an acute-phase protein made by the liver within hours of inflammation starting. Normal is below 5 mg/L. CRP rises faster and falls faster than ESR, which makes it the better test for tracking an infection day by day. It shows that inflammation exists but never says where or why.",
     "price": "499",
@@ -1961,7 +1961,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for C-Reactive Protein (CRP).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2014,7 +2014,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "esr-test",
     "title": "ESR Test: Normal Range and What High ESR Means | QXL",
     "metaDescription": "ESR normal range is up to 15 mm/hr in men and 20 mm/hr in women. Learn what causes a high ESR, why it differs from CRP.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ESR Test: Normal Range, Causes of High ESR and How to Interpret It",
     "subtitle": "ESR measures how fast red blood cells settle in a vertical tube in one hour. Normal is up to about 15 mm/hr in men and 20 mm/hr in women, rising with age. A high ESR indicates inflammation, infection, anaemia or a raised protein level, but it never identifies the cause on its own.",
     "price": "499",
@@ -2032,7 +2032,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ESR (Erythrocyte Sedimentation Rate).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2085,7 +2085,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "vitamin-d-test",
     "title": "Vitamin D Test: Normal Range, Deficiency Levels | QXL",
     "metaDescription": "Vitamin D normal range is 30\u2013100 ng/mL. Learn what deficiency and insufficiency levels mean, symptoms of low vitamin D, why deficiency is so common in India.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Vitamin D Test: Normal Range, Deficiency Levels and What Low Vitamin D Means",
     "subtitle": "The vitamin D test measures 25-hydroxy vitamin D, the storage form that reflects your total vitamin D status. Below 20 ng/mL is deficiency, 20\u201329 ng/mL is insufficiency and 30\u2013100 ng/mL is sufficient. Deficiency affects a large majority of urban Indians despite abundant sunshine. No fasting is required.",
     "price": "499",
@@ -2103,7 +2103,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Vitamin D (25-Hydroxy Vitamin D).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2156,7 +2156,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "vitamin-b12-test",
     "title": "Vitamin B12 Test: Normal Range, Deficiency Symptoms | QXL",
     "metaDescription": "Vitamin B12 normal range is 200\u2013900 pg/mL. Learn the symptoms of B12 deficiency, why vegetarians in India are at high risk, what a borderline result means.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Vitamin B12 Test: Normal Range, Deficiency Symptoms and What Low B12 Means",
     "subtitle": "Vitamin B12 is essential for red blood cell formation and for the myelin sheath around nerves. Normal serum B12 is 200\u2013900 pg/mL. Deficiency causes macrocytic anaemia, tingling and numbness in the hands and feet, memory difficulty and fatigue. It is very common among Indian vegetarians because B12 occurs almost entirely in animal foods.",
     "price": "499",
@@ -2174,7 +2174,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Vitamin B12 (Cobalamin).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2227,7 +2227,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ferritin-test",
     "title": "Ferritin Test: Normal Range and What Low Ferritin Means",
     "metaDescription": "Ferritin normal range is 20\u2013250 ng/mL in men and 10\u2013120 ng/mL in women. Understand why ferritin is the best test for iron deficiency.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Ferritin Test: Normal Range, Low Ferritin and What High Ferritin Means",
     "subtitle": "Ferritin is the protein that stores iron, and serum ferritin is the single best indicator of body iron stores. Normal is 20\u2013250 ng/mL in men and 10\u2013120 ng/mL in women. A low ferritin confirms iron deficiency, but a normal ferritin does not rule it out because ferritin also rises with any inflammation.",
     "price": "499",
@@ -2245,7 +2245,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Ferritin.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2298,7 +2298,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "iron-profile",
     "title": "Iron Profile Test: Normal Range for Iron, TIBC | QXL",
     "metaDescription": "Iron profile normal ranges for serum iron, TIBC, UIBC, transferrin saturation and ferritin.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Iron Profile: Normal Ranges and How to Read the Iron Deficiency Pattern",
     "subtitle": "An iron profile measures serum iron, total iron binding capacity (TIBC), transferrin saturation and ferritin together. The classic iron deficiency pattern is low iron, high TIBC, transferrin saturation below 16% and low ferritin. The pattern matters far more than any single value, because serum iron alone fluctuates by the hour.",
     "price": "499",
@@ -2316,7 +2316,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Iron Profile (Iron Studies).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2369,7 +2369,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "calcium-test",
     "title": "Calcium Blood Test: Normal Range, High and Low Calcium | QXL",
     "metaDescription": "Serum calcium normal range is 8.6\u201310.2 mg/dL. Learn what high and low calcium mean, why corrected calcium matters when albumin is low.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Serum Calcium Test: Normal Range and What High or Low Calcium Means",
     "subtitle": "Serum calcium measures the calcium circulating in blood, which is tightly controlled by parathyroid hormone and vitamin D. Normal is 8.6\u201310.2 mg/dL. Because roughly half of it is bound to albumin, a low albumin lowers total calcium without any true deficiency \u2014 which is why corrected calcium must be used.",
     "price": "499",
@@ -2387,7 +2387,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Serum Calcium.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2440,7 +2440,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "magnesium-test",
     "title": "Magnesium Blood Test: Normal Range and Deficiency Symptoms",
     "metaDescription": "Serum magnesium normal range is 1.7\u20132.4 mg/dL. Learn the symptoms of magnesium deficiency, why it causes refractory low calcium and potassium.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Serum Magnesium Test: Normal Range, Deficiency Symptoms and Why It Matters",
     "subtitle": "Magnesium is a cofactor for more than 300 enzymes and is essential for nerve, muscle and heart function. Normal serum magnesium is 1.7\u20132.4 mg/dL. Deficiency causes cramps, tremor, arrhythmias and, importantly, makes low potassium and low calcium impossible to correct until the magnesium itself is replaced.",
     "price": "499",
@@ -2458,7 +2458,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Serum Magnesium.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2511,7 +2511,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "electrolytes-test",
     "title": "Electrolyte Test: Normal Range for Sodium, Potassium | QXL",
     "metaDescription": "Electrolyte normal ranges \u2014 sodium 136\u2013145, potassium 3.5\u20135.1, chloride 98\u2013107 mmol/L.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Electrolyte Test: Normal Ranges for Sodium, Potassium and Chloride",
     "subtitle": "An electrolyte panel measures sodium, potassium and chloride, and often bicarbonate. Normal values are sodium 136\u2013145 mmol/L, potassium 3.5\u20135.1 mmol/L and chloride 98\u2013107 mmol/L. Low sodium and high potassium are the two abnormalities that most often require urgent action, and both are common in older adults on multiple medications.",
     "price": "499",
@@ -2529,7 +2529,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Electrolytes (Sodium, Potassium, Chloride).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2582,7 +2582,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "urine-routine",
     "title": "Urine Routine Test: Normal Values and What Results Mean",
     "metaDescription": "Urine routine normal values for protein, sugar, pus cells, RBCs and casts. Learn how to collect a midstream sample correctly, what pus cells in urine mean.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Urine Routine and Microscopy: Normal Values and How to Read Your Report",
     "subtitle": "A urine routine examination checks the physical appearance, chemical composition and microscopic contents of urine in a single test. Normal urine contains no protein, no sugar, no ketones, no blood, fewer than 5 pus cells and fewer than 3 red cells per high power field. It is the simplest window into kidney, urinary tract and metabolic health.",
     "price": "499",
@@ -2600,7 +2600,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Urine Routine and Microscopy.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2653,7 +2653,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "total-protein-test",
     "title": "Total Protein Test: Normal Range, Albumin & A:G Ratio | QXL",
     "metaDescription": "Total protein normal range is 6.4\u20138.3 g/dL with albumin 3.5\u20135.2 g/dL. Learn what a low albumin means.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Total Protein and Albumin: Normal Ranges and What the A:G Ratio Means",
     "subtitle": "Total protein measures albumin plus globulins in serum. Normal total protein is 6.4\u20138.3 g/dL, albumin 3.5\u20135.2 g/dL and the albumin-to-globulin ratio 1.1\u20132.5. A low albumin points to liver disease, kidney loss, malnutrition or inflammation, while a reversed A:G ratio should prompt serum protein electrophoresis.",
     "price": "499",
@@ -2671,7 +2671,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Total Protein and Albumin.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2723,8 +2723,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "fasting-insulin-\u2014--tests-fasting-insulin-test": {
     "slug": "fasting-insulin-\u2014--tests-fasting-insulin-test",
     "title": "Fasting Insulin \u2014 /tests/fasting-insulin-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Fasting Insulin \u2014 /tests/fasting-insulin-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Fasting Insulin \u2014 /tests/fasting-insulin-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Fasting Insulin \u2014 /tests/fasting-insulin-test in Bangalore",
     "subtitle": "Fasting Insulin \u2014 /tests/fasting-insulin-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -2741,7 +2741,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Fasting Insulin \u2014 /tests/fasting-insulin-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2761,8 +2761,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "c-peptide-\u2014--tests-c-peptide-test": {
     "slug": "c-peptide-\u2014--tests-c-peptide-test",
     "title": "C-Peptide \u2014 /tests/c-peptide-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book C-Peptide \u2014 /tests/c-peptide-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book C-Peptide \u2014 /tests/c-peptide-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "C-Peptide \u2014 /tests/c-peptide-test in Bangalore",
     "subtitle": "C-Peptide \u2014 /tests/c-peptide-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -2779,7 +2779,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for C-Peptide \u2014 /tests/c-peptide-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2799,8 +2799,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "homa-ir-insulin-resistance-index-\u2014--tests-homa-ir": {
     "slug": "homa-ir-insulin-resistance-index-\u2014--tests-homa-ir",
     "title": "HOMA-IR (Insulin Resistance Index) \u2014 /tests/homa-ir: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book HOMA-IR (Insulin Resistance Index) \u2014 /tests/homa-ir at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book HOMA-IR (Insulin Resistance Index) \u2014 /tests/homa-ir at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HOMA-IR (Insulin Resistance Index) \u2014 /tests/homa-ir in Bangalore",
     "subtitle": "HOMA-IR (Insulin Resistance Index) \u2014 /tests/homa-ir is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -2817,7 +2817,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for HOMA-IR (Insulin Resistance Index) \u2014 /tests/homa-ir.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2837,8 +2837,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "urine-microalbumin-albumin-creatinine-ratio-\u2014--tests-microalbumin-test": {
     "slug": "urine-microalbumin-albumin-creatinine-ratio-\u2014--tests-microalbumin-test",
     "title": "Urine Microalbumin (Albumin-Creatinine Ratio) \u2014 /tests/microalbumin-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Urine Microalbumin (Albumin-Creatinine Ratio) \u2014 /tests/microalbumin-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Urine Microalbumin (Albumin-Creatinine Ratio) \u2014 /tests/microalbumin-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Urine Microalbumin (Albumin-Creatinine Ratio) \u2014 /tests/microalbumin-test in Bangalore",
     "subtitle": "Urine Microalbumin (Albumin-Creatinine Ratio) \u2014 /tests/microalbumin-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -2855,7 +2855,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Urine Microalbumin (Albumin-Creatinine Ratio) \u2014 /tests/microalbumin-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2875,8 +2875,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "apolipoprotein-b-apob-\u2014--tests-apob-test": {
     "slug": "apolipoprotein-b-apob-\u2014--tests-apob-test",
     "title": "Apolipoprotein B (ApoB) \u2014 /tests/apob-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Apolipoprotein B (ApoB) \u2014 /tests/apob-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Apolipoprotein B (ApoB) \u2014 /tests/apob-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Apolipoprotein B (ApoB) \u2014 /tests/apob-test in Bangalore",
     "subtitle": "Apolipoprotein B (ApoB) \u2014 /tests/apob-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -2893,7 +2893,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Apolipoprotein B (ApoB) \u2014 /tests/apob-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2913,8 +2913,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "lipoproteina-\u2014-lpa-\u2014--tests-lipoprotein-a-test": {
     "slug": "lipoproteina-\u2014-lpa-\u2014--tests-lipoprotein-a-test",
     "title": "Lipoprotein(a) \u2014 Lp(a) \u2014 /tests/lipoprotein-a-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Lipoprotein(a) \u2014 Lp(a) \u2014 /tests/lipoprotein-a-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Lipoprotein(a) \u2014 Lp(a) \u2014 /tests/lipoprotein-a-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Lipoprotein(a) \u2014 Lp(a) \u2014 /tests/lipoprotein-a-test in Bangalore",
     "subtitle": "Lipoprotein(a) \u2014 Lp(a) \u2014 /tests/lipoprotein-a-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -2931,7 +2931,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Lipoprotein(a) \u2014 Lp(a) \u2014 /tests/lipoprotein-a-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2951,8 +2951,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "homocysteine-\u2014--tests-homocysteine-test": {
     "slug": "homocysteine-\u2014--tests-homocysteine-test",
     "title": "Homocysteine \u2014 /tests/homocysteine-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Homocysteine \u2014 /tests/homocysteine-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Homocysteine \u2014 /tests/homocysteine-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Homocysteine \u2014 /tests/homocysteine-test in Bangalore",
     "subtitle": "Homocysteine \u2014 /tests/homocysteine-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -2969,7 +2969,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Homocysteine \u2014 /tests/homocysteine-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -2990,7 +2990,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "fasting-insulin-test",
     "title": "Fasting Insulin Test: Normal Range and Insulin Resistance",
     "metaDescription": "Fasting insulin normal range is 2\u201325 \u00b5IU/mL, with values under 10 considered optimal.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Fasting Insulin Test: Normal Range and What High Insulin Tells You",
     "subtitle": "Fasting insulin measures how much insulin your pancreas is producing to keep blood sugar normal after an overnight fast. Normal is 2\u201325 \u00b5IU/mL, though below 10 \u00b5IU/mL is considered metabolically optimal. A high fasting insulin with a normal blood sugar is the earliest detectable sign of insulin resistance.",
     "price": "499",
@@ -3008,7 +3008,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Fasting Insulin.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3061,7 +3061,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "c-peptide-test",
     "title": "C-Peptide Test: Normal Range | QXL",
     "metaDescription": "C-peptide normal range is 0.5\u20132.0 ng/mL fasting. Learn how C-peptide distinguishes type 1 from type 2 diabetes, why it works when insulin testing does not.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "C-Peptide Test: Normal Range and How It Separates Type 1 from Type 2 Diabetes",
     "subtitle": "C-peptide is released from the pancreas in equal amounts to insulin but is not present in injected insulin, which makes it the reliable measure of your own beta cell function. Fasting normal is 0.5\u20132.0 ng/mL. A low C-peptide with high glucose indicates type 1 diabetes; a normal or high one indicates type 2.",
     "price": "499",
@@ -3079,7 +3079,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for C-Peptide.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3132,7 +3132,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "homa-ir",
     "title": "HOMA-IR Test: Normal Range and Insulin Resistance Score",
     "metaDescription": "HOMA-IR normal range is below 2.0, with above 2.5 indicating insulin resistance.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HOMA-IR: Normal Range, Calculation and What Your Insulin Resistance Score Means",
     "subtitle": "HOMA-IR is a calculated index of insulin resistance derived from fasting glucose and fasting insulin measured at the same moment. The formula is fasting insulin (\u00b5IU/mL) \u00d7 fasting glucose (mg/dL) \u00f7 405. Below 2.0 is normal, 2.0\u20132.5 is borderline and above 2.5 indicates insulin resistance.",
     "price": "499",
@@ -3150,7 +3150,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for HOMA-IR (Insulin Resistance Index).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3203,7 +3203,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "microalbumin-test",
     "title": "Microalbumin Test: Normal Range and What It Detects | QXL",
     "metaDescription": "Urine microalbumin ACR normal range is below 30 mg/g. Learn how microalbumin detects diabetic kidney damage years before creatinine rises.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Urine Microalbumin (ACR): Normal Range and Why It Detects Kidney Damage Early",
     "subtitle": "Urine microalbumin detects small amounts of albumin leaking into urine \u2014 too little for a routine dipstick to find, but enough to signal early kidney damage. Reported as an albumin-to-creatinine ratio, normal is below 30 mg/g. It turns abnormal years before serum creatinine does, which is why it is recommended annually in diabetes and hypertension.",
     "price": "499",
@@ -3221,7 +3221,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Urine Microalbumin (Albumin-Creatinine Ratio).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3274,7 +3274,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "apob-test",
     "title": "ApoB Test: Normal Range and Why It Beats LDL Cholesterol",
     "metaDescription": "ApoB normal range is below 90 mg/dL, with below 80 desirable and below 65 for high risk.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ApoB Test: Normal Range and Why It Measures Heart Risk Better Than LDL",
     "subtitle": "ApoB counts the number of artery-damaging particles in your blood, since every LDL, VLDL and Lp(a) particle carries exactly one ApoB molecule. Desirable is below 90 mg/dL, with below 80 for higher risk and below 65 for very high risk. It predicts cardiovascular events better than LDL cholesterol, particularly in diabetes and high triglycerides.",
     "price": "499",
@@ -3292,7 +3292,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Apolipoprotein B (ApoB).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3345,7 +3345,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "lipoprotein-a-test",
     "title": "Lp(a) Test: Normal Range and Inherited Heart Risk | QXL",
     "metaDescription": "Lp(a) normal range is below 30 mg/dL (below 75 nmol/L). Learn why Lp(a) is genetically fixed, needs testing only once in a lifetime.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Lp(a) Test: Normal Range and What Inherited Lipoprotein(a) Risk Means",
     "subtitle": "Lipoprotein(a) is an LDL-like particle with an extra protein attached, and its level is almost entirely determined by your genes. Below 30 mg/dL (or 75 nmol/L) is normal. A high Lp(a) raises the risk of heart attack, stroke and aortic valve narrowing independently of cholesterol, and needs measuring only once in a lifetime.",
     "price": "499",
@@ -3363,7 +3363,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Lipoprotein(a) \u2014 Lp(a).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3416,7 +3416,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "hs-crp-test",
     "title": "hs-CRP Test: Normal Range and Cardiovascular Risk Levels",
     "metaDescription": "hs-CRP below 1 mg/L is low cardiovascular risk, 1\u20133 mg/L average and above 3 mg/L high.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "hs-CRP Test: Normal Range and What It Says About Your Cardiovascular Risk",
     "subtitle": "hs-CRP measures the same protein as a standard CRP but at much lower concentrations, which allows it to detect the low-grade inflammation linked to atherosclerosis. Below 1 mg/L is low cardiovascular risk, 1\u20133 mg/L average and above 3 mg/L high. It must be measured when you are completely well.",
     "price": "499",
@@ -3434,7 +3434,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Homocysteine.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3486,8 +3486,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "total-testosterone-\u2014--tests-testosterone-test": {
     "slug": "total-testosterone-\u2014--tests-testosterone-test",
     "title": "Total Testosterone \u2014 /tests/testosterone-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Total Testosterone \u2014 /tests/testosterone-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Total Testosterone \u2014 /tests/testosterone-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Total Testosterone \u2014 /tests/testosterone-test in Bangalore",
     "subtitle": "Total Testosterone \u2014 /tests/testosterone-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3504,7 +3504,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Total Testosterone \u2014 /tests/testosterone-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3524,8 +3524,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "free-testosterone-\u2014--tests-free-testosterone": {
     "slug": "free-testosterone-\u2014--tests-free-testosterone",
     "title": "Free Testosterone \u2014 /tests/free-testosterone: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Free Testosterone \u2014 /tests/free-testosterone at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Free Testosterone \u2014 /tests/free-testosterone at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free Testosterone \u2014 /tests/free-testosterone in Bangalore",
     "subtitle": "Free Testosterone \u2014 /tests/free-testosterone is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3542,7 +3542,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Free Testosterone \u2014 /tests/free-testosterone.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3562,8 +3562,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "prolactin-\u2014--tests-prolactin-test": {
     "slug": "prolactin-\u2014--tests-prolactin-test",
     "title": "Prolactin \u2014 /tests/prolactin-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Prolactin \u2014 /tests/prolactin-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Prolactin \u2014 /tests/prolactin-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Prolactin \u2014 /tests/prolactin-test in Bangalore",
     "subtitle": "Prolactin \u2014 /tests/prolactin-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3580,7 +3580,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Prolactin \u2014 /tests/prolactin-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3600,8 +3600,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "lh-luteinising-hormone-\u2014--tests-lh-test": {
     "slug": "lh-luteinising-hormone-\u2014--tests-lh-test",
     "title": "LH (Luteinising Hormone) \u2014 /tests/lh-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book LH (Luteinising Hormone) \u2014 /tests/lh-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book LH (Luteinising Hormone) \u2014 /tests/lh-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "LH (Luteinising Hormone) \u2014 /tests/lh-test in Bangalore",
     "subtitle": "LH (Luteinising Hormone) \u2014 /tests/lh-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3618,7 +3618,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for LH (Luteinising Hormone) \u2014 /tests/lh-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3638,8 +3638,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "fsh-follicle-stimulating-hormone-\u2014--tests-fsh-test": {
     "slug": "fsh-follicle-stimulating-hormone-\u2014--tests-fsh-test",
     "title": "FSH (Follicle Stimulating Hormone) \u2014 /tests/fsh-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book FSH (Follicle Stimulating Hormone) \u2014 /tests/fsh-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book FSH (Follicle Stimulating Hormone) \u2014 /tests/fsh-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "FSH (Follicle Stimulating Hormone) \u2014 /tests/fsh-test in Bangalore",
     "subtitle": "FSH (Follicle Stimulating Hormone) \u2014 /tests/fsh-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3656,7 +3656,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for FSH (Follicle Stimulating Hormone) \u2014 /tests/fsh-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3676,8 +3676,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "estradiol-e2-\u2014--tests-estradiol-test": {
     "slug": "estradiol-e2-\u2014--tests-estradiol-test",
     "title": "Estradiol (E2) \u2014 /tests/estradiol-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Estradiol (E2) \u2014 /tests/estradiol-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Estradiol (E2) \u2014 /tests/estradiol-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Estradiol (E2) \u2014 /tests/estradiol-test in Bangalore",
     "subtitle": "Estradiol (E2) \u2014 /tests/estradiol-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3694,7 +3694,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Estradiol (E2) \u2014 /tests/estradiol-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3714,8 +3714,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "progesterone-\u2014--tests-progesterone-test": {
     "slug": "progesterone-\u2014--tests-progesterone-test",
     "title": "Progesterone \u2014 /tests/progesterone-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Progesterone \u2014 /tests/progesterone-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Progesterone \u2014 /tests/progesterone-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Progesterone \u2014 /tests/progesterone-test in Bangalore",
     "subtitle": "Progesterone \u2014 /tests/progesterone-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3732,7 +3732,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Progesterone \u2014 /tests/progesterone-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3752,8 +3752,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "amh-anti-m\u00fcllerian-hormone-\u2014--tests-amh-test": {
     "slug": "amh-anti-m\u00fcllerian-hormone-\u2014--tests-amh-test",
     "title": "AMH (Anti-M\u00fcllerian Hormone) \u2014 /tests/amh-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book AMH (Anti-M\u00fcllerian Hormone) \u2014 /tests/amh-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book AMH (Anti-M\u00fcllerian Hormone) \u2014 /tests/amh-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "AMH (Anti-M\u00fcllerian Hormone) \u2014 /tests/amh-test in Bangalore",
     "subtitle": "AMH (Anti-M\u00fcllerian Hormone) \u2014 /tests/amh-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3770,7 +3770,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for AMH (Anti-M\u00fcllerian Hormone) \u2014 /tests/amh-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3790,8 +3790,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "cortisol-\u2014--tests-cortisol-test": {
     "slug": "cortisol-\u2014--tests-cortisol-test",
     "title": "Cortisol \u2014 /tests/cortisol-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Cortisol \u2014 /tests/cortisol-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Cortisol \u2014 /tests/cortisol-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Cortisol \u2014 /tests/cortisol-test in Bangalore",
     "subtitle": "Cortisol \u2014 /tests/cortisol-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3808,7 +3808,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Cortisol \u2014 /tests/cortisol-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3828,8 +3828,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "dheas-dehydroepiandrosterone-sulphate-\u2014--tests-dheas-test": {
     "slug": "dheas-dehydroepiandrosterone-sulphate-\u2014--tests-dheas-test",
     "title": "DHEAS (Dehydroepiandrosterone Sulphate) \u2014 /tests/dheas-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book DHEAS (Dehydroepiandrosterone Sulphate) \u2014 /tests/dheas-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book DHEAS (Dehydroepiandrosterone Sulphate) \u2014 /tests/dheas-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "DHEAS (Dehydroepiandrosterone Sulphate) \u2014 /tests/dheas-test in Bangalore",
     "subtitle": "DHEAS (Dehydroepiandrosterone Sulphate) \u2014 /tests/dheas-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3846,7 +3846,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for DHEAS (Dehydroepiandrosterone Sulphate) \u2014 /tests/dheas-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3866,8 +3866,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "beta-hcg-pregnancy-test-\u2014--tests-beta-hcg": {
     "slug": "beta-hcg-pregnancy-test-\u2014--tests-beta-hcg",
     "title": "Beta-hCG (Pregnancy Test) \u2014 /tests/beta-hcg: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Beta-hCG (Pregnancy Test) \u2014 /tests/beta-hcg at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Beta-hCG (Pregnancy Test) \u2014 /tests/beta-hcg at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Beta-hCG (Pregnancy Test) \u2014 /tests/beta-hcg in Bangalore",
     "subtitle": "Beta-hCG (Pregnancy Test) \u2014 /tests/beta-hcg is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -3884,7 +3884,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Beta-hCG (Pregnancy Test) \u2014 /tests/beta-hcg.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3905,7 +3905,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "testosterone-test",
     "title": "Testosterone Test: Normal Range for Men and Women | QXL",
     "metaDescription": "Total testosterone normal range is 300\u20131000 ng/dL in men and 15\u201370 ng/dL in women.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Testosterone Test: Normal Range, Best Timing and What Your Result Means",
     "subtitle": "Total testosterone measures all the testosterone in blood, both protein-bound and free. Normal is 300\u20131000 ng/dL in adult men and 15\u201370 ng/dL in women. The sample must be taken between 7 and 10 a.m., because testosterone peaks in the early morning and can fall by a third by evening.",
     "price": "499",
@@ -3923,7 +3923,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Total Testosterone.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -3976,7 +3976,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "free-testosterone",
     "title": "Free Testosterone Test: Normal Range and When It Is Needed",
     "metaDescription": "Free testosterone normal range is 50\u2013210 pg/mL in men. Learn when free testosterone is more useful than total, how SHBG affects the result.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free Testosterone: Normal Range and Why It Matters When SHBG Is Abnormal",
     "subtitle": "Free testosterone measures the 1\u20133% of testosterone not bound to proteins, which is the fraction available to tissues. Normal is roughly 50\u2013210 pg/mL in adult men. It is the more informative test whenever SHBG is abnormal \u2014 in obesity, ageing, thyroid disease, liver disease or on oestrogen therapy.",
     "price": "499",
@@ -3994,7 +3994,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Free Testosterone.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4047,7 +4047,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "prolactin-test",
     "title": "Prolactin Test: Normal Range and What High Prolactin Means",
     "metaDescription": "Prolactin normal range is 4\u201315 ng/mL in men and 4\u201323 ng/mL in women. Learn what causes high prolactin, why stress and needle anxiety raise it.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Prolactin Test: Normal Range, Causes of High Prolactin and Next Steps",
     "subtitle": "Prolactin is a pituitary hormone that stimulates milk production and, when raised, suppresses reproductive hormones. Normal is 4\u201315 ng/mL in men and 4\u201323 ng/mL in women. High prolactin causes irregular periods, infertility, milk discharge and reduced libido \u2014 but stress, medication and even the needle itself can raise it temporarily.",
     "price": "499",
@@ -4065,7 +4065,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Prolactin.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4118,7 +4118,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "lh-test",
     "title": "LH Test: Normal Range, LH Surge and Fertility | QXL",
     "metaDescription": "LH normal range varies by cycle phase \u2014 2\u201312 mIU/mL follicular, 20\u2013100 at the mid-cycle surge.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "LH Test: Normal Range by Cycle Phase, the LH Surge and What Results Mean",
     "subtitle": "LH is a pituitary hormone that triggers ovulation in women and testosterone production in men. In women it varies by cycle phase \u2014 2\u201312 mIU/mL in the follicular phase and 20\u2013100 mIU/mL at the mid-cycle surge that precedes ovulation by 24\u201336 hours. In men the normal range is 1.5\u20139.3 mIU/mL.",
     "price": "499",
@@ -4136,7 +4136,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for LH (Luteinising Hormone).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4189,7 +4189,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "fsh-test",
     "title": "FSH Test: Normal Range, Ovarian Reserve and Menopause | QXL",
     "metaDescription": "FSH normal range is 3.5\u201312.5 mIU/mL on day 3 of the cycle. Learn how FSH assesses ovarian reserve, what a high FSH means for fertility and menopause.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "FSH Test: Normal Range, Ovarian Reserve and What High FSH Means",
     "subtitle": "FSH stimulates follicle growth in the ovary and sperm production in the testis. A day 3 FSH of 3.5\u201312.5 mIU/mL is normal; above 10\u201312 suggests reduced ovarian reserve and above 25\u201340 with absent periods indicates menopause. In men, a high FSH with low sperm count points to primary testicular failure.",
     "price": "499",
@@ -4207,7 +4207,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for FSH (Follicle Stimulating Hormone).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4260,7 +4260,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "estradiol-test",
     "title": "Estradiol (E2) Test: Normal Range by Cycle Phase | QXL",
     "metaDescription": "Estradiol normal range varies by cycle phase \u2014 20\u2013150 pg/mL follicular, 150\u2013750 at ovulation, under 30 postmenopausal.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Estradiol (E2) Test: Normal Range by Cycle Phase and What Results Mean",
     "subtitle": "Estradiol is the main oestrogen produced by the ovary. Levels vary sharply through the cycle \u2014 20\u2013150 pg/mL in the early follicular phase, 150\u2013750 pg/mL at the ovulatory peak, and below 30 pg/mL after menopause. It is measured alongside FSH on day 3, and is used to monitor follicle growth during IVF.",
     "price": "499",
@@ -4278,7 +4278,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Estradiol (E2).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4331,7 +4331,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "progesterone-test",
     "title": "Progesterone Test: Normal Range and Day 21 Ovulation Check",
     "metaDescription": "Day 21 progesterone above 5 ng/mL confirms ovulation, with above 10 ng/mL indicating a robust luteal phase.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Progesterone Test: Day 21 Normal Range and How It Confirms Ovulation",
     "subtitle": "Progesterone is produced by the corpus luteum after ovulation, so measuring it in the mid-luteal phase is the standard way to confirm that ovulation actually occurred. A level above 5 ng/mL confirms ovulation and above 10 ng/mL indicates a robust luteal phase. Timing is everything \u2014 it must be measured 7 days before the next expected period.",
     "price": "499",
@@ -4349,7 +4349,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Progesterone.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4402,7 +4402,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "amh-test",
     "title": "AMH Test: Normal Range by Age and Ovarian Reserve | QXL",
     "metaDescription": "AMH normal range is 1.0\u20134.0 ng/mL for most reproductive-age women. Learn what AMH says about egg count, why it can be tested on any cycle day.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "AMH Test: Normal Range by Age, Ovarian Reserve and What Your Result Means",
     "subtitle": "AMH is produced by the small growing follicles in the ovary, so its level reflects the size of the remaining egg pool. Normal for most reproductive-age women is 1.0\u20134.0 ng/mL. It can be tested on any day of the cycle. A low AMH means fewer eggs remain; a high AMH is characteristic of PCOS.",
     "price": "499",
@@ -4420,7 +4420,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for AMH (Anti-M\u00fcllerian Hormone).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4473,7 +4473,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "cortisol-test",
     "title": "Cortisol Test: Normal Range, High and Low Cortisol | QXL",
     "metaDescription": "Morning cortisol normal range is 5\u201325 \u00b5g/dL at 8 a.m. Learn what high cortisol means in Cushing's syndrome, what low cortisol means in adrenal insufficiency.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Cortisol Test: Normal Range, Correct Timing and What High or Low Means",
     "subtitle": "Cortisol is the body's main stress hormone, produced by the adrenal glands under pituitary control. It follows a strong daily rhythm, peaking around 8 a.m. at 5\u201325 \u00b5g/dL and falling to under 5 \u00b5g/dL by midnight. Because of this rhythm, the time of the sample determines whether the result means anything at all.",
     "price": "499",
@@ -4491,7 +4491,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Cortisol.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4544,7 +4544,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "dheas-test",
     "title": "DHEAS Test: Normal Range and Adrenal Androgen Excess | QXL",
     "metaDescription": "DHEAS normal range is 80\u2013560 \u00b5g/dL in men and 35\u2013430 \u00b5g/dL in women, falling with age.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "DHEAS Test: Normal Range and How It Localises Androgen Excess to the Adrenal Gland",
     "subtitle": "DHEAS is an androgen produced almost entirely by the adrenal cortex, which makes it a specific marker of adrenal androgen production. Normal is 80\u2013560 \u00b5g/dL in men and 35\u2013430 \u00b5g/dL in women, declining steadily with age. Its main use is separating adrenal from ovarian causes of androgen excess in women.",
     "price": "499",
@@ -4562,7 +4562,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for DHEAS (Dehydroepiandrosterone Sulphate).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4615,7 +4615,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "beta-hcg",
     "title": "Beta hCG Test: Normal Range by Week and Pregnancy Levels",
     "metaDescription": "Beta hCG below 5 mIU/mL means not pregnant. Learn hCG levels by week of pregnancy, the 48-hour doubling rule, what a slow rise means.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Beta hCG Test: Normal Levels by Week and What the Doubling Rate Means",
     "subtitle": "Beta hCG is the hormone produced by the developing placenta and is the basis of every pregnancy test. Below 5 mIU/mL means not pregnant, above 25 mIU/mL confirms pregnancy. In a healthy early pregnancy the level roughly doubles every 48 to 72 hours, and that rate of rise carries more information than any single value.",
     "price": "499",
@@ -4633,7 +4633,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Beta-hCG (Pregnancy Test).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4685,8 +4685,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "double-marker-test-first-trimester-screening-\u2014--tests-double-marker": {
     "slug": "double-marker-test-first-trimester-screening-\u2014--tests-double-marker",
     "title": "Double Marker Test (First Trimester Screening) \u2014 /tests/double-marker: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Double Marker Test (First Trimester Screening) \u2014 /tests/double-marker at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Double Marker Test (First Trimester Screening) \u2014 /tests/double-marker at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Double Marker Test (First Trimester Screening) \u2014 /tests/double-marker in Bangalore",
     "subtitle": "Double Marker Test (First Trimester Screening) \u2014 /tests/double-marker is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -4703,7 +4703,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Double Marker Test (First Trimester Screening) \u2014 /tests/double-marker.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4723,8 +4723,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "papp-a-pregnancy-associated-plasma-protein-a-\u2014--tests-papp-a": {
     "slug": "papp-a-pregnancy-associated-plasma-protein-a-\u2014--tests-papp-a",
     "title": "PAPP-A (Pregnancy-Associated Plasma Protein A) \u2014 /tests/papp-a: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book PAPP-A (Pregnancy-Associated Plasma Protein A) \u2014 /tests/papp-a at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book PAPP-A (Pregnancy-Associated Plasma Protein A) \u2014 /tests/papp-a at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "PAPP-A (Pregnancy-Associated Plasma Protein A) \u2014 /tests/papp-a in Bangalore",
     "subtitle": "PAPP-A (Pregnancy-Associated Plasma Protein A) \u2014 /tests/papp-a is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -4741,7 +4741,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for PAPP-A (Pregnancy-Associated Plasma Protein A) \u2014 /tests/papp-a.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4761,8 +4761,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "free-beta-hcg-prenatal-screening-\u2014--tests-free-beta-hcg": {
     "slug": "free-beta-hcg-prenatal-screening-\u2014--tests-free-beta-hcg",
     "title": "Free Beta-hCG (Prenatal Screening) \u2014 /tests/free-beta-hcg: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Free Beta-hCG (Prenatal Screening) \u2014 /tests/free-beta-hcg at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Free Beta-hCG (Prenatal Screening) \u2014 /tests/free-beta-hcg at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free Beta-hCG (Prenatal Screening) \u2014 /tests/free-beta-hcg in Bangalore",
     "subtitle": "Free Beta-hCG (Prenatal Screening) \u2014 /tests/free-beta-hcg is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -4779,7 +4779,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Free Beta-hCG (Prenatal Screening) \u2014 /tests/free-beta-hcg.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4799,8 +4799,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "triple-marker-test-\u2014--tests-triple-marker": {
     "slug": "triple-marker-test-\u2014--tests-triple-marker",
     "title": "Triple Marker Test \u2014 /tests/triple-marker: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Triple Marker Test \u2014 /tests/triple-marker at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Triple Marker Test \u2014 /tests/triple-marker at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Triple Marker Test \u2014 /tests/triple-marker in Bangalore",
     "subtitle": "Triple Marker Test \u2014 /tests/triple-marker is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -4817,7 +4817,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Triple Marker Test \u2014 /tests/triple-marker.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4837,8 +4837,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "quadruple-marker-test-\u2014--tests-quadruple-marker": {
     "slug": "quadruple-marker-test-\u2014--tests-quadruple-marker",
     "title": "Quadruple Marker Test \u2014 /tests/quadruple-marker: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Quadruple Marker Test \u2014 /tests/quadruple-marker at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Quadruple Marker Test \u2014 /tests/quadruple-marker at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Quadruple Marker Test \u2014 /tests/quadruple-marker in Bangalore",
     "subtitle": "Quadruple Marker Test \u2014 /tests/quadruple-marker is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -4855,7 +4855,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Quadruple Marker Test \u2014 /tests/quadruple-marker.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4876,7 +4876,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "double-marker",
     "title": "Double Marker Test: Normal Range, Timing and Results | QXL",
     "metaDescription": "The double marker test is done between 11 and 13 weeks 6 days and combines PAPP-A, free beta-hCG and NT scan to screen for Down syndrome.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Double Marker Test: Timing, Normal Values and How to Read Your Risk Result",
     "subtitle": "The double marker test is a first-trimester screening test done between 11 weeks and 13 weeks 6 days. It measures PAPP-A and free beta-hCG in maternal blood and combines them with the nuchal translucency measurement, maternal age and gestational age to calculate the risk of Down syndrome and trisomies 18 and 13. It is a screening test, not a diagnosis.",
     "price": "499",
@@ -4894,7 +4894,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Double Marker Test (First Trimester Screening).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -4947,7 +4947,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "papp-a",
     "title": "PAPP-A Test: Normal Range and Low PAPP-A Meaning | QXL",
     "metaDescription": "PAPP-A normal range is 0.5\u20132.0 MoM in the first trimester. Learn why a low PAPP-A raises the risk of Down syndrome and pre-eclampsia.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "PAPP-A: Normal Range in Pregnancy and What a Low Result Actually Means",
     "subtitle": "PAPP-A is a protein produced by the placenta and measured between 11 and 13 weeks 6 days as part of first-trimester screening. Normal is 0.5\u20132.0 MoM. A low PAPP-A raises the calculated risk of Down syndrome, and independently predicts pre-eclampsia, fetal growth restriction and preterm birth.",
     "price": "499",
@@ -4965,7 +4965,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for PAPP-A (Pregnancy-Associated Plasma Protein A).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5018,7 +5018,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "free-beta-hcg",
     "title": "Free Beta hCG in Pregnancy Screening: Normal MoM Range | QXL",
     "metaDescription": "Free beta-hCG normal range is 0.5\u20132.0 MoM in prenatal screening. Learn why it rises in Down syndrome, falls in trisomy 18.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free Beta-hCG in Prenatal Screening: Normal Range and What High or Low Means",
     "subtitle": "Free beta-hCG is the unbound beta subunit of hCG, measured as part of first- and second-trimester screening. Normal is 0.5\u20132.0 MoM. It is typically raised in Down syndrome and reduced in trisomies 18 and 13. It is a different measurement from the total beta-hCG used to confirm pregnancy.",
     "price": "499",
@@ -5036,7 +5036,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Free Beta-hCG (Prenatal Screening).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5089,7 +5089,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "triple-marker",
     "title": "Triple Marker Test: Normal Range, Timing and Results | QXL",
     "metaDescription": "The triple marker test is done between 15 and 20 weeks and measures AFP, hCG and unconjugated estriol to screen for Down syndrome and neural tube defects.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Triple Marker Test: Timing, Normal Values and How to Read Your Result",
     "subtitle": "The triple marker test is a second-trimester screening test done between 15 and 20 weeks. It measures alpha-fetoprotein, hCG and unconjugated estriol in maternal blood to estimate the risk of Down syndrome, trisomy 18 and open neural tube defects. It detects around 65\u201370% of Down syndrome cases \u2014 less than the quadruple marker.",
     "price": "499",
@@ -5107,7 +5107,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Triple Marker Test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5160,7 +5160,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "quadruple-marker",
     "title": "Quadruple Marker Test: Normal Range | QXL",
     "metaDescription": "The quadruple marker test is done between 15 and 20 weeks and measures AFP, hCG, estriol and inhibin A. It detects about 80% of Down syndrome cases.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Quadruple Marker Test: Timing, Normal Values and What Your Risk Result Means",
     "subtitle": "The quadruple marker test is done between 15 and 20 weeks and measures AFP, hCG, unconjugated estriol and inhibin A. Combined with maternal age and gestational age, it estimates the risk of Down syndrome, trisomy 18 and open neural tube defects, detecting about 80% of Down syndrome cases at a 5% false-positive rate.",
     "price": "499",
@@ -5178,7 +5178,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Quadruple Marker Test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5230,8 +5230,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "ana-antinuclear-antibody-\u2014--tests-ana-test": {
     "slug": "ana-antinuclear-antibody-\u2014--tests-ana-test",
     "title": "ANA (Antinuclear Antibody) \u2014 /tests/ana-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book ANA (Antinuclear Antibody) \u2014 /tests/ana-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book ANA (Antinuclear Antibody) \u2014 /tests/ana-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ANA (Antinuclear Antibody) \u2014 /tests/ana-test in Bangalore",
     "subtitle": "ANA (Antinuclear Antibody) \u2014 /tests/ana-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5248,7 +5248,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ANA (Antinuclear Antibody) \u2014 /tests/ana-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5268,8 +5268,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "ana-profile-ana-blot-\u2014--tests-ana-profile": {
     "slug": "ana-profile-ana-blot-\u2014--tests-ana-profile",
     "title": "ANA Profile (ANA Blot) \u2014 /tests/ana-profile: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book ANA Profile (ANA Blot) \u2014 /tests/ana-profile at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book ANA Profile (ANA Blot) \u2014 /tests/ana-profile at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ANA Profile (ANA Blot) \u2014 /tests/ana-profile in Bangalore",
     "subtitle": "ANA Profile (ANA Blot) \u2014 /tests/ana-profile is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5286,7 +5286,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ANA Profile (ANA Blot) \u2014 /tests/ana-profile.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5306,8 +5306,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "ana-by-ifa-indirect-immunofluorescence-\u2014--tests-ana-ifa": {
     "slug": "ana-by-ifa-indirect-immunofluorescence-\u2014--tests-ana-ifa",
     "title": "ANA by IFA (Indirect Immunofluorescence) \u2014 /tests/ana-ifa: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book ANA by IFA (Indirect Immunofluorescence) \u2014 /tests/ana-ifa at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book ANA by IFA (Indirect Immunofluorescence) \u2014 /tests/ana-ifa at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ANA by IFA (Indirect Immunofluorescence) \u2014 /tests/ana-ifa in Bangalore",
     "subtitle": "ANA by IFA (Indirect Immunofluorescence) \u2014 /tests/ana-ifa is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5324,7 +5324,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ANA by IFA (Indirect Immunofluorescence) \u2014 /tests/ana-ifa.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5344,8 +5344,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "anti-dsdna-antibody-\u2014--tests-anti-dsdna": {
     "slug": "anti-dsdna-antibody-\u2014--tests-anti-dsdna",
     "title": "Anti-dsDNA Antibody \u2014 /tests/anti-dsdna: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Anti-dsDNA Antibody \u2014 /tests/anti-dsdna at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Anti-dsDNA Antibody \u2014 /tests/anti-dsdna at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-dsDNA Antibody \u2014 /tests/anti-dsdna in Bangalore",
     "subtitle": "Anti-dsDNA Antibody \u2014 /tests/anti-dsdna is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5362,7 +5362,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Anti-dsDNA Antibody \u2014 /tests/anti-dsdna.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5382,8 +5382,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "ena-profile-extractable-nuclear-antigen-panel-\u2014--tests-ena-profile": {
     "slug": "ena-profile-extractable-nuclear-antigen-panel-\u2014--tests-ena-profile",
     "title": "ENA Profile (Extractable Nuclear Antigen Panel) \u2014 /tests/ena-profile: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book ENA Profile (Extractable Nuclear Antigen Panel) \u2014 /tests/ena-profile at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book ENA Profile (Extractable Nuclear Antigen Panel) \u2014 /tests/ena-profile at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ENA Profile (Extractable Nuclear Antigen Panel) \u2014 /tests/ena-profile in Bangalore",
     "subtitle": "ENA Profile (Extractable Nuclear Antigen Panel) \u2014 /tests/ena-profile is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5400,7 +5400,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ENA Profile (Extractable Nuclear Antigen Panel) \u2014 /tests/ena-profile.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5420,8 +5420,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "anti-ccp-anti-cyclic-citrullinated-peptide-\u2014--tests-anti-ccp": {
     "slug": "anti-ccp-anti-cyclic-citrullinated-peptide-\u2014--tests-anti-ccp",
     "title": "Anti-CCP (Anti-Cyclic Citrullinated Peptide) \u2014 /tests/anti-ccp: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Anti-CCP (Anti-Cyclic Citrullinated Peptide) \u2014 /tests/anti-ccp at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Anti-CCP (Anti-Cyclic Citrullinated Peptide) \u2014 /tests/anti-ccp at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-CCP (Anti-Cyclic Citrullinated Peptide) \u2014 /tests/anti-ccp in Bangalore",
     "subtitle": "Anti-CCP (Anti-Cyclic Citrullinated Peptide) \u2014 /tests/anti-ccp is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5438,7 +5438,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Anti-CCP (Anti-Cyclic Citrullinated Peptide) \u2014 /tests/anti-ccp.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5458,8 +5458,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "rheumatoid-factor-rf-\u2014--tests-rheumatoid-factor": {
     "slug": "rheumatoid-factor-rf-\u2014--tests-rheumatoid-factor",
     "title": "Rheumatoid Factor (RF) \u2014 /tests/rheumatoid-factor: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Rheumatoid Factor (RF) \u2014 /tests/rheumatoid-factor at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Rheumatoid Factor (RF) \u2014 /tests/rheumatoid-factor at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Rheumatoid Factor (RF) \u2014 /tests/rheumatoid-factor in Bangalore",
     "subtitle": "Rheumatoid Factor (RF) \u2014 /tests/rheumatoid-factor is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5476,7 +5476,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Rheumatoid Factor (RF) \u2014 /tests/rheumatoid-factor.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5496,8 +5496,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "anca-anti-neutrophil-cytoplasmic-antibody-\u2014--tests-anca-test": {
     "slug": "anca-anti-neutrophil-cytoplasmic-antibody-\u2014--tests-anca-test",
     "title": "ANCA (Anti-Neutrophil Cytoplasmic Antibody) \u2014 /tests/anca-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book ANCA (Anti-Neutrophil Cytoplasmic Antibody) \u2014 /tests/anca-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book ANCA (Anti-Neutrophil Cytoplasmic Antibody) \u2014 /tests/anca-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ANCA (Anti-Neutrophil Cytoplasmic Antibody) \u2014 /tests/anca-test in Bangalore",
     "subtitle": "ANCA (Anti-Neutrophil Cytoplasmic Antibody) \u2014 /tests/anca-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5514,7 +5514,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ANCA (Anti-Neutrophil Cytoplasmic Antibody) \u2014 /tests/anca-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5534,8 +5534,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "pr3-antibody-anti-proteinase-3-\u2014--tests-pr3-antibody": {
     "slug": "pr3-antibody-anti-proteinase-3-\u2014--tests-pr3-antibody",
     "title": "PR3 Antibody (Anti-Proteinase 3) \u2014 /tests/pr3-antibody: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book PR3 Antibody (Anti-Proteinase 3) \u2014 /tests/pr3-antibody at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book PR3 Antibody (Anti-Proteinase 3) \u2014 /tests/pr3-antibody at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "PR3 Antibody (Anti-Proteinase 3) \u2014 /tests/pr3-antibody in Bangalore",
     "subtitle": "PR3 Antibody (Anti-Proteinase 3) \u2014 /tests/pr3-antibody is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5552,7 +5552,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for PR3 Antibody (Anti-Proteinase 3) \u2014 /tests/pr3-antibody.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5572,8 +5572,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "mpo-antibody-anti-myeloperoxidase-\u2014--tests-mpo-antibody": {
     "slug": "mpo-antibody-anti-myeloperoxidase-\u2014--tests-mpo-antibody",
     "title": "MPO Antibody (Anti-Myeloperoxidase) \u2014 /tests/mpo-antibody: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book MPO Antibody (Anti-Myeloperoxidase) \u2014 /tests/mpo-antibody at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book MPO Antibody (Anti-Myeloperoxidase) \u2014 /tests/mpo-antibody at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "MPO Antibody (Anti-Myeloperoxidase) \u2014 /tests/mpo-antibody in Bangalore",
     "subtitle": "MPO Antibody (Anti-Myeloperoxidase) \u2014 /tests/mpo-antibody is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5590,7 +5590,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for MPO Antibody (Anti-Myeloperoxidase) \u2014 /tests/mpo-antibody.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5610,8 +5610,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "complement-c3-\u2014--tests-c3": {
     "slug": "complement-c3-\u2014--tests-c3",
     "title": "Complement C3 \u2014 /tests/c3: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Complement C3 \u2014 /tests/c3 at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Complement C3 \u2014 /tests/c3 at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Complement C3 \u2014 /tests/c3 in Bangalore",
     "subtitle": "Complement C3 \u2014 /tests/c3 is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5628,7 +5628,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Complement C3 \u2014 /tests/c3.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5648,8 +5648,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "complement-c4-\u2014--tests-c4": {
     "slug": "complement-c4-\u2014--tests-c4",
     "title": "Complement C4 \u2014 /tests/c4: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Complement C4 \u2014 /tests/c4 at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Complement C4 \u2014 /tests/c4 at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Complement C4 \u2014 /tests/c4 in Bangalore",
     "subtitle": "Complement C4 \u2014 /tests/c4 is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -5666,7 +5666,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Complement C4 \u2014 /tests/c4.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5687,7 +5687,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ana-test",
     "title": "ANA Test: Normal Range, Positive ANA Meaning & Titres | QXL",
     "metaDescription": "ANA normal is negative or a titre below 1:80. Learn what a positive ANA means, why a low titre is common in healthy people.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ANA Test: Normal Range, What a Positive Result Means and Why Titre Matters",
     "subtitle": "ANA detects antibodies directed against components of the cell nucleus. Normal is negative or a titre below 1:80. A positive ANA supports but never proves autoimmune disease \u2014 up to 15% of entirely healthy people, particularly women and older adults, have a low-titre positive ANA with no illness at all.",
     "price": "499",
@@ -5705,7 +5705,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ANA (Antinuclear Antibody).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5758,7 +5758,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ana-profile",
     "title": "ANA Profile Test: What Each Antibody Means | QXL Diagnostics",
     "metaDescription": "The ANA profile identifies specific autoantibodies \u2014 anti-dsDNA, Sm, SSA, SSB, RNP, Scl-70, Jo-1, centromere and more.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ANA Profile: What Each Antibody on Your Report Actually Means",
     "subtitle": "The ANA profile, usually performed by immunoblot, identifies which specific autoantibodies are present rather than just confirming that antinuclear antibodies exist. Each antibody points to a particular disease \u2014 anti-dsDNA and anti-Sm to lupus, anti-SSA and anti-SSB to Sj\u00f6gren's, anti-Scl-70 to systemic sclerosis, anti-Jo-1 to myositis.",
     "price": "499",
@@ -5776,7 +5776,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ANA Profile (ANA Blot).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5829,7 +5829,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ana-ifa",
     "title": "ANA IFA Test: Titre | QXL",
     "metaDescription": "ANA by indirect immunofluorescence on HEp-2 cells is the reference method for antinuclear antibody testing.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ANA by IFA: Why Immunofluorescence Is the Reference Method and What Each Pattern Means",
     "subtitle": "ANA by indirect immunofluorescence uses HEp-2 cells as the substrate and is the internationally recommended reference method for antinuclear antibody testing. It reports both a titre and a fluorescence pattern, and detects antibodies that ELISA-based screens miss. The pattern narrows down which specific antibody to test for next.",
     "price": "499",
@@ -5847,7 +5847,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ANA by IFA (Indirect Immunofluorescence).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5900,7 +5900,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "anti-dsdna",
     "title": "Anti-dsDNA Test: Normal Range and Lupus Activity Monitoring",
     "metaDescription": "Anti-dsDNA normal is below 30 IU/mL or negative. Learn why anti-dsDNA is highly specific for lupus, how it tracks disease activity and kidney involvement.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-dsDNA Antibody: Normal Range, Lupus Specificity and Disease Monitoring",
     "subtitle": "Anti-double-stranded DNA antibodies are among the most specific markers for systemic lupus erythematosus and are part of its classification criteria. Normal is negative or below 30 IU/mL. Unusually among autoantibodies, anti-dsDNA levels track disease activity and correlate with lupus nephritis, making it genuinely useful for monitoring.",
     "price": "499",
@@ -5918,7 +5918,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Anti-dsDNA Antibody.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -5971,7 +5971,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ena-profile",
     "title": "ENA Profile Test: Antibodies | QXL",
     "metaDescription": "The ENA profile tests for anti-Sm, RNP, SSA/Ro, SSB/La, Scl-70 and Jo-1 antibodies.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ENA Profile: Which Antibody Means Which Connective Tissue Disease",
     "subtitle": "The ENA profile tests for antibodies against extractable nuclear antigens \u2014 typically anti-Sm, anti-U1-RNP, anti-SSA/Ro, anti-SSB/La, anti-Scl-70 and anti-Jo-1. Each points to a different connective tissue disease. It is a confirmatory test performed after a positive ANA, not a screening test.",
     "price": "499",
@@ -5989,7 +5989,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ENA Profile (Extractable Nuclear Antigen Panel).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6042,7 +6042,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "anti-ccp",
     "title": "Anti-CCP Test: Normal Range and Rheumatoid Arthritis | QXL",
     "metaDescription": "Anti-CCP normal is below 20 U/mL. Learn why it is far more specific for rheumatoid arthritis than rheumatoid factor, and what a high titre predicts.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-CCP Test: Normal Range, Specificity for RA and What a High Result Predicts",
     "subtitle": "Anti-CCP antibodies target citrullinated proteins and are around 95% specific for rheumatoid arthritis \u2014 far more specific than rheumatoid factor. Normal is below 20 U/mL. A high anti-CCP not only confirms the diagnosis but predicts more erosive disease, which is why it directly influences how aggressively treatment is started.",
     "price": "499",
@@ -6060,7 +6060,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Anti-CCP (Anti-Cyclic Citrullinated Peptide).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6113,7 +6113,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "rheumatoid-factor",
     "title": "RA Factor Test: Normal Range and What Positive RF Means",
     "metaDescription": "Rheumatoid factor normal is below 14 IU/mL. Learn why a positive RF does not confirm rheumatoid arthritis, what else raises it.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Rheumatoid Factor (RA Factor): Normal Range and Why a Positive Result Is Not a Diagnosis",
     "subtitle": "Rheumatoid factor is an antibody directed against the Fc portion of IgG. Normal is below 14 IU/mL. It is positive in about 70% of rheumatoid arthritis patients \u2014 but also in hepatitis C, chronic infections, Sj\u00f6gren's syndrome and up to 10% of healthy people over 65, which makes a positive result far less conclusive than most patients assume.",
     "price": "499",
@@ -6131,7 +6131,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Rheumatoid Factor (RF).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6184,7 +6184,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "anca-test",
     "title": "ANCA Test: c-ANCA, p-ANCA and Vasculitis Diagnosis | QXL",
     "metaDescription": "ANCA is normally negative. Learn what c-ANCA and p-ANCA patterns mean, how PR3 and MPO antibodies confirm the diagnosis.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "ANCA Test: c-ANCA, p-ANCA and What a Positive Result Means",
     "subtitle": "ANCA detects antibodies against enzymes inside neutrophils and is the key test for small-vessel vasculitis. It is normally negative. A c-ANCA pattern with PR3 antibodies indicates granulomatosis with polyangiitis; a p-ANCA pattern with MPO antibodies indicates microscopic polyangiitis or eosinophilic granulomatosis with polyangiitis.",
     "price": "499",
@@ -6202,7 +6202,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for ANCA (Anti-Neutrophil Cytoplasmic Antibody).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6255,7 +6255,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "pr3-antibody",
     "title": "PR3 Antibody Test: Normal Range and Vasculitis | QXL",
     "metaDescription": "PR3 antibody normal is below 20 RU/mL. Learn why PR3-ANCA is highly specific for granulomatosis with polyangiitis and which symptoms accompany it.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "PR3 Antibody (PR3-ANCA): Normal Range and What a Positive Result Means",
     "subtitle": "PR3 antibodies target proteinase 3, an enzyme in neutrophil granules, and correspond to the c-ANCA fluorescence pattern. Normal is below 20 RU/mL. A positive PR3 is highly specific for granulomatosis with polyangiitis, a small-vessel vasculitis affecting the upper airway, lungs and kidneys that requires urgent treatment.",
     "price": "499",
@@ -6273,7 +6273,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for PR3 Antibody (Anti-Proteinase 3).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6326,7 +6326,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "mpo-antibody",
     "title": "MPO Antibody Test: Normal Range and Microscopic Polyangiitis",
     "metaDescription": "MPO antibody normal is below 20 RU/mL. Learn why MPO-ANCA indicates microscopic polyangiitis and EGPA, how it differs from PR3.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "MPO Antibody (MPO-ANCA): Normal Range and What a Positive Result Means",
     "subtitle": "MPO antibodies target myeloperoxidase, an enzyme in neutrophil granules, and correspond to the p-ANCA fluorescence pattern. Normal is below 20 RU/mL. A positive MPO indicates microscopic polyangiitis or eosinophilic granulomatosis with polyangiitis, both small-vessel vasculitides that commonly affect the kidneys and lungs.",
     "price": "499",
@@ -6344,7 +6344,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for MPO Antibody (Anti-Myeloperoxidase).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6397,7 +6397,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "c3",
     "title": "Complement C3 Test: Normal Range and Low C3 Causes | QXL",
     "metaDescription": "Complement C3 normal range is 90\u2013180 mg/dL. Learn why low C3 indicates active lupus or glomerulonephritis, what raises C3, and why C3.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Complement C3: Normal Range and What Low C3 Tells You About Disease Activity",
     "subtitle": "C3 is the central protein of the complement cascade and is consumed when immune complexes activate it. Normal is 90\u2013180 mg/dL. A low C3, particularly with a low C4, indicates active immune complex disease \u2014 most often lupus, especially lupus nephritis, or post-infectious glomerulonephritis.",
     "price": "499",
@@ -6415,7 +6415,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Complement C3.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6468,7 +6468,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "c4",
     "title": "Complement C4 Test: Normal Range and Low C4 Causes | QXL",
     "metaDescription": "Complement C4 normal range is 10\u201340 mg/dL. Learn why low C4 indicates lupus activity or hereditary angioedema, why it is always read with C3.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Complement C4: Normal Range, Low C4 Causes and Why It Is Read With C3",
     "subtitle": "C4 is a complement protein of the classical pathway, consumed when antibody\u2013antigen complexes activate complement. Normal is 10\u201340 mg/dL. A low C4 with a low C3 indicates active lupus or immune complex disease; a low C4 with a normal C3 raises the possibility of hereditary angioedema or early lupus activity.",
     "price": "499",
@@ -6486,7 +6486,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Complement C4.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6538,8 +6538,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "total-ige-\u2014--tests-total-ige": {
     "slug": "total-ige-\u2014--tests-total-ige",
     "title": "Total IgE \u2014 /tests/total-ige: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Total IgE \u2014 /tests/total-ige at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Total IgE \u2014 /tests/total-ige at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Total IgE \u2014 /tests/total-ige in Bangalore",
     "subtitle": "Total IgE \u2014 /tests/total-ige is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -6556,7 +6556,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Total IgE \u2014 /tests/total-ige.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6576,8 +6576,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "specific-ige-allergen-specific-ige-\u2014--tests-specific-ige": {
     "slug": "specific-ige-allergen-specific-ige-\u2014--tests-specific-ige",
     "title": "Specific IgE (Allergen-Specific IgE) \u2014 /tests/specific-ige: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Specific IgE (Allergen-Specific IgE) \u2014 /tests/specific-ige at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Specific IgE (Allergen-Specific IgE) \u2014 /tests/specific-ige at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Specific IgE (Allergen-Specific IgE) \u2014 /tests/specific-ige in Bangalore",
     "subtitle": "Specific IgE (Allergen-Specific IgE) \u2014 /tests/specific-ige is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -6594,7 +6594,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Specific IgE (Allergen-Specific IgE) \u2014 /tests/specific-ige.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6614,8 +6614,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "allergy-profile-allergen-panel-\u2014--tests-allergy-profile": {
     "slug": "allergy-profile-allergen-panel-\u2014--tests-allergy-profile",
     "title": "Allergy Profile (Allergen Panel) \u2014 /tests/allergy-profile: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Allergy Profile (Allergen Panel) \u2014 /tests/allergy-profile at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Allergy Profile (Allergen Panel) \u2014 /tests/allergy-profile at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Allergy Profile (Allergen Panel) \u2014 /tests/allergy-profile in Bangalore",
     "subtitle": "Allergy Profile (Allergen Panel) \u2014 /tests/allergy-profile is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -6632,7 +6632,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Allergy Profile (Allergen Panel) \u2014 /tests/allergy-profile.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6652,8 +6652,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "food-intolerance-test-igg-food-antibody-panel-\u2014--tests-food-intolerance-test": {
     "slug": "food-intolerance-test-igg-food-antibody-panel-\u2014--tests-food-intolerance-test",
     "title": "Food Intolerance Test (IgG Food Antibody Panel) \u2014 /tests/food-intolerance-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Food Intolerance Test (IgG Food Antibody Panel) \u2014 /tests/food-intolerance-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Food Intolerance Test (IgG Food Antibody Panel) \u2014 /tests/food-intolerance-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Food Intolerance Test (IgG Food Antibody Panel) \u2014 /tests/food-intolerance-test in Bangalore",
     "subtitle": "Food Intolerance Test (IgG Food Antibody Panel) \u2014 /tests/food-intolerance-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -6670,7 +6670,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Food Intolerance Test (IgG Food Antibody Panel) \u2014 /tests/food-intolerance-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6691,7 +6691,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "total-ige",
     "title": "Total IgE Test: Normal Range and What High IgE Means | QXL",
     "metaDescription": "Total IgE normal range is below 100 IU/mL in adults. Learn what a high IgE means in allergy, asthma and parasitic infection.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Total IgE Test: Normal Range, Causes of High IgE and Its Real Limitations",
     "subtitle": "Total IgE measures the overall amount of immunoglobulin E in blood. Normal is below 100 IU/mL in adults. A high IgE supports an allergic tendency but never identifies which allergen is responsible, and in India it is also commonly raised by intestinal parasites \u2014 which is why a raised IgE alone rarely changes treatment.",
     "price": "499",
@@ -6709,7 +6709,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Total IgE.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6762,7 +6762,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "specific-ige",
     "title": "Specific IgE Test: Classes | QXL",
     "metaDescription": "Specific IgE normal is below 0.35 kUA/L (class 0). Learn what each IgE class means, why a positive result is sensitisation rather than allergy.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Specific IgE Test: What Each Class Means and Why Positive Is Not the Same as Allergic",
     "subtitle": "Specific IgE measures antibodies against one particular allergen \u2014 dust mite, pollen, cat dander, peanut and so on. Normal is below 0.35 kUA/L, reported as class 0. A positive result means sensitisation, not necessarily clinical allergy: it must match your actual symptoms on exposure to be meaningful.",
     "price": "499",
@@ -6780,7 +6780,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Specific IgE (Allergen-Specific IgE).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6833,7 +6833,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "allergy-profile",
     "title": "Allergy Profile Test: What It Covers and How to Read It",
     "metaDescription": "An allergy profile tests specific IgE against a panel of common allergens. Learn which panel suits which symptoms, why targeted panels beat broad ones.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Allergy Profile: Choosing the Right Panel and Interpreting the Results Correctly",
     "subtitle": "An allergy profile measures specific IgE against a defined group of allergens in a single test. Panels are usually grouped by exposure \u2014 inhalant, food, or region-specific combinations. The most useful profile is the one matched to your symptoms; a broad untargeted panel produces positives that lead to avoidance you do not need.",
     "price": "499",
@@ -6851,7 +6851,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Allergy Profile (Allergen Panel).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6904,7 +6904,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "food-intolerance-test",
     "title": "Food Intolerance Test: What IgG Panels Show | QXL",
     "metaDescription": "IgG food antibody panels are not recommended by allergy societies for diagnosing food intolerance. Learn what they measure and which tests actually help.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Food Intolerance Testing: What IgG Panels Measure and What the Evidence Actually Says",
     "subtitle": "IgG food antibody panels measure IgG antibodies against a list of foods. Major allergy and immunology societies worldwide do not recommend them for diagnosing food intolerance, because IgG to food indicates exposure and normal immune tolerance rather than a disorder. Genuine food intolerance is diagnosed by targeted tests and a supervised elimination and reintroduction diet.",
     "price": "499",
@@ -6922,7 +6922,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Food Intolerance Test (IgG Food Antibody Panel).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -6974,8 +6974,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "psa-prostate-specific-antigen-\u2014--tests-psa-test": {
     "slug": "psa-prostate-specific-antigen-\u2014--tests-psa-test",
     "title": "PSA (Prostate Specific Antigen) \u2014 /tests/psa-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book PSA (Prostate Specific Antigen) \u2014 /tests/psa-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book PSA (Prostate Specific Antigen) \u2014 /tests/psa-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "PSA (Prostate Specific Antigen) \u2014 /tests/psa-test in Bangalore",
     "subtitle": "PSA (Prostate Specific Antigen) \u2014 /tests/psa-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -6992,7 +6992,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for PSA (Prostate Specific Antigen) \u2014 /tests/psa-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7012,8 +7012,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "free-psa-free-to-total-psa-ratio-\u2014--tests-free-psa": {
     "slug": "free-psa-free-to-total-psa-ratio-\u2014--tests-free-psa",
     "title": "Free PSA (Free-to-Total PSA Ratio) \u2014 /tests/free-psa: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Free PSA (Free-to-Total PSA Ratio) \u2014 /tests/free-psa at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Free PSA (Free-to-Total PSA Ratio) \u2014 /tests/free-psa at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free PSA (Free-to-Total PSA Ratio) \u2014 /tests/free-psa in Bangalore",
     "subtitle": "Free PSA (Free-to-Total PSA Ratio) \u2014 /tests/free-psa is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -7030,7 +7030,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Free PSA (Free-to-Total PSA Ratio) \u2014 /tests/free-psa.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7050,8 +7050,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "ca-125-\u2014--tests-ca-125": {
     "slug": "ca-125-\u2014--tests-ca-125",
     "title": "CA-125 \u2014 /tests/ca-125: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book CA-125 \u2014 /tests/ca-125 at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book CA-125 \u2014 /tests/ca-125 at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CA-125 \u2014 /tests/ca-125 in Bangalore",
     "subtitle": "CA-125 \u2014 /tests/ca-125 is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -7068,7 +7068,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CA-125 \u2014 /tests/ca-125.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7088,8 +7088,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "cea-carcinoembryonic-antigen-\u2014--tests-cea": {
     "slug": "cea-carcinoembryonic-antigen-\u2014--tests-cea",
     "title": "CEA (Carcinoembryonic Antigen) \u2014 /tests/cea: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book CEA (Carcinoembryonic Antigen) \u2014 /tests/cea at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book CEA (Carcinoembryonic Antigen) \u2014 /tests/cea at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CEA (Carcinoembryonic Antigen) \u2014 /tests/cea in Bangalore",
     "subtitle": "CEA (Carcinoembryonic Antigen) \u2014 /tests/cea is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -7106,7 +7106,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CEA (Carcinoembryonic Antigen) \u2014 /tests/cea.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7126,8 +7126,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "afp-alpha-fetoprotein-\u2014--tests-afp": {
     "slug": "afp-alpha-fetoprotein-\u2014--tests-afp",
     "title": "AFP (Alpha-Fetoprotein) \u2014 /tests/afp: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book AFP (Alpha-Fetoprotein) \u2014 /tests/afp at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book AFP (Alpha-Fetoprotein) \u2014 /tests/afp at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "AFP (Alpha-Fetoprotein) \u2014 /tests/afp in Bangalore",
     "subtitle": "AFP (Alpha-Fetoprotein) \u2014 /tests/afp is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -7144,7 +7144,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for AFP (Alpha-Fetoprotein) \u2014 /tests/afp.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7164,8 +7164,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "ca-19-9-\u2014--tests-ca-19-9": {
     "slug": "ca-19-9-\u2014--tests-ca-19-9",
     "title": "CA 19-9 \u2014 /tests/ca-19-9: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book CA 19-9 \u2014 /tests/ca-19-9 at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book CA 19-9 \u2014 /tests/ca-19-9 at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CA 19-9 \u2014 /tests/ca-19-9 in Bangalore",
     "subtitle": "CA 19-9 \u2014 /tests/ca-19-9 is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -7182,7 +7182,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CA 19-9 \u2014 /tests/ca-19-9.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7202,8 +7202,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "ca-15-3-\u2014--tests-ca-15-3": {
     "slug": "ca-15-3-\u2014--tests-ca-15-3",
     "title": "CA 15-3 \u2014 /tests/ca-15-3: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book CA 15-3 \u2014 /tests/ca-15-3 at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book CA 15-3 \u2014 /tests/ca-15-3 at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CA 15-3 \u2014 /tests/ca-15-3 in Bangalore",
     "subtitle": "CA 15-3 \u2014 /tests/ca-15-3 is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -7220,7 +7220,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CA 15-3 \u2014 /tests/ca-15-3.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7240,8 +7240,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "beta-hcg-as-a-tumour-marker-\u2014--tests-beta-hcg-tumour-marker": {
     "slug": "beta-hcg-as-a-tumour-marker-\u2014--tests-beta-hcg-tumour-marker",
     "title": "Beta-hCG as a Tumour Marker \u2014 /tests/beta-hcg-tumour-marker: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Beta-hCG as a Tumour Marker \u2014 /tests/beta-hcg-tumour-marker at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Beta-hCG as a Tumour Marker \u2014 /tests/beta-hcg-tumour-marker at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Beta-hCG as a Tumour Marker \u2014 /tests/beta-hcg-tumour-marker in Bangalore",
     "subtitle": "Beta-hCG as a Tumour Marker \u2014 /tests/beta-hcg-tumour-marker is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -7258,7 +7258,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Beta-hCG as a Tumour Marker \u2014 /tests/beta-hcg-tumour-marker.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7279,7 +7279,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "psa-test",
     "title": "PSA Test: Normal Range by Age and What High PSA Means | QXL",
     "metaDescription": "PSA normal range is below 4 ng/mL, with age-specific cut-offs. Learn what raises PSA besides cancer, how long to wait after cycling or ejaculation.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "PSA Test: Age-Specific Normal Range and What a Raised PSA Actually Means",
     "subtitle": "PSA is a protein made by the prostate gland and released into blood in larger amounts when the gland is enlarged, inflamed or malignant. The traditional cut-off is 4 ng/mL, though age-specific ranges are more useful. A raised PSA is far more often caused by benign enlargement or prostatitis than by cancer.",
     "price": "499",
@@ -7297,7 +7297,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for PSA (Prostate Specific Antigen).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7350,7 +7350,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "free-psa",
     "title": "Free PSA Ratio: Normal Range and When It Helps | QXL",
     "metaDescription": "A free PSA ratio above 25% is reassuring and below 10% raises concern for prostate cancer.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free PSA Ratio: Normal Range and How It Helps Decide About a Biopsy",
     "subtitle": "Free PSA measures the fraction of PSA not bound to proteins, reported as a percentage of total PSA. It is most useful when total PSA is in the 4\u201310 ng/mL grey zone: a ratio above 25% suggests benign enlargement, while a ratio below 10% substantially raises the probability of prostate cancer.",
     "price": "499",
@@ -7368,7 +7368,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Free PSA (Free-to-Total PSA Ratio).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7421,7 +7421,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ca-125",
     "title": "CA-125 Test: Normal Range and What High CA-125 Means | QXL",
     "metaDescription": "CA-125 normal range is below 35 U/mL. Learn why CA-125 is not a screening test for ovarian cancer, what else raises it.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CA-125: Normal Range, Causes of a High Result and Why It Is Not a Screening Test",
     "subtitle": "CA-125 is a glycoprotein shed by cells derived from the coelomic epithelium, including the ovary. Normal is below 35 U/mL. It is raised in ovarian cancer but also in endometriosis, fibroids, pelvic infection, menstruation, pregnancy, liver disease and any condition irritating the peritoneum \u2014 which is why it cannot be used to screen healthy women.",
     "price": "499",
@@ -7439,7 +7439,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CA-125.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7492,7 +7492,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "cea",
     "title": "CEA Test: Normal Range and What High CEA Means | QXL",
     "metaDescription": "CEA normal range is below 3 ng/mL in non-smokers and below 5 in smokers. Learn how CEA is used to monitor colorectal cancer, why smoking raises it.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CEA Test: Normal Range, Causes of High CEA and Its Role in Colorectal Cancer",
     "subtitle": "CEA is a glycoprotein produced by fetal gut tissue and re-expressed by several cancers, particularly colorectal. Normal is below 3 ng/mL in non-smokers and below 5 ng/mL in smokers. Its established role is monitoring treated colorectal cancer for recurrence \u2014 it is not a screening test and it is raised by many benign conditions.",
     "price": "499",
@@ -7510,7 +7510,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CEA (Carcinoembryonic Antigen).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7563,7 +7563,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "afp",
     "title": "AFP Test: Normal Range and What High AFP Means | QXL",
     "metaDescription": "AFP normal range is below 10 ng/mL in adults. Learn how AFP is used to screen for liver cancer in cirrhosis, its role in germ cell tumours.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "AFP Test: Normal Range, Liver Cancer Screening and Germ Cell Tumours",
     "subtitle": "Alpha-fetoprotein is a protein made by the fetal liver and yolk sac, largely switched off after birth. Normal in adults is below 10 ng/mL. It is used to screen for hepatocellular carcinoma in people with cirrhosis or chronic hepatitis B, and as a tumour marker in germ cell tumours of the testis and ovary.",
     "price": "499",
@@ -7581,7 +7581,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for AFP (Alpha-Fetoprotein).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7634,7 +7634,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ca-19-9",
     "title": "CA 19-9 Test: Normal Range and Pancreatic Cancer | QXL",
     "metaDescription": "CA 19-9 normal range is below 37 U/mL. Learn why bile duct obstruction raises it dramatically, why 5-10% of people cannot produce it at all.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CA 19-9: Normal Range, Causes of a High Result and Its Role in Pancreatic Cancer",
     "subtitle": "CA 19-9 is a carbohydrate antigen expressed by pancreatic, biliary and gastrointestinal epithelium. Normal is below 37 U/mL. Bile duct obstruction alone raises it dramatically without any cancer, and 5\u201310% of people genetically cannot produce it at all \u2014 two facts that dominate its interpretation.",
     "price": "499",
@@ -7652,7 +7652,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CA 19-9.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7705,7 +7705,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ca-15-3",
     "title": "CA 15-3 Test: Normal Range and Breast Cancer Monitoring",
     "metaDescription": "CA 15-3 normal range is below 30 U/mL. Learn why CA 15-3 is used to monitor metastatic breast cancer rather than to screen for it.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CA 15-3: Normal Range and Its Role in Monitoring Metastatic Breast Cancer",
     "subtitle": "CA 15-3 measures a circulating fragment of MUC1, a glycoprotein shed by breast epithelial cells. Normal is below 30 U/mL. Its established role is monitoring treatment response in metastatic breast cancer \u2014 it is not a screening test and is normal in most early breast cancers.",
     "price": "499",
@@ -7723,7 +7723,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CA 15-3.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7776,7 +7776,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "beta-hcg-tumour-marker",
     "title": "Beta hCG Tumour Marker: Germ Cell and Trophoblastic Disease",
     "metaDescription": "Beta hCG as a tumour marker is normally below 5 mIU/mL. Learn its role in testicular and ovarian germ cell tumours and gestational trophoblastic disease.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Beta hCG as a Tumour Marker: Germ Cell Tumours and Trophoblastic Disease",
     "subtitle": "Outside pregnancy, beta-hCG should be below 5 mIU/mL. A detectable level in a man or in a non-pregnant woman is abnormal and points to a germ cell tumour of the testis or ovary, or to gestational trophoblastic disease. It is central to staging, risk stratification and monitoring in these cancers.",
     "price": "499",
@@ -7794,7 +7794,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Beta-hCG as a Tumour Marker.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7846,8 +7846,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "troponin-high-sensitivity-cardiac-troponin-\u2014--tests-troponin-test": {
     "slug": "troponin-high-sensitivity-cardiac-troponin-\u2014--tests-troponin-test",
     "title": "Troponin (High-Sensitivity Cardiac Troponin) \u2014 /tests/troponin-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Troponin (High-Sensitivity Cardiac Troponin) \u2014 /tests/troponin-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Troponin (High-Sensitivity Cardiac Troponin) \u2014 /tests/troponin-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Troponin (High-Sensitivity Cardiac Troponin) \u2014 /tests/troponin-test in Bangalore",
     "subtitle": "Troponin (High-Sensitivity Cardiac Troponin) \u2014 /tests/troponin-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -7864,7 +7864,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Troponin (High-Sensitivity Cardiac Troponin) \u2014 /tests/troponin-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7884,8 +7884,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "nt-probnp-\u2014--tests-nt-probnp": {
     "slug": "nt-probnp-\u2014--tests-nt-probnp",
     "title": "NT-proBNP \u2014 /tests/nt-probnp: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book NT-proBNP \u2014 /tests/nt-probnp at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book NT-proBNP \u2014 /tests/nt-probnp at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "NT-proBNP \u2014 /tests/nt-probnp in Bangalore",
     "subtitle": "NT-proBNP \u2014 /tests/nt-probnp is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -7902,7 +7902,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for NT-proBNP \u2014 /tests/nt-probnp.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7922,8 +7922,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "ck-mb-creatine-kinase-mb-\u2014--tests-ck-mb": {
     "slug": "ck-mb-creatine-kinase-mb-\u2014--tests-ck-mb",
     "title": "CK-MB (Creatine Kinase-MB) \u2014 /tests/ck-mb: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book CK-MB (Creatine Kinase-MB) \u2014 /tests/ck-mb at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book CK-MB (Creatine Kinase-MB) \u2014 /tests/ck-mb at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CK-MB (Creatine Kinase-MB) \u2014 /tests/ck-mb in Bangalore",
     "subtitle": "CK-MB (Creatine Kinase-MB) \u2014 /tests/ck-mb is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -7940,7 +7940,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CK-MB (Creatine Kinase-MB) \u2014 /tests/ck-mb.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -7961,7 +7961,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "troponin-test",
     "title": "Troponin Test: Normal Range and What High Troponin Means",
     "metaDescription": "High-sensitivity troponin normal is below the 99th percentile, around 14\u201334 ng/L.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Troponin Test: Normal Range, Serial Testing and What a Raised Troponin Means",
     "subtitle": "Cardiac troponin is a protein released when heart muscle cells are damaged, and it is the definitive blood test for myocardial infarction. High-sensitivity assays report in ng/L with an upper limit around 14\u201334 ng/L depending on sex and method. A single value is rarely enough \u2014 the change between two timed samples is what makes the diagnosis.",
     "price": "499",
@@ -7979,7 +7979,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Troponin (High-Sensitivity Cardiac Troponin).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8032,7 +8032,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "nt-probnp",
     "title": "NT-proBNP Test: Normal Range and Heart Failure Diagnosis",
     "metaDescription": "NT-proBNP below 125 pg/mL makes heart failure unlikely in a non-acute setting. Learn the age-adjusted rule-in thresholds.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "NT-proBNP: Normal Range, Age-Adjusted Cut-offs and What a Raised Level Means",
     "subtitle": "NT-proBNP is released when heart muscle is stretched by pressure or volume overload, making it the key blood test for heart failure. Below 125 pg/mL makes heart failure unlikely in a non-acute setting. Its greatest strength is ruling heart failure out; ruling it in requires age-adjusted thresholds and an echocardiogram.",
     "price": "499",
@@ -8050,7 +8050,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for NT-proBNP.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8103,7 +8103,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "ck-mb",
     "title": "CK-MB Test: Normal Range and Its Role Alongside Troponin",
     "metaDescription": "CK-MB normal is below 5 ng/mL with a relative index under 2.5%. Learn why troponin has largely replaced CK-MB, and where CK-MB still has a role.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CK-MB: Normal Range, Relative Index and Where It Still Has a Role",
     "subtitle": "CK-MB is the cardiac-enriched isoenzyme of creatine kinase. Normal is below 5 ng/mL with a relative index below 2.5%. Troponin has largely replaced it for diagnosing heart attack, but CK-MB retains a specific role: because it clears within 48\u201372 hours, it can detect reinfarction while troponin is still raised from the first event.",
     "price": "499",
@@ -8121,7 +8121,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CK-MB (Creatine Kinase-MB).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8173,8 +8173,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "serum-protein-electrophoresis-spep-\u2014--tests-spep": {
     "slug": "serum-protein-electrophoresis-spep-\u2014--tests-spep",
     "title": "Serum Protein Electrophoresis (SPEP) \u2014 /tests/spep: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Serum Protein Electrophoresis (SPEP) \u2014 /tests/spep at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Serum Protein Electrophoresis (SPEP) \u2014 /tests/spep at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Serum Protein Electrophoresis (SPEP) \u2014 /tests/spep in Bangalore",
     "subtitle": "Serum Protein Electrophoresis (SPEP) \u2014 /tests/spep is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8191,7 +8191,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Serum Protein Electrophoresis (SPEP) \u2014 /tests/spep.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8211,8 +8211,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "immunofixation-electrophoresis-ife-\u2014--tests-immunofixation": {
     "slug": "immunofixation-electrophoresis-ife-\u2014--tests-immunofixation",
     "title": "Immunofixation Electrophoresis (IFE) \u2014 /tests/immunofixation: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Immunofixation Electrophoresis (IFE) \u2014 /tests/immunofixation at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Immunofixation Electrophoresis (IFE) \u2014 /tests/immunofixation at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Immunofixation Electrophoresis (IFE) \u2014 /tests/immunofixation in Bangalore",
     "subtitle": "Immunofixation Electrophoresis (IFE) \u2014 /tests/immunofixation is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8229,7 +8229,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Immunofixation Electrophoresis (IFE) \u2014 /tests/immunofixation.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8249,8 +8249,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "serum-free-light-chains-sflc-\u2014--tests-serum-free-light-chains": {
     "slug": "serum-free-light-chains-sflc-\u2014--tests-serum-free-light-chains",
     "title": "Serum Free Light Chains (sFLC) \u2014 /tests/serum-free-light-chains: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Serum Free Light Chains (sFLC) \u2014 /tests/serum-free-light-chains at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Serum Free Light Chains (sFLC) \u2014 /tests/serum-free-light-chains at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Serum Free Light Chains (sFLC) \u2014 /tests/serum-free-light-chains in Bangalore",
     "subtitle": "Serum Free Light Chains (sFLC) \u2014 /tests/serum-free-light-chains is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8267,7 +8267,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Serum Free Light Chains (sFLC) \u2014 /tests/serum-free-light-chains.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8287,8 +8287,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "urine-protein-electrophoresis-upep-\u2014--tests-urine-protein-electrophoresis": {
     "slug": "urine-protein-electrophoresis-upep-\u2014--tests-urine-protein-electrophoresis",
     "title": "Urine Protein Electrophoresis (UPEP) \u2014 /tests/urine-protein-electrophoresis: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Urine Protein Electrophoresis (UPEP) \u2014 /tests/urine-protein-electrophoresis at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Urine Protein Electrophoresis (UPEP) \u2014 /tests/urine-protein-electrophoresis at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Urine Protein Electrophoresis (UPEP) \u2014 /tests/urine-protein-electrophoresis in Bangalore",
     "subtitle": "Urine Protein Electrophoresis (UPEP) \u2014 /tests/urine-protein-electrophoresis is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8305,7 +8305,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Urine Protein Electrophoresis (UPEP) \u2014 /tests/urine-protein-electrophoresis.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8326,7 +8326,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "spep",
     "title": "Serum Protein Electrophoresis: M-Band and Myeloma | QXL",
     "metaDescription": "SPEP separates blood proteins into bands to detect a monoclonal M-band. Learn when SPEP is indicated, what an M-spike means.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Serum Protein Electrophoresis (SPEP): Detecting an M-Band and What It Means",
     "subtitle": "SPEP separates serum proteins into albumin and four globulin fractions by their electrical charge. Its purpose is to detect a monoclonal band \u2014 an M-band or M-spike \u2014 produced by a single abnormal plasma cell clone. Finding one raises the possibility of multiple myeloma, MGUS or a related disorder and always requires confirmatory testing.",
     "price": "499",
@@ -8344,7 +8344,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Serum Protein Electrophoresis (SPEP).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8397,7 +8397,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "immunofixation",
     "title": "Immunofixation Electrophoresis: Typing the M-Protein | QXL",
     "metaDescription": "Immunofixation identifies the heavy and light chain type of a monoclonal protein \u2014 IgG kappa, IgA lambda and so on.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Immunofixation Electrophoresis: Identifying Exactly Which Monoclonal Protein Is Present",
     "subtitle": "Immunofixation identifies the precise type of a monoclonal protein \u2014 which heavy chain (IgG, IgA, IgM, IgD, IgE) and which light chain (kappa or lambda). It is more sensitive than SPEP and can detect small monoclonal bands that electrophoresis misses. It types the protein but does not quantify it.",
     "price": "499",
@@ -8415,7 +8415,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Immunofixation Electrophoresis (IFE).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8468,7 +8468,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "serum-free-light-chains",
     "title": "Serum Free Light Chains: Kappa Lambda Ratio Normal Range",
     "metaDescription": "Serum free light chain kappa/lambda ratio normal range is 0.26\u20131.65. Learn why the ratio matters more than the absolute values.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Serum Free Light Chains: The Kappa/Lambda Ratio and Why It Matters More Than the Numbers",
     "subtitle": "Serum free light chains measure the kappa and lambda light chains circulating unattached to heavy chains. The kappa/lambda ratio, normally 0.26\u20131.65, is the key result \u2014 an abnormal ratio indicates a clonal plasma cell population even when both absolute values are within range. It detects light chain disease that SPEP misses entirely.",
     "price": "499",
@@ -8486,7 +8486,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Serum Free Light Chains (sFLC).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8539,7 +8539,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "urine-protein-electrophoresis",
     "title": "Urine Protein Electrophoresis: Bence Jones Protein | QXL",
     "metaDescription": "UPEP detects Bence Jones protein \u2014 monoclonal light chains in urine that a routine dipstick misses completely.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Urine Protein Electrophoresis (UPEP): Detecting Bence Jones Protein",
     "subtitle": "UPEP separates urinary proteins to detect a monoclonal band, and urine immunofixation types it. The monoclonal free light chains it detects \u2014 Bence Jones protein \u2014 are invisible to a routine urine dipstick, which only reacts to albumin. This is why a normal urine routine can coexist with heavy light chain proteinuria.",
     "price": "499",
@@ -8557,7 +8557,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Urine Protein Electrophoresis (UPEP).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8609,8 +8609,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "dengue-ns1-antigen-\u2014--tests-dengue-ns1-antigen": {
     "slug": "dengue-ns1-antigen-\u2014--tests-dengue-ns1-antigen",
     "title": "Dengue NS1 Antigen \u2014 /tests/dengue-ns1-antigen: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Dengue NS1 Antigen \u2014 /tests/dengue-ns1-antigen at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Dengue NS1 Antigen \u2014 /tests/dengue-ns1-antigen at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Dengue NS1 Antigen \u2014 /tests/dengue-ns1-antigen in Bangalore",
     "subtitle": "Dengue NS1 Antigen \u2014 /tests/dengue-ns1-antigen is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8627,7 +8627,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Dengue NS1 Antigen \u2014 /tests/dengue-ns1-antigen.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8647,8 +8647,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "dengue-igm-and-igg-antibodies-\u2014--tests-dengue-igm-igg": {
     "slug": "dengue-igm-and-igg-antibodies-\u2014--tests-dengue-igm-igg",
     "title": "Dengue IgM and IgG Antibodies \u2014 /tests/dengue-igm-igg: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Dengue IgM and IgG Antibodies \u2014 /tests/dengue-igm-igg at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Dengue IgM and IgG Antibodies \u2014 /tests/dengue-igm-igg at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Dengue IgM and IgG Antibodies \u2014 /tests/dengue-igm-igg in Bangalore",
     "subtitle": "Dengue IgM and IgG Antibodies \u2014 /tests/dengue-igm-igg is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8665,7 +8665,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Dengue IgM and IgG Antibodies \u2014 /tests/dengue-igm-igg.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8685,8 +8685,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "malaria-test-smear-and-rapid-antigen-\u2014--tests-malaria-test": {
     "slug": "malaria-test-smear-and-rapid-antigen-\u2014--tests-malaria-test",
     "title": "Malaria Test (Smear and Rapid Antigen) \u2014 /tests/malaria-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Malaria Test (Smear and Rapid Antigen) \u2014 /tests/malaria-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Malaria Test (Smear and Rapid Antigen) \u2014 /tests/malaria-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Malaria Test (Smear and Rapid Antigen) \u2014 /tests/malaria-test in Bangalore",
     "subtitle": "Malaria Test (Smear and Rapid Antigen) \u2014 /tests/malaria-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8703,7 +8703,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Malaria Test (Smear and Rapid Antigen) \u2014 /tests/malaria-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8723,8 +8723,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "typhoid-test-widal-typhidot-and-blood-culture-\u2014--tests-typhoid-test": {
     "slug": "typhoid-test-widal-typhidot-and-blood-culture-\u2014--tests-typhoid-test",
     "title": "Typhoid Test (Widal, Typhidot and Blood Culture) \u2014 /tests/typhoid-test: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Typhoid Test (Widal, Typhidot and Blood Culture) \u2014 /tests/typhoid-test at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Typhoid Test (Widal, Typhidot and Blood Culture) \u2014 /tests/typhoid-test at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Typhoid Test (Widal, Typhidot and Blood Culture) \u2014 /tests/typhoid-test in Bangalore",
     "subtitle": "Typhoid Test (Widal, Typhidot and Blood Culture) \u2014 /tests/typhoid-test is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8741,7 +8741,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Typhoid Test (Widal, Typhidot and Blood Culture) \u2014 /tests/typhoid-test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8761,8 +8761,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "hbsag-hepatitis-b-surface-antigen-\u2014--tests-hbsag": {
     "slug": "hbsag-hepatitis-b-surface-antigen-\u2014--tests-hbsag",
     "title": "HBsAg (Hepatitis B Surface Antigen) \u2014 /tests/hbsag: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book HBsAg (Hepatitis B Surface Antigen) \u2014 /tests/hbsag at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book HBsAg (Hepatitis B Surface Antigen) \u2014 /tests/hbsag at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HBsAg (Hepatitis B Surface Antigen) \u2014 /tests/hbsag in Bangalore",
     "subtitle": "HBsAg (Hepatitis B Surface Antigen) \u2014 /tests/hbsag is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8779,7 +8779,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for HBsAg (Hepatitis B Surface Antigen) \u2014 /tests/hbsag.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8799,8 +8799,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "anti-hcv-hepatitis-c-antibody-\u2014--tests-hcv": {
     "slug": "anti-hcv-hepatitis-c-antibody-\u2014--tests-hcv",
     "title": "Anti-HCV (Hepatitis C Antibody) \u2014 /tests/hcv: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Anti-HCV (Hepatitis C Antibody) \u2014 /tests/hcv at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Anti-HCV (Hepatitis C Antibody) \u2014 /tests/hcv at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-HCV (Hepatitis C Antibody) \u2014 /tests/hcv in Bangalore",
     "subtitle": "Anti-HCV (Hepatitis C Antibody) \u2014 /tests/hcv is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8817,7 +8817,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Anti-HCV (Hepatitis C Antibody) \u2014 /tests/hcv.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8837,8 +8837,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "hiv-screening-test-\u2014--tests-hiv-screening": {
     "slug": "hiv-screening-test-\u2014--tests-hiv-screening",
     "title": "HIV Screening Test \u2014 /tests/hiv-screening: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book HIV Screening Test \u2014 /tests/hiv-screening at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book HIV Screening Test \u2014 /tests/hiv-screening at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HIV Screening Test \u2014 /tests/hiv-screening in Bangalore",
     "subtitle": "HIV Screening Test \u2014 /tests/hiv-screening is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8855,7 +8855,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for HIV Screening Test \u2014 /tests/hiv-screening.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8875,8 +8875,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "h1n1-pcr-influenza-a-h1n1-\u2014--tests-h1n1-pcr": {
     "slug": "h1n1-pcr-influenza-a-h1n1-\u2014--tests-h1n1-pcr",
     "title": "H1N1 PCR (Influenza A H1N1) \u2014 /tests/h1n1-pcr: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book H1N1 PCR (Influenza A H1N1) \u2014 /tests/h1n1-pcr at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book H1N1 PCR (Influenza A H1N1) \u2014 /tests/h1n1-pcr at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "H1N1 PCR (Influenza A H1N1) \u2014 /tests/h1n1-pcr in Bangalore",
     "subtitle": "H1N1 PCR (Influenza A H1N1) \u2014 /tests/h1n1-pcr is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -8893,7 +8893,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for H1N1 PCR (Influenza A H1N1) \u2014 /tests/h1n1-pcr.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8914,7 +8914,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "dengue-ns1-antigen",
     "title": "Dengue NS1 Test: When to Do It and What Positive Means | QXL",
     "metaDescription": "Dengue NS1 antigen is positive from day 1 to day 7 of fever, earliest of all dengue tests.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Dengue NS1 Antigen: The Right Day to Test and How to Read the Result",
     "subtitle": "NS1 is a dengue viral protein detectable in blood from the first day of fever, making it the earliest dengue test available. It is most reliable between days 1 and 5 and becomes unreliable after day 7, when antibody tests take over. A negative NS1 late in the illness does not exclude dengue.",
     "price": "499",
@@ -8932,7 +8932,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Dengue NS1 Antigen.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -8985,7 +8985,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "dengue-igm-igg",
     "title": "Dengue IgM and IgG Test: When to Do It and What It Means",
     "metaDescription": "Dengue IgM becomes positive from day 5 of fever and IgG indicates past or secondary infection.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Dengue IgM and IgG: What Each Combination of Results Actually Means",
     "subtitle": "Dengue IgM appears from around day 5 of fever and indicates recent infection; IgG appears later in primary infection but rises rapidly and early in secondary infection. IgM positive with IgG negative suggests a first dengue infection; both positive suggests a secondary infection, which carries a higher risk of severe disease.",
     "price": "499",
@@ -9003,7 +9003,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Dengue IgM and IgG Antibodies.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9056,7 +9056,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "malaria-test",
     "title": "Malaria Test: Smear vs Rapid Antigen and When to Repeat",
     "metaDescription": "Malaria is diagnosed by microscopy or rapid antigen test. Learn why a single negative test does not exclude malaria, when to repeat, and how P.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Malaria Test: Smear, Rapid Antigen and Why One Negative Test Is Not Enough",
     "subtitle": "Malaria is diagnosed by examining a peripheral blood smear under the microscope or by a rapid antigen test. A single negative result does not exclude malaria \u2014 the smear should be repeated every 8 to 12 hours over 48 hours if fever continues and suspicion remains, ideally sampled during a fever spike.",
     "price": "499",
@@ -9074,7 +9074,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Malaria Test (Smear and Rapid Antigen).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9127,7 +9127,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "typhoid-test",
     "title": "Typhoid Test: Why Widal Is Unreliable and What to Do Instead",
     "metaDescription": "The Widal test is widely used in India but has poor accuracy. Learn why blood culture is the definitive typhoid test, when Typhidot helps.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Typhoid Testing: Why Widal Is Unreliable and What Actually Makes the Diagnosis",
     "subtitle": "Blood culture is the definitive test for typhoid and should be sent before antibiotics are started. The Widal test, though still widely used in India, has poor sensitivity and specificity \u2014 a single raised titre does not diagnose typhoid, and a normal titre does not exclude it. Typhidot IgM performs better but is not a substitute for culture.",
     "price": "499",
@@ -9145,7 +9145,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Typhoid Test (Widal, Typhidot and Blood Culture).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9198,7 +9198,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "hbsag",
     "title": "HBsAg Test: What Positive Means and Next Steps | QXL",
     "metaDescription": "A positive HBsAg means hepatitis B infection is present. Learn what tests follow, the difference between acute and chronic infection.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HBsAg Test: What a Positive Result Means and What Should Happen Next",
     "subtitle": "HBsAg is a protein on the surface of the hepatitis B virus, and its presence in blood means active infection. Normal is non-reactive. A positive result persisting beyond six months defines chronic hepatitis B, which requires monitoring for liver damage and liver cancer, and screening and vaccination of household contacts.",
     "price": "499",
@@ -9216,7 +9216,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for HBsAg (Hepatitis B Surface Antigen).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9269,7 +9269,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "hcv",
     "title": "Hepatitis C Test: What Anti-HCV Positive Means | QXL",
     "metaDescription": "Anti-HCV positive means exposure to hepatitis C, not necessarily current infection.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Hepatitis C Test: What Anti-HCV Positive Means and Why RNA Testing Follows",
     "subtitle": "Anti-HCV detects antibodies to the hepatitis C virus and indicates exposure at some point \u2014 not necessarily current infection. A positive result must always be followed by an HCV RNA test, because antibodies persist after the virus has cleared. Hepatitis C is now curable in over 95% of people with 8 to 12 weeks of oral treatment.",
     "price": "499",
@@ -9287,7 +9287,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Anti-HCV (Hepatitis C Antibody).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9340,7 +9340,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "hiv-screening",
     "title": "HIV Test: Window Period, Accuracy and Confidentiality | QXL",
     "metaDescription": "A fourth-generation HIV test detects infection from about 18\u201345 days after exposure.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HIV Screening: Window Period, What Reactive Means and Your Right to Confidentiality",
     "subtitle": "A fourth-generation HIV test detects both HIV antibodies and p24 antigen, making it reliable from about 18 to 45 days after exposure. A reactive screening result is not a diagnosis \u2014 it must be confirmed by a defined testing algorithm. In India, HIV testing legally requires informed consent, pre- and post-test counselling and strict confidentiality.",
     "price": "499",
@@ -9358,7 +9358,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for HIV Screening Test.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9411,7 +9411,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "h1n1-pcr",
     "title": "H1N1 PCR Test: When to Do It and What Positive Means | QXL",
     "metaDescription": "H1N1 RT-PCR on a throat and nasal swab is the definitive test for influenza A H1N1.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "H1N1 PCR: When to Test, How the Swab Is Taken and What a Positive Result Means",
     "subtitle": "H1N1 is diagnosed by RT-PCR on a combined throat and nasal swab, which detects influenza A and identifies the H1N1 subtype. Testing is most reliable within the first 3 to 4 days of symptoms. Antiviral treatment with oseltamivir works best when started within 48 hours, so testing should not delay treatment in a high-risk patient.",
     "price": "499",
@@ -9429,7 +9429,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for H1N1 PCR (Influenza A H1N1).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9481,8 +9481,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "aqp4---nmo-igg-antibody-\u2014--tests-aqp4-nmo-antibody": {
     "slug": "aqp4---nmo-igg-antibody-\u2014--tests-aqp4-nmo-antibody",
     "title": "AQP4 / NMO-IgG Antibody \u2014 /tests/aqp4-nmo-antibody: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book AQP4 / NMO-IgG Antibody \u2014 /tests/aqp4-nmo-antibody at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book AQP4 / NMO-IgG Antibody \u2014 /tests/aqp4-nmo-antibody at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "AQP4 / NMO-IgG Antibody \u2014 /tests/aqp4-nmo-antibody in Bangalore",
     "subtitle": "AQP4 / NMO-IgG Antibody \u2014 /tests/aqp4-nmo-antibody is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -9499,7 +9499,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for AQP4 / NMO-IgG Antibody \u2014 /tests/aqp4-nmo-antibody.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9519,8 +9519,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "mog-antibody-\u2014--tests-mog-antibody": {
     "slug": "mog-antibody-\u2014--tests-mog-antibody",
     "title": "MOG Antibody \u2014 /tests/mog-antibody: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book MOG Antibody \u2014 /tests/mog-antibody at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book MOG Antibody \u2014 /tests/mog-antibody at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "MOG Antibody \u2014 /tests/mog-antibody in Bangalore",
     "subtitle": "MOG Antibody \u2014 /tests/mog-antibody is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -9537,7 +9537,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for MOG Antibody \u2014 /tests/mog-antibody.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9557,8 +9557,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "anti-nmda-receptor-antibody-\u2014--tests-anti-nmda-receptor-antibody": {
     "slug": "anti-nmda-receptor-antibody-\u2014--tests-anti-nmda-receptor-antibody",
     "title": "Anti-NMDA Receptor Antibody \u2014 /tests/anti-nmda-receptor-antibody: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Anti-NMDA Receptor Antibody \u2014 /tests/anti-nmda-receptor-antibody at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Anti-NMDA Receptor Antibody \u2014 /tests/anti-nmda-receptor-antibody at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-NMDA Receptor Antibody \u2014 /tests/anti-nmda-receptor-antibody in Bangalore",
     "subtitle": "Anti-NMDA Receptor Antibody \u2014 /tests/anti-nmda-receptor-antibody is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -9575,7 +9575,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Anti-NMDA Receptor Antibody \u2014 /tests/anti-nmda-receptor-antibody.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9595,8 +9595,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "paraneoplastic-antibody-panel-\u2014--tests-paraneoplastic-panel": {
     "slug": "paraneoplastic-antibody-panel-\u2014--tests-paraneoplastic-panel",
     "title": "Paraneoplastic Antibody Panel \u2014 /tests/paraneoplastic-panel: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Paraneoplastic Antibody Panel \u2014 /tests/paraneoplastic-panel at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Paraneoplastic Antibody Panel \u2014 /tests/paraneoplastic-panel at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Paraneoplastic Antibody Panel \u2014 /tests/paraneoplastic-panel in Bangalore",
     "subtitle": "Paraneoplastic Antibody Panel \u2014 /tests/paraneoplastic-panel is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -9613,7 +9613,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Paraneoplastic Antibody Panel \u2014 /tests/paraneoplastic-panel.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9633,8 +9633,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "autoimmune-encephalitis-panel-\u2014--tests-autoimmune-encephalitis-panel": {
     "slug": "autoimmune-encephalitis-panel-\u2014--tests-autoimmune-encephalitis-panel",
     "title": "Autoimmune Encephalitis Panel \u2014 /tests/autoimmune-encephalitis-panel: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Autoimmune Encephalitis Panel \u2014 /tests/autoimmune-encephalitis-panel at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Autoimmune Encephalitis Panel \u2014 /tests/autoimmune-encephalitis-panel at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Autoimmune Encephalitis Panel \u2014 /tests/autoimmune-encephalitis-panel in Bangalore",
     "subtitle": "Autoimmune Encephalitis Panel \u2014 /tests/autoimmune-encephalitis-panel is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -9651,7 +9651,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Autoimmune Encephalitis Panel \u2014 /tests/autoimmune-encephalitis-panel.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9671,8 +9671,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "csf-oligoclonal-bands-\u2014--tests-oligoclonal-bands": {
     "slug": "csf-oligoclonal-bands-\u2014--tests-oligoclonal-bands",
     "title": "CSF Oligoclonal Bands \u2014 /tests/oligoclonal-bands: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book CSF Oligoclonal Bands \u2014 /tests/oligoclonal-bands at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book CSF Oligoclonal Bands \u2014 /tests/oligoclonal-bands at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CSF Oligoclonal Bands \u2014 /tests/oligoclonal-bands in Bangalore",
     "subtitle": "CSF Oligoclonal Bands \u2014 /tests/oligoclonal-bands is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -9689,7 +9689,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CSF Oligoclonal Bands \u2014 /tests/oligoclonal-bands.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9709,8 +9709,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "coeliac-profile-coeliac-serology-\u2014--tests-coeliac-profile": {
     "slug": "coeliac-profile-coeliac-serology-\u2014--tests-coeliac-profile",
     "title": "Coeliac Profile (Coeliac Serology) \u2014 /tests/coeliac-profile: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Coeliac Profile (Coeliac Serology) \u2014 /tests/coeliac-profile at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Coeliac Profile (Coeliac Serology) \u2014 /tests/coeliac-profile at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Coeliac Profile (Coeliac Serology) \u2014 /tests/coeliac-profile in Bangalore",
     "subtitle": "Coeliac Profile (Coeliac Serology) \u2014 /tests/coeliac-profile is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -9727,7 +9727,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Coeliac Profile (Coeliac Serology) \u2014 /tests/coeliac-profile.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9747,8 +9747,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "anti-tpo-thyroid-peroxidase-antibody-\u2014--tests-anti-tpo": {
     "slug": "anti-tpo-thyroid-peroxidase-antibody-\u2014--tests-anti-tpo",
     "title": "Anti-TPO (Thyroid Peroxidase Antibody) \u2014 /tests/anti-tpo: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Anti-TPO (Thyroid Peroxidase Antibody) \u2014 /tests/anti-tpo at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Anti-TPO (Thyroid Peroxidase Antibody) \u2014 /tests/anti-tpo at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-TPO (Thyroid Peroxidase Antibody) \u2014 /tests/anti-tpo in Bangalore",
     "subtitle": "Anti-TPO (Thyroid Peroxidase Antibody) \u2014 /tests/anti-tpo is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -9765,7 +9765,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Anti-TPO (Thyroid Peroxidase Antibody) \u2014 /tests/anti-tpo.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9785,8 +9785,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "thyroglobulin-antibody-anti-tg-\u2014--tests-thyroglobulin-antibody": {
     "slug": "thyroglobulin-antibody-anti-tg-\u2014--tests-thyroglobulin-antibody",
     "title": "Thyroglobulin Antibody (Anti-Tg) \u2014 /tests/thyroglobulin-antibody: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Thyroglobulin Antibody (Anti-Tg) \u2014 /tests/thyroglobulin-antibody at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Thyroglobulin Antibody (Anti-Tg) \u2014 /tests/thyroglobulin-antibody at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Thyroglobulin Antibody (Anti-Tg) \u2014 /tests/thyroglobulin-antibody in Bangalore",
     "subtitle": "Thyroglobulin Antibody (Anti-Tg) \u2014 /tests/thyroglobulin-antibody is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -9803,7 +9803,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Thyroglobulin Antibody (Anti-Tg) \u2014 /tests/thyroglobulin-antibody.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9823,8 +9823,8 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
   "flow-cytometry-immunophenotyping-\u2014--tests-flow-cytometry": {
     "slug": "flow-cytometry-immunophenotyping-\u2014--tests-flow-cytometry",
     "title": "Flow Cytometry (Immunophenotyping) \u2014 /tests/flow-cytometry: Normal Range, Price & Home Collection | QXL",
-    "metaDescription": "Book Flow Cytometry (Immunophenotyping) \u2014 /tests/flow-cytometry at QXL Diagnostics in Bangalore. NABL Certified lab with same-day reports.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Flow Cytometry (Immunophenotyping) \u2014 /tests/flow-cytometry at QXL Diagnostics in Bangalore. NABL Accredited lab with same-day reports.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Flow Cytometry (Immunophenotyping) \u2014 /tests/flow-cytometry in Bangalore",
     "subtitle": "Flow Cytometry (Immunophenotyping) \u2014 /tests/flow-cytometry is an essential diagnostic investigation performed at QXL Diagnostics.",
     "price": "499",
@@ -9841,7 +9841,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Flow Cytometry (Immunophenotyping) \u2014 /tests/flow-cytometry.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9862,7 +9862,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "aqp4-nmo-antibody",
     "title": "AQP4 (NMO-IgG) Antibody Test: Neuromyelitis Optica | QXL",
     "metaDescription": "AQP4 antibody is normally negative. A positive result confirms neuromyelitis optica spectrum disorder.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "AQP4 / NMO-IgG Antibody: Confirming Neuromyelitis Optica Spectrum Disorder",
     "subtitle": "AQP4 antibodies target aquaporin-4, a water channel on astrocytes, and are the defining marker of neuromyelitis optica spectrum disorder. Normal is negative. A positive result changes treatment fundamentally \u2014 several multiple sclerosis drugs make NMOSD dramatically worse, so distinguishing the two is urgent.",
     "price": "499",
@@ -9880,7 +9880,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for AQP4 / NMO-IgG Antibody.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -9933,7 +9933,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "mog-antibody",
     "title": "MOG Antibody Test: MOGAD Diagnosis and Interpretation | QXL",
     "metaDescription": "MOG antibody is normally negative. A positive result by cell-based assay indicates MOG antibody-associated disease, distinct from both multiple sclerosis.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "MOG Antibody: Diagnosing MOGAD and Why Titre and Method Both Matter",
     "subtitle": "MOG antibodies target myelin oligodendrocyte glycoprotein on the myelin surface and define MOG antibody-associated disease, a condition distinct from both multiple sclerosis and NMOSD. Normal is negative. Only a clearly positive result by cell-based assay is meaningful \u2014 low-titre positives are frequently false and cause real diagnostic confusion.",
     "price": "499",
@@ -9951,7 +9951,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for MOG Antibody.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -10004,7 +10004,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "anti-nmda-receptor-antibody",
     "title": "Anti-NMDA Receptor Antibody: Autoimmune Encephalitis | QXL",
     "metaDescription": "Anti-NMDA receptor antibody is normally negative. A positive result in CSF confirms anti-NMDAR encephalitis, a treatable cause of psychiatric symptoms.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-NMDA Receptor Antibody: Diagnosing a Treatable Cause of Psychosis and Seizures",
     "subtitle": "Anti-NMDA receptor antibodies cause a distinctive and treatable encephalitis that typically begins with psychiatric symptoms and progresses to seizures, movement disorders and reduced consciousness. Normal is negative. Testing must include cerebrospinal fluid, which is more sensitive and more specific than serum for this antibody.",
     "price": "499",
@@ -10022,7 +10022,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Anti-NMDA Receptor Antibody.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -10075,7 +10075,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "paraneoplastic-panel",
     "title": "Paraneoplastic Antibody Panel: Onconeural Antibodies | QXL",
     "metaDescription": "The paraneoplastic panel detects onconeural antibodies such as anti-Hu, anti-Yo and anti-Ri, which signal an underlying cancer.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Paraneoplastic Antibody Panel: Which Antibody Points to Which Cancer",
     "subtitle": "The paraneoplastic panel detects onconeural antibodies produced when the immune system attacks a tumour and cross-reacts with nervous tissue. A positive result is highly specific for an underlying cancer \u2014 often one not yet found \u2014 and should trigger a systematic tumour search, since the neurological syndrome frequently precedes the cancer diagnosis.",
     "price": "499",
@@ -10093,7 +10093,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Paraneoplastic Antibody Panel.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -10146,7 +10146,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "autoimmune-encephalitis-panel",
     "title": "Autoimmune Encephalitis Panel: Antibodies and Interpretation",
     "metaDescription": "The autoimmune encephalitis panel detects neuronal surface antibodies including NMDAR, LGI1, CASPR2, GABA-B and AMPA.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Autoimmune Encephalitis Panel: Which Antibody Causes Which Syndrome",
     "subtitle": "The autoimmune encephalitis panel detects antibodies against neuronal cell-surface proteins \u2014 NMDAR, LGI1, CASPR2, GABA-B, AMPA, DPPX and others. Unlike paraneoplastic onconeural antibodies, these cause reversible dysfunction and respond well to immunotherapy, making early diagnosis genuinely urgent.",
     "price": "499",
@@ -10164,7 +10164,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Autoimmune Encephalitis Panel.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -10217,7 +10217,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "oligoclonal-bands",
     "title": "CSF Oligoclonal Bands: Multiple Sclerosis Diagnosis | QXL",
     "metaDescription": "Oligoclonal bands present in CSF but not serum indicate intrathecal antibody production, supporting multiple sclerosis.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CSF Oligoclonal Bands: What Each Pattern Means and Why Paired Samples Are Essential",
     "subtitle": "Oligoclonal bands are discrete immunoglobulin bands seen on electrophoresis of cerebrospinal fluid. Bands present in CSF but absent in a simultaneously collected serum sample indicate antibody production inside the central nervous system, which supports multiple sclerosis. Testing CSF alone, without paired serum, is uninterpretable.",
     "price": "499",
@@ -10235,7 +10235,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for CSF Oligoclonal Bands.",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -10288,7 +10288,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "coeliac-profile",
     "title": "Coeliac Profile: tTG-IgA Test and Gluten Rules | QXL",
     "metaDescription": "Coeliac serology uses tTG-IgA with a total IgA. Learn why you must keep eating gluten before testing and what a positive result means.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Coeliac Profile: tTG-IgA Testing and Why You Must Keep Eating Gluten",
     "subtitle": "Coeliac serology is based on anti-tissue transglutaminase IgA, measured together with a total IgA to exclude deficiency. Normal is below the assay cut-off. The single most important preparation is that you must continue eating gluten before and during testing \u2014 a gluten-free diet makes the antibodies disappear and the test uninterpretable.",
     "price": "499",
@@ -10306,7 +10306,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Coeliac Profile (Coeliac Serology).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -10359,7 +10359,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "anti-tpo",
     "title": "Anti-TPO Test: Normal Range and Hashimoto's Thyroiditis",
     "metaDescription": "Anti-TPO normal is below 35 IU/mL. Learn why a positive anti-TPO confirms autoimmune thyroid disease, what it means in subclinical hypothyroidism.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-TPO Antibody: Normal Range and What a Positive Result Means for Your Thyroid",
     "subtitle": "Anti-TPO antibodies target thyroid peroxidase, the enzyme that makes thyroid hormone. Normal is below 35 IU/mL. A positive anti-TPO confirms autoimmune thyroid disease \u2014 Hashimoto's thyroiditis \u2014 and predicts future hypothyroidism even when thyroid function is currently normal.",
     "price": "499",
@@ -10377,7 +10377,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Anti-TPO (Thyroid Peroxidase Antibody).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -10430,7 +10430,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "thyroglobulin-antibody",
     "title": "Thyroglobulin Antibody Test: Normal Range and Uses | QXL",
     "metaDescription": "Thyroglobulin antibody normal is below 40 IU/mL. Learn why it must be measured alongside thyroglobulin in thyroid cancer follow-up.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Thyroglobulin Antibody: Its Two Very Different Roles in Thyroid Disease",
     "subtitle": "Thyroglobulin antibodies target thyroglobulin, the protein the thyroid uses to store hormone. Normal is below 40 IU/mL. It has two distinct uses: as a secondary marker of autoimmune thyroid disease, and \u2014 far more importantly \u2014 as an essential accompaniment to thyroglobulin measurement in thyroid cancer follow-up, where it invalidates the result.",
     "price": "499",
@@ -10448,7 +10448,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Thyroglobulin Antibody (Anti-Tg).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [
@@ -10501,7 +10501,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "slug": "flow-cytometry",
     "title": "Flow Cytometry Immunophenotyping: Leukaemia and Lymphoma",
     "metaDescription": "Flow cytometry identifies cell populations by their surface markers, classifying leukaemia and lymphoma, detecting minimal residual disease.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Flow Cytometry Immunophenotyping: What It Identifies and When It Is Needed",
     "subtitle": "Flow cytometry passes cells one by one through a laser and identifies them by the antigens on their surface, labelled with fluorescent antibodies. It classifies leukaemias and lymphomas precisely, detects minimal residual disease at very low levels, diagnoses PNH, and assesses immunodeficiency \u2014 answering questions no morphological examination can.",
     "price": "499",
@@ -10519,7 +10519,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     ],
     "whyImportant": [
       "Evaluates key clinical parameters for Flow Cytometry (Immunophenotyping).",
-      "Conducted at NABL Certified super speciality laboratory (MC-10025).",
+      "Conducted at NABL Accredited super speciality laboratory (MC-10025).",
       "Digital PDF report delivered directly to your WhatsApp & Email."
     ],
     "faqs": [

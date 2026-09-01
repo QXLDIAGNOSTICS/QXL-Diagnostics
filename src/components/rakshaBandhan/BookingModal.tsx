@@ -68,7 +68,7 @@ export default function BookingModal({
           
           <h3 className="text-xl font-bold text-white">Book Your Health Checkup</h3>
           <p className="text-sm text-cyan-100 mt-1">
-            NABL Certified Lab • Free Home Sample Collection Across Bengaluru
+            NABL Accredited Lab • Free Home Sample Collection Across Bengaluru
           </p>
         </div>
 
@@ -256,7 +256,7 @@ export default function BookingModal({
 
               <div className="flex items-center justify-center gap-2 text-xs text-slate-400 pt-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
-                <span>NABL Certified Lab ({RAKSHA_CAMPAIGN_CONFIG.nablCertNumber}) • 100% Secure</span>
+                <span>NABL Accredited Lab ({RAKSHA_CAMPAIGN_CONFIG.nablCertNumber}) • 100% Secure</span>
               </div>
             </form>
           )}

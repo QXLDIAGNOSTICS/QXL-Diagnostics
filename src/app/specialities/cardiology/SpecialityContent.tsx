@@ -119,7 +119,7 @@ export default function CardiologyPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Laboratory", desc: "Accredited testing with ISO 15189 quality standards ensuring every result is reliable." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited Laboratory", desc: "Accredited testing with ISO 15189 quality standards ensuring every result is reliable." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Expert-Reviewed Reports", desc: "Consultant biochemists and pathologists review critical and super speciality panels." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "AI-Assisted Diagnostics", desc: "AI-powered result flagging and pattern recognition for faster clinical decisions." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Free Home Collection", desc: "Trained phlebotomy specialists visit your home across Bengaluru at your preferred time." },

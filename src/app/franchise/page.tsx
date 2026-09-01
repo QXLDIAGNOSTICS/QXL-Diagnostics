@@ -14,7 +14,7 @@ const partnerSlides = [
     titleAccent: "Collaborate with us",
     subtitle: "Join as a partner of",
     subtitleAccent: "India's Leading Diagnostics Chain",
-    description: "Join the QXL Diagnostics network. NABL Certified Labs with a High Return on Investment. Full training, brand support, and dedicated relationship managers.",
+    description: "Join the QXL Diagnostics network. NABL Accredited Labs with a High Return on Investment. Full training, brand support, and dedicated relationship managers.",
     cta: "Explore Options",
     ctaLink: "#enquire",
     ctaSecondary: "View Models",
@@ -22,7 +22,7 @@ const partnerSlides = [
     image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150198/Assets-QXL/legacy-assets/image/franchise_partner_indian.jpg",
     bgFrom: "#f0f9ff",
     bgTo: "#e0f2fe",
-    features: ["NABL Certified", "High ROI", "Full Training", "Brand Trust"],
+    features: ["NABL Accredited", "High ROI", "Full Training", "Brand Trust"],
   },
   {
     badge: "FRANCHISE OPPORTUNITY",

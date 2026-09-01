@@ -26,7 +26,7 @@ export default function HomepageSeoContent() {
         <div className="prose prose-slate max-w-none text-[14px] leading-relaxed text-slate-700 space-y-4">
           <p>
             <strong>QXL Diagnostics</strong> (Qualitify Healthtech Pvt Ltd) is a{" "}
-            <strong>NABL Certified ({NABL_CERTIFICATE})</strong> and{" "}
+            <strong>NABL Accredited ({NABL_CERTIFICATE})</strong> and{" "}
             <strong>{ISO_STANDARD}</strong> super speciality medical laboratory serving Bengaluru
             from <strong>Kengeri (Mysore Road)</strong> and <strong>Yelahanka</strong>. Patients
             search for a trustworthy pathology lab for CBC, thyroid (TSH/T3/T4), HbA1c, lipid

@@ -4,7 +4,7 @@ import { cbcTest } from "@/lib/seoPages/data/cbcTest";
 
 export const metadata: Metadata = {
   title: "CBC Test in Bangalore | Complete Blood Count | QXL Diagnostics",
-  description: "Book a CBC test in Bangalore — anaemia, infection & immunity screening. No fasting needed, free home collection, same-day NABL Certified report.",
+  description: "Book a CBC test in Bangalore — anaemia, infection & immunity screening. No fasting needed, free home collection, same-day NABL Accredited report.",
   alternates: {
     canonical: "https://qxldiagnostics.com/cbc-test",
   },

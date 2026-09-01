@@ -11,11 +11,11 @@ export const fullBodyCheckupBangalore: SeoLandingData = {
     "A complete preventive health screening at QXL Diagnostics Bengaluru — blood counts, diabetes markers, cholesterol, liver, kidney, thyroid and vitamins in one booking, collected at your home and reported under specialist review.",
   aiOverviewTitle: "What does a full body checkup include?",
   aiOverview:
-    "A full body checkup at QXL Diagnostics Bangalore typically covers CBC, blood sugar, HbA1c, lipid profile, liver function test, kidney function test, thyroid profile (TSH/FT3/FT4), urine routine analysis, plus vitamin D and B12 in comprehensive variants. Samples are collected free at home anywhere in Bengaluru and tested at our NABL Certified laboratory with same-day reporting for most parameters.",
+    "A full body checkup at QXL Diagnostics Bangalore typically covers CBC, blood sugar, HbA1c, lipid profile, liver function test, kidney function test, thyroid profile (TSH/FT3/FT4), urine routine analysis, plus vitamin D and B12 in comprehensive variants. Samples are collected free at home anywhere in Bengaluru and tested at our NABL Accredited laboratory with same-day reporting for most parameters.",
   aiOverviewPoints: [
     "70+ Parameters in Comprehensive Panels",
     "Free Home Collection Across Bengaluru",
-    "NABL Certified Laboratory (MC-10025)",
+    "NABL Accredited Laboratory (MC-10025)",
     "Specialist-Reviewed Digital Reports",
   ],
   highlights: [
@@ -113,7 +113,7 @@ export const fullBodyCheckupBangalore: SeoLandingData = {
     },
     {
       title: "Lab Analysis",
-      desc: "Samples run through our NABL Certified workflow across biochemistry, haematology and immunoassay platforms.",
+      desc: "Samples run through our NABL Accredited workflow across biochemistry, haematology and immunoassay platforms.",
     },
     {
       title: "Understand Your Health",

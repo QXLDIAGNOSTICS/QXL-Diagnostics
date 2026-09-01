@@ -189,11 +189,11 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
     },
     {
       question: "Where is QXL Diagnostics located?",
-      answer: "QXL Diagnostics is a premier NABL Certified Laboratory based in Bengaluru, Karnataka, with hub centers in Kengeri (Mysore Road) and Yelahanka, along with full home collection coverage across all major Bengaluru localities.",
+      answer: "QXL Diagnostics is a premier NABL Accredited Laboratory based in Bengaluru, Karnataka, with hub centers in Kengeri (Mysore Road) and Yelahanka, along with full home collection coverage across all major Bengaluru localities.",
     },
     {
       question: "How do I receive my report?",
-      answer: "Your test reports will be processed at our NABL Certified central laboratory (MC-10025) and sent directly to your registered WhatsApp and email within 6 to 12 hours. Hard copies can also be provided upon request.",
+      answer: "Your test reports will be processed at our NABL Accredited central laboratory (MC-10025) and sent directly to your registered WhatsApp and email within 6 to 12 hours. Hard copies can also be provided upon request.",
     },
     {
       question: "How long is the ₹800 offer valid?",

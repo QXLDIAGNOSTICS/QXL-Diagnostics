@@ -25,7 +25,7 @@ export default function OncologyPage() {
             <span className="inline-block bg-[#2563eb] text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">Oncology</span>
             <h1 className="text-3xl md:text-5xl font-extrabold mb-4 text-[#0c4a6e] leading-tight">Advanced Tumor Marker &amp; Cancer Risk Assays in Bengaluru</h1>
             <p className="text-slate-700 text-base md:text-lg mb-8 leading-relaxed font-medium">
-              Highly sensitive screening markers, ovarian malignancy indexes (ROMA), and post-therapy surveillance testing reviewed by consultant pathologists.
+              Tumor marker assays, risk evaluation indexes (ROMA), and post-therapy surveillance testing reviewed by consultant pathologists.
             </p>
             <div className="flex flex-wrap gap-3">
               <a href="#test-profiles" className="bg-[#2563eb] text-white font-extrabold px-6 py-3 rounded-full hover:bg-[#1d4ed8] transition-all text-sm shadow-md">View Test Profiles</a>
@@ -56,7 +56,7 @@ export default function OncologyPage() {
             {/* Intro */}
             <section>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Early detection and rigorous surveillance are vital components of modern oncology care. QXL Diagnostics provides NABL Certified tumor marker testing, employing advanced chemiluminescent immunoassay (CLIA) platforms to ensure highly reproducible quantitative results.
+                Early detection and rigorous surveillance are vital components of modern oncology care. QXL Diagnostics provides NABL Accredited tumor marker testing, employing advanced chemiluminescent immunoassay (CLIA) platforms to ensure highly reproducible quantitative results.
               </p>
             </section>
 
@@ -131,7 +131,7 @@ export default function OncologyPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Lab", desc: "Meets international standards for diagnostic testing and quality assurance." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited Lab", desc: "Meets international standards for diagnostic testing and quality assurance." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "High-Sensitivity Assays", desc: "Using advanced chemiluminescence platforms for precise result quantification." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Consultant-Reviewed Reports", desc: "Expert biochemists and pathologists verify every critical tumor marker profile." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Collection Service", desc: "Safe, sterile home collections across Bengaluru by trained phlebotomy specialists." }

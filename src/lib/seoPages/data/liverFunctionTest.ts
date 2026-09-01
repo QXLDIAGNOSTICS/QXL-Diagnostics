@@ -12,7 +12,7 @@ export const liverFunctionTest: SeoLandingData = {
     "Your liver silently filters, digests and detoxifies — until it can't. A Liver Function Test at QXL Diagnostics measures enzymes, bilirubin and proteins to catch fatty liver, hepatitis and drug effects early. Home collection across Bengaluru.",
   aiOverviewTitle: "What does an LFT include?",
   aiOverview:
-    "A Liver Function Test at QXL Diagnostics measures SGPT (ALT), SGOT (AST), ALP, GGT, total and direct bilirubin, plus total protein, albumin and globulin with A/G ratio. It screens fatty liver disease, alcohol-related injury, viral hepatitis, jaundice and medication effects — processed at our NABL Certified Bengaluru laboratory with same-day reports.",
+    "A Liver Function Test at QXL Diagnostics measures SGPT (ALT), SGOT (AST), ALP, GGT, total and direct bilirubin, plus total protein, albumin and globulin with A/G ratio. It screens fatty liver disease, alcohol-related injury, viral hepatitis, jaundice and medication effects — processed at our NABL Accredited Bengaluru laboratory with same-day reports.",
   aiOverviewPoints: [
     "Enzymes + Bilirubin + Proteins",
     "Fatty Liver & Hepatitis Screening",

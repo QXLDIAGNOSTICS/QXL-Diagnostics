@@ -110,7 +110,7 @@ export default function TestsPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Diagnostic Tests Directory — QXL Diagnostics Bengaluru",
-    "description": "Complete list of NABL Certified diagnostic blood tests, hormone panels, and advanced reference assays available at QXL Diagnostics Bengaluru.",
+    "description": "Complete list of NABL Accredited diagnostic blood tests, hormone panels, and advanced reference assays available at QXL Diagnostics Bengaluru.",
     "numberOfItems": filteredTests.length,
     "itemListElement": filteredTests.slice(0, 30).map((t, idx) => ({
       "@type": "ListItem",

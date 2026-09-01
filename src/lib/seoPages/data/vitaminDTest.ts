@@ -12,7 +12,7 @@ export const vitaminDTest: SeoLandingData = {
     "Despite year-round sunshine, most urban Indians are vitamin D deficient — desk jobs, sunscreen and indoor living see to that. The 25-OH Vitamin D blood test at QXL Diagnostics measures your true status, with home collection across Bengaluru.",
   aiOverviewTitle: "What does the vitamin D test measure?",
   aiOverview:
-    "The test measures serum 25-hydroxyvitamin D (25-OH D), the stable storage form reflecting your real vitamin D status. Levels below 20 ng/mL indicate deficiency, 20–30 ng/mL insufficiency, and above 30 ng/mL sufficiency for bone health. QXL Diagnostics tests on calibrated immunoassay platforms at its NABL Certified Bengaluru laboratory with free home collection.",
+    "The test measures serum 25-hydroxyvitamin D (25-OH D), the stable storage form reflecting your real vitamin D status. Levels below 20 ng/mL indicate deficiency, 20–30 ng/mL insufficiency, and above 30 ng/mL sufficiency for bone health. QXL Diagnostics tests on calibrated immunoassay platforms at its NABL Accredited Bengaluru laboratory with free home collection.",
   aiOverviewPoints: [
     "Gold-Standard 25-OH D Assay",
     "No Fasting Required",

@@ -4,10 +4,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "complete-blood-count": {
     "slug": "complete-blood-count",
     "title": "Complete Blood Count Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Complete Blood Count (CBC) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9350. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Complete Blood Count (CBC) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9350. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Complete Blood Count (CBC) in Bangalore",
-    "subtitle": "Complete Blood Count evaluates 24 parameters (rbc, wbc, differential, platelets, indices) with NABL-certified precision. No fasting required.",
+    "subtitle": "Complete Blood Count evaluates 24 parameters (rbc, wbc, differential, platelets, indices) with NABL Accredited precision. No fasting required.",
     "price": "350",
     "oldPrice": "500",
     "discountPercent": "30% OFF",
@@ -17,13 +17,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Haematology",
     "overview": [
-      "Complete Blood Count (CBC) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Complete Blood Count (CBC) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures 24 parameters (rbc, wbc, differential, platelets, indices) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Complete Blood Count.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -56,10 +56,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "hemoglobin": {
     "slug": "hemoglobin",
     "title": "Hemoglobin Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Hemoglobin (Hb) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Hemoglobin (Hb) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Hemoglobin (Hb) in Bangalore",
-    "subtitle": "Hemoglobin evaluates haemoglobin concentration & hematocrit with NABL-certified precision. No fasting required.",
+    "subtitle": "Hemoglobin evaluates haemoglobin concentration & hematocrit with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -69,13 +69,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Haematology",
     "overview": [
-      "Hemoglobin (Hb) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Hemoglobin (Hb) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures haemoglobin concentration & hematocrit to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Hemoglobin.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -108,10 +108,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "erythrocyte-sedimentation-rate": {
     "slug": "erythrocyte-sedimentation-rate",
     "title": "Erythrocyte Sedimentation Rate Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Erythrocyte Sedimentation Rate (ESR) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Erythrocyte Sedimentation Rate (ESR) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Erythrocyte Sedimentation Rate (ESR) in Bangalore",
-    "subtitle": "Erythrocyte Sedimentation Rate evaluates erythrocyte sedimentation rate with NABL-certified precision. No fasting required.",
+    "subtitle": "Erythrocyte Sedimentation Rate evaluates erythrocyte sedimentation rate with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -121,13 +121,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Haematology",
     "overview": [
-      "Erythrocyte Sedimentation Rate (ESR) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Erythrocyte Sedimentation Rate (ESR) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures erythrocyte sedimentation rate to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Erythrocyte Sedimentation Rate.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -160,10 +160,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "blood-group-rh-typing": {
     "slug": "blood-group-rh-typing",
     "title": "Blood Group & Rh Typing Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Blood Group & Rh Typing (ABO Rh) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9250. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Blood Group & Rh Typing (ABO Rh) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9250. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Blood Group & Rh Typing (ABO Rh) in Bangalore",
-    "subtitle": "Blood Group & Rh Typing evaluates abo blood grouping & rh factor determination with NABL-certified precision. No fasting required.",
+    "subtitle": "Blood Group & Rh Typing evaluates abo blood grouping & rh factor determination with NABL Accredited precision. No fasting required.",
     "price": "250",
     "oldPrice": "400",
     "discountPercent": "37% OFF",
@@ -173,13 +173,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (2\u20134 Hours)",
     "category": "Haematology",
     "overview": [
-      "Blood Group & Rh Typing (ABO Rh) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Blood Group & Rh Typing (ABO Rh) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures abo blood grouping & rh factor determination to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Blood Group & Rh Typing.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -212,10 +212,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "peripheral-blood-smear": {
     "slug": "peripheral-blood-smear",
     "title": "Peripheral Blood Smear Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Peripheral Blood Smear (PBS) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9350. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Peripheral Blood Smear (PBS) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9350. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Peripheral Blood Smear (PBS) in Bangalore",
-    "subtitle": "Peripheral Blood Smear evaluates cellular morphology, atypia & parasite screening with NABL-certified precision. No fasting required.",
+    "subtitle": "Peripheral Blood Smear evaluates cellular morphology, atypia & parasite screening with NABL Accredited precision. No fasting required.",
     "price": "350",
     "oldPrice": "500",
     "discountPercent": "30% OFF",
@@ -225,13 +225,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Haematology",
     "overview": [
-      "Peripheral Blood Smear (PBS) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Peripheral Blood Smear (PBS) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures cellular morphology, atypia & parasite screening to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Peripheral Blood Smear.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -264,10 +264,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "reticulocyte-count": {
     "slug": "reticulocyte-count",
     "title": "Reticulocyte Count Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Reticulocyte Count (Retic) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9400. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Reticulocyte Count (Retic) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9400. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Reticulocyte Count (Retic) in Bangalore",
-    "subtitle": "Reticulocyte Count evaluates reticulocyte percentage & absolute count with NABL-certified precision. No fasting required.",
+    "subtitle": "Reticulocyte Count evaluates reticulocyte percentage & absolute count with NABL Accredited precision. No fasting required.",
     "price": "400",
     "oldPrice": "600",
     "discountPercent": "33% OFF",
@@ -277,13 +277,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Haematology",
     "overview": [
-      "Reticulocyte Count (Retic) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Reticulocyte Count (Retic) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures reticulocyte percentage & absolute count to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Reticulocyte Count.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -316,10 +316,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "iron-profile": {
     "slug": "iron-profile",
     "title": "Iron Profile Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Iron Profile (Fe Panel) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9900. 10\u201312 hours fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Iron Profile (Fe Panel) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9900. 10\u201312 hours fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Iron Profile (Fe Panel) in Bangalore",
-    "subtitle": "Iron Profile evaluates serum iron, tibc, uibc & % transferrin saturation with NABL-certified precision. 10\u201312 hours fasting required.",
+    "subtitle": "Iron Profile evaluates serum iron, tibc, uibc & % transferrin saturation with NABL Accredited precision. 10\u201312 hours fasting required.",
     "price": "900",
     "oldPrice": "1400",
     "discountPercent": "35% OFF",
@@ -329,13 +329,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Iron Profile (Fe Panel) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Iron Profile (Fe Panel) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum iron, tibc, uibc & % transferrin saturation to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Iron Profile.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -368,10 +368,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "ferritin": {
     "slug": "ferritin",
     "title": "Ferritin Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Ferritin (Serum Ferritin) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9600. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Ferritin (Serum Ferritin) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9600. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Ferritin (Serum Ferritin) in Bangalore",
-    "subtitle": "Ferritin evaluates serum ferritin concentration with NABL-certified precision. No fasting required.",
+    "subtitle": "Ferritin evaluates serum ferritin concentration with NABL Accredited precision. No fasting required.",
     "price": "600",
     "oldPrice": "900",
     "discountPercent": "33% OFF",
@@ -381,13 +381,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Ferritin (Serum Ferritin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Ferritin (Serum Ferritin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum ferritin concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Ferritin.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -420,10 +420,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "vitamin-b12": {
     "slug": "vitamin-b12",
     "title": "Vitamin B12 Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Vitamin B12 (Cobalamin) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9890. 6\u20138 hours fasting recommended.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Vitamin B12 (Cobalamin) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9890. 6\u20138 hours fasting recommended.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Vitamin B12 (Cobalamin) in Bangalore",
-    "subtitle": "Vitamin B12 evaluates serum b12 (cobalamin) with NABL-certified precision. 6\u20138 hours fasting recommended.",
+    "subtitle": "Vitamin B12 evaluates serum b12 (cobalamin) with NABL Accredited precision. 6\u20138 hours fasting recommended.",
     "price": "890",
     "oldPrice": "1300",
     "discountPercent": "31% OFF",
@@ -433,13 +433,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Vitamin B12 (Cobalamin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Vitamin B12 (Cobalamin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum b12 (cobalamin) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Vitamin B12.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -472,10 +472,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "folate": {
     "slug": "folate",
     "title": "Folate Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Folate (Folic Acid) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9800. 8 hours fasting recommended.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Folate (Folic Acid) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9800. 8 hours fasting recommended.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Folate (Folic Acid) in Bangalore",
-    "subtitle": "Folate evaluates serum folate concentration with NABL-certified precision. 8 hours fasting recommended.",
+    "subtitle": "Folate evaluates serum folate concentration with NABL Accredited precision. 8 hours fasting recommended.",
     "price": "800",
     "oldPrice": "1200",
     "discountPercent": "33% OFF",
@@ -485,13 +485,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Folate (Folic Acid) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Folate (Folic Acid) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum folate concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Folate.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -524,10 +524,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "hba1c": {
     "slug": "hba1c",
     "title": "HbA1c Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book HbA1c (Glycated Hb) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9350. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book HbA1c (Glycated Hb) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9350. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HbA1c (Glycated Hb) in Bangalore",
-    "subtitle": "HbA1c evaluates hba1c percentage & estimated average glucose (eag) with NABL-certified precision. No fasting required.",
+    "subtitle": "HbA1c evaluates hba1c percentage & estimated average glucose (eag) with NABL Accredited precision. No fasting required.",
     "price": "350",
     "oldPrice": "500",
     "discountPercent": "30% OFF",
@@ -537,13 +537,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Diabetes Diagnostics",
     "overview": [
-      "HbA1c (Glycated Hb) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "HbA1c (Glycated Hb) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures hba1c percentage & estimated average glucose (eag) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for HbA1c.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -576,10 +576,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "fasting-blood-sugar": {
     "slug": "fasting-blood-sugar",
     "title": "Fasting Blood Sugar Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Fasting Blood Sugar (FBS) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9150. 8\u201310 hours strict overnight fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Fasting Blood Sugar (FBS) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9150. 8\u201310 hours strict overnight fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Fasting Blood Sugar (FBS) in Bangalore",
-    "subtitle": "Fasting Blood Sugar evaluates fasting plasma glucose with NABL-certified precision. 8\u201310 hours strict overnight fasting required.",
+    "subtitle": "Fasting Blood Sugar evaluates fasting plasma glucose with NABL Accredited precision. 8\u201310 hours strict overnight fasting required.",
     "price": "150",
     "oldPrice": "250",
     "discountPercent": "40% OFF",
@@ -589,13 +589,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Diabetes Diagnostics",
     "overview": [
-      "Fasting Blood Sugar (FBS) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Fasting Blood Sugar (FBS) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures fasting plasma glucose to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Fasting Blood Sugar.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -628,10 +628,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "post-prandial-blood-sugar": {
     "slug": "post-prandial-blood-sugar",
     "title": "Post Prandial Blood Sugar Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Post Prandial Blood Sugar (PPBS) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9150. Blood drawn exactly 2 hours after meal.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Post Prandial Blood Sugar (PPBS) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9150. Blood drawn exactly 2 hours after meal.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Post Prandial Blood Sugar (PPBS) in Bangalore",
-    "subtitle": "Post Prandial Blood Sugar evaluates 2-hour post prandial plasma glucose with NABL-certified precision. Blood drawn exactly 2 hours after meal.",
+    "subtitle": "Post Prandial Blood Sugar evaluates 2-hour post prandial plasma glucose with NABL Accredited precision. Blood drawn exactly 2 hours after meal.",
     "price": "150",
     "oldPrice": "250",
     "discountPercent": "40% OFF",
@@ -641,13 +641,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Diabetes Diagnostics",
     "overview": [
-      "Post Prandial Blood Sugar (PPBS) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Post Prandial Blood Sugar (PPBS) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures 2-hour post prandial plasma glucose to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Post Prandial Blood Sugar.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -680,10 +680,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "random-blood-sugar": {
     "slug": "random-blood-sugar",
     "title": "Random Blood Sugar Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Random Blood Sugar (RBS) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9150. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Random Blood Sugar (RBS) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9150. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Random Blood Sugar (RBS) in Bangalore",
-    "subtitle": "Random Blood Sugar evaluates random plasma glucose with NABL-certified precision. No fasting required.",
+    "subtitle": "Random Blood Sugar evaluates random plasma glucose with NABL Accredited precision. No fasting required.",
     "price": "150",
     "oldPrice": "250",
     "discountPercent": "40% OFF",
@@ -693,13 +693,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (2\u20134 Hours)",
     "category": "Diabetes Diagnostics",
     "overview": [
-      "Random Blood Sugar (RBS) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Random Blood Sugar (RBS) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures random plasma glucose to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Random Blood Sugar.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -732,10 +732,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "insulin-fasting": {
     "slug": "insulin-fasting",
     "title": "Insulin \u2013 Fasting Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Insulin \u2013 Fasting (Fasting Insulin) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9750. 8\u201310 hours fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Insulin \u2013 Fasting (Fasting Insulin) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9750. 8\u201310 hours fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Insulin \u2013 Fasting (Fasting Insulin) in Bangalore",
-    "subtitle": "Insulin \u2013 Fasting evaluates fasting serum insulin concentration with NABL-certified precision. 8\u201310 hours fasting required.",
+    "subtitle": "Insulin \u2013 Fasting evaluates fasting serum insulin concentration with NABL Accredited precision. 8\u201310 hours fasting required.",
     "price": "750",
     "oldPrice": "1100",
     "discountPercent": "31% OFF",
@@ -745,13 +745,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Insulin \u2013 Fasting (Fasting Insulin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Insulin \u2013 Fasting (Fasting Insulin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures fasting serum insulin concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Insulin \u2013 Fasting.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -784,10 +784,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "c-peptide": {
     "slug": "c-peptide",
     "title": "C-Peptide Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book C-Peptide (C-Peptide) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9950. 8\u201310 hours fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book C-Peptide (C-Peptide) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9950. 8\u201310 hours fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "C-Peptide (C-Peptide) in Bangalore",
-    "subtitle": "C-Peptide evaluates fasting serum c-peptide concentration with NABL-certified precision. 8\u201310 hours fasting required.",
+    "subtitle": "C-Peptide evaluates fasting serum c-peptide concentration with NABL Accredited precision. 8\u201310 hours fasting required.",
     "price": "950",
     "oldPrice": "1400",
     "discountPercent": "32% OFF",
@@ -797,13 +797,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "C-Peptide (C-Peptide) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "C-Peptide (C-Peptide) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures fasting serum c-peptide concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for C-Peptide.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -836,10 +836,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "lipid-profile": {
     "slug": "lipid-profile",
     "title": "Lipid Profile Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Lipid Profile (Lipid Panel) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9650. 10\u201312 hours strict fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Lipid Profile (Lipid Panel) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9650. 10\u201312 hours strict fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Lipid Profile (Lipid Panel) in Bangalore",
-    "subtitle": "Lipid Profile evaluates total cholesterol, hdl, ldl, vldl, triglycerides & ratios with NABL-certified precision. 10\u201312 hours strict fasting required.",
+    "subtitle": "Lipid Profile evaluates total cholesterol, hdl, ldl, vldl, triglycerides & ratios with NABL Accredited precision. 10\u201312 hours strict fasting required.",
     "price": "650",
     "oldPrice": "950",
     "discountPercent": "31% OFF",
@@ -849,13 +849,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Cardiovascular",
     "overview": [
-      "Lipid Profile (Lipid Panel) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Lipid Profile (Lipid Panel) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures total cholesterol, hdl, ldl, vldl, triglycerides & ratios to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Lipid Profile.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -888,10 +888,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "liver-function-test": {
     "slug": "liver-function-test",
     "title": "Liver Function Test Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Liver Function Test (LFT) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9750. 8 hours fasting recommended.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Liver Function Test (LFT) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9750. 8 hours fasting recommended.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Liver Function Test (LFT) in Bangalore",
-    "subtitle": "Liver Function Test evaluates 11 parameters (bilirubin, sgot, sgpt, alp, ggt, proteins) with NABL-certified precision. 8 hours fasting recommended.",
+    "subtitle": "Liver Function Test evaluates 11 parameters (bilirubin, sgot, sgpt, alp, ggt, proteins) with NABL Accredited precision. 8 hours fasting recommended.",
     "price": "750",
     "oldPrice": "1100",
     "discountPercent": "31% OFF",
@@ -901,13 +901,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Liver Function Test (LFT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Liver Function Test (LFT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures 11 parameters (bilirubin, sgot, sgpt, alp, ggt, proteins) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Liver Function Test.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -940,10 +940,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "kidney-function-test": {
     "slug": "kidney-function-test",
     "title": "Kidney Function Test Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Kidney Function Test (KFT) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9690. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Kidney Function Test (KFT) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9690. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Kidney Function Test (KFT) in Bangalore",
-    "subtitle": "Kidney Function Test evaluates urea, creatinine, uric acid, bun & electrolytes with NABL-certified precision. No fasting required.",
+    "subtitle": "Kidney Function Test evaluates urea, creatinine, uric acid, bun & electrolytes with NABL Accredited precision. No fasting required.",
     "price": "690",
     "oldPrice": "1000",
     "discountPercent": "31% OFF",
@@ -953,13 +953,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Kidney Function Test (KFT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Kidney Function Test (KFT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures urea, creatinine, uric acid, bun & electrolytes to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Kidney Function Test.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -992,10 +992,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "electrolytes": {
     "slug": "electrolytes",
     "title": "Electrolytes Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Electrolytes (Serum Electrolytes) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9450. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Electrolytes (Serum Electrolytes) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9450. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Electrolytes (Serum Electrolytes) in Bangalore",
-    "subtitle": "Electrolytes evaluates sodium, potassium & chloride with NABL-certified precision. No fasting required.",
+    "subtitle": "Electrolytes evaluates sodium, potassium & chloride with NABL Accredited precision. No fasting required.",
     "price": "450",
     "oldPrice": "650",
     "discountPercent": "30% OFF",
@@ -1005,13 +1005,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Electrolytes (Serum Electrolytes) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Electrolytes (Serum Electrolytes) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures sodium, potassium & chloride to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Electrolytes.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1044,10 +1044,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "calcium": {
     "slug": "calcium",
     "title": "Calcium Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Calcium (Serum Calcium) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9250. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Calcium (Serum Calcium) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9250. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Calcium (Serum Calcium) in Bangalore",
-    "subtitle": "Calcium evaluates total serum calcium concentration with NABL-certified precision. No fasting required.",
+    "subtitle": "Calcium evaluates total serum calcium concentration with NABL Accredited precision. No fasting required.",
     "price": "250",
     "oldPrice": "400",
     "discountPercent": "37% OFF",
@@ -1057,13 +1057,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Calcium (Serum Calcium) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Calcium (Serum Calcium) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures total serum calcium concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Calcium.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1096,10 +1096,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "phosphorus": {
     "slug": "phosphorus",
     "title": "Phosphorus Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Phosphorus (Inorganic Phosphorus) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9250. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Phosphorus (Inorganic Phosphorus) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9250. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Phosphorus (Inorganic Phosphorus) in Bangalore",
-    "subtitle": "Phosphorus evaluates serum inorganic phosphorus with NABL-certified precision. No fasting required.",
+    "subtitle": "Phosphorus evaluates serum inorganic phosphorus with NABL Accredited precision. No fasting required.",
     "price": "250",
     "oldPrice": "400",
     "discountPercent": "37% OFF",
@@ -1109,13 +1109,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Phosphorus (Inorganic Phosphorus) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Phosphorus (Inorganic Phosphorus) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum inorganic phosphorus to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Phosphorus.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1148,10 +1148,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "magnesium": {
     "slug": "magnesium",
     "title": "Magnesium Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Magnesium (Serum Magnesium) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9400. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Magnesium (Serum Magnesium) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9400. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Magnesium (Serum Magnesium) in Bangalore",
-    "subtitle": "Magnesium evaluates serum magnesium concentration with NABL-certified precision. No fasting required.",
+    "subtitle": "Magnesium evaluates serum magnesium concentration with NABL Accredited precision. No fasting required.",
     "price": "400",
     "oldPrice": "600",
     "discountPercent": "33% OFF",
@@ -1161,13 +1161,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Magnesium (Serum Magnesium) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Magnesium (Serum Magnesium) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum magnesium concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Magnesium.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1200,10 +1200,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "uric-acid": {
     "slug": "uric-acid",
     "title": "Uric Acid Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Uric Acid (Uric Acid) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9250. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Uric Acid (Uric Acid) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9250. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Uric Acid (Uric Acid) in Bangalore",
-    "subtitle": "Uric Acid evaluates serum uric acid concentration with NABL-certified precision. No fasting required.",
+    "subtitle": "Uric Acid evaluates serum uric acid concentration with NABL Accredited precision. No fasting required.",
     "price": "250",
     "oldPrice": "400",
     "discountPercent": "37% OFF",
@@ -1213,13 +1213,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Uric Acid (Uric Acid) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Uric Acid (Uric Acid) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum uric acid concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Uric Acid.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1252,10 +1252,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "vitamin-d": {
     "slug": "vitamin-d",
     "title": "Vitamin D Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Vitamin D (25-OH Vitamin D) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9990. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Vitamin D (25-OH Vitamin D) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9990. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Vitamin D (25-OH Vitamin D) in Bangalore",
-    "subtitle": "Vitamin D evaluates 25-hydroxyvitamin d total with NABL-certified precision. No fasting required.",
+    "subtitle": "Vitamin D evaluates 25-hydroxyvitamin d total with NABL Accredited precision. No fasting required.",
     "price": "990",
     "oldPrice": "1500",
     "discountPercent": "34% OFF",
@@ -1265,13 +1265,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Vitamin D (25-OH Vitamin D) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Vitamin D (25-OH Vitamin D) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures 25-hydroxyvitamin d total to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Vitamin D.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1304,10 +1304,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "thyroid-profile": {
     "slug": "thyroid-profile",
     "title": "Thyroid Profile Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Thyroid Profile (T3 T4 TSH) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9550. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Thyroid Profile (T3 T4 TSH) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9550. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Thyroid Profile (T3 T4 TSH) in Bangalore",
-    "subtitle": "Thyroid Profile evaluates total t3, total t4 & tsh with NABL-certified precision. No fasting required.",
+    "subtitle": "Thyroid Profile evaluates total t3, total t4 & tsh with NABL Accredited precision. No fasting required.",
     "price": "550",
     "oldPrice": "800",
     "discountPercent": "31% OFF",
@@ -1317,13 +1317,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Thyroid Profile (T3 T4 TSH) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Thyroid Profile (T3 T4 TSH) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures total t3, total t4 & tsh to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Thyroid Profile.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1356,10 +1356,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "tsh": {
     "slug": "tsh",
     "title": "TSH Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book TSH (Thyroid Stimulating Hormone) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9300. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book TSH (Thyroid Stimulating Hormone) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9300. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "TSH (Thyroid Stimulating Hormone) in Bangalore",
-    "subtitle": "TSH evaluates 3rd gen ultra-sensitive tsh with NABL-certified precision. No fasting required.",
+    "subtitle": "TSH evaluates 3rd gen ultra-sensitive tsh with NABL Accredited precision. No fasting required.",
     "price": "300",
     "oldPrice": "450",
     "discountPercent": "33% OFF",
@@ -1369,13 +1369,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "TSH (Thyroid Stimulating Hormone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "TSH (Thyroid Stimulating Hormone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures 3rd gen ultra-sensitive tsh to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for TSH.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1408,10 +1408,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "free-t3": {
     "slug": "free-t3",
     "title": "Free T3 Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Free T3 (FT3) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9400. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Free T3 (FT3) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9400. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free T3 (FT3) in Bangalore",
-    "subtitle": "Free T3 evaluates free triiodothyronine with NABL-certified precision. No fasting required.",
+    "subtitle": "Free T3 evaluates free triiodothyronine with NABL Accredited precision. No fasting required.",
     "price": "400",
     "oldPrice": "600",
     "discountPercent": "33% OFF",
@@ -1421,13 +1421,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Free T3 (FT3) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Free T3 (FT3) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures free triiodothyronine to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Free T3.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1460,10 +1460,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "free-t4": {
     "slug": "free-t4",
     "title": "Free T4 Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Free T4 (FT4) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9400. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Free T4 (FT4) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9400. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Free T4 (FT4) in Bangalore",
-    "subtitle": "Free T4 evaluates free thyroxine with NABL-certified precision. No fasting required.",
+    "subtitle": "Free T4 evaluates free thyroxine with NABL Accredited precision. No fasting required.",
     "price": "400",
     "oldPrice": "600",
     "discountPercent": "33% OFF",
@@ -1473,13 +1473,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Free T4 (FT4) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Free T4 (FT4) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures free thyroxine to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Free T4.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1512,10 +1512,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "total-t3": {
     "slug": "total-t3",
     "title": "Total T3 Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Total T3 (T3) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9250. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Total T3 (T3) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9250. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Total T3 (T3) in Bangalore",
-    "subtitle": "Total T3 evaluates total triiodothyronine with NABL-certified precision. No fasting required.",
+    "subtitle": "Total T3 evaluates total triiodothyronine with NABL Accredited precision. No fasting required.",
     "price": "250",
     "oldPrice": "400",
     "discountPercent": "37% OFF",
@@ -1525,13 +1525,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Total T3 (T3) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Total T3 (T3) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures total triiodothyronine to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Total T3.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1564,10 +1564,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "total-t4": {
     "slug": "total-t4",
     "title": "Total T4 Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Total T4 (T4) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9250. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Total T4 (T4) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9250. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Total T4 (T4) in Bangalore",
-    "subtitle": "Total T4 evaluates total thyroxine with NABL-certified precision. No fasting required.",
+    "subtitle": "Total T4 evaluates total thyroxine with NABL Accredited precision. No fasting required.",
     "price": "250",
     "oldPrice": "400",
     "discountPercent": "37% OFF",
@@ -1577,13 +1577,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Total T4 (T4) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Total T4 (T4) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures total thyroxine to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Total T4.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1616,10 +1616,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "anti-tpo-antibody": {
     "slug": "anti-tpo-antibody",
     "title": "Anti-TPO Antibody Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Anti-TPO Antibody (Anti-TPO) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9900. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Anti-TPO Antibody (Anti-TPO) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9900. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-TPO Antibody (Anti-TPO) in Bangalore",
-    "subtitle": "Anti-TPO Antibody evaluates thyroid peroxidase antibodies with NABL-certified precision. No fasting required.",
+    "subtitle": "Anti-TPO Antibody evaluates thyroid peroxidase antibodies with NABL Accredited precision. No fasting required.",
     "price": "900",
     "oldPrice": "1300",
     "discountPercent": "30% OFF",
@@ -1629,13 +1629,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Anti-TPO Antibody (Anti-TPO) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Anti-TPO Antibody (Anti-TPO) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures thyroid peroxidase antibodies to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Anti-TPO Antibody.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1668,10 +1668,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "thyroglobulin": {
     "slug": "thyroglobulin",
     "title": "Thyroglobulin Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Thyroglobulin (Tg) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b91200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Thyroglobulin (Tg) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b91200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Thyroglobulin (Tg) in Bangalore",
-    "subtitle": "Thyroglobulin evaluates serum thyroglobulin with NABL-certified precision. No fasting required.",
+    "subtitle": "Thyroglobulin evaluates serum thyroglobulin with NABL Accredited precision. No fasting required.",
     "price": "1200",
     "oldPrice": "1800",
     "discountPercent": "33% OFF",
@@ -1681,13 +1681,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (12\u201324 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Thyroglobulin (Tg) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Thyroglobulin (Tg) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum thyroglobulin to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Thyroglobulin.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1720,10 +1720,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "thyroglobulin-antibody": {
     "slug": "thyroglobulin-antibody",
     "title": "Thyroglobulin Antibody Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Thyroglobulin Antibody (Anti-Tg) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b91000. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Thyroglobulin Antibody (Anti-Tg) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b91000. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Thyroglobulin Antibody (Anti-Tg) in Bangalore",
-    "subtitle": "Thyroglobulin Antibody evaluates anti-thyroglobulin antibodies with NABL-certified precision. No fasting required.",
+    "subtitle": "Thyroglobulin Antibody evaluates anti-thyroglobulin antibodies with NABL Accredited precision. No fasting required.",
     "price": "1000",
     "oldPrice": "1500",
     "discountPercent": "33% OFF",
@@ -1733,13 +1733,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (12\u201324 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Thyroglobulin Antibody (Anti-Tg) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Thyroglobulin Antibody (Anti-Tg) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures anti-thyroglobulin antibodies to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Thyroglobulin Antibody.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1772,10 +1772,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "psa-total": {
     "slug": "psa-total",
     "title": "PSA \u2013 Total Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book PSA \u2013 Total (Total PSA) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9650. Avoid ejaculation for 48h prior.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book PSA \u2013 Total (Total PSA) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9650. Avoid ejaculation for 48h prior.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "PSA \u2013 Total (Total PSA) in Bangalore",
-    "subtitle": "PSA \u2013 Total evaluates prostate specific antigen total with NABL-certified precision. Avoid ejaculation for 48h prior.",
+    "subtitle": "PSA \u2013 Total evaluates prostate specific antigen total with NABL Accredited precision. Avoid ejaculation for 48h prior.",
     "price": "650",
     "oldPrice": "950",
     "discountPercent": "31% OFF",
@@ -1785,13 +1785,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Oncology",
     "overview": [
-      "PSA \u2013 Total (Total PSA) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "PSA \u2013 Total (Total PSA) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures prostate specific antigen total to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for PSA \u2013 Total.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1824,10 +1824,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "psa-free": {
     "slug": "psa-free",
     "title": "PSA \u2013 Free Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book PSA \u2013 Free (Free PSA) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9950. Avoid ejaculation for 48h prior.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book PSA \u2013 Free (Free PSA) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9950. Avoid ejaculation for 48h prior.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "PSA \u2013 Free (Free PSA) in Bangalore",
-    "subtitle": "PSA \u2013 Free evaluates free psa & free/total ratio with NABL-certified precision. Avoid ejaculation for 48h prior.",
+    "subtitle": "PSA \u2013 Free evaluates free psa & free/total ratio with NABL Accredited precision. Avoid ejaculation for 48h prior.",
     "price": "950",
     "oldPrice": "1400",
     "discountPercent": "32% OFF",
@@ -1837,13 +1837,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Oncology",
     "overview": [
-      "PSA \u2013 Free (Free PSA) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "PSA \u2013 Free (Free PSA) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures free psa & free/total ratio to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for PSA \u2013 Free.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1876,10 +1876,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "testosterone-total": {
     "slug": "testosterone-total",
     "title": "Testosterone \u2013 Total Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Testosterone \u2013 Total (Total Testosterone) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9650. Morning collection recommended (8\u201310 AM).",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Testosterone \u2013 Total (Total Testosterone) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9650. Morning collection recommended (8\u201310 AM).",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Testosterone \u2013 Total (Total Testosterone) in Bangalore",
-    "subtitle": "Testosterone \u2013 Total evaluates total testosterone concentration with NABL-certified precision. Morning collection recommended (8\u201310 AM).",
+    "subtitle": "Testosterone \u2013 Total evaluates total testosterone concentration with NABL Accredited precision. Morning collection recommended (8\u201310 AM).",
     "price": "650",
     "oldPrice": "950",
     "discountPercent": "31% OFF",
@@ -1889,13 +1889,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Testosterone \u2013 Total (Total Testosterone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Testosterone \u2013 Total (Total Testosterone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures total testosterone concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Testosterone \u2013 Total.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1928,10 +1928,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "testosterone-free": {
     "slug": "testosterone-free",
     "title": "Testosterone \u2013 Free Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Testosterone \u2013 Free (Free Testosterone) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b91200. Morning collection recommended.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Testosterone \u2013 Free (Free Testosterone) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b91200. Morning collection recommended.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Testosterone \u2013 Free (Free Testosterone) in Bangalore",
-    "subtitle": "Testosterone \u2013 Free evaluates free & bioavailable testosterone with NABL-certified precision. Morning collection recommended.",
+    "subtitle": "Testosterone \u2013 Free evaluates free & bioavailable testosterone with NABL Accredited precision. Morning collection recommended.",
     "price": "1200",
     "oldPrice": "1800",
     "discountPercent": "33% OFF",
@@ -1941,13 +1941,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (12\u201324 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Testosterone \u2013 Free (Free Testosterone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Testosterone \u2013 Free (Free Testosterone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures free & bioavailable testosterone to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Testosterone \u2013 Free.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -1980,10 +1980,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "estradioli": {
     "slug": "estradioli",
     "title": "Estradiol Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Estradiol (E2) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9650. Specify phase of menstrual cycle.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Estradiol (E2) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9650. Specify phase of menstrual cycle.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Estradiol (E2) in Bangalore",
-    "subtitle": "Estradiol evaluates serum estradiol (e2) with NABL-certified precision. Specify phase of menstrual cycle.",
+    "subtitle": "Estradiol evaluates serum estradiol (e2) with NABL Accredited precision. Specify phase of menstrual cycle.",
     "price": "650",
     "oldPrice": "950",
     "discountPercent": "31% OFF",
@@ -1993,13 +1993,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Estradiol (E2) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Estradiol (E2) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum estradiol (e2) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Estradiol.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2032,10 +2032,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "progesterone": {
     "slug": "progesterone",
     "title": "Progesterone Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Progesterone (P4) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9650. Specify day of menstrual cycle.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Progesterone (P4) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9650. Specify day of menstrual cycle.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Progesterone (P4) in Bangalore",
-    "subtitle": "Progesterone evaluates serum progesterone with NABL-certified precision. Specify day of menstrual cycle.",
+    "subtitle": "Progesterone evaluates serum progesterone with NABL Accredited precision. Specify day of menstrual cycle.",
     "price": "650",
     "oldPrice": "950",
     "discountPercent": "31% OFF",
@@ -2045,13 +2045,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Progesterone (P4) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Progesterone (P4) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum progesterone to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Progesterone.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2084,10 +2084,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "fsh": {
     "slug": "fsh",
     "title": "FSH Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book FSH (Follicle Stimulating Hormone) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9550. Day 2\u20135 of cycle recommended.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book FSH (Follicle Stimulating Hormone) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9550. Day 2\u20135 of cycle recommended.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "FSH (Follicle Stimulating Hormone) in Bangalore",
-    "subtitle": "FSH evaluates serum fsh with NABL-certified precision. Day 2\u20135 of cycle recommended.",
+    "subtitle": "FSH evaluates serum fsh with NABL Accredited precision. Day 2\u20135 of cycle recommended.",
     "price": "550",
     "oldPrice": "800",
     "discountPercent": "31% OFF",
@@ -2097,13 +2097,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "FSH (Follicle Stimulating Hormone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "FSH (Follicle Stimulating Hormone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum fsh to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for FSH.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2136,10 +2136,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "lh": {
     "slug": "lh",
     "title": "LH Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book LH (Luteinizing Hormone) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9550. Day 2\u20135 of cycle recommended.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book LH (Luteinizing Hormone) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9550. Day 2\u20135 of cycle recommended.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "LH (Luteinizing Hormone) in Bangalore",
-    "subtitle": "LH evaluates serum lh with NABL-certified precision. Day 2\u20135 of cycle recommended.",
+    "subtitle": "LH evaluates serum lh with NABL Accredited precision. Day 2\u20135 of cycle recommended.",
     "price": "550",
     "oldPrice": "800",
     "discountPercent": "31% OFF",
@@ -2149,13 +2149,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "LH (Luteinizing Hormone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "LH (Luteinizing Hormone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum lh to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for LH.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2188,10 +2188,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "prolactin": {
     "slug": "prolactin",
     "title": "Prolactin Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Prolactin (PRL) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9550. Rest 20 mins prior to blood draw.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Prolactin (PRL) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9550. Rest 20 mins prior to blood draw.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Prolactin (PRL) in Bangalore",
-    "subtitle": "Prolactin evaluates serum prolactin with NABL-certified precision. Rest 20 mins prior to blood draw.",
+    "subtitle": "Prolactin evaluates serum prolactin with NABL Accredited precision. Rest 20 mins prior to blood draw.",
     "price": "550",
     "oldPrice": "800",
     "discountPercent": "31% OFF",
@@ -2201,13 +2201,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Prolactin (PRL) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Prolactin (PRL) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum prolactin to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Prolactin.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2240,10 +2240,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "cortisol": {
     "slug": "cortisol",
     "title": "Cortisol Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Cortisol (Serum Cortisol) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9650. Specify time of blood draw (Diurnal peak).",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Cortisol (Serum Cortisol) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9650. Specify time of blood draw (Diurnal peak).",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Cortisol (Serum Cortisol) in Bangalore",
-    "subtitle": "Cortisol evaluates serum cortisol (8 am / 4 pm) with NABL-certified precision. Specify time of blood draw (Diurnal peak).",
+    "subtitle": "Cortisol evaluates serum cortisol (8 am / 4 pm) with NABL Accredited precision. Specify time of blood draw (Diurnal peak).",
     "price": "650",
     "oldPrice": "950",
     "discountPercent": "31% OFF",
@@ -2253,13 +2253,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Cortisol (Serum Cortisol) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Cortisol (Serum Cortisol) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum cortisol (8 am / 4 pm) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Cortisol.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2292,10 +2292,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "dhea-s": {
     "slug": "dhea-s",
     "title": "DHEA-S Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book DHEA-S (DHEA-Sulfate) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9850. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book DHEA-S (DHEA-Sulfate) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9850. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "DHEA-S (DHEA-Sulfate) in Bangalore",
-    "subtitle": "DHEA-S evaluates dehydroepiandrosterone sulfate with NABL-certified precision. No fasting required.",
+    "subtitle": "DHEA-S evaluates dehydroepiandrosterone sulfate with NABL Accredited precision. No fasting required.",
     "price": "850",
     "oldPrice": "1250",
     "discountPercent": "31% OFF",
@@ -2305,13 +2305,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "DHEA-S (DHEA-Sulfate) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "DHEA-S (DHEA-Sulfate) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures dehydroepiandrosterone sulfate to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for DHEA-S.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2344,10 +2344,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "amh": {
     "slug": "amh",
     "title": "AMH Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book AMH (Anti-Mullerian Hormone) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b91800. Can be tested on any day of cycle.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book AMH (Anti-Mullerian Hormone) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b91800. Can be tested on any day of cycle.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "AMH (Anti-Mullerian Hormone) in Bangalore",
-    "subtitle": "AMH evaluates serum amh (ovarian reserve) with NABL-certified precision. Can be tested on any day of cycle.",
+    "subtitle": "AMH evaluates serum amh (ovarian reserve) with NABL Accredited precision. Can be tested on any day of cycle.",
     "price": "1800",
     "oldPrice": "2600",
     "discountPercent": "30% OFF",
@@ -2357,13 +2357,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (12\u201324 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "AMH (Anti-Mullerian Hormone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "AMH (Anti-Mullerian Hormone) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum amh (ovarian reserve) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for AMH.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2396,10 +2396,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "beta-hcg": {
     "slug": "beta-hcg",
     "title": "\u03b2-hCG Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book \u03b2-hCG (Beta hCG) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9550. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book \u03b2-hCG (Beta hCG) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9550. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "\u03b2-hCG (Beta hCG) in Bangalore",
-    "subtitle": "\u03b2-hCG evaluates quantitative serum \u03b2-hcg with NABL-certified precision. No fasting required.",
+    "subtitle": "\u03b2-hCG evaluates quantitative serum \u03b2-hcg with NABL Accredited precision. No fasting required.",
     "price": "550",
     "oldPrice": "800",
     "discountPercent": "31% OFF",
@@ -2409,13 +2409,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "\u03b2-hCG (Beta hCG) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "\u03b2-hCG (Beta hCG) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures quantitative serum \u03b2-hcg to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for \u03b2-hCG.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2448,10 +2448,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "insulin-post-prandial": {
     "slug": "insulin-post-prandial",
     "title": "Insulin \u2013 Post Prandial Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Insulin \u2013 Post Prandial (PP Insulin) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9750. Blood drawn 2 hours after meal.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Insulin \u2013 Post Prandial (PP Insulin) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9750. Blood drawn 2 hours after meal.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Insulin \u2013 Post Prandial (PP Insulin) in Bangalore",
-    "subtitle": "Insulin \u2013 Post Prandial evaluates 2-hour post prandial serum insulin with NABL-certified precision. Blood drawn 2 hours after meal.",
+    "subtitle": "Insulin \u2013 Post Prandial evaluates 2-hour post prandial serum insulin with NABL Accredited precision. Blood drawn 2 hours after meal.",
     "price": "750",
     "oldPrice": "1100",
     "discountPercent": "31% OFF",
@@ -2461,13 +2461,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "Insulin \u2013 Post Prandial (PP Insulin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Insulin \u2013 Post Prandial (PP Insulin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures 2-hour post prandial serum insulin to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Insulin \u2013 Post Prandial.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2500,10 +2500,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "homa-ir": {
     "slug": "homa-ir",
     "title": "HOMA-IR Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book HOMA-IR (Insulin Resistance) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9900. 8\u201310 hours fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book HOMA-IR (Insulin Resistance) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9900. 8\u201310 hours fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HOMA-IR (Insulin Resistance) in Bangalore",
-    "subtitle": "HOMA-IR evaluates homa-ir index (fasting glucose + fasting insulin) with NABL-certified precision. 8\u201310 hours fasting required.",
+    "subtitle": "HOMA-IR evaluates homa-ir index (fasting glucose + fasting insulin) with NABL Accredited precision. 8\u201310 hours fasting required.",
     "price": "900",
     "oldPrice": "1350",
     "discountPercent": "33% OFF",
@@ -2513,13 +2513,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Endocrinology",
     "overview": [
-      "HOMA-IR (Insulin Resistance) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "HOMA-IR (Insulin Resistance) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures homa-ir index (fasting glucose + fasting insulin) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for HOMA-IR.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2552,10 +2552,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "hs-crp": {
     "slug": "hs-crp",
     "title": "hs-CRP Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book hs-CRP (High-Sensitivity CRP) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9750. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book hs-CRP (High-Sensitivity CRP) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9750. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "hs-CRP (High-Sensitivity CRP) in Bangalore",
-    "subtitle": "hs-CRP evaluates high-sensitivity c-reactive protein with NABL-certified precision. No fasting required.",
+    "subtitle": "hs-CRP evaluates high-sensitivity c-reactive protein with NABL Accredited precision. No fasting required.",
     "price": "750",
     "oldPrice": "1100",
     "discountPercent": "31% OFF",
@@ -2565,13 +2565,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Cardiovascular",
     "overview": [
-      "hs-CRP (High-Sensitivity CRP) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "hs-CRP (High-Sensitivity CRP) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures high-sensitivity c-reactive protein to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for hs-CRP.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2604,10 +2604,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "crp": {
     "slug": "crp",
     "title": "CRP Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book CRP (C-Reactive Protein) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9500. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book CRP (C-Reactive Protein) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9500. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CRP (C-Reactive Protein) in Bangalore",
-    "subtitle": "CRP evaluates quantitative crp with NABL-certified precision. No fasting required.",
+    "subtitle": "CRP evaluates quantitative crp with NABL Accredited precision. No fasting required.",
     "price": "500",
     "oldPrice": "750",
     "discountPercent": "33% OFF",
@@ -2617,13 +2617,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Inflammatory Diagnostics",
     "overview": [
-      "CRP (C-Reactive Protein) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "CRP (C-Reactive Protein) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures quantitative crp to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for CRP.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2656,10 +2656,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "procalcitonin": {
     "slug": "procalcitonin",
     "title": "Procalcitonin Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Procalcitonin (PCT) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b92200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Procalcitonin (PCT) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b92200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Procalcitonin (PCT) in Bangalore",
-    "subtitle": "Procalcitonin evaluates serum procalcitonin (sepsis marker) with NABL-certified precision. No fasting required.",
+    "subtitle": "Procalcitonin evaluates serum procalcitonin (sepsis marker) with NABL Accredited precision. No fasting required.",
     "price": "2200",
     "oldPrice": "3200",
     "discountPercent": "31% OFF",
@@ -2669,13 +2669,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Infectious Diseases",
     "overview": [
-      "Procalcitonin (PCT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Procalcitonin (PCT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum procalcitonin (sepsis marker) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Procalcitonin.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2708,10 +2708,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "d-dimer": {
     "slug": "d-dimer",
     "title": "D-Dimer Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book D-Dimer (D-Dimer) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b91200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book D-Dimer (D-Dimer) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b91200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "D-Dimer (D-Dimer) in Bangalore",
-    "subtitle": "D-Dimer evaluates quantitative plasma d-dimer with NABL-certified precision. No fasting required.",
+    "subtitle": "D-Dimer evaluates quantitative plasma d-dimer with NABL Accredited precision. No fasting required.",
     "price": "1200",
     "oldPrice": "1800",
     "discountPercent": "33% OFF",
@@ -2721,13 +2721,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Hematology",
     "overview": [
-      "D-Dimer (D-Dimer) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "D-Dimer (D-Dimer) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures quantitative plasma d-dimer to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for D-Dimer.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2760,10 +2760,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "pt-inr": {
     "slug": "pt-inr",
     "title": "PT / INR Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book PT / INR (Prothrombin Time) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9400. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book PT / INR (Prothrombin Time) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9400. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "PT / INR (Prothrombin Time) in Bangalore",
-    "subtitle": "PT / INR evaluates prothrombin time & inr ratio with NABL-certified precision. No fasting required.",
+    "subtitle": "PT / INR evaluates prothrombin time & inr ratio with NABL Accredited precision. No fasting required.",
     "price": "400",
     "oldPrice": "600",
     "discountPercent": "33% OFF",
@@ -2773,13 +2773,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Hematology",
     "overview": [
-      "PT / INR (Prothrombin Time) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "PT / INR (Prothrombin Time) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures prothrombin time & inr ratio to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for PT / INR.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2812,10 +2812,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "aptt": {
     "slug": "aptt",
     "title": "aPTT Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book aPTT (Activated Partial Thromboplastin Time) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9500. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book aPTT (Activated Partial Thromboplastin Time) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9500. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "aPTT (Activated Partial Thromboplastin Time) in Bangalore",
-    "subtitle": "aPTT evaluates activated partial thromboplastin time with NABL-certified precision. No fasting required.",
+    "subtitle": "aPTT evaluates activated partial thromboplastin time with NABL Accredited precision. No fasting required.",
     "price": "500",
     "oldPrice": "750",
     "discountPercent": "33% OFF",
@@ -2825,13 +2825,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Hematology",
     "overview": [
-      "aPTT (Activated Partial Thromboplastin Time) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "aPTT (Activated Partial Thromboplastin Time) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures activated partial thromboplastin time to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for aPTT.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2864,10 +2864,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "fibrinogen": {
     "slug": "fibrinogen",
     "title": "Fibrinogen Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Fibrinogen (Plasma Fibrinogen) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9750. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Fibrinogen (Plasma Fibrinogen) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9750. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Fibrinogen (Plasma Fibrinogen) in Bangalore",
-    "subtitle": "Fibrinogen evaluates quantitative fibrinogen level with NABL-certified precision. No fasting required.",
+    "subtitle": "Fibrinogen evaluates quantitative fibrinogen level with NABL Accredited precision. No fasting required.",
     "price": "750",
     "oldPrice": "1100",
     "discountPercent": "31% OFF",
@@ -2877,13 +2877,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Hematology",
     "overview": [
-      "Fibrinogen (Plasma Fibrinogen) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Fibrinogen (Plasma Fibrinogen) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures quantitative fibrinogen level to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Fibrinogen.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2916,10 +2916,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "bleeding-time": {
     "slug": "bleeding-time",
     "title": "Bleeding Time Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Bleeding Time (BT) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. In-lab procedure.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Bleeding Time (BT) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. In-lab procedure.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Bleeding Time (BT) in Bangalore",
-    "subtitle": "Bleeding Time evaluates standardised bleeding time with NABL-certified precision. In-lab procedure.",
+    "subtitle": "Bleeding Time evaluates standardised bleeding time with NABL Accredited precision. In-lab procedure.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -2929,13 +2929,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (Immediate)",
     "category": "Hematology",
     "overview": [
-      "Bleeding Time (BT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Bleeding Time (BT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures standardised bleeding time to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Bleeding Time.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -2968,10 +2968,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "clotting-time": {
     "slug": "clotting-time",
     "title": "Clotting Time Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Clotting Time (CT) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. In-lab procedure.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Clotting Time (CT) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. In-lab procedure.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Clotting Time (CT) in Bangalore",
-    "subtitle": "Clotting Time evaluates whole blood clotting time with NABL-certified precision. In-lab procedure.",
+    "subtitle": "Clotting Time evaluates whole blood clotting time with NABL Accredited precision. In-lab procedure.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -2981,13 +2981,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (Immediate)",
     "category": "Hematology",
     "overview": [
-      "Clotting Time (CT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Clotting Time (CT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures whole blood clotting time to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Clotting Time.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3020,10 +3020,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "blood-urea-nitrogen": {
     "slug": "blood-urea-nitrogen",
     "title": "Blood Urea Nitrogen Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Blood Urea Nitrogen (BUN) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Blood Urea Nitrogen (BUN) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Blood Urea Nitrogen (BUN) in Bangalore",
-    "subtitle": "Blood Urea Nitrogen evaluates serum blood urea nitrogen with NABL-certified precision. No fasting required.",
+    "subtitle": "Blood Urea Nitrogen evaluates serum blood urea nitrogen with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -3033,13 +3033,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Kidney Diagnostics",
     "overview": [
-      "Blood Urea Nitrogen (BUN) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Blood Urea Nitrogen (BUN) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum blood urea nitrogen to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Blood Urea Nitrogen.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3072,10 +3072,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "creatinine": {
     "slug": "creatinine",
     "title": "Creatinine Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Creatinine (Serum Creatinine) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9250. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Creatinine (Serum Creatinine) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9250. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Creatinine (Serum Creatinine) in Bangalore",
-    "subtitle": "Creatinine evaluates serum creatinine & egfr with NABL-certified precision. No fasting required.",
+    "subtitle": "Creatinine evaluates serum creatinine & egfr with NABL Accredited precision. No fasting required.",
     "price": "250",
     "oldPrice": "380",
     "discountPercent": "34% OFF",
@@ -3085,13 +3085,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Kidney Diagnostics",
     "overview": [
-      "Creatinine (Serum Creatinine) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Creatinine (Serum Creatinine) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum creatinine & egfr to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Creatinine.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3124,10 +3124,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "egfr": {
     "slug": "egfr",
     "title": "eGFR Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book eGFR (Estimated GFR) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9300. Calculated from serum creatinine.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book eGFR (Estimated GFR) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9300. Calculated from serum creatinine.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "eGFR (Estimated GFR) in Bangalore",
-    "subtitle": "eGFR evaluates ckd-epi estimated gfr with NABL-certified precision. Calculated from serum creatinine.",
+    "subtitle": "eGFR evaluates ckd-epi estimated gfr with NABL Accredited precision. Calculated from serum creatinine.",
     "price": "300",
     "oldPrice": "450",
     "discountPercent": "33% OFF",
@@ -3137,13 +3137,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Kidney Diagnostics",
     "overview": [
-      "eGFR (Estimated GFR) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "eGFR (Estimated GFR) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures ckd-epi estimated gfr to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for eGFR.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3176,10 +3176,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "sodium": {
     "slug": "sodium",
     "title": "Sodium Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Sodium (Serum Na+) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Sodium (Serum Na+) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Sodium (Serum Na+) in Bangalore",
-    "subtitle": "Sodium evaluates serum sodium concentration with NABL-certified precision. No fasting required.",
+    "subtitle": "Sodium evaluates serum sodium concentration with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -3189,13 +3189,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Electrolytes",
     "overview": [
-      "Sodium (Serum Na+) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Sodium (Serum Na+) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum sodium concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Sodium.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3228,10 +3228,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "potassium": {
     "slug": "potassium",
     "title": "Potassium Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Potassium (Serum K+) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Potassium (Serum K+) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Potassium (Serum K+) in Bangalore",
-    "subtitle": "Potassium evaluates serum potassium concentration with NABL-certified precision. No fasting required.",
+    "subtitle": "Potassium evaluates serum potassium concentration with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -3241,13 +3241,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Electrolytes",
     "overview": [
-      "Potassium (Serum K+) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Potassium (Serum K+) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum potassium concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Potassium.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3280,10 +3280,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "chloride": {
     "slug": "chloride",
     "title": "Chloride Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Chloride (Serum Cl-) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Chloride (Serum Cl-) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Chloride (Serum Cl-) in Bangalore",
-    "subtitle": "Chloride evaluates serum chloride concentration with NABL-certified precision. No fasting required.",
+    "subtitle": "Chloride evaluates serum chloride concentration with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -3293,13 +3293,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Electrolytes",
     "overview": [
-      "Chloride (Serum Cl-) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Chloride (Serum Cl-) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum chloride concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Chloride.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3332,10 +3332,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "bicarbonate": {
     "slug": "bicarbonate",
     "title": "Bicarbonate Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Bicarbonate (Serum HCO3-) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9350. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Bicarbonate (Serum HCO3-) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9350. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Bicarbonate (Serum HCO3-) in Bangalore",
-    "subtitle": "Bicarbonate evaluates serum bicarbonate / total co2 with NABL-certified precision. No fasting required.",
+    "subtitle": "Bicarbonate evaluates serum bicarbonate / total co2 with NABL Accredited precision. No fasting required.",
     "price": "350",
     "oldPrice": "500",
     "discountPercent": "30% OFF",
@@ -3345,13 +3345,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Electrolytes",
     "overview": [
-      "Bicarbonate (Serum HCO3-) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Bicarbonate (Serum HCO3-) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum bicarbonate / total co2 to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Bicarbonate.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3384,10 +3384,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "sgpt-alt": {
     "slug": "sgpt-alt",
     "title": "SGPT / ALT Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book SGPT / ALT (ALT) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book SGPT / ALT (ALT) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "SGPT / ALT (ALT) in Bangalore",
-    "subtitle": "SGPT / ALT evaluates serum glutamic pyruvic transaminase with NABL-certified precision. No fasting required.",
+    "subtitle": "SGPT / ALT evaluates serum glutamic pyruvic transaminase with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -3397,13 +3397,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Liver Diagnostics",
     "overview": [
-      "SGPT / ALT (ALT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "SGPT / ALT (ALT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum glutamic pyruvic transaminase to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for SGPT / ALT.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3436,10 +3436,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "sgot-ast": {
     "slug": "sgot-ast",
     "title": "SGOT / AST Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book SGOT / AST (AST) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book SGOT / AST (AST) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "SGOT / AST (AST) in Bangalore",
-    "subtitle": "SGOT / AST evaluates serum glutamic oxaloacetic transaminase with NABL-certified precision. No fasting required.",
+    "subtitle": "SGOT / AST evaluates serum glutamic oxaloacetic transaminase with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -3449,13 +3449,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Liver Diagnostics",
     "overview": [
-      "SGOT / AST (AST) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "SGOT / AST (AST) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum glutamic oxaloacetic transaminase to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for SGOT / AST.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3488,10 +3488,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "alkaline-phosphatase": {
     "slug": "alkaline-phosphatase",
     "title": "Alkaline Phosphatase Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Alkaline Phosphatase (ALP) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9220. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Alkaline Phosphatase (ALP) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9220. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Alkaline Phosphatase (ALP) in Bangalore",
-    "subtitle": "Alkaline Phosphatase evaluates serum alkaline phosphatase with NABL-certified precision. No fasting required.",
+    "subtitle": "Alkaline Phosphatase evaluates serum alkaline phosphatase with NABL Accredited precision. No fasting required.",
     "price": "220",
     "oldPrice": "350",
     "discountPercent": "37% OFF",
@@ -3501,13 +3501,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Liver Diagnostics",
     "overview": [
-      "Alkaline Phosphatase (ALP) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Alkaline Phosphatase (ALP) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum alkaline phosphatase to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Alkaline Phosphatase.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3540,10 +3540,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "gamma-gt": {
     "slug": "gamma-gt",
     "title": "Gamma GT Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Gamma GT (GGT) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9350. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Gamma GT (GGT) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9350. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Gamma GT (GGT) in Bangalore",
-    "subtitle": "Gamma GT evaluates gamma glutamyl transferase with NABL-certified precision. No fasting required.",
+    "subtitle": "Gamma GT evaluates gamma glutamyl transferase with NABL Accredited precision. No fasting required.",
     "price": "350",
     "oldPrice": "500",
     "discountPercent": "30% OFF",
@@ -3553,13 +3553,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Liver Diagnostics",
     "overview": [
-      "Gamma GT (GGT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Gamma GT (GGT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures gamma glutamyl transferase to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Gamma GT.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3592,10 +3592,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "bilirubin-total": {
     "slug": "bilirubin-total",
     "title": "Bilirubin \u2013 Total Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Bilirubin \u2013 Total (Total Bilirubin) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Bilirubin \u2013 Total (Total Bilirubin) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Bilirubin \u2013 Total (Total Bilirubin) in Bangalore",
-    "subtitle": "Bilirubin \u2013 Total evaluates serum total bilirubin with NABL-certified precision. No fasting required.",
+    "subtitle": "Bilirubin \u2013 Total evaluates serum total bilirubin with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -3605,13 +3605,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Liver Diagnostics",
     "overview": [
-      "Bilirubin \u2013 Total (Total Bilirubin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Bilirubin \u2013 Total (Total Bilirubin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum total bilirubin to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Bilirubin \u2013 Total.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3644,10 +3644,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "bilirubin-direct": {
     "slug": "bilirubin-direct",
     "title": "Bilirubin \u2013 Direct Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Bilirubin \u2013 Direct (Conjugated Bilirubin) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Bilirubin \u2013 Direct (Conjugated Bilirubin) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Bilirubin \u2013 Direct (Conjugated Bilirubin) in Bangalore",
-    "subtitle": "Bilirubin \u2013 Direct evaluates serum direct bilirubin with NABL-certified precision. No fasting required.",
+    "subtitle": "Bilirubin \u2013 Direct evaluates serum direct bilirubin with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -3657,13 +3657,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Liver Diagnostics",
     "overview": [
-      "Bilirubin \u2013 Direct (Conjugated Bilirubin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Bilirubin \u2013 Direct (Conjugated Bilirubin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum direct bilirubin to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Bilirubin \u2013 Direct.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3696,10 +3696,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "bilirubin-indirect": {
     "slug": "bilirubin-indirect",
     "title": "Bilirubin \u2013 Indirect Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Bilirubin \u2013 Indirect (Unconjugated Bilirubin) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Bilirubin \u2013 Indirect (Unconjugated Bilirubin) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Bilirubin \u2013 Indirect (Unconjugated Bilirubin) in Bangalore",
-    "subtitle": "Bilirubin \u2013 Indirect evaluates calculated indirect bilirubin with NABL-certified precision. No fasting required.",
+    "subtitle": "Bilirubin \u2013 Indirect evaluates calculated indirect bilirubin with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -3709,13 +3709,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Liver Diagnostics",
     "overview": [
-      "Bilirubin \u2013 Indirect (Unconjugated Bilirubin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Bilirubin \u2013 Indirect (Unconjugated Bilirubin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures calculated indirect bilirubin to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Bilirubin \u2013 Indirect.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3748,10 +3748,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "total-protein": {
     "slug": "total-protein",
     "title": "Total Protein Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Total Protein (Total Protein) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Total Protein (Total Protein) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Total Protein (Total Protein) in Bangalore",
-    "subtitle": "Total Protein evaluates serum total protein & a/g ratio with NABL-certified precision. No fasting required.",
+    "subtitle": "Total Protein evaluates serum total protein & a/g ratio with NABL Accredited precision. No fasting required.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -3761,13 +3761,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Total Protein (Total Protein) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Total Protein (Total Protein) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum total protein & a/g ratio to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Total Protein.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3800,10 +3800,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "albumin": {
     "slug": "albumin",
     "title": "Albumin Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Albumin (Serum Albumin) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9180. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Albumin (Serum Albumin) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9180. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Albumin (Serum Albumin) in Bangalore",
-    "subtitle": "Albumin evaluates serum albumin concentration with NABL-certified precision. No fasting required.",
+    "subtitle": "Albumin evaluates serum albumin concentration with NABL Accredited precision. No fasting required.",
     "price": "180",
     "oldPrice": "270",
     "discountPercent": "33% OFF",
@@ -3813,13 +3813,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Albumin (Serum Albumin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Albumin (Serum Albumin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum albumin concentration to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Albumin.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3852,10 +3852,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "globulin": {
     "slug": "globulin",
     "title": "Globulin Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Globulin (Serum Globulin) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9180. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Globulin (Serum Globulin) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9180. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Globulin (Serum Globulin) in Bangalore",
-    "subtitle": "Globulin evaluates calculated serum globulin with NABL-certified precision. No fasting required.",
+    "subtitle": "Globulin evaluates calculated serum globulin with NABL Accredited precision. No fasting required.",
     "price": "180",
     "oldPrice": "270",
     "discountPercent": "33% OFF",
@@ -3865,13 +3865,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "Globulin (Serum Globulin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Globulin (Serum Globulin) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures calculated serum globulin to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Globulin.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3904,10 +3904,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "amylase": {
     "slug": "amylase",
     "title": "Amylase Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Amylase (Serum Amylase) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9450. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Amylase (Serum Amylase) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9450. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Amylase (Serum Amylase) in Bangalore",
-    "subtitle": "Amylase evaluates serum amylase activity with NABL-certified precision. No fasting required.",
+    "subtitle": "Amylase evaluates serum amylase activity with NABL Accredited precision. No fasting required.",
     "price": "450",
     "oldPrice": "650",
     "discountPercent": "30% OFF",
@@ -3917,13 +3917,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Pancreatic Diagnostics",
     "overview": [
-      "Amylase (Serum Amylase) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Amylase (Serum Amylase) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum amylase activity to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Amylase.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -3956,10 +3956,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "lipase": {
     "slug": "lipase",
     "title": "Lipase Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Lipase (Serum Lipase) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9550. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Lipase (Serum Lipase) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9550. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Lipase (Serum Lipase) in Bangalore",
-    "subtitle": "Lipase evaluates serum lipase activity with NABL-certified precision. No fasting required.",
+    "subtitle": "Lipase evaluates serum lipase activity with NABL Accredited precision. No fasting required.",
     "price": "550",
     "oldPrice": "800",
     "discountPercent": "31% OFF",
@@ -3969,13 +3969,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Pancreatic Diagnostics",
     "overview": [
-      "Lipase (Serum Lipase) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Lipase (Serum Lipase) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum lipase activity to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Lipase.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4008,10 +4008,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "ldh": {
     "slug": "ldh",
     "title": "LDH Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book LDH (Lactate Dehydrogenase) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9400. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book LDH (Lactate Dehydrogenase) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9400. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "LDH (Lactate Dehydrogenase) in Bangalore",
-    "subtitle": "LDH evaluates serum lactate dehydrogenase with NABL-certified precision. No fasting required.",
+    "subtitle": "LDH evaluates serum lactate dehydrogenase with NABL Accredited precision. No fasting required.",
     "price": "400",
     "oldPrice": "600",
     "discountPercent": "33% OFF",
@@ -4021,13 +4021,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Biochemistry",
     "overview": [
-      "LDH (Lactate Dehydrogenase) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "LDH (Lactate Dehydrogenase) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures serum lactate dehydrogenase to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for LDH.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4060,10 +4060,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "ck-cpk": {
     "slug": "ck-cpk",
     "title": "CK / CPK Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book CK / CPK (Creatine Kinase) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9450. Avoid strenuous exercise 24h prior.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book CK / CPK (Creatine Kinase) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9450. Avoid strenuous exercise 24h prior.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CK / CPK (Creatine Kinase) in Bangalore",
-    "subtitle": "CK / CPK evaluates total creatine phosphokinase with NABL-certified precision. Avoid strenuous exercise 24h prior.",
+    "subtitle": "CK / CPK evaluates total creatine phosphokinase with NABL Accredited precision. Avoid strenuous exercise 24h prior.",
     "price": "450",
     "oldPrice": "650",
     "discountPercent": "30% OFF",
@@ -4073,13 +4073,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Cardiology / Muscle",
     "overview": [
-      "CK / CPK (Creatine Kinase) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "CK / CPK (Creatine Kinase) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures total creatine phosphokinase to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for CK / CPK.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4112,10 +4112,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "ck-mb": {
     "slug": "ck-mb",
     "title": "CK-MB Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book CK-MB (Creatine Kinase MB) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9600. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book CK-MB (Creatine Kinase MB) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9600. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "CK-MB (Creatine Kinase MB) in Bangalore",
-    "subtitle": "CK-MB evaluates creatine kinase mb isoenzyme with NABL-certified precision. No fasting required.",
+    "subtitle": "CK-MB evaluates creatine kinase mb isoenzyme with NABL Accredited precision. No fasting required.",
     "price": "600",
     "oldPrice": "900",
     "discountPercent": "33% OFF",
@@ -4125,13 +4125,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Cardiology",
     "overview": [
-      "CK-MB (Creatine Kinase MB) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "CK-MB (Creatine Kinase MB) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures creatine kinase mb isoenzyme to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for CK-MB.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4164,10 +4164,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "troponin-i": {
     "slug": "troponin-i",
     "title": "Troponin I Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Troponin I (hs-cTnI) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b91100. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Troponin I (hs-cTnI) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b91100. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Troponin I (hs-cTnI) in Bangalore",
-    "subtitle": "Troponin I evaluates high-sensitivity cardiac troponin i with NABL-certified precision. No fasting required.",
+    "subtitle": "Troponin I evaluates high-sensitivity cardiac troponin i with NABL Accredited precision. No fasting required.",
     "price": "1100",
     "oldPrice": "1600",
     "discountPercent": "31% OFF",
@@ -4177,13 +4177,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (2\u20134 Hours)",
     "category": "Cardiology",
     "overview": [
-      "Troponin I (hs-cTnI) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Troponin I (hs-cTnI) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures high-sensitivity cardiac troponin i to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Troponin I.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4216,10 +4216,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "troponin-t": {
     "slug": "troponin-t",
     "title": "Troponin T Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Troponin T (hs-cTnT) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b91200. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Troponin T (hs-cTnT) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b91200. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Troponin T (hs-cTnT) in Bangalore",
-    "subtitle": "Troponin T evaluates high-sensitivity cardiac troponin t with NABL-certified precision. No fasting required.",
+    "subtitle": "Troponin T evaluates high-sensitivity cardiac troponin t with NABL Accredited precision. No fasting required.",
     "price": "1200",
     "oldPrice": "1800",
     "discountPercent": "33% OFF",
@@ -4229,13 +4229,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (2\u20134 Hours)",
     "category": "Cardiology",
     "overview": [
-      "Troponin T (hs-cTnT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Troponin T (hs-cTnT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures high-sensitivity cardiac troponin t to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Troponin T.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4268,10 +4268,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "nt-probnp": {
     "slug": "nt-probnp",
     "title": "NT-proBNP Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book NT-proBNP (NT-proBNP) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b92400. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book NT-proBNP (NT-proBNP) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b92400. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "NT-proBNP (NT-proBNP) in Bangalore",
-    "subtitle": "NT-proBNP evaluates n-terminal probnp (heart failure marker) with NABL-certified precision. No fasting required.",
+    "subtitle": "NT-proBNP evaluates n-terminal probnp (heart failure marker) with NABL Accredited precision. No fasting required.",
     "price": "2400",
     "oldPrice": "3500",
     "discountPercent": "31% OFF",
@@ -4281,13 +4281,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Cardiology",
     "overview": [
-      "NT-proBNP (NT-proBNP) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "NT-proBNP (NT-proBNP) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures n-terminal probnp (heart failure marker) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for NT-proBNP.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4320,10 +4320,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "urine-routine-microscopy": {
     "slug": "urine-routine-microscopy",
     "title": "Urine Routine & Microscopy Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Urine Routine & Microscopy (Urine Routine) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9200. Collect fresh mid-stream sample.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Urine Routine & Microscopy (Urine Routine) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9200. Collect fresh mid-stream sample.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Urine Routine & Microscopy (Urine Routine) in Bangalore",
-    "subtitle": "Urine Routine & Microscopy evaluates 18 physical, chemical & microscopic parameters with NABL-certified precision. Collect fresh mid-stream sample.",
+    "subtitle": "Urine Routine & Microscopy evaluates 18 physical, chemical & microscopic parameters with NABL Accredited precision. Collect fresh mid-stream sample.",
     "price": "200",
     "oldPrice": "300",
     "discountPercent": "33% OFF",
@@ -4333,13 +4333,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (2\u20134 Hours)",
     "category": "Urinalysis",
     "overview": [
-      "Urine Routine & Microscopy (Urine Routine) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Urine Routine & Microscopy (Urine Routine) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures 18 physical, chemical & microscopic parameters to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Urine Routine & Microscopy.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4372,10 +4372,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "urine-culture": {
     "slug": "urine-culture",
     "title": "Urine Culture Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Urine Culture (Urine C&S) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9650. Collect in sterile container prior to antibiotics.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Urine Culture (Urine C&S) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9650. Collect in sterile container prior to antibiotics.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Urine Culture (Urine C&S) in Bangalore",
-    "subtitle": "Urine Culture evaluates bacterial culture & antibiotic sensitivity with NABL-certified precision. Collect in sterile container prior to antibiotics.",
+    "subtitle": "Urine Culture evaluates bacterial culture & antibiotic sensitivity with NABL Accredited precision. Collect in sterile container prior to antibiotics.",
     "price": "650",
     "oldPrice": "950",
     "discountPercent": "31% OFF",
@@ -4385,13 +4385,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (48 Hours)",
     "category": "Microbiology",
     "overview": [
-      "Urine Culture (Urine C&S) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Urine Culture (Urine C&S) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures bacterial culture & antibiotic sensitivity to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Urine Culture.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4424,10 +4424,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "urine-microalbumin": {
     "slug": "urine-microalbumin",
     "title": "Urine Microalbumin Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Urine Microalbumin (Microalbuminuria) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9550. Morning first-void sample preferred.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Urine Microalbumin (Microalbuminuria) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9550. Morning first-void sample preferred.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Urine Microalbumin (Microalbuminuria) in Bangalore",
-    "subtitle": "Urine Microalbumin evaluates urine microalbumin & albumin/creatinine ratio with NABL-certified precision. Morning first-void sample preferred.",
+    "subtitle": "Urine Microalbumin evaluates urine microalbumin & albumin/creatinine ratio with NABL Accredited precision. Morning first-void sample preferred.",
     "price": "550",
     "oldPrice": "800",
     "discountPercent": "31% OFF",
@@ -4437,13 +4437,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Nephrology",
     "overview": [
-      "Urine Microalbumin (Microalbuminuria) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Urine Microalbumin (Microalbuminuria) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures urine microalbumin & albumin/creatinine ratio to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Urine Microalbumin.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4476,10 +4476,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "urine-protein-24-hour": {
     "slug": "urine-protein-24-hour",
     "title": "Urine Protein \u2013 24 Hour Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Urine Protein \u2013 24 Hour (24h Urine Protein) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9500. Collect all urine passed over 24 hours.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Urine Protein \u2013 24 Hour (24h Urine Protein) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9500. Collect all urine passed over 24 hours.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Urine Protein \u2013 24 Hour (24h Urine Protein) in Bangalore",
-    "subtitle": "Urine Protein \u2013 24 Hour evaluates total 24-hour urine protein excretion with NABL-certified precision. Collect all urine passed over 24 hours.",
+    "subtitle": "Urine Protein \u2013 24 Hour evaluates total 24-hour urine protein excretion with NABL Accredited precision. Collect all urine passed over 24 hours.",
     "price": "500",
     "oldPrice": "750",
     "discountPercent": "33% OFF",
@@ -4489,13 +4489,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (12\u201324 Hours)",
     "category": "Nephrology",
     "overview": [
-      "Urine Protein \u2013 24 Hour (24h Urine Protein) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Urine Protein \u2013 24 Hour (24h Urine Protein) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures total 24-hour urine protein excretion to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Urine Protein \u2013 24 Hour.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4528,10 +4528,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "stool-routine-examination": {
     "slug": "stool-routine-examination",
     "title": "Stool Routine Examination Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Stool Routine Examination (Stool Routine) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9250. Collect in clean container.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Stool Routine Examination (Stool Routine) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9250. Collect in clean container.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Stool Routine Examination (Stool Routine) in Bangalore",
-    "subtitle": "Stool Routine Examination evaluates physical, chemical & parasitic ova/cyst exam with NABL-certified precision. Collect in clean container.",
+    "subtitle": "Stool Routine Examination evaluates physical, chemical & parasitic ova/cyst exam with NABL Accredited precision. Collect in clean container.",
     "price": "250",
     "oldPrice": "400",
     "discountPercent": "37% OFF",
@@ -4541,13 +4541,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Gastroenterology",
     "overview": [
-      "Stool Routine Examination (Stool Routine) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Stool Routine Examination (Stool Routine) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures physical, chemical & parasitic ova/cyst exam to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Stool Routine Examination.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4580,10 +4580,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "stool-occult-blood": {
     "slug": "stool-occult-blood",
     "title": "Stool Occult Blood Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Stool Occult Blood (FOBT) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9350. Avoid red meat 48h prior if non-immunochemical.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Stool Occult Blood (FOBT) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9350. Avoid red meat 48h prior if non-immunochemical.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Stool Occult Blood (FOBT) in Bangalore",
-    "subtitle": "Stool Occult Blood evaluates fecal occult blood test with NABL-certified precision. Avoid red meat 48h prior if non-immunochemical.",
+    "subtitle": "Stool Occult Blood evaluates fecal occult blood test with NABL Accredited precision. Avoid red meat 48h prior if non-immunochemical.",
     "price": "350",
     "oldPrice": "500",
     "discountPercent": "30% OFF",
@@ -4593,13 +4593,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Gastroenterology",
     "overview": [
-      "Stool Occult Blood (FOBT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Stool Occult Blood (FOBT) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures fecal occult blood test to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Stool Occult Blood.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4632,10 +4632,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "hbsag": {
     "slug": "hbsag",
     "title": "HBsAg Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book HBsAg (Hepatitis B Surface Ag) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9450. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book HBsAg (Hepatitis B Surface Ag) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9450. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HBsAg (Hepatitis B Surface Ag) in Bangalore",
-    "subtitle": "HBsAg evaluates hepatitis b surface antigen (clia / rapid) with NABL-certified precision. No fasting required.",
+    "subtitle": "HBsAg evaluates hepatitis b surface antigen (clia / rapid) with NABL Accredited precision. No fasting required.",
     "price": "450",
     "oldPrice": "650",
     "discountPercent": "30% OFF",
@@ -4645,13 +4645,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Virology",
     "overview": [
-      "HBsAg (Hepatitis B Surface Ag) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "HBsAg (Hepatitis B Surface Ag) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures hepatitis b surface antigen (clia / rapid) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for HBsAg.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4684,10 +4684,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "anti-hcv": {
     "slug": "anti-hcv",
     "title": "Anti-HCV Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Anti-HCV (Hepatitis C Ab) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9550. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Anti-HCV (Hepatitis C Ab) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9550. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Anti-HCV (Hepatitis C Ab) in Bangalore",
-    "subtitle": "Anti-HCV evaluates hepatitis c total antibodies with NABL-certified precision. No fasting required.",
+    "subtitle": "Anti-HCV evaluates hepatitis c total antibodies with NABL Accredited precision. No fasting required.",
     "price": "550",
     "oldPrice": "800",
     "discountPercent": "31% OFF",
@@ -4697,13 +4697,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Virology",
     "overview": [
-      "Anti-HCV (Hepatitis C Ab) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Anti-HCV (Hepatitis C Ab) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures hepatitis c total antibodies to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Anti-HCV.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4736,10 +4736,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "hiv-1-2-antibody": {
     "slug": "hiv-1-2-antibody",
     "title": "HIV 1 & 2 Antibody Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book HIV 1 & 2 Antibody (HIV 4th Gen) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9500. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book HIV 1 & 2 Antibody (HIV 4th Gen) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9500. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HIV 1 & 2 Antibody (HIV 4th Gen) in Bangalore",
-    "subtitle": "HIV 1 & 2 Antibody evaluates hiv 1 & 2 antibodies + p24 antigen with NABL-certified precision. No fasting required.",
+    "subtitle": "HIV 1 & 2 Antibody evaluates hiv 1 & 2 antibodies + p24 antigen with NABL Accredited precision. No fasting required.",
     "price": "500",
     "oldPrice": "750",
     "discountPercent": "33% OFF",
@@ -4749,13 +4749,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Virology",
     "overview": [
-      "HIV 1 & 2 Antibody (HIV 4th Gen) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "HIV 1 & 2 Antibody (HIV 4th Gen) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures hiv 1 & 2 antibodies + p24 antigen to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for HIV 1 & 2 Antibody.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4788,10 +4788,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "vdrl": {
     "slug": "vdrl",
     "title": "VDRL Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book VDRL (Syphilis Screen) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9300. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book VDRL (Syphilis Screen) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9300. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "VDRL (Syphilis Screen) in Bangalore",
-    "subtitle": "VDRL evaluates vdrl / rpr syphilis serology with NABL-certified precision. No fasting required.",
+    "subtitle": "VDRL evaluates vdrl / rpr syphilis serology with NABL Accredited precision. No fasting required.",
     "price": "300",
     "oldPrice": "450",
     "discountPercent": "33% OFF",
@@ -4801,13 +4801,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Serology",
     "overview": [
-      "VDRL (Syphilis Screen) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "VDRL (Syphilis Screen) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures vdrl / rpr syphilis serology to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for VDRL.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4840,10 +4840,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "widal-test": {
     "slug": "widal-test",
     "title": "Widal Test Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Widal Test (Widal) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9300. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Widal Test (Widal) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9300. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Widal Test (Widal) in Bangalore",
-    "subtitle": "Widal Test evaluates salmonella typhi & paratyphi agglutination with NABL-certified precision. No fasting required.",
+    "subtitle": "Widal Test evaluates salmonella typhi & paratyphi agglutination with NABL Accredited precision. No fasting required.",
     "price": "300",
     "oldPrice": "450",
     "discountPercent": "33% OFF",
@@ -4853,13 +4853,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Serology",
     "overview": [
-      "Widal Test (Widal) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Widal Test (Widal) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures salmonella typhi & paratyphi agglutination to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Widal Test.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4892,10 +4892,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "dengue-ns1-antigen": {
     "slug": "dengue-ns1-antigen",
     "title": "Dengue NS1 Antigen Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Dengue NS1 Antigen (Dengue NS1) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9600. Test within 1\u20135 days of fever.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Dengue NS1 Antigen (Dengue NS1) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9600. Test within 1\u20135 days of fever.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Dengue NS1 Antigen (Dengue NS1) in Bangalore",
-    "subtitle": "Dengue NS1 Antigen evaluates dengue virus ns1 early antigen with NABL-certified precision. Test within 1\u20135 days of fever.",
+    "subtitle": "Dengue NS1 Antigen evaluates dengue virus ns1 early antigen with NABL Accredited precision. Test within 1\u20135 days of fever.",
     "price": "600",
     "oldPrice": "900",
     "discountPercent": "33% OFF",
@@ -4905,13 +4905,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (2\u20134 Hours)",
     "category": "Serology",
     "overview": [
-      "Dengue NS1 Antigen (Dengue NS1) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Dengue NS1 Antigen (Dengue NS1) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures dengue virus ns1 early antigen to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Dengue NS1 Antigen.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4944,10 +4944,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "dengue-igm-igg": {
     "slug": "dengue-igm-igg",
     "title": "Dengue IgM & IgG Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Dengue IgM & IgG (Dengue Serology) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9750. Test from day 5 of fever.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Dengue IgM & IgG (Dengue Serology) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9750. Test from day 5 of fever.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Dengue IgM & IgG (Dengue Serology) in Bangalore",
-    "subtitle": "Dengue IgM & IgG evaluates dengue specific antibodies (igm & igg) with NABL-certified precision. Test from day 5 of fever.",
+    "subtitle": "Dengue IgM & IgG evaluates dengue specific antibodies (igm & igg) with NABL Accredited precision. Test from day 5 of fever.",
     "price": "750",
     "oldPrice": "1100",
     "discountPercent": "31% OFF",
@@ -4957,13 +4957,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (2\u20134 Hours)",
     "category": "Serology",
     "overview": [
-      "Dengue IgM & IgG (Dengue Serology) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Dengue IgM & IgG (Dengue Serology) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures dengue specific antibodies (igm & igg) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Dengue IgM & IgG.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -4996,10 +4996,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "malaria-parasite": {
     "slug": "malaria-parasite",
     "title": "Malaria Parasite Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Malaria Parasite (MP Smear / Antigen) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9350. Collect during fever spike.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Malaria Parasite (MP Smear / Antigen) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9350. Collect during fever spike.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Malaria Parasite (MP Smear / Antigen) in Bangalore",
-    "subtitle": "Malaria Parasite evaluates malaria rapid antigen & thick/thin smear with NABL-certified precision. Collect during fever spike.",
+    "subtitle": "Malaria Parasite evaluates malaria rapid antigen & thick/thin smear with NABL Accredited precision. Collect during fever spike.",
     "price": "350",
     "oldPrice": "500",
     "discountPercent": "30% OFF",
@@ -5009,13 +5009,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (2\u20134 Hours)",
     "category": "Parasitology",
     "overview": [
-      "Malaria Parasite (MP Smear / Antigen) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Malaria Parasite (MP Smear / Antigen) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures malaria rapid antigen & thick/thin smear to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Malaria Parasite.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -5048,10 +5048,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "typhoid-igm": {
     "slug": "typhoid-igm",
     "title": "Typhoid IgM Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Typhoid IgM (Typhidot IgM) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9550. Test from day 3\u20134 of fever.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Typhoid IgM (Typhidot IgM) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9550. Test from day 3\u20134 of fever.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Typhoid IgM (Typhidot IgM) in Bangalore",
-    "subtitle": "Typhoid IgM evaluates salmonella typhi igm antibodies with NABL-certified precision. Test from day 3\u20134 of fever.",
+    "subtitle": "Typhoid IgM evaluates salmonella typhi igm antibodies with NABL Accredited precision. Test from day 3\u20134 of fever.",
     "price": "550",
     "oldPrice": "800",
     "discountPercent": "31% OFF",
@@ -5061,13 +5061,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (4\u20136 Hours)",
     "category": "Serology",
     "overview": [
-      "Typhoid IgM (Typhidot IgM) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Typhoid IgM (Typhidot IgM) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures salmonella typhi igm antibodies to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Typhoid IgM.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -5100,10 +5100,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "covid-19-rt-pcr": {
     "slug": "covid-19-rt-pcr",
     "title": "COVID-19 RT-PCR Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book COVID-19 RT-PCR (RT-PCR COVID) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b9800. No eating or drinking 30m prior.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book COVID-19 RT-PCR (RT-PCR COVID) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9800. No eating or drinking 30m prior.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "COVID-19 RT-PCR (RT-PCR COVID) in Bangalore",
-    "subtitle": "COVID-19 RT-PCR evaluates sars-cov-2 real-time rt-pcr assay with NABL-certified precision. No eating or drinking 30m prior.",
+    "subtitle": "COVID-19 RT-PCR evaluates sars-cov-2 real-time rt-pcr assay with NABL Accredited precision. No eating or drinking 30m prior.",
     "price": "800",
     "oldPrice": "1200",
     "discountPercent": "33% OFF",
@@ -5113,13 +5113,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (6\u201312 Hours)",
     "category": "Molecular Diagnostics",
     "overview": [
-      "COVID-19 RT-PCR (RT-PCR COVID) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "COVID-19 RT-PCR (RT-PCR COVID) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures sars-cov-2 real-time rt-pcr assay to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for COVID-19 RT-PCR.",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
@@ -5152,10 +5152,10 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "vitamin-b1-thiamine": {
     "slug": "vitamin-b1-thiamine",
     "title": "Vitamin B1 (Thiamine) Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Vitamin B1 (Thiamine) (Thiamine B1) at home in Bangalore. NABL Certified precision, same-day digital reports, starting at \u20b91800. No fasting required.",
-    "badge": "NABL certified lab (MC-10025) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Vitamin B1 (Thiamine) (Thiamine B1) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b91800. No fasting required.",
+    "badge": "NABL Accredited lab (MC-10025) \u00b7 FREE HOME COLLECTION",
     "h1Title": "Vitamin B1 (Thiamine) (Thiamine B1) in Bangalore",
-    "subtitle": "Vitamin B1 (Thiamine) evaluates whole blood thiamine pyrophosphate (tpp) with NABL-certified precision. No fasting required.",
+    "subtitle": "Vitamin B1 (Thiamine) evaluates whole blood thiamine pyrophosphate (tpp) with NABL Accredited precision. No fasting required.",
     "price": "1800",
     "oldPrice": "2600",
     "discountPercent": "30% OFF",
@@ -5165,13 +5165,13 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "turnaroundTime": "Same Day (24\u201348 Hours)",
     "category": "Nutritional Panels",
     "overview": [
-      "Vitamin B1 (Thiamine) (Thiamine B1) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Certified laboratory analyzers.",
+      "Vitamin B1 (Thiamine) (Thiamine B1) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
       "This investigation measures whole blood thiamine pyrophosphate (tpp) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
       "Evaluates essential clinical parameters for Vitamin B1 (Thiamine).",
-      "Conducted at NABL Certified laboratory (MC-10025) following ISO 15189:2022 standards.",
+      "Conducted at NABL Accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
       "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],

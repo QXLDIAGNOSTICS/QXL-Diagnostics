@@ -16,7 +16,7 @@ export const CONDITIONS_DATA: Record<string, ConditionItem> = {
     slug: "diabetes-testing",
     title: "Diabetes Blood Tests & Diagnostic Screening Bangalore | QXL",
     h1Title: "Diabetes Blood Tests & Monitoring in Bangalore",
-    subtitle: "Comprehensive NABL Certified diagnostic screening for prediabetes, Type 1, Type 2, and gestational diabetes mellitus.",
+    subtitle: "Comprehensive NABL Accredited diagnostic screening for prediabetes, Type 1, Type 2, and gestational diabetes mellitus.",
     category: "Metabolic & Diabetes",
     symptoms: ["Increased thirst (polydipsia)", "Frequent urination (polyuria)", "Unexplained weight loss", "Chronic fatigue", "Blurred vision"],
     recommendedTests: [
@@ -68,7 +68,7 @@ export const CONDITIONS_DATA: Record<string, ConditionItem> = {
     slug: "anaemia-testing",
     title: "Anaemia & Iron Deficiency Blood Tests Bangalore | QXL",
     h1Title: "Anaemia & Iron Deficiency Diagnostics in Bangalore",
-    subtitle: "NABL Certified laboratory testing for iron deficiency, Vitamin B12 deficiency, folate deficiency, and haemoglobinopathies.",
+    subtitle: "NABL Accredited laboratory testing for iron deficiency, Vitamin B12 deficiency, folate deficiency, and haemoglobinopathies.",
     category: "Haematology & Nutrition",
     symptoms: ["Pale skin and inner eyelids", "Shortness of breath on mild exertion", "Dizziness & lightheadedness", "Cold hands and feet", "Brittle nails or unusual cravings (pica)"],
     recommendedTests: [

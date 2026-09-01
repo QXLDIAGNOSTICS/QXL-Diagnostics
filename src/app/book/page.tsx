@@ -788,52 +788,51 @@ export default function BookPage() {
                 </div>
               ) : (
                 <div className="space-y-6">
-                  {/* 6-Step Progress Header Bar */}
+                  {/* 3-Step Perceived Progress Header Bar */}
                   <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs">
                     <div className="flex items-center justify-between mb-3 px-1">
                       <span className="text-xs font-black text-[#0f2d5e] uppercase tracking-wider">
-                        Step {currentStep} of 6 — {
-                          currentStep === 1 ? "Selected Tests" :
-                          currentStep === 2 ? "Patient Details" :
-                          currentStep === 3 ? "Collection Method & Address" :
-                          currentStep === 4 ? "Time Slot" :
-                          currentStep === 5 ? "Review Booking Summary" :
-                          "Confirm Booking"
-                        }
+                        {currentStep === 1 ? "Step 1 of 3 — Select Tests" :
+                         currentStep >= 2 && currentStep <= 4 ? `Step 2 of 3 — Patient & Collection (${currentStep === 2 ? "Details" : currentStep === 3 ? "Address" : "Time Slot"})` :
+                         "Step 3 of 3 — Confirm & Pay"}
                       </span>
-                      <span className="text-xs font-bold text-[#D69A18]">{Math.round((currentStep / 6) * 100)}% Completed</span>
+                      <span className="text-xs font-bold text-[#D69A18]">
+                        {currentStep === 1 ? "33%" : currentStep >= 2 && currentStep <= 4 ? "66%" : "100%"} Completed
+                      </span>
                     </div>
 
-                    {/* Step Tabs Indicator */}
-                    <div className="grid grid-cols-6 gap-1">
+                    {/* Step Tabs Indicator — 3 Perceived Stages */}
+                    <div className="grid grid-cols-3 gap-2">
                       {[
-                        { num: 1, label: "Tests" },
-                        { num: 2, label: "Patient" },
-                        { num: 3, label: "Collection" },
-                        { num: 4, label: "Slot" },
-                        { num: 5, label: "Review" },
-                        { num: 6, label: "Confirm" },
-                      ].map((step) => (
-                        <button
-                          key={step.num}
-                          type="button"
-                          onClick={() => {
-                            if (step.num < currentStep || (step.num === 2 && selectedItems.length > 0) || (step.num === 3 && formData.name && formData.phone)) {
-                              setCurrentStep(step.num);
-                            }
-                          }}
-                          className={`flex flex-col items-center justify-center py-2 px-1 rounded-xl text-[9.5px] font-black transition-all cursor-pointer ${
-                            currentStep === step.num
-                              ? 'bg-[#0f2d5e] text-white shadow-xs'
-                              : currentStep > step.num
-                              ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                              : 'bg-slate-50 text-slate-400 border border-slate-150'
-                          }`}
-                        >
-                          <span>{currentStep > step.num ? '✓' : step.num}</span>
-                          <span className="truncate max-w-full font-bold">{step.label}</span>
-                        </button>
-                      ))}
+                        { stage: 1, internalStep: 1, label: "1. Select Tests" },
+                        { stage: 2, internalStep: 2, label: "2. Patient & Collection" },
+                        { stage: 3, internalStep: 5, label: "3. Confirm & Pay" },
+                      ].map((step) => {
+                        const activeStage = currentStep === 1 ? 1 : (currentStep >= 2 && currentStep <= 4) ? 2 : 3;
+                        const isDone = activeStage > step.stage;
+                        const isActive = activeStage === step.stage;
+
+                        return (
+                          <button
+                            key={step.stage}
+                            type="button"
+                            onClick={() => {
+                              if (step.stage === 1) setCurrentStep(1);
+                              else if (step.stage === 2 && selectedItems.length > 0) setCurrentStep(Math.min(currentStep, 4) > 1 ? Math.min(currentStep, 4) : 2);
+                              else if (step.stage === 3 && formData.name && formData.phone) setCurrentStep(5);
+                            }}
+                            className={`flex flex-col items-center justify-center py-2.5 px-2 rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
+                              isActive
+                                ? 'bg-[#0f2d5e] text-white shadow-xs'
+                                : isDone
+                                ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                                : 'bg-slate-50 text-slate-400 border border-slate-150'
+                            }`}
+                          >
+                            <span>{isDone ? '✓ ' + step.label : step.label}</span>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 
@@ -1089,7 +1088,7 @@ export default function BookPage() {
                             />
                             <div className="flex flex-col gap-1 w-full">
                               <span className="text-sm font-black text-[#0f2d5e] flex items-center gap-1.5"><Building2 className="w-4 h-4 text-[#D69A18]" /> Walk-in Lab Center</span>
-                              <span className="text-xs text-slate-500 font-medium leading-relaxed mt-1">Visit a QXL NABL Certified Laboratory in Bengaluru</span>
+                              <span className="text-xs text-slate-500 font-medium leading-relaxed mt-1">Visit a QXL NABL Accredited Laboratory in Bengaluru</span>
                               <span className="text-[10px] font-black text-amber-800 bg-amber-100 w-fit px-2 py-0.5 rounded-full mt-1">PHYSICAL WALK-IN</span>
                             </div>
                           </label>
@@ -1547,7 +1546,7 @@ export default function BookPage() {
               <ul className="space-y-4 text-sm font-semibold text-slate-700">
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />
-                  <span>Advanced NABL Certified lab with strict quality control.</span>
+                  <span>Advanced NABL Accredited lab with strict quality control.</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#2563eb] flex-shrink-0 mt-0.5" />

@@ -50,7 +50,7 @@ function LoginPageInner() {
           {/* Top Brand & NABL Badge Header */}
           <div className="text-center mb-6 space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-[#00A8A8] text-[10.5px] font-extrabold uppercase tracking-wider">
-              <span>NABL certified lab (MC-10025)</span>
+              <span>NABL Accredited lab (MC-10025)</span>
             </div>
             
             <h1 className="text-2xl sm:text-3xl font-black text-[#0f2d5e] tracking-tight">

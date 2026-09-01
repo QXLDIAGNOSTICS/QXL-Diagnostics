@@ -59,7 +59,7 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
                 <div className="flex items-center gap-2">
                   <Shield className="w-5 h-5 text-[#D69A18] shrink-0" />
                   <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
-                    NABL Certified &amp; Doctor-Led Diagnostics
+                    NABL Accredited &amp; Doctor-Led Diagnostics
                   </h3>
                 </div>
                 <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">

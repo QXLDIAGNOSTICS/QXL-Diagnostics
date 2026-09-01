@@ -56,7 +56,7 @@ export default function UrologyPage() {
             {/* Intro */}
             <section>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Urological wellness and renal health are essential for maintaining systemic equilibrium. QXL Diagnostics provides NABL Certified assays for kidney function, bladder health, metabolic stone profiling, and prostate screening, ensuring clinical precision for targeted urological care.
+                Urological wellness and renal health are essential for maintaining systemic equilibrium. QXL Diagnostics provides NABL Accredited assays for kidney function, bladder health, metabolic stone profiling, and prostate screening, ensuring clinical precision for targeted urological care.
               </p>
             </section>
 
@@ -131,7 +131,7 @@ export default function UrologyPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Laboratories", desc: "Rigorous diagnostic quality protocols ensuring standard-aligned results." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited Laboratories", desc: "Rigorous diagnostic quality protocols ensuring standard-aligned results." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "High-Sensitivity Chemistry", desc: "Advanced enzymatic assays minimizing biochemical background interference." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Clinician-Approved Formulations", desc: "eGFR and urine ratio calculations conforming to global kidney guidelines." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Painless Sample Collection", desc: "Sterile home collections across Bengaluru scheduled at your convenience." }

@@ -132,7 +132,7 @@ export default function DashboardSubPage({ title, subtitle, tabKey }: DashboardS
                     <div className="p-4 rounded-2xl bg-sky-50/60 border border-sky-100 space-y-1">
                       <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Account Status</span>
                       <p className="text-xs font-extrabold text-emerald-600 flex items-center gap-1">
-                        <CheckCircle className="w-3.5 h-3.5" /> NABL Certified Verified Patient Profile
+                        <CheckCircle className="w-3.5 h-3.5" /> NABL Accredited Verified Patient Profile
                       </p>
                     </div>
                     <div className="p-4 rounded-2xl bg-sky-50/60 border border-sky-100 space-y-1">

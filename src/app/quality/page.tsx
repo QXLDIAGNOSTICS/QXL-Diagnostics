@@ -8,7 +8,7 @@ import { SITE_URL, NABL_CERTIFICATE, PHONE_DISPLAY } from '@/lib/businessInfo';
 export const metadata: Metadata = {
   title: "Quality Systems & NABL MC-10025 Accreditation | QXL Diagnostics",
   description: "Official Quality & Accreditation Hub for QXL Diagnostics Bengaluru. NABL Certificate MC-10025, ISO 15189:2022 standards, Westgard IQC, EQAS, cold-chain transport, and critical value protocols.",
-  keywords: ["NABL Certification MC-10025", "ISO 15189 laboratory bangalore", "Westgard IQC diagnostic lab", "cold chain sample transport", "critical value alert protocol"],
+  keywords: ["NABL Accreditation MC-10025", "ISO 15189 laboratory bangalore", "Westgard IQC diagnostic lab", "cold chain sample transport", "critical value alert protocol"],
   alternates: { canonical: `${SITE_URL}/quality` },
 };
 
@@ -22,7 +22,7 @@ export default function QualityHubPage() {
     "hasCredential": {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "Laboratory Accreditation",
-      "name": "NABL Certification Certificate MC-10025",
+      "name": "NABL Accreditation Certificate MC-10025",
       "description": "ISO 15189:2022 Medical Laboratory Accreditation by National Accreditation Board for Testing and Calibration Laboratories (NABL), DST/QCI",
       "recognizedBy": {
         "@type": "Organization",
@@ -37,12 +37,12 @@ export default function QualityHubPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(qualitySchema) }} />
       <Header />
 
-      {/* NABL Certification Banner */}
+      {/* NABL Accreditation Banner */}
       <div className="w-full bg-gradient-to-r from-emerald-900 via-emerald-800 to-teal-900 text-white py-3 px-4 text-center border-b border-emerald-700/50 shadow-md">
         <div className="max-w-[1260px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="text-sm sm:text-base font-black tracking-tight text-white flex items-center justify-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0 shadow-xs"></span>
-            <span className="text-white font-black">Doctor-Led NABL Certified Diagnostic Lab in Bengaluru</span>
+            <span className="text-white font-black">Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</span>
           </div>
           <p className="text-xs text-emerald-100 font-bold shrink-0">
             NABL MC-10025 • 300+ Tests • Free Home Collection Across Bengaluru
@@ -54,7 +54,7 @@ export default function QualityHubPage() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-amber-200 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
               <Award className="w-4 h-4 text-amber-300" />
-              NABL Certification Certificate MC-10025
+              NABL Accreditation Certificate MC-10025
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
               Quality Assurance &amp; ISO 15189 Laboratory Systems
@@ -77,7 +77,7 @@ export default function QualityHubPage() {
             </span>
             <h2 className="text-2xl font-black text-[#0f2d5e]">NABL Certificate MC-10025</h2>
             <p className="text-xs text-slate-600 max-w-xl leading-relaxed">
-              QXL Diagnostics Super Speciality Lab (Qualitify Healthtech Pvt Ltd) holds active NABL Certification under Certificate Number <strong>MC-10025</strong> operating to <strong>ISO 15189:2022</strong>. We encourage every patient and referring doctor to verify our scope directly on the NABL portal.
+              QXL Diagnostics Super Speciality Lab (Qualitify Healthtech Pvt Ltd) holds active NABL Accreditation under Certificate Number <strong>MC-10025</strong> operating to <strong>ISO 15189:2022</strong>. We encourage every patient and referring doctor to verify our scope directly on the NABL portal.
             </p>
           </div>
           <a

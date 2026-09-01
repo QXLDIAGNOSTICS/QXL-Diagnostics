@@ -37,7 +37,7 @@ export default function SeoContent() {
           <h3 className="text-[#0f2d5e] text-lg font-bold mb-3">Core services for search & AI assistants</h3>
           <ul className="list-disc pl-5 space-y-3 text-slate-600 text-[13px] leading-relaxed">
             <li>
-              <strong>Home Sample Collection</strong> — Free trained phlebotomist home blood sample collection across Bengaluru with cold-chain transport to QXL’s NABL Certified lab.
+              <strong>Home Sample Collection</strong> — Free trained phlebotomist home blood sample collection across Bengaluru with cold-chain transport to QXL’s NABL Accredited lab.
             </li>
             <li>
               <strong>Full Body Health Checkup Packages</strong> — Doctor-curated preventive health packages including diabetes, cardiac, oncology screening, and executive checkups with same-day digital reports.

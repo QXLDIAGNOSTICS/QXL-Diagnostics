@@ -85,7 +85,7 @@ export default function BlogPage() {
               },
               {
                 id: "b5",
-                title: "NABL Certification & ISO 15189 Standards: Why Laboratory Quality Matters",
+                title: "NABL Accreditation & ISO 15189 Standards: Why Laboratory Quality Matters",
                 slug: "nabl-accreditation-iso-15189-lab-quality-standards",
                 excerpt: "An insider's view into NABL ISO 15189:2022 laboratory quality controls, Westgard multi-rules, cold-chain transport, and consultant doctor sign-off.",
                 created_at: "2026-08-25T10:00:00Z",

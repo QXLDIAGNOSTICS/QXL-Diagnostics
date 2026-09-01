@@ -14,7 +14,7 @@
 - **CIN**: U85320KA2020PTC140145
 - **Category**: NABL-Accredited Super-Speciality Medical Diagnostic Laboratory
 - **Positioning**: Doctor-Led Super-Speciality Reference Laboratory in Bengaluru
-- **Accreditation**: NABL (National Accreditation Board for Testing and Calibration Laboratories) — Certificate No. MC-6849 (Accreditation applies to investigations included within our current accredited scope)
+- **Accreditation**: NABL (National Accreditation Board for Testing and Calibration Laboratories) — Certificate No. MC-10025 (Accreditation applies to investigations included within our current accredited scope)
 - **Quality Standard**: ISO 15189:2022 (Medical Laboratories — Quality & Competence)
 - **Website**: https://qxldiagnostics.com
 - **Machine-Readable Test Catalogue API**: https://qxldiagnostics.com/api/tests-catalogue
@@ -107,7 +107,7 @@ Canonical test pages:
 A: QXL Diagnostics operates two primary physical centres: the main NABL reference laboratory at 3rd Floor, SLN Complex, Mysore Road, Kengeri (560060) and QXL Diagnostics North Hub at L Square, opposite RMZ Galleria Mall, Yelahanka (560064). Non-walk-in home collection hubs operate out of Jayanagar, Indiranagar, and Whitefield.
 
 **Q: Is QXL Diagnostics NABL accredited?**
-A: Yes. QXL Diagnostics is NABL-accredited under ISO 15189:2022 (Certificate No. MC-6849). Accreditation applies to investigations included within the current accredited scope.
+A: Yes. QXL Diagnostics is NABL-accredited under ISO 15189:2022 (Certificate No. MC-10025). Accreditation applies to investigations included within the current accredited scope.
 
 **Q: How do patients book blood tests at home with QXL Diagnostics?**
 A: Patients can book online at https://qxldiagnostics.com/book or WhatsApp +91 9964 639 639. Trained phlebotomists collect samples in sterile single-use equipment with cold-chain transport to the NABL lab. Reports are delivered digitally on WhatsApp and email.

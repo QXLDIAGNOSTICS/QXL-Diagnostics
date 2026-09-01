@@ -51,7 +51,7 @@ export default function WomensHealthPage() {
           <div className="lg:col-span-2 space-y-10">
             <section>
               <p className="text-gray-700 text-lg leading-relaxed">
-                QXL Diagnostics offers a comprehensive range of women's health diagnostics — from PCOS and fertility profiling to antenatal screening, prenatal genetic markers, menopause evaluation, thyroid testing, and cervical cancer screening. All tests are performed with NABL Certified quality and consultant-reviewed reports.
+                QXL Diagnostics offers a comprehensive range of women's health diagnostics — from PCOS and fertility profiling to antenatal screening, prenatal genetic markers, menopause evaluation, thyroid testing, and cervical cancer screening. All tests are performed with NABL Accredited quality and consultant-reviewed reports.
               </p>
             </section>
 
@@ -108,7 +108,7 @@ export default function WomensHealthPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Laboratory", desc: "Accredited quality testing for all women's health and fertility panels." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited Laboratory", desc: "Accredited quality testing for all women's health and fertility panels." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Expert-Reviewed Reports", desc: "Consultant pathologists review and validate all super speciality results." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Comprehensive Fertility Testing", desc: "AMH, PCOS panel, Double/Triple Marker, and ovarian cancer markers under one roof." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Home Collection Available", desc: "Convenient home blood sample collection across Bengaluru by female phlebotomist (on request)." },

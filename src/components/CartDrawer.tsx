@@ -150,7 +150,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                           {name}
                         </span>
                         <span className="text-[10px] text-emerald-700 font-bold mt-0.5">
-                          ✓ NABL Certified Lab • Free Home Collection
+                          ✓ NABL Accredited Lab • Free Home Collection
                         </span>
                       </div>
                       <div className="flex items-center gap-3 shrink-0">

@@ -18,12 +18,12 @@ export default function RakshaFooterSection() {
               <span className="text-2xl font-black tracking-tight text-white">QXL DIAGNOSTICS</span>
             </div>
             <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
-              Premier NABL Certified Pathology & Speciality Laboratory in Bengaluru. Delivering precision diagnostic testing with convenient home sample collection.
+              Premier NABL Accredited Pathology & Speciality Laboratory in Bengaluru. Delivering precision diagnostic testing with convenient home sample collection.
             </p>
             <div className="p-3 bg-slate-800/80 border border-slate-700 rounded-xl text-xs space-y-1">
               <div className="flex items-center gap-2 text-cyan-300 font-bold">
                 <ShieldCheck className="w-4 h-4 text-[#00A8A8]" />
-                <span>NABL Certified Laboratory ({RAKSHA_CAMPAIGN_CONFIG.nablCertNumber})</span>
+                <span>NABL Accredited Laboratory ({RAKSHA_CAMPAIGN_CONFIG.nablCertNumber})</span>
               </div>
               <div className="text-slate-400 flex items-center gap-1.5 pt-0.5">
                 <MapPin className="w-3.5 h-3.5 text-slate-500" />

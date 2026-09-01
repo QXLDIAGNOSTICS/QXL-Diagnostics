@@ -19,7 +19,7 @@ export default function GenericPage({
   subtitle,
   badge = "QXL Diagnostic Services",
   contentParagraphs = [
-    "QXL Diagnostics is a NABL Certified super speciality diagnostic laboratory in Bengaluru offering 300+ advanced pathology, molecular diagnostic, and histopathology tests with same-day digital report delivery.",
+    "QXL Diagnostics is a NABL Accredited super speciality diagnostic laboratory in Bengaluru offering 300+ advanced pathology, molecular diagnostic, and histopathology tests with same-day digital report delivery.",
     "Our trained phlebotomy specialists provide free home sample collection across Bengaluru. All samples are analyzed in automated ISO 15189 standard analyzers with dual pathologically verified Quality Control checks.",
     "For inquiries, test bookings, or clinical assistance, please call our 24x7 customer desk at +91 9964 639 639 or book online.",
   ],
@@ -51,7 +51,7 @@ export default function GenericPage({
 
           <div className="p-6 rounded-2xl bg-sky-50/60 border border-sky-100 space-y-3">
             <h3 className="text-xs font-extrabold text-[#0f2d5e] uppercase tracking-wider flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-emerald-600" /> NABL Certified Medical Laboratory Standards
+              <CheckCircle className="w-4 h-4 text-emerald-600" /> NABL Accredited Medical Laboratory Standards
             </h3>
             <p className="text-xs text-slate-600 font-semibold leading-relaxed">
               Main Lab: 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560060 · Call: +91 9964 639 639

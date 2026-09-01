@@ -10,14 +10,14 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Our Expert Doctors & Pathologists in Bengaluru",
   description:
-    "Meet the NABL Certified pathologists, microbiologists, and clinical biochemists behind every QXL Diagnostics report — decades of combined expertise in diagnostic medicine.",
+    "Meet the NABL Accredited pathologists, microbiologists, and clinical biochemists behind every QXL Diagnostics report — decades of combined expertise in diagnostic medicine.",
   alternates: {
     canonical: `${SITE_URL}/doctors`,
   },
   openGraph: {
     title: "Our Expert Doctors & Pathologists | QXL Diagnostics",
     description:
-      "Meet the NABL Certified pathologists, microbiologists, and clinical biochemists behind every QXL Diagnostics report.",
+      "Meet the NABL Accredited pathologists, microbiologists, and clinical biochemists behind every QXL Diagnostics report.",
     url: `${SITE_URL}/doctors`,
   },
 };

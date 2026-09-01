@@ -56,7 +56,7 @@ export default function InfectiousDiseasesPage() {
             {/* Intro */}
             <section>
               <p className="text-gray-700 text-lg leading-relaxed">
-                Prompt detection of pathogens is critical to managing acute infections and preventing secondary complications. QXL Diagnostics provides NABL Certified molecular (PCR) and serological testing, utilizing rapid assays to deliver fast, highly accurate results.
+                Prompt detection of pathogens is critical to managing acute infections and preventing secondary complications. QXL Diagnostics provides NABL Accredited molecular (PCR) and serological testing, utilizing rapid assays to deliver fast, highly accurate results.
               </p>
             </section>
 
@@ -126,7 +126,7 @@ export default function InfectiousDiseasesPage() {
               <h2 className="text-xl font-bold text-gray-900 mb-5">Why Choose QXL Diagnostics?</h2>
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
-                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Certified Quality", desc: "Rigorous quality controls and inter-laboratory testing ensuring highest accuracy." },
+                  { icon: <Shield className="w-5 h-5 text-sky-600" />, title: "NABL Accredited Quality", desc: "Rigorous quality controls and inter-laboratory testing ensuring highest accuracy." },
                   { icon: <Microscope className="w-5 h-5 text-sky-600" />, title: "Molecular PCR Capabilities", desc: "Equipped with state-of-the-art thermocyclers for fast diagnostic assays." },
                   { icon: <Activity className="w-5 h-5 text-sky-600" />, title: "Antimicrobial Guidance", desc: "Susceptibility reports utilize current clinical standards for prescribing." },
                   { icon: <CheckCircle className="w-5 h-5 text-sky-600" />, title: "Free Home Collection", desc: "Professional phlebotomists trained in sterile sample collection protocols." }

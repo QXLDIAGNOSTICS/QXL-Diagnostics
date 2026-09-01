@@ -172,7 +172,7 @@ export default function KnowledgeCentrePage() {
             </p>
             <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-sky-200">
               <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" /> NABL Certified ({NABL_CERTIFICATE})
+                <ShieldCheck className="w-4 h-4 text-emerald-400" /> NABL Accredited ({NABL_CERTIFICATE})
               </span>
               <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
                 <Stethoscope className="w-4 h-4 text-sky-300" /> Doctor Reviewed & Signed

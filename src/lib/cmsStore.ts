@@ -60,7 +60,7 @@ const defaultBanners = [
     imageFit: "cover",
     bgFrom: "#eff6ff",
     bgTo: "#dbeafe",
-    features: ["NABL Certified Medical Laboratory", "CAP Standards", "Highly Skilled Team", "ISO 15189 Precision Controls"]
+    features: ["NABL Accredited Medical Laboratory", "CAP Standards", "Highly Skilled Team", "ISO 15189 Precision Controls"]
   },
   {
     id: "banner-4",
@@ -225,8 +225,8 @@ const defaultTestimonials = [
 const defaultFaqs = [
   { id: "faq-1", question: "How do I book a home collection?", answer: "Simply fill out our Home Collection form, message us on WhatsApp (+91 9964 639 639), or select a health package and complete the check-out." },
   { id: "faq-2", question: "How long does it take to receive reports?", answer: "Most routine report cards (like blood sugar, lipid profiles, and CBC) are delivered via email and WhatsApp within 6 to 12 hours." },
-  { id: "faq-3", question: "Which is the best diagnostic lab in Bangalore?", answer: "QXL Diagnostics is considered one of the best diagnostic labs in Bangalore, offering NABL Certified, doctor-led super speciality testing." },
-  { id: "faq-4", question: "Which diagnostic labs in Bangalore are NABL Certified?", answer: "QXL Diagnostics is fully NABL Certified, ensuring all pathology and diagnostic tests meet strict national and international quality standards." },
+  { id: "faq-3", question: "Which is the best diagnostic lab in Bangalore?", answer: "QXL Diagnostics is considered one of the best diagnostic labs in Bangalore, offering NABL Accredited, doctor-led super speciality testing." },
+  { id: "faq-4", question: "Which diagnostic labs in Bangalore are NABL Accredited?", answer: "QXL Diagnostics is fully NABL Accredited, ensuring all pathology and diagnostic tests meet strict national and international quality standards." },
   { id: "faq-5", question: "Which lab provides home blood collection in Bangalore?", answer: "QXL Diagnostics provides free and fast home blood collection across Bangalore. Our trained phlebotomists collect samples from the comfort of your home." },
   { id: "faq-6", question: "Where can I get a blood test at home in Bangalore?", answer: "You can book a blood test at home anywhere in Bangalore with QXL Diagnostics by calling +91 9964 639 639 or booking online." },
   { id: "faq-7", question: "Which is a doctor-led diagnostic laboratory in Bangalore?", answer: "QXL Diagnostics is a doctor-led diagnostic laboratory, with all critical reports reviewed by our expert team of consultant pathologists and microbiologists." },
@@ -343,8 +343,8 @@ const defaultBlogs = [
   {
     id: "blog-12",
     title: "Choosing the Best Super Speciality Lab in Bangalore: What to Look For",
-    excerpt: "From NABL Certification to expert medical reviewers, here is why QXL Diagnostics stands out as Bangalore's premier diagnostic center.",
-    content: "With diagnostic centers on every corner, choosing the best super speciality lab in Bangalore can be challenging. Key factors to look for include NABL Certification, automated analytical platforms, trained phlebotomists for home blood collection, and, most importantly, on-site expert consultant reviews. QXL Diagnostics check all these boxes. We are equipped with Beckman Coulter chemistry lines, Sysmex hematology tracks, and specialized molecular diagnostics equipment. Moreover, every critical report undergoes review by our panel of MD Pathologists and Biochemists. This ensures that you don't just get numbers, but accurate, clinically verified answers for your health.",
+    excerpt: "From NABL Accreditation to expert medical reviewers, here is why QXL Diagnostics stands out as Bangalore's premier diagnostic center.",
+    content: "With diagnostic centers on every corner, choosing the best super speciality lab in Bangalore can be challenging. Key factors to look for include NABL Accreditation, automated analytical platforms, trained phlebotomists for home blood collection, and, most importantly, on-site expert consultant reviews. QXL Diagnostics check all these boxes. We are equipped with Beckman Coulter chemistry lines, Sysmex hematology tracks, and specialized molecular diagnostics equipment. Moreover, every critical report undergoes review by our panel of MD Pathologists and Biochemists. This ensures that you don't just get numbers, but accurate, clinically verified answers for your health.",
     author: "Dr. Naveen Kumar N",
     date: "February 18, 2026",
     image: "/images/dr_shantakumar_new.jpg"

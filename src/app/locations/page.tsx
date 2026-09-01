@@ -7,7 +7,7 @@ import { MapPin, Phone, ShieldCheck } from "lucide-react";
 export const metadata: Metadata = {
   title: "Blood Test Locations in Bengaluru | Diagnostic Labs & Home Collection",
   description:
-    "Find QXL Diagnostics lab locations and home blood sample collection coverage across 60+ areas in Bengaluru. NABL Certified, same-day reports.",
+    "Find QXL Diagnostics lab locations and home blood sample collection coverage across 60+ areas in Bengaluru. NABL Accredited, same-day reports.",
   alternates: { canonical: "https://qxldiagnostics.com/locations" },
 };
 

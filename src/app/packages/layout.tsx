@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Health Checkup Packages | Full Body & Speciality Panels",
   description:
-    "Explore QXL Diagnostics' full body checkup packages, diabetes, cardiac, women's health and speciality panels — NABL Certified, home sample collection across Bengaluru.",
+    "Explore QXL Diagnostics' full body checkup packages, diabetes, cardiac, women's health and speciality panels — NABL Accredited, home sample collection across Bengaluru.",
   alternates: { canonical: "/packages" },
   openGraph: {
     title: "Health Checkup Packages | QXL Diagnostics",

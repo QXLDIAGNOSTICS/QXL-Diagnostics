@@ -72,7 +72,7 @@ export default function RakshaBandhanClientPage() {
               </div>
               <div className="text-[10px] font-bold text-[#00A8A8] uppercase tracking-wider flex items-center gap-1 mt-0.5">
                 <ShieldCheck className="w-3 h-3" />
-                <span>NABL Certified Lab ({RAKSHA_CAMPAIGN_CONFIG.nablCertNumber})</span>
+                <span>NABL Accredited Lab ({RAKSHA_CAMPAIGN_CONFIG.nablCertNumber})</span>
               </div>
             </div>
           </Link>

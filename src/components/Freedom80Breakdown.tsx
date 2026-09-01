@@ -137,7 +137,7 @@ export default function Freedom80Breakdown() {
               </div>
               <h3 className="text-3xl font-black text-[#0284c7] mb-2">TOTAL: 80 PARAMETERS</h3>
               <p className="text-emerald-800 text-sm font-bold mb-6">
-                8 Major Health Areas · NABL Certified Quality · Fast 6-Hour Reports
+                8 Major Health Areas · NABL Accredited Quality · Fast 6-Hour Reports
               </p>
 
               <div className="bg-emerald-50/80 rounded-2xl p-4 mb-6 border border-emerald-200 shadow-sm">
