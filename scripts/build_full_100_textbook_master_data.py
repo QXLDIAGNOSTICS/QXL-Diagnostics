@@ -21,7 +21,7 @@ master_100_tests = [
         "whyImportant": [
             "Primary Indication: Evaluate anaemia, infection/inflammation, cytopenias and blood disorders.",
             "Specimen Protocol: 2 mL Lavender-top EDTA tube (No fasting required).",
-            "Certification: NABL Certified Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 standards.",
+            "Certification: NABL Certified Super Speciality Laboratory (MC-10025) compliant with ISO 15189:2022 standards.",
             "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours via WhatsApp & Email.",
             "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
             "Methodology: Automated hematology flow cytometry with 5-part differential and microscopic smear backup.",
@@ -37,7 +37,7 @@ master_100_tests = [
             {"question": "Can I book home collection for CBC in Bangalore?", "answer": "Yes! QXL Diagnostics offers free home sample collection across all major Bengaluru areas including Kengeri, RR Nagar, Yelahanka, and Whitefield."},
             {"question": "What factors can alter CBC counts?", "answer": "Acute hydration changes, heavy physical exercise, acute illness, and medication can influence cell counts."},
             {"question": "What does an abnormal CBC mean?", "answer": "Low or high cell counts suggest patterns requiring clinical correlation or smear review; a single value is not diagnostic on its own."},
-            {"question": "What quality standards back the CBC test at QXL?", "answer": "Processed at QXL Diagnostics' NABL Certified Super Speciality Laboratory (MC-6849) operating in strict compliance with ISO 15189:2022 standards."},
+            {"question": "What quality standards back the CBC test at QXL?", "answer": "Processed at QXL Diagnostics' NABL Certified Super Speciality Laboratory (MC-10025) operating in strict compliance with ISO 15189:2022 standards."},
             {"question": "How often should I repeat my CBC test?", "answer": "For routine health screening, annual testing is customary. For condition monitoring, your physician will determine frequency."}
         ]
     },
@@ -59,7 +59,7 @@ master_100_tests = [
         "whyImportant": [
             "Primary Indication: Screen for diabetes and monitor 2-3 month glycemic control.",
             "Specimen Protocol: 2 mL Lavender-top EDTA tube (No fasting required).",
-            "Certification: NABL Certified Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 standards.",
+            "Certification: NABL Certified Super Speciality Laboratory (MC-10025) compliant with ISO 15189:2022 standards.",
             "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours via WhatsApp & Email.",
             "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
             "Methodology: NGSP-certified High-Performance Liquid Chromatography (HPLC).",
@@ -75,7 +75,7 @@ master_100_tests = [
             {"question": "Can I book HbA1c home collection in Bangalore?", "answer": "Yes! QXL Diagnostics provides free doorstep sample collection across Bengaluru."},
             {"question": "What is a normal HbA1c level?", "answer": "Below 5.7% is normal; 5.7% to 6.4% indicates prediabetes; 6.5% or higher indicates diabetes under standard criteria."},
             {"question": "Can anemia affect HbA1c results?", "answer": "Yes, conditions affecting red blood cell lifespan (like hemolytic anemia or recent blood loss) can alter HbA1c results."},
-            {"question": "What quality certification backs HbA1c at QXL?", "answer": "Processed using NGSP-certified HPLC analyzers at our NABL Certified Super Speciality Laboratory (MC-6849)."},
+            {"question": "What quality certification backs HbA1c at QXL?", "answer": "Processed using NGSP-certified HPLC analyzers at our NABL Certified Super Speciality Laboratory (MC-10025)."},
             {"question": "How often should diabetic patients test HbA1c?", "answer": "Diabetic patients typically repeat HbA1c every 3 months to monitor therapeutic efficacy."}
         ]
     }
@@ -205,7 +205,7 @@ for num, name, short, slug, dept in lis_100_table:
         "slug": slug,
         "title": f"{name} ({short}) Test in Bangalore | Price ₹{price}, Normal Range | QXL",
         "metaDescription": f"Book {name} ({short}) test at home in Bangalore. NABL Certified precision, same-day reports, starting at ₹{price}. {fasting} {tat}.",
-        "badge": "NABL CERTIFIED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+        "badge": "NABL CERTIFIED SUPER SPECIALITY LAB (MC-10025) · FREE HOME COLLECTION",
         "h1Title": f"{name} ({short}) Test in Bangalore",
         "subtitle": f"High-precision {name} assay accredited under ISO 15189:2022 standards. {fasting} Reports within {tat}.",
         "price": str(price),
@@ -241,7 +241,7 @@ for num, name, short, slug, dept in lis_100_table:
         "whyImportant": [
             f"Primary Indication: Evaluate {name.lower()} for diagnostic assessment.",
             f"Specimen Protocol: {sample} ({fasting}).",
-            "Certification: NABL Certified Super Speciality Laboratory (MC-6849).",
+            "Certification: NABL Certified Super Speciality Laboratory (MC-10025).",
             f"Turnaround Time (TAT): Digital PDF report delivered within {tat}.",
             "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
             "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -283,7 +283,7 @@ for num, name, short, slug, dept in lis_100_table:
             },
             {
                 "question": f"What quality certifications back the {name} test at QXL?",
-                "answer": f"All samples are processed at QXL Diagnostics' NABL Certified Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+                "answer": f"All samples are processed at QXL Diagnostics' NABL Certified Super Speciality Laboratory (MC-10025) compliant with ISO 15189:2022 international standards."
             },
             {
                 "question": f"How often should I repeat or monitor my {name} test?",

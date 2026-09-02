@@ -123,7 +123,7 @@ for num, name, short, slug, dept in exact_100_table:
         "slug": slug,
         "title": f"{name} ({short}) Test in Bangalore | Price ₹{price}, Normal Range | QXL",
         "metaDescription": f"Book {name} ({short}) test at home in Bangalore. NABL Certified precision, same-day reports, starting at ₹{price}. {fasting} {tat}.",
-        "badge": "NABL CERTIFIED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+        "badge": "NABL CERTIFIED SUPER SPECIALITY LAB (MC-10025) · FREE HOME COLLECTION",
         "h1Title": f"{name} ({short}) Test in Bangalore",
         "subtitle": f"High-precision {name} assay accredited under ISO 15189:2022 standards. {fasting} Reports within {tat}.",
         "price": str(price),
@@ -159,7 +159,7 @@ for num, name, short, slug, dept in exact_100_table:
         "whyImportant": [
             f"Primary Indication: Evaluate {name.lower()} for diagnostic assessment.",
             f"Specimen Protocol: {sample} ({fasting}).",
-            "Certification: NABL Certified Super Speciality Laboratory (MC-6849).",
+            "Certification: NABL Certified Super Speciality Laboratory (MC-10025).",
             f"Turnaround Time (TAT): Digital PDF report delivered within {tat}.",
             "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
             "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -201,7 +201,7 @@ for num, name, short, slug, dept in exact_100_table:
             },
             {
                 "question": f"What quality certifications back the {name} test at QXL?",
-                "answer": f"All samples are processed at QXL Diagnostics' NABL Certified Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+                "answer": f"All samples are processed at QXL Diagnostics' NABL Certified Super Speciality Laboratory (MC-10025) compliant with ISO 15189:2022 international standards."
             },
             {
                 "question": f"How often should I repeat or monitor my {name} test?",

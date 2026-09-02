@@ -47,7 +47,7 @@ export const EMAIL = "info@qxldiagnostics.com";
 
 import { NABL_CERTIFICATE as CONFIG_NABL_CERT, ISO_STANDARD as CONFIG_ISO, NABL_ACCREDITATION_TEXT as CONFIG_TEXT } from '@/config/accreditation';
 
-export const NABL_CERTIFICATE = CONFIG_NABL_CERT;
+export const NABL_CERTIFICATE = CONFIG_NABL_CERT; // NABL Certificate MC-10025
 export const NABL_ACCREDITATION_TEXT = CONFIG_TEXT;
 export const ISO_STANDARD = CONFIG_ISO;
 

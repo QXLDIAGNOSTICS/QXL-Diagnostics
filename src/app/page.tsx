@@ -278,7 +278,7 @@ const promoSlides = [
     tests: "16+ Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
     imgBg: "#E8F5E9",
-    ctaLink: "/book?package=q-screen-diabetes",
+    ctaLink: "/book?package=q-diabetes-screen",
   },
   {
     name: "Q-Master Health Pro Package",
@@ -290,7 +290,7 @@ const promoSlides = [
     tests: "92 Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
     imgBg: "#EDE7F6",
-    ctaLink: "/book?package=q-master-health-pro",
+    ctaLink: "/book?package=q-master-pro",
   },
   {
     name: "Q-Advanced Arthritis & Autoimmune Panel",
@@ -302,19 +302,19 @@ const promoSlides = [
     tests: "22+ Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150166/Assets-QXL/legacy-assets/image/elderly_bp_check.jpg",
     imgBg: "#E3F2FD",
-    ctaLink: "/book?package=q-advanced-arthritis",
+    ctaLink: "/book?package=q-arthritis-autoimmune",
   },
   {
     name: "Q-Oncology Biomarker Panel",
     price: "₹7,900",
     original: "₹13,600",
-    tag: "CANCER SCREENING",
-    desc: "Comprehensive cancer marker panel for early detection across multiple organs, plus blood and stool analysis.",
+    tag: "SPECIALIST ONCOLOGY",
+    desc: "Advanced tumour-marker testing for selected diagnostic evaluation, treatment monitoring and post-treatment surveillance under clinical guidance.",
     includes: ["AFP, CEA, Beta HCG, PSA (Male)", "CA-125 (Female), CA-19.9", "CBC, ESR, Urine Routine", "Calprotectin, FOBT, Protein Electrophoresis"],
     tests: "15+ Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
     imgBg: "#E8EAF6",
-    ctaLink: "/book?package=q-oncology-biomarker",
+    ctaLink: "/book?package=q-onco-screen",
   },
   {
     name: "Q-Cardiovascular Risk Assessment Package",
@@ -326,7 +326,7 @@ const promoSlides = [
     tests: "25+ Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
     imgBg: "#E8F5E9",
-    ctaLink: "/book?package=q-cardiovascular-risk",
+    ctaLink: "/book?package=q-cardio-risk",
   },
 ];
 
@@ -654,6 +654,19 @@ function QuickBookingForm({ formState, setFormState, handleContactSubmit, formSt
           <textarea rows={1} placeholder="Any specific requirements?" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} className="w-full bg-[#f8fafc] border border-gray-200 rounded-xl md:rounded-2xl px-3.5 py-2 md:px-5 md:py-4 text-xs md:text-sm font-semibold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20 transition-all shadow-xs resize-none" />
         </div>
         
+        <div className="flex items-start gap-2 pt-1">
+          <input
+            type="checkbox"
+            id="dpdp-consent-quick"
+            required
+            defaultChecked
+            className="mt-0.5 h-3.5 w-3.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer shrink-0"
+          />
+          <label htmlFor="dpdp-consent-quick" className="text-[10px] md:text-[11px] text-slate-500 font-medium leading-tight cursor-pointer">
+            I consent to QXL Diagnostics contacting me via Call/WhatsApp &amp; storing data per DPDP guidelines and <a href="/privacy-policy" target="_blank" className="text-blue-600 underline font-semibold">Privacy Policy</a>.
+          </label>
+        </div>
+
         <div className="pt-1 md:pt-2">
           <button type="submit" disabled={formStatus === 'loading'} className="w-full bg-[#2563eb] text-white font-black px-5 py-3 md:px-6 md:py-4 rounded-xl md:rounded-2xl shadow-md hover:bg-[#1d4ed8] active:scale-[0.98] transition-all text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2">
             {formStatus === 'loading' ? 'Submitting...' : 'Request Call'}

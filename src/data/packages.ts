@@ -1,6 +1,6 @@
 export const packagesData = [
   {
-    id: "pkg-800",
+    id: "q-full-body-80",
     name: "Full Body Health Checkup (80 Params)",
     price: "800",
     old_price: "5800",
@@ -12,7 +12,7 @@ export const packagesData = [
     most_booked: true
   },
   {
-    id: "pkg-1770",
+    id: "q-quick-fit",
     name: "Quick Fit Package",
     price: "1770",
     old_price: "4696",
@@ -23,7 +23,7 @@ export const packagesData = [
     highlights: ["Essential fitness screening", "Diabetes & lipid baseline", "Liver & kidney health"]
   },
   {
-    id: "pkg-1900",
+    id: "q-diabetes-screen",
     name: "Q-Screen Diabetes Package",
     price: "1900",
     old_price: "4960",
@@ -34,7 +34,7 @@ export const packagesData = [
     highlights: ["Early diabetes detection", "Monitor blood sugar control", "Assess kidney impact from diabetes"]
   },
   {
-    id: "pkg-4600",
+    id: "q-master-pro",
     name: "Q-Master Health Pro Package",
     price: "4600",
     old_price: "9600",
@@ -46,7 +46,7 @@ export const packagesData = [
     most_booked: true
   },
   {
-    id: "pkg-6900",
+    id: "q-arthritis-autoimmune",
     name: "Q-Advanced Arthritis & Autoimmune Panel",
     price: "6900",
     old_price: "12660",
@@ -57,18 +57,18 @@ export const packagesData = [
     highlights: ["Autoimmune joint screening", "Inflammatory markers (hs-CRP, ESR)", "Bone & iron metabolism"]
   },
   {
-    id: "pkg-7900",
+    id: "q-onco-screen",
     name: "Q-Oncology Biomarker Panel",
     price: "7900",
     old_price: "13600",
     save: "5700",
-    includes: "Tumour Biomarkers (AFP, CEA, Beta HCG, PSA Male / CA-125 Female, CA 19-9), CBC, ESR, Urine Routine, Calprotectin in Stool, FOBT, Protein Electrophoresis.",
+    includes: "Advanced tumour-marker testing for selected diagnostic evaluation, treatment monitoring and post-treatment surveillance under clinical guidance: AFP, CEA, Beta HCG, PSA Male / CA-125 Female, CA 19-9, CBC, ESR, Urine Routine, Calprotectin in Stool, FOBT, Protein Electrophoresis.",
     parameters: "15+ Parameters",
     tag: "SPECIALIST ONCOLOGY",
     highlights: ["Physician-directed tumour markers", "Monoclonal protein screening", "Stool calprotectin & occult blood"]
   },
   {
-    id: "pkg-9000",
+    id: "q-cardio-risk",
     name: "Q-Cardiovascular Risk Assessment Package",
     price: "9000",
     old_price: "18900",

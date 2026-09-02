@@ -129,7 +129,7 @@ def build_full_test(num, name, slug, short, dept, sample, vol, fasting, tat, pri
         },
         {
             "question": f"What quality certifications back the {name} test at QXL?",
-            "answer": f"All specimens are analyzed at QXL Diagnostics' NABL Certified Super Speciality Laboratory (MC-6849) operating in compliance with ISO 15189:2022 quality standards under the supervision of Dr. Shantakumar Muruda, MD."
+            "answer": f"All specimens are analyzed at QXL Diagnostics' NABL Certified Super Speciality Laboratory (MC-10025) operating in compliance with ISO 15189:2022 quality standards under the supervision of Dr. Shantakumar Muruda, MD."
         },
         {
             "question": f"How frequently should I monitor or repeat my {name} test?",
@@ -148,7 +148,7 @@ def build_full_test(num, name, slug, short, dept, sample, vol, fasting, tat, pri
     why_important = [
         f"Primary Indication: {why_ordered}",
         f"Specimen Specifications: {vol} of {sample} ({fasting}).",
-        f"Quality Certification: NABL Certified Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 standards.",
+        f"Quality Certification: NABL Certified Super Speciality Laboratory (MC-10025) compliant with ISO 15189:2022 standards.",
         f"Report Turnaround (TAT): Digital PDF report delivered within {tat} via WhatsApp & Email.",
         f"Medical Reviewer Sign-off: Validated by Dr. Shantakumar Muruda, MD (Biochemistry) and Consultant Pathologists.",
         "Analytical Methodology: Automated high-sensitivity chemiluminescence, spectrophotometry, or hematology flow analysis.",
@@ -167,7 +167,7 @@ def build_full_test(num, name, slug, short, dept, sample, vol, fasting, tat, pri
         "slug": slug,
         "title": f"{name} Test in Bangalore | Price ₹{price}, Normal Range & Home Collection | QXL",
         "metaDescription": f"Book {name} ({short}) test at home in Bangalore. NABL certified precision, same-day reports, starting at ₹{price}. {fasting} {tat}.",
-        "badge": "NABL CERTIFIED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+        "badge": "NABL CERTIFIED SUPER SPECIALITY LAB (MC-10025) · FREE HOME COLLECTION",
         "h1Title": f"{name} ({short}) Test in Bangalore",
         "subtitle": f"{name} evaluates key clinical biomarkers with NABL-certified precision. {fasting} Reports delivered within {tat}.",
         "price": str(price),

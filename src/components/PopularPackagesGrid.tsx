@@ -4,7 +4,7 @@ import { CheckCircle2, ArrowRight, ShieldCheck, Award } from 'lucide-react';
 
 export const ALL_PACKAGES = [
   {
-    id: "raksha-bandhan-800",
+    id: "q-full-body-80",
     name: "Full Body Health Checkup (80 Params)",
     price: "800",
     old_price: "5800",
@@ -17,7 +17,7 @@ export const ALL_PACKAGES = [
     benefits: ["80 Health Parameters", "8 Major Organ Systems", "Free Doorstep Home Collection"]
   },
   {
-    id: "pkg-fit",
+    id: "q-quick-fit",
     name: "Quick Fit Package",
     price: "1770",
     old_price: "4696",
@@ -30,7 +30,7 @@ export const ALL_PACKAGES = [
     benefits: ["Essential fitness screening", "Diabetes & lipid baseline", "Liver & kidney health"]
   },
   {
-    id: "pkg-2",
+    id: "q-diabetes-screen",
     name: "Q-Screen Diabetes Package",
     price: "1900",
     old_price: "4960",
@@ -43,7 +43,7 @@ export const ALL_PACKAGES = [
     benefits: ["Early diabetes detection", "Monitor blood sugar control", "Assess kidney impact from diabetes"]
   },
   {
-    id: "pkg-3",
+    id: "q-master-pro",
     name: "Q-Master Health Pro Package",
     price: "4600",
     old_price: "9600",
@@ -56,7 +56,7 @@ export const ALL_PACKAGES = [
     benefits: ["Complete systemic evaluation", "Heart risk assessment", "Extensive vitamin & thyroid checks"]
   },
   {
-    id: "pkg-5",
+    id: "q-arthritis-autoimmune",
     name: "Q-Advanced Arthritis & Autoimmune Panel",
     price: "6900",
     old_price: "12660",
@@ -69,20 +69,20 @@ export const ALL_PACKAGES = [
     benefits: ["Autoimmune joint screening", "Inflammatory markers (hs-CRP, ESR)", "Bone & iron metabolism"]
   },
   {
-    id: "pkg-4",
+    id: "q-onco-screen",
     name: "Q-Oncology Biomarker Panel",
     price: "7900",
     old_price: "13600",
     save_amount: "5700",
     discountPercent: "42% OFF",
     parameters: "15+ Parameters",
-    includes: "Tumour Biomarkers (AFP, CEA, Beta HCG, PSA Male / CA-125 Female, CA 19-9), CBC, ESR, Urine Routine, Calprotectin in Stool, FOBT, Protein Electrophoresis.",
+    includes: "Advanced tumour-marker testing for selected diagnostic evaluation, treatment monitoring and post-treatment surveillance under clinical guidance: AFP, CEA, Beta HCG, PSA Male / CA-125 Female, CA 19-9, CBC, ESR, Urine Routine, Calprotectin in Stool, FOBT, Protein Electrophoresis.",
     tag: "SPECIALIST ONCOLOGY",
     most_booked: false,
     benefits: ["Physician-directed tumour markers", "Monoclonal protein screening", "Stool calprotectin & occult blood"]
   },
   {
-    id: "pkg-6",
+    id: "q-cardio-risk",
     name: "Q-Cardiovascular Risk Assessment Package",
     price: "9000",
     old_price: "18900",
@@ -159,7 +159,7 @@ export default function PopularPackagesGrid() {
                   </div>
 
                   <Link
-                    href={`/book?package=${pkg.id === 'raksha-bandhan-800' ? 'q-full-body-80' : pkg.id}`}
+                    href={`/book?package=${pkg.id}`}
                     className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white"
                   >
                     Book Package @ ₹{pkg.price} <ArrowRight className="w-4 h-4" />

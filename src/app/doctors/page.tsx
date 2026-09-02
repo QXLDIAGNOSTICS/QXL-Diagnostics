@@ -84,7 +84,7 @@ export default async function DoctorsPage() {
             <div className="text-center py-16 bg-white rounded-2xl border border-gray-100">
               <p className="text-slate-600 font-medium">
                 Doctor profiles are being updated. Meanwhile, meet our founder and consultants on the{" "}
-                <Link href="/founder" className="text-[#2563eb] font-bold hover:underline">
+                <Link href="/team" className="text-[#2563eb] font-bold hover:underline">
                   Founder &amp; Consultants
                 </Link>{" "}
                 page.

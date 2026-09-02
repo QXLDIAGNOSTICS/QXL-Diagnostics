@@ -3,26 +3,18 @@
  * Validates zero banned terminology, certificate consistency, schema graphs, route hygiene, and NAP standardization.
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
+const fs = require('fs');
+const path = require('path');
 
 const ROOT = process.cwd();
 
-interface AuditCheck {
-  id: string;
-  category: string;
-  description: string;
-  passed: boolean;
-  details: string;
-}
+const checks = [];
 
-const checks: AuditCheck[] = [];
-
-function runCheck(id: string, category: string, description: string, fn: () => { passed: boolean; details: string }) {
+function runCheck(id, category, description, fn) {
   try {
     const res = fn();
     checks.push({ id, category, description, passed: res.passed, details: res.details });
-  } catch (err: any) {
+  } catch (err) {
     checks.push({ id, category, description, passed: false, details: `Execution error: ${err.message}` });
   }
 }
@@ -82,7 +74,7 @@ runCheck('NAP-01', 'Local SEO & NAP', 'Helpline standardized to +91 9964 639 639
 runCheck('ROUTE-01', 'Route Hygiene', '/home 301 redirect and 404 dynamic catch-all guard', () => {
   const config = fs.readFileSync(path.join(ROOT, 'next.config.ts'), 'utf8');
   const slugPage = fs.readFileSync(path.join(ROOT, 'src/app/[slug]/page.tsx'), 'utf8');
-  const has301 = config.includes('/home') && (config.includes('destination: \'/\'') || config.includes('destination: "/"'));
+  const has301 = config.includes('/home') && (config.includes("destination: '/'") || config.includes('destination: "/"'));
   const hasGuard = slugPage.includes('INVALID_SLUGS') && slugPage.includes('home');
   return { passed: has301 && hasGuard, details: 'Permanent 301 redirect and dynamic 404 guard active' };
 });

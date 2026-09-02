@@ -117,7 +117,7 @@ for item in raw_tests:
     
     why_important = [
         f"Evaluates essential clinical parameters for {name}.",
-        f"Conducted at NABL accredited laboratory (MC-6849) following ISO 15189:2022 standards.",
+        f"Conducted at NABL accredited laboratory (MC-10025) following ISO 15189:2022 standards.",
         "Digital PDF report delivered directly to your WhatsApp & Email on the same day.",
         "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ]
@@ -134,7 +134,7 @@ for item in raw_tests:
         "slug": slug,
         "title": f"{name} Test in Bangalore | Price, Normal Range & Home Collection | QXL",
         "metaDescription": f"Book {name} ({short_name}) at home in Bangalore. NABL accredited precision, same-day digital reports, starting at ₹{price}. {prep}",
-        "badge": "NABL ACCREDITED LAB (MC-6849) · FREE HOME COLLECTION",
+        "badge": "NABL ACCREDITED LAB (MC-10025) · FREE HOME COLLECTION",
         "h1Title": f"{name} ({short_name}) in Bangalore",
         "subtitle": f"{name} evaluates {params.lower()} with NABL-certified precision. {prep}",
         "price": str(price),

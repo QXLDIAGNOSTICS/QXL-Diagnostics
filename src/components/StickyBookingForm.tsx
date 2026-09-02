@@ -84,6 +84,19 @@ export default function StickyBookingForm() {
                 />
               </div>
               
+              <div className="flex items-start gap-2 pt-1">
+                <input
+                  type="checkbox"
+                  id="dpdp-consent-sticky"
+                  required
+                  defaultChecked
+                  className="mt-0.5 h-3.5 w-3.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer shrink-0"
+                />
+                <label htmlFor="dpdp-consent-sticky" className="text-[10px] text-slate-500 font-medium leading-tight cursor-pointer">
+                  I consent to QXL Diagnostics contacting me via Call/WhatsApp &amp; storing data per DPDP guidelines and <a href="/privacy-policy" target="_blank" className="text-blue-600 underline font-semibold">Privacy Policy</a>.
+                </label>
+              </div>
+
               <div className="pt-1">
                 <button
                   type="submit"

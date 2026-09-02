@@ -377,7 +377,7 @@ const defaultSettings = {
   navItems: [
     { label: "Home", href: "/", visible: true },
     { label: "About Us", href: "/about", visible: true },
-    { label: "Founder & Consultants", href: "/founder", visible: true },
+    { label: "Founder & Consultants", href: "/team", visible: true },
     { label: "Our Specialities", href: "/specialities", visible: true },
     { label: "Packages", href: "/packages", visible: true },
     { label: "Find Nearest Centre", href: "/centers", visible: true },
@@ -510,7 +510,7 @@ export const cmsStore = {
           parsed.navItems = parsed.navItems.map((item: any) => {
             if (item.label === "Founder & Advisors" || item.label === "Meet Our Team") {
               item.label = "Founder & Consultants";
-              item.href = "/founder";
+              item.href = "/team";
               healed = true;
             }
             return item;

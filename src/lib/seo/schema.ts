@@ -365,7 +365,7 @@ export function buildRootSchemaGraph() {
         "@id": `${SITE_URL}/#founder`,
         name: "Dr. Shantakumar Muruda",
         jobTitle: "Founder & CEO, Clinical Biochemist",
-        url: `${SITE_URL}/founder`,
+        url: `${SITE_URL}/team`,
         worksFor: { "@id": ORG_ID },
         alumniOf: {
           "@type": "EducationalOrganization",

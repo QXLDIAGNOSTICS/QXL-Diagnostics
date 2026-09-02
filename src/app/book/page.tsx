@@ -493,7 +493,10 @@ export default function BookPage() {
         }
       }
       if (match && !isSpidyOffer(match.name)) matches.push(match);
-      else if (!isSpidyOffer(w)) unmatched.push(w);
+      else if (!isSpidyOffer(w)) {
+        unmatched.push(w);
+        console.info('[Analytics] Unresolved package parameter logged:', w);
+      }
     }
 
     if (matches.length) {
