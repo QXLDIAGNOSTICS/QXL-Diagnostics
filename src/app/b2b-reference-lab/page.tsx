@@ -99,6 +99,7 @@ export default function B2bReferenceLabPage() {
               <div className="md:col-span-2">
                 <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">Locality / Address in Bengaluru *</label>
                 <textarea rows={3} placeholder="Full address with pincode" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] bg-slate-50/50"></textarea>
+              </div>
               <div className="md:col-span-2 flex items-start gap-2 pt-2">
                 <input
                   type="checkbox"
