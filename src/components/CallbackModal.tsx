@@ -193,6 +193,8 @@ export default function CallbackModal() {
                     className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium"
                   />
                 </div>
+              </div>
+
               <div className="flex items-start gap-2 pt-1">
                 <input
                   type="checkbox"
