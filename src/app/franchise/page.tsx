@@ -241,6 +241,18 @@ export default function FranchisePage() {
                   <input type="text" value={formData.budget} onChange={e=>setFormData({...formData, budget:e.target.value})} className="w-full border border-gray-200 rounded-xl px-3 py-2.5 text-sm focus:border-[#2563eb] outline-none bg-gray-50/50" placeholder="e.g. 5 Lakhs" />
                 </div>
 
+                <div className="flex items-start gap-2 pt-1">
+                  <input
+                    type="checkbox"
+                    id="dpdp-consent-franchise"
+                    required
+                    className="mt-0.5 h-3.5 w-3.5 rounded border-slate-300 text-[#2563eb] focus:ring-[#2563eb] cursor-pointer shrink-0"
+                  />
+                  <label htmlFor="dpdp-consent-franchise" className="text-[10px] text-slate-500 font-medium leading-tight cursor-pointer">
+                    I consent to QXL Diagnostics storing and processing contact details per DPDP guidelines and <a href="/privacy-policy" target="_blank" className="text-[#2563eb] underline font-semibold">Privacy Policy</a>.
+                  </label>
+                </div>
+
                 <button type="submit" disabled={submitting} className="w-full bg-[#2563eb] text-white font-extrabold px-6 py-3.5 rounded-xl hover:bg-[#1d4ed8] transition-colors shadow-md text-sm uppercase tracking-wider mt-2 disabled:opacity-60 disabled:cursor-not-allowed">
                   {submitting ? 'Submitting…' : 'Submit Inquiry'}
                 </button>

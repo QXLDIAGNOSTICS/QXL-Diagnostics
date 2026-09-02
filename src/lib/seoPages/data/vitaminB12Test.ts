@@ -110,7 +110,7 @@ export const vitaminB12Test: SeoLandingData = {
   faqs: [
     {
       q: "What is the vitamin B12 test price in Bangalore?",
-      a: "Serum B12 pricing varies by laboratory in Bangalore. QXL Diagnostics confirms transparent pricing at booking; pairing B12 with vitamin D, folate or a full body checkup offers better value. WhatsApp +91 9964 639 639 for current pricing.",
+      a: "At QXL Diagnostics, a Vitamin B12 (Serum Cobalamin) test in Bangalore costs ₹890 (MRP ₹1,300), including same-day digital report and home sample collection. Pairing B12 with vitamin D or a full body checkup offers better value.",
     },
     {
       q: "Is fasting required for a vitamin B12 test?",

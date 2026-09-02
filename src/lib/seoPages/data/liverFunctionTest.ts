@@ -111,7 +111,7 @@ export const liverFunctionTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the LFT test price in Bangalore?",
-      a: "Liver function test pricing varies across Bangalore laboratories. QXL Diagnostics confirms transparent pricing at booking, and LFT is included in all full body checkup packages at better value than standalone booking. WhatsApp +91 9964 639 639 for current pricing.",
+      a: "At QXL Diagnostics, a Liver Function Test (LFT) in Bangalore costs ₹750 (MRP ₹1,100), including 11 parameters (SGPT, SGOT, Bilirubin, ALP, GGT, Proteins, Albumin, Globulin, A/G Ratio) and same-day digital report with free home collection.",
     },
     {
       q: "Is fasting required for a liver function test?",

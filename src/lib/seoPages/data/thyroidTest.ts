@@ -76,7 +76,7 @@ export const thyroidTest: SeoLandingData = {
       heading: "Understanding Your Results",
       paragraphs: ["Typical patterns your doctor will interpret:"],
       bullets: [
-        "High TSH + Low FT4 — primary hypothyroidism; treatment almost always needed",
+        "High TSH + Low FT4 — primary hypothyroidism; medical evaluation and clinical correlation recommended",
         "High TSH + Normal FT4 — subclinical hypothyroidism; monitoring or treatment depending on levels and symptoms",
         "Low TSH + High FT4/FT3 — hyperthyroidism; requires prompt medical attention",
         "Positive Anti-TPO — autoimmune thyroiditis; predicts future thyroid failure risk",
@@ -128,7 +128,7 @@ export const thyroidTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the thyroid test price in Bangalore?",
-      a: "Prices vary by panel depth — TSH alone costs less than a complete T3/T4/TSH profile with antibodies. QXL Diagnostics confirms exact pricing at booking, and thyroid profiles are included in most health checkup packages. WhatsApp +91 9964 639 639 for current rates.",
+      a: "At QXL Diagnostics, a complete Thyroid Profile (T3, T4, TSH) test in Bangalore costs ₹450 (MRP ₹750), including 3 parameters, same-day report and home sample collection. Individual TSH test is available at ₹250.",
     },
     {
       q: "Is fasting required for a thyroid test?",

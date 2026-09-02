@@ -71,6 +71,17 @@ function buildJsonLd(data: SeoLandingData) {
   const description =
     data.aiOverview.length > 300 ? `${data.aiOverview.slice(0, 297)}...` : data.aiOverview;
 
+  const reviewerNode = data.reviewerName
+    ? {
+        "@type": "Physician",
+        "@id": `${SITE_URL}/${data.reviewerSlug || "dr-shantakumar-muruda"}#physician`,
+        name: data.reviewerName,
+        url: `${SITE_URL}/${data.reviewerSlug || "dr-shantakumar-muruda"}`,
+        medicalSpecialty: data.reviewerQuals || "Pathology & Clinical Biochemistry",
+        worksFor: { "@id": `${SITE_URL}/#organization` },
+      }
+    : undefined;
+
   const graph: Record<string, unknown>[] = [
     {
       "@type": "BreadcrumbList",
@@ -92,6 +103,8 @@ function buildJsonLd(data: SeoLandingData) {
           : undefined,
       breadcrumb: { "@id": `${url}#breadcrumb` },
       provider: { "@id": `${SITE_URL}/#organization` },
+      reviewedBy: reviewerNode,
+      lastReviewed: data.lastReviewedDate || "2026-08-31",
       areaServed: { "@type": "City", name: "Bengaluru" },
       inLanguage: "en-IN",
     },
@@ -115,9 +128,11 @@ function buildJsonLd(data: SeoLandingData) {
       description,
       howPerformed: "A small blood sample is collected by a trained phlebotomy specialist at home or at a QXL centre and analysed at our NABL Accredited laboratory.",
       normalRange: "Reference ranges are printed on every report and interpreted against your age and sex. Please consult your doctor for clinical interpretation.",
+      reviewedBy: reviewerNode,
       offers: {
         "@type": "Offer",
         priceCurrency: "INR",
+        price: data.price ? String(data.price) : undefined,
         availability: "https://schema.org/InStock",
         url,
         offeredBy: { "@id": `${SITE_URL}/#organization` },

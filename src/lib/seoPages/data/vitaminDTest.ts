@@ -111,7 +111,7 @@ export const vitaminDTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the vitamin D test price in Bangalore?",
-      a: "Vitamin D test pricing varies across Bangalore laboratories. QXL Diagnostics confirms transparent pricing at booking, and better value comes from pairing it with Vitamin B12 in deficiency panels or full body checkups. Call or WhatsApp +91 9964 639 639 for current pricing.",
+      a: "At QXL Diagnostics, a Vitamin D3 (25-OH Hydroxy) test in Bangalore costs ₹990 (MRP ₹1,500), including same-day digital report and home sample collection. Better value comes from pairing it with Vitamin B12 or full body checkups.",
     },
     {
       q: "Is fasting required for a vitamin D test?",

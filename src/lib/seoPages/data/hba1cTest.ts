@@ -44,8 +44,8 @@ export const hba1cTest: SeoLandingData = {
     },
     {
       icon: "clock",
-      title: "Immune to Daily Spikes",
-      desc: "One heavy meal or a stressed morning can't distort it — that's exactly why doctors trust it over random sugar readings.",
+      title: "Immune to Short-Term Spikes",
+      desc: "Less affected by short-term dietary fluctuations than a single blood glucose measurement — that's why doctors trust it to monitor long-term control.",
     },
     {
       icon: "home",
@@ -77,7 +77,7 @@ export const hba1cTest: SeoLandingData = {
       paragraphs: ["Reference context for adults (confirm interpretation with your doctor):"],
       bullets: [
         "Below 5.7% — normal glucose metabolism",
-        "5.7%–6.4% — prediabetes; lifestyle intervention now prevents progression",
+        "5.7%–6.4% — prediabetes; lifestyle intervention can reduce or delay progression risk",
         "6.5%+ — diabetes range; confirmatory testing and medical consultation advised",
         "Above 8–9% on treatment — significant gap in control; medication review needed",
         "Very low HbA1c in diabetics can signal hypoglycaemia risk — not automatically 'good'",
@@ -103,7 +103,7 @@ export const hba1cTest: SeoLandingData = {
       },
       {
         title: "vs Random Sugar",
-        desc: "Random values only screen; they can neither diagnose reliably nor measure control.",
+        desc: "Random plasma glucose can be diagnostic in appropriate symptomatic contexts under medical guidance, whereas HbA1c provides a 3-month average.",
       },
       {
         title: "Best Combined Use",
@@ -128,7 +128,7 @@ export const hba1cTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the HbA1c test price in Bangalore?",
-      a: "HbA1c pricing varies across Bangalore labs. QXL Diagnostics confirms transparent pricing at booking, and the test is included in our diabetes health checkup and full body packages at better value. WhatsApp +91 9964 639 639 for the current price.",
+      a: "At QXL Diagnostics, an HbA1c test in Bangalore costs ₹399 (MRP ₹600), including 2 parameters and same-day digital report with pathologist review. It is also included in our Full Body Health Checkup packages starting at ₹800.",
     },
     {
       q: "Do I need to fast for an HbA1c test?",

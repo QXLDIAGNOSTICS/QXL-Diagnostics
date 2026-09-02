@@ -99,6 +99,16 @@ export default function B2bReferenceLabPage() {
               <div className="md:col-span-2">
                 <label className="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">Locality / Address in Bengaluru *</label>
                 <textarea rows={3} placeholder="Full address with pincode" className="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] bg-slate-50/50"></textarea>
+              <div className="md:col-span-2 flex items-start gap-2 pt-2">
+                <input
+                  type="checkbox"
+                  id="dpdp-consent-b2b"
+                  required
+                  className="mt-0.5 h-3.5 w-3.5 rounded border-slate-300 text-[#2563eb] focus:ring-[#2563eb] cursor-pointer shrink-0"
+                />
+                <label htmlFor="dpdp-consent-b2b" className="text-[11px] text-slate-500 font-medium leading-tight cursor-pointer">
+                  I consent to QXL Diagnostics storing and processing facility details per DPDP guidelines and <a href="/privacy-policy" target="_blank" className="text-[#2563eb] underline font-semibold">Privacy Policy</a>.
+                </label>
               </div>
             </div>
 

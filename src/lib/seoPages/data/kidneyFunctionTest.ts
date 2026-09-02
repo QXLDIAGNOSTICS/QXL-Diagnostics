@@ -112,7 +112,7 @@ export const kidneyFunctionTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the KFT test price in Bangalore?",
-      a: "Kidney function test pricing varies by panel depth across Bangalore labs. QXL Diagnostics confirms transparent pricing at booking, and KFT is included in all full body checkup packages. Call or WhatsApp +91 9964 639 639 for current pricing.",
+      a: "At QXL Diagnostics, a Kidney Function Test (KFT / RFT) in Bangalore costs ₹690 (MRP ₹1,000), including 10 parameters (creatinine, urea, eGFR, uric acid, electrolytes) and same-day report with free home collection. Individual serum creatinine is available at ₹220.",
     },
     {
       q: "Is fasting required for a kidney function test?",

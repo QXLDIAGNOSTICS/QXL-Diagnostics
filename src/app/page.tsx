@@ -761,12 +761,12 @@ export default function Home() {
     {
       badge: "🩸 ROUTINE SCREENING",
       title: "CBC & Blood Count",
-      sub: "24 Haematology Parameters with Free Home Collection",
-      price: "₹350",
+      sub: "26 Haematology Parameters with Free Home Collection",
+      price: "₹299",
       bgGradient: "bg-gradient-to-br from-sky-50/95 via-cyan-50/90 to-blue-50/80 border border-sky-200/90 shadow-sm",
       badgeStyle: "bg-sky-100 text-sky-950 border border-sky-200",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
-      ctaLink: "/cbc-test-bangalore"
+      ctaLink: "/cbc-test"
     }
   ];
 

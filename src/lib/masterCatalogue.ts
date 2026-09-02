@@ -581,7 +581,7 @@ export function matchMasterItem(query: string): MasterCatalogEntry | undefined {
     return MASTER_CATALOGUE.find(m => m.id === 'vitamin-b12');
   }
   if (q.includes('full body') || q.includes('800') || q.includes('raksha')) {
-    return MASTER_CATALOGUE.find(m => m.id === 'raksha-bandhan-800');
+    return MASTER_CATALOGUE.find(m => m.id === 'q-full-body-80');
   }
 
   return undefined;

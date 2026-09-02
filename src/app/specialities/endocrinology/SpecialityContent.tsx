@@ -191,7 +191,7 @@ export default function EndocrinologyPage() {
               <ul className="space-y-2">
                 {SPECIALITIES.map(spec => (
                   <li key={spec}>
-                    <Link href={`/specialities/${spec.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="text-gray-600 hover:text-sky-600 text-sm flex items-center justify-between group font-medium">
+                    <Link href={`/specialities/${spec === "Women's Health" ? "womens-health" : spec.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="text-gray-600 hover:text-sky-600 text-sm flex items-center justify-between group font-medium">
                       {spec}<ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-sky-400" />
                     </Link>
                   </li>
