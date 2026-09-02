@@ -89,7 +89,6 @@ export default function StickyBookingForm() {
                   type="checkbox"
                   id="dpdp-consent-sticky"
                   required
-                  defaultChecked
                   className="mt-0.5 h-3.5 w-3.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer shrink-0"
                 />
                 <label htmlFor="dpdp-consent-sticky" className="text-[10px] text-slate-500 font-medium leading-tight cursor-pointer">

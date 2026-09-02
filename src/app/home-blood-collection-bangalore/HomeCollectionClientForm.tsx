@@ -99,6 +99,18 @@ export default function HomeCollectionClientForm() {
             />
           </div>
 
+          <div className="flex items-start gap-2 pt-1">
+            <input
+              type="checkbox"
+              id="dpdp-consent-homecol"
+              required
+              className="mt-0.5 h-3.5 w-3.5 rounded border-gray-300 text-[#D69A18] focus:ring-[#D69A18] cursor-pointer shrink-0"
+            />
+            <label htmlFor="dpdp-consent-homecol" className="text-[10.5px] text-slate-500 font-medium leading-tight cursor-pointer">
+              I consent to QXL Diagnostics contacting me &amp; processing address data per DPDP guidelines and <a href="/privacy-policy" target="_blank" className="text-blue-600 underline font-semibold">Privacy Policy</a>.
+            </label>
+          </div>
+
           <button
             type="submit"
             className="w-full bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-widest shadow-md active:scale-95 transition-all mt-2 cursor-pointer"

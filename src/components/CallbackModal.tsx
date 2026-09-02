@@ -193,6 +193,16 @@ export default function CallbackModal() {
                     className="flex-1 bg-transparent text-xs text-slate-800 placeholder-slate-400 focus:outline-none font-medium"
                   />
                 </div>
+              <div className="flex items-start gap-2 pt-1">
+                <input
+                  type="checkbox"
+                  id="dpdp-consent-modal"
+                  required
+                  className="mt-0.5 h-3.5 w-3.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer shrink-0"
+                />
+                <label htmlFor="dpdp-consent-modal" className="text-[10px] text-slate-500 font-medium leading-tight cursor-pointer">
+                  I consent to QXL Diagnostics contacting me &amp; storing data per DPDP guidelines and <a href="/privacy-policy" target="_blank" className="text-blue-600 underline font-semibold">Privacy Policy</a>.
+                </label>
               </div>
 
               {status === "error" && (

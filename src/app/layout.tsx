@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://qxldiagnostics.com"),
   title: {
     default: "QXL Diagnostics Bengaluru | Doctor-Led NABL Accredited Lab",
-    template: "%s | QXL Diagnostics Bengaluru",
+    template: "%s | QXL Diagnostics",
   },
   alternates: {
     canonical: "https://qxldiagnostics.com",

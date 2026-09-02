@@ -128,7 +128,7 @@ export const cbcTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the cost of a CBC test in Bangalore?",
-      a: "CBC pricing in Bangalore varies by laboratory and whether a smear review is included. QXL Diagnostics confirms exact transparent pricing at booking, and the CBC is included in most full body checkup packages at better value. Call or WhatsApp +91 9964 639 639 for today's price.",
+      a: "At QXL Diagnostics, a CBC test in Bangalore costs ₹299 (MRP ₹450), including 26 parameters and same-day digital report with pathologist review. It is also included in our Full Body Health Checkup packages starting at ₹800.",
     },
     {
       q: "Is fasting required for a CBC test?",
@@ -152,7 +152,7 @@ export const cbcTest: SeoLandingData = {
     },
   ],
   relatedLinks: [
-    { label: "Iron Profile Test", href: "/blood-test-bangalore", desc: "Find the cause of iron-deficiency anaemia" },
+    { label: "Iron Profile Test", href: "/iron-profile-test", desc: "Find the cause of iron-deficiency anaemia" },
     { label: "Vitamin B12 Test", href: "/vitamin-b12-test", desc: "Macrocytic anaemia & nerve health" },
     { label: "Full Body Checkup", href: "/full-body-checkup-bangalore", desc: "CBC included in complete screening" },
     { label: "Blood Test Bangalore", href: "/blood-test-bangalore", desc: "All 300+ tests with home collection" },

@@ -659,7 +659,6 @@ function QuickBookingForm({ formState, setFormState, handleContactSubmit, formSt
             type="checkbox"
             id="dpdp-consent-quick"
             required
-            defaultChecked
             className="mt-0.5 h-3.5 w-3.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer shrink-0"
           />
           <label htmlFor="dpdp-consent-quick" className="text-[10px] md:text-[11px] text-slate-500 font-medium leading-tight cursor-pointer">
@@ -926,7 +925,7 @@ export default function Home() {
       subtitleAccent: "Only ₹800 (Worth ₹5,800 · 86% OFF) · Same-Day Digital Reports",
       description: "Trusted diagnostic testing by Bengaluru's NABL Accredited super speciality laboratory.",
       cta: "Book Package @ ₹800",
-      ctaLink: "/book?package=Full%20Body%20Checkup%20(80%20Params)",
+      ctaLink: "/book?package=q-full-body-80",
       ctaSecondary: "Call +91 9964 639 639",
       ctaSecondaryLink: "tel:+919964639639",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
@@ -1342,7 +1341,7 @@ export default function Home() {
                               View Details
                             </button>
                             <Link
-                              href={`/book?package=${encodeURIComponent(pkg.name)}`}
+                              href={`/book?package=${encodeURIComponent(pkg.id || pkg.slug || 'q-full-body-80')}`}
                               className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2 px-2 rounded-xl text-[10.5px] sm:text-[11px] shadow-xs hover:shadow-md transition-all uppercase tracking-wider active:scale-95 block"
                             >
                               Add to Cart
@@ -1697,6 +1696,17 @@ export default function Home() {
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1">Message</label>
                     <textarea rows={3} placeholder="How can we help you?" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all resize-none"></textarea>
+                  </div>
+                  <div className="flex items-start gap-2 pt-1">
+                    <input
+                      type="checkbox"
+                      id="dpdp-consent-contact"
+                      required
+                      className="mt-0.5 h-3.5 w-3.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer shrink-0"
+                    />
+                    <label htmlFor="dpdp-consent-contact" className="text-xs text-slate-500 font-medium leading-tight cursor-pointer">
+                      I consent to QXL Diagnostics contacting me &amp; processing data per DPDP guidelines and <a href="/privacy-policy" target="_blank" className="text-blue-600 underline font-semibold">Privacy Policy</a>.
+                    </label>
                   </div>
                   {formStatus === 'success' && <p className="text-green-600 text-xs font-bold">Your inquiry has been submitted successfully!</p>}
                   {formStatus === 'error' && <p className="text-red-600 text-xs font-bold">There was an error submitting your inquiry. Please try again or contact us via WhatsApp.</p>}
