@@ -489,7 +489,7 @@ export default function AiChat() {
           {/* Floating Ask me bubble */}
           {!isOpen && (
             <div className="hidden sm:flex relative items-center mr-2.5 bg-[#2563eb] text-white text-[11px] font-black px-3 py-1.5 rounded-xl shadow-lg border border-white/40 whitespace-nowrap">
-              Ask QXL AI
+              Ask me
               <div 
                 className="absolute -right-1.5 top-1/2 -translate-y-1/2 w-0 h-0"
                 style={{
@@ -501,7 +501,7 @@ export default function AiChat() {
             </div>
           )}
 
-          {/* QXL AI assistant FAB button with pulsating animation ring */}
+          {/* QXL AI assistant FAB button */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
@@ -513,8 +513,6 @@ export default function AiChat() {
             aria-label={isOpen ? "Close QXL AI chat" : "Open QXL AI assistant"}
             title="QXL AI Assistant"
           >
-            {/* Animated glowing outer ring */}
-            <span className="absolute inset-0 rounded-full bg-sky-400 animate-ping opacity-30 pointer-events-none" />
             {isOpen ? (
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true" className="relative z-10">
                 <line x1="18" y1="6" x2="6" y2="18" />
