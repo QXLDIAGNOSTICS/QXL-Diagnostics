@@ -18,16 +18,6 @@ export default function FeaturedTestsSlider() {
       subtitle: "Comprehensive screening packages reviewed by expert senior consultant doctors.",
       items: [
         {
-          name: "Full Body Checkup - Essential",
-          badge: "Checkup",
-          oldPrice: "₹5,243",
-          price: "₹800",
-          discount: "86% Off",
-          params: "80 parameters",
-          tat: "Reports within 12 hours",
-          slug: "full-body-checkup-80-params",
-        },
-        {
           name: "Full Body Checkup - Complete",
           badge: "Checkup",
           oldPrice: "₹5,243",

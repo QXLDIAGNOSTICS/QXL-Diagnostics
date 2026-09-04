@@ -53,7 +53,7 @@ def build_mega_test(num, name, slug, short, dept, sample, vol, fasting, tat, pri
         },
         {
             "question": f"How long does it take to receive the official digital PDF report for {name}?",
-            "answer": f"Verified digital PDF reports for {name} are delivered within {tat} of specimen arrival at our certified super speciality central laboratory (MC-10025). Reports are delivered securely to your registered WhatsApp number and Email."
+            "answer": f"Verified digital PDF reports for {name} are delivered within {tat} of specimen arrival at our certified super speciality central laboratory (MC-6849). Reports are delivered securely to your registered WhatsApp number and Email."
         },
         {
             "question": f"Can I book a doorstep home sample collection for {name} in Bangalore?",
@@ -69,7 +69,7 @@ def build_mega_test(num, name, slug, short, dept, sample, vol, fasting, tat, pri
         },
         {
             "question": f"What quality standards and certifications back the {name} test at QXL?",
-            "answer": f"All specimens are processed at QXL Diagnostics' NABL Certified Super Speciality Laboratory (MC-10025) operating in strict compliance with ISO 15189:2022 international quality standards. Every report undergoes dual-level automated internal quality control (IQC) and pathologist validation led by Dr. Shantakumar Muruda, MD."
+            "answer": f"All specimens are processed at QXL Diagnostics' NABL Certified Super Speciality Laboratory (MC-6849) operating in strict compliance with ISO 15189:2022 international quality standards. Every report undergoes dual-level automated internal quality control (IQC) and pathologist validation led by Dr. Shantakumar Muruda, MD."
         },
         {
             "question": f"How often should a person repeat or monitor their {name} test?",
@@ -88,7 +88,7 @@ def build_mega_test(num, name, slug, short, dept, sample, vol, fasting, tat, pri
     why_important = [
         f"Primary Indication: {why_ordered}",
         f"Specimen Specifications: {vol} of {sample} ({fasting}).",
-        f"Quality Certification: NABL Certified Super Speciality Laboratory (MC-10025) compliant with ISO 15189:2022 standards.",
+        f"Quality Certification: NABL Certified Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 standards.",
         f"Report Turnaround (TAT): Official digital report issued within {tat} via WhatsApp & Email.",
         f"Medical Reviewer Sign-off: Validated by Dr. Shantakumar Muruda, MD (Biochemistry) and Consultant Pathologists.",
         "Analytical Methodology: Automated high-sensitivity chemiluminescence, spectrophotometry, or hematology flow analysis.",
@@ -110,7 +110,7 @@ def build_mega_test(num, name, slug, short, dept, sample, vol, fasting, tat, pri
         "slug": slug,
         "title": f"{name} Test in Bangalore | Price ₹{price}, Normal Range & Home Collection | QXL",
         "metaDescription": f"Book {name} ({short}) test at home in Bangalore. NABL certified precision, same-day reports, starting at ₹{price}. {fasting} {tat}.",
-        "badge": "NABL CERTIFIED SUPER SPECIALITY LAB (MC-10025) · FREE HOME COLLECTION",
+        "badge": "NABL CERTIFIED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
         "h1Title": f"{name} ({short}) Test in Bangalore",
         "subtitle": f"{name} evaluates key clinical biomarkers with NABL-certified precision. {fasting} Reports delivered within {tat}.",
         "price": str(price),

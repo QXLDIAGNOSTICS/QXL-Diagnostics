@@ -135,7 +135,7 @@ for item in full_100_tests:
         "slug": slug,
         "title": f"{item['test_name']} Test – Preparation & Results | QXL",
         "metaDescription": f"Understand the {item['test_name']} test: purpose, sample ({item['sample_type']}), preparation ({item['fasting']}), reporting time ({item['tat']}), interpretation and key limitations.",
-        "badge": "NABL ACCREDITED LAB (MC-10025) · FREE HOME COLLECTION",
+        "badge": "NABL ACCREDITED LAB (MC-6849) · FREE HOME COLLECTION",
         "h1Title": item["test_name"],
         "subtitle": f"{item['test_name']} ({item['short_name']}) evaluated with NABL-accredited precision across Bengaluru.",
         "price": item["price"],
@@ -154,7 +154,7 @@ for item in full_100_tests:
         "whyImportant": [
             item["why_ordered"],
             f"Key Limitation & Interference: {item['key_limitation']}",
-            "Conducted at NABL accredited super speciality laboratory (MC-10025).",
+            "Conducted at NABL accredited super speciality laboratory (MC-6849).",
             "Digital PDF report delivered directly to your WhatsApp & Email."
         ],
         "faqs": [

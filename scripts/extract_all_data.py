@@ -137,7 +137,7 @@ for fname in files:
         if not why_important:
             why_important = [
                 f"Evaluates key clinical parameters for {test_name}.",
-                "Conducted at NABL accredited super speciality laboratory (MC-10025).",
+                "Conducted at NABL accredited super speciality laboratory (MC-6849).",
                 "Digital PDF report delivered directly to your WhatsApp & Email."
             ]
             
@@ -145,7 +145,7 @@ for fname in files:
             "slug": slug,
             "title": meta_title,
             "metaDescription": meta_desc,
-            "badge": "NABL ACCREDITED LAB (MC-10025) · FREE HOME COLLECTION",
+            "badge": "NABL ACCREDITED LAB (MC-6849) · FREE HOME COLLECTION",
             "h1Title": h1_title,
             "subtitle": quick_answer or overview_paras[0],
             "price": price,

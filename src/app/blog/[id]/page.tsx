@@ -68,23 +68,34 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0d2e42] leading-tight mb-4">
             {blog.title}
           </h1>
-          <p className="text-sm font-semibold text-slate-400 mb-6 flex items-center gap-2">
-            Last Updated: {new Date(blog.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })} (Reviewed by QXL Medical Team)
-          </p>
-          
-          <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-semibold border-b border-gray-200 pb-6">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-[#2563eb]" />
-              {new Date(blog.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#2563eb]" />
-              3 min read
-            </div>
-            <button className="flex items-center gap-2 ml-auto text-[#2563eb] hover:bg-[#dbeafe] px-3 py-1.5 rounded-lg transition-colors cursor-pointer">
-              <Share2 className="w-4 h-4" /> Share
-            </button>
-          </div>
+          {(() => {
+            const displayDate = (blog as any).date
+              ? (blog as any).date
+              : blog.created_at && !isNaN(new Date(blog.created_at).getTime())
+              ? new Date(blog.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })
+              : "September 2026";
+            return (
+              <>
+                <p className="text-sm font-semibold text-slate-400 mb-6 flex items-center gap-2">
+                  Last Updated: {displayDate} (Reviewed by QXL Medical Team)
+                </p>
+                
+                <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-semibold border-b border-gray-200 pb-6">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-[#2563eb]" />
+                    {displayDate}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-[#2563eb]" />
+                    3 min read
+                  </div>
+                  <button className="flex items-center gap-2 ml-auto text-[#2563eb] hover:bg-[#dbeafe] px-3 py-1.5 rounded-lg transition-colors cursor-pointer">
+                    <Share2 className="w-4 h-4" /> Share
+                  </button>
+                </div>
+              </>
+            );
+          })()}
         </div>
 
         {/* Removed Cover Image */}

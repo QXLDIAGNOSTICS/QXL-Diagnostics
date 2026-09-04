@@ -41,7 +41,7 @@ def build_ultra_rich_test(num, name, slug, short, dept, sample, vol, fasting, ta
         },
         {
             "question": f"What quality standards are followed by QXL Diagnostics for {name}?",
-            "answer": "QXL Diagnostics processes all samples at its NABL-accredited super speciality laboratory (MC-10025) operating strictly under ISO 15189:2022 international quality standards. Every test result undergoes automated dual-level internal quality control checks and consultant pathologist validation prior to release."
+            "answer": "QXL Diagnostics processes all samples at its NABL-accredited super speciality laboratory (MC-6849) operating strictly under ISO 15189:2022 international quality standards. Every test result undergoes automated dual-level internal quality control checks and consultant pathologist validation prior to release."
         }
     ]
 
@@ -54,7 +54,7 @@ def build_ultra_rich_test(num, name, slug, short, dept, sample, vol, fasting, ta
     why_important = [
         f"Primary Purpose: {why_ordered}",
         f"Specimen Requirements: {vol} of {sample} ({fasting}).",
-        f"Quality Assurance: NABL Accredited Super Speciality Laboratory (MC-10025) compliant with ISO 15189:2022 standards.",
+        f"Quality Assurance: NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 standards.",
         f"Turnaround SLA: Digital PDF report delivered within {tat} to WhatsApp and Email.",
         f"Medical Oversight: Validated by Consultant Pathologists and Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ]
@@ -70,7 +70,7 @@ def build_ultra_rich_test(num, name, slug, short, dept, sample, vol, fasting, ta
         "slug": slug,
         "title": f"{name} Test in Bangalore | Price ₹{price}, Normal Range & Home Collection | QXL",
         "metaDescription": f"Book {name} ({short}) test at home in Bangalore. NABL accredited precision, same-day reports, starting at ₹{price}. {fasting} {tat}.",
-        "badge": "NABL ACCREDITED LAB (MC-10025) · FREE HOME COLLECTION",
+        "badge": "NABL ACCREDITED LAB (MC-6849) · FREE HOME COLLECTION",
         "h1Title": f"{name} ({short}) in Bangalore",
         "subtitle": f"{name} evaluates key biomarkers with NABL-accredited precision. {fasting} Reports delivered within {tat}.",
         "price": str(price),
