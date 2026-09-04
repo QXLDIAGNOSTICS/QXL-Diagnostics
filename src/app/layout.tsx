@@ -603,6 +603,13 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "y5shgsd4y7");
           `}
         </Script>
+        {/* OpenAI Pixel */}
+        <Script id="openai-pixel" strategy="afterInteractive">
+          {`
+            !function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+            oaiq("init",{pixelId:"4zM4txkAYrYXzAtH8bTNp7",debug:true});
+          `}
+        </Script>
       </head>
       <body className="min-h-full flex flex-col relative selection:bg-amber-200 selection:text-amber-900">
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100000] focus:px-4 focus:py-2 focus:bg-[#2563eb] focus:text-white focus:font-extrabold focus:rounded-lg shadow-lg">
