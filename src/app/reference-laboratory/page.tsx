@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: "Reference Laboratory Partner for Doctors & Hospitals | QXL Diagnostics",
-  description: "QXL Diagnostics reference laboratory services for hospitals, polyclinics, nursing homes, and diagnostic centres across Bengaluru & Karnataka. NABL Accredited (MC-10025), specialized testing & MD pathologist review.",
+  description: "QXL Diagnostics reference laboratory services for hospitals, polyclinics, nursing homes, and diagnostic centres across Bengaluru & Karnataka. NABL Accredited (MC-6849), specialized testing & MD pathologist review.",
   keywords: ["reference laboratory bangalore", "b2b diagnostic lab bengaluru", "hospital lab outsourcing", "NABL reference lab", "specialised diagnostic referral"],
   alternates: {
     canonical: "https://qxldiagnostics.com/reference-laboratory",

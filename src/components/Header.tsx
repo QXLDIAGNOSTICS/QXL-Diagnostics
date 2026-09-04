@@ -445,24 +445,24 @@ export default function Header() {
 
     {/* ── MOBILE HEADER (lg:hidden) — Universal Top Bar on All Pages ── */}
     <div className="lg:hidden flex flex-col w-full">
-      <div className="fixed top-0 left-0 right-0 z-[9999] bg-white flex items-center justify-between px-2.5 sm:px-4 h-[60px] border-b border-slate-100 shadow-2xs max-w-full overflow-hidden">
+      <div className="fixed top-0 left-0 right-0 z-[9999] bg-white flex items-center justify-between px-3 sm:px-4 h-[68px] border-b border-slate-200/80 shadow-xs max-w-full overflow-hidden">
         {/* Left Side: Menu + Logo + Location Pill */}
-        <div className="flex items-center gap-1.5 xs:gap-2 min-w-0 shrink">
+        <div className="flex items-center gap-2 min-w-0 shrink">
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="w-8 h-8 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
+            className="w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
             aria-label="Open Navigation Menu"
           >
-            <Menu className="w-5 h-5 text-[#0f2d5e]" strokeWidth={2.2} />
+            <Menu className="w-5.5 h-5.5 text-[#0f2d5e]" strokeWidth={2.4} />
           </button>
 
-          <Link href="/" className="flex items-center py-0.5 shrink-0">
+          <Link href="/" className="flex items-center py-1 shrink-0">
             <img
               src={settings.logoImage || FALLBACK_LOGO}
               alt={settings.siteName || "QXL Diagnostics"}
-              width={140}
-              height={36}
-              className="h-6 xs:h-7 w-auto object-contain max-h-[26px] xs:max-h-[30px]"
+              width={180}
+              height={46}
+              className="h-8.5 xs:h-9.5 sm:h-10 w-auto object-contain max-h-[36px] xs:max-h-[42px] sm:max-h-[46px]"
               style={{ imageRendering: '-webkit-optimize-contrast' }}
               onError={(e) => {
                 e.currentTarget.src = FALLBACK_LOGO;
@@ -475,14 +475,14 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setShowLocationModal(true)}
-            className="flex items-center gap-1 bg-white border border-slate-200 hover:border-amber-300 px-2 py-0.5 rounded-full text-[10px] xs:text-[11px] font-black text-[#0f2d5e] shrink active:scale-95 transition-all cursor-pointer shadow-2xs min-w-0"
+            className="flex items-center gap-1 bg-white border border-slate-200 hover:border-amber-300 px-2 py-1 rounded-full text-[10px] xs:text-[11px] font-black text-[#0f2d5e] shrink active:scale-95 transition-all cursor-pointer shadow-2xs min-w-0"
             aria-label="Change Location"
             title={location || "Bangalore"}
           >
             <div className="w-3.5 h-3.5 rounded-full bg-amber-50 flex items-center justify-center shrink-0 border border-amber-200/80">
               <MapPin className="w-2.5 h-2.5 text-[#D69A18] shrink-0" />
             </div>
-            <span className="truncate max-w-[65px] xs:max-w-[90px] font-black text-[#0f2d5e]">
+            <span className="truncate max-w-[55px] xs:max-w-[85px] font-black text-[#0f2d5e]">
               {isMounted ? getShortLocationName(location) : "Bangalore"}
             </span>
             <ChevronDown className="w-2.5 h-2.5 text-[#D69A18] shrink-0" />
@@ -493,12 +493,12 @@ export default function Header() {
         <div className="flex items-center gap-1.5 shrink-0 ml-1">
           <Link
             href="/book"
-            className="w-8.5 h-8.5 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer"
+            className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer"
             aria-label="View Cart and Checkout"
           >
-            <ShoppingCart className="w-4 h-4 text-[#0f2d5e]" strokeWidth={2.0} />
+            <ShoppingCart className="w-4.5 h-4.5 text-[#0f2d5e]" strokeWidth={2.0} />
             {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-amber-500 text-white font-black text-[9px] w-4 h-4 rounded-full flex items-center justify-center border border-white shadow-xs">
+              <span className="absolute -top-1 -right-1 bg-amber-500 text-white font-black text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center border border-white shadow-xs">
                 {cartCount}
               </span>
             )}
@@ -506,20 +506,20 @@ export default function Header() {
 
           <Link
             href={user ? "/profile" : "/login"}
-            className="w-8.5 h-8.5 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] active:scale-95 transition-transform shrink-0 cursor-pointer"
+            className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] active:scale-95 transition-transform shrink-0 cursor-pointer"
             aria-label="User Profile"
           >
             {user ? (
               <span className="text-xs font-black text-[#0f2d5e]">{userInitial}</span>
             ) : (
-              <User className="w-4 h-4 text-[#0f2d5e]" strokeWidth={2.0} />
+              <User className="w-4.5 h-4.5 text-[#0f2d5e]" strokeWidth={2.0} />
             )}
           </Link>
         </div>
       </div>
 
-      {/* Spacer for Fixed Top Header (60px) */}
-      <div className="h-[60px]" />
+      {/* Spacer for Fixed Top Header (68px) */}
+      <div className="h-[68px]" />
     </div>
 
       {/* ── LOCATION BOTTOM SHEET MODAL (mobile slide-up bottom sheet) ── */}

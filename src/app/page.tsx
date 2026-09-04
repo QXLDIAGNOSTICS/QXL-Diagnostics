@@ -1034,7 +1034,7 @@ export default function Home() {
                             {activeSlide.badge}
                           </span>
                           <span className="inline-flex items-center gap-1 bg-emerald-50 border border-emerald-300 text-emerald-800 text-[9.5px] font-black px-2.5 py-0.5 rounded-full shadow-2xs">
-                            ✓ NABL MC-10025
+                            ✓ NABL MC-6849
                           </span>
                         </div>
 
@@ -1770,7 +1770,7 @@ export default function Home() {
           <div className="flex items-center justify-between mb-2">
             <p className="text-xs font-semibold text-slate-500">{greeting}, welcome to QXL</p>
             <span className="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-black px-2 py-0.5 rounded-full">
-              ✓ NABL MC-10025
+              ✓ NABL MC-6849
             </span>
           </div>
 
@@ -2147,7 +2147,7 @@ export default function Home() {
 
               <div className="pt-2 text-xs text-slate-500 flex items-center gap-4 font-semibold">
                 <span>🏠 Free Home Collection</span>
-                <span>📋 NABL Accredited (MC-10025)</span>
+                <span>📋 NABL Accredited (MC-6849)</span>
               </div>
             </div>
 

@@ -27,9 +27,9 @@ import { SITE_URL, NABL_CERTIFICATE, ISO_STANDARD, PHONE_DISPLAY, PHONE_E164, EM
 import { ACCREDITATION_DETAILS, ACCREDITATION_SCOPE } from '@/config/accreditation';
 
 export const metadata: Metadata = {
-  title: "Quality Assurance & NABL Accreditation (MC-10025) | QXL Diagnostics",
-  description: "Official Quality & NABL Accreditation Portal for QXL Diagnostics Bengaluru. ISO 15189:2022 standards, Certificate MC-10025, Westgard IQC, EQAS proficiency testing, cold-chain integrity, and critical value protocols.",
-  keywords: ["NABL Accreditation MC-10025", "ISO 15189:2022 laboratory bangalore", "Westgard IQC diagnostic lab", "sample traceability barcode", "critical value alert protocol"],
+  title: "Quality Assurance & NABL Accreditation (MC-6849) | QXL Diagnostics",
+  description: "Official Quality & NABL Accreditation Portal for QXL Diagnostics Bengaluru. ISO 15189:2022 standards, Certificate MC-6849, Westgard IQC, EQAS proficiency testing, cold-chain integrity, and critical value protocols.",
+  keywords: ["NABL Accreditation MC-6849", "ISO 15189:2022 laboratory bangalore", "Westgard IQC diagnostic lab", "sample traceability barcode", "critical value alert protocol"],
   alternates: { canonical: `${SITE_URL}/quality-accreditation` },
   openGraph: {
     title: "NABL Accreditation & Clinical Quality Governance | QXL Diagnostics",

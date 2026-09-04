@@ -5,7 +5,7 @@ import { SITE_URL, NABL_CERTIFICATE, ISO_STANDARD, PHONE_DISPLAY, EMAIL } from '
 
 export const metadata: Metadata = {
   title: "For Doctors & Reference Lab Services Bangalore | QXL Diagnostics",
-  description: "B2B reference laboratory services, hospital lab outsourcing, critical value alerts, and specialist pathologist consultation in Bengaluru. NABL Accredited (MC-10025).",
+  description: "B2B reference laboratory services, hospital lab outsourcing, critical value alerts, and specialist pathologist consultation in Bengaluru. NABL Accredited (MC-6849).",
   alternates: { canonical: `${SITE_URL}/for-doctors` },
   keywords: [
     "reference lab Bangalore",

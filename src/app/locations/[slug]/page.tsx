@@ -301,7 +301,7 @@ export default async function CombinedLocationPage({ params }: Props) {
                       <ShieldCheck className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Accredited (MC-10025)</h3>
+                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Accredited (MC-6849)</h3>
                       <p className="text-slate-600 text-xs font-medium leading-relaxed">Processed at our NABL Accredited ISO 15189:2022 laboratory with multi-level MD doctor verification.</p>
                     </div>
                   </div>

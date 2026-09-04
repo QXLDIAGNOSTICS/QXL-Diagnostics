@@ -36,7 +36,7 @@ export const CANONICAL_PACKAGES: PackageItem[] = [
     includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary Markers (21).",
     highlights: [
       "80 Health Parameters across 8 Organ Systems",
-      "NABL Accredited Laboratory Processing (MC-10025)",
+      "NABL Accredited Laboratory Processing (MC-6849)",
       "Free Doorstep Home Collection Across Bengaluru",
       "Same-Day Pathologist Verified Digital Report"
     ],

@@ -101,7 +101,7 @@ export default function DoctorLedSeoPage() {
               <div className="flex-1 space-y-5 text-center lg:text-left">
                 <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 px-4 py-1.5 rounded-full text-sky-300 text-xs font-black uppercase tracking-wider">
                   <Award className="w-4 h-4 text-amber-400" />
-                  <span>NABL Accredited Laboratory (MC-10025) | ISO 15189:2022</span>
+                  <span>NABL Accredited Laboratory (MC-6849) | ISO 15189:2022</span>
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
@@ -153,7 +153,7 @@ export default function DoctorLedSeoPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                    <span>NABL Accreditation: MC-10025</span>
+                    <span>NABL Accreditation: MC-6849</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400" />
@@ -231,7 +231,7 @@ export default function DoctorLedSeoPage() {
                   "Precision diagnostics requires expert medical leadership, not just automated machines."
                 </h2>
                 <p className="text-slate-600 text-sm font-medium leading-relaxed">
-                  Under the direction of Clinical Biochemist Dr. Shantakumar Muruda, QXL Diagnostics was built to bridge the gap between complex laboratory data and actionable clinical insights. By adhering to NABL MC-10025 and ISO 15189:2022 guidelines, our team ensures every result is validated for biological plausibility and clinical accuracy.
+                  Under the direction of Clinical Biochemist Dr. Shantakumar Muruda, QXL Diagnostics was built to bridge the gap between complex laboratory data and actionable clinical insights. By adhering to NABL MC-6849 and ISO 15189:2022 guidelines, our team ensures every result is validated for biological plausibility and clinical accuracy.
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs font-bold text-slate-700">
                   <div className="flex items-center gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100">

@@ -4,14 +4,14 @@ export const nablAccreditedLabBangalore: SeoLandingData = {
   slug: "/nabl-accredited-lab-bangalore",
   breadcrumbLabel: "NABL Accredited Lab Bangalore",
   pageType: "service",
-  heroBadge: `NABL Certificate MC-10025 | ${"ISO 15189:2022"} Standards`,
+  heroBadge: `NABL Certificate MC-6849 | ${"ISO 15189:2022"} Standards`,
   h1Lead: "NABL Accredited Lab in Bangalore —",
   h1Highlight: "Accreditation That Protects Your Diagnosis",
   heroIntro:
-    "QXL Diagnostics is accredited by the National Accreditation Board for Testing and Calibration Laboratories (certificate MC-10025) and operates to ISO 15189:2022 medical laboratory standards — independently audited proof that our testing is competent, controlled and consistent.",
+    "QXL Diagnostics is accredited by the National Accreditation Board for Testing and Calibration Laboratories (certificate MC-6849) and operates to ISO 15189:2022 medical laboratory standards — independently audited proof that our testing is competent, controlled and consistent.",
   aiOverviewTitle: "What does NABL Accreditation mean here?",
   aiOverview:
-    "NABL Accreditation (QXL certificate MC-10025) means an independent national accreditation body has audited QXL Diagnostics' Bengaluru laboratory for technical competence under ISO 15189:2022 — covering staff qualifications, instrument calibration, quality control, reporting practices and traceability.",
+    "NABL Accreditation (QXL certificate MC-6849) means an independent national accreditation body has audited QXL Diagnostics' Bengaluru laboratory for technical competence under ISO 15189:2022 — covering staff qualifications, instrument calibration, quality control, reporting practices and traceability.",
   aiOverviewPoints: [
     "Independently Audited Competence",
     "ISO 15189:2022 Medical Lab Standard",
@@ -21,7 +21,7 @@ export const nablAccreditedLabBangalore: SeoLandingData = {
   highlights: [
     {
       icon: "award",
-      title: "Certificate MC-10025",
+      title: "Certificate MC-6849",
       desc: "Our accreditation number is verifiable on the NABL portal — we encourage every patient to check it rather than take marketing claims at face value.",
     },
     {
@@ -71,7 +71,7 @@ export const nablAccreditedLabBangalore: SeoLandingData = {
     {
       heading: "Verify Us Yourself",
       paragraphs: [
-        "We list our accreditation details openly: NABL certificate MC-10025, ISO 15189:2022 standards, under QXL Diagnostics Super Speciality Lab (Qualitify Healthtech Pvt Ltd). Search the certificate number on the NABL website, or simply ask our team — transparency is part of what accreditation means. Questions? Call +91 9964 639 639 or visit our Kengeri Main Laboratory.",
+        "We list our accreditation details openly: NABL certificate MC-6849, ISO 15189:2022 standards, under QXL Diagnostics Super Speciality Lab (Qualitify Healthtech Pvt Ltd). Search the certificate number on the NABL website, or simply ask our team — transparency is part of what accreditation means. Questions? Call +91 9964 639 639 or visit our Kengeri Main Laboratory.",
       ],
     },
   ],
@@ -107,7 +107,7 @@ export const nablAccreditedLabBangalore: SeoLandingData = {
   faqs: [
     {
       q: "Which labs in Bangalore are NABL Accredited?",
-      a: "Several large chains and independent laboratories in Bangalore hold NABL Accreditation. QXL Diagnostics is accredited under certificate MC-10025 operating to ISO 15189:2022 standards. Always verify a lab's certificate number on the official NABL portal rather than relying on advertising claims.",
+      a: "Several large chains and independent laboratories in Bangalore hold NABL Accreditation. QXL Diagnostics is accredited under certificate MC-6849 operating to ISO 15189:2022 standards. Always verify a lab's certificate number on the official NABL portal rather than relying on advertising claims.",
     },
     {
       q: "Is NABL Accreditation really important for blood tests?",
@@ -119,7 +119,7 @@ export const nablAccreditedLabBangalore: SeoLandingData = {
     },
     {
       q: "How can I verify QXL Diagnostics' NABL certificate?",
-      a: "Our certificate number is MC-10025. You can search it on the NABL official website, or ask our team for the current scope and validity — we share it openly with patients and referring doctors.",
+      a: "Our certificate number is MC-6849. You can search it on the NABL official website, or ask our team for the current scope and validity — we share it openly with patients and referring doctors.",
     },
     {
       q: "Does accreditation affect report turnaround time?",
