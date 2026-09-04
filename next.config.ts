@@ -204,6 +204,10 @@ const nextConfig: NextConfig = {
       { source: "/endocrinology-2/:slug*", destination: "/specialities/endocrinology", permanent: true },
       { source: "/endocrinology-2", destination: "/specialities/endocrinology", permanent: true },
       { source: "/author/:slug*", destination: "/doctors", permanent: true },
+      { source: "/uncategorized/:slug*", destination: "/blog", permanent: true },
+      { source: "/uncategorized", destination: "/blog", permanent: true },
+      { source: "/hello-world", destination: "/blog", permanent: true },
+      { source: "/hello-world/", destination: "/blog", permanent: true },
 
       // ── Legacy /tests/:slug → Direct Clean Top-Level URLs ─────────────────────
       { source: "/tests/complete-blood-count", destination: "/complete-blood-count", permanent: true },

@@ -5,10 +5,13 @@ export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const lowerPath = pathname.toLowerCase();
 
-  // 1. HTTP 410 Gone for soft-404 junk / WordPress legacy paths
+  // 1. Legacy WordPress junk / hello-world 301 Redirects to /blog
+  if (lowerPath.startsWith('/uncategorized') || lowerPath === '/hello-world' || lowerPath === '/hello-world/') {
+    return NextResponse.redirect(new URL('/blog', request.url), 301);
+  }
+
+  // 2. HTTP 410 Gone for WP scan probes & exploit scripts
   if (
-    lowerPath.startsWith('/uncategorized') ||
-    lowerPath === '/hello-world' ||
     lowerPath.startsWith('/wp-content') ||
     lowerPath.startsWith('/wp-includes') ||
     lowerPath.startsWith('/wp-admin') ||
