@@ -481,10 +481,10 @@ export default function AiChat() {
       )}
 
 
-      {/* QXL AI assistant FAB & Ask Me Bubble Container (Desktop & Mobile — Stacked above WhatsApp button) */}
+      {/* QXL AI assistant FAB & Ask Me Bubble Container (Desktop Only — Hidden on mobile per user request) */}
       {siteSettings.ai_chat_enabled && !isFABsHidden && !isOpen && (
         <div 
-          className="flex fixed bottom-[148px] right-4 lg:bottom-[88px] lg:right-6 z-[10000] items-center transition-all duration-300 pointer-events-auto"
+          className="hidden sm:flex fixed bottom-[148px] right-4 lg:bottom-[88px] lg:right-6 z-[10000] items-center transition-all duration-300 pointer-events-auto"
         >
           {/* Floating Ask me bubble */}
           {!isOpen && (
