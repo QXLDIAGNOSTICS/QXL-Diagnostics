@@ -364,6 +364,23 @@ export default function CentersPage() {
                       </div>
 
                       <div>
+                        {/* Facility Tier Badge */}
+                        <div className="mb-1.5">
+                          {center.type === "physical_lab" || center.slug?.includes("kengeri") ? (
+                            <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                              🔬 Main Laboratory
+                            </span>
+                          ) : center.type === "physical_centre" || center.slug?.includes("yelahanka") ? (
+                            <span className="bg-sky-50 border border-sky-200 text-sky-800 text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                              🏢 Collection Centre
+                            </span>
+                          ) : (
+                            <span className="bg-purple-50 border border-purple-200 text-purple-800 text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                              🛵 Home Collection Hub
+                            </span>
+                          )}
+                        </div>
+
                         <h3 className="font-black text-[#0f2d5e] text-xs sm:text-sm mb-1.5 flex items-start gap-1.5 pr-28 leading-tight group-hover:text-[#D69A18] transition-colors">
                           <Shield className="w-4 h-4 text-[#D69A18] shrink-0 mt-0.5" />
                           <span>{center.name}</span>

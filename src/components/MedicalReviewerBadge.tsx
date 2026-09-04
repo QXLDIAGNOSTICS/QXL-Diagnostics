@@ -4,22 +4,25 @@ import { UserCheck, ShieldCheck } from 'lucide-react';
 
 interface Props {
   doctorName?: string;
+  doctorSlug?: string;
   qualifications?: string;
   reviewDate?: string;
 }
 
 export default function MedicalReviewerBadge({
   doctorName = "Dr. Shantakumar Muruda",
+  doctorSlug = "dr-shantakumar-muruda",
   qualifications = "MD (Biochemistry)",
   reviewDate = "18 August 2026",
 }: Props) {
+  const profileHref = doctorSlug.startsWith("/") ? doctorSlug : `/${doctorSlug}`;
   return (
     <div className="inline-flex flex-wrap items-center gap-2 bg-emerald-950/40 border border-emerald-500/40 text-emerald-100 px-3.5 py-1.5 rounded-xl text-xs backdrop-blur-sm">
       <UserCheck className="w-4 h-4 text-emerald-400 shrink-0" />
       <span>
         Medically Reviewed by{" "}
         <Link
-          href="/dr-shantakumar-muruda"
+          href={profileHref}
           className="font-bold underline hover:text-emerald-300 transition-colors"
         >
           {doctorName}, {qualifications}

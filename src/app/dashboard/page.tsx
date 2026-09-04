@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Calendar, FileText, User, Phone, MapPin, Loader2, ShieldCheck } from "lucide-react";
+import { Calendar, FileText, User, Phone, MapPin, Loader2, ShieldCheck, RotateCcw } from "lucide-react";
 import { useAuth } from "../../lib/useAuth";
 import { api, Booking, Prescription } from "../../lib/api";
 import RazorpayCheckoutButton from "../../components/RazorpayCheckoutButton";
@@ -115,6 +115,44 @@ export default function DashboardPage() {
                         <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {b.patient_phone}</span>
                         {b.preferred_date && <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {b.preferred_date}</span>}
                         <span className="flex items-center gap-1"><MapPin className="w-3 h-3" /> {b.collection_type === "home" ? "Home Collection" : "Center Visit"}</span>
+                      </div>
+                      
+                      <div className="mt-3 flex items-center justify-between gap-2 pt-2 border-t border-gray-100">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            try {
+                              const rawCart = localStorage.getItem("qxl_cart");
+                              const cart = rawCart ? JSON.parse(rawCart) : [];
+                              const item = {
+                                id: (b.test_name || "cbc").toLowerCase().replace(/\s+/g, "-"),
+                                name: b.test_name || "CBC (Complete Blood Count)",
+                                price: b.amount_paise ? b.amount_paise / 100 : 299,
+                                fasting: "No fasting",
+                                tat: "Report in 6 hours"
+                              };
+                              const exists = cart.find((i: any) => i.name.toLowerCase() === item.name.toLowerCase());
+                              if (!exists) {
+                                cart.push(item);
+                                localStorage.setItem("qxl_cart", JSON.stringify(cart));
+                                window.dispatchEvent(new Event("cartChange"));
+                              }
+                              window.location.href = "/checkout";
+                            } catch (err) {
+                              console.error(err);
+                            }
+                          }}
+                          className="inline-flex items-center gap-1.5 bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] font-bold px-3 py-1 rounded-full text-[11px] hover:bg-[#FDF0D5] transition-colors"
+                        >
+                          <RotateCcw className="w-3 h-3" />
+                          Rebook
+                        </button>
+                        <Link
+                          href="/report"
+                          className="text-[11px] font-extrabold text-[#2563eb] hover:underline"
+                        >
+                          View Reports →
+                        </Link>
                       </div>
                       
                       {b.payment_status !== "paid" && b.payment_status !== "refunded" && b.status !== "cancelled" && (

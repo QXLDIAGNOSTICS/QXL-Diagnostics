@@ -863,21 +863,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Tab 3 (CENTER): AI Chat */}
-          <button
-            type="button"
-            onClick={() => window.dispatchEvent(new CustomEvent('openAiChat'))}
-            className="flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative text-[#2563eb] cursor-pointer"
-          >
-            <div className="w-6 h-6 rounded-full bg-gradient-to-r from-blue-600 via-sky-500 to-blue-600 text-white flex items-center justify-center shadow-xs">
-              <MessageSquareText className="w-3.5 h-3.5 text-white" />
-            </div>
-            <span className="text-[10px] font-black text-[#2563eb] tracking-tight">
-              AI Chat
-            </span>
-          </button>
-
-          {/* Tab 4: Bookings */}
+          {/* Tab 3: Bookings */}
           <Link
             href="/book"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
@@ -893,7 +879,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Tab 5: Reports */}
+          {/* Tab 4: Reports */}
           <Link
             href="/report"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
@@ -906,6 +892,22 @@ export default function Header() {
             <FileText className={`w-5 h-5 ${pathname?.startsWith('/report') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/report') ? 2.4 : 1.8} />
             <span className={`text-[10px] ${pathname?.startsWith('/report') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
               Reports
+            </span>
+          </Link>
+
+          {/* Tab 5: Profile */}
+          <Link
+            href={user ? "/profile" : "/login"}
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
+              (pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+            }`}
+          >
+            {(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) && (
+              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
+            )}
+            <User className={`w-5 h-5 ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 2.4 : 1.8} />
+            <span className={`text-[10px] ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
+              Profile
             </span>
           </Link>
         </nav>

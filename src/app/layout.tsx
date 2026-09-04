@@ -18,6 +18,11 @@ export const viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://qxldiagnostics.com"),
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   title: {
     default: "QXL Diagnostics Bengaluru | Doctor-Led NABL Accredited Lab",
     template: "%s | QXL Diagnostics",

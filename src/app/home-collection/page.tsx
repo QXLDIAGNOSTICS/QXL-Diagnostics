@@ -39,30 +39,37 @@ export default function HomeCollectionPage() {
             </div>
           </div>
 
-          <h2 className="text-xl font-black text-slate-900 mb-1">Book Home Collection</h2>
+          <h1 className="text-xl font-black text-slate-900 mb-1">Blood Test at Home in Bengaluru</h1>
           <p className="text-xs text-slate-600 font-medium leading-relaxed max-w-xs mb-4">
             Safe, reliable and convenient sample collection from the comfort of your home.
           </p>
 
-          {/* Feature Checklist matching Screen 3 */}
-          <div className="w-full bg-white rounded-2xl p-3.5 border border-gray-150 shadow-xs space-y-2.5 text-left mb-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
-                <UserCheck className="w-4.5 h-4.5" />
-              </div>
-              <span className="text-xs font-extrabold text-slate-800">Trained phlebotomists</span>
+          {/* Serviceability PIN Code Check Card */}
+          <div className="w-full bg-white rounded-2xl p-4 border border-[#F3DBA7] shadow-2xs mb-4 space-y-3">
+            <label className="text-[11px] font-black text-[#0f2d5e] uppercase tracking-wider block text-left">
+              Check Serviceability in Your Area
+            </label>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                maxLength={6}
+                placeholder="Enter 6-digit PIN code (e.g. 560060)"
+                className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-[#0f2d5e] focus:outline-none focus:border-[#D69A18]"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') e.preventDefault();
+                }}
+              />
+              <button
+                type="button"
+                className="bg-[#D69A18] hover:bg-amber-600 !text-white font-black px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-2xs transition-all cursor-pointer"
+                style={{ color: '#ffffff' }}
+              >
+                <span className="!text-white font-black" style={{ color: '#ffffff' }}>Check</span>
+              </button>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
-                <ShieldCheck className="w-4.5 h-4.5" />
-              </div>
-              <span className="text-xs font-extrabold text-slate-800">Tamper-proof sample collection</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
-                <Clock className="w-4.5 h-4.5" />
-              </div>
-              <span className="text-xs font-extrabold text-slate-800">Reports delivered on time</span>
+            <div className="flex flex-wrap items-center justify-between text-[10.5px] text-slate-600 font-semibold pt-1 border-t border-slate-100">
+              <span className="text-emerald-700 font-extrabold">✓ Collection Charge: FREE</span>
+              <span>⚡ Earliest Slot: 7:00 AM Tomorrow</span>
             </div>
           </div>
 

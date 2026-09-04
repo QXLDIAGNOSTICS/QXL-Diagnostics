@@ -1759,154 +1759,184 @@ export default function Home() {
         <FaqSection />
       </div>
 
-      {/* ── MOBILE VIEW (lg:hidden) — EXACT MATCH TO REFERENCE DESIGN SCREENSHOT ── */}
+      {/* ── MOBILE VIEW (lg:hidden) — STREAMLINED HIGH-CONVERSION PATIENT JOURNEY ── */}
       <div className="lg:hidden flex flex-col w-full max-w-full overflow-x-hidden bg-white pt-2 pb-[85px]">
 
-        {/* Top Header & Greeting Section */}
-        <div className="bg-white px-4 pt-3 sm:pt-4 pb-2">
-          <p className="text-[13.5px] sm:text-[14.5px] font-medium text-slate-500 mb-1">{greeting},</p>
-          <h2 className="text-[23px] sm:text-[26px] font-black text-[#0f2d5e] leading-[1.18] mb-3 sm:mb-4">
-            Take charge of your<br />health today!
-          </h2>
-
-          {/* Smart Search Bar */}
-          <div className="mb-3 sm:mb-3.5">
-            <SmartSearchBar placeholder="Search tests, checkups or health concerns" isMobile={true} />
+        {/* Above-the-Fold Header Section */}
+        <div className="bg-white px-4 pt-2 pb-3">
+          {/* Greeting */}
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-xs font-semibold text-slate-500">{greeting}, welcome to QXL</p>
+            <span className="bg-emerald-50 text-emerald-800 border border-emerald-200 text-[10px] font-black px-2 py-0.5 rounded-full">
+              ✓ NABL MC-10025
+            </span>
           </div>
 
-          {/* Popular Search Chips */}
-          <div className="flex items-center gap-2 overflow-x-auto scrollbar-none pb-1.5 mb-3 sm:mb-4">
-            <span className="text-[10px] font-black text-slate-400 uppercase shrink-0">Popular:</span>
-            {[
-              { label: "Full Body Checkup", href: "/packages" },
-              { label: "CBC", href: "/book?tests=CBC" },
-              { label: "Diabetes", href: "/book?tests=HbA1c" },
-              { label: "Thyroid", href: "/book?tests=TSH" },
-              { label: "Vitamin D", href: "/book?tests=Vitamin%20D" },
-              { label: "Fever", href: "/book?tests=Dengue" },
-              { label: "Heart", href: "/book?tests=Lipid" },
-              { label: "Women's Health", href: "/specialities/womens-health" },
-            ].map(chip => (
-              <Link
-                key={chip.label}
-                href={chip.href}
-                className="px-3 py-1 bg-[#FFF8EB] border border-[#F3DBA7] hover:border-[#D69A18] text-[#0f2d5e] font-extrabold text-[11px] rounded-full whitespace-nowrap active:scale-95 transition-all shrink-0"
-              >
-                {chip.label}
-              </Link>
-            ))}
+          {/* Persistent Top Search */}
+          <div className="mb-3.5">
+            <SmartSearchBar placeholder="Search tests, packages or health concerns" isMobile={true} />
           </div>
 
-          {/* ── Mobile Hero Promo Card ── */}
-          {(() => {
-            const promoSlides = [
-              {
-                id: "full-body",
-                title: "Full Body Health Checkup",
-                subtitle: "80 Parameters",
-                price: "₹800",
-                oldPrice: "₹5,000",
-                cta: "Book Now",
-                ctaLink: "/book?package=Full+Body+Health+Checkup",
-                image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
-                bg: "bg-[#FDE272]",
-              },
-            ];
-            const currentPromo = promoSlides[0];
-
-            return (
-              <div className="relative w-full rounded-[28px] overflow-hidden my-3 shadow-md bg-[#FDE272] text-left p-2.5 sm:p-4">
-                <div className="grid grid-cols-[1.15fr_0.85fr] items-center gap-2 w-full z-10 min-h-[160px] xs:min-h-[175px]">
-                  {/* Left Column: Text, Subtitle, Price & Book Now Pill Button */}
-                  <div className="flex flex-col justify-center text-left pl-3 xs:pl-4 pr-1 py-3 overflow-hidden">
-                    <h3 className="text-[19px] xs:text-[21px] font-black text-[#0B2545] leading-[1.18] tracking-tight mb-1">
-                      {currentPromo.title}
-                    </h3>
-                    <p className="text-xs xs:text-sm font-bold text-slate-800/80 mb-2">
-                      {currentPromo.subtitle}
-                    </p>
-
-                    <div className="flex items-baseline gap-2 mb-2.5">
-                      <span className="text-2xl xs:text-3xl font-black text-[#0B2545] tracking-tight">
-                        {currentPromo.price}
-                      </span>
-                      {currentPromo.oldPrice && (
-                        <span className="text-xs xs:text-sm font-bold text-slate-500/80 line-through tracking-tight">
-                          {currentPromo.oldPrice}
-                        </span>
-                      )}
-                    </div>
-
-                    <Link
-                      href={currentPromo.ctaLink}
-                      className="bg-white hover:bg-slate-50 text-[#0B2545] font-black text-xs xs:text-sm px-4 xs:px-5 py-2.5 rounded-full shadow-md inline-flex items-center gap-1.5 transition-transform active:scale-95 border-none w-fit cursor-pointer mt-1"
-                    >
-                      <span>{currentPromo.cta}</span>
-                      <ChevronRight className="w-4 h-4 text-[#D69A18] stroke-[3]" />
-                    </Link>
-                  </div>
-
-                  {/* Right Column: Photography Image */}
-                  <div className="relative w-full h-[135px] xs:h-[155px] flex items-center justify-center overflow-hidden shrink-0 rounded-2xl shadow-xs border border-amber-300/40 bg-white">
-                    <img
-                      src={currentPromo.image}
-                      alt={currentPromo.title}
-                      className="w-full h-full object-cover object-center rounded-2xl"
-                    />
-                  </div>
-                </div>
+          {/* 4 Main Action Cards — P0 Shortcut Grid */}
+          <div className="grid grid-cols-4 gap-2 mb-4">
+            <Link
+              href="/tests"
+              className="flex flex-col items-center gap-1.5 p-2 bg-[#FFF8EB] border border-[#F3DBA7] rounded-2xl text-center active:scale-95 transition-transform shadow-2xs group"
+            >
+              <div className="w-11 h-11 rounded-xl bg-[#D69A18] text-white flex items-center justify-center shadow-xs shrink-0">
+                <Microscope className="w-5 h-5 text-white" strokeWidth={2.0} />
               </div>
-            );
-          })()}
-        </div>
-
-
-
-        {/* ── Book a Test 4-Icon Grid ── */}
-        <div className="bg-white px-4 pt-3.5 pb-5 border-t border-slate-100">
-          <div className="flex items-center justify-between mb-3.5">
-            <span className="text-[17px] font-black text-[#0f2d5e]">Book a Test</span>
-            <Link href="/tests" className="text-[12.5px] font-extrabold text-[#D69A18] hover:underline">View All</Link>
-          </div>
-
-          <div className="grid grid-cols-4 gap-2">
-            <Link href="/tests" className="flex flex-col items-center gap-1 active:scale-95 transition-transform">
-              <div className="w-[56px] h-[56px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
-                <Microscope className="w-6 h-6 text-[#D69A18]" strokeWidth={1.8} />
-              </div>
-              <span className="text-[10.5px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Popular<br />Tests</span>
-            </Link>
-
-            <Link href="/packages" className="flex flex-col items-center gap-1 active:scale-95 transition-transform">
-              <div className="w-[56px] h-[56px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
-                <svg className="w-6 h-6 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v1.281m7.5 0a48.667 48.667 0 00-7.5 0" />
-                </svg>
-              </div>
-              <span className="text-[10.5px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Health<br />Packages</span>
-            </Link>
-
-            <Link href="/home-collection" className="flex flex-col items-center gap-1 active:scale-95 transition-transform">
-              <div className="w-[56px] h-[56px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
-                <svg className="w-6 h-6 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                </svg>
-              </div>
-              <span className="text-[10.5px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Home<br />Collection</span>
+              <span className="text-[11px] font-black text-[#0f2d5e] leading-tight">
+                Book a Test
+              </span>
             </Link>
 
             <button
               type="button"
               onClick={() => setIsPrescriptionModalOpen(true)}
-              className="flex flex-col items-center gap-1 active:scale-95 transition-transform cursor-pointer"
+              className="flex flex-col items-center gap-1.5 p-2 bg-[#FFF8EB] border border-[#F3DBA7] rounded-2xl text-center active:scale-95 transition-transform shadow-2xs group cursor-pointer"
             >
-              <div className="w-[56px] h-[56px] rounded-2xl bg-[#FFFBF0] border border-[#F3DBA7] flex items-center justify-center shadow-2xs shrink-0">
-                <svg className="w-6 h-6 text-[#D69A18]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.6}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+              <div className="w-11 h-11 rounded-xl bg-[#D69A18] text-white flex items-center justify-center shadow-xs shrink-0">
+                <FileText className="w-5 h-5 text-white" strokeWidth={2.0} />
+              </div>
+              <span className="text-[11px] font-black text-[#0f2d5e] leading-tight">
+                Upload Rx
+              </span>
+            </button>
+
+            <Link
+              href="/home-collection"
+              className="flex flex-col items-center gap-1.5 p-2 bg-[#FFF8EB] border border-[#F3DBA7] rounded-2xl text-center active:scale-95 transition-transform shadow-2xs group"
+            >
+              <div className="w-11 h-11 rounded-xl bg-[#D69A18] text-white flex items-center justify-center shadow-xs shrink-0">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.0}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
               </div>
-              <span className="text-[10.5px] font-bold text-slate-800 text-center leading-[1.15] mt-0.5">Upload<br />Prescription</span>
-            </button>
+              <span className="text-[11px] font-black text-[#0f2d5e] leading-tight">
+                Home Sample
+              </span>
+            </Link>
+
+            <Link
+              href="/packages"
+              className="flex flex-col items-center gap-1.5 p-2 bg-[#FFF8EB] border border-[#F3DBA7] rounded-2xl text-center active:scale-95 transition-transform shadow-2xs group"
+            >
+              <div className="w-11 h-11 rounded-xl bg-[#D69A18] text-white flex items-center justify-center shadow-xs shrink-0">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.0}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v1.281m7.5 0a48.667 48.667 0 00-7.5 0" />
+                </svg>
+              </div>
+              <span className="text-[11px] font-black text-[#0f2d5e] leading-tight">
+                Packages
+              </span>
+            </Link>
+          </div>
+
+          {/* ── Popular Tests Section — Compact Cards with Instant + Add ── */}
+          <div className="mb-2">
+            <div className="flex items-center justify-between mb-2.5">
+              <h3 className="text-base font-black text-[#0f2d5e]">Popular Tests</h3>
+              <Link href="/tests" className="text-xs font-bold text-[#D69A18] hover:underline">
+                View All 300+ Tests ›
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2.5">
+              {[
+                {
+                  id: "CBC",
+                  name: "CBC",
+                  fullName: "Complete Blood Count",
+                  price: 299,
+                  oldPrice: 800,
+                  fasting: "No Fasting",
+                  tat: "Report in 6 hours",
+                  sample: "EDTA Blood",
+                  slug: "cbc-test",
+                },
+                {
+                  id: "HbA1c",
+                  name: "HbA1c",
+                  fullName: "Glycated Hemoglobin · A1c",
+                  price: 399,
+                  oldPrice: 1200,
+                  fasting: "No Fasting",
+                  tat: "Report in 6 hours",
+                  sample: "EDTA Blood",
+                  slug: "hba1c-test",
+                },
+                {
+                  id: "Thyroid Profile Total (T3, T4, TSH)",
+                  name: "Thyroid (TSH)",
+                  fullName: "Total T3, T4 & TSH Profile",
+                  price: 399,
+                  oldPrice: 1100,
+                  fasting: "No Fasting",
+                  tat: "Report in 6 hours",
+                  sample: "Serum",
+                  slug: "thyroid-test",
+                },
+                {
+                  id: "Vitamin D (25-OH Hydroxy Vitamin D3)",
+                  name: "Vitamin D Total",
+                  fullName: "25-OH Hydroxy Vit D3",
+                  price: 899,
+                  oldPrice: 2400,
+                  fasting: "No Fasting",
+                  tat: "Report in 24 hours",
+                  sample: "Serum",
+                  slug: "vitamin-d-test",
+                },
+              ].map((test) => {
+                const isAdded = cartItems.includes(test.id) || cartItems.includes(test.name);
+                return (
+                  <div
+                    key={test.name}
+                    className="bg-white border border-slate-200 rounded-2xl p-3 flex flex-col justify-between shadow-2xs hover:border-[#D69A18] transition-all"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="font-black text-[#0f2d5e] text-sm leading-tight">
+                          {test.name}
+                        </span>
+                        <span className="text-[9px] font-bold bg-amber-50 text-[#D69A18] px-1.5 py-0.5 rounded-full border border-[#F3DBA7]">
+                          {test.fasting}
+                        </span>
+                      </div>
+                      <p className="text-[10px] text-slate-500 font-medium truncate mb-1">
+                        {test.fullName}
+                      </p>
+                      <p className="text-[10px] font-extrabold text-sky-700 mb-2">
+                        ⚡ {test.tat}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-1 border-t border-slate-100">
+                      <div>
+                        <span className="font-black text-[#0f2d5e] text-sm">₹{test.price}</span>
+                        {test.oldPrice && (
+                          <span className="text-[10px] text-slate-400 line-through font-bold ml-1">₹{test.oldPrice}</span>
+                        )}
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => handleToggleCart(test.id)}
+                        className={`px-3 py-1 rounded-xl text-xs font-black transition-all cursor-pointer ${
+                          isAdded
+                            ? "bg-emerald-100 text-emerald-800 border border-emerald-300"
+                            : "bg-[#D69A18] hover:bg-amber-600 !text-white shadow-2xs active:scale-95"
+                        }`}
+                        style={!isAdded ? { color: "#ffffff" } : undefined}
+                      >
+                        {isAdded ? "✓ Added" : "+ Add"}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 

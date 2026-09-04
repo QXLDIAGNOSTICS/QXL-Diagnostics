@@ -40,27 +40,27 @@ const INTELLIGENT_CATALOG: TestMatch[] = [
   {
     name: "Complete Blood Count (CBC) / Complete Hemogram",
     category: "Hematology",
-    price: 395,
+    price: 299,
     oldPrice: 800,
     fasting: "No Fasting",
     tat: "6 Hours",
-    parameters: "24 Parameters",
+    parameters: "26 Parameters",
     keywords: [
-      "cbc", "hemogram", "haemogram", "blood count", "wbc", "rbc", "platelet", "platelets",
-      "hemoglobin", "hb", "anemia", "infection", "fever", "weakness", "blood test", "esr", "differential count"
+      "cbc", "cbp", "hemogram", "haemogram", "heamogram", "complete hemogram", "complete haemogram", "blood count", "wbc", "rbc", "platelet", "platelets",
+      "hemoglobin", "haemoglobin", "hb", "anemia", "infection", "fever", "weakness", "blood test", "esr", "differential count"
     ],
   },
   {
     name: "HbA1c (Glycated Hemoglobin) - 3 Month Average Sugar",
     category: "Diabetes Care",
-    price: 610,
+    price: 399,
     oldPrice: 1200,
     fasting: "No Fasting",
     tat: "6 Hours",
     parameters: "Single Parameter",
     keywords: [
-      "hba1c", "hba1", "glycated hemoglobin", "glycosylated hemoglobin", "sugar", "glucose",
-      "diabetes", "diabetic", "3 month sugar", "sugar test", "dibetes", "suger", "insulin"
+      "hba1c", "hba1", "a1c", "glycated hemoglobin", "glycosylated hemoglobin", "sugar", "sugar test", "glucose",
+      "diabetes", "diabetic", "3 month sugar", "dibetes", "suger", "insulin"
     ],
   },
   {
@@ -72,7 +72,7 @@ const INTELLIGENT_CATALOG: TestMatch[] = [
     tat: "6 Hours",
     parameters: "Single Parameter",
     keywords: [
-      "fbs", "fasting sugar", "sugar", "glucose", "fasting blood glucose", "diabetes", "dibetes", "fasting"
+      "fbs", "fasting sugar", "sugar test", "sugar", "glucose", "fasting blood glucose", "diabetes", "dibetes", "fasting"
     ],
   },
   {
@@ -84,65 +84,65 @@ const INTELLIGENT_CATALOG: TestMatch[] = [
     tat: "6 Hours",
     parameters: "Single Parameter",
     keywords: [
-      "ppbs", "pp sugar", "post meals sugar", "sugar", "glucose", "diabetes", "pp"
+      "ppbs", "pp sugar", "post meals sugar", "sugar test", "sugar", "glucose", "diabetes", "pp"
     ],
   },
   {
     name: "Thyroid Profile Total (T3, T4, TSH)",
     category: "Endocrinology",
-    price: 550,
+    price: 399,
     oldPrice: 1100,
     fasting: "No Fasting",
-    tat: "Same Day",
+    tat: "6 Hours",
     parameters: "3 Parameters",
     keywords: [
-      "thyroid", "tsh", "t3", "t4", "thyroxin", "thyrod", "throid", "weight gain", "weight loss",
+      "thyroid", "tft", "tsh", "t3", "t4", "thyroxin", "thyrod", "thyriod", "throid", "weight gain", "weight loss",
       "hair fall", "hypothyroid", "hyperthyroid", "thyroid test", "tsh test"
     ],
   },
   {
     name: "Liver Function Test (LFT) - 11 Parameters",
     category: "Gastroenterology",
-    price: 800,
+    price: 799,
     oldPrice: 1600,
     fasting: "Fasting 8 hrs",
     tat: "Same Day",
     parameters: "11 Parameters",
     keywords: [
-      "lft", "liver", "liver function", "sgot", "sgpt", "bilirubin", "jaundice", "fatty liver",
+      "lft", "liver", "liver test", "liver function", "sgot", "sgpt", "bilirubin", "jaundice", "fatty liver",
       "leaver", "alcohol", "transaminase", "alkaline phosphatase", "yellow eyes"
     ],
   },
   {
     name: "Kidney Function Test (KFT) / Renal Profile",
     category: "Nephrology",
-    price: 850,
+    price: 799,
     oldPrice: 1700,
     fasting: "No Fasting",
     tat: "Same Day",
     parameters: "12 Parameters",
     keywords: [
-      "kft", "kidney", "kidny", "renal", "creatinine", "urea", "uric acid", "swelling", "bun",
-      "egfr", "kidney test", "creatinin"
+      "kft", "rft", "kidney", "kidney test", "kidny", "renal", "creatinine", "creatnine", "creatinin", "urea", "uric acid", "swelling", "bun",
+      "egfr"
     ],
   },
   {
     name: "Vitamin D (25-OH Hydroxy Vitamin D3)",
     category: "Vitamins & Minerals",
-    price: 1200,
+    price: 899,
     oldPrice: 2400,
     fasting: "No Fasting",
     tat: "Same Day",
     parameters: "Single Parameter",
     keywords: [
-      "vitamin d", "vitamin d3", "vit d", "vitmin d", "bone density", "calcium", "joint pain",
+      "vitamin d", "vitamin d3", "vit d", "vit d3", "vitmin d", "d3", "bone density", "calcium", "joint pain",
       "bone pain", "sunlight vitamin", "vitamind", "vitamin"
     ],
   },
   {
     name: "Vitamin B12 (Cyanocobalamin)",
     category: "Vitamins & Minerals",
-    price: 950,
+    price: 799,
     oldPrice: 1900,
     fasting: "No Fasting",
     tat: "Same Day",
@@ -203,13 +203,13 @@ const INTELLIGENT_CATALOG: TestMatch[] = [
   {
     name: "Lipid Profile Total (Cholesterol, Triglycerides, HDL, LDL)",
     category: "Cardiology",
-    price: 800,
+    price: 699,
     oldPrice: 1600,
     fasting: "Fasting 10-12 hrs",
     tat: "Same Day",
     parameters: "9 Parameters",
     keywords: [
-      "lipid", "cholesterol", "triglycerides", "hdl", "ldl", "heart", "cardiac", "blood pressure",
+      "lipid", "cholesterol", "cholestrol", "triglycerides", "hdl", "ldl", "heart", "cardiac", "blood pressure",
       "bp", "chest pain", "fat", "lipid profile"
     ],
   },
@@ -219,7 +219,7 @@ const INTELLIGENT_CATALOG: TestMatch[] = [
     price: 800,
     oldPrice: 5800,
     fasting: "Fasting 10 hrs",
-    tat: "6-12 Hours",
+    tat: "6 Hours",
     parameters: "80 Parameters",
     keywords: [
       "full body", "whole body", "full body checkup", "health package", "annual checkup",

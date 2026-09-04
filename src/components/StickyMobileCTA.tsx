@@ -1,48 +1,64 @@
 "use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Phone, CalendarCheck, FileText } from "lucide-react";
-import { motion } from "framer-motion";
+import { ShoppingCart, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function StickyMobileCTA() {
+  const [cartItems, setCartItems] = useState<string[]>([]);
+
+  useEffect(() => {
+    const syncCart = () => {
+      try {
+        const raw = localStorage.getItem("qxl_cart");
+        setCartItems(raw ? JSON.parse(raw) : []);
+      } catch {
+        setCartItems([]);
+      }
+    };
+
+    syncCart();
+    window.addEventListener("cartChange", syncCart);
+    return () => window.removeEventListener("cartChange", syncCart);
+  }, []);
+
+  if (cartItems.length === 0) return null;
+
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[999] md:hidden bg-white border-t border-gray-200 shadow-[0_-4px_24px_rgba(0,0,0,0.10)] safe-area-pb">
-      <div className="grid grid-cols-3 divide-x divide-gray-200">
-        {/* Call */}
-        <motion.a
-          whileTap={{ scale: 0.95 }}
-          href="tel:+919964639639"
-          className="flex flex-col items-center justify-center py-3 gap-1 text-[#D69A18] hover:bg-amber-50 active:bg-amber-100 transition-colors"
-          aria-label="Call QXL Diagnostics"
+    <AnimatePresence>
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 50, opacity: 0 }}
+        className="fixed bottom-[66px] left-3 right-3 z-[9995] lg:hidden"
+      >
+        <Link
+          href="/book"
+          className="flex items-center justify-between bg-[#0f2d5e] text-white px-4 py-3 rounded-2xl shadow-xl border border-amber-400/40 active:scale-98 transition-all"
         >
-          <Phone className="w-5 h-5" strokeWidth={2.2} />
-          <span className="text-[10px] font-bold tracking-tight leading-none">Call Now</span>
-        </motion.a>
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl bg-[#D69A18] text-white flex items-center justify-center shrink-0 shadow-xs">
+              <ShoppingCart className="w-4 h-4 text-white" />
+            </div>
+            <div>
+              <span className="font-extrabold text-white text-xs block leading-tight">
+                {cartItems.length} {cartItems.length === 1 ? "Test" : "Tests"} Selected
+              </span>
+              <span className="text-[10.5px] text-amber-200 font-semibold leading-tight block">
+                Free Doorstep Home Collection
+              </span>
+            </div>
+          </div>
 
-        {/* Book Test */}
-        <motion.div whileTap={{ scale: 0.95 }} className="w-full h-full">
-          <Link
-            href="/book"
-            className="flex flex-col items-center justify-center py-3 gap-1 bg-[#D69A18] text-white hover:bg-[#C58B12] active:bg-[#B47C09] transition-colors h-full relative"
-            aria-label="Book a Test at QXL Diagnostics"
-          >
-            <CalendarCheck className="w-5 h-5 z-10 text-white" strokeWidth={2.2} />
-            <span className="text-[10px] font-bold tracking-tight leading-none z-10 text-white">Book Test</span>
-          </Link>
-        </motion.div>
-
-        {/* Upload Prescription */}
-        <motion.div whileTap={{ scale: 0.95 }} className="w-full h-full">
-          <Link
-            href="/upload-prescription"
-            className="flex flex-col items-center justify-center py-3 gap-1 text-[#D69A18] hover:bg-amber-50 active:bg-amber-100 transition-colors h-full"
-            aria-label="Upload Prescription to QXL Diagnostics"
-          >
-            <FileText className="w-5 h-5" strokeWidth={2.2} />
-            <span className="text-[10px] font-bold tracking-tight leading-none">Prescription</span>
-          </Link>
-        </motion.div>
-      </div>
-    </div>
+          <div className="flex items-center gap-1.5 bg-[#D69A18] hover:bg-amber-600 text-white px-3.5 py-1.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-2xs">
+            <span>Continue</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </Link>
+      </motion.div>
+    </AnimatePresence>
   );
 }
+
 

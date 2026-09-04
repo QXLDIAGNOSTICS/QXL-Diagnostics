@@ -102,19 +102,100 @@ export default function UploadPrescriptionPage() {
                 </div>
               )}
 
+              {/* Reassurance Copy */}
+              <div className="bg-amber-50 border border-[#F3DBA7] rounded-2xl p-4 text-[#0f2d5e] text-xs font-semibold leading-relaxed">
+                💡 <strong>Elderly &amp; Quick Booking Assistance:</strong> Upload your prescription image or PDF, or send it on WhatsApp. We'll identify the prescribed tests and confirm them with you before booking—no need to manually search investigation names!
+              </div>
+
+              {/* 4 Explicit Action Buttons */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {/* 1. Take Photo */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (inputRef.current) {
+                      inputRef.current.setAttribute("capture", "environment");
+                      inputRef.current.setAttribute("accept", "image/*");
+                      inputRef.current.click();
+                    }
+                  }}
+                  className="flex flex-col items-center gap-2 p-4 bg-white border border-slate-200 rounded-2xl text-center hover:border-[#D69A18] hover:bg-amber-50/50 transition-all cursor-pointer shadow-2xs group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#D69A18] flex items-center justify-center border border-[#F3DBA7] group-hover:scale-110 transition-transform">
+                    📸
+                  </div>
+                  <span className="text-xs font-black text-[#0f2d5e]">Take Photo</span>
+                </button>
+
+                {/* 2. Choose from Gallery */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (inputRef.current) {
+                      inputRef.current.removeAttribute("capture");
+                      inputRef.current.setAttribute("accept", "image/*");
+                      inputRef.current.click();
+                    }
+                  }}
+                  className="flex flex-col items-center gap-2 p-4 bg-white border border-slate-200 rounded-2xl text-center hover:border-[#D69A18] hover:bg-amber-50/50 transition-all cursor-pointer shadow-2xs group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#D69A18] flex items-center justify-center border border-[#F3DBA7] group-hover:scale-110 transition-transform">
+                    🖼️
+                  </div>
+                  <span className="text-xs font-black text-[#0f2d5e]">Gallery</span>
+                </button>
+
+                {/* 3. Upload PDF */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (inputRef.current) {
+                      inputRef.current.removeAttribute("capture");
+                      inputRef.current.setAttribute("accept", ".pdf,application/pdf");
+                      inputRef.current.click();
+                    }
+                  }}
+                  className="flex flex-col items-center gap-2 p-4 bg-white border border-slate-200 rounded-2xl text-center hover:border-[#D69A18] hover:bg-amber-50/50 transition-all cursor-pointer shadow-2xs group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#D69A18] flex items-center justify-center border border-[#F3DBA7] group-hover:scale-110 transition-transform">
+                    📄
+                  </div>
+                  <span className="text-xs font-black text-[#0f2d5e]">Upload PDF</span>
+                </button>
+
+                {/* 4. Send on WhatsApp */}
+                <a
+                  href="https://api.whatsapp.com/send?phone=919964639639&text=Hello%20QXL%20Diagnostics%2C%20I%20have%20a%20doctor%20prescription%20and%20need%20help%20booking%20my%20tests."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex flex-col items-center gap-2 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-center hover:bg-emerald-100/80 transition-all cursor-pointer shadow-2xs group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <MessageCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-xs font-black text-emerald-950">WhatsApp</span>
+                </a>
+              </div>
+
               {/* Drag & Drop Zone */}
               <div
                 onDragEnter={handleDrag}
                 onDragLeave={handleDrag}
                 onDragOver={handleDrag}
                 onDrop={handleDrop}
-                onClick={() => inputRef.current?.click()}
-                className={`relative border-2 border-dashed rounded-3xl p-10 flex flex-col items-center justify-center text-center cursor-pointer transition-all min-h-[280px] ${
+                onClick={() => {
+                  if (inputRef.current) {
+                    inputRef.current.removeAttribute("capture");
+                    inputRef.current.setAttribute("accept", ".pdf,.jpg,.jpeg,.png");
+                    inputRef.current.click();
+                  }
+                }}
+                className={`relative border-2 border-dashed rounded-3xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-all min-h-[220px] ${
                   dragActive
-                    ? 'border-[#2563eb] bg-[#dbeafe]'
+                    ? 'border-[#D69A18] bg-amber-50'
                     : uploadedFile
-                    ? 'border-green-400 bg-green-50'
-                    : 'border-[#93c5fd] bg-white hover:border-[#2563eb] hover:bg-[#f0f8fc]'
+                    ? 'border-emerald-400 bg-emerald-50'
+                    : 'border-slate-300 bg-white hover:border-[#D69A18] hover:bg-amber-50/40'
                 }`}
               >
                 <input
@@ -128,13 +209,13 @@ export default function UploadPrescriptionPage() {
                   <>
                     {uploadedImage ? (
                       <img src={uploadedImage} alt="Prescription preview"
-                        className="max-h-52 rounded-xl mb-4 object-contain shadow border border-gray-100" />
+                        className="max-h-44 rounded-xl mb-3 object-contain shadow border border-gray-100" />
                     ) : (
-                      <div className="w-16 h-16 rounded-2xl bg-green-100 flex items-center justify-center mb-4">
-                        <FileText className="w-8 h-8 text-green-600" />
+                      <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mb-3">
+                        <FileText className="w-7 h-7 text-emerald-600" />
                       </div>
                     )}
-                    <p className="font-extrabold text-green-700 text-sm mb-1">✓ File Uploaded</p>
+                    <p className="font-extrabold text-emerald-700 text-sm mb-1">✓ File Selected</p>
                     <p className="text-slate-500 text-xs font-medium">{uploadedFile.name}</p>
                     <button
                       onClick={(e) => { e.stopPropagation(); setUploadedFile(null); setUploadedImage(null); setPrescription(null); setError(null); }}
@@ -145,13 +226,12 @@ export default function UploadPrescriptionPage() {
                   </>
                 ) : (
                   <>
-                    <div className="w-20 h-20 rounded-full bg-[#dbeafe] flex items-center justify-center mb-5">
-                      <Upload className="w-9 h-9 text-[#2563eb]" />
+                    <div className="w-16 h-16 rounded-full bg-amber-50 border border-[#F3DBA7] flex items-center justify-center mb-3">
+                      <Upload className="w-7 h-7 text-[#D69A18]" />
                     </div>
-                    <p className="font-extrabold text-[#0f2d5e] text-lg mb-2">Drag & drop your prescription here</p>
-                    <p className="text-slate-400 text-sm font-medium mb-4">or click to browse files</p>
-                    <span className="inline-block bg-[#2563eb] text-white text-xs font-extrabold px-5 py-2.5 rounded-full">Browse File</span>
-                    <p className="text-xs text-slate-400 mt-4 font-medium">Supports: JPG, PNG, PDF · Max 10 MB</p>
+                    <p className="font-extrabold text-[#0f2d5e] text-base mb-1">Drag &amp; drop prescription here</p>
+                    <p className="text-slate-400 text-xs font-medium mb-3">or tap one of the options above</p>
+                    <span className="inline-block bg-[#D69A18] text-white text-xs font-extrabold px-5 py-2.5 rounded-full shadow-2xs">Choose File</span>
                   </>
                 )}
               </div>

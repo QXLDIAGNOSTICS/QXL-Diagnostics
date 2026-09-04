@@ -180,11 +180,28 @@ export default function TestsPage() {
         </div>
       </section>
 
-      {/* Category Pills Slider */}
+      {/* Tests | Packages Mode Toggle & Category Pills */}
       <section className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
-        <div className="max-w-[1260px] mx-auto px-4 py-3">
+        <div className="max-w-[1260px] mx-auto px-4 py-2.5 space-y-2">
+          {/* Top Toggle Tabs: Tests | Packages */}
+          <div className="flex items-center justify-center max-w-xs mx-auto bg-slate-100 p-1 rounded-2xl border border-slate-200">
+            <button
+              type="button"
+              className="flex-1 py-1.5 rounded-xl font-black text-xs uppercase tracking-wider text-center bg-white text-[#0f2d5e] shadow-2xs"
+            >
+              Tests
+            </button>
+            <Link
+              href="/packages"
+              className="flex-1 py-1.5 rounded-xl font-extrabold text-xs uppercase tracking-wider text-center text-slate-600 hover:text-[#0f2d5e]"
+            >
+              Packages
+            </Link>
+          </div>
+
+          {/* Category Filter Chips */}
           <div className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1">
-            <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1 shrink-0 mr-1">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider flex items-center gap-1 shrink-0 mr-0.5">
               <Filter className="w-3.5 h-3.5" /> Filter:
             </span>
             {CATEGORIES.map((cat) => {
@@ -193,9 +210,9 @@ export default function TestsPage() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-extrabold whitespace-nowrap transition-all cursor-pointer ${
+                  className={`px-3 py-1 rounded-full text-xs font-extrabold whitespace-nowrap transition-all cursor-pointer ${
                     active
-                      ? "bg-[#0f2d5e] text-white shadow-xs scale-105"
+                      ? "bg-[#0f2d5e] text-white shadow-2xs scale-105"
                       : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                   }`}
                 >
@@ -208,7 +225,7 @@ export default function TestsPage() {
       </section>
 
       {/* Main Directory Listing */}
-      <main className="max-w-[1260px] mx-auto px-4 py-8">
+      <main className="max-w-[1260px] mx-auto px-4 py-4 sm:py-8">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-xl font-extrabold text-[#0f2d5e] tracking-tight">
