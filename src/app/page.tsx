@@ -1478,10 +1478,10 @@ export default function Home() {
                   <span className="inline-block bg-[#2563eb] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full tracking-widest uppercase mb-3.5 shadow-sm">
                     24×7 DIAGNOSTIC SERVICES
                   </span>
-                  <h2 className="text-[26px] md:text-[34px] leading-[1.1] font-black text-[#0b132b] mb-2">
+                  <h2 className="text-[26px] md:text-[34px] leading-[1.1] font-black !text-[#0b132b] mb-2" style={{ color: '#0b132b' }}>
                     NABL Accredited Diagnostics
                   </h2>
-                  <h3 className="text-[20px] md:text-[24px] leading-[1.2] font-black text-[#2563eb] mb-4">
+                  <h3 className="text-[20px] md:text-[24px] leading-[1.2] font-black !text-[#2563eb] mb-4" style={{ color: '#2563eb' }}>
                     Doctor-Led Diagnostic Lab in Bengaluru
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
