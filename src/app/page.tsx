@@ -7,17 +7,13 @@ import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
 import { api } from '../lib/api';
+import dynamic from "next/dynamic";
 import { WHATSAPP_LINK } from '../lib/businessInfo';
 import { optimizeCloudinaryUrl } from '../lib/cloudinary';
-import BlogSlider from "../components/BlogSlider";
 import AiDiagnostics from "../components/AiDiagnostics";
 import HomeCollectionSection from "../components/HomeCollectionSection";
 import Accreditations from "../components/Accreditations";
-import FaqSection from "../components/FaqSection";
-import ReviewsSection from "../components/ReviewsSection";
-import SeoContent from "../components/SeoContent";
 import CallbackModal from "../components/CallbackModal";
-import AppDownloadBanner from "../components/AppDownloadBanner";
 import EmotionalFamilySection from "../components/EmotionalFamilySection";
 import DoctorLedLabSection from "../components/DoctorLedLabSection";
 import RunningTextMarquee from "../components/RunningTextMarquee";
@@ -29,6 +25,12 @@ import ScooterPhlebotomistSvg from "../components/ScooterPhlebotomistSvg";
 import StickyBookingForm from "../components/StickyBookingForm";
 import FeaturedTestsSlider from "../components/FeaturedTestsSlider";
 import { parseCartItems, addItemToCart, removeItemFromCart } from "../lib/cart";
+
+const BlogSlider = dynamic(() => import("../components/BlogSlider"));
+const FaqSection = dynamic(() => import("../components/FaqSection"));
+const ReviewsSection = dynamic(() => import("../components/ReviewsSection"));
+const SeoContent = dynamic(() => import("../components/SeoContent"));
+const AppDownloadBanner = dynamic(() => import("../components/AppDownloadBanner"));
 
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
@@ -258,16 +260,16 @@ function WhyChooseSlider() {
 // ── Promo: QXL Packages Slider — Desktop ──────────────────────────────────────
 const promoSlides = [
   {
-    name: "Full Body Health Checkup (80 Params)",
-    price: "₹800",
-    original: "₹5,800",
-    tag: "MOST BOOKED",
-    desc: "Comprehensive 80 health parameters screening covering liver, kidney, heart, diabetes, thyroid, bone & blood count.",
-    includes: ["CBC (26), HbA1c & Glucose (3)", "Lipid Profile (8), Liver Function (11)", "Kidney Function (8), Thyroid Profile (3)", "Bone, Mineral & Urine Analysis (21)"],
-    tests: "80 Parameters",
+    name: "Quick Fit Health Package",
+    price: "₹1,770",
+    original: "₹4,696",
+    tag: "FITNESS CARE",
+    desc: "Essential screening covering blood sugar, lipids, liver, kidney, TSH, vitamin D, and CBC.",
+    includes: ["FBS, HbA1c, eAG, Lipid Profile", "Liver Function, Kidney Function", "TSH, Vitamin D, CBC, ESR", "Urine Routine & Microscopy"],
+    tests: "12+ Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
     imgBg: "#FFF7ED",
-    ctaLink: "/book?package=q-full-body-80",
+    ctaLink: "/book?package=pkg-fit",
   },
   {
     name: "Q-Screen Diabetes Package",
@@ -751,13 +753,13 @@ export default function Home() {
   const mobileOfferBanners = [
     {
       badge: "🩺 MOST POPULAR",
-      title: "Full Body Health Checkup (80 Params)",
-      sub: "Complete Liver, Kidney, Heart, Thyroid & Diabetes Panel",
-      price: "₹800",
+      title: "Quick Fit Health Package",
+      sub: "Blood Sugar, Lipids, Liver, Kidney, TSH & Vitamin D",
+      price: "₹1,770",
       bgGradient: "bg-gradient-to-br from-indigo-50/95 via-blue-50/90 to-sky-50/80 border border-indigo-200/90 shadow-sm",
       badgeStyle: "bg-indigo-100 text-indigo-950 border border-indigo-200",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
-      ctaLink: "/book?package=q-full-body-80"
+      ctaLink: "/book?package=pkg-fit"
     },
     {
       badge: "🩸 ROUTINE SCREENING",

@@ -585,9 +585,9 @@ export default function RootLayout({
         {/* Google Ads Tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-18394072893"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-ads-gtag" strategy="afterInteractive">
+        <Script id="google-ads-gtag" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -597,7 +597,7 @@ export default function RootLayout({
           `}
         </Script>
         {/* Microsoft Clarity */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
+        <Script id="microsoft-clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -607,7 +607,7 @@ export default function RootLayout({
           `}
         </Script>
         {/* OpenAI Pixel */}
-        <Script id="openai-pixel" strategy="afterInteractive">
+        <Script id="openai-pixel" strategy="lazyOnload">
           {`
             !function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
             oaiq("init",{pixelId:"4zM4txkAYrYXzAtH8bTNp7",debug:true});
@@ -641,7 +641,7 @@ export default function RootLayout({
           <ChatGPTTracker />
         </Suspense>
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
-        <Script src="/main.js" strategy="afterInteractive" />
+        <Script src="/main.js" strategy="lazyOnload" />
       </body>
     </html>
   );
