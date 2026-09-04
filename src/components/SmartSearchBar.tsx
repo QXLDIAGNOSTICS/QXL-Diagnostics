@@ -24,6 +24,7 @@ interface SmartSearchBarProps {
 }
 
 interface TestMatch {
+  id?: string;
   name: string;
   category: string;
   price: number;
@@ -326,7 +327,7 @@ export default function SmartSearchBar({
     } catch {}
   };
 
-  const handleAddToCart = (test: (typeof ALL_TESTS)[0], e: React.MouseEvent) => {
+  const handleAddToCart = (test: TestMatch, e: React.MouseEvent) => {
     e.stopPropagation();
     addItemToCart({
       id: test.id || test.name.toLowerCase().replace(/\s+/g, "-"),
