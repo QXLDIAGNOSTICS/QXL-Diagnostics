@@ -899,7 +899,7 @@ export default function Home() {
     {
       badge: "✨ SPECIAL OFFER · 80 HEALTH PARAMETERS",
       title: "FULL BODY HEALTH CHECKUP @ ₹800",
-      titleAccent: "NABL ACCREDITED DOCTOR-LED DIAGNOSTICS",
+      titleAccent: "NABL CERTIFICATE DOCTOR-LED DIAGNOSTICS",
       subtitle: "Comprehensive 8-organ screening: Complete Blood Count (26), HbA1c & Fasting Sugar (3), Lipid (8), Liver (11), Kidney (8), Thyroid (3) & Bone Minerals (21).",
       subtitleAccent: "Only ₹800 (Worth ₹5,800 · 86% OFF) · Same-Day Digital Reports",
       description: "Trusted diagnostic testing by Bengaluru's NABL Accredited super speciality laboratory.",
@@ -1363,7 +1363,7 @@ export default function Home() {
             {[1, 2].map((repeatKey) => (
               <React.Fragment key={repeatKey}>
                 <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  NABL Accredited lab
+                  NABL Certificate lab
                 </span>
                 <span className="text-sky-100 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
@@ -1381,7 +1381,7 @@ export default function Home() {
                 <span className="text-sky-100 font-bold shrink-0">•</span>
 
                 <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  ⚡ NABL Accredited lab
+                  ⚡ NABL Certificate lab
                 </span>
                 <span className="text-sky-100 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">

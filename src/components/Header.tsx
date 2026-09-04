@@ -242,10 +242,10 @@ export default function Header() {
           <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] w-max cursor-pointer" style={{ animationDuration: '45s' }}>
             {[1, 2].map((repeatKey) => (
               <div key={repeatKey} className="flex items-center gap-4 shrink-0 mr-8">
-                <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">NABL ACCREDITED ({NABL_CERTIFICATE})</span>
+                <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">NABL CERTIFIED ({NABL_CERTIFICATE})</span>
                 <span className="text-sky-100 font-bold">•</span>
                 <div className="brand-strip text-[11px] font-black !text-white inline-flex items-center gap-1 m-0 p-0">
-                  <span>Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</span>
+                  <span>Doctor-Led NABL Certified Diagnostic Lab in Bengaluru</span>
                 </div>
                 <span className="text-sky-100 font-bold">•</span>
                 <span className="text-white text-[11px] font-black">300+ Tests &amp; Preventive Checkup Packages</span>

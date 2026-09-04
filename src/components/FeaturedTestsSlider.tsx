@@ -288,7 +288,7 @@ export default function FeaturedTestsSlider() {
               <div className="flex-1 space-y-4 text-left">
                 <span className="inline-flex items-center gap-1.5 bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
                   <CheckCircle2 className="w-3.5 h-3.5 text-[#D69A18]" />
-                  NABL ACCREDITED PATHOLOGY
+                  NABL CERTIFIED PATHOLOGY
                 </span>
                 <h3 className="text-3xl sm:text-4xl font-black text-[#0f2d5e] leading-tight">
                   {current.title}

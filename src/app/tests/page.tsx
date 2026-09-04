@@ -134,7 +134,7 @@ export default function TestsPage() {
             <div className="max-w-2xl">
               <div className="flex items-center gap-2 mb-3">
                 <span className="bg-amber-400/90 text-slate-950 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-2xs">
-                  NABL ACCREDITED ({NABL_CERTIFICATE})
+                  NABL CERTIFIED ({NABL_CERTIFICATE})
                 </span>
                 <span className="bg-emerald-500/20 text-emerald-300 text-[10px] font-bold px-3 py-1 rounded-full border border-emerald-400/30">
                   Free Doorstep Collection
