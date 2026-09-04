@@ -8,6 +8,8 @@ const backendUrl =
   (isDev ? "http://localhost:8000" : "https://qxl-diagnostics-production.up.railway.app");
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  productionBrowserSourceMaps: false,
   experimental: {
     optimizePackageImports: [
       "lucide-react",
