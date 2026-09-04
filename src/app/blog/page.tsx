@@ -72,28 +72,29 @@ export default function BlogPage() {
                       </div>
                     </div>
 
-                  <h3 className="text-base font-extrabold text-[#0d2e42] mb-2 line-clamp-2 group-hover:text-[#2563eb] transition-colors leading-snug">
-                    {blog.title}
-                  </h3>
-                  
-                  <p className="text-xs text-slate-500 mb-4 line-clamp-3 flex-1 leading-relaxed font-medium">
-                    {blog.excerpt}
-                  </p>
+                    <h3 className="text-base font-extrabold text-[#0d2e42] mb-2 line-clamp-2 group-hover:text-[#2563eb] transition-colors leading-snug">
+                      {blog.title}
+                    </h3>
+                    
+                    <p className="text-xs text-slate-500 mb-4 line-clamp-3 flex-1 leading-relaxed font-medium">
+                      {blog.excerpt}
+                    </p>
 
-                  <div className="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between">
-                    <span className="text-[10px] font-bold text-[#2563eb] bg-blue-50 px-2.5 py-1 rounded-full">
-                      {"author" in blog ? blog.author : "QXL Editorial Team"}
-                    </span>
-                    <Link 
-                      href={`/blog/${blog.slug}`} 
-                      className="inline-flex items-center gap-1 text-xs font-bold text-[#2563eb] hover:text-[#1d4ed8] transition-colors"
-                    >
-                      Read Guide <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                    <div className="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between">
+                      <span className="text-[10px] font-bold text-[#2563eb] bg-blue-50 px-2.5 py-1 rounded-full">
+                        {"author" in blog ? blog.author : "QXL Editorial Team"}
+                      </span>
+                      <Link 
+                        href={`/blog/${blog.slug}`} 
+                        className="inline-flex items-center gap-1 text-xs font-bold text-[#2563eb] hover:text-[#1d4ed8] transition-colors"
+                      >
+                        Read Guide <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
 
