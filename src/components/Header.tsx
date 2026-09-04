@@ -53,6 +53,7 @@ export default function Header() {
   const { user } = useAuth();
   const countdown = useHeaderCountdown();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState(false);
   const [isAiModalOpen, setIsAiModalOpen] = useState(false);
@@ -261,19 +262,19 @@ export default function Header() {
       {/* ── DESKTOP HEADER (lg:block) ── */}
       <div className="hidden lg:block relative z-10">
         {/* Top Row */}
-        <div className="py-2.5" style={{ borderBottom: '1px solid rgba(125,199,232,0.18)' }}>
+        <div className="py-3" style={{ borderBottom: '1px solid rgba(125,199,232,0.18)' }}>
           <div className="w-full px-4 lg:px-8 flex items-center justify-between">
 
             {/* Logo & Location */}
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
               <img
-                  src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 302, h: 95, crop: "fit" })}
+                  src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 340, h: 105, crop: "fit" })}
                   alt={settings.siteName || "QXL Diagnostics"}
-                  width={302}
-                  height={95}
+                  width={340}
+                  height={105}
                   fetchPriority="high"
-                  style={{ height: '95px', width: 'auto', objectFit: 'contain' }}
+                  style={{ height: '105px', width: 'auto', objectFit: 'contain' }}
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
                     const fallbackSpan = e.currentTarget.parentElement?.querySelector('.logo-text-header') as HTMLElement;
@@ -443,83 +444,89 @@ export default function Header() {
       {/* placeholder — mobile header is rendered BELOW </header> so sticky works against viewport */}
     </header>
 
-    {/* ── MOBILE HEADER (lg:hidden) — Universal Top Bar on All Pages ── */}
+    {/* ── MOBILE HEADER (lg:hidden) — 2-Line Top Bar ── */}
     <div className="lg:hidden flex flex-col w-full">
-      <div className="fixed top-0 left-0 right-0 z-[9999] bg-white flex items-center justify-between px-3 sm:px-4 h-[68px] border-b border-slate-200/80 shadow-xs max-w-full overflow-hidden">
-        {/* Left Side: Menu + Logo + Location Pill */}
-        <div className="flex items-center gap-2 min-w-0 shrink">
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            className="w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
-            aria-label="Open Navigation Menu"
-          >
-            <Menu className="w-5.5 h-5.5 text-[#0f2d5e]" strokeWidth={2.4} />
-          </button>
+      <div className="fixed top-0 left-0 right-0 z-[9999] bg-white border-b border-slate-200/80 shadow-xs max-w-full flex flex-col">
+        {/* Line 1: Menu + Logo on Left, Action Buttons on Right */}
+        <div className="flex items-center justify-between px-3.5 sm:px-5 h-[60px] sm:h-[64px] w-full">
+          {/* Left Side: Menu + Logo */}
+          <div className="flex items-center gap-3 sm:gap-4 min-w-0 shrink">
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="w-9 h-9 rounded-full flex items-center justify-center text-slate-800 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
+              aria-label="Open Navigation Menu"
+            >
+              <Menu className="w-6 h-6 text-[#0f2d5e]" strokeWidth={2.4} />
+            </button>
 
-          <Link href="/" className="flex items-center py-1 shrink-0">
-            <img
-              src={settings.logoImage || FALLBACK_LOGO}
-              alt={settings.siteName || "QXL Diagnostics"}
-              width={180}
-              height={46}
-              className="h-8.5 xs:h-9.5 sm:h-10 w-auto object-contain max-h-[36px] xs:max-h-[42px] sm:max-h-[46px]"
-              style={{ imageRendering: '-webkit-optimize-contrast' }}
-              onError={(e) => {
-                e.currentTarget.src = FALLBACK_LOGO;
-              }}
-            />
-            <span className="logo-text-other hidden font-black text-base text-[#0f2d5e]">QXL Diagnostics</span>
-          </Link>
+            <Link href="/" className="flex items-center py-1 shrink-0">
+              <img
+                src={settings.logoImage || FALLBACK_LOGO}
+                alt={settings.siteName || "QXL Diagnostics"}
+                width={180}
+                height={48}
+                className="h-9 xs:h-10 sm:h-11 w-auto object-contain max-h-[42px] xs:max-h-[46px]"
+                style={{ imageRendering: '-webkit-optimize-contrast' }}
+                onError={(e) => {
+                  e.currentTarget.src = FALLBACK_LOGO;
+                }}
+              />
+            </Link>
+          </div>
 
-          {/* Location Button Pill Right After Logo — Compact & Crisp */}
+          {/* Right Side: Language Pill, Cart */}
+          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+            {/* Language Switcher Pill */}
+            <LanguageSwitcher variant="pill" />
+
+            {/* Cart Icon */}
+            <Link
+              href="/book"
+              className="w-9.5 h-9.5 rounded-full bg-slate-100 border border-slate-200/90 flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer shadow-2xs"
+              aria-label="View Cart"
+            >
+              <ShoppingCart className="w-4.5 h-4.5 text-[#0f2d5e]" strokeWidth={2.0} />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-amber-500 text-white font-black text-[9px] w-4 h-4 rounded-full flex items-center justify-center border border-white shadow-xs">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
+          </div>
+        </div>
+
+        {/* Line 2: Location Selector + Phone Support Strip */}
+        <div className="bg-slate-50/95 border-t border-slate-200/70 px-4 py-2 flex items-center justify-between text-xs w-full">
+          {/* Location Selector Pill */}
           <button
             type="button"
             onClick={() => setShowLocationModal(true)}
-            className="flex items-center gap-1 bg-white border border-slate-200 hover:border-amber-300 px-2 py-1 rounded-full text-[10px] xs:text-[11px] font-black text-[#0f2d5e] shrink active:scale-95 transition-all cursor-pointer shadow-2xs min-w-0"
+            className="flex items-center gap-1.5 bg-white border border-slate-200/90 hover:border-amber-400 px-3 py-1 rounded-full text-[11px] font-black text-[#0f2d5e] active:scale-95 transition-all cursor-pointer shadow-2xs"
             aria-label="Change Location"
             title={location || "Bangalore"}
           >
-            <div className="w-3.5 h-3.5 rounded-full bg-amber-50 flex items-center justify-center shrink-0 border border-amber-200/80">
+            <div className="w-4 h-4 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border border-amber-200">
               <MapPin className="w-2.5 h-2.5 text-[#D69A18] shrink-0" />
             </div>
-            <span className="truncate max-w-[55px] xs:max-w-[85px] font-black text-[#0f2d5e]">
-              {isMounted ? getShortLocationName(location) : "Bangalore"}
+            <span className="truncate max-w-[120px] xs:max-w-[160px] font-black text-[#0f2d5e]">
+              {isMounted ? getShortLocationName(location) : "Bengaluru"}
             </span>
-            <ChevronDown className="w-2.5 h-2.5 text-[#D69A18] shrink-0" />
+            <ChevronDown className="w-3 h-3 text-[#D69A18] shrink-0" />
           </button>
-        </div>
 
-        {/* Right Side: Cart & Profile Icons */}
-        <div className="flex items-center gap-1.5 shrink-0 ml-1">
-          <Link
-            href="/book"
-            className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer"
-            aria-label="View Cart and Checkout"
+          {/* Phone Number Display */}
+          <a
+            href="tel:+919964639639"
+            className="flex items-center gap-1.5 text-[11.5px] font-extrabold text-[#0B2545] hover:text-[#D69A18] transition-colors bg-white/80 border border-slate-200/60 px-2.5 py-1 rounded-full shadow-2xs"
           >
-            <ShoppingCart className="w-4.5 h-4.5 text-[#0f2d5e]" strokeWidth={2.0} />
-            {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-amber-500 text-white font-black text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center border border-white shadow-xs">
-                {cartCount}
-              </span>
-            )}
-          </Link>
-
-          <Link
-            href={user ? "/profile" : "/login"}
-            className="w-9 h-9 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-[#0f2d5e] active:scale-95 transition-transform shrink-0 cursor-pointer"
-            aria-label="User Profile"
-          >
-            {user ? (
-              <span className="text-xs font-black text-[#0f2d5e]">{userInitial}</span>
-            ) : (
-              <User className="w-4.5 h-4.5 text-[#0f2d5e]" strokeWidth={2.0} />
-            )}
-          </Link>
+            <Phone className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />
+            <span className="tracking-tight">+91 9964 639 639</span>
+          </a>
         </div>
       </div>
 
-      {/* Spacer for Fixed Top Header (68px) */}
-      <div className="h-[68px]" />
+      {/* Spacer for Fixed 2-Line Top Header (approx 102px) */}
+      <div className="h-[102px] sm:h-[106px]" />
     </div>
 
       {/* ── LOCATION BOTTOM SHEET MODAL (mobile slide-up bottom sheet) ── */}
@@ -823,27 +830,24 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs: Home | Tests | Bookings | Reports | Profile) ── */}
+      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs: Home | Tests | Chat (Floating Orb) | Bookings | Profile) ── */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col bg-white border-t border-slate-200/80 shadow-[0_-4px_24px_rgba(0,0,0,0.12)]"
+        className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col bg-white rounded-t-2xl border-t border-slate-200/80 shadow-[0_-6px_25px_rgba(0,0,0,0.12)]"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         <nav
-          className="flex justify-between items-center h-[62px] px-1 relative"
+          className="flex justify-between items-center h-[64px] px-2 relative max-w-md mx-auto w-full"
           aria-label="Mobile navigation"
         >
           {/* Tab 1: Home */}
           <Link
             href="/"
-            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
               pathname === '/' ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
             }`}
           >
-            {pathname === '/' && (
-              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
-            )}
-            <Home className={`w-5 h-5 ${pathname === '/' ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname === '/' ? 2.4 : 1.8} />
-            <span className={`text-[10px] ${pathname === '/' ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
+            <Home className={`w-5.5 h-5.5 ${pathname === '/' ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname === '/' ? 2.4 : 1.8} />
+            <span className={`text-[10.5px] ${pathname === '/' ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
               Home
             </span>
           </Link>
@@ -851,63 +855,64 @@ export default function Header() {
           {/* Tab 2: Tests */}
           <Link
             href="/tests"
-            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
               pathname?.startsWith('/tests') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
             }`}
           >
-            {pathname?.startsWith('/tests') && (
-              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
-            )}
-            <Microscope className={`w-5 h-5 ${pathname?.startsWith('/tests') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/tests') ? 2.4 : 1.8} />
-            <span className={`text-[10px] ${pathname?.startsWith('/tests') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
+            <Microscope className={`w-5.5 h-5.5 ${pathname?.startsWith('/tests') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/tests') ? 2.4 : 1.8} />
+            <span className={`text-[10.5px] ${pathname?.startsWith('/tests') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
               Tests
             </span>
           </Link>
 
-          {/* Tab 3: Bookings */}
+          {/* Tab 3: Chat (Center Floating 3D Spheres Orb) */}
+          <button
+            type="button"
+            onClick={() => {
+              setIsAiModalOpen(false);
+              window.dispatchEvent(new CustomEvent('openAiChat'));
+            }}
+            className="flex flex-col items-center justify-center flex-1 relative -top-3 active:scale-95 transition-transform cursor-pointer group"
+            aria-label="Open AI Health Chat"
+          >
+            <div className="w-13 h-13 rounded-full bg-white p-1 shadow-[0_6px_20px_rgba(14,165,233,0.35)] border-2 border-sky-300 flex items-center justify-center relative group-hover:scale-105 transition-transform">
+              {/* Overlapping 3D spheres orb */}
+              <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-sky-400 via-cyan-300 to-[#0f2d5e] relative overflow-hidden flex items-center justify-center shadow-inner">
+                {/* Cyan sphere */}
+                <div className="absolute top-1 left-1 w-6 h-6 rounded-full bg-gradient-to-tr from-sky-400 to-cyan-100 opacity-90 blur-[0.5px]" />
+                {/* Blue sphere */}
+                <div className="absolute bottom-1 right-1 w-6.5 h-6.5 rounded-full bg-gradient-to-tr from-[#0f2d5e] to-sky-600 opacity-90 blur-[0.5px]" />
+                {/* Orange center sphere */}
+                <div className="absolute top-3 left-4 w-3.5 h-3.5 rounded-full bg-gradient-to-tr from-amber-500 to-orange-300 shadow-sm border border-amber-200/60 z-10 animate-pulse" />
+              </div>
+            </div>
+            <span className="text-[11px] font-black text-[#0f2d5e] tracking-tight mt-0.5">
+              Chat
+            </span>
+          </button>
+
+          {/* Tab 4: Bookings */}
           <Link
             href="/book"
-            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
               pathname?.startsWith('/book') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
             }`}
           >
-            {pathname?.startsWith('/book') && (
-              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
-            )}
-            <Calendar className={`w-5 h-5 ${pathname?.startsWith('/book') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/book') ? 2.4 : 1.8} />
-            <span className={`text-[10px] ${pathname?.startsWith('/book') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
+            <Calendar className={`w-5.5 h-5.5 ${pathname?.startsWith('/book') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/book') ? 2.4 : 1.8} />
+            <span className={`text-[10.5px] ${pathname?.startsWith('/book') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
               Bookings
-            </span>
-          </Link>
-
-          {/* Tab 4: Reports */}
-          <Link
-            href="/report"
-            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
-              pathname?.startsWith('/report') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
-            }`}
-          >
-            {pathname?.startsWith('/report') && (
-              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
-            )}
-            <FileText className={`w-5 h-5 ${pathname?.startsWith('/report') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/report') ? 2.4 : 1.8} />
-            <span className={`text-[10px] ${pathname?.startsWith('/report') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
-              Reports
             </span>
           </Link>
 
           {/* Tab 5: Profile */}
           <Link
             href={user ? "/profile" : "/login"}
-            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform relative ${
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
               (pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
             }`}
           >
-            {(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) && (
-              <span className="absolute top-1 w-1.5 h-1.5 rounded-full bg-[#D69A18]" />
-            )}
-            <User className={`w-5 h-5 ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 2.4 : 1.8} />
-            <span className={`text-[10px] ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-400'} tracking-tight`}>
+            <User className={`w-5.5 h-5.5 ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 2.4 : 1.8} />
+            <span className={`text-[10.5px] ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
               Profile
             </span>
           </Link>

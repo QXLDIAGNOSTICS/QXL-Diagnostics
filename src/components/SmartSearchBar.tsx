@@ -17,6 +17,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { parseCartItems, addItemToCart } from "@/lib/cart";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface SmartSearchBarProps {
   placeholder?: string;
@@ -349,24 +350,60 @@ export default function SmartSearchBar({
     saveRecentSearch(term);
   };
 
+  const [placeholderIdx, setPlaceholderIdx] = useState(0);
+
+  const searchPrompts = [
+    placeholder,
+    "Search CBC, HbA1c, Thyroid or blood tests...",
+    "Search symptoms like fever, fatigue, joint pain...",
+    "Search packages like Full Body Checkup...",
+    "Search Vitamin D, B12, Lipid or Liver tests..."
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setPlaceholderIdx(prev => (prev + 1) % searchPrompts.length);
+    }, 3200);
+    return () => clearInterval(timer);
+  }, [searchPrompts.length]);
+
   return (
     <>
-      {/* ── Standard Inline Search Bar Component ── */}
+      {/* ── Standard Inline Search Bar Component with Animations ── */}
       <div
         onClick={() => {
           setIsOpen(true);
           setTimeout(() => inputRef.current?.focus(), 100);
         }}
-        className={`flex items-center w-full bg-white transition-all cursor-pointer ${
+        className={`group relative flex items-center w-full bg-white transition-all duration-300 cursor-pointer overflow-hidden ${
           isMobile
-            ? "rounded-2xl border border-slate-200 px-3.5 py-2.5 gap-2.5 shadow-2xs hover:border-[#D69A18]"
-            : "rounded-xl border border-slate-200 py-3 px-3.5 gap-2.5 shadow-2xs hover:border-[#D69A18]"
+            ? "rounded-2xl border border-slate-200 hover:border-[#D69A18] px-3.5 py-2.5 gap-2.5 shadow-2xs hover:shadow-[0_4px_20px_rgba(214,154,24,0.18)]"
+            : "rounded-xl border border-slate-200 hover:border-[#D69A18] py-3 px-3.5 gap-2.5 shadow-2xs hover:shadow-[0_4px_20px_rgba(214,154,24,0.18)]"
         }`}
       >
-        <Search className="w-4 h-4 text-slate-400 shrink-0" />
-        <span className={`flex-1 text-slate-400 select-none truncate ${isMobile ? "text-[13px] font-medium" : "text-[14px] font-medium"}`}>
-          {query || placeholder}
-        </span>
+        {/* Subtle animated glowing background highlight on hover */}
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/10 to-sky-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
+        {/* Animated Search Icon */}
+        <Search className="w-4 h-4 text-slate-400 group-hover:text-[#D69A18] group-hover:scale-110 transition-all duration-300 shrink-0" />
+
+        {/* Cycling Text Animation */}
+        <div className="flex-1 overflow-hidden h-5 relative flex items-center">
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={placeholderIdx}
+              initial={{ opacity: 0, y: 7 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -7 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
+              className={`absolute inset-x-0 text-slate-400 select-none truncate ${
+                isMobile ? "text-[13px] font-medium" : "text-[14px] font-medium"
+              }`}
+            >
+              {query || searchPrompts[placeholderIdx]}
+            </motion.span>
+          </AnimatePresence>
+        </div>
 
         {/* Upload Prescription Rx Icon Button */}
         <button
@@ -375,11 +412,11 @@ export default function SmartSearchBar({
             e.stopPropagation();
             window.dispatchEvent(new CustomEvent("openPrescriptionModal"));
           }}
-          className="relative flex items-center justify-center p-1.5 hover:bg-amber-50 rounded-xl transition-all cursor-pointer shrink-0 border-l border-slate-200/80 pl-2 group"
+          className="relative flex items-center justify-center p-1.5 hover:bg-amber-50 rounded-xl transition-all cursor-pointer shrink-0 border-l border-slate-200/80 pl-2 group/rx z-10"
           title="Upload Prescription"
         >
-          <FileText className="w-5 h-5 text-[#0f2d5e] group-hover:text-[#D69A18] transition-colors" strokeWidth={1.8} />
-          <span className="absolute -bottom-1 -right-1.5 w-3.5 h-3.5 bg-rose-500 rounded-full border border-white flex items-center justify-center shadow-2xs">
+          <FileText className="w-5 h-5 text-[#0f2d5e] group-hover/rx:text-[#D69A18] group-hover/rx:scale-110 transition-all duration-200" strokeWidth={1.8} />
+          <span className="absolute -bottom-1 -right-1.5 w-3.5 h-3.5 bg-rose-500 rounded-full border border-white flex items-center justify-center shadow-2xs group-hover/rx:scale-110 transition-transform">
             <Plus className="w-2.5 h-2.5 text-white" strokeWidth={3.5} />
           </span>
         </button>

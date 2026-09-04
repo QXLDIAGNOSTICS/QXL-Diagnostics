@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { Globe, Check } from "lucide-react";
+import { Globe, Check, ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 /* ─── Supported languages ─────────────────────────────────────────── */
@@ -74,8 +74,13 @@ function doTranslate(lang: LangCode) {
   location.reload();
 }
 
+interface LanguageSwitcherProps {
+  variant?: "globe" | "pill";
+  className?: string;
+}
+
 /* ════════════════════════════════════════════════════════════════════ */
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ variant = "globe", className = "" }: LanguageSwitcherProps) {
   const [open, setOpen] = useState(false);
   const [activeLang, setActiveLang] = useState<LangCode>("en");
   const [isTranslating, setIsTranslating] = useState(false);
@@ -157,33 +162,56 @@ export default function LanguageSwitcher() {
       `}</style>
 
       <div className="relative notranslate" ref={ref}>
-        {/* ── Globe Button ─────────────────────────────────────── */}
-        <button
-          id="qxl-language-switcher-btn"
-          onClick={() => setOpen(v => !v)}
-          aria-label="Select Language"
-          aria-haspopup="listbox"
-          aria-expanded={open}
-          className="flex items-center justify-center rounded-full w-8 h-8 transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-sky-300/60"
-          style={{
-            background: "rgba(224,242,254,0.65)",
-            border: "1px solid rgba(125,199,232,0.35)",
-            backdropFilter: "blur(8px)",
-            boxShadow: "0 2px 12px rgba(14,165,233,0.15), inset 0 1px 0 rgba(255,255,255,0.85)",
-          }}
-        >
-          {isTranslating ? (
-            <svg className="w-4 h-4 text-[#0284c7] animate-spin" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
-            </svg>
-          ) : (
-            <div className="flex flex-col items-center justify-center -mt-0.5">
-              <Globe className="w-3.5 h-3.5 text-[#0284c7]" />
-              <span className="text-[7px] font-bold text-[#0284c7] uppercase leading-none mt-0.5">{activeLang}</span>
-            </div>
-          )}
-        </button>
+        {/* ── Switcher Button ─────────────────────────────────────── */}
+        {variant === "pill" ? (
+          <button
+            id="qxl-language-switcher-pill-btn"
+            onClick={() => setOpen(v => !v)}
+            aria-label="Select Language"
+            aria-haspopup="listbox"
+            aria-expanded={open}
+            className={`h-8 sm:h-8.5 flex items-center justify-center gap-1 px-2 rounded-full border border-slate-700/80 bg-[#0F2D5E] text-white font-extrabold text-[10.5px] shadow-2xs transition-all active:scale-95 cursor-pointer hover:bg-[#163a75] ${className}`}
+          >
+            {isTranslating ? (
+              <svg className="w-3.5 h-3.5 text-sky-300 animate-spin" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
+              </svg>
+            ) : (
+              <>
+                <span className="uppercase text-[11px] font-black tracking-wider text-white">{activeLang}</span>
+                <ChevronDown className="w-3 h-3 text-slate-300 shrink-0" />
+              </>
+            )}
+          </button>
+        ) : (
+          <button
+            id="qxl-language-switcher-btn"
+            onClick={() => setOpen(v => !v)}
+            aria-label="Select Language"
+            aria-haspopup="listbox"
+            aria-expanded={open}
+            className="flex items-center justify-center rounded-full w-8 h-8 transition-all duration-200 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-sky-300/60"
+            style={{
+              background: "rgba(224,242,254,0.65)",
+              border: "1px solid rgba(125,199,232,0.35)",
+              backdropFilter: "blur(8px)",
+              boxShadow: "0 2px 12px rgba(14,165,233,0.15), inset 0 1px 0 rgba(255,255,255,0.85)",
+            }}
+          >
+            {isTranslating ? (
+              <svg className="w-4 h-4 text-[#0284c7] animate-spin" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
+              </svg>
+            ) : (
+              <div className="flex flex-col items-center justify-center -mt-0.5">
+                <Globe className="w-3.5 h-3.5 text-[#0284c7]" />
+                <span className="text-[7px] font-bold text-[#0284c7] uppercase leading-none mt-0.5">{activeLang}</span>
+              </div>
+            )}
+          </button>
+        )}
 
         {/* ── Dropdown ─────────────────────────────────────────── */}
         <AnimatePresence>

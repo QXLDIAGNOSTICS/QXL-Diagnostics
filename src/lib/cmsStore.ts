@@ -83,7 +83,7 @@ const defaultBanners = [
 ];
 
 const defaultDoctors = [
-  { id: "doc-1", name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "/images/dr_shantakumar_new.jpg" },
+  { id: "doc-1", name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg" },
   { id: "doc-2", name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://images.unsplash.com/photo-1594824436998-d70d90db3c80?auto=format&fit=crop&q=80&w=400" },
   { id: "doc-3", name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400" },
   { id: "doc-4", name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://images.unsplash.com/photo-1537368910025-7028500a2216?auto=format&fit=crop&q=80&w=400" }

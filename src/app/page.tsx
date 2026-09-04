@@ -726,6 +726,7 @@ export default function Home() {
     }
   };
   const [location, setLocation] = useState("Bengaluru");
+  const popularTestsScrollRef = useRef<HTMLDivElement>(null);
   const [isPrescriptionModalOpen, setIsPrescriptionModalOpen] = useState(false);
   const [locations, setLocations] = useState<any[]>([]);
   const [recommendedPackages, setRecommendedPackages] = useState<any[]>([]);
@@ -1778,8 +1779,8 @@ export default function Home() {
               <div className="w-11 h-11 rounded-xl bg-[#D69A18] text-white flex items-center justify-center shadow-xs shrink-0">
                 <FileText className="w-5 h-5 text-white" strokeWidth={2.0} />
               </div>
-              <span className="text-[11px] font-black text-[#0f2d5e] leading-tight">
-                Upload Rx
+              <span className="text-[10px] sm:text-[11px] font-black text-[#0f2d5e] leading-tight text-center">
+                Upload Prescription
               </span>
             </button>
 
@@ -1812,16 +1813,41 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* ── Popular Tests Section — Compact Cards with Instant + Add ── */}
+          {/* ── Popular Tests Section — Compact Cards with Instant + Add & Arrow Navigation ── */}
           <div className="mb-2">
             <div className="flex items-center justify-between mb-2.5">
-              <h3 className="text-base font-black text-[#0f2d5e]">Popular Tests</h3>
+              <div className="flex items-center gap-2">
+                <h3 className="text-base font-black text-[#0f2d5e]">Popular Tests</h3>
+                {/* Arrow Scroll Buttons */}
+                <div className="flex items-center gap-1.5 ml-1">
+                  <button
+                    type="button"
+                    onClick={() => popularTestsScrollRef.current?.scrollBy({ left: -210, behavior: 'smooth' })}
+                    className="w-7 h-7 rounded-full bg-amber-50 hover:bg-[#D69A18] hover:text-white text-[#D69A18] flex items-center justify-center transition-colors cursor-pointer border border-[#F3DBA7] shadow-2xs active:scale-95"
+                    aria-label="Scroll left"
+                  >
+                    <ChevronLeft className="w-4 h-4" strokeWidth={2.5} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => popularTestsScrollRef.current?.scrollBy({ left: 210, behavior: 'smooth' })}
+                    className="w-7 h-7 rounded-full bg-amber-50 hover:bg-[#D69A18] hover:text-white text-[#D69A18] flex items-center justify-center transition-colors cursor-pointer border border-[#F3DBA7] shadow-2xs active:scale-95"
+                    aria-label="Scroll right"
+                  >
+                    <ChevronRight className="w-4 h-4" strokeWidth={2.5} />
+                  </button>
+                </div>
+              </div>
+
               <Link href="/tests" className="text-xs font-bold text-[#D69A18] hover:underline">
                 View All 300+ Tests ›
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-2.5">
+            <div
+              ref={popularTestsScrollRef}
+              className="grid grid-rows-2 grid-flow-col auto-cols-[calc(50%-5px)] sm:auto-cols-[210px] gap-2.5 overflow-x-auto snap-x snap-mandatory pb-2.5 scrollbar-none scroll-smooth cursor-grab active:cursor-grabbing"
+            >
               {[
                 {
                   id: "CBC",
@@ -1867,12 +1893,56 @@ export default function Home() {
                   sample: "Serum",
                   slug: "vitamin-d-test",
                 },
+                {
+                  id: "Lipid Profile",
+                  name: "Lipid Profile",
+                  fullName: "Cholesterol & Triglycerides",
+                  price: 499,
+                  oldPrice: 1300,
+                  fasting: "10-12 hrs Fasting",
+                  tat: "Report in 8 hours",
+                  sample: "Serum",
+                  slug: "lipid-profile",
+                },
+                {
+                  id: "LFT (Liver Function Test)",
+                  name: "Liver Function",
+                  fullName: "SGOT, SGPT, Bilirubin & Protein",
+                  price: 499,
+                  oldPrice: 1250,
+                  fasting: "No Fasting",
+                  tat: "Report in 8 hours",
+                  sample: "Serum",
+                  slug: "lft-test",
+                },
+                {
+                  id: "KFT (Kidney Function Test)",
+                  name: "Kidney Function",
+                  fullName: "Urea, Creatinine & Uric Acid",
+                  price: 499,
+                  oldPrice: 1200,
+                  fasting: "No Fasting",
+                  tat: "Report in 8 hours",
+                  sample: "Serum",
+                  slug: "kft-test",
+                },
+                {
+                  id: "Vitamin B12",
+                  name: "Vitamin B12",
+                  fullName: "Cyanocobalamin Level",
+                  price: 599,
+                  oldPrice: 1600,
+                  fasting: "No Fasting",
+                  tat: "Report in 24 hours",
+                  sample: "Serum",
+                  slug: "vitamin-b12-test",
+                },
               ].map((test) => {
                 const isAdded = cartItems.includes(test.id) || cartItems.includes(test.name);
                 return (
                   <div
                     key={test.name}
-                    className="bg-white border border-slate-200 rounded-2xl p-3 flex flex-col justify-between shadow-2xs hover:border-[#D69A18] transition-all"
+                    className="w-full snap-start bg-white border border-slate-200 rounded-2xl p-3 flex flex-col justify-between shadow-2xs hover:border-[#D69A18] transition-all"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-1">
