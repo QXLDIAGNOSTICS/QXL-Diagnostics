@@ -1275,7 +1275,7 @@ export default function Home() {
                               className="bg-[#D69A18] !text-white px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-wider shadow-2xs shrink-0"
                               style={{ color: '#ffffff' }}
                             >
-                              {idx === 0 ? "✨ ₹800 SPECIAL" : (pkg.tag || "CHECKUP")}
+                              {idx === 0 ? "✨ SPECIAL OFFER" : (pkg.tag || "CHECKUP")}
                             </span>
 
                             <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">

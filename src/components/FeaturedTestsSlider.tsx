@@ -308,15 +308,15 @@ export default function FeaturedTestsSlider() {
 
           {/* ── Slide Type 4: Own a Clinic / Partner Banner ── */}
           {current.type === "banner-clinic" && (
-            <div className="w-full rounded-3xl overflow-hidden border border-slate-200 bg-gradient-to-r from-slate-900 via-slate-800 to-[#0f2d5e] text-white p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-md">
+            <div className="w-full rounded-3xl overflow-hidden border border-slate-200 bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] !text-white p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-md">
               <div className="space-y-4 flex-1 text-left">
                 <span className="inline-flex items-center gap-1.5 bg-amber-400 text-slate-950 text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
                   DOCTOR &amp; CLINIC B2B PARTNERSHIP
                 </span>
-                <h3 className="text-3xl sm:text-4xl font-black text-white leading-tight">
+                <h3 className="text-3xl sm:text-4xl font-black !text-white leading-tight" style={{ color: '#ffffff' }}>
                   {current.title}
                 </h3>
-                <p className="text-slate-300 text-sm sm:text-base font-medium max-w-xl leading-relaxed">
+                <p className="!text-slate-100 text-sm sm:text-base font-medium max-w-xl leading-relaxed" style={{ color: '#f1f5f9' }}>
                   {current.subtitle}
                 </p>
                 <div className="pt-2 flex flex-wrap items-center gap-4">

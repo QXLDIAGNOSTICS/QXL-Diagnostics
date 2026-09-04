@@ -19,17 +19,17 @@ export default function RakshaPosterCarousel({ onOpenBooking }: RakshaPosterCaro
       id: "poster-1",
       title: "Gift of Protection Health Check (8 Organ Systems)",
       subtitle: "Diabetes, Blood/Anaemia, Heart, Thyroid, Liver, Kidneys, Bone/Mineral, Bladder",
-      price: "₹800 SPECIAL",
+      price: "FESTIVE SPECIAL",
       imageSrc: "/images/posters/92e65b9b-f53b-497e-8ec7-334f4ea012fa.jpeg",
       altText: "QXL Diagnostics Gift of Protection Health Check Poster for Raksha Bandhan",
     },
     {
       id: "poster-2",
       title: "Special Raksha Bandhan: Gift the Bond of Health Check-up",
-      subtitle: "80 Health Parameters • 8 Major Health Areas • Only ₹800 (Worth ₹5,800)",
-      price: "₹800 (WORTH ₹5,800)",
+      subtitle: "80 Health Parameters • 8 Major Health Areas • Special Health Offer",
+      price: "EXCLUSIVE HEALTH OFFER",
       imageSrc: "/images/posters/165a1294-8527-4943-ba13-ac45a6139251.jpeg",
-      altText: "Special Raksha Bandhan Gift the Bond of Health Check-up Poster ₹800 Only",
+      altText: "Special Raksha Bandhan Gift the Bond of Health Check-up Poster",
     },
     {
       id: "poster-3",
@@ -50,8 +50,8 @@ export default function RakshaPosterCarousel({ onOpenBooking }: RakshaPosterCaro
     {
       id: "poster-5",
       title: "Happy Raksha Bandhan — Full Body Health Check-up",
-      subtitle: "80 Health Parameters Starts @ ₹800 Only (Worth ₹5,800)",
-      price: "STARTS @ ₹800 ONLY",
+      subtitle: "80 Health Parameters Full Body Screening",
+      price: "SPECIAL HEALTH OFFER",
       imageSrc: "/images/posters/85abf12b-7faf-40ad-a033-b637ca7f8c2c.jpeg",
       altText: "Happy Raksha Bandhan Full Body Health Checkup Poster 80 Parameters",
     },
@@ -94,7 +94,7 @@ export default function RakshaPosterCarousel({ onOpenBooking }: RakshaPosterCaro
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-extrabold uppercase tracking-wider mb-2">
               <Clock className="w-4 h-4 text-amber-700 animate-pulse" />
-              <span>7-DAY EXCLUSIVE OFFER • ₹800 ONLY (WORTH ₹5,800)</span>
+              <span>7-DAY EXCLUSIVE PREVENTIVE HEALTH OFFER</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               Official Campaign Offer Posters ({currentSlide + 1} / {posterSlides.length})
@@ -208,7 +208,7 @@ export default function RakshaPosterCarousel({ onOpenBooking }: RakshaPosterCaro
                 onClick={() => onOpenBooking(slide.title)}
                 className="w-full py-4 px-6 bg-gradient-to-r from-[#0A5DAA] to-[#00A8A8] hover:from-[#084b8a] hover:to-[#008f8f] text-white font-extrabold rounded-xl shadow-lg hover:scale-[1.01] transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2 group"
               >
-                <span>BOOK @ ₹800 NOW</span>
+                <span>BOOK OFFER NOW</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
