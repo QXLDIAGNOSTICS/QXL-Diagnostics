@@ -17,6 +17,7 @@ import { optimizeCloudinaryUrl } from '../lib/cloudinary';
 import InstallPrompt from './InstallPrompt';
 import CartDrawer from './CartDrawer';
 import AiDiagnostics from './AiDiagnostics';
+import { parseCartItems } from '../lib/cart';
 
 const FALLBACK_LOGO =
   "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
@@ -121,7 +122,7 @@ export default function Header() {
 
     const updateCartCount = () => {
       try {
-        const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
+        const cart = parseCartItems(localStorage.getItem('qxl_cart'));
         setCartCount(cart.length);
       } catch {
         setCartCount(0);

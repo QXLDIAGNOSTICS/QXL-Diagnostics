@@ -28,6 +28,7 @@ import { isCampaignActive } from "../lib/rakshaBandhanConfig";
 import ScooterPhlebotomistSvg from "../components/ScooterPhlebotomistSvg";
 import StickyBookingForm from "../components/StickyBookingForm";
 import FeaturedTestsSlider from "../components/FeaturedTestsSlider";
+import { parseCartItems, addItemToCart, removeItemFromCart } from "../lib/cart";
 
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
@@ -800,16 +801,18 @@ export default function Home() {
     const saved = localStorage.getItem('qxl_location');
     if (saved) setLocation(saved);
     
-    try {
-      setCartItems(JSON.parse(localStorage.getItem('qxl_cart') || '[]'));
-    } catch {}
+    const loadCartItems = () => {
+      try {
+        const parsed = parseCartItems(localStorage.getItem('qxl_cart'));
+        setCartItems(parsed.map(i => i.name.toLowerCase()));
+      } catch {
+        setCartItems([]);
+      }
+    };
+    loadCartItems();
 
     const handleLoc = (e: any) => setLocation(e.detail);
-    const handleCart = () => {
-      try {
-        setCartItems(JSON.parse(localStorage.getItem('qxl_cart') || '[]'));
-      } catch {}
-    };
+    const handleCart = () => loadCartItems();
 
     window.addEventListener('locationChange', handleLoc);
     window.addEventListener('cartChange', handleCart);
@@ -881,18 +884,17 @@ export default function Home() {
     };
   }, []);
 
-  const handleToggleCart = (name: string) => {
-    let updated: string[];
-    if (cartItems.includes(name)) {
-      updated = cartItems.filter(item => item !== name);
+  const handleToggleCart = (test: { id?: string; name: string; price?: number; fasting?: string; tat?: string } | string) => {
+    const testName = typeof test === 'string' ? test : test.name;
+    const testId = typeof test === 'string' ? test.toLowerCase() : (test.id ? test.id.toLowerCase() : testName.toLowerCase());
+    const isAdded = cartItems.includes(testName.toLowerCase()) || cartItems.includes(testId);
+    if (isAdded) {
+      removeItemFromCart(testName);
+      setCartItems(prev => prev.filter(i => i !== testName.toLowerCase() && i !== testId));
     } else {
-      updated = [...cartItems, name];
+      addItemToCart(test);
+      setCartItems(prev => [...prev, testName.toLowerCase(), testId]);
     }
-    try {
-      localStorage.setItem('qxl_cart', JSON.stringify(updated));
-    } catch {}
-    setCartItems(updated);
-    window.dispatchEvent(new CustomEvent('cartChange'));
   };
 
   const activeLocationObj = locations.find(loc => loc.name === location || loc.city === location);
@@ -1922,7 +1924,7 @@ export default function Home() {
 
                       <button
                         type="button"
-                        onClick={() => handleToggleCart(test.id)}
+                        onClick={() => handleToggleCart({ id: test.id, name: test.name, price: test.price, fasting: test.fasting, tat: test.tat })}
                         className={`px-3 py-1 rounded-xl text-xs font-black transition-all cursor-pointer ${
                           isAdded
                             ? "bg-emerald-100 text-emerald-800 border border-emerald-300"

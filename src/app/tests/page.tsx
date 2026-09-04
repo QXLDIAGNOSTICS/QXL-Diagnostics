@@ -67,20 +67,20 @@ export const ALL_DIRECTORY_TESTS: TestDirectoryItem[] = MASTER_CATALOGUE.map((m)
 }));
 
 
+import { addItemToCart } from "@/lib/cart";
+
 export default function TestsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All Categories");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const handleAddToCart = (name: string) => {
-    try {
-      const stored = localStorage.getItem("qxl_cart");
-      const current: string[] = stored ? JSON.parse(stored) : [];
-      if (!current.includes(name)) {
-        const updated = [...current, name];
-        localStorage.setItem("qxl_cart", JSON.stringify(updated));
-        window.dispatchEvent(new CustomEvent("cartChange"));
-      }
-    } catch {}
+  const handleAddToCart = (test: any) => {
+    addItemToCart({
+      id: test.id || test.name.toLowerCase().replace(/\s+/g, "-"),
+      name: test.name,
+      price: test.price,
+      fasting: test.fasting,
+      tat: test.tat,
+    });
   };
 
   const filteredTests = useMemo(() => {
@@ -331,7 +331,7 @@ export default function TestsPage() {
                       View Details
                     </Link>
                     <button
-                      onClick={() => handleAddToCart(test.name)}
+                      onClick={() => handleAddToCart(test)}
                       className="bg-[#2563eb] hover:bg-blue-700 text-white text-[11px] font-black px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-2xs hover:scale-105 active:scale-95 transition-all flex items-center gap-1"
                     >
                       + Add

@@ -6,6 +6,7 @@ import { useAuth } from '../../lib/useAuth';
 import RazorpayCheckoutButton from '../../components/RazorpayCheckoutButton';
 import { trackChatGPTBookingStart, trackChatGPTBookingCompleted } from '../../lib/chatgptAnalytics';
 import { matchMasterItem, MASTER_CATALOGUE } from '@/lib/masterCatalogue';
+import { parseCartItems } from '@/lib/cart';
 
 
 type CatalogEntry = {
@@ -457,14 +458,10 @@ export default function BookPage() {
     }
 
     try {
-      const cart: string[] = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
-      const cleanedCart = cart.filter(item => !isSpidyOffer(item));
-      if (cleanedCart.length !== cart.length) {
-        localStorage.setItem('qxl_cart', JSON.stringify(cleanedCart));
-      }
-      for (const item of cleanedCart) {
-        if (!wanted.includes(item) && !isSpidyOffer(item)) {
-          wanted.push(item);
+      const cart = parseCartItems(localStorage.getItem('qxl_cart'));
+      for (const item of cart) {
+        if (!wanted.includes(item.name) && !isSpidyOffer(item.name)) {
+          wanted.push(item.name);
         }
       }
     } catch {}

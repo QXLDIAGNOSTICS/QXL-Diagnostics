@@ -1,10 +1,8 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { X, ShoppingBag, Trash2, ArrowRight, Plus } from "lucide-react";
-import { cmsStore } from "@/lib/cmsStore";
-import { matchMasterItem } from "@/lib/masterCatalogue";
+import { parseCartItems, removeItemFromCart, CartItem } from "@/lib/cart";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -12,25 +10,13 @@ interface CartDrawerProps {
 }
 
 export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
-  const [cartItems, setCartItems] = useState<string[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [mounted, setMounted] = useState(false);
-
-  const getItemPrice = (name: string): number => {
-    const matchedMaster = matchMasterItem(name);
-    if (matchedMaster?.price) return matchedMaster.price;
-    const tests = cmsStore.getAll("tests");
-    const matchedTest = tests.find((t) => t.name.toLowerCase() === name.toLowerCase());
-    if (matchedTest?.price) return Number(matchedTest.price);
-    const pkgs = cmsStore.getAll("packages");
-    const matchedPkg = pkgs.find((p) => p.name.toLowerCase() === name.toLowerCase());
-    if (matchedPkg?.price) return Number(matchedPkg.price);
-    return 500;
-  };
 
   const loadCart = () => {
     try {
       const stored = localStorage.getItem("qxl_cart");
-      setCartItems(stored ? JSON.parse(stored) : []);
+      setCartItems(parseCartItems(stored));
     } catch {
       setCartItems([]);
     }
@@ -46,12 +32,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   }, []);
 
   const handleRemoveItem = (itemName: string) => {
-    const updated = cartItems.filter((i) => i !== itemName);
-    try {
-      localStorage.setItem("qxl_cart", JSON.stringify(updated));
-    } catch {}
-    setCartItems(updated);
-    window.dispatchEvent(new CustomEvent("cartChange"));
+    removeItemFromCart(itemName);
   };
 
   const handleClearCart = () => {
@@ -59,14 +40,13 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
       localStorage.removeItem("qxl_cart");
     } catch {}
     setCartItems([]);
-    window.dispatchEvent(new CustomEvent("cartChange"));
+    window.dispatchEvent(new Event("cartChange"));
   };
 
   if (!isOpen) return null;
 
   // Calculate total price
-  const subtotal = cartItems.reduce((acc, name) => acc + getItemPrice(name), 0);
-
+  const subtotal = cartItems.reduce((acc, item) => acc + (item.price || 299), 0);
 
   return (
     <div className="fixed inset-0 z-[100002] flex justify-end">
@@ -138,35 +118,32 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               </div>
 
               <div className="space-y-2.5">
-                {cartItems.map((name) => {
-                  const price = getItemPrice(name);
-                  return (
-                    <div
-                      key={name}
-                      className="bg-white border border-slate-200 rounded-2xl p-3.5 flex items-center justify-between shadow-2xs hover:border-[#D69A18]/50 transition-all"
-                    >
-                      <div className="flex flex-col pr-2">
-                        <span className="font-extrabold text-[#0f2d5e] text-xs leading-snug">
-                          {name}
-                        </span>
-                        <span className="text-[10px] text-emerald-700 font-bold mt-0.5">
-                          ✓ NABL Accredited Lab • Free Home Collection
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-3 shrink-0">
-                        <span className="font-black text-[#0f2d5e] text-xs">₹{price}</span>
-                        <button
-                          type="button"
-                          onClick={() => handleRemoveItem(name)}
-                          className="w-7 h-7 rounded-full bg-slate-100 hover:bg-red-50 text-slate-400 hover:text-red-600 flex items-center justify-center transition-colors cursor-pointer"
-                          aria-label={`Remove ${name}`}
-                        >
-                          <X className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
+                {cartItems.map((item) => (
+                  <div
+                    key={item.id || item.name}
+                    className="bg-white border border-slate-200 rounded-2xl p-3.5 flex items-center justify-between shadow-2xs hover:border-[#D69A18]/50 transition-all"
+                  >
+                    <div className="flex flex-col pr-2">
+                      <span className="font-extrabold text-[#0f2d5e] text-xs leading-snug">
+                        {item.name}
+                      </span>
+                      <span className="text-[10px] text-emerald-700 font-bold mt-0.5">
+                        ✓ {item.fasting || "No fasting"} • {item.tat || "Report in 6 hours"}
+                      </span>
                     </div>
-                  );
-                })}
+                    <div className="flex items-center gap-3 shrink-0">
+                      <span className="font-black text-[#0f2d5e] text-xs">₹{item.price || 299}</span>
+                      <button
+                        type="button"
+                        onClick={() => handleRemoveItem(item.name)}
+                        className="w-7 h-7 rounded-full bg-slate-100 hover:bg-red-50 text-slate-400 hover:text-red-600 flex items-center justify-center transition-colors cursor-pointer"
+                        aria-label={`Remove ${item.name}`}
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
             </>
           )}

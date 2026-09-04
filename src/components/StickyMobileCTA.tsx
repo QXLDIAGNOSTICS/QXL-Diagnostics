@@ -4,15 +4,16 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ShoppingCart, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { parseCartItems, CartItem } from "@/lib/cart";
 
 export default function StickyMobileCTA() {
-  const [cartItems, setCartItems] = useState<string[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   useEffect(() => {
     const syncCart = () => {
       try {
         const raw = localStorage.getItem("qxl_cart");
-        setCartItems(raw ? JSON.parse(raw) : []);
+        setCartItems(parseCartItems(raw));
       } catch {
         setCartItems([]);
       }
@@ -25,6 +26,8 @@ export default function StickyMobileCTA() {
 
   if (cartItems.length === 0) return null;
 
+  const totalAmount = cartItems.reduce((sum, item) => sum + (item.price || 299), 0);
+
   return (
     <AnimatePresence>
       <motion.div
@@ -34,7 +37,7 @@ export default function StickyMobileCTA() {
         className="fixed bottom-[66px] left-3 right-3 z-[9995] lg:hidden"
       >
         <Link
-          href="/book"
+          href="/checkout"
           className="flex items-center justify-between bg-[#0f2d5e] text-white px-4 py-3 rounded-2xl shadow-xl border border-amber-400/40 active:scale-98 transition-all"
         >
           <div className="flex items-center gap-3">
@@ -43,7 +46,7 @@ export default function StickyMobileCTA() {
             </div>
             <div>
               <span className="font-extrabold text-white text-xs block leading-tight">
-                {cartItems.length} {cartItems.length === 1 ? "Test" : "Tests"} Selected
+                {cartItems.length} {cartItems.length === 1 ? "Test" : "Tests"} · ₹{totalAmount}
               </span>
               <span className="text-[10.5px] text-amber-200 font-semibold leading-tight block">
                 Free Doorstep Home Collection

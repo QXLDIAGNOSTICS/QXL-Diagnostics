@@ -16,6 +16,7 @@ import {
   ChevronRight,
   Sparkles,
 } from "lucide-react";
+import { parseCartItems, addItemToCart } from "@/lib/cart";
 
 interface SmartSearchBarProps {
   placeholder?: string;
@@ -291,16 +292,16 @@ export default function SmartSearchBar({
 
   useEffect(() => {
     try {
-      const cart = JSON.parse(localStorage.getItem("qxl_cart") || "[]");
-      setAddedItems(cart);
+      const cart = parseCartItems(localStorage.getItem("qxl_cart"));
+      setAddedItems(cart.map((i) => i.name));
       const recent = JSON.parse(localStorage.getItem("qxl_recent_searches") || '["Full Body Checkup", "CBC"]');
       setRecentSearches(recent);
     } catch {}
 
     const handleCartChange = () => {
       try {
-        const cart = JSON.parse(localStorage.getItem("qxl_cart") || "[]");
-        setAddedItems(cart);
+        const cart = parseCartItems(localStorage.getItem("qxl_cart"));
+        setAddedItems(cart.map((i) => i.name));
       } catch {}
     };
 
@@ -325,17 +326,16 @@ export default function SmartSearchBar({
     } catch {}
   };
 
-  const handleAddToCart = (name: string, e: React.MouseEvent) => {
+  const handleAddToCart = (test: (typeof ALL_TESTS)[0], e: React.MouseEvent) => {
     e.stopPropagation();
-    try {
-      const cart = JSON.parse(localStorage.getItem("qxl_cart") || "[]");
-      if (!cart.includes(name)) {
-        cart.push(name);
-        localStorage.setItem("qxl_cart", JSON.stringify(cart));
-        window.dispatchEvent(new CustomEvent("cartChange"));
-        setAddedItems([...cart]);
-      }
-    } catch {}
+    addItemToCart({
+      id: test.id || test.name.toLowerCase().replace(/\s+/g, "-"),
+      name: test.name,
+      price: test.price,
+      fasting: test.fasting,
+      tat: test.tat,
+    });
+    setAddedItems((prev) => [...prev.filter((n) => n.toLowerCase() !== test.name.toLowerCase()), test.name]);
   };
 
   // Perform intelligent search query evaluation
@@ -577,7 +577,7 @@ export default function SmartSearchBar({
 
                             <button
                               type="button"
-                              onClick={(e) => handleAddToCart(test.name, e)}
+                              onClick={(e) => handleAddToCart(test, e)}
                               className={`px-3.5 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer ${
                                 isAdded
                                   ? "bg-emerald-100 text-emerald-800 border border-emerald-300"
