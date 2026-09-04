@@ -127,16 +127,6 @@ export default function BookPage() {
         // Define fallback DEFAULT_PACKAGES to resolve client-side matches
         const fallbackPackages = [
           {
-            id: "raksha-bandhan-800",
-            name: "Full Body Health Checkup (80 Params)",
-            kind: 'package' as const,
-            price: 800,
-            old_price: 5800,
-            home_collection_available: true,
-            parameters: "80 Parameters",
-            includes: "CBC (26), HbA1c & Fasting Glucose (3), Heart & Lipid Profile (8), Liver Function Test (11), Kidney Function Test (8), Thyroid Profile (3), Bone/Mineral Health & Urine Routine (21)."
-          },
-          {
             id: "pkg-fit",
             name: "Quick Fit Package",
             kind: 'package' as const,
@@ -280,16 +270,6 @@ export default function BookPage() {
         setCatalog(merged);
       } catch {
         const fallbackPackages: CatalogEntry[] = [
-          {
-            id: "raksha-bandhan-800",
-            name: "Full Body Health Checkup (80 Params)",
-            kind: 'package' as const,
-            price: 800,
-            old_price: 5800,
-            home_collection_available: true,
-            parameters: "80 Parameters",
-            includes: "CBC (26), HbA1c & Fasting Glucose (3), Heart & Lipid Profile (8), Liver Function Test (11), Kidney Function Test (8), Thyroid Profile (3), Bone/Mineral Health & Urine Routine (21)."
-          },
           {
             id: "pkg-1",
             name: "Quick Fit Package",

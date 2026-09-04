@@ -373,31 +373,6 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
 
   // ── PREVENTIVE HEALTH CHECKUP PACKAGES ──────────────────────────────────────
   {
-    id: "q-full-body-80",
-    name: "Full Body Health Checkup (80 Params)",
-    shortName: "Full Body Checkup (80 Params)",
-    category: "Preventive Package",
-    price: 800,
-    mrp: 5800,
-    parametersCount: 80,
-    paramText: "80 Parameters",
-    fasting: true,
-    fastingInstruction: "8-10 Hrs Fasting Required",
-    sampleType: "Blood & Urine",
-    tat: "12 Hours (Same Day)",
-    slug: "/book?package=q-full-body-80",
-    icon: "✨",
-    popular: true,
-    aliases: [
-      "q-full-body-80", "raksha-bandhan-800", "pkg-800", "full body checkup", "full body health checkup", 
-      "full body health checkup (80 params)", "800 rs pack", "800 rs package", "full body checkup 800", 
-      "raksha bandhan special health checkup", "raksha bandhan special health checkup (80 params)"
-    ],
-    homeCollectionAvailable: true,
-    kind: "package",
-    includes: "CBC (26), HbA1c & Fasting Glucose (3), Heart & Lipid Profile (8), Liver Function Test (11), Kidney Function Test (8), Thyroid Profile (3), Bone/Mineral Health & Urine Routine (21)."
-  },
-  {
     id: "q-quick-fit",
     name: "Quick Fit Package",
     shortName: "Quick Fit Package",
@@ -581,7 +556,7 @@ export function matchMasterItem(query: string): MasterCatalogEntry | undefined {
     return MASTER_CATALOGUE.find(m => m.id === 'vitamin-b12');
   }
   if (q.includes('full body') || q.includes('800') || q.includes('raksha')) {
-    return MASTER_CATALOGUE.find(m => m.id === 'q-full-body-80');
+    return MASTER_CATALOGUE.find(m => m.id === 'q-quick-fit');
   }
 
   return undefined;

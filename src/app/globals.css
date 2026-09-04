@@ -201,10 +201,16 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* Ensure headings inside dark blue cards or dark gradients always render pure white text */
+/* Ensure headings inside dark blue cards, dark gradients, or blue headers always render pure white text */
 .bg-\[\#0f2d5e\] h1, .bg-\[\#0f2d5e\] h2, .bg-\[\#0f2d5e\] h3, .bg-\[\#0f2d5e\] h4, .bg-\[\#0f2d5e\] h5, .bg-\[\#0f2d5e\] h6,
+.bg-gradient-to-r h1, .bg-gradient-to-r h2, .bg-gradient-to-r h3, .bg-gradient-to-r h4, .bg-gradient-to-r h5, .bg-gradient-to-r h6,
 .bg-gradient-to-br h1, .bg-gradient-to-br h2, .bg-gradient-to-br h3, .bg-gradient-to-br h4, .bg-gradient-to-br h5, .bg-gradient-to-br h6,
-[class*="bg-[#0f2d5e]"] h1, [class*="bg-[#0f2d5e]"] h2, [class*="bg-[#0f2d5e]"] h3, [class*="bg-[#0f2d5e]"] h4, [class*="bg-[#0f2d5e]"] h5, [class*="bg-[#0f2d5e]"] h6 {
+.bg-gradient-to-bl h1, .bg-gradient-to-bl h2, .bg-gradient-to-bl h3, .bg-gradient-to-bl h4, .bg-gradient-to-bl h5, .bg-gradient-to-bl h6,
+[class*="bg-[#0f2d5e]"] h1, [class*="bg-[#0f2d5e]"] h2, [class*="bg-[#0f2d5e]"] h3, [class*="bg-[#0f2d5e]"] h4, [class*="bg-[#0f2d5e]"] h5, [class*="bg-[#0f2d5e]"] h6,
+[class*="from-[#0f2d5e]"] h1, [class*="from-[#0f2d5e]"] h2, [class*="from-[#0f2d5e]"] h3, [class*="from-[#0f2d5e]"] h4, [class*="from-[#0f2d5e]"] h5, [class*="from-[#0f2d5e]"] h6,
+[class*="from-[#0a3281]"] h1, [class*="from-[#0a3281]"] h2, [class*="from-[#0a3281]"] h3, [class*="from-[#0a3281]"] h4, [class*="from-[#0a3281]"] h5, [class*="from-[#0a3281]"] h6,
+[class*="from-[#16386b]"] h1, [class*="from-[#16386b]"] h2, [class*="from-[#16386b]"] h3, [class*="from-[#16386b]"] h4, [class*="from-[#16386b]"] h5, [class*="from-[#16386b]"] h6,
+.text-white h1, .text-white h2, .text-white h3, .text-white h4, .text-white h5, .text-white h6 {
   color: #ffffff !important;
 }
 

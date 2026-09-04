@@ -24,27 +24,6 @@ export interface PackageItem {
 
 export const CANONICAL_PACKAGES: PackageItem[] = [
   {
-    id: "q-full-body-80",
-    slug: "q-full-body-80",
-    name: "Full Body Health Checkup (80 Params)",
-    price: 800,
-    mrp: 5800,
-    parametersCount: 80,
-    parametersLabel: "80 Parameters",
-    category: "Preventive",
-    tag: "SPECIAL PREVENTIVE OFFER",
-    includes: "CBC (26), HbA1c & Fasting Sugar (3), Lipid Profile (8), Liver Function (11), Kidney Function (8), Thyroid Profile (3), Bone & Urinary Markers (21).",
-    highlights: [
-      "80 Health Parameters across 8 Organ Systems",
-      "NABL Accredited Laboratory Processing (MC-6849)",
-      "Free Doorstep Home Collection Across Bengaluru",
-      "Same-Day Pathologist Verified Digital Report"
-    ],
-    fastingHours: "10–12 Hours Fasting Required",
-    tat: "Same Day (Within 12 Hours)",
-    isPopular: true,
-  },
-  {
     id: "q-quick-fit",
     slug: "q-quick-fit",
     name: "Quick Fit Package",

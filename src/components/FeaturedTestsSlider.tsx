@@ -248,7 +248,10 @@ export default function FeaturedTestsSlider() {
                   <span className="absolute top-4 right-4 bg-[#D69A18] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
                     {current.testCard.badge}
                   </span>
-                  <h3 className="font-extrabold text-lg text-white mb-2 pr-12">
+                  <h3 
+                    className="font-extrabold text-lg !text-white text-white mb-2 pr-12"
+                    style={{ color: '#ffffff' }}
+                  >
                     {current.testCard.name}
                   </h3>
                   <div className="flex items-baseline gap-2">
