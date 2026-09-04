@@ -62,7 +62,7 @@ export function addItemToCart(
             };
       current.push(newItem);
       localStorage.setItem("qxl_cart", JSON.stringify(current));
-      window.dispatchEvent(new Event("cartChange"));
+      window.dispatchEvent(new CustomEvent("cartChange", { detail: { items: current } }));
     }
   } catch (e) {
     console.error("Cart error:", e);

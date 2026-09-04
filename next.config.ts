@@ -8,9 +8,6 @@ const backendUrl =
   (isDev ? "http://localhost:8000" : "https://qxl-diagnostics-production.up.railway.app");
 
 const nextConfig: NextConfig = {
-  turbopack: {
-    root: path.resolve(__dirname),
-  },
   experimental: {
     optimizePackageImports: [
       "lucide-react",

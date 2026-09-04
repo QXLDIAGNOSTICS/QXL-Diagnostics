@@ -216,9 +216,9 @@ const INTELLIGENT_CATALOG: TestMatch[] = [
     ],
   },
   {
-    name: "Full Body Health Checkup (80 Parameters)",
+    name: "Quick Fit Health Checkup (80 Parameters)",
     category: "Full Body Checkup",
-    price: 800,
+    price: 1770,
     oldPrice: 5800,
     fasting: "Fasting 10 hrs",
     tat: "6 Hours",
@@ -505,7 +505,7 @@ export default function SmartSearchBar({
               </>
             ) : (
               /* If User is Typing -> Intelligent Live Results */
-              <div className="space-y-4">
+              <div className="space-y-4" role="status" aria-live="polite">
                 <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                   <div className="flex items-center gap-1.5">
                     <Sparkles className="w-4 h-4 text-[#D69A18]" />
