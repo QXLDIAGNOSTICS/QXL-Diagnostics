@@ -259,9 +259,7 @@ export const CANONICAL_PACKAGES: PackageItem[] = [
         testsList: ["Includes all 92 parameters of Master Health Pro: Diabetes, LFT, KFT, Electrolytes, Thyroid, Vitamins B12 & D, Complete Blood Count, and Urine Analysis."]
       }
     ]
-  }
-];
-,
+  },
   {
     id: "q-cardiovascular-risk",
     slug: "q-cardiovascular-risk",
@@ -275,7 +273,8 @@ export const CANONICAL_PACKAGES: PackageItem[] = [
     includes: "CBC, Lipid Profile, Kidney Screen, Urine Routine, FBS, Apo A1, Apo B, Apo B/A1 Ratio, hs-CRP, Lipoprotein(a), Fibrinogen, Homocysteine, NT-proBNP, Insulin, C-Peptide, Thyroid Screen, Cortisol, Serum Magnesium.",
     highlights: ["Advanced cardiac biomarker profiling", "Lp(a), ApoB, Homocysteine & NT-proBNP", "Endothelial & metabolic risk"],
     fastingHours: "12 Hours Fasting",
-    tat: "24 Hours",
+    tat: "Reports within 24 hours",
+    sampleType: "Blood & Urine Sample"
   }
 ];
 
