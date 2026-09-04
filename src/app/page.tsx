@@ -819,31 +819,6 @@ export default function Home() {
     window.addEventListener('locationChange', handleLoc);
     window.addEventListener('cartChange', handleCart);
     
-    const rakshaBandhanPackage = {
-      id: "raksha-bandhan-800",
-      name: "Full Body Health Checkup (80 Params)",
-      price: "800",
-      originalPrice: "5800",
-      original_price: "5800",
-      tag: "FESTIVE OFFER",
-      badge: "SAVE ₹5,000",
-      description: "Comprehensive 80 health parameters screening covering 8 major health areas — gift health to your sibling.",
-      parameterCount: 80,
-      parameters_count: 80,
-      includes: [
-        "Complete Blood Count (26 parameters)",
-        "Diabetes & Sugar (HbA1c & Fasting Glucose)",
-        "Lipid Profile (8 parameters)",
-        "Liver Function Panel (11 parameters)",
-        "Kidney Function Panel (8 parameters)",
-        "Thyroid Profile (3 parameters)",
-        "Bone, Mineral & Urinary Analysis (21 parameters)"
-      ],
-      popular: true,
-      isMostBooked: true,
-      slug: "raksha-bandhan-health-checkup-bangalore",
-    };
-
     const isSpidyOffer = (name?: string | null, price?: number | string | null) => {
       if (!name) return false;
       const n = String(name).toLowerCase();
@@ -863,16 +838,16 @@ export default function Home() {
 
     // Load dynamic locations & packages safely for rendering
     setLocations(cmsStore.getAll("locations"));
-    const fallbackPackages = cmsStore.getAll("packages").filter(p => !isSpidyOffer(p.name, p.price)).sort((a, b) => Number(a.price) - Number(b.price));
-    setRecommendedPackages([rakshaBandhanPackage, ...fallbackPackages.filter(p => p.id !== 'raksha-bandhan-800')]);
+    const fallbackPackages = cmsStore.getAll("packages").filter(p => !isSpidyOffer(p.name, p.price) && p.id !== 'raksha-bandhan-800' && p.price !== '800').sort((a, b) => Number(a.price) - Number(b.price));
+    setRecommendedPackages(fallbackPackages);
 
     if (api && api.packages) {
       api.packages.list()
         .then((data) => {
           if (data && data.length > 0) {
-            const cleanData = data.filter((p: any) => !isSpidyOffer(p.name, p.price));
-            const sorted = cleanData.sort((a, b) => Number(a.price) - Number(b.price));
-            setRecommendedPackages([rakshaBandhanPackage, ...sorted.filter(p => p.id !== 'raksha-bandhan-800')]);
+            const cleanData = data.filter((p: any) => !isSpidyOffer(p.name, p.price) && p.id !== 'raksha-bandhan-800' && p.price !== '800');
+            const sorted = cleanData.sort((a: any, b: any) => Number(a.price) - Number(b.price));
+            setRecommendedPackages(sorted);
           }
         })
         .catch(() => {
