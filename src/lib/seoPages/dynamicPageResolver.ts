@@ -3,6 +3,7 @@ import { prenatalScreeningPagesWithAliases } from './prenatalScreeningData';
 import { masterExtractedPagesData } from './extractedMasterData';
 import { excel100TestsData } from './excel100TestsData';
 import { cms100MasterData } from './cms100MasterData';
+import { MASTER_CATALOGUE } from '../masterCatalogue';
 
 export interface ReferenceRange {
   label: string;
@@ -1413,36 +1414,66 @@ const SIMPLE_SLUG_MAP: Record<string, string> = {
   "hbsag": "hepatitis-b-test-bangalore"
 };
 
+function syncWithMasterCatalogueData(data: DynamicPageData, cleanSlug: string): DynamicPageData {
+  const normCleanSlug = cleanSlug.toLowerCase().replace(/^\/|\/$/g, '').replace(/-bangalore$/, '').replace(/-test$/, '');
+
+  // 1. Direct ID / Slug / Alias match
+  let masterMatch = MASTER_CATALOGUE.find(cat => {
+    const catSlug = cat.slug.toLowerCase().replace(/^\/|\/$/g, '').replace(/-bangalore$/, '').replace(/-test$/, '');
+    const catId = cat.id.toLowerCase().replace(/-test$/, '');
+    if (catSlug === normCleanSlug || catId === normCleanSlug) return true;
+    if (cat.aliases && cat.aliases.some(alias => {
+      const normAlias = alias.toLowerCase().replace(/\s+/g, '-').replace(/-test$/, '');
+      return normAlias === normCleanSlug;
+    })) return true;
+    return false;
+  });
+
+  // 2. Full Name match if no direct ID/slug/alias match
+  if (!masterMatch) {
+    const titleNorm = (data.h1Title || data.title || '').toLowerCase();
+    masterMatch = MASTER_CATALOGUE.find(cat => {
+      return titleNorm.includes(cat.name.toLowerCase());
+    });
+  }
+
+  if (masterMatch) {
+    const discount = Math.round(((masterMatch.mrp - masterMatch.price) / masterMatch.mrp) * 100);
+    return {
+      ...data,
+      price: String(masterMatch.price),
+      oldPrice: String(masterMatch.mrp),
+      discountPercent: `${discount}% OFF`,
+      parametersCount: masterMatch.paramText || data.parametersCount,
+      sampleType: masterMatch.sampleType || data.sampleType,
+      fastingRequired: masterMatch.fastingInstruction || data.fastingRequired,
+      turnaroundTime: masterMatch.tat || data.turnaroundTime
+    };
+  }
+
+  return data;
+}
+
 export function getDynamicPageData(slug: string): DynamicPageData | null {
   let cleanSlug = slug.toLowerCase().replace(/^\/|\/$/g, '').replace(/^tests\//, '');
   if (SIMPLE_SLUG_MAP[cleanSlug]) {
     cleanSlug = SIMPLE_SLUG_MAP[cleanSlug];
   }
   
+  let rawData: DynamicPageData | null = null;
+
   // ── Phase 0: Check CMS 100 Bulk Template Master Records ──────────────────
   if (cms100MasterData[cleanSlug]) {
-    return cms100MasterData[cleanSlug];
-  }
-
-  // ── Phase 1: Check Excel Master 100 Dedicated Test Definitions ───────────
-  if (excel100TestsData[cleanSlug]) {
-    return excel100TestsData[cleanSlug];
-  }
-
-  // ── Phase 2: Check Prenatal Screening Pack (Volume 4) ────────────────────
-  if (prenatalScreeningPagesWithAliases[cleanSlug]) {
-    return prenatalScreeningPagesWithAliases[cleanSlug];
-  }
-  
-  // ── Phase 3: Check Master Extracted 194 Diagnostic Test Definitions ─────────
-  if (masterExtractedPagesData[cleanSlug]) {
-    return masterExtractedPagesData[cleanSlug];
-  }
-  
-  // Check explicit clinical mappings next
-  if (CLINICAL_PAGES_DATA[cleanSlug]) {
+    rawData = cms100MasterData[cleanSlug];
+  } else if (excel100TestsData[cleanSlug]) {
+    rawData = excel100TestsData[cleanSlug];
+  } else if (prenatalScreeningPagesWithAliases[cleanSlug]) {
+    rawData = prenatalScreeningPagesWithAliases[cleanSlug];
+  } else if (masterExtractedPagesData[cleanSlug]) {
+    rawData = masterExtractedPagesData[cleanSlug];
+  } else if (CLINICAL_PAGES_DATA[cleanSlug]) {
     const explicitData = CLINICAL_PAGES_DATA[cleanSlug];
-    return {
+    rawData = {
       slug: cleanSlug,
       title: explicitData.title || `${cleanSlug} | QXL Diagnostics`,
       metaDescription: explicitData.subtitle || `Book ${cleanSlug} in Bangalore with NABL Accredited precision and doorstep collection.`,
@@ -1476,53 +1507,52 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
       ],
       category: explicitData.category || "Diagnostic Services"
     };
+  } else {
+    const matchedTest = topTests.find(t => 
+      t.slug === cleanSlug || 
+      t.slug === `${cleanSlug}-bangalore` ||
+      `${t.slug}-bangalore` === cleanSlug
+    );
+    if (matchedTest) {
+      rawData = {
+        slug: cleanSlug,
+        title: `${matchedTest.name} in Bangalore | Price, Fasting & Home Collection | QXL Diagnostics`,
+        metaDescription: `Book ${matchedTest.name} at home in Bangalore. NABL Accredited lab, same-day reports, sterile sample collection. Starting at ₹${matchedTest.price}.`,
+        badge: "NABL Accredited lab · FREE HOME COLLECTION",
+        h1Title: `${matchedTest.name} in Bangalore`,
+        subtitle: matchedTest.description,
+        price: matchedTest.price,
+        oldPrice: (Number(matchedTest.price) * 1.4).toFixed(0),
+        discountPercent: "30% OFF",
+        parametersCount: `${matchedTest.parameters} Parameter${matchedTest.parameters > 1 ? 's' : ''}`,
+        sampleType: matchedTest.sampleType,
+        fastingRequired: matchedTest.preparation,
+        turnaroundTime: matchedTest.turnaround || "6 to 12 Hours",
+        overview: [
+          `${matchedTest.name} is a vital diagnostic test conducted by QXL Diagnostics across Bangalore using automated, high-precision analyzer instruments.`,
+          `Samples are collected directly at your home by trained phlebotomy specialists using sterile single-use vacuum tubes and transported in temperature-controlled cold-chain kits.`
+        ],
+        parametersList: [
+          `${matchedTest.name} Core Parameters`,
+          "Sample Quality & Hemolysis Checks",
+          "Reference Range Validation by Consultant Pathologists"
+        ],
+        whyImportant: [
+          "Provides accurate baseline clinical data for your doctor.",
+          "Detects early underlying health changes before symptoms develop.",
+          "Processed at NABL Accredited ISO 15189:2022 laboratory (MC-6849)."
+        ],
+        faqs: matchedTest.faqs || [
+          { question: `Do I need to fast for ${matchedTest.name}?`, answer: matchedTest.preparation },
+          { question: "How soon will I receive my digital report?", answer: "Your digital report will be sent directly to your WhatsApp and Email within 6 to 12 hours." }
+        ],
+        category: "Diagnostic Blood Test"
+      };
+    }
   }
 
-  // Match with existing topTests if exact slug matches or matches test slug without -bangalore
-  const matchedTest = topTests.find(t => 
-    t.slug === cleanSlug || 
-    t.slug === `${cleanSlug}-bangalore` ||
-    `${t.slug}-bangalore` === cleanSlug
-  );
+  if (!rawData) return null;
 
-  if (matchedTest) {
-    return {
-      slug: cleanSlug,
-      title: `${matchedTest.name} in Bangalore | Price, Fasting & Home Collection | QXL Diagnostics`,
-      metaDescription: `Book ${matchedTest.name} at home in Bangalore. NABL Accredited lab, same-day reports, sterile sample collection. Starting at ₹${matchedTest.price}.`,
-      badge: "NABL Accredited lab · FREE HOME COLLECTION",
-      h1Title: `${matchedTest.name} in Bangalore`,
-      subtitle: matchedTest.description,
-      price: matchedTest.price,
-      oldPrice: (Number(matchedTest.price) * 1.4).toFixed(0),
-      discountPercent: "30% OFF",
-      parametersCount: `${matchedTest.parameters} Parameter${matchedTest.parameters > 1 ? 's' : ''}`,
-      sampleType: matchedTest.sampleType,
-      fastingRequired: matchedTest.preparation,
-      turnaroundTime: matchedTest.turnaround || "6 to 12 Hours",
-      overview: [
-        `${matchedTest.name} is a vital diagnostic test conducted by QXL Diagnostics across Bangalore using automated, high-precision analyzer instruments.`,
-        `Samples are collected directly at your home by trained phlebotomy specialists using sterile single-use vacuum tubes and transported in temperature-controlled cold-chain kits.`
-      ],
-      parametersList: [
-        `${matchedTest.name} Core Parameters`,
-        "Sample Quality & Hemolysis Checks",
-        "Reference Range Validation by Consultant Pathologists"
-      ],
-      whyImportant: [
-        "Provides accurate baseline clinical data for your doctor.",
-        "Detects early underlying health changes before symptoms develop.",
-        "Processed at NABL Accredited ISO 15189:2022 laboratory (MC-6849)."
-      ],
-      faqs: matchedTest.faqs || [
-        { question: `Do I need to fast for ${matchedTest.name}?`, answer: matchedTest.preparation },
-        { question: "How soon will I receive my digital report?", answer: "Your digital report will be sent directly to your WhatsApp and Email within 6 to 12 hours." }
-      ],
-      category: "Diagnostic Blood Test"
-    };
-  }
-
-  // Slugs that do not match registered clinical pages or test definitions return null
-  return null;
+  return syncWithMasterCatalogueData(rawData, cleanSlug);
 }
 
