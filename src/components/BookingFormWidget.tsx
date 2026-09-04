@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Calendar, User, Phone, MapPin, Shield, X, Mail, LocateFixed, CheckCircle2, Loader2, Home, Building2, AlertTriangle, Clock } from 'lucide-react';
 import { api, type TestCatalogItem, type HealthPackage, type Booking } from '../lib/api';
 import { useAuth } from '../lib/useAuth';
+import { trackOpenAILeadCreated } from '../lib/chatgptAnalytics';
 import RazorpayCheckoutButton from './RazorpayCheckoutButton';
 
 type CatalogEntry = {
@@ -430,6 +431,10 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
       }
       setCreatedBookings(created);
       setSubmitted(true);
+      trackOpenAILeadCreated({
+        bookingIds: created.map((b) => b.id).join(','),
+        patient_name: formData.name,
+      });
       try {
         localStorage.removeItem('qxl_cart');
         window.dispatchEvent(new CustomEvent('cartChange'));

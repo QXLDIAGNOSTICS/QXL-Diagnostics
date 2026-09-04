@@ -1,11 +1,13 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AiChat from "@/components/AiChat";
 import { AuthProvider } from "@/lib/useAuth";
 import { SiteSettingsProvider } from "@/lib/useSiteSettings";
+
+const AiChat = dynamic(() => import("@/components/AiChat"), { ssr: false });
 
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();

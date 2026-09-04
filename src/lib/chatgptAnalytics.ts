@@ -12,6 +12,7 @@ declare global {
   interface Window {
     gtag?: (...args: any[]) => void;
     dataLayer?: any[];
+    oaiq?: (...args: any[]) => void;
   }
 }
 
@@ -113,7 +114,36 @@ export function trackChatGPTBookingStart(selectedTests: string[], totalPrice: nu
   } catch {}
 }
 
+export function trackOpenAILeadCreated(details?: Record<string, any>): void {
+  if (typeof window === 'undefined') return;
+
+  // 1. Client-side Pixel Conversion Tracking (oaiq)
+  try {
+    if (typeof window.oaiq === 'function') {
+      window.oaiq("measure", "lead_created", { type: "customer_action", ...details });
+    }
+  } catch (err) {
+    console.warn('OpenAI pixel lead_created measurement error', err);
+  }
+
+  // 2. Server-side Conversions API dispatch
+  try {
+    fetch('/api/v1/openai-conversions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        event_name: 'lead_created',
+        event_type: 'customer_action',
+        custom_data: details || {},
+      }),
+    }).catch(() => {});
+  } catch {}
+}
+
 export function trackChatGPTBookingCompleted(bookingId: string, amount: number, selectedTests: string[]): void {
+  // Always trigger OpenAI lead_created conversion event for Pixel & Conversions API
+  trackOpenAILeadCreated({ bookingId, amount, items: selectedTests.join(', ') });
+
   if (!isChatGPTReferral()) return;
   try {
     if (typeof window.gtag === 'function') {
