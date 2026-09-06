@@ -112,7 +112,7 @@ export const lipidProfileTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the lipid profile test price in Bangalore?",
-      a: "At QXL Diagnostics, a Lipid Profile test in Bangalore costs ₹650 (MRP ₹950), including 8 parameters (Total Cholesterol, HDL, LDL, VLDL, Triglycerides, TC/HDL ratio, LDL/HDL ratio) and same-day digital report with free home collection.",
+      a: "At QXL Diagnostics, a Lipid Profile test in Bangalore costs ₹336 (MRP ₹600), including 8 parameters (Total Cholesterol, HDL, LDL, VLDL, Triglycerides, TC/HDL ratio, LDL/HDL ratio) and same-day digital report with free home collection.",
     },
     {
       q: "Is fasting required for a lipid profile?",

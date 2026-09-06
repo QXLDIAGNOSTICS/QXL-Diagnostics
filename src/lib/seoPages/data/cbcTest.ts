@@ -5,8 +5,8 @@ export const cbcTest: SeoLandingData = {
   breadcrumbLabel: "CBC Test",
   pageType: "test",
   medicalTestName: "Complete Blood Count (CBC) Test",
-  price: 299,
-  originalPrice: 450,
+  price: 250,
+  originalPrice: 350,
   synonyms: ["CBC", "Hemogram", "Complete Blood Count", "CBP", "Full Blood Count", "Haemogram"],
   reportTat: "6 Hours (Same Day)",
   fastingRequired: false,
@@ -128,7 +128,7 @@ export const cbcTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the cost of a CBC test in Bangalore?",
-      a: "At QXL Diagnostics, a CBC test in Bangalore costs ₹299 (MRP ₹450), including 26 parameters and same-day digital report with pathologist review. It is also included in our Full Body Health Checkup packages starting at ₹800.",
+      a: "At QXL Diagnostics, a CBC test in Bangalore costs ₹250 (MRP ₹350), including 26 parameters and same-day digital report with pathologist review. It is also included in our Full Body Health Checkup packages starting at ₹800.",
     },
     {
       q: "Is fasting required for a CBC test?",

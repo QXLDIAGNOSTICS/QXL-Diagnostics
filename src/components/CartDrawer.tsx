@@ -40,7 +40,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
       localStorage.removeItem("qxl_cart");
     } catch {}
     setCartItems([]);
-    window.dispatchEvent(new Event("cartChange"));
+    window.dispatchEvent(new CustomEvent("cartChange", { detail: { items: [] } }));
   };
 
   if (!isOpen) return null;

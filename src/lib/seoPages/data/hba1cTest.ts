@@ -5,8 +5,8 @@ export const hba1cTest: SeoLandingData = {
   breadcrumbLabel: "HbA1c Test",
   pageType: "test",
   medicalTestName: "HbA1c (Glycated Hemoglobin) Test",
-  price: 399,
-  originalPrice: 600,
+  price: 380,
+  originalPrice: 720,
   synonyms: ["HbA1c", "Glycated Hemoglobin", "Glycosylated Haemoglobin", "3-Month Sugar Test", "eAG"],
   reportTat: "6–8 Hours (Same Day)",
   fastingRequired: false,
@@ -128,7 +128,7 @@ export const hba1cTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the HbA1c test price in Bangalore?",
-      a: "At QXL Diagnostics, an HbA1c test in Bangalore costs ₹399 (MRP ₹600), including 2 parameters and same-day digital report with pathologist review. It is also included in our Full Body Health Checkup packages starting at ₹800.",
+      a: "At QXL Diagnostics, an HbA1c test in Bangalore costs ₹380 (MRP ₹720), including 2 parameters and same-day digital report with pathologist review. It is also included in our Full Body Health Checkup packages starting at ₹800.",
     },
     {
       q: "Do I need to fast for an HbA1c test?",

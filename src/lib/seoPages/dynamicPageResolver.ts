@@ -1439,8 +1439,21 @@ function syncWithMasterCatalogueData(data: DynamicPageData, cleanSlug: string): 
 
   if (masterMatch) {
     const discount = Math.round(((masterMatch.mrp - masterMatch.price) / masterMatch.mrp) * 100);
+    let title = data.title;
+    let metaDescription = data.metaDescription;
+
+    if (title) {
+      title = title.replace(/Price\s*₹?\s*\d+/gi, `Price ₹${masterMatch.price}`);
+    }
+    if (metaDescription) {
+      metaDescription = metaDescription.replace(/starting at\s*₹?\s*\d+/gi, `starting at ₹${masterMatch.price}`);
+      metaDescription = metaDescription.replace(/Price\s*₹?\s*\d+/gi, `Price ₹${masterMatch.price}`);
+    }
+
     return {
       ...data,
+      title: title || data.title,
+      metaDescription: metaDescription || data.metaDescription,
       price: String(masterMatch.price),
       oldPrice: String(masterMatch.mrp),
       discountPercent: `${discount}% OFF`,

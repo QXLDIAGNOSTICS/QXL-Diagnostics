@@ -78,7 +78,7 @@ export function removeItemFromCart(nameOrId: string) {
       (i) => i.name.toLowerCase() !== nameOrId.toLowerCase() && i.id.toLowerCase() !== nameOrId.toLowerCase()
     );
     localStorage.setItem("qxl_cart", JSON.stringify(updated));
-    window.dispatchEvent(new Event("cartChange"));
+    window.dispatchEvent(new CustomEvent("cartChange", { detail: { items: updated } }));
   } catch (e) {
     console.error("Cart remove error:", e);
   }

@@ -5,8 +5,8 @@ export const thyroidTest: SeoLandingData = {
   breadcrumbLabel: "Thyroid Test",
   pageType: "test",
   medicalTestName: "Thyroid Profile (T3, T4, TSH) Test",
-  price: 450,
-  originalPrice: 750,
+  price: 350,
+  originalPrice: 550,
   synonyms: ["Thyroid Test", "TFT", "Thyroid Profile", "T3 T4 TSH", "Thyroid Function Test"],
   reportTat: "6–12 Hours (Same Day)",
   fastingRequired: false,
@@ -128,7 +128,7 @@ export const thyroidTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the thyroid test price in Bangalore?",
-      a: "At QXL Diagnostics, a complete Thyroid Profile (T3, T4, TSH) test in Bangalore costs ₹450 (MRP ₹750), including 3 parameters, same-day report and home sample collection. Individual TSH test is available at ₹250.",
+      a: "At QXL Diagnostics, a complete Thyroid Profile (T3, T4, TSH) test in Bangalore costs ₹350 (MRP ₹550), including 3 parameters, same-day report and home sample collection. Individual TSH test is available at ₹250.",
     },
     {
       q: "Is fasting required for a thyroid test?",

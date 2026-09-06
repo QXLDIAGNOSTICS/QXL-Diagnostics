@@ -135,7 +135,7 @@ export default function DashboardPage() {
                               if (!exists) {
                                 cart.push(item);
                                 localStorage.setItem("qxl_cart", JSON.stringify(cart));
-                                window.dispatchEvent(new Event("cartChange"));
+                                window.dispatchEvent(new CustomEvent("cartChange", { detail: { items: cart } }));
                               }
                               window.location.href = "/checkout";
                             } catch (err) {
