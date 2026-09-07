@@ -132,7 +132,7 @@ const DoctorCard = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) => 
   return (
     <article
       className={`group overflow-hidden rounded-3xl flex flex-col transition-all duration-300 hover:-translate-y-1 ${
-        isHero ? "md:flex-row max-w-4xl" : ""
+        isHero ? "md:flex-row max-w-5xl w-full" : ""
       }`}
       style={{
         background: 'linear-gradient(180deg, #ffffff 0%, #f8fbff 100%)',
@@ -142,7 +142,7 @@ const DoctorCard = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) => 
     >
       <div
         className={`relative overflow-hidden shrink-0 ${
-          isHero ? "w-full md:w-[35%] min-h-[260px] md:min-h-[300px]" : "h-64 sm:h-72"
+          isHero ? "w-full md:w-[46%] lg:w-[48%] min-h-[380px] md:min-h-[460px] lg:min-h-[520px]" : "h-64 sm:h-72"
         } bg-gradient-to-b from-sky-50 to-sky-100/50`}
       >
         <img
@@ -150,7 +150,7 @@ const DoctorCard = ({ doc, isHero = false }: { doc: any; isHero?: boolean }) => 
           alt={doc.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           style={{ 
-            objectPosition: doc.imagePosition || "top"
+            objectPosition: doc.imagePosition || "center 10%"
           }}
           onError={(e) => {
             e.currentTarget.src =
