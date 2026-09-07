@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   title: {
     default: "QXL Diagnostics Bengaluru | Doctor-Led NABL Accredited Lab",
-    template: "%s | QXL Diagnostics",
+    template: "%s",
   },
   alternates: {
     canonical: "https://qxldiagnostics.com",

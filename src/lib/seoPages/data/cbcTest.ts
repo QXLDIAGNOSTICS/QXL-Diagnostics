@@ -32,7 +32,7 @@ export const cbcTest: SeoLandingData = {
     "A CBC (Complete Blood Count) measures haemoglobin, red blood cells, white blood cells and platelets, plus derived indices like MCV, MCH and MCHC. It detects anaemia, identifies infections and inflammation, and may identify cellular abnormalities requiring further clinical evaluation. At QXL Diagnostics Bangalore it requires no fasting, takes minutes to collect at home, and is reported the same day.",
 
   aiOverviewPoints: [
-    "24+ Parameters in One Test",
+    "26 Parameters in One Test",
     "No Fasting Needed",
     "Same-Day Digital Report",
     "Pathologist-Reviewed Abnormal Smears",

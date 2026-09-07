@@ -239,7 +239,6 @@ export default function CentersPage() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-50/50">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(centersJsonLd) }} />
-      <Header />
 
       {/* Page Hero */}
       <section className="py-6 sm:py-8 bg-white border-b border-slate-100 flex-shrink-0">
@@ -480,7 +479,6 @@ export default function CentersPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

@@ -49,7 +49,7 @@ export default function PopularPackagesGrid() {
       <div className="max-w-[1200px] mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="bg-blue-100 text-blue-900 border border-blue-200 font-extrabold text-xs px-3.5 py-1 rounded-full uppercase tracking-wider">
-            NABL CERTIFIED (MC-6849)
+            NABL ACCREDITED (MC-6849)
           </span>
           <h2 className="text-3xl font-black text-[#0f2d5e] mt-2">All Doctor-Curated Health Checkup Packages</h2>
           <p className="text-slate-600 text-sm mt-1 font-semibold">
@@ -188,7 +188,7 @@ export default function PopularPackagesGrid() {
                 <div className="text-right text-xs font-bold text-slate-600 space-y-1">
                   <div className="flex items-center gap-1.5 justify-end text-emerald-700 font-extrabold">
                     <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                    <span>NABL Certified (MC-6849)</span>
+                    <span>NABL Accredited (MC-6849)</span>
                   </div>
                   <p className="text-[11px] text-slate-500 font-medium">Free Doorstep Home Collection</p>
                 </div>

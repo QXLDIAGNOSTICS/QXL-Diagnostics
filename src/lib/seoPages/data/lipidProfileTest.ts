@@ -5,6 +5,8 @@ export const lipidProfileTest: SeoLandingData = {
   breadcrumbLabel: "Lipid Profile Test",
   pageType: "test",
   medicalTestName: "Lipid Profile Test",
+  price: 336,
+  originalPrice: 600,
   heroBadge: "Complete Cholesterol Panel | Fasting Preferred | Home Collection",
   h1Lead: "Lipid Profile Test in Bangalore —",
   h1Highlight: "Know Your Heart Risk Before It Knows You",

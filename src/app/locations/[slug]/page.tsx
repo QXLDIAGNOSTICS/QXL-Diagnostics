@@ -312,7 +312,7 @@ export default async function CombinedLocationPage({ params }: Props) {
                     </div>
                     <div>
                       <h3 className="font-extrabold text-slate-800 text-sm mb-1">Cold-Chain Transportation</h3>
-                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Samples collected in {areaLoc.name} are preserved in temperature-controlled cooler kits to ensure 100% precision.</p>
+                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Samples collected in {areaLoc.name} are preserved in temperature-controlled cooler kits to support specimen stability during transit.</p>
                     </div>
                   </div>
 

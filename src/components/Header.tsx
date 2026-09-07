@@ -243,10 +243,10 @@ export default function Header() {
           <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] w-max cursor-pointer" style={{ animationDuration: '45s' }}>
             {[1, 2].map((repeatKey) => (
               <div key={repeatKey} className="flex items-center gap-4 shrink-0 mr-8">
-                <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">NABL CERTIFIED ({NABL_CERTIFICATE})</span>
+                <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">NABL ACCREDITED ({NABL_CERTIFICATE})</span>
                 <span className="text-sky-100 font-bold">•</span>
                 <div className="brand-strip text-[11px] font-black !text-white inline-flex items-center gap-1 m-0 p-0">
-                  <span>Doctor-Led NABL Certified Diagnostic Lab in Bengaluru</span>
+                  <span>Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</span>
                 </div>
                 <span className="text-sky-100 font-bold">•</span>
                 <span className="text-white text-[11px] font-black">300+ Tests &amp; Preventive Checkup Packages</span>
@@ -865,33 +865,7 @@ export default function Header() {
             </span>
           </Link>
 
-          {/* Tab 3: Chat (Center Floating 3D Spheres Orb) */}
-          <button
-            type="button"
-            onClick={() => {
-              setIsAiModalOpen(false);
-              window.dispatchEvent(new CustomEvent('openAiChat'));
-            }}
-            className="flex flex-col items-center justify-center flex-1 relative -top-3 active:scale-95 transition-transform cursor-pointer group"
-            aria-label="Open AI Health Chat"
-          >
-            <div className="w-13 h-13 rounded-full bg-white p-1 shadow-[0_6px_20px_rgba(14,165,233,0.35)] border-2 border-sky-300 flex items-center justify-center relative group-hover:scale-105 transition-transform">
-              {/* Overlapping 3D spheres orb */}
-              <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-sky-400 via-cyan-300 to-[#0f2d5e] relative overflow-hidden flex items-center justify-center shadow-inner">
-                {/* Cyan sphere */}
-                <div className="absolute top-1 left-1 w-6 h-6 rounded-full bg-gradient-to-tr from-sky-400 to-cyan-100 opacity-90 blur-[0.5px]" />
-                {/* Blue sphere */}
-                <div className="absolute bottom-1 right-1 w-6.5 h-6.5 rounded-full bg-gradient-to-tr from-[#0f2d5e] to-sky-600 opacity-90 blur-[0.5px]" />
-                {/* Orange center sphere */}
-                <div className="absolute top-3 left-4 w-3.5 h-3.5 rounded-full bg-gradient-to-tr from-amber-500 to-orange-300 shadow-sm border border-amber-200/60 z-10 animate-pulse" />
-              </div>
-            </div>
-            <span className="text-[11px] font-black text-[#0f2d5e] tracking-tight mt-0.5">
-              Chat
-            </span>
-          </button>
-
-          {/* Tab 4: Bookings */}
+          {/* Tab 3: Bookings */}
           <Link
             href="/book"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
@@ -901,6 +875,19 @@ export default function Header() {
             <Calendar className={`w-5.5 h-5.5 ${pathname?.startsWith('/book') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/book') ? 2.4 : 1.8} />
             <span className={`text-[10.5px] ${pathname?.startsWith('/book') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
               Bookings
+            </span>
+          </Link>
+
+          {/* Tab 4: Reports */}
+          <Link
+            href="/report"
+            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
+              pathname?.startsWith('/report') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+            }`}
+          >
+            <FileText className={`w-5.5 h-5.5 ${pathname?.startsWith('/report') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/report') ? 2.4 : 1.8} />
+            <span className={`text-[10.5px] ${pathname?.startsWith('/report') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
+              Reports
             </span>
           </Link>
 

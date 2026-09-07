@@ -6,7 +6,7 @@ import { useAuth } from '../../lib/useAuth';
 import RazorpayCheckoutButton from '../../components/RazorpayCheckoutButton';
 import { trackChatGPTBookingStart, trackChatGPTBookingCompleted } from '../../lib/chatgptAnalytics';
 import { matchMasterItem, MASTER_CATALOGUE } from '@/lib/masterCatalogue';
-import { parseCartItems } from '@/lib/cart';
+import { parseCartItems, addItemToCart, removeItemFromCart, type CartItem } from '@/lib/cart';
 
 
 type CatalogEntry = {
@@ -481,15 +481,56 @@ export default function BookPage() {
         const existingIds = new Set(prev.map(p => p.id));
         const updated = [...prev, ...matches.filter(m => !existingIds.has(m.id))];
         try {
-          const cartNames = updated.map(u => u.name);
-          localStorage.setItem('qxl_cart', JSON.stringify(cartNames));
-          window.dispatchEvent(new CustomEvent('cartChange'));
+          const cartObjects: CartItem[] = updated.map(u => ({
+            id: u.id,
+            name: u.name,
+            price: u.price || 0,
+            fasting: 'No fasting required',
+            tat: 'Report in 6 hours',
+          }));
+          localStorage.setItem('qxl_cart', JSON.stringify(cartObjects));
+          window.dispatchEvent(new CustomEvent('cartChange', { detail: { items: cartObjects } }));
         } catch {}
         return updated;
       });
     }
     setUnmatchedRecommended(unmatched);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [catalog]);
+
+  // Keep selectedItems reactive to global cartChange events
+  useEffect(() => {
+    const handleCartSync = () => {
+      const cartObjects = parseCartItems(localStorage.getItem('qxl_cart'));
+      if (cartObjects.length === 0) {
+        setSelectedItems([]);
+        return;
+      }
+      setSelectedItems(prev => {
+        const currentIds = new Set(prev.map(p => p.id));
+        const currentNames = new Set(prev.map(p => p.name.toLowerCase()));
+        
+        // If exact count and names match, preserve existing detailed entries
+        if (prev.length === cartObjects.length && cartObjects.every(c => currentNames.has(c.name.toLowerCase()) || currentIds.has(c.id))) {
+          return prev;
+        }
+
+        return cartObjects.map(c => {
+          const match = prev.find(p => p.id === c.id || p.name.toLowerCase() === c.name.toLowerCase()) || findCatalogMatch(c.name, catalog);
+          if (match) return match;
+          return {
+            id: c.id,
+            name: c.name,
+            kind: 'test' as const,
+            price: c.price,
+            home_collection_available: true,
+          };
+        });
+      });
+    };
+
+    window.addEventListener('cartChange', handleCartSync);
+    return () => window.removeEventListener('cartChange', handleCartSync);
   }, [catalog]);
 
   useEffect(() => {
@@ -532,29 +573,22 @@ export default function BookPage() {
     setSelectedItems(prev => (prev.some(p => p.id === item.id) ? prev : [...prev, item]));
     setTestInput('');
     setShowSuggestions(false);
-    try {
-      const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
-      if (!cart.includes(item.name)) {
-        cart.push(item.name);
-        localStorage.setItem('qxl_cart', JSON.stringify(cart));
-        window.dispatchEvent(new CustomEvent('cartChange'));
-      }
-    } catch {}
+    addItemToCart({
+      id: item.id,
+      name: item.name,
+      price: item.price || 0,
+      fasting: 'No fasting required',
+      tat: 'Report in 6 hours',
+    });
   };
 
   const removeItem = (id: string) => {
-    setSelectedItems(prev => {
-      const target = prev.find(i => i.id === id);
-      if (target) {
-        try {
-          const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
-          const updated = cart.filter((item: string) => item !== target.name);
-          localStorage.setItem('qxl_cart', JSON.stringify(updated));
-          window.dispatchEvent(new CustomEvent('cartChange'));
-        } catch {}
-      }
-      return prev.filter(i => i.id !== id);
-    });
+    const target = selectedItems.find(i => i.id === id);
+    if (target) {
+      removeItemFromCart(target.name);
+      removeItemFromCart(target.id);
+    }
+    setSelectedItems(prev => prev.filter(i => i.id !== id));
   };
 
   // Tests/packages in the current selection that can't be home-collected —

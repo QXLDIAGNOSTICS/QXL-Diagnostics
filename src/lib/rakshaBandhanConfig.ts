@@ -80,7 +80,7 @@ export function campaignSecondsRemaining(config?: Pick<RakshaCampaignConfig, 'en
 export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
   // ── Campaign window ────────────────────────────────────────────────────────
   startsAt: "2026-08-01T00:00:00+05:30",
-  endsAt:   "2027-12-31T23:59:59+05:30",
+  endsAt:   "2026-08-31T23:59:59+05:30",
   // ──────────────────────────────────────────────────────────────────────────
   campaignBadge: "SPECIAL PREVENTIVE HEALTH OFFER",
   heroHeadline: "Gift Your Family the Gift of Good Health.",

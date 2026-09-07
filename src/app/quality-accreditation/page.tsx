@@ -137,7 +137,6 @@ export default function QualityAccreditationPage() {
     <main className="bg-slate-50 min-h-screen text-slate-900 font-sans">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(qualitySchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <Header />
 
       {/* Header Banner */}
       <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-16 border-b border-sky-900 relative overflow-hidden">
@@ -296,7 +295,6 @@ export default function QualityAccreditationPage() {
       </section>
 
       <FaqSection />
-      <Footer />
     </main>
   );
 }
