@@ -453,10 +453,10 @@ export default function Header() {
           <div className="flex items-center gap-3 sm:gap-4 min-w-0 shrink">
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="w-9 h-9 rounded-full flex items-center justify-center text-slate-800 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
+              className="w-9.5 h-9.5 rounded-full flex items-center justify-center text-slate-800 hover:bg-slate-100 active:scale-95 transition-transform cursor-pointer shrink-0"
               aria-label="Open Navigation Menu"
             >
-              <Menu className="w-6 h-6 text-[#0f2d5e]" strokeWidth={2.4} />
+              <Menu className="w-6.5 h-6.5 text-[#0f2d5e]" strokeWidth={2.4} />
             </button>
 
             <Link href="/" className="flex items-center py-1 shrink-0">
@@ -475,14 +475,14 @@ export default function Header() {
           </div>
 
           {/* Right Side: Language Pill, Cart */}
-          <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-            {/* Language Switcher Pill */}
+          <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+            {/* Language Switcher Pill (Solid Navy Button like screenshot) */}
             <LanguageSwitcher variant="pill" />
 
-            {/* Cart Icon */}
+            {/* Cart Icon (Circular Sky Blue Tint Button) */}
             <Link
               href="/book"
-              className="w-9.5 h-9.5 rounded-full bg-slate-100 border border-slate-200/90 flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer shadow-2xs"
+              className="w-9.5 h-9.5 rounded-full bg-[#EBF3FC] border border-[#D5E5F7] flex items-center justify-center text-[#0f2d5e] relative active:scale-95 transition-transform shrink-0 cursor-pointer shadow-2xs"
               aria-label="View Cart"
             >
               <ShoppingCart className="w-4.5 h-4.5 text-[#0f2d5e]" strokeWidth={2.0} />
@@ -496,7 +496,7 @@ export default function Header() {
         </div>
 
         {/* Line 2: Location Selector + Phone Support Strip */}
-        <div className="bg-slate-50/95 border-t border-slate-200/70 px-4 py-2 flex items-center justify-between text-xs w-full">
+        <div className="bg-[#FAFBFD] border-t border-slate-200/60 px-3.5 py-1.5 flex items-center justify-between text-xs w-full">
           {/* Location Selector Pill */}
           <button
             type="button"
@@ -505,10 +505,10 @@ export default function Header() {
             aria-label="Change Location"
             title={location || "Bangalore"}
           >
-            <div className="w-4 h-4 rounded-full bg-amber-100 flex items-center justify-center shrink-0 border border-amber-200">
-              <MapPin className="w-2.5 h-2.5 text-[#D69A18] shrink-0" />
+            <div className="w-4.5 h-4.5 rounded-full bg-[#FFF5E5] flex items-center justify-center shrink-0 border border-[#FDE6C2]">
+              <MapPin className="w-3 h-3 text-[#D69A18] shrink-0" />
             </div>
-            <span className="truncate max-w-[120px] xs:max-w-[160px] font-black text-[#0f2d5e]">
+            <span className="truncate max-w-[120px] xs:max-w-[160px] font-extrabold text-[#0f2d5e]">
               {isMounted ? getShortLocationName(location) : "Bengaluru"}
             </span>
             <ChevronDown className="w-3 h-3 text-[#D69A18] shrink-0" />
@@ -517,10 +517,12 @@ export default function Header() {
           {/* Phone Number Display */}
           <a
             href="tel:+919964639639"
-            className="flex items-center gap-1.5 text-[11.5px] font-extrabold text-[#0B2545] hover:text-[#D69A18] transition-colors bg-white/80 border border-slate-200/60 px-2.5 py-1 rounded-full shadow-2xs"
+            className="flex items-center gap-1.5 text-[11.5px] font-extrabold text-[#0B2545] hover:text-[#D69A18] transition-colors bg-white border border-slate-200/80 px-3 py-1 rounded-full shadow-2xs"
           >
-            <Phone className="w-3 h-3 text-amber-500 fill-amber-500 shrink-0" />
-            <span className="tracking-tight">+91 9964 639 639</span>
+            <div className="w-4.5 h-4.5 rounded-full bg-[#FFF5E5] flex items-center justify-center shrink-0 border border-[#FDE6C2]">
+              <Phone className="w-2.5 h-2.5 text-[#D69A18] fill-[#D69A18] shrink-0" />
+            </div>
+            <span className="tracking-tight font-black text-[#0B2545]">+91 9964 639 639</span>
           </a>
         </div>
       </div>
@@ -830,13 +832,13 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs: Home | Tests | Chat (Floating Orb) | Bookings | Profile) ── */}
+      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs: Home | Tests | Bookings | Reports | Profile) ── */}
       <div
         className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col bg-white rounded-t-2xl border-t border-slate-200/80 shadow-[0_-6px_25px_rgba(0,0,0,0.12)]"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         <nav
-          className="flex justify-between items-center h-[64px] px-2 relative max-w-md mx-auto w-full"
+          className="flex justify-between items-center h-[60px] px-2 relative max-w-md mx-auto w-full"
           aria-label="Mobile navigation"
         >
           {/* Tab 1: Home */}
@@ -846,7 +848,7 @@ export default function Header() {
               pathname === '/' ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
             }`}
           >
-            <Home className={`w-5.5 h-5.5 ${pathname === '/' ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname === '/' ? 2.4 : 1.8} />
+            <Home className={`w-5 h-5 ${pathname === '/' ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname === '/' ? 2.4 : 1.8} />
             <span className={`text-[10.5px] ${pathname === '/' ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
               Home
             </span>
@@ -859,35 +861,70 @@ export default function Header() {
               pathname?.startsWith('/tests') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
             }`}
           >
-            <Microscope className={`w-5.5 h-5.5 ${pathname?.startsWith('/tests') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/tests') ? 2.4 : 1.8} />
+            <Microscope className={`w-5 h-5 ${pathname?.startsWith('/tests') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/tests') ? 2.4 : 1.8} />
             <span className={`text-[10.5px] ${pathname?.startsWith('/tests') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
               Tests
             </span>
           </Link>
 
-          {/* Tab 3: Bookings */}
-          <Link
-            href="/book"
-            className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-              pathname?.startsWith('/book') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
-            }`}
+          {/* Tab 3: Chat AI Assistant (Exact Glowing Cyan 3D Orb with Dark Navy & Gold Sphere) */}
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new CustomEvent('openAiChat'))}
+            className="flex flex-col items-center justify-center flex-1 h-full active:scale-95 transition-transform relative -top-3 cursor-pointer group"
+            aria-label="Open QXL Health AI Assistant"
           >
-            <Calendar className={`w-5.5 h-5.5 ${pathname?.startsWith('/book') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/book') ? 2.4 : 1.8} />
-            <span className={`text-[10.5px] ${pathname?.startsWith('/book') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
-              Bookings
-            </span>
-          </Link>
+            <div className="relative w-13 h-13 flex items-center justify-center group-hover:scale-105 transition-all">
+              <svg viewBox="0 0 100 100" className="w-13 h-13 drop-shadow-[0_4px_12px_rgba(56,189,248,0.55)]">
+                {/* Outer Cyan Ring */}
+                <circle cx="50" cy="50" r="46" fill="none" stroke="#38BDF8" strokeWidth="4" />
+                {/* Inner White Padding Ring */}
+                <circle cx="50" cy="50" r="43" fill="#FFFFFF" />
+                {/* Main Sky Blue Orb Base */}
+                <circle cx="50" cy="50" r="40" fill="url(#orbBg)" />
+                {/* Dark Navy Circle (Lower Right) */}
+                <circle cx="56" cy="56" r="23" fill="url(#darkNavy)" />
+                {/* Gold Sphere (Upper Center) */}
+                <circle cx="50" cy="42" r="11" fill="url(#goldSphere)" opacity="0.9" />
+                {/* Glass Shine (Top Left Crescent) */}
+                <path d="M 18,36 A 38,38 0 0,1 78,32 C 60,48 30,48 18,36 Z" fill="url(#shineGrad)" opacity="0.6" />
 
-          {/* Tab 4: Reports */}
+                <defs>
+                  <linearGradient id="orbBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#7DD3FC" />
+                    <stop offset="45%" stopColor="#38BDF8" />
+                    <stop offset="100%" stopColor="#0284C7" />
+                  </linearGradient>
+                  <linearGradient id="darkNavy" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#1D4ED8" />
+                    <stop offset="100%" stopColor="#0F2D5E" />
+                  </linearGradient>
+                  <linearGradient id="goldSphere" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#F59E0B" />
+                    <stop offset="100%" stopColor="#D97706" />
+                  </linearGradient>
+                  <linearGradient id="shineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#FFFFFF" />
+                    <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <span className="text-[11px] font-extrabold text-[#0B2545] tracking-tight mt-0.5">
+              Chat
+            </span>
+          </button>
+
+          {/* Tab 4: Bookings */}
           <Link
-            href="/report"
+            href="/dashboard"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-              pathname?.startsWith('/report') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+              pathname?.startsWith('/dashboard') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
             }`}
           >
-            <FileText className={`w-5.5 h-5.5 ${pathname?.startsWith('/report') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/report') ? 2.4 : 1.8} />
-            <span className={`text-[10.5px] ${pathname?.startsWith('/report') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
-              Reports
+            <Calendar className={`w-5 h-5 ${pathname?.startsWith('/dashboard') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/dashboard') ? 2.4 : 1.8} />
+            <span className={`text-[10.5px] ${pathname?.startsWith('/dashboard') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
+              Bookings
             </span>
           </Link>
 
@@ -898,7 +935,7 @@ export default function Header() {
               (pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
             }`}
           >
-            <User className={`w-5.5 h-5.5 ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 2.4 : 1.8} />
+            <User className={`w-5 h-5 ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 2.4 : 1.8} />
             <span className={`text-[10.5px] ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
               Profile
             </span>
@@ -906,32 +943,7 @@ export default function Header() {
         </nav>
       </div>
 
-      {/* ── QXL HEALTH AI ASSISTANT MODAL OVERLAY ── */}
-      {isAiModalOpen && (
-        <div className="fixed inset-0 z-[100005] bg-white flex flex-col overflow-hidden animate-in fade-in duration-200">
-          <div className="bg-gradient-to-r from-[#D69A18] via-amber-600 to-amber-700 text-white p-3.5 flex items-center justify-between shadow-md shrink-0">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center text-white">
-                <Sparkles className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <h3 className="font-extrabold text-sm text-white leading-snug">QXL Health AI Assistant</h3>
-                <p className="text-[10px] text-amber-100 font-bold">24/7 Smart Symptom &amp; Diagnostic Advisor</p>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={() => setIsAiModalOpen(false)}
-              className="w-8 h-8 rounded-full bg-white/15 hover:bg-white/30 flex items-center justify-center text-white cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-          <div className="flex-1 overflow-y-auto">
-            <AiDiagnostics decorativeHeading={true} />
-          </div>
-        </div>
-      )}
+
 
       {/* Prescription Modal */}
       <PrescriptionModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />

@@ -324,17 +324,23 @@ export default function TestsPage() {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Link
-                      href={test.slug}
-                      className="bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-extrabold px-2.5 py-1.5 rounded-xl transition-all"
-                    >
-                      View Details
-                    </Link>
                     <button
+                      type="button"
                       onClick={() => handleAddToCart(test)}
-                      className="bg-[#2563eb] hover:bg-blue-700 text-white text-[11px] font-black px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-2xs hover:scale-105 active:scale-95 transition-all flex items-center gap-1"
+                      className="bg-slate-100 hover:bg-slate-200 text-[#0f2d5e] text-[11px] font-extrabold px-2.5 py-1.5 rounded-xl transition-all uppercase tracking-wider border border-slate-300"
                     >
-                      + Add
+                      Add to Cart
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        handleAddToCart(test);
+                        window.location.href = `/book?test=${encodeURIComponent(test.id || test.name)}`;
+                      }}
+                      className="bg-[#2563eb] hover:bg-blue-700 text-white text-[11px] font-black px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-2xs hover:scale-105 active:scale-95 transition-all flex items-center gap-1 cursor-pointer"
+                      style={{ color: '#ffffff' }}
+                    >
+                      Book Now
                     </button>
                   </div>
                 </div>

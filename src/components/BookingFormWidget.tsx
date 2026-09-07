@@ -386,6 +386,11 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
       const created: Booking[] = [];
       for (const item of currentSelected) {
         const isLocalFallback = item.id.startsWith('pkg-') || item.id.startsWith('test-');
+        const pad = (n: number) => String(n).padStart(2, '0');
+        const now = new Date();
+        const defaultDate = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+        const defaultTime = "09:00 AM - 12:00 PM";
+
         try {
           const booking = await api.bookings.create({
             patient_name: formData.name,
@@ -396,8 +401,8 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
             package_id: (!isLocalFallback && item.kind === 'package') ? item.id : undefined,
             collection_type: formData.collectionType,
             collection_address: formData.collectionType === 'home' ? formData.address || undefined : undefined,
-            preferred_date: formData.date,
-            preferred_time: formData.time,
+            preferred_date: formData.date || defaultDate,
+            preferred_time: formData.time || defaultTime,
             notes: formData.message || undefined,
           });
           created.push(booking);

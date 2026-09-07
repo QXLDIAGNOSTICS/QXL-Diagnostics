@@ -37,7 +37,7 @@ export default function StickyMobileCTA() {
         className="fixed bottom-[66px] left-3 right-3 z-[9995] lg:hidden"
       >
         <Link
-          href="/checkout"
+          href="/book"
           className="flex items-center justify-between bg-[#0f2d5e] text-white px-4 py-3 rounded-2xl shadow-xl border border-amber-400/40 active:scale-98 transition-all"
         >
           <div className="flex items-center gap-3">

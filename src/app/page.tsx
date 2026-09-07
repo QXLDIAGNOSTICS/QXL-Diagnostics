@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone, Sparkles, Microscope, Dna } from "lucide-react";
+import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone, Sparkles, Microscope, Dna, Search, Briefcase, Home as HomeIcon, Calendar } from "lucide-react";
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
 import { api } from '../lib/api';
@@ -961,11 +961,244 @@ export default function Home() {
       {/* ── UNIFIED RESPONSIVE HOMEPAGE PATIENT JOURNEY ── */}
       <div className="flex flex-col w-full">
 
-        {/* ── Hero Slider ── */}
-        <section className="pt-6 pb-4 relative group overflow-hidden">
+        {/* ── MOBILE ONLY UI/UX (lg:hidden) — STRICT MATCH TO USER SCREENSHOT ── */}
+        <div className="lg:hidden w-full bg-[#FAFBFD] px-4 pt-3 pb-4 space-y-4">
+          
+          {/* 1. Greeting Row */}
+          <div className="flex items-center justify-between">
+            <h1 className="text-[17px] font-extrabold text-[#0B2545] tracking-tight">
+              {greeting}, welcome to QXL
+            </h1>
+            <div className="bg-[#E6F8F0] border border-[#BBEBD6] text-[#008A52] font-black text-[10.5px] px-2.5 py-1 rounded-full flex items-center gap-1 shrink-0 shadow-2xs">
+              <span>✓ NABL MC-6849</span>
+            </div>
+          </div>
+
+          {/* 2. Search & Upload Prescription Bar */}
+          <div className="relative flex items-center w-full">
+            <div className="relative flex-1 flex items-center bg-white border border-slate-200/90 rounded-full px-4 py-2.5 shadow-xs focus-within:border-[#D69A18] focus-within:ring-2 focus-within:ring-[#D69A18]/20">
+              <Search className="w-5 h-5 text-slate-400 mr-2 shrink-0" />
+              <input
+                type="text"
+                placeholder="Search tests, health packages..."
+                className="w-full bg-transparent text-xs font-bold text-[#0f2d5e] placeholder:text-slate-400 focus:outline-none cursor-pointer"
+                onClick={() => {
+                  window.location.href = '/tests';
+                }}
+                readOnly
+              />
+              {/* Attached Upload Prescription Icon Button on the right */}
+              <Link
+                href="/upload-prescription"
+                className="w-9 h-9 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center relative active:scale-95 transition-transform shrink-0 ml-2 shadow-2xs"
+                title="Upload Prescription"
+              >
+                <FileText className="w-5 h-5 text-[#D69A18]" />
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white font-black text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
+                  +
+                </span>
+              </Link>
+            </div>
+          </div>
+
+          {/* 3. 4 Quick Action Cards (Horizontal Row of Vertical Rounded Pills) */}
+          <div className="grid grid-cols-4 gap-2 pt-1">
+            {/* Card 1: Book a Test */}
+            <Link
+              href="/tests"
+              className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
+            >
+              <div className="w-11 h-11 rounded-full bg-[#D69A18] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
+                <Microscope className="w-5.5 h-5.5 text-white" />
+              </div>
+              <span className="text-[11px] font-extrabold text-[#0B2545] leading-tight">
+                Book a Test
+              </span>
+            </Link>
+
+            {/* Card 2: Upload Prescription */}
+            <Link
+              href="/upload-prescription"
+              className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
+            >
+              <div className="w-11 h-11 rounded-full bg-[#D69A18] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
+                <FileText className="w-5.5 h-5.5 text-white" />
+              </div>
+              <span className="text-[11px] font-extrabold text-[#0B2545] leading-tight">
+                Upload Prescription
+              </span>
+            </Link>
+
+            {/* Card 3: Home Sample */}
+            <Link
+              href="/home-collection"
+              className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
+            >
+              <div className="w-11 h-11 rounded-full bg-[#D69A18] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
+                <HomeIcon className="w-5.5 h-5.5 text-white" />
+              </div>
+              <span className="text-[11px] font-extrabold text-[#0B2545] leading-tight">
+                Home Sample
+              </span>
+            </Link>
+
+            {/* Card 4: Packages */}
+            <Link
+              href="/packages"
+              className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
+            >
+              <div className="w-11 h-11 rounded-full bg-[#D69A18] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
+                <Briefcase className="w-5.5 h-5.5 text-white" />
+              </div>
+              <span className="text-[11px] font-extrabold text-[#0B2545] leading-tight">
+                Packages
+              </span>
+            </Link>
+          </div>
+
+          {/* 4. Popular Tests Section */}
+          <div className="pt-2">
+            {/* Section Header */}
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <h2 className="text-[18px] font-black text-[#0B2545] tracking-tight">
+                  Popular Tests
+                </h2>
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => scrollPackages('left')}
+                    className="w-6.5 h-6.5 rounded-full border border-[#F3DBA7] text-[#D69A18] flex items-center justify-center hover:bg-[#FFF8EB] text-sm font-black"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => scrollPackages('right')}
+                    className="w-6.5 h-6.5 rounded-full border border-[#F3DBA7] text-[#D69A18] flex items-center justify-center hover:bg-[#FFF8EB] text-sm font-black"
+                  >
+                    ›
+                  </button>
+                </div>
+              </div>
+
+              <Link
+                href="/tests"
+                className="text-[12px] font-extrabold text-[#0B2545] hover:text-[#D69A18] flex items-center gap-0.5"
+              >
+                View All 300+ Tests ›
+              </Link>
+            </div>
+
+            {/* 2x2 Grid of Test Cards matching reference image */}
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                {
+                  id: "cbc-test",
+                  name: "CBC",
+                  sub: "Complete Blood Count",
+                  tat: "Report in 6 hours",
+                  fasting: "No Fasting",
+                  price: 299,
+                  originalPrice: 800
+                },
+                {
+                  id: "thyroid-tsh",
+                  name: "Thyroid (TSH)",
+                  sub: "Total T3, T4 & TSH Profile",
+                  tat: "Report in 6 hours",
+                  fasting: "No Fasting",
+                  price: 399,
+                  originalPrice: 1100
+                },
+                {
+                  id: "hba1c-test",
+                  name: "HbA1c",
+                  sub: "Glycated Hemoglobin · A1c",
+                  tat: "Report in 6 hours",
+                  fasting: "No Fasting",
+                  price: 399,
+                  originalPrice: 1200
+                },
+                {
+                  id: "vitamin-d-total",
+                  name: "Vitamin D Total",
+                  sub: "25-OH Hydroxy Vit D3",
+                  tat: "Report in 24 hours",
+                  fasting: "No Fasting",
+                  price: 899,
+                  originalPrice: 2400
+                }
+              ].map((test) => {
+                const isAdded = cartItems.includes(test.name.toLowerCase()) || cartItems.includes(test.id);
+                return (
+                  <div
+                    key={test.id}
+                    className="bg-white border border-slate-200/90 rounded-3xl p-3.5 flex flex-col justify-between shadow-xs hover:border-[#D69A18] transition-all relative"
+                  >
+                    {/* Top row: Test title & Fasting Badge */}
+                    <div>
+                      <div className="flex items-start justify-between gap-1 mb-1">
+                        <h3 className="font-extrabold text-[15px] text-[#0B2545] leading-tight">
+                          {test.name}
+                        </h3>
+                        <span className="bg-[#FFF5E5] text-[#D69A18] font-bold text-[9px] px-2 py-0.5 rounded-full shrink-0 border border-[#FDE6C2]">
+                          {test.fasting}
+                        </span>
+                      </div>
+
+                      <p className="text-[11px] text-slate-500 font-semibold mb-2 leading-tight">
+                        {test.sub}
+                      </p>
+
+                      {/* Turnaround Time */}
+                      <div className="flex items-center gap-1 text-[10.5px] font-extrabold text-sky-600 mb-3">
+                        <span className="text-amber-500">⚡</span>
+                        <span>{test.tat}</span>
+                      </div>
+                    </div>
+
+                    {/* Price & Add Button Row */}
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-100 mt-auto">
+                      <div className="flex items-baseline gap-1">
+                        <span className="text-[15px] font-black text-[#0B2545]">
+                          ₹{test.price}
+                        </span>
+                        <span className="text-[11px] text-slate-400 line-through font-semibold">
+                          ₹{test.originalPrice}
+                        </span>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          addItemToCart({
+                            id: test.id,
+                            name: test.name,
+                            price: test.price,
+                            fasting: test.fasting,
+                            tat: test.tat
+                          });
+                          window.location.href = `/book?test=${encodeURIComponent(test.id || test.name)}`;
+                        }}
+                        className="bg-[#D69A18] hover:bg-[#b88313] text-white px-4 py-1.5 rounded-2xl font-black text-xs transition-all shadow-xs flex items-center gap-1 active:scale-95 cursor-pointer"
+                        style={{ color: '#ffffff' }}
+                      >
+                        <span>Book</span>
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* ── DESKTOP ONLY Hero Slider Section (hidden lg:block) ── */}
+        <section className="hidden lg:block pt-3 sm:pt-6 pb-4 relative group overflow-hidden">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div
-              className="relative rounded-[28px] overflow-hidden flex flex-col md:flex-row min-h-[360px] md:h-[420px] shadow-sm border border-slate-200/90 bg-white"
+              className="relative rounded-[24px] sm:rounded-[28px] overflow-hidden flex flex-col md:flex-row min-h-[360px] md:h-[420px] shadow-sm border border-slate-200/90 bg-white"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -975,7 +1208,7 @@ export default function Home() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.7 }}
+                  transition={{ duration: 0.5 }}
                   className="relative md:absolute inset-0 w-full h-full flex flex-col md:flex-row bg-white"
                 >
                   {activeSlide?.imageOnly ? (
@@ -984,7 +1217,7 @@ export default function Home() {
                       <motion.div
                         initial={{ opacity: 0, scale: 1.02 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.7 }}
+                        transition={{ duration: 0.5 }}
                         className="absolute inset-0 w-full h-full bg-white"
                       >
                         <Image
@@ -1016,8 +1249,8 @@ export default function Home() {
                           </span>
                         </div>
 
-                        {/* Title matching Image 2 */}
-                        <h1 className="text-[26px] sm:text-[32px] md:text-[36px] leading-[1.1] font-black text-[#0f2d5e] mb-2 pr-2">
+                        {/* Title */}
+                        <h1 className="text-[24px] sm:text-[32px] md:text-[36px] leading-[1.1] font-black text-[#0f2d5e] mb-2 pr-2">
                           {activeSlide.title} <span className="text-[#D69A18]">{activeSlide.titleAccent}</span>
                         </h1>
 
@@ -1026,7 +1259,7 @@ export default function Home() {
                           {activeSlide.subtitle}
                         </p>
 
-                        {/* 4 Feature Pills matching Image 2 bottom row */}
+                        {/* Feature Pills */}
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
                           {activeSlide.features.slice(0, 4).map((f: string, i: number) => (
                             <div
@@ -1062,38 +1295,18 @@ export default function Home() {
 
                       </motion.div>
 
-                      {/* Image / Decorative — right side on desktop (50% width uncropped container) */}
+                      {/* Image — right side */}
                       <motion.div
                         initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
                         className="relative md:absolute top-0 right-0 bottom-0 w-full md:w-[50%] h-[200px] sm:h-[240px] md:h-full z-10 flex items-center justify-center overflow-hidden rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none p-2 sm:p-3 bg-white"
                       >
-                        {activeSlide.noImage ? (
-                          <div className="flex flex-col items-center justify-center w-full h-full px-6 text-center gap-3">
-                            {/* Pookkalam flower motif */}
-                            <div className="text-[72px] leading-none select-none" aria-hidden="true">🌸</div>
-                            <div className="flex gap-1.5 flex-wrap justify-center">
-                              {['🌼','🪔','🌺','🌸','🌼','🌺','🪔'].map((e, i) => (
-                                <span key={i} className="text-[22px]">{e}</span>
-                              ))}
-                            </div>
-                            <p className="text-[13px] font-extrabold text-amber-700 tracking-wide uppercase mt-1">Wishing you a joyous</p>
-                            <p className="text-[28px] font-black text-[#0f2d5e] leading-tight">Happy Onam!</p>
-                            <div className="flex gap-2 mt-1 flex-wrap justify-center">
-                              {['🌼','🌿','🌼','🌿','🌼'].map((e, i) => (
-                                <span key={i} className="text-[18px]">{e}</span>
-                              ))}
-                            </div>
-                            <p className="text-[11px] text-slate-500 font-semibold mt-1">QXL Diagnostics Super Speciality Lab</p>
-                          </div>
-                        ) : (
-                          <img
-                            src={activeSlide.image}
-                            alt={activeSlide.title}
-                            className="w-full h-full object-cover object-center rounded-2xl shadow-sm"
-                          />
-                        )}
+                        <img
+                          src={activeSlide.image}
+                          alt={activeSlide.title || "QXL Diagnostics"}
+                          className="w-full h-full object-cover object-center rounded-2xl shadow-sm"
+                        />
                       </motion.div>
                     </React.Fragment>
                   )}
@@ -1118,18 +1331,6 @@ export default function Home() {
 
             </div>
           </div>
-    
-          {/* Spatial Liquid Glass Arrow Buttons */}
-          <button onClick={handlePrev}
-            aria-label="Previous hero slide"
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-xl border border-white/30 shadow-xl shadow-sky-500/30 hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group">
-            <ChevronLeft className="w-5 h-5 text-white" />
-          </button>
-          <button onClick={handleNext}
-            aria-label="Next hero slide"
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-40 w-11 h-11 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-xl border border-white/30 shadow-xl shadow-sky-500/30 hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer group">
-            <ChevronRight className="w-5 h-5 text-white" />
-          </button>
         </section>
 
         {/* ── Action Cards — Warm Gold Amber Theme & Larger Buttons ── */}
@@ -1311,21 +1512,38 @@ export default function Home() {
                             </p>
                           </div>
 
-                          {/* TWO BUTTONS Row */}
+                          {/* TWO BUTTONS Row: ADD TO CART & BOOK NOW */}
                           <div className="grid grid-cols-2 gap-2 pt-0.5 mt-auto">
                             <button
                               type="button"
-                              onClick={() => setSelectedPackage(pkg)}
-                              className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e]/5 font-black py-2 px-2 rounded-xl text-[10.5px] sm:text-[11px] transition-colors cursor-pointer"
+                              onClick={() => {
+                                handleToggleCart(pkg);
+                              }}
+                              className={`w-full text-center border-2 font-black py-2 px-2 rounded-xl text-[10.5px] sm:text-[11px] transition-all cursor-pointer uppercase tracking-wider active:scale-95 ${
+                                cartItems.includes((pkg.name || '').toLowerCase()) || cartItems.includes((pkg.id || '').toLowerCase())
+                                  ? 'border-emerald-600 bg-emerald-50 text-emerald-700'
+                                  : 'border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e] hover:text-white'
+                              }`}
                             >
-                              View Details
+                              {cartItems.includes((pkg.name || '').toLowerCase()) || cartItems.includes((pkg.id || '').toLowerCase()) ? "✓ ADDED" : "ADD TO CART"}
                             </button>
-                            <Link
-                              href={`/book?package=${encodeURIComponent(pkg.id || pkg.slug || 'q-full-body-80')}`}
-                              className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2 px-2 rounded-xl text-[10.5px] sm:text-[11px] shadow-xs hover:shadow-md transition-all uppercase tracking-wider active:scale-95 block"
+                            <button
+                              type="button"
+                              onClick={() => {
+                                addItemToCart({
+                                  id: pkg.id || pkg.slug,
+                                  name: pkg.name,
+                                  price: Number(pkg.price),
+                                  fasting: "8-10 Hours Fasting",
+                                  tat: "Reports within 12 hours"
+                                });
+                                window.location.href = `/book?package=${encodeURIComponent(pkg.id || pkg.slug || 'q-full-body-80')}`;
+                              }}
+                              className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2 px-2 rounded-xl text-[10.5px] sm:text-[11px] shadow-xs hover:shadow-md transition-all uppercase tracking-wider active:scale-95 block cursor-pointer"
+                              style={{ color: '#ffffff' }}
                             >
-                              Add to Cart
-                            </Link>
+                              BOOK NOW
+                            </button>
                           </div>
                         </div>
                       </div>

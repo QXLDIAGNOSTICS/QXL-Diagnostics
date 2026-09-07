@@ -33,8 +33,7 @@ export default function PopularPackagesGrid() {
       fasting: pkg.fastingHours || "8–10 Hours Fasting",
       tat: pkg.tat || "Reports within 6 hours",
     });
-    setAddedToast(pkg.name);
-    setTimeout(() => setAddedToast(null), 3000);
+    window.location.href = `/book?package=${encodeURIComponent(pkg.slug || pkg.id || pkg.name)}`;
   };
 
   return (

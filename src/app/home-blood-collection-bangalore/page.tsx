@@ -24,22 +24,15 @@ export const metadata: Metadata = {
 export default function HomeBloodCollectionPage() {
   return (
     <main className="bg-[#f8faff] min-h-screen text-slate-900">
-      {/* ── MOBILE VIEW (lg:hidden) — EXACT MATCH TO SCREENSHOT 3 ── */}
+      {/* ── MOBILE VIEW (lg:hidden) ── */}
       <div className="lg:hidden flex flex-col w-full pb-16">
-        {/* Mobile Amber Header (#D69A18) without duplicate back button */}
-        <div className="bg-[#D69A18] text-white p-3.5 px-4 shadow-md">
-          <span className="font-extrabold text-base tracking-wide text-white">Home Collection</span>
-        </div>
+        <Header />
 
-        {/* Hero & Feature Checklist (Matching Screenshot 3) */}
         <div className="max-w-md mx-auto p-4 flex flex-col gap-4">
-          {/* Phlebotomist Scooter Banner Illustration Card */}
+          {/* Phlebotomist Banner Illustration Card */}
           <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 rounded-3xl p-5 border border-[#F3DBA7] shadow-sm flex flex-col items-center text-center relative overflow-hidden">
-            {/* Scooter Visual Graphic */}
-            <div className="w-32 h-28 relative mb-3 flex items-center justify-center">
-              <div className="w-24 h-24 bg-[#FFF8EB] border-2 border-[#E9C47A] rounded-full flex items-center justify-center shadow-sm">
-                <span className="text-5xl">🛵</span>
-              </div>
+            <div className="w-24 h-24 bg-[#FFF8EB] border-2 border-[#E9C47A] rounded-full flex items-center justify-center shadow-sm mb-3">
+              <span className="text-5xl">🛵</span>
             </div>
 
             <h2 className="text-xl font-black text-slate-900 mb-1">Book Home Collection</h2>
@@ -47,7 +40,7 @@ export default function HomeBloodCollectionPage() {
               Safe, reliable and convenient sample collection from the comfort of your home.
             </p>
 
-            {/* Feature Checklist matching Screenshot 3 */}
+            {/* Feature Checklist */}
             <div className="w-full bg-white rounded-2xl p-3.5 border border-gray-150 shadow-xs space-y-2.5 text-left mb-4">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
@@ -69,19 +62,13 @@ export default function HomeBloodCollectionPage() {
               </div>
             </div>
 
-            {/* Schedule Home Collection Button (#D69A18) */}
+            {/* Schedule Button */}
             <a
               href="#mobile-booking-form"
               className="w-full bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md uppercase text-xs tracking-wider transition-all text-center"
             >
               Schedule Home Collection
             </a>
-
-            {/* Badge: 100% Safe & Hygienic */}
-            <div className="flex items-center gap-1.5 mt-3 text-[11px] font-extrabold text-amber-900 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200">
-              <ShieldCheck className="w-4 h-4 text-[#D69A18]" />
-              <span>100% Safe & Hygienic</span>
-            </div>
           </div>
 
           {/* Interactive Client Booking Form */}

@@ -478,8 +478,15 @@ export default function BookPage() {
 
     if (matches.length) {
       setSelectedItems(prev => {
-        const existingIds = new Set(prev.map(p => p.id));
-        const updated = [...prev, ...matches.filter(m => !existingIds.has(m.id))];
+        const existingNames = new Set(prev.map(p => p.name.toLowerCase()));
+        const uniqueMatches: CatalogEntry[] = [];
+        for (const m of matches) {
+          if (!existingNames.has(m.name.toLowerCase())) {
+            existingNames.add(m.name.toLowerCase());
+            uniqueMatches.push(m);
+          }
+        }
+        const updated = [...prev, ...uniqueMatches];
         try {
           const cartObjects: CartItem[] = updated.map(u => ({
             id: u.id,
@@ -510,12 +517,23 @@ export default function BookPage() {
         const currentIds = new Set(prev.map(p => p.id));
         const currentNames = new Set(prev.map(p => p.name.toLowerCase()));
         
+        // Deduplicate cartObjects by name
+        const uniqueCartObjects: CartItem[] = [];
+        const seenNames = new Set<string>();
+        for (const c of cartObjects) {
+          const norm = c.name.toLowerCase();
+          if (!seenNames.has(norm)) {
+            seenNames.add(norm);
+            uniqueCartObjects.push(c);
+          }
+        }
+
         // If exact count and names match, preserve existing detailed entries
-        if (prev.length === cartObjects.length && cartObjects.every(c => currentNames.has(c.name.toLowerCase()) || currentIds.has(c.id))) {
+        if (prev.length === uniqueCartObjects.length && uniqueCartObjects.every(c => currentNames.has(c.name.toLowerCase()) || currentIds.has(c.id))) {
           return prev;
         }
 
-        return cartObjects.map(c => {
+        return uniqueCartObjects.map(c => {
           const match = prev.find(p => p.id === c.id || p.name.toLowerCase() === c.name.toLowerCase()) || findCatalogMatch(c.name, catalog);
           if (match) return match;
           return {
@@ -667,6 +685,11 @@ export default function BookPage() {
       const created: Booking[] = [];
       for (const item of currentSelected) {
         const isLocalFallback = item.id.startsWith('pkg-') || item.id.startsWith('test-');
+        const pad = (n: number) => String(n).padStart(2, '0');
+        const now = new Date();
+        const defaultDate = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+        const defaultTime = "09:00 AM - 12:00 PM";
+
         try {
           const booking = await api.bookings.create({
             patient_name: formData.name,
@@ -677,8 +700,8 @@ export default function BookPage() {
             package_id: (!isLocalFallback && item.kind === 'package') ? item.id : undefined,
             collection_type: formData.collectionType,
             collection_address: formData.collectionType === 'home' ? formData.address || undefined : undefined,
-            preferred_date: formData.date,
-            preferred_time: formData.time,
+            preferred_date: formData.date || defaultDate,
+            preferred_time: formData.time || defaultTime,
           });
           created.push(booking);
         } catch (apiErr) {
@@ -1039,13 +1062,13 @@ export default function BookPage() {
                           </div>
                         )}
 
-                        <div className="mt-6 flex justify-between items-center">
+                        <div className="mt-6 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-3 pt-5 border-t border-slate-100">
                           <button
                             type="button"
                             onClick={() => setCurrentStep(1)}
-                            className="text-slate-500 hover:text-slate-800 font-extrabold text-xs uppercase tracking-wider"
+                            className="inline-flex items-center justify-center gap-1.5 border border-slate-200 hover:border-slate-400 bg-white text-slate-700 font-extrabold px-5 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer shadow-2xs whitespace-nowrap"
                           >
-                            ← Back to Tests
+                            <span>← Back to Tests</span>
                           </button>
                           <button
                             type="button"
@@ -1057,7 +1080,7 @@ export default function BookPage() {
                               setError(null);
                               setCurrentStep(3);
                             }}
-                            className="bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                            className="inline-flex items-center justify-center gap-1.5 bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer whitespace-nowrap"
                             style={{ color: '#ffffff' }}
                           >
                             <span className="!text-white font-extrabold" style={{ color: '#ffffff' }}>Continue to Collection Method →</span>
@@ -1170,13 +1193,13 @@ export default function BookPage() {
                           </div>
                         )}
 
-                        <div className="mt-6 flex justify-between items-center">
+                        <div className="mt-6 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-3 pt-5 border-t border-slate-100">
                           <button
                             type="button"
                             onClick={() => setCurrentStep(2)}
-                            className="text-slate-500 hover:text-slate-800 font-extrabold text-xs uppercase tracking-wider"
+                            className="inline-flex items-center justify-center gap-1.5 border border-slate-200 hover:border-slate-400 bg-white text-slate-700 font-extrabold px-5 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer shadow-2xs whitespace-nowrap"
                           >
-                            ← Back to Patient
+                            <span>← Back to Patient</span>
                           </button>
                           <button
                             type="button"
@@ -1188,7 +1211,7 @@ export default function BookPage() {
                               setError(null);
                               setCurrentStep(4);
                             }}
-                            className="bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                            className="inline-flex items-center justify-center gap-1.5 bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer whitespace-nowrap"
                             style={{ color: '#ffffff' }}
                           >
                             <span className="!text-white font-extrabold" style={{ color: '#ffffff' }}>Continue to Address & Slot →</span>
@@ -1306,13 +1329,13 @@ export default function BookPage() {
                           </div>
                         )}
 
-                        <div className="mt-6 flex justify-between items-center">
+                        <div className="mt-6 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-3 pt-5 border-t border-slate-100">
                           <button
                             type="button"
                             onClick={() => setCurrentStep(3)}
-                            className="text-slate-500 hover:text-slate-800 font-extrabold text-xs uppercase tracking-wider"
+                            className="inline-flex items-center justify-center gap-1.5 border border-slate-200 hover:border-slate-400 bg-white text-slate-700 font-extrabold px-5 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer shadow-2xs whitespace-nowrap"
                           >
-                            ← Back to Collection
+                            <span>← Back to Collection</span>
                           </button>
                           <button
                             type="button"
@@ -1328,7 +1351,7 @@ export default function BookPage() {
                               setError(null);
                               setCurrentStep(5);
                             }}
-                            className="bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-6 py-3 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                            className="inline-flex items-center justify-center gap-1.5 bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer whitespace-nowrap"
                             style={{ color: '#ffffff' }}
                           >
                             <span className="!text-white font-extrabold" style={{ color: '#ffffff' }}>Review & Confirm →</span>
@@ -1394,18 +1417,18 @@ export default function BookPage() {
                           </div>
                         )}
 
-                        <div className="flex justify-between items-center pt-2">
+                        <div className="mt-6 flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-3 pt-5 border-t border-slate-100">
                           <button
                             type="button"
                             onClick={() => setCurrentStep(4)}
-                            className="text-slate-500 hover:text-slate-800 font-extrabold text-xs uppercase tracking-wider"
+                            className="inline-flex items-center justify-center gap-1.5 border border-slate-200 hover:border-slate-400 bg-white text-slate-700 font-extrabold px-5 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer shadow-2xs whitespace-nowrap"
                           >
-                            ← Edit Slot / Address
+                            <span>← Edit Slot / Address</span>
                           </button>
                           <button 
                             type="submit" 
                             disabled={submitting}
-                            className="bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold py-3.5 px-7 rounded-xl shadow-lg transition-all text-xs uppercase tracking-widest disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2"
+                            className="inline-flex items-center justify-center gap-2 bg-[#D69A18] hover:bg-[#b88313] !text-white font-extrabold px-7 py-3.5 rounded-xl shadow-md transition-all text-xs uppercase tracking-widest disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap"
                             style={{ color: '#ffffff' }}
                           >
                             {submitting ? <Loader2 className="w-4 h-4 animate-spin" /> : null}

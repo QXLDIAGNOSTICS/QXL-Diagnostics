@@ -6,7 +6,7 @@ import { useAuth } from '@/lib/useAuth';
 import ChatPaymentCard, { type ChatPaymentOrder } from '@/components/ChatPaymentCard';
 import { useSiteSettings } from '@/lib/useSiteSettings';
 import ReactMarkdown from 'react-markdown';
-import { ShoppingCart, Phone, CalendarCheck, X, ChevronLeft, ChevronDown, ChevronUp } from 'lucide-react';
+import { ShoppingCart, Phone, CalendarCheck, X, ChevronLeft, ChevronDown, ChevronUp, Paperclip, Send, Globe, MessageSquareText } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { getPhoneE164 } from '@/lib/businessInfo';
 
@@ -481,21 +481,21 @@ export default function AiChat() {
       )}
 
 
-      {/* QXL AI assistant FAB & Ask Me Bubble Container (Desktop Only — Hidden on mobile per user request) */}
+      {/* QXL AI assis      {/* QXL AI assistant FAB & Ask Me Bubble Container (Desktop Only — Hidden on mobile per user request) */}
       {siteSettings.ai_chat_enabled && !isFABsHidden && !isOpen && (
         <div 
           className="hidden sm:flex fixed sm:bottom-[164px] sm:right-4 lg:bottom-[100px] lg:right-6 z-[10000] items-center transition-all duration-300 pointer-events-auto"
         >
           {/* Floating Ask me bubble */}
           {!isOpen && (
-            <div className="hidden sm:flex relative items-center mr-2.5 bg-[#2563eb] text-white text-[11px] font-black px-3 py-1.5 rounded-xl shadow-lg border border-white/40 whitespace-nowrap">
+            <div className="hidden sm:flex relative items-center mr-2.5 bg-gradient-to-r from-[#0b1b36] to-[#0f2d5e] text-white text-[11px] font-black px-3 py-1.5 rounded-xl shadow-xl border border-blue-400/40 whitespace-nowrap">
               Ask me
               <div 
                 className="absolute -right-1.5 top-1/2 -translate-y-1/2 w-0 h-0"
                 style={{
                   borderTop: '5px solid transparent',
                   borderBottom: '5px solid transparent',
-                  borderLeft: '7px solid #2563eb'
+                  borderLeft: '7px solid #0f2d5e'
                 }}
               />
             </div>
@@ -505,10 +505,10 @@ export default function AiChat() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="relative flex items-center justify-center w-14 h-14 rounded-full text-white shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0 border-2 border-white/60 group"
+            className="relative flex items-center justify-center w-14 h-14 rounded-full text-white shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0 border-2 border-blue-400/40 group"
             style={{ 
-              background: 'linear-gradient(135deg, #0284c7 0%, #2563eb 100%)',
-              boxShadow: '0 4px 25px rgba(37,99,235,0.5)',
+              background: 'linear-gradient(135deg, #0b1b36 0%, #0f2d5e 50%, #1e3a8a 100%)',
+              boxShadow: '0 4px 25px rgba(15, 45, 94, 0.7)',
             }}
             aria-label={isOpen ? "Close QXL AI chat" : "Open QXL AI assistant"}
             title="QXL AI Assistant"
@@ -555,17 +555,15 @@ export default function AiChat() {
             bottom: '136px',
             width: '42px',
             height: '42px',
-            background: 'linear-gradient(135deg, #38bdf8 0%, #0284c7 100%)',
-            border: '1.5px solid rgba(255, 255, 255, 0.4)',
-            boxShadow: '0 4px 16px rgba(14, 165, 233, 0.4)',
+            background: 'linear-gradient(135deg, #0f2d5e 0%, #1e3a8a 100%)',
+            border: '1.5px solid rgba(255, 255, 255, 0.3)',
+            boxShadow: '0 4px 16px rgba(15, 45, 94, 0.5)',
             zIndex: 1000,
           }}
         >
           <ChevronUp className="w-5 h-5 text-white" />
         </button>
       )}
-
-
 
       {/* Backdrop overlay when chat is open */}
       {isOpen && (
@@ -575,53 +573,54 @@ export default function AiChat() {
         />
       )}
 
-      {/* Chat Window — Floating Curved Card Widget with clearance above bottom navbar */}
+      {/* Chat Window — Deep Blue Top Header + Clean White Body Canvas */}
       {isOpen && (
-        <div className="fixed left-3 right-3 bottom-[82px] z-[100002] h-[calc(82vh-82px)] max-h-[78vh] rounded-[28px] sm:bottom-22 sm:right-6 sm:left-auto sm:w-[420px] sm:h-[620px] sm:max-h-[80vh] sm:rounded-3xl bg-white shadow-[0_16px_50px_rgba(0,0,0,0.22)] flex flex-col overflow-hidden border border-slate-200/90 animate-in slide-in-from-bottom duration-300">
-          {/* Chat Header — Clean Medical Blue Theme with Integrated Mobile Drag Pill */}
-          <div className="bg-gradient-to-r from-[#2563eb] to-[#0284c7] !text-white px-4 pt-2.5 pb-3.5 flex flex-col shrink-0 shadow-md rounded-t-[28px]">
+        <div className="fixed left-2 right-2 bottom-[68px] top-14 sm:top-auto sm:left-auto sm:right-6 sm:bottom-22 sm:w-[420px] sm:h-[620px] sm:max-h-[85vh] z-[100002] rounded-[28px] bg-white border border-slate-200 shadow-[0_25px_60px_rgba(0,0,0,0.25)] flex flex-col overflow-hidden animate-in slide-in-from-bottom duration-300">
+          {/* Chat Header — Solid Deep Navy/Blue Header */}
+          <div className="bg-[#0B2545] border-b border-[#134074] px-4 pt-3 pb-3 flex flex-col shrink-0 rounded-t-[28px]">
             {/* Mobile Drag Pill Handle */}
-            <div className="w-10 h-1 bg-white/40 rounded-full mx-auto mb-2 sm:hidden shrink-0 cursor-pointer hover:bg-white/60 transition-colors" onClick={() => setIsOpen(false)} />
+            <div className="w-10 h-1 bg-white/30 rounded-full mx-auto mb-2 sm:hidden shrink-0 cursor-pointer hover:bg-white/50" onClick={() => setIsOpen(false)} />
 
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 shrink-0">
-                  <div className="w-10 h-10 rounded-full bg-white/20 border-2 border-white/60 flex items-center justify-center text-white shadow-inner">
-                    <QxlAiIcon size={22} />
-                  </div>
-                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#2563eb]" />
+                <div className="w-10 h-10 rounded-full bg-blue-900/60 border-2 border-blue-400/50 flex items-center justify-center text-white shadow-inner shrink-0">
+                  <MessageSquareText className="w-5 h-5 text-white" />
                 </div>
-                <div>
-                  <div className="flex items-center gap-1.5">
-                    <h3 className="m-0 text-base font-black !text-white tracking-tight">QXL AI</h3>
-                    <span className="text-[9.5px] font-black !text-white bg-white/20 px-2 py-0.5 rounded-full tracking-wider uppercase border border-white/30 shadow-2xs">ASSISTANT</span>
+                <div className="flex flex-col justify-center">
+                  <div className="flex items-center gap-2">
+                    <h3 className="m-0 text-base font-black !text-white tracking-tight whitespace-nowrap" style={{ color: '#ffffff' }}>
+                      QXL AI
+                    </h3>
+                    <span className="text-[9.5px] font-black !text-white bg-[#1d4ed8] border border-blue-300/40 px-2 py-0.5 rounded-full uppercase tracking-wider whitespace-nowrap" style={{ color: '#ffffff' }}>
+                      ASSISTANT
+                    </span>
                   </div>
-                  <p className="m-0 text-[11px] !text-blue-100 font-semibold">● Online · Healthcare Agent</p>
+                  <p className="m-0 text-[11px] !text-blue-100 font-semibold mt-0.5 whitespace-nowrap" style={{ color: '#dbeafe' }}>
+                    Online · Healthcare Agent
+                  </p>
                 </div>
               </div>
               
               <div className="flex items-center gap-2">
                 {/* Language Dropdown */}
-                <div style={{ position: 'relative' }}>
+                <div className="relative">
                   <button 
                     onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
-                    style={{ background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.4)', color: 'white', cursor: 'pointer', padding: '4px 10px', borderRadius: '100px', fontSize: '11px', display: 'flex', alignItems: 'center', gap: '5px', fontWeight: 700 }}
+                    className="bg-white/15 border border-white/30 text-white cursor-pointer px-3 py-1.5 rounded-full text-[11px] font-bold flex items-center gap-1.5 hover:bg-white/25 transition-colors"
                     aria-label="Change Language"
                   >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <Globe className="w-3.5 h-3.5 text-blue-200" />
                     {selectedLanguage.split(' ')[0]}
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    <ChevronDown className="w-3 h-3 text-blue-100" />
                   </button>
                   
                   {showLanguageDropdown && (
-                    <div style={{ position: 'absolute', top: '100%', right: 0, marginTop: '8px', background: 'white', borderRadius: '12px', boxShadow: '0 12px 30px rgba(0,0,0,0.25)', width: '160px', zIndex: 1002, overflow: 'hidden', border: '1px solid #e2e8f0' }}>
+                    <div className="absolute top-full right-0 mt-2 bg-[#0B2545] border border-blue-400/30 rounded-xl shadow-2xl w-40 z-[1003] overflow-hidden py-1">
                       {languages.map(lang => (
                         <div 
                           key={lang}
                           onClick={() => { setSelectedLanguage(lang); setShowLanguageDropdown(false); }}
-                          style={{ padding: '9px 13px', fontSize: '12px', color: '#1e293b', cursor: 'pointer', borderBottom: '1px solid #f1f5f9', background: selectedLanguage === lang ? '#eff6ff' : 'white', fontWeight: selectedLanguage === lang ? 700 : 500 }}
-                          onMouseOver={(e) => e.currentTarget.style.background = '#f8fafc'}
-                          onMouseOut={(e) => e.currentTarget.style.background = selectedLanguage === lang ? '#eff6ff' : 'white'}
+                          className={`px-3.5 py-2 text-xs cursor-pointer border-b border-blue-900/50 last:border-b-0 ${selectedLanguage === lang ? 'bg-blue-600 text-white font-bold' : 'text-slate-100 hover:bg-blue-800'}`}
                         >
                           {lang}
                         </div>
@@ -632,30 +631,23 @@ export default function AiChat() {
 
                 <button
                   onClick={() => setIsOpen(false)}
-                  style={{ background: 'rgba(255,255,255,0.2)', border: 'none', color: 'white', cursor: 'pointer', padding: '6px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  className="w-8 h-8 rounded-full bg-white/15 border border-white/30 text-white hover:bg-white/30 flex items-center justify-center transition-colors cursor-pointer"
                   aria-label="Close chat"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  <X className="w-4 h-4" />
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Messages Area */}
-          <div style={{ flex: 1, padding: '16px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '12px', backgroundColor: '#f0f9ff' }}>
+          {/* Messages Area — Clean White Canvas */}
+          <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-3 bg-white">
             {messages.map((msg, idx) => (
-              <div key={msg.type === 'payment' && msg.paymentOrder ? `pay-${msg.paymentOrder.order_id}` : `msg-${idx}`} style={{
-                alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
-                backgroundColor: msg.type === 'payment' ? 'transparent' : msg.role === 'user' ? '#2563eb' : 'white',
-                color: msg.role === 'user' ? 'white' : '#1e293b',
-                padding: msg.type === 'payment' ? '0' : '11px 15px',
-                borderRadius: msg.role === 'user' ? '16px 16px 4px 16px' : '16px 16px 16px 4px',
-                maxWidth: '85%',
-                fontSize: '13.5px',
-                lineHeight: 1.55,
-                whiteSpace: msg.role === 'user' ? 'pre-wrap' : 'normal',
-                boxShadow: msg.type === 'payment' ? 'none' : '0 1px 4px rgba(0,0,0,0.07)'
-              }}>
+              <div key={msg.type === 'payment' && msg.paymentOrder ? `pay-${msg.paymentOrder.order_id}` : `msg-${idx}`} className={`
+                ${msg.role === 'user' ? 'self-end bg-[#0B2545] text-white font-medium rounded-2xl rounded-tr-xs' : msg.type === 'payment' ? 'self-start bg-transparent' : 'self-start bg-[#f8fafc] text-[#0B2545] border border-slate-200 rounded-2xl rounded-tl-xs'}
+                ${msg.type === 'payment' ? 'p-0 max-w-full' : 'px-4 py-3 max-w-[88%]'}
+                text-[13.5px] leading-relaxed shadow-2xs
+              `}>
                 {msg.type === 'payment' && msg.paymentOrder ? (
                   <ChatPaymentCard
                     order={msg.paymentOrder}
@@ -663,17 +655,17 @@ export default function AiChat() {
                     patientPhone={user?.phone || undefined}
                   />
                 ) : msg.role === 'assistant' ? (
-                  <div className="chat-markdown">
+                  <div className="chat-markdown text-slate-800">
                     <ReactMarkdown
                       components={{
-                        p: ({ children }) => <p style={{ margin: '0 0 8px 0' }}>{children}</p>,
-                        strong: ({ children }) => <strong style={{ fontWeight: 700 }}>{children}</strong>,
-                        em: ({ children }) => <em>{children}</em>,
-                        ul: ({ children }) => <ul style={{ margin: '4px 0 8px 0', paddingLeft: '18px', listStyleType: 'disc' }}>{children}</ul>,
-                        ol: ({ children }) => <ol style={{ margin: '4px 0 8px 0', paddingLeft: '18px', listStyleType: 'decimal' }}>{children}</ol>,
-                        li: ({ children }) => <li style={{ marginBottom: '2px' }}>{children}</li>,
-                        a: ({ href, children }) => <a href={href} target="_blank" rel="noreferrer" style={{ color: '#2563eb', textDecoration: 'underline' }}>{children}</a>,
-                        code: ({ children }) => <code style={{ background: '#e2e8f0', padding: '1px 4px', borderRadius: '4px', fontSize: '12px' }}>{children}</code>,
+                        p: ({ children }) => <p className="m-0 mb-2 last:mb-0 text-slate-800 leading-normal">{children}</p>,
+                        strong: ({ children }) => <strong className="font-extrabold text-[#0B2545]">{children}</strong>,
+                        em: ({ children }) => <em className="text-slate-600">{children}</em>,
+                        ul: ({ children }) => <ul className="my-1 pl-4 list-disc text-slate-800 space-y-1">{children}</ul>,
+                        ol: ({ children }) => <ol className="my-1 pl-4 list-decimal text-slate-800 space-y-1">{children}</ol>,
+                        li: ({ children }) => <li className="text-slate-800">{children}</li>,
+                        a: ({ href, children }) => <a href={href} target="_blank" rel="noreferrer" className="text-blue-600 underline font-bold hover:text-blue-800">{children}</a>,
+                        code: ({ children }) => <code className="bg-slate-100 text-blue-800 px-1.5 py-0.5 rounded text-xs border border-slate-200 font-mono">{children}</code>,
                       }}
                     >
                       {msg.content
@@ -689,89 +681,40 @@ export default function AiChat() {
               </div>
             ))}
             {isLoading && (
-              <div style={{
-                alignSelf: 'flex-start',
-                backgroundColor: 'white',
-                padding: '11px 16px',
-                borderRadius: '16px 16px 16px 4px',
-                fontSize: '13px',
-                boxShadow: '0 1px 4px rgba(0,0,0,0.07)',
-                display: 'flex',
-                gap: '4px',
-                alignItems: 'center'
-              }}>
-                <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#2563eb', animation: 'bounce 1.2s infinite', display: 'inline-block' }}></span>
-                <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#2563eb', animation: 'bounce 1.2s 0.2s infinite', display: 'inline-block' }}></span>
-                <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#2563eb', animation: 'bounce 1.2s 0.4s infinite', display: 'inline-block' }}></span>
+              <div className="self-start bg-[#f8fafc] border border-slate-200 px-4 py-3 rounded-2xl rounded-tl-xs flex gap-1.5 items-center">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce delay-100"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce delay-200"></span>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Location permission hint — only shown when GPS isn't available yet,
-              so the user can grant it with one tap instead of typing an address
-              every time they ask for nearby centers. */}
+          {/* Location permission hint */}
           {locationStatus !== 'granted' && (
-            <div style={{
-              padding: '8px 16px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '8px',
-              backgroundColor: '#fffbeb',
-              borderTop: '1px solid #fde68a',
-              borderBottom: '1px solid #fde68a',
-              fontSize: '11px',
-              color: '#92400e',
-              fontWeight: 600,
-            }}>
-              <span>
-                {locationStatus === 'locating'
-                  ? 'Detecting your location…'
-                  : '📍 Share your location for accurate nearest-center results.'}
+            <div className="px-4 py-2.5 bg-[#f0f7ff] border-y border-[#dbeafe] flex items-center justify-between gap-2 text-[11.5px]">
+              <span className="text-[#0B2545] font-bold flex items-center gap-1.5">
+                📍 <span className="text-slate-700 font-semibold">Share location for accurate nearest-center results.</span>
               </span>
               <button
                 type="button"
                 onClick={requestLocation}
                 disabled={locationStatus === 'locating'}
-                style={{
-                  background: '#2563eb',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '100px',
-                  padding: '4px 10px',
-                  fontSize: '10.5px',
-                  fontWeight: 700,
-                  cursor: locationStatus === 'locating' ? 'default' : 'pointer',
-                  opacity: locationStatus === 'locating' ? 0.6 : 1,
-                  whiteSpace: 'nowrap',
-                }}
+                className="bg-[#2563eb] text-white font-black px-3.5 py-1.5 rounded-full text-[11px] whitespace-nowrap hover:bg-blue-700 transition-colors disabled:opacity-50 cursor-pointer shadow-xs"
               >
                 {locationStatus === 'locating' ? 'Locating…' : 'Enable location'}
               </button>
             </div>
           )}
 
-          {/* Prebuilt Questions */}
+          {/* Prebuilt Questions — High-Contrast Clean White Chips */}
           {messages.length === 1 && (
-            <div style={{ padding: '10px 16px', display: 'flex', flexWrap: 'wrap', gap: '7px', backgroundColor: '#f0f9ff', borderTop: '1px solid #dbeafe' }}>
+            <div className="p-3.5 flex flex-wrap gap-2 bg-white border-t border-slate-100">
               {prebuiltQuestions.map((q, idx) => (
                 <button
                   key={idx}
                   onClick={() => handleSend(q, null)}
-                  style={{
-                    background: 'white',
-                    border: '1px solid #bfdbfe',
-                    borderRadius: '100px',
-                    padding: '6px 12px',
-                    fontSize: '11.5px',
-                    color: '#2563eb',
-                    cursor: 'pointer',
-                    fontWeight: 600,
-                    transition: 'all 0.2s'
-                  }}
-                  onMouseOver={(e) => { e.currentTarget.style.background = '#dbeafe'; e.currentTarget.style.borderColor = '#2563eb'; }}
-                  onMouseOut={(e) => { e.currentTarget.style.background = 'white'; e.currentTarget.style.borderColor = '#bfdbfe'; }}
+                  className="bg-[#f8fafc] border border-slate-200 hover:border-[#2563eb] hover:bg-[#eff6ff] text-[#0B2545] font-bold text-[11.5px] px-3.5 py-2 rounded-full transition-all cursor-pointer text-left shadow-2xs"
                 >
                   {q}
                 </button>
@@ -779,24 +722,21 @@ export default function AiChat() {
             </div>
           )}
 
-          {/* Input Area */}
-          <div style={{ padding: '12px 16px', borderTop: '1px solid #dbeafe', backgroundColor: 'white' }} className="rounded-b-[28px]">
+          {/* Input Area — Clean White Base */}
+          <div className="p-3 border-t border-slate-200 bg-white rounded-b-[28px]">
             {selectedFile && (
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '7px 12px', backgroundColor: '#dbeafe', borderRadius: '8px', marginBottom: '10px' }}>
-                <span style={{ fontSize: '12px', color: '#1d4ed8', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: '250px', fontWeight: 600 }}>
+              <div className="flex items-center justify-between p-2 mb-2 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-900 font-semibold">
+                <span className="truncate max-w-[240px]">
                   📄 {selectedFile.name}
                 </span>
-                <button onClick={() => setSelectedFile(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#ef4444', fontSize: '14px' }}>✕</button>
+                <button onClick={() => setSelectedFile(null)} className="text-red-500 font-bold px-1 hover:text-red-700">✕</button>
               </div>
             )}
 
-            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-              <label style={{ cursor: 'pointer', padding: '8px', color: '#94a3b8', transition: 'color 0.2s', display: 'flex', alignItems: 'center' }}
-                onMouseOver={(e) => e.currentTarget.style.color = '#2563eb'}
-                onMouseOut={(e) => e.currentTarget.style.color = '#94a3b8'}
-              >
-                <input type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,application/pdf,image/png,image/jpeg,image/webp" onChange={(e) => setSelectedFile(e.target.files?.[0] || null)} style={{ display: 'none' }} />
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+            <div className="flex gap-2.5 items-center">
+              <label className="p-2 text-slate-500 hover:text-[#0B2545] transition-colors cursor-pointer flex items-center justify-center shrink-0">
+                <input type="file" accept=".pdf,.png,.jpg,.jpeg,.webp,application/pdf,image/png,image/jpeg,image/webp" onChange={(e) => setSelectedFile(e.target.files?.[0] || null)} className="hidden" />
+                <Paperclip className="w-5 h-5 text-slate-500 hover:text-[#0B2545]" />
               </label>
 
               <input
@@ -805,53 +745,22 @@ export default function AiChat() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                 placeholder={selectedFile ? "Add a message..." : "Ask a health question..."}
-                style={{
-                  flex: 1,
-                  padding: '10px 14px',
-                  border: '1.5px solid #e2e8f0',
-                  borderRadius: '100px',
-                  fontSize: '13px',
-                  outline: 'none',
-                  transition: 'border-color 0.2s',
-                  color: '#1e293b'
-                }}
-                onFocus={(e) => e.target.style.borderColor = '#2563eb'}
-                onBlur={(e) => e.target.style.borderColor = '#e2e8f0'}
+                className="flex-1 bg-[#f8fafc] border border-slate-300 focus:border-[#0B2545] focus:bg-white text-[#0B2545] placeholder:text-slate-400 rounded-full px-4 py-2.5 text-xs outline-none font-medium transition-colors"
               />
 
               <button
                 onClick={() => handleSend()}
                 disabled={isLoading || (!input.trim() && !selectedFile)}
-                style={{
-                  width: '38px',
-                  height: '38px',
-                  borderRadius: '50%',
-                  backgroundColor: (input.trim() || selectedFile) ? '#2563eb' : '#e2e8f0',
-                  color: 'white',
-                  border: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: (input.trim() || selectedFile) ? 'pointer' : 'not-allowed',
-                  transition: 'background-color 0.2s',
-                  flexShrink: 0
-                }}
+                className="w-9 h-9 rounded-full bg-[#0B2545] disabled:opacity-40 text-white flex items-center justify-center hover:bg-[#1e3a8a] transition-colors cursor-pointer shrink-0 shadow-xs"
+                aria-label="Send message"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                <Send className="w-4 h-4 text-white" />
               </button>
             </div>
 
             {/* Daily quota indicator */}
             {chatQuota !== null && (
-              <div style={{
-                marginTop: '7px',
-                fontSize: '10.5px',
-                color: chatQuota.remaining <= 5 ? '#ef4444' : '#94a3b8',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '6px',
-              }}>
+              <div className="mt-2 text-[10.5px] text-slate-500 flex items-center justify-between gap-1.5 px-1 font-semibold">
                 <span>
                   {chatQuota.remaining <= 0
                     ? '⛔ Daily limit reached. Resets at midnight UTC.'
@@ -859,7 +768,7 @@ export default function AiChat() {
                   }
                 </span>
                 {chatQuota.kind === 'guest' && !user && (
-                  <a href="/login" style={{ color: '#2563eb', fontWeight: 700, textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                  <a href="/login" className="text-blue-600 font-bold hover:underline whitespace-nowrap">
                     Log in for 2× limit →
                   </a>
                 )}

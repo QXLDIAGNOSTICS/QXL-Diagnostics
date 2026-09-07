@@ -222,15 +222,15 @@ export default function FeaturedTestsSlider() {
                     <div className="grid grid-cols-2 gap-3 mt-1">
                       <Link
                         href={`/book?package=${encodeURIComponent(item.name)}`}
-                        className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e]/5 font-black py-2.5 px-3 rounded-2xl text-xs transition-colors block"
+                        className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e] hover:text-white font-black py-2.5 px-3 rounded-2xl text-xs transition-colors block uppercase tracking-wider"
                       >
-                        View Details
+                        Add to Cart
                       </Link>
                       <Link
                         href={`/book?package=${encodeURIComponent(item.name)}`}
                         className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2.5 px-3 rounded-2xl text-xs shadow-xs hover:shadow-md transition-all uppercase tracking-wider block"
                       >
-                        Add to Cart
+                        Book Now
                       </Link>
                     </div>
                   </div>
