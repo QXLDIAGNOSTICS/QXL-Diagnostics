@@ -73,7 +73,7 @@ export default function DrShantakumarMurudaPage() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden border-4 border-white/20 shadow-xl shrink-0 relative bg-slate-800">
               <img
-                src="/images/dr_shantakumar_new.jpg"
+                src="/founder.jpeg"
                 alt="Dr. Shantakumar Muruda MD"
                 className="w-full h-full object-cover object-top"
               />
