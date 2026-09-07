@@ -18,8 +18,6 @@ export const metadata: Metadata = {
 export default function DoctorLedDiagnosticsPage() {
   return (
     <main className="bg-slate-50 min-h-screen text-slate-900">
-      <Header />
-
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0f2d5e] via-[#1b3d7a] to-[#2563eb] text-white py-16">
         <div className="max-w-[1200px] mx-auto px-4 space-y-6">
@@ -234,8 +232,6 @@ export default function DoctorLedDiagnosticsPage() {
         <PopularPackagesGrid />
 
       </section>
-
-      <Footer />
     </main>
   );
 }

@@ -17,8 +17,6 @@ export const metadata: Metadata = {
 export default function ReferenceLaboratoryPage() {
   return (
     <main className="bg-slate-50 min-h-screen text-slate-900">
-      <Header />
-
       {/* Hero */}
       <section className="bg-gradient-to-r from-[#0f2d5e] via-[#1e3a8a] to-[#2563eb] text-white py-14">
         <div className="max-w-[1200px] mx-auto px-4">
@@ -80,8 +78,6 @@ export default function ReferenceLaboratoryPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

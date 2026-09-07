@@ -178,6 +178,7 @@ export default function Header() {
     { label: "Health Packages", href: "/packages", visible: true },
     { label: "Specialities", href: "/specialities", visible: true },
     { label: "Home Collection", href: "/home-blood-collection-bangalore", visible: true },
+    { label: "For Hospitals", href: "/for-hospitals", visible: true },
     { label: "Locations", href: "/centers", visible: true },
     { label: "For Doctors", href: "/doctor-led-diagnostic-lab-bengaluru", visible: true },
     { label: "About QXL", href: "/about", visible: true },

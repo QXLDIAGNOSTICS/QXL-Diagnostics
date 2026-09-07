@@ -311,13 +311,13 @@ const promoSlides = [
     name: "Q-Oncology Biomarker Panel",
     price: "₹7,900",
     original: "₹13,600",
-    tag: "SPECIALIST ONCOLOGY",
-    desc: "Advanced tumour-marker testing for selected diagnostic evaluation, treatment monitoring and post-treatment surveillance under clinical guidance.",
+    tag: "SPECIALIST ONCOLOGY (PRESCRIPTION REQUIRED)",
+    desc: "Physician-directed tumour-marker testing. Clinical Notice: Prescription / Doctor consultation required. Elevated markers do not by themselves diagnose cancer in asymptomatic individuals.",
     includes: ["AFP, CEA, Beta HCG, PSA (Male)", "CA-125 (Female), CA-19.9", "CBC, ESR, Urine Routine", "Calprotectin, FOBT, Protein Electrophoresis"],
     tests: "15+ Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg",
     imgBg: "#E8EAF6",
-    ctaLink: "/book?package=q-onco-screen",
+    ctaLink: "/upload-prescription?ref=q-onco-screen",
   },
   {
     name: "Q-Cardiovascular Risk Assessment Package",
@@ -884,34 +884,32 @@ export default function Home() {
   // ── Package & Home Collection Hero Slides ────────────────────────────────
   const contentSlides = [
     {
-      badge: "Trusted • Accurate • On Time",
-      title: "Book Home Sample Collection in",
-      titleAccent: "Bengaluru",
-      subtitle: "Safe, reliable and convenient sample collection from the comfort of your home.",
-      cta: "Schedule Home Collection",
+      badge: "DOCTOR-LED DIAGNOSTICS · NABL MC-6849",
+      title: "Every report signed by a consultant doctor.",
+      titleAccent: "Not just a machine.",
+      subtitle: "NABL-accredited super speciality lab in Bengaluru. Free home collection, same-day reports on routine tests, and a pathologist who checks your result before you see it.",
+      cta: "Book Home Collection",
       ctaLink: "/home-collection",
+      ctaSecondary: "WhatsApp Us",
+      ctaSecondaryLink: "https://wa.me/919964639639",
+      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
+      imageFit: "cover",
+      bgFrom: "#ffffff", bgTo: "#fff8eb",
+      features: ["★ 5.0 Google Rating", "Consultant Doctor Sign-off", "Free Doorstep Pickup", "Same-Day Reports"],
+    },
+    {
+      badge: "NABL ACCREDITED SUPER SPECIALITY LAB",
+      title: "Advanced Reference Testing &",
+      titleAccent: "Home Blood Collection",
+      subtitle: "Autoimmune serology, immunofixation, molecular PCR, and routine health packages across 60+ Bengaluru localities.",
+      cta: "Explore Health Packages",
+      ctaLink: "/packages",
       ctaSecondary: "Call +91 9964 639 639",
       ctaSecondaryLink: "tel:+919964639639",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
       imageFit: "cover",
-      bgFrom: "#ffffff", bgTo: "#fff8eb",
-      features: ["Trained Phlebotomists", "Tamper-proof Collection", "Hygienic & Safe Process", "Reports On Time"],
-    },
-    {
-      badge: "✨ SPECIAL OFFER · 80 HEALTH PARAMETERS",
-      title: "FULL BODY HEALTH CHECKUP @ ₹800",
-      titleAccent: "NABL CERTIFICATE DOCTOR-LED DIAGNOSTICS",
-      subtitle: "Comprehensive 8-organ screening: Complete Blood Count (26), HbA1c & Fasting Sugar (3), Lipid (8), Liver (11), Kidney (8), Thyroid (3) & Bone Minerals (21).",
-      subtitleAccent: "Only ₹800 (Worth ₹5,800 · 86% OFF) · Same-Day Digital Reports",
-      description: "Trusted diagnostic testing by Bengaluru's NABL Accredited super speciality laboratory.",
-      cta: "Book Package @ ₹800",
-      ctaLink: "/book?package=q-full-body-80",
-      ctaSecondary: "Call +91 9964 639 639",
-      ctaSecondaryLink: "tel:+919964639639",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
-      imageFit: "cover",
       bgFrom: "#fff7ed", bgTo: "#f0fdf4",
-      features: ["80 Health Parameters", "₹800 Only (Worth ₹5,800)", "Free Doorstep Sample Pickup", "Doctor Reviewed Reports"],
+      features: ["300+ Specialized Tests", "NABL Accredited (MC-6849)", "ISO 15189 Quality", "Fast Digital Delivery"],
     },
   ];
 
@@ -964,14 +962,22 @@ export default function Home() {
         {/* ── MOBILE ONLY UI/UX (lg:hidden) — STRICT MATCH TO USER SCREENSHOT ── */}
         <div className="lg:hidden w-full bg-[#FAFBFD] px-4 pt-3 pb-4 space-y-4">
           
-          {/* 1. Greeting Row */}
-          <div className="flex items-center justify-between">
-            <h1 className="text-[17px] font-extrabold text-[#0B2545] tracking-tight">
-              {greeting}, welcome to QXL
-            </h1>
-            <div className="bg-[#E6F8F0] border border-[#BBEBD6] text-[#008A52] font-black text-[10.5px] px-2.5 py-1 rounded-full flex items-center gap-1 shrink-0 shadow-2xs">
-              <span>✓ NABL MC-6849</span>
+          {/* 1. Brand Hero Header & Doctor-Led Positioning */}
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between gap-2">
+              <span className="inline-flex items-center gap-1 bg-amber-50 border border-amber-300 text-amber-900 font-extrabold text-[10px] px-2.5 py-0.5 rounded-full shadow-2xs">
+                ★ 5.0 Google Rating (80+ Reviews)
+              </span>
+              <div className="bg-[#E6F8F0] border border-[#BBEBD6] text-[#008A52] font-black text-[10.5px] px-2.5 py-0.5 rounded-full flex items-center gap-1 shrink-0 shadow-2xs">
+                <span>✓ NABL MC-6849</span>
+              </div>
             </div>
+            <h1 className="text-[19px] font-black text-[#0B2545] leading-tight tracking-tight">
+              Every report signed by a consultant doctor. <span className="text-[#D69A18]">Not just a machine.</span>
+            </h1>
+            <p className="text-slate-600 text-[11.5px] font-semibold leading-relaxed">
+              NABL-accredited super speciality lab in Bengaluru. Free home collection &amp; same-day reports.
+            </p>
           </div>
 
           {/* 2. Search & Upload Prescription Bar */}

@@ -26,7 +26,6 @@ export default function HomeBloodCollectionPage() {
     <main className="bg-[#f8faff] min-h-screen text-slate-900">
       {/* ── MOBILE VIEW (lg:hidden) ── */}
       <div className="lg:hidden flex flex-col w-full pb-16">
-        <Header />
 
         <div className="max-w-md mx-auto p-4 flex flex-col gap-4">
           {/* Phlebotomist Banner Illustration Card */}
@@ -82,8 +81,6 @@ export default function HomeBloodCollectionPage() {
 
       {/* ── DESKTOP VIEW (hidden lg:block) ── */}
       <div className="hidden lg:block">
-        <Header />
-
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-[#0f2d5e] via-[#1b3d7a] to-[#2563eb] text-white py-14 overflow-hidden">
           <div className="max-w-[1200px] mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -178,8 +175,6 @@ export default function HomeBloodCollectionPage() {
             </div>
           </div>
         </section>
-
-        <Footer />
       </div>
     </main>
   );

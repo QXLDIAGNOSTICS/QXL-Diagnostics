@@ -48,6 +48,7 @@ export default function Footer() {
     footerDesc: "QXL Diagnostics is a NABL Accredited super speciality diagnostic laboratory in Bengaluru offering advanced pathology, molecular diagnostics, histopathology, and AI-assisted precision diagnostics.",
     navItems: [
       {label: "Home", href: "/", visible: true},
+      {label: "For Doctors & Hospitals", href: "/for-hospitals", visible: true},
       {label: "About Us", href: "/about", visible: true},
       {label: "Founder & Consultants", href: "/team", visible: true},
       {label: "Our Specialities", href: "/specialities", visible: true},

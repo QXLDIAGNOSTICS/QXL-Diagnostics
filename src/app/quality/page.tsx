@@ -35,7 +35,6 @@ export default function QualityHubPage() {
   return (
     <main className="bg-slate-50 min-h-screen text-slate-900">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(qualitySchema) }} />
-      <Header />
 
       {/* NABL Accreditation Banner */}
       <div className="w-full bg-gradient-to-r from-emerald-900 via-emerald-800 to-teal-900 text-white py-3 px-4 text-center border-b border-emerald-700/50 shadow-md">
@@ -186,8 +185,6 @@ export default function QualityHubPage() {
         </div>
 
       </section>
-
-      <Footer />
     </main>
   );
 }

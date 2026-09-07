@@ -89,8 +89,6 @@ const locationsList = [
 export default function DoctorLedSeoPage() {
   return (
     <div className="min-h-screen bg-[#f8faff] text-slate-800">
-      <Header />
-
       <main>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-[#0b132b] via-[#0f2d5e] to-[#1c3a6e] text-white py-14 lg:py-20 relative overflow-hidden">
@@ -294,8 +292,6 @@ export default function DoctorLedSeoPage() {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

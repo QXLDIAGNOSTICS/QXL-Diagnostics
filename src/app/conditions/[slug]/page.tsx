@@ -37,8 +37,6 @@ export default async function ConditionPage({ params }: Props) {
 
   return (
     <main className="bg-slate-50 min-h-screen text-slate-900">
-      <Header />
-
       {/* Hero */}
       <section className="bg-gradient-to-r from-[#0f2d5e] to-[#1e3a8a] text-white py-12">
         <div className="max-w-[1200px] mx-auto px-4">
@@ -122,8 +120,6 @@ export default async function ConditionPage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }
