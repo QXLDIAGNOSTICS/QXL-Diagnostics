@@ -39,6 +39,39 @@ function QxlAiIcon({ size = 32 }: { size?: number }) {
   );
 }
 
+/** Rainbow Circular Dot Wheel Loading Spinner matching the user's reference image */
+function RainbowSpinner({ className = "w-7 h-7" }: { className?: string }) {
+  const dots = [
+    { color: '#FFCC80', r: 4.2 }, // Top-center (soft gold/peach)
+    { color: '#FFE082', r: 5.0 }, // Yellow
+    { color: '#FFF59D', r: 5.8 }, // Light Yellow
+    { color: '#E0F7FA', r: 6.5 }, // Lightest Blue
+    { color: '#B3E5FC', r: 7.2 }, // Very Light Sky Blue
+    { color: '#81D4FA', r: 8.0 }, // Soft Sky Blue
+    { color: '#4FC3F7', r: 8.8 }, // Sky Blue
+    { color: '#42A5F5', r: 9.5 }, // Deep Soft Blue (Bottom)
+    { color: '#5C6BC0', r: 9.2 }, // Soft Indigo
+    { color: '#7E57C2', r: 8.5 }, // Soft Purple
+    { color: '#AB47BC', r: 7.8 }, // Soft Magenta
+    { color: '#EC407A', r: 7.2 }, // Rose Pink
+    { color: '#EF5350', r: 6.5 }, // Coral Pink
+    { color: '#FF7043', r: 5.8 }, // Warm Coral
+    { color: '#FF8A65', r: 5.0 }, // Soft Coral
+    { color: '#FFB74D', r: 4.2 }, // Soft Gold
+  ];
+
+  return (
+    <svg viewBox="0 0 100 100" className={`${className} animate-spin`} style={{ animationDuration: '3.5s' }}>
+      {dots.map((dot, i) => {
+        const angle = (i * 22.5 - 90) * (Math.PI / 180);
+        const cx = 50 + 38 * Math.cos(angle);
+        const cy = 50 + 38 * Math.sin(angle);
+        return <circle key={i} cx={cx} cy={cy} r={dot.r} fill={dot.color} />;
+      })}
+    </svg>
+  );
+}
+
 const FAB = {
   size: 60,
   right: 24,
@@ -209,7 +242,44 @@ export default function AiChat() {
     setTimeout(() => {
       setMessages(prev => [...prev, { role: 'assistant', content: getMockReply(text, file) }]);
       setIsLoading(false);
-    }, 1000);
+    }, 50);
+  };
+
+  const fetchGeminiReply = async (question: string): Promise<boolean> => {
+    try {
+      const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
+      if (!apiKey) return false;
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [
+            {
+              role: 'user',
+              parts: [
+                {
+                  text: `You are QXL AI Assistant, an expert medical diagnostic laboratory AI for QXL Diagnostics in Bengaluru (NABL Accredited MC-6849). Answer clearly, concisely, and accurately in user-friendly markdown. Include test guidance, home collection info (+91 9964 639 639), or booking recommendations if relevant.\n\nUser Question: ${question}`
+                }
+              ]
+            }
+          ],
+          generationConfig: {
+            temperature: 0.3,
+            maxOutputTokens: 600,
+          }
+        })
+      });
+      if (!res.ok) return false;
+      const data = await res.json();
+      const replyText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (replyText) {
+        setMessages(prev => [...prev, { role: 'assistant', content: replyText }]);
+        return true;
+      }
+      return false;
+    } catch {
+      return false;
+    }
   };
 
   // Consume the FastAPI SSE stream from POST /api/v1/chat/stream and render
@@ -366,7 +436,7 @@ export default function AiChat() {
     }
 
     // Backend is now open to all users (guests get 50/day, logged-in 100/day).
-    // Only fall back to mock if the backend is completely unreachable.
+    // Try stream backend, then direct Gemini AI API, then instant local fallback.
     const streamed = !file ? await streamFromBackend(text) : 'failed';
     if (streamed === 'streamed') {
       setIsLoading(false);
@@ -381,11 +451,14 @@ export default function AiChat() {
       setIsLoading(false);
       return;
     }
-    if (user) {
-      setMessages(prev => [...prev, { role: 'assistant', content: "I can see you're signed in, but I couldn't reach the assistant service right now. Please try again in a moment." }]);
+    
+    // Fast Direct Gemini AI Call
+    const geminiSuccess = await fetchGeminiReply(text);
+    if (geminiSuccess) {
       setIsLoading(false);
       return;
     }
+
     sendMockReply(text, file);
   };
 
@@ -583,8 +656,8 @@ export default function AiChat() {
 
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-900/60 border-2 border-blue-400/50 flex items-center justify-center text-white shadow-inner shrink-0">
-                  <MessageSquareText className="w-5 h-5 text-white" />
+                <div className="w-10 h-10 rounded-full bg-white border border-slate-200/90 flex items-center justify-center shadow-md shrink-0 p-1">
+                  <RainbowSpinner className="w-8 h-8" />
                 </div>
                 <div className="flex flex-col justify-center">
                   <div className="flex items-center gap-2">
@@ -681,10 +754,9 @@ export default function AiChat() {
               </div>
             ))}
             {isLoading && (
-              <div className="self-start bg-[#f8fafc] border border-slate-200 px-4 py-3 rounded-2xl rounded-tl-xs flex gap-1.5 items-center">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce"></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce delay-100"></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-bounce delay-200"></span>
+              <div className="self-start bg-[#f8fafc] border border-slate-200 px-4 py-2.5 rounded-2xl rounded-tl-xs flex gap-3 items-center shadow-2xs">
+                <RainbowSpinner className="w-6 h-6 shrink-0" />
+                <span className="text-xs font-bold text-slate-700">QXL AI is thinking...</span>
               </div>
             )}
             <div ref={messagesEndRef} />

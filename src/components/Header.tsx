@@ -832,24 +832,27 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs: Home | Tests | Bookings | Reports | Profile) ── */}
+      {/* ── MOBILE BOTTOM NAVIGATION (5 Tabs: Home | Tests | Ask QXL (AI) | Bookings | Profile) ── */}
       <div
-        className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col bg-white rounded-t-2xl border-t border-slate-200/80 shadow-[0_-6px_25px_rgba(0,0,0,0.12)]"
+        className="fixed bottom-0 left-0 right-0 z-[9999] lg:hidden flex flex-col bg-white border-t border-slate-200/80 shadow-[0_-6px_25px_rgba(0,0,0,0.08)] rounded-t-[20px]"
         style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
       >
         <nav
-          className="flex justify-between items-center h-[60px] px-2 relative max-w-md mx-auto w-full"
+          className="flex justify-between items-center h-[62px] px-1.5 relative max-w-md mx-auto w-full"
           aria-label="Mobile navigation"
         >
           {/* Tab 1: Home */}
           <Link
             href="/"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-              pathname === '/' ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+              pathname === '/' ? 'text-[#D69A18]' : 'text-[#0F2D5E] hover:text-[#D69A18]'
             }`}
           >
-            <Home className={`w-5 h-5 ${pathname === '/' ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname === '/' ? 2.4 : 1.8} />
-            <span className={`text-[10.5px] ${pathname === '/' ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
+            <Home
+              className={`w-6 h-6 ${pathname === '/' ? 'text-[#D69A18] fill-[#D69A18]' : 'text-[#0F2D5E]'}`}
+              strokeWidth={pathname === '/' ? 2.2 : 2.0}
+            />
+            <span className={`text-[11px] ${pathname === '/' ? 'font-extrabold text-[#D69A18]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
               Home
             </span>
           </Link>
@@ -858,72 +861,124 @@ export default function Header() {
           <Link
             href="/tests"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-              pathname?.startsWith('/tests') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+              pathname?.startsWith('/tests') ? 'text-[#D69A18]' : 'text-[#0F2D5E] hover:text-[#D69A18]'
             }`}
           >
-            <Microscope className={`w-5 h-5 ${pathname?.startsWith('/tests') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/tests') ? 2.4 : 1.8} />
-            <span className={`text-[10.5px] ${pathname?.startsWith('/tests') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
+            <Microscope
+              className={`w-6 h-6 ${pathname?.startsWith('/tests') ? 'text-[#D69A18]' : 'text-[#0F2D5E]'}`}
+              strokeWidth={pathname?.startsWith('/tests') ? 2.4 : 2.0}
+            />
+            <span className={`text-[11px] ${pathname?.startsWith('/tests') ? 'font-extrabold text-[#D69A18]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
               Tests
             </span>
           </Link>
 
-          {/* Tab 3: Chat AI Assistant (Exact Glowing Cyan 3D Orb with Dark Navy & Gold Sphere) */}
+          {/* Tab 3: Ask AI Elevated Center Button with Animated 3D Floating Spheres */}
           <button
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent('openAiChat'))}
-            className="flex flex-col items-center justify-center flex-1 h-full active:scale-95 transition-transform relative -top-3 cursor-pointer group"
-            aria-label="Open QXL Health AI Assistant"
+            className="flex flex-col items-center justify-center flex-1 h-full active:scale-95 transition-transform relative -top-3.5 cursor-pointer group"
+            aria-label="Open Health AI Assistant"
           >
-            <div className="relative w-13 h-13 flex items-center justify-center group-hover:scale-105 transition-all">
-              <svg viewBox="0 0 100 100" className="w-13 h-13 drop-shadow-[0_4px_12px_rgba(56,189,248,0.55)]">
-                {/* Outer Cyan Ring */}
-                <circle cx="50" cy="50" r="46" fill="none" stroke="#38BDF8" strokeWidth="4" />
-                {/* Inner White Padding Ring */}
-                <circle cx="50" cy="50" r="43" fill="#FFFFFF" />
-                {/* Main Sky Blue Orb Base */}
-                <circle cx="50" cy="50" r="40" fill="url(#orbBg)" />
-                {/* Dark Navy Circle (Lower Right) */}
-                <circle cx="56" cy="56" r="23" fill="url(#darkNavy)" />
-                {/* Gold Sphere (Upper Center) */}
-                <circle cx="50" cy="42" r="11" fill="url(#goldSphere)" opacity="0.9" />
-                {/* Glass Shine (Top Left Crescent) */}
-                <path d="M 18,36 A 38,38 0 0,1 78,32 C 60,48 30,48 18,36 Z" fill="url(#shineGrad)" opacity="0.6" />
+            {/* Multi-layered Gold/Orange Ring Elevated Circular Badge */}
+            <div className="relative w-13 h-13 rounded-full p-[2.5px] bg-gradient-to-b from-[#FFD54F] via-[#FF9800] to-[#E65100] shadow-[0_6px_18px_rgba(255,152,0,0.45)] flex items-center justify-center group-hover:scale-105 transition-transform">
+              {/* White Inner Gap Ring */}
+              <div className="w-full h-full rounded-full p-[2.5px] bg-white flex items-center justify-center">
+                {/* Fine Orange Inner Ring */}
+                <div className="w-full h-full rounded-full p-[1.5px] bg-gradient-to-b from-[#FFB74D] to-[#F57C00] flex items-center justify-center">
+                  {/* Clean White Badge Canvas for 3D Orange Floating Spheres */}
+                  <div className="w-full h-full rounded-full bg-gradient-to-b from-[#FFFFFF] via-[#FFFDF5] to-[#FFF8E7] flex items-center justify-center overflow-hidden relative shadow-inner">
+                    <svg viewBox="0 0 100 100" className="w-9 h-9">
+                      <defs>
+                        {/* 3D Radial Gradients in Warm Orange Palette */}
+                        <radialGradient id="qxlOrbLarge" cx="35%" cy="35%" r="65%">
+                          <stop offset="0%" stopColor="#FFE082" />
+                          <stop offset="35%" stopColor="#FF9800" />
+                          <stop offset="85%" stopColor="#E65100" />
+                          <stop offset="100%" stopColor="#BF360C" />
+                        </radialGradient>
 
-                <defs>
-                  <linearGradient id="orbBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#7DD3FC" />
-                    <stop offset="45%" stopColor="#38BDF8" />
-                    <stop offset="100%" stopColor="#0284C7" />
-                  </linearGradient>
-                  <linearGradient id="darkNavy" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#1D4ED8" />
-                    <stop offset="100%" stopColor="#0F2D5E" />
-                  </linearGradient>
-                  <linearGradient id="goldSphere" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#F59E0B" />
-                    <stop offset="100%" stopColor="#D97706" />
-                  </linearGradient>
-                  <linearGradient id="shineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#FFFFFF" />
-                    <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-              </svg>
+                        <radialGradient id="qxlOrbMedium" cx="35%" cy="35%" r="65%">
+                          <stop offset="0%" stopColor="#FFF59D" />
+                          <stop offset="45%" stopColor="#FFA726" />
+                          <stop offset="90%" stopColor="#FB8C00" />
+                          <stop offset="100%" stopColor="#E65100" />
+                        </radialGradient>
+
+                        <radialGradient id="qxlOrbSmall" cx="30%" cy="30%" r="70%">
+                          <stop offset="0%" stopColor="#FFF8E1" />
+                          <stop offset="40%" stopColor="#FFB300" />
+                          <stop offset="100%" stopColor="#FF6D00" />
+                        </radialGradient>
+
+                        <filter id="qxlSphereShadow" x="-20%" y="-20%" width="140%" height="140%">
+                          <feDropShadow dx="1.5" dy="3" stdDeviation="2.5" floodColor="#802D00" floodOpacity="0.3" />
+                        </filter>
+                      </defs>
+
+                      {/* Subtle Ambient Radial Glow */}
+                      <circle cx="50" cy="50" r="44" fill="url(#qxlOrbSmall)" opacity="0.15" />
+
+                      {/* Animated Floating Spheres Group */}
+                      <g className="transition-transform duration-700 group-hover:scale-110">
+                        {/* Medium 3D Orange Sphere (Top-Left / Back) */}
+                        <circle
+                          cx="42"
+                          cy="40"
+                          r="21"
+                          fill="url(#qxlOrbMedium)"
+                          filter="url(#qxlSphereShadow)"
+                          className="animate-pulse"
+                          style={{ animationDuration: '3s' }}
+                        />
+
+                        {/* Large 3D Main Orange Sphere (Lower-Right / Front) */}
+                        <circle
+                          cx="56"
+                          cy="54"
+                          r="24"
+                          fill="url(#qxlOrbLarge)"
+                          filter="url(#qxlSphereShadow)"
+                          className="animate-pulse"
+                          style={{ animationDuration: '2.2s' }}
+                        />
+
+                        {/* Small 3D Glowing Accent Sphere (Far Right) */}
+                        <circle
+                          cx="73"
+                          cy="46"
+                          r="9.5"
+                          fill="url(#qxlOrbSmall)"
+                          filter="url(#qxlSphereShadow)"
+                          className="animate-ping"
+                          style={{ animationDuration: '2.8s' }}
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
-            <span className="text-[11px] font-extrabold text-[#0B2545] tracking-tight mt-0.5">
-              Chat
-            </span>
+
+            <div className="flex flex-col items-center leading-none mt-1">
+              <span className="text-[11.5px] font-extrabold text-[#0B2545] tracking-tight">
+                Ask AI
+              </span>
+            </div>
           </button>
 
           {/* Tab 4: Bookings */}
           <Link
             href="/dashboard"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-              pathname?.startsWith('/dashboard') ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+              pathname?.startsWith('/dashboard') ? 'text-[#D69A18]' : 'text-[#0F2D5E] hover:text-[#D69A18]'
             }`}
           >
-            <Calendar className={`w-5 h-5 ${pathname?.startsWith('/dashboard') ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={pathname?.startsWith('/dashboard') ? 2.4 : 1.8} />
-            <span className={`text-[10.5px] ${pathname?.startsWith('/dashboard') ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
+            <CalendarCheck
+              className={`w-6 h-6 ${pathname?.startsWith('/dashboard') ? 'text-[#D69A18]' : 'text-[#0F2D5E]'}`}
+              strokeWidth={pathname?.startsWith('/dashboard') ? 2.4 : 2.0}
+            />
+            <span className={`text-[11px] ${pathname?.startsWith('/dashboard') ? 'font-extrabold text-[#D69A18]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
               Bookings
             </span>
           </Link>
@@ -932,11 +987,14 @@ export default function Header() {
           <Link
             href={user ? "/profile" : "/login"}
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-              (pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#0f2d5e]' : 'text-slate-400 hover:text-[#0f2d5e]'
+              (pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#D69A18]' : 'text-[#0F2D5E] hover:text-[#D69A18]'
             }`}
           >
-            <User className={`w-5 h-5 ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#0f2d5e]' : 'text-slate-400'}`} strokeWidth={(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 2.4 : 1.8} />
-            <span className={`text-[10.5px] ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'font-black text-[#0f2d5e]' : 'font-semibold text-slate-500'} tracking-tight`}>
+            <User
+              className={`w-6 h-6 ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#D69A18]' : 'text-[#0F2D5E]'}`}
+              strokeWidth={(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 2.4 : 2.0}
+            />
+            <span className={`text-[11px] ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'font-extrabold text-[#D69A18]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
               Profile
             </span>
           </Link>
