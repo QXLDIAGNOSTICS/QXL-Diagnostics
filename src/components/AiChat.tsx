@@ -245,6 +245,89 @@ export default function AiChat() {
     }, 50);
   };
 
+  const streamDirectGemini = async (question: string): Promise<boolean> => {
+    try {
+      const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
+      if (!apiKey) return false;
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
+        body: JSON.stringify({
+          contents: [
+            {
+              role: 'user',
+              parts: [
+                {
+                  text: `You are QXL AI Assistant, an expert medical diagnostic laboratory AI for QXL Diagnostics in Bengaluru (NABL Accredited MC-6849). Answer clearly, concisely, and accurately in user-friendly markdown. Include test guidance, home collection info (+91 9964 639 639), or booking recommendations if relevant.\n\nUser Question: ${question}`
+                }
+              ]
+            }
+          ],
+          generationConfig: {
+            temperature: 0.3,
+            maxOutputTokens: 600,
+          }
+        })
+      });
+
+      clearTimeout(timeoutId);
+      if (!res.ok || !res.body) return false;
+
+      setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let assistantText = '';
+      let buffer = '';
+
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() ?? '';
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const jsonStr = line.slice(6).trim();
+          if (!jsonStr) continue;
+          try {
+            const data = JSON.parse(jsonStr);
+            const delta = data.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (delta) {
+              assistantText += delta;
+              setMessages(prev => {
+                const next = [...prev];
+                let idx = -1;
+                for (let i = next.length - 1; i >= 0; i--) {
+                  if (next[i].role === 'assistant' && next[i].type !== 'payment') {
+                    idx = i;
+                    break;
+                  }
+                }
+                if (idx >= 0) {
+                  next[idx] = { role: 'assistant', content: assistantText };
+                } else {
+                  next.push({ role: 'assistant', content: assistantText });
+                }
+                return next;
+              });
+            }
+          } catch {
+            // ignore JSON parse error
+          }
+        }
+      }
+      return assistantText.length > 0;
+    } catch {
+      return false;
+    }
+  };
+
   const fetchGeminiReply = async (question: string): Promise<boolean> => {
     try {
       const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || "";
@@ -283,17 +366,17 @@ export default function AiChat() {
   };
 
   // Consume the FastAPI SSE stream from POST /api/v1/chat/stream and render
-  // assistant tokens incrementally. The request is same-origin (proxied to the
-  // backend by next.config.ts rewrites) so the httpOnly session cookie is sent
-  // automatically — no token plumbing needed. Returns false if the backend is
-  // unavailable or the user isn't logged in, so the caller can fall back to a
-  // local mock reply instead of showing a broken chat.
+  // assistant tokens incrementally.
   const streamFromBackend = async (question: string): Promise<StreamResult> => {
     try {
       const guestId = getGuestChatId();
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 1200);
+
       const res = await fetch(`/api/v1/chat/stream`, {
         method: 'POST',
         credentials: 'include',
+        signal: controller.signal,
         headers: {
           'Content-Type': 'application/json',
           ...(guestId ? { 'X-Guest-Chat-Id': guestId } : {}),
@@ -304,6 +387,8 @@ export default function AiChat() {
           ...(location ? { lat: location.lat, lng: location.lng } : {}),
         }),
       });
+
+      clearTimeout(timeoutId);
 
       // Read rate-limit headers on every response
       const rlRemaining = res.headers.get('X-RateLimit-Remaining');
@@ -352,7 +437,6 @@ export default function AiChat() {
             const evt = JSON.parse(payload);
             if (evt.conversation_id) setConversationId(evt.conversation_id);
             if (evt.payment_order) {
-              // Append as its own bubble so later text deltas never overwrite it.
               setMessages(prev => [
                 ...prev,
                 { role: 'assistant', content: '', type: 'payment', paymentOrder: evt.payment_order },
@@ -362,10 +446,6 @@ export default function AiChat() {
               assistant = `${assistant}${evt.delta}`;
               setMessages(prev => {
                 const next = [...prev];
-                // Always stream into the last *text* assistant bubble — never into a
-                // payment card. (payment_order is emitted before deltas, so without
-                // this guard the Pay button was briefly appended then immediately
-                // replaced by the streaming confirmation text.)
                 let idx = -1;
                 for (let i = next.length - 1; i >= 0; i--) {
                   if (next[i].role === 'assistant' && next[i].type !== 'payment') {
@@ -407,9 +487,6 @@ export default function AiChat() {
       return;
     }
 
-    // A prescription file: upload it for real AI analysis, then ask the
-    // assistant (which can read it back via get_my_prescriptions) to explain
-    // it / suggest a booking — instead of just acknowledging receipt.
     if (file) {
       try {
         await api.prescriptions.upload(file);
@@ -435,8 +512,7 @@ export default function AiChat() {
       }
     }
 
-    // Backend is now open to all users (guests get 50/day, logged-in 100/day).
-    // Try stream backend, then direct Gemini AI API, then instant local fallback.
+    // Attempt streaming from backend (1.2s timeout for fast fallback)
     const streamed = !file ? await streamFromBackend(text) : 'failed';
     if (streamed === 'streamed') {
       setIsLoading(false);
@@ -452,13 +528,21 @@ export default function AiChat() {
       return;
     }
     
-    // Fast Direct Gemini AI Call
+    // Direct Gemini SSE Streaming for ultra-fast instant responses
+    const directGeminiSuccess = await streamDirectGemini(text);
+    if (directGeminiSuccess) {
+      setIsLoading(false);
+      return;
+    }
+
+    // Fast non-streaming Gemini Fallback
     const geminiSuccess = await fetchGeminiReply(text);
     if (geminiSuccess) {
       setIsLoading(false);
       return;
     }
 
+    // Instant local reply fallback
     sendMockReply(text, file);
   };
 
