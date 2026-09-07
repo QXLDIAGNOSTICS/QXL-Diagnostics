@@ -1,10 +1,10 @@
 import fs from "fs";
 import path from "path";
-import { MASTER_CATALOGUE } from "../src/lib/masterCatalogue.ts";
-import { cbcTest } from "../src/lib/seoPages/data/cbcTest.ts";
-import { hba1cTest } from "../src/lib/seoPages/data/hba1cTest.ts";
-import { thyroidTest } from "../src/lib/seoPages/data/thyroidTest.ts";
-import { lipidProfileTest } from "../src/lib/seoPages/data/lipidProfileTest.ts";
+import { MASTER_CATALOGUE } from "../src/lib/masterCatalogue";
+import { cbcTest } from "../src/lib/seoPages/data/cbcTest";
+import { hba1cTest } from "../src/lib/seoPages/data/hba1cTest";
+import { thyroidTest } from "../src/lib/seoPages/data/thyroidTest";
+import { lipidProfileTest } from "../src/lib/seoPages/data/lipidProfileTest";
 
 console.log("🔍 Running QXL Diagnostics Data Consistency Guard...");
 
