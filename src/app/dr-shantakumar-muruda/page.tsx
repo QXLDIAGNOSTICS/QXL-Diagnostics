@@ -71,11 +71,12 @@ export default function DrShantakumarMurudaPage() {
       <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-14 border-b border-sky-900">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-80 lg:w-80 lg:h-[340px] rounded-3xl overflow-hidden border-4 border-white/25 shadow-2xl shrink-0 relative bg-slate-800 group">
+            <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-80 lg:w-80 lg:h-[360px] rounded-3xl overflow-hidden border-4 border-white/25 shadow-2xl shrink-0 relative bg-slate-800 group">
               <img
                 src="/founder.jpeg"
                 alt="Dr. Shantakumar Muruda MD"
-                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                style={{ objectPosition: 'center 15%' }}
               />
             </div>
             <div className="space-y-4 text-center md:text-left flex-1">
