@@ -70,30 +70,30 @@ export default function DrShantakumarMurudaPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-14 border-b border-sky-900">
         <div className="max-w-[1260px] mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-3xl overflow-hidden border-4 border-white/20 shadow-xl shrink-0 relative bg-slate-800">
+          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <div className="w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-80 lg:w-80 lg:h-[340px] rounded-3xl overflow-hidden border-4 border-white/25 shadow-2xl shrink-0 relative bg-slate-800 group">
               <img
                 src="/founder.jpeg"
                 alt="Dr. Shantakumar Muruda MD"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <div className="space-y-3 text-center md:text-left">
-              <span className="inline-block bg-[#D69A18] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest">
+            <div className="space-y-4 text-center md:text-left flex-1">
+              <span className="inline-block bg-[#D69A18] text-white text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">
                 Founder &amp; Chief Clinical Biochemist
               </span>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white" style={{ color: '#ffffff' }}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight" style={{ color: '#ffffff' }}>
                 Dr. Shantakumar Muruda
               </h1>
-              <p className="text-sky-200 font-bold text-base md:text-lg">
+              <p className="text-sky-100 font-extrabold text-base sm:text-lg md:text-xl">
                 MD (Clinical Biochemistry) · NABL Lead Assessor · PHFI Diabetologist
               </p>
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-sky-100 font-semibold pt-1">
-                <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
-                  <Award className="w-4 h-4 text-amber-400" /> 20+ Years Clinical Experience
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 text-xs sm:text-sm text-white font-bold pt-2">
+                <span className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 shadow-sm">
+                  <Award className="w-4.5 h-4.5 text-amber-400 shrink-0" /> 20+ Years Clinical Experience
                 </span>
-                <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400" /> 150+ NABL ISO 15189 Lab Assessments
+                <span className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/20 shadow-sm">
+                  <ShieldCheck className="w-4.5 h-4.5 text-emerald-400 shrink-0" /> 150+ NABL ISO 15189 Lab Assessments
                 </span>
               </div>
             </div>
