@@ -41,6 +41,15 @@ const SEO_PAGES: { url: string; priority: number; changeFrequency: "daily" | "we
   { url: "/diagnostic-lab-nagarabhavi", priority: 0.9, changeFrequency: "monthly" },
   { url: "/diagnostic-lab-vijayanagar", priority: 0.9, changeFrequency: "monthly" },
   { url: "/diagnostic-lab-manyata-tech-park", priority: 0.9, changeFrequency: "monthly" },
+  { url: "/cbc-test-bangalore", priority: 0.95, changeFrequency: "weekly" },
+  { url: "/hba1c-test-bangalore", priority: 0.95, changeFrequency: "weekly" },
+  { url: "/thyroid-test-bangalore", priority: 0.95, changeFrequency: "weekly" },
+  { url: "/vitamin-d-test-bangalore", priority: 0.95, changeFrequency: "weekly" },
+  { url: "/vitamin-b12-test-bangalore", priority: 0.95, changeFrequency: "weekly" },
+  { url: "/lipid-profile-test-bangalore", priority: 0.95, changeFrequency: "weekly" },
+  { url: "/liver-function-test-bangalore", priority: 0.95, changeFrequency: "weekly" },
+  { url: "/kidney-function-test-bangalore", priority: 0.95, changeFrequency: "weekly" },
+  { url: "/fasting-blood-sugar-test-bangalore", priority: 0.95, changeFrequency: "weekly" },
 ];
 
 const SPECIALITIES = [

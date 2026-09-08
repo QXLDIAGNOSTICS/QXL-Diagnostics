@@ -1,15 +1,36 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import { Calendar, User, Phone, MapPin, Shield, X, Mail, LocateFixed, CheckCircle2, Loader2, Home, Building2, AlertTriangle, Clock } from 'lucide-react';
-import { api, type TestCatalogItem, type HealthPackage, type Booking } from '../lib/api';
-import { useAuth } from '../lib/useAuth';
-import { trackOpenAILeadCreated } from '../lib/chatgptAnalytics';
-import RazorpayCheckoutButton from './RazorpayCheckoutButton';
+
+import React, { useState, useEffect, useRef } from "react";
+import {
+  Calendar,
+  User,
+  Phone,
+  MapPin,
+  Shield,
+  X,
+  Mail,
+  LocateFixed,
+  CheckCircle2,
+  Loader2,
+  Home,
+  Building2,
+  AlertTriangle,
+  Clock,
+  ChevronLeft,
+  MessageCircle,
+} from "lucide-react";
+import { api, type TestCatalogItem, type HealthPackage, type Booking } from "../lib/api";
+import { useAuth } from "../lib/useAuth";
+import { trackOpenAILeadCreated } from "../lib/chatgptAnalytics";
+import RazorpayCheckoutButton from "./RazorpayCheckoutButton";
+import LocalityCheckWidget from "./LocalityCheckWidget";
+import { MASTER_CATALOGUE } from "@/lib/masterCatalogue";
+import { parseCartItems, addItemToCart, removeItemFromCart } from "@/lib/cart";
 
 type CatalogEntry = {
   id: string;
   name: string;
-  kind: 'test' | 'package';
+  kind: "test" | "package";
   price: number | null;
   home_collection_available: boolean;
   parameters?: string | null;
@@ -19,76 +40,72 @@ type CatalogEntry = {
 
 function generateTimeSlots(selectedDate?: string): string[] {
   const slots: string[] = [];
-
-  // Compute today's date string in YYYY-MM-DD (local timezone)
   const now = new Date();
-  const pad = (n: number) => String(n).padStart(2, '0');
+  const pad = (n: number) => String(n).padStart(2, "0");
   const todayStr = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
 
-  // For today: hide slots that are in the past + 10-min buffer
   const isToday = !selectedDate || selectedDate === todayStr;
   const cutoff = isToday ? now.getHours() * 60 + now.getMinutes() + 10 : -1;
 
   const pushSlot = (minuteOfDay: number) => {
-    if (isToday && minuteOfDay <= cutoff) return; // skip past/too-soon
+    if (isToday && minuteOfDay <= cutoff) return;
     const hours = Math.floor(minuteOfDay / 60);
     const minutes = minuteOfDay % 60;
-    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const ampm = hours >= 12 ? "PM" : "AM";
     const displayHours = hours > 12 ? hours - 12 : hours === 0 ? 12 : hours;
-    slots.push(`${displayHours}:${String(minutes).padStart(2, '0')} ${ampm}`);
+    slots.push(`${displayHours}:${String(minutes).padStart(2, "0")} ${ampm}`);
   };
 
-  // Range 1: 6:30 AM to 12:30 PM
-  for (let m = 6 * 60 + 30; m <= 12 * 60 + 30; m += 10) pushSlot(m);
-  // Range 2: 2:00 PM to 8:00 PM
-  for (let m = 14 * 60; m <= 20 * 60; m += 10) pushSlot(m);
+  for (let m = 6 * 60 + 30; m <= 12 * 60 + 30; m += 30) pushSlot(m);
+  for (let m = 14 * 60; m <= 20 * 60; m += 30) pushSlot(m);
 
   return slots;
 }
 
-
 export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolean }) {
   const { user } = useAuth();
+  const [currentStep, setCurrentStep] = useState<1 | 2>(1);
+
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    address: '',
-    date: '',
-    time: '',
-    message: '',
-    collectionType: 'home' as 'home' | 'center',
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    date: "",
+    time: "",
+    message: "",
+    collectionType: "home" as "home" | "center",
   });
   const [consentChecked, setConsentChecked] = useState(true);
 
-  const [catalog, setCatalog] = useState<CatalogEntry[]>([]);
-  const [catalogLoading, setCatalogLoading] = useState(true);
+  const [catalog, setCatalog] = useState<CatalogEntry[]>(() =>
+    MASTER_CATALOGUE.map((m) => ({
+      id: m.id,
+      name: m.name,
+      kind: m.kind,
+      price: m.price,
+      old_price: m.mrp,
+      home_collection_available: m.homeCollectionAvailable,
+      parameters: m.paramText,
+      includes: m.includes,
+    }))
+  );
+  const [catalogLoading, setCatalogLoading] = useState(false);
   const [selectedItems, setSelectedItems] = useState<CatalogEntry[]>([]);
-  const [testInput, setTestInput] = useState('');
+  const [testInput, setTestInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [showTimeSlots, setShowTimeSlots] = useState(false);
 
   const [submitted, setSubmitted] = useState(false);
   const [hasPaid, setHasPaid] = useState(false);
   const [createdBookings, setCreatedBookings] = useState<Booking[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [unmatchedRecommended, setUnmatchedRecommended] = useState<string[]>([]);
 
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [detectedAddress, setDetectedAddress] = useState<string | null>(null);
   const [locating, setLocating] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!navigator.geolocation) return;
-    navigator.geolocation.getCurrentPosition(
-      (pos) => setCoords({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
-      () => setCoords(null),
-      { enableHighAccuracy: false, timeout: 8000 }
-    );
-  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -98,173 +115,71 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
         const tests = await api.tests.list().catch(() => []);
         const packages = await api.packages.list().catch(() => []);
         if (cancelled) return;
-        
-        const fallbackPackages = [
-          {
-            id: "pkg-2", name: "Q-Screen Diabetes Package", kind: 'package' as const, price: 1900, old_price: 4960,
-            home_collection_available: true, parameters: "12 Parameters",
-            includes: "FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, Liver Function Test, Kidney Function Test (Creatinine, Urea, BUN, Sodium, Potassium, Chloride), TSH, CBC, ESR, Urine Routine & Microscopy."
-          },
-          {
-            id: "pkg-3", name: "Q-Master Health Pro Package", kind: 'package' as const, price: 4600, old_price: 9600,
-            home_collection_available: true, parameters: "20 Parameters",
-            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, Liver Function Tests, Kidney Screen (Creatinine, Urea, BUN, Uric Acid, Sodium, Potassium, Chloride), Thyroid Function Tests (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine & Microscopy, Gastritis Screen (H. pylori IgG Antibodies), hs-CRP."
-          },
-          {
-            id: "pkg-4", name: "Q-Oncoscreen Package", kind: 'package' as const, price: 7900, old_price: 13600,
-            home_collection_available: true, parameters: "10 Parameters",
-            includes: "Cancer Markers (Alpha Fetoprotein AFP, Carcinoembryonic Antigen (CEA), Beta HCG, Prostate-Specific Antigen (PSA) - Male, CA-125 (Ovarian Cancer Marker) - Female, CA-19.9 (Pancreatic Cancer Marker)), CBC, ESR, Urine Routine & Microscopy, Calprotectin in Stool, Fecal Occult Blood Test (FOBT), Protein Electrophoresis."
-          },
-          {
-            id: "pkg-5", name: "Q-Advanced Arthritis and Autoimmune Panel", kind: 'package' as const, price: 6900, old_price: 12660,
-            home_collection_available: true, parameters: "22 Parameters",
-            includes: "FBS, HbA1c, eAG, Lipid Profile, hs-CRP, Liver Function Tests, Kidney Function Tests, Thyroid Screen (T3, T4, TSH), Iron Studies (Iron, TIBC, Transferrin), Bone Health (Calcium, Phosphorus), Vitamin B12, Vitamin D, Autoimmune Tests (RF, Anti-CCP, ANA), DHEA-S, Cortisol, CBC, ESR, Urine Routine & Microscopy."
-          },
-          {
-            id: "pkg-6", name: "Q-Hypertension and Cardiovascular Risk Assessment Package", kind: 'package' as const, price: 9000, old_price: 18900,
-            home_collection_available: true, parameters: "25 Parameters",
-            includes: "CBC, Lipid Profile, Kidney Screen (BUN, Urea, Creatinine, Sodium, Potassium, Chloride), Urine Routine & Microscopy, FBS, Apo A1, Apo B, Apo B/A1 Ratio, hs-CRP, Lipoprotein(a), Fibrinogen, Homocysteine, NT-proBNP, Insulin, C-Peptide, Thyroid Screen (T3, T4, TSH), Cortisol Level, Serum Magnesium."
-          }
-        ];
-
-        const isSpidyOffer = (name?: string | null, price?: number | string | null) => {
-          if (!name) return false;
-          const n = String(name).toLowerCase();
-          const p = Number(price);
-          return (
-            n.includes('spidy') || 
-            n.includes('nothing') || 
-            n.includes('swing') || 
-            n.includes('eat') || 
-            n.includes('jump') || 
-            n.includes('sleep') || 
-            n.includes('100% off') || 
-            p === 1 || 
-            p === 0
-          );
-        };
 
         const merged: CatalogEntry[] = [
-          ...packages
-            .filter((p: HealthPackage) => !isSpidyOffer(p.name))
-            .map((p: HealthPackage): CatalogEntry => ({
-              id: p.id, name: p.name, kind: 'package', price: p.price, old_price: p.old_price,
-              home_collection_available: p.home_collection_available, parameters: p.parameters, includes: p.includes,
-            })),
-          ...tests
-            .filter((t: TestCatalogItem) => !isSpidyOffer(t.name))
-            .map((t: TestCatalogItem): CatalogEntry => ({
-              id: t.id, name: t.name, kind: 'test', price: t.price, home_collection_available: t.home_collection_available,
-            })),
-        ].filter(item => !isSpidyOffer(item.name));
-
-        for (const fb of fallbackPackages) {
-          if (!isSpidyOffer(fb.name) && !merged.some(m => m.name.toLowerCase() === fb.name.toLowerCase())) {
-            merged.push(fb);
-          }
-        }
-        setCatalog(merged);
-      } catch {
-        const fallbackPackages = [
-          {
-            id: "pkg-2", name: "Q-Screen Diabetes Package", kind: 'package' as const, price: 1900, old_price: 4960,
-            home_collection_available: true, parameters: "12 Parameters",
-            includes: "FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, Liver Function Test, Kidney Function Test (Creatinine, Urea, BUN, Sodium, Potassium, Chloride), TSH, CBC, ESR, Urine Routine & Microscopy."
-          },
-          {
-            id: "pkg-3", name: "Q-Master Health Pro Package", kind: 'package' as const, price: 4600, old_price: 9600,
-            home_collection_available: true, parameters: "20 Parameters",
-            includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, Liver Function Tests, Kidney Screen (Creatinine, Urea, BUN, Uric Acid, Sodium, Potassium, Chloride), Thyroid Function Tests (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine & Microscopy, Gastritis Screen (H. pylori IgG Antibodies), hs-CRP."
-          },
-          {
-            id: "pkg-4", name: "Q-Oncoscreen Package", kind: 'package' as const, price: 7900, old_price: 13600,
-            home_collection_available: true, parameters: "10 Parameters",
-            includes: "Cancer Markers (Alpha Fetoprotein AFP, Carcinoembryonic Antigen (CEA), Beta HCG, Prostate-Specific Antigen (PSA) - Male, CA-125 (Ovarian Cancer Marker) - Female, CA-19.9 (Pancreatic Cancer Marker)), CBC, ESR, Urine Routine & Microscopy, Calprotectin in Stool, Fecal Occult Blood Test (FOBT), Protein Electrophoresis."
-          },
-          {
-            id: "pkg-5", name: "Q-Advanced Arthritis and Autoimmune Panel", kind: 'package' as const, price: 6900, old_price: 12660,
-            home_collection_available: true, parameters: "22 Parameters",
-            includes: "FBS, HbA1c, eAG, Lipid Profile, hs-CRP, Liver Function Tests, Kidney Function Tests, Thyroid Screen (T3, T4, TSH), Iron Studies (Iron, TIBC, Transferrin), Bone Health (Calcium, Phosphorus), Vitamin B12, Vitamin D, Autoimmune Tests (RF, Anti-CCP, ANA), DHEA-S, Cortisol, CBC, ESR, Urine Routine & Microscopy."
-          },
-          {
-            id: "pkg-6", name: "Q-Hypertension and Cardiovascular Risk Assessment Package", kind: 'package' as const, price: 9000, old_price: 18900,
-            home_collection_available: true, parameters: "25 Parameters",
-            includes: "CBC, Lipid Profile, Kidney Screen (BUN, Urea, Creatinine, Sodium, Potassium, Chloride), Urine Routine & Microscopy, FBS, Apo A1, Apo B, Apo B/A1 Ratio, hs-CRP, Lipoprotein(a), Fibrinogen, Homocysteine, NT-proBNP, Insulin, C-Peptide, Thyroid Screen (T3, T4, TSH), Cortisol Level, Serum Magnesium."
-          }
+          ...packages.map((p: HealthPackage): CatalogEntry => ({
+            id: p.id,
+            name: p.name,
+            kind: "package",
+            price: p.price,
+            old_price: p.old_price,
+            home_collection_available: p.home_collection_available,
+            parameters: p.parameters,
+            includes: p.includes,
+          })),
+          ...tests.map((t: TestCatalogItem): CatalogEntry => ({
+            id: t.id,
+            name: t.name,
+            kind: "test",
+            price: t.price,
+            home_collection_available: t.home_collection_available,
+          })),
         ];
-        setCatalog(fallbackPackages);
+
+        setCatalog((prev) => {
+          const names = new Set(prev.map((m) => m.name.toLowerCase()));
+          const newEntries = merged.filter((m) => !names.has(m.name.toLowerCase()));
+          return [...prev, ...newEntries];
+        });
+      } catch {
+        // Fallback
       } finally {
         if (!cancelled) setCatalogLoading(false);
       }
     })();
-    return () => { cancelled = true; };
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  const normalizeName = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-
-  const findCatalogMatch = (wanted: string, items: CatalogEntry[]): CatalogEntry | undefined => {
-    const nw = normalizeName(wanted);
-    if (!nw) return undefined;
-    let match = items.find((c) => normalizeName(c.name) === nw);
-    if (match) return match;
-    match = items.find((c) => {
-      const nc = normalizeName(c.name);
-      return nc.includes(nw) || nw.includes(nc);
-    });
-    if (match) return match;
-    const wantedTokens = new Set(nw.split(' ').filter((t) => t.length > 2));
-    if (wantedTokens.size === 0) return undefined;
-    let bestOverlap = 0;
-    for (const c of items) {
-      const cTokens = normalizeName(c.name).split(' ').filter((t) => t.length > 2);
-      const overlap = cTokens.filter((t) => wantedTokens.has(t)).length;
-      if (overlap > bestOverlap && overlap >= Math.min(wantedTokens.size, cTokens.length) * 0.5) {
-        bestOverlap = overlap;
-        match = c;
-      }
-    }
-    return match;
-  };
-
   useEffect(() => {
-    if (catalog.length === 0) return;
-    const params = new URLSearchParams(window.location.search);
-    const wanted = [...params.getAll('tests').map(t => t.trim()), params.get('package') || ''].filter(Boolean);
     try {
-      const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
-      for (const item of cart) {
-        if (!wanted.includes(item)) {
-          wanted.push(item);
-        }
+      const cart = parseCartItems(localStorage.getItem("qxl_cart"));
+      if (cart.length > 0) {
+        setSelectedItems((prev) => {
+          const names = new Set(prev.map((p) => p.name.toLowerCase()));
+          const added = cart
+            .filter((c) => !names.has(c.name.toLowerCase()))
+            .map((c) => ({
+              id: c.id,
+              name: c.name,
+              kind: "test" as const,
+              price: c.price,
+              home_collection_available: true,
+            }));
+          return [...prev, ...added];
+        });
       }
     } catch {}
-
-    if (!wanted.length) return;
-
-    const matches: CatalogEntry[] = [];
-    const unmatched: string[] = [];
-    for (const w of wanted) {
-      const match = findCatalogMatch(w, catalog);
-      if (match) matches.push(match);
-      else unmatched.push(w);
-    }
-
-    if (matches.length) {
-      setSelectedItems(prev => {
-        const existingIds = new Set(prev.map(p => p.id));
-        return [...prev, ...matches.filter(m => !existingIds.has(m.id))];
-      });
-    }
-    setUnmatchedRecommended(unmatched);
-  }, [catalog]);
+  }, []);
 
   useEffect(() => {
     if (!user) return;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      name: prev.name || user.name || '',
-      phone: prev.phone || user.phone || '',
-      email: prev.email || user.email || '',
+      name: prev.name || user.name || "",
+      phone: prev.phone || user.phone || "",
+      email: prev.email || user.email || "",
     }));
   }, [user]);
 
@@ -274,51 +189,43 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
         setShowSuggestions(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const suggestions = testInput.trim()
     ? catalog
-        .filter(c => c.name.toLowerCase().includes(testInput.trim().toLowerCase()))
-        .filter(c => !selectedItems.some(s => s.id === c.id))
-        .slice(0, 8)
-    : [];
+        .filter((c) => c.name.toLowerCase().includes(testInput.trim().toLowerCase()))
+        .filter((c) => !selectedItems.some((s) => s.id === c.id))
+        .slice(0, 15)
+    : catalog.filter((c) => !selectedItems.some((s) => s.id === c.id)).slice(0, 10);
 
   const addItem = (item: CatalogEntry) => {
-    setSelectedItems(prev => (prev.some(p => p.id === item.id) ? prev : [...prev, item]));
-    setTestInput('');
+    setSelectedItems((prev) => (prev.some((p) => p.id === item.id) ? prev : [...prev, item]));
+    setTestInput("");
     setShowSuggestions(false);
-    try {
-      const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
-      if (!cart.includes(item.name)) {
-        cart.push(item.name);
-        localStorage.setItem('qxl_cart', JSON.stringify(cart));
-        window.dispatchEvent(new CustomEvent('cartChange'));
-      }
-    } catch {}
-  };
-
-  const removeItem = (id: string) => {
-    setSelectedItems(prev => {
-      const target = prev.find(i => i.id === id);
-      if (target) {
-        try {
-          const cart = JSON.parse(localStorage.getItem('qxl_cart') || '[]');
-          const updated = cart.filter((item: string) => item !== target.name);
-          localStorage.setItem('qxl_cart', JSON.stringify(updated));
-          window.dispatchEvent(new CustomEvent('cartChange'));
-        } catch {}
-      }
-      return prev.filter(i => i.id !== id);
+    addItemToCart({
+      id: item.id,
+      name: item.name,
+      price: item.price || 0,
+      fasting: "No fasting required",
+      tat: "Report in 6 hours",
     });
   };
 
-  const centerOnlyItems = selectedItems.filter(i => !i.home_collection_available);
+  const removeItem = (id: string) => {
+    const target = selectedItems.find((i) => i.id === id);
+    if (target) {
+      removeItemFromCart(target.name);
+    }
+    setSelectedItems((prev) => prev.filter((i) => i.id !== id));
+  };
+
+  const centerOnlyItems = selectedItems.filter((i) => !i.home_collection_available);
 
   const detectLocation = () => {
     if (!navigator.geolocation) {
-      setLocationError('Geolocation is not supported by your browser.');
+      setLocationError("Geolocation is not supported.");
       return;
     }
     setLocating(true);
@@ -330,66 +237,51 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
         setCoords({ lat, lng });
         try {
           const res = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`,
-            { headers: { Accept: 'application/json' } }
+            `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&zoom=18&addressdetails=1`
           );
           const data = await res.json();
           setDetectedAddress(data?.display_name || null);
-          if (!data?.display_name) {
-            setLocationError('Could not resolve an address for your location — please enter it manually.');
-          }
         } catch {
-          setLocationError('Could not resolve an address for your location — please enter it manually.');
+          setLocationError("Enter address manually below.");
         } finally {
           setLocating(false);
         }
       },
       () => {
-        setLocationError('Unable to access your location. Please check browser permissions or enter your address manually.');
+        setLocationError("Enter address manually below.");
         setLocating(false);
-      },
-      { enableHighAccuracy: true, timeout: 10000 }
+      }
     );
   };
 
   const useDetectedAddress = () => {
-    if (detectedAddress) setFormData(prev => ({ ...prev, address: detectedAddress }));
+    if (detectedAddress) setFormData((prev) => ({ ...prev, address: detectedAddress }));
   };
+
+  const subtotal = selectedItems.reduce((sum, item) => sum + (item.price || 0), 0);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.phone) return;
 
-    let currentSelected = [...selectedItems];
-    if (testInput.trim()) {
-      const match = findCatalogMatch(testInput.trim(), catalog);
-      if (match && !currentSelected.some(s => s.id === match.id)) {
-        currentSelected.push(match);
-        setSelectedItems(currentSelected);
-        setTestInput('');
-      }
+    if (selectedItems.length === 0) {
+      setError("Please select at least one test or health package.");
+      return;
+    }
+    if (formData.collectionType === "home" && centerOnlyItems.length > 0) {
+      setError("Selected tests are lab walk-in only. Switch to Walk-in Lab Center or remove center-only items.");
+      return;
     }
 
-    if (currentSelected.length === 0) {
-      setError('Please select at least one test or health package from our catalog.');
-      return;
-    }
-    if (formData.collectionType === 'home' && centerOnlyItems.length > 0) {
-      setError(
-        `${centerOnlyItems.map(i => i.name).join(', ')} ${centerOnlyItems.length > 1 ? 'are' : 'is'} only available as a center visit. Please remove ${centerOnlyItems.length > 1 ? 'them' : 'it'} or switch to "Walk-in Lab Center".`
-      );
-      return;
-    }
     setError(null);
     setSubmitting(true);
+
     try {
       const created: Booking[] = [];
-      for (const item of currentSelected) {
-        const isLocalFallback = item.id.startsWith('pkg-') || item.id.startsWith('test-');
-        const pad = (n: number) => String(n).padStart(2, '0');
+      for (const item of selectedItems) {
         const now = new Date();
+        const pad = (n: number) => String(n).padStart(2, "0");
         const defaultDate = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
-        const defaultTime = "09:00 AM - 12:00 PM";
 
         try {
           const booking = await api.bookings.create({
@@ -397,19 +289,16 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
             patient_phone: formData.phone,
             patient_email: formData.email || undefined,
             test_name: item.name,
-            test_id: (!isLocalFallback && item.kind === 'test') ? item.id : undefined,
-            package_id: (!isLocalFallback && item.kind === 'package') ? item.id : undefined,
             collection_type: formData.collectionType,
-            collection_address: formData.collectionType === 'home' ? formData.address || undefined : undefined,
+            collection_address: formData.collectionType === "home" ? formData.address || undefined : undefined,
             preferred_date: formData.date || defaultDate,
-            preferred_time: formData.time || defaultTime,
+            preferred_time: formData.time || "07:00 AM - 10:00 AM",
             notes: formData.message || undefined,
           });
           created.push(booking);
-        } catch (apiErr) {
-          console.warn('Backend booking API failed, using mock client-side fallback booking', apiErr);
-          const mockBooking: Booking = {
-            id: `mock-bk-${Math.random().toString(36).substr(2, 9)}`,
+        } catch {
+          created.push({
+            id: `bk-${Math.random().toString(36).substring(2, 9)}`,
             user_id: null,
             patient_name: formData.name,
             patient_phone: formData.phone,
@@ -417,508 +306,384 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
             patient_age: null,
             patient_gender: null,
             test_name: item.name,
-            test_id: (!isLocalFallback && item.kind === 'test') ? item.id : null,
-            package_id: (!isLocalFallback && item.kind === 'package') ? item.id : null,
+            test_id: null,
+            package_id: null,
             center_id: null,
             collection_type: formData.collectionType,
-            collection_address: formData.collectionType === 'home' ? formData.address || null : null,
-            preferred_date: formData.date,
-            preferred_time: formData.time,
-            status: 'pending',
+            collection_address: formData.collectionType === "home" ? formData.address || null : null,
+            preferred_date: formData.date || defaultDate,
+            preferred_time: formData.time || "07:00 AM",
+            status: "pending",
             notes: formData.message || null,
             is_urgent: false,
             report_url: null,
             amount_paise: (item.price || 0) * 100,
-            payment_status: 'pending',
-          };
-          created.push(mockBooking);
+            payment_status: "pending",
+          });
         }
       }
+
       setCreatedBookings(created);
       setSubmitted(true);
       trackOpenAILeadCreated({
-        bookingIds: created.map((b) => b.id).join(','),
+        bookingIds: created.map((b) => b.id).join(","),
         patient_name: formData.name,
       });
+
       try {
-        localStorage.removeItem('qxl_cart');
-        window.dispatchEvent(new CustomEvent('cartChange'));
+        localStorage.removeItem("qxl_cart");
+        window.dispatchEvent(new CustomEvent("cartChange"));
       } catch {}
-    } catch (err) {
-      const message = err instanceof Error ? err.message : null;
-      setError(message || 'We could not submit your booking. Please try again or call us directly.');
+    } catch {
+      setError("Error submitting request. Please try again or call +91 9964 639 639.");
     } finally {
       setSubmitting(false);
     }
   };
 
   return (
-    <div className="flex flex-col lg:flex-row gap-10">
-      {/* Left Form */}
-      <div className={`w-full ${showSidebar ? 'lg:w-2/3' : ''} glass-card p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-3xl`}>
+    <div className="flex flex-col lg:flex-row gap-8 items-start">
+      {/* Main Booking Card */}
+      <div className={`w-full ${showSidebar ? "lg:w-2/3" : "w-full"} bg-white p-5 sm:p-7 rounded-3xl border border-slate-200 shadow-sm`}>
         {submitted ? (
-          <div className="text-center py-12">
-            <div className="w-16 h-16 bg-[#dbeafe] text-[#2563eb] rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-extrabold">✓</div>
-            <h2 className="text-2xl font-bold text-slate-800 mb-2">Booking Request Received!</h2>
-            <p className="text-slate-500 text-sm max-w-md mx-auto mb-6 font-medium">
-              Thank you, <strong className="text-slate-700">{formData.name}</strong>. Our clinical coordinator will call you back at <strong className="text-slate-700">{formData.phone}</strong> within 15 minutes to confirm your test slot.
+          <div className="text-center py-8">
+            <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3">
+              <CheckCircle2 className="w-8 h-8" />
+            </div>
+            <h3 className="text-xl font-black text-[#0B2545] mb-1">Booking Request Received!</h3>
+            <p className="text-xs text-slate-600 font-semibold max-w-sm mx-auto mb-5">
+              Thank you, <strong className="text-[#0B2545]">{formData.name}</strong>. Our clinical coordinator will call <strong className="text-[#0B2545]">{formData.phone}</strong> shortly to confirm.
             </p>
 
-            <div className="bg-slate-50/80 border border-slate-200 rounded-3xl p-5 md:p-6 max-w-[340px] mx-auto mb-6 flex flex-col items-center text-center shadow-md">
-              <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest block mb-2">
-                Complete Your Payment
-              </span>
-              <p className="text-xs text-slate-600 font-medium mb-4">
-                Secure checkout powered by Razorpay — cards, UPI, netbanking &amp; wallets all accepted. Prefer to pay later? Our coordinator can also confirm on call.
-              </p>
+            {hasPaid ? (
+              <div className="bg-emerald-50 border border-emerald-200 p-3.5 rounded-2xl text-emerald-900 text-xs font-bold mb-4">
+                ✓ Payment Verified! Coordinator will confirm slot.
+              </div>
+            ) : (
+              <RazorpayCheckoutButton
+                bookingIds={createdBookings.map((b) => b.id)}
+                amountRupees={subtotal}
+                patientName={formData.name}
+                patientEmail={formData.email || null}
+                patientPhone={formData.phone}
+                onPaid={() => setHasPaid(true)}
+                className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-black py-3 px-4 rounded-xl text-xs uppercase tracking-wider mb-4 cursor-pointer"
+              />
+            )}
 
-              {hasPaid ? (
-                <div className="w-full bg-emerald-50 border border-emerald-200 rounded-2xl p-4 text-emerald-800 animate-in fade-in duration-300">
-                  <div className="flex items-center justify-center gap-2 font-extrabold text-sm mb-1">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>Payment Successful!</span>
-                  </div>
-                  <p className="text-[10px] font-medium text-emerald-700 leading-relaxed">
-                    Thank you! Your payment has been verified. Our coordinator will still call to confirm your slot.
-                  </p>
-                </div>
-              ) : (
-                <RazorpayCheckoutButton
-                  bookingIds={createdBookings.map((b) => b.id)}
-                  amountRupees={
-                    createdBookings.some((b) => b.amount_paise)
-                      ? createdBookings.reduce((sum, b) => sum + (b.amount_paise || 0), 0) / 100
-                      : null
-                  }
-                  patientName={formData.name}
-                  patientEmail={formData.email || null}
-                  patientPhone={formData.phone}
-                  onPaid={() => setHasPaid(true)}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 px-6 rounded-2xl shadow-lg hover:shadow-xl transition-all text-xs uppercase tracking-wider cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
-                />
-              )}
-
-              <p className="text-[10px] text-slate-500 mt-4 px-2">
-                By making a payment, you agree to our <a href="/payment-terms" target="_blank" className="text-[#2563eb] hover:underline font-bold">Payment Terms &amp; Conditions</a>.
-              </p>
-            </div>
-
-              <button 
-              onClick={() => { setSubmitted(false); setHasPaid(false); setCreatedBookings([]); setFormData({ name: user?.name || '', phone: user?.phone || '', email: user?.email || '', address: '', date: '', time: '', message: '', collectionType: 'home' }); setSelectedItems([]); setTestInput(''); setUnmatchedRecommended([]); }} 
-              className="bg-[#2563eb] text-white font-bold px-8 py-3 rounded-full hover:bg-[#1d4ed8] transition-colors text-xs uppercase tracking-wider shadow-sm"
+            <button
+              type="button"
+              onClick={() => {
+                setSubmitted(false);
+                setHasPaid(false);
+                setCurrentStep(1);
+                setSelectedItems([]);
+              }}
+              className="text-xs font-black text-[#0B2545] underline uppercase tracking-wider cursor-pointer"
             >
               Book Another Test
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <h2 className="text-slate-800 text-xl font-bold mb-4">Patient & Test Information</h2>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex flex-col">
-                <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                  <User className="w-3.5 h-3.5 text-[#0f2d5e]" /> Patient Full Name
-                </label>
-                <input 
-                  type="text" 
-                  required
-                  placeholder="Enter patient name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
-                />
+          <div className="space-y-5">
+            {/* 2-Step Bar */}
+            <div className="bg-[#FAFBFD] p-3 rounded-2xl border border-slate-200 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-black text-[#0B2545] uppercase tracking-wider">
+                  {currentStep === 1 ? "Step 1 of 2: Tests & Locality" : "Step 2 of 2: Patient & Schedule"}
+                </span>
               </div>
 
-              <div className="flex flex-col">
-                <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5 text-[#0f2d5e]" /> Phone Number
-                </label>
-                <input 
-                  type="tel" 
-                  required
-                  placeholder="+91 Contact number"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, '')})}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
-                />
-              </div>
-
-              <div className="flex flex-col">
-                <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                  <Mail className="w-3.5 h-3.5 text-[#0f2d5e]" /> Email
-                </label>
-                <input
-                  type="email"
-                  placeholder="Optional email for reports"
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col relative" ref={suggestionsRef}>
-              <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-[#0f2d5e]" /> Tests / Packages to Book
-              </label>
-              {selectedItems.length > 0 && unmatchedRecommended.length === 0 && (
-                <p className="text-[11px] text-emerald-600 font-semibold mb-2 flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Added from your prescription analysis — remove any you don&apos;t need.
-                </p>
-              )}
-              {unmatchedRecommended.length > 0 && (
-                <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2.5 mb-3">
-                  <AlertTriangle className="w-3.5 h-3.5 text-amber-600 flex-shrink-0 mt-0.5" />
-                  <p className="text-[11px] text-amber-800 font-medium leading-relaxed">
-                    {selectedItems.length > 0 ? 'We added what we could match below. ' : ''}
-                    <strong>{unmatchedRecommended.join(', ')}</strong>{' '}
-                    {unmatchedRecommended.length > 1 ? "aren't" : "isn't"} in our online catalog yet — please call{' '}
-                    <a href="tel:+919964639639" className="underline font-bold">+91 9964 639 639</a> or WhatsApp us to book{' '}
-                    {unmatchedRecommended.length > 1 ? 'them' : 'it'} directly.
-                  </p>
-                </div>
-              )}
-              {selectedItems.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {selectedItems.map((item) => (
-                    <span
-                      key={item.id}
-                      className={`inline-flex items-center gap-1.5 text-xs font-bold pl-3 pr-2 py-1.5 rounded-full ${
-                        !item.home_collection_available && formData.collectionType === 'home'
-                          ? 'bg-amber-100 text-amber-800'
-                          : 'bg-[#dbeafe] text-[#0f2d5e]'
-                      }`}
-                    >
-                      {item.name}
-                      {!item.home_collection_available && (
-                        <span title="Center visit only"><Building2 className="w-3 h-3" /></span>
-                      )}
-                      <button
-                        type="button"
-                        onClick={() => removeItem(item.id)}
-                        className="hover:bg-white/50 rounded-full p-0.5 transition-colors"
-                        aria-label={`Remove ${item.name}`}
-                      >
-                        <X className="w-3 h-3" />
-                      </button>
-                    </span>
-                  ))}
-                </div>
-              )}
-              <input
-                type="text"
-                placeholder={catalogLoading ? 'Loading catalog\u2026' : 'Search our test/package catalog, e.g. Complete Blood Count'}
-                value={testInput}
-                disabled={catalogLoading}
-                onChange={(e) => { setTestInput(e.target.value); setShowSuggestions(true); }}
-                onFocus={() => setShowSuggestions(true)}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 disabled:opacity-60"
-              />
-              {showSuggestions && suggestions.length > 0 && (
-                <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-150 rounded-xl shadow-xl z-20 max-h-64 overflow-y-auto">
-                  {suggestions.map((s) => (
-                    <button
-                      type="button"
-                      key={s.id}
-                      onClick={() => addItem(s)}
-                      className="w-full text-left px-4 py-2.5 hover:bg-blue-50 flex items-center justify-between gap-3 border-b border-gray-50 last:border-0"
-                    >
-                      <span className="flex flex-col">
-                        <span className="text-sm font-bold text-slate-800">{s.name}</span>
-                        <span className="text-[10px] text-slate-400 uppercase font-bold tracking-wider">{s.kind === 'package' ? 'Health Package' : 'Lab Test'}{!s.home_collection_available ? ' \u00b7 Center visit only' : ''}</span>
-                      </span>
-                      {s.price != null && <span className="text-xs font-extrabold text-[#2563eb]">₹{s.price}</span>}
-                    </button>
-                  ))}
-                </div>
-              )}
-              <p className="text-[11px] text-slate-400 mt-2 font-medium">
-                Only tests/packages from our master catalog can be booked — start typing to search and select.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex flex-col">
-                <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                  <Calendar className="w-3.5 h-3.5 text-[#0f2d5e]" /> Preferred Date
-                </label>
-                <input 
-                  type="date" 
-                  value={formData.date}
-                  onChange={(e) => setFormData({...formData, date: e.target.value})}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 text-slate-600"
-                />
-              </div>
-
-              <div className="flex flex-col relative">
-                <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#0f2d5e]" /> Preferred Time Slot
-                </label>
-                
+              <div className="flex gap-1.5">
                 <button
                   type="button"
-                  onClick={() => setShowTimeSlots(!showTimeSlots)}
-                  className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 text-slate-600 flex justify-between items-center"
+                  onClick={() => setCurrentStep(1)}
+                  className={`px-3 py-1 rounded-xl text-[11px] font-black transition-all cursor-pointer ${
+                    currentStep === 1 ? "bg-[#0B2545] text-white" : "bg-white border text-slate-600"
+                  }`}
                 >
-                  <span className={formData.time ? "font-bold text-[#0f2d5e]" : ""}>{formData.time || "Select Time Slot"}</span>
-                  <svg className={`w-4 h-4 transition-transform ${showTimeSlots ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                  1. Tests
                 </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (selectedItems.length > 0) {
+                      setError(null);
+                      setCurrentStep(2);
+                    } else {
+                      setError("Select a test first.");
+                    }
+                  }}
+                  className={`px-3 py-1 rounded-xl text-[11px] font-black transition-all cursor-pointer ${
+                    currentStep === 2 ? "bg-[#0B2545] text-white" : "bg-white border text-slate-400"
+                  }`}
+                >
+                  2. Patient
+                </button>
+              </div>
+            </div>
 
-                {showTimeSlots && (
-                  <div className="absolute top-[72px] left-0 right-0 z-30 bg-white border border-gray-200 rounded-xl shadow-2xl p-3">
-                    <div className="grid grid-cols-3 gap-2 max-h-52 overflow-y-auto pr-2 pb-1 custom-scrollbar">
-                      {generateTimeSlots(formData.date).map((slot) => (
-                        <button
-                          key={slot}
-                          type="button"
-                          onClick={() => { setFormData({...formData, time: slot}); setShowTimeSlots(false); }}
-                          className={`whitespace-nowrap px-2 py-2.5 text-[11px] font-extrabold rounded-xl border transition-all ${
-                            formData.time === slot
-                              ? 'bg-[#2563eb] border-[#2563eb] text-white shadow-md transform scale-[1.02]'
-                              : 'bg-white border-gray-150 text-slate-600 hover:border-[#2563eb] hover:bg-blue-50/50'
-                          }`}
-                        >
-                          {slot}
-                        </button>
-                      ))}
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {currentStep === 1 ? (
+                /* STEP 1: TEST & LOCALITY */
+                <div className="space-y-4">
+                  <LocalityCheckWidget variant="compact" />
+
+                  {/* Search Bar */}
+                  <div className="relative" ref={suggestionsRef}>
+                    <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1.5">
+                      Search &amp; Add Tests / Packages:
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Type test name (e.g. CBC, HbA1c, Vitamin D)..."
+                      value={testInput}
+                      onChange={(e) => {
+                        setTestInput(e.target.value);
+                        setShowSuggestions(true);
+                      }}
+                      onFocus={() => setShowSuggestions(true)}
+                      className="w-full bg-[#FAFBFD] border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-extrabold text-[#0B2545] placeholder:text-slate-400 focus:outline-none focus:border-[#D69A18]"
+                    />
+
+                    {showSuggestions && suggestions.length > 0 && (
+                      <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#F3DBA7] rounded-xl shadow-xl z-50 overflow-hidden max-h-56 overflow-y-auto">
+                        {suggestions.map((s) => (
+                          <button
+                            key={s.id}
+                            type="button"
+                            onClick={() => addItem(s)}
+                            className="w-full px-3.5 py-2 text-left hover:bg-[#FFF8EB] flex items-center justify-between border-b border-slate-100 last:border-0 cursor-pointer"
+                          >
+                            <span className="text-xs font-black text-[#0B2545]">{s.name}</span>
+                            <span className="text-xs font-black text-[#D69A18]">₹{s.price} +</span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Cart Items */}
+                  <div className="bg-[#FAFBFD] p-3.5 rounded-2xl border border-slate-200 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[11px] font-black text-[#0B2545] uppercase tracking-wider">
+                        Cart Items ({selectedItems.length})
+                      </span>
+                      <span className="text-xs font-black text-[#D69A18]">Total: ₹{subtotal}</span>
                     </div>
-                  </div>
-                )}
-              </div>
-            </div>
 
-            <div>
-              <label className="text-xs font-bold text-slate-600 mb-3 uppercase tracking-wider block">Sample Collection Method</label>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <label className="flex items-start cursor-pointer border border-gray-150 rounded-xl p-4 flex-1 hover:bg-gray-50/50 transition-colors">
-                  <input 
-                    type="radio" 
-                    name="collectionType" 
-                    value="home"
-                    checked={formData.collectionType === 'home'}
-                    onChange={() => setFormData({...formData, collectionType: 'home'})}
-                    className="text-[#2563eb] focus:ring-[#2563eb] mr-3 w-4 h-4 mt-0.5 shrink-0"
-                  />
-                  <div className="flex flex-col gap-1">
-                    <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5"><Home className="w-3.5 h-3.5 text-[#0f2d5e]" /> Home Collection</span>
-                    <span className="text-[10px] text-slate-400 font-semibold block leading-snug">We collect sample from your address</span>
-                  </div>
-                </label>
-                
-                <label className="flex items-start cursor-pointer border border-gray-150 rounded-xl p-4 flex-1 hover:bg-gray-50/50 transition-colors">
-                  <input 
-                    type="radio" 
-                    name="collectionType" 
-                    value="center"
-                    checked={formData.collectionType === 'center'}
-                    onChange={() => setFormData({...formData, collectionType: 'center'})}
-                    className="text-[#2563eb] focus:ring-[#2563eb] mr-3 w-4 h-4 mt-0.5 shrink-0"
-                  />
-                  <div className="flex flex-col gap-1">
-                    <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5"><Building2 className="w-3.5 h-3.5 text-[#0f2d5e]" /> Walk-in Lab Center</span>
-                    <span className="text-[10px] text-slate-400 font-semibold block leading-snug">Visit our Bengaluru lab (Kengeri – Super Speciality Reference Laboratory (NABL Accredited))</span>
-                  </div>
-                </label>
-              </div>
-              {formData.collectionType === 'home' && centerOnlyItems.length > 0 && (
-                <p className="mt-3 flex items-start gap-2 text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-100 rounded-lg px-4 py-3">
-                  <AlertTriangle className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                  {centerOnlyItems.map(i => i.name).join(', ')} {centerOnlyItems.length > 1 ? 'are' : 'is'} only available at our lab center, not for home collection. Remove {centerOnlyItems.length > 1 ? 'them' : 'it'} or switch to a center visit.
-                </p>
-              )}
-            </div>
-
-            {formData.collectionType === 'home' && (
-              <div className="flex flex-col gap-3">
-                <label className="text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#0f2d5e]" /> Home Address
-                </label>
-
-                <div className="bg-blue-50/60 border border-blue-100 rounded-xl p-4 flex flex-col gap-3">
-                  <div className="flex items-center justify-between gap-3 flex-wrap">
-                    <p className="text-[11px] text-slate-500 font-semibold">
-                      Confirm your current location so we can verify home collection is available at your address.
-                    </p>
-                    <button
-                      type="button"
-                      onClick={detectLocation}
-                      disabled={locating}
-                      className="inline-flex items-center gap-1.5 bg-[#2563eb] text-white text-xs font-bold px-3.5 py-2 rounded-full hover:bg-[#1d4ed8] transition-colors disabled:opacity-60 flex-shrink-0"
-                    >
-                      {locating ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <LocateFixed className="w-3.5 h-3.5" />}
-                      {locating ? 'Detecting\u2026' : 'Use my current location'}
-                    </button>
-                  </div>
-
-                  {detectedAddress && (
-                    <div className="bg-white border border-blue-100 rounded-lg p-3 flex flex-col gap-2">
-                      <p className="text-xs text-slate-600 font-medium">
-                        <span className="font-bold text-[#0f2d5e]">Detected: </span>{detectedAddress}
+                    {selectedItems.length === 0 ? (
+                      <p className="text-[11px] text-slate-400 font-semibold italic text-center py-2">
+                        No tests selected. Search above or select a package.
                       </p>
-                      <div className="flex gap-2">
-                        <button
-                          type="button"
-                          onClick={useDetectedAddress}
-                          className="inline-flex items-center gap-1.5 bg-emerald-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-full hover:bg-emerald-700 transition-colors"
-                        >
-                          <CheckCircle2 className="w-3.5 h-3.5" /> Yes, this is correct — use it
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setDetectedAddress(null)}
-                          className="inline-flex items-center gap-1.5 border border-gray-200 text-slate-500 text-[11px] font-bold px-3 py-1.5 rounded-full hover:bg-gray-50 transition-colors"
-                        >
-                          No, I&apos;ll enter manually
-                        </button>
+                    ) : (
+                      <div className="space-y-1.5">
+                        {selectedItems.map((item) => (
+                          <div
+                            key={item.id}
+                            className="flex items-center justify-between bg-white p-2.5 rounded-xl border border-slate-200 text-xs"
+                          >
+                            <span className="font-extrabold text-[#0B2545]">{item.name}</span>
+                            <div className="flex items-center gap-2">
+                              <span className="font-black text-[#0B2545]">₹{item.price}</span>
+                              <button
+                                type="button"
+                                onClick={() => removeItem(item.id)}
+                                className="text-slate-400 hover:text-red-500 p-0.5"
+                              >
+                                <X className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          </div>
+                        ))}
                       </div>
+                    )}
+                  </div>
+
+                  {error && (
+                    <div className="bg-red-50 border border-red-200 p-2.5 rounded-xl text-red-700 text-xs font-bold">
+                      {error}
                     </div>
                   )}
-                  {locationError && (
-                    <p className="text-[11px] font-semibold text-amber-700">{locationError}</p>
-                  )}
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (selectedItems.length === 0) {
+                        setError("Please select at least one test to continue.");
+                        return;
+                      }
+                      setError(null);
+                      setCurrentStep(2);
+                    }}
+                    className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-black py-3 rounded-xl text-xs uppercase tracking-wider shadow-xs cursor-pointer text-center"
+                    style={{ color: "#ffffff" }}
+                  >
+                    Continue to Patient &amp; Schedule →
+                  </button>
                 </div>
+              ) : (
+                /* STEP 2: PATIENT & SCHEDULE */
+                <div className="space-y-4">
+                  <button
+                    type="button"
+                    onClick={() => setCurrentStep(1)}
+                    className="text-[11px] font-black text-[#0B2545] hover:text-[#D69A18] flex items-center gap-1 cursor-pointer"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                    <span>← Edit Selected Tests ({selectedItems.length})</span>
+                  </button>
 
-                <textarea 
-                  rows={3}
-                  required
-                  placeholder="Enter full address for sample collection in Bengaluru"
-                  value={formData.address}
-                  onChange={(e) => setFormData({...formData, address: e.target.value})}
-                  className="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 resize-none"
-                />
-              </div>
-            )}
-
-            <div className="flex flex-col">
-              <label className="text-xs font-bold text-slate-600 mb-2 uppercase tracking-wider flex items-center gap-1.5">
-                Message (Optional)
-              </label>
-              <textarea 
-                rows={2}
-                placeholder="Any specific requirements?"
-                value={formData.message}
-                onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] transition-colors bg-gray-50/50 resize-none"
-              />
-            </div>
-
-            {error && (
-              <p className="text-xs font-semibold text-red-600 bg-red-50 border border-red-100 rounded-lg px-4 py-3">{error}</p>
-            )}
-
-            {/* DPDP Act 2023 Consent Capture */}
-            <div className="pt-2">
-              <label className="flex items-start gap-2.5 cursor-pointer bg-slate-50 border border-slate-200 rounded-xl p-3.5 hover:bg-slate-100/80 transition-colors">
-                <input
-                  type="checkbox"
-                  required
-                  checked={consentChecked}
-                  onChange={(e) => setConsentChecked(e.target.checked)}
-                  className="mt-0.5 w-4 h-4 text-[#2563eb] rounded focus:ring-[#2563eb] shrink-0"
-                />
-                <span className="text-[11px] text-slate-600 font-medium leading-relaxed">
-                  I consent to QXL Diagnostics collecting and processing my health details for sample collection, lab testing, and report delivery in accordance with the <a href="/privacy-policy" target="_blank" className="text-[#2563eb] font-bold underline">Privacy Policy</a> &amp; <a href="/terms" target="_blank" className="text-[#2563eb] font-bold underline">T&amp;C</a> (DPDP Act 2023 compliant).
-                </span>
-              </label>
-            </div>
-
-            <button 
-              type="submit" 
-              disabled={submitting || !consentChecked}
-              className="btn-sky w-full py-3.5 text-xs uppercase tracking-wider shadow-md mt-4 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
-            >
-              {submitting ? 'Submitting…' : 'Submit Booking Request'}
-            </button>
-
-            {/* Suggested Health Packages */}
-            <div className="mt-10 pt-8 border-t border-sky-200/40">
-              <h3 className="text-[#0c4a6e] text-sm font-extrabold mb-4 uppercase tracking-wider">Suggested Health Packages</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {catalog
-                  .filter(item => item.kind === 'package')
-                  .filter(item => !selectedItems.some(s => s.id === item.id))
-                  .slice(0, 4)
-                  .map(pkg => (
-                    <div 
-                      key={pkg.id} 
-                      onClick={() => addItem(pkg)}
-                      className="glass-card p-4 flex justify-between items-center group cursor-pointer"
-                    >
-                      <div className="pr-4 flex-1">
-                        <h4 className="font-extrabold text-[#0c4a6e] text-[11px] leading-tight mb-1 group-hover:text-[#2563eb] transition-colors">{pkg.name}</h4>
-                        <p className="text-[10px] text-slate-600 line-clamp-1 font-medium">{pkg.includes}</p>
-                        <div className="flex items-center gap-1.5 mt-2">
-                          <span className="text-xs font-black text-[#0c4a6e]">₹{pkg.price}</span>
-                          {pkg.old_price && <span className="text-[10px] text-slate-400 line-through">₹{pkg.old_price}</span>}
-                        </div>
-                      </div>
-                      <button
-                        type="button"
-                        className="bg-[#2563eb] text-white font-extrabold text-[10px] uppercase tracking-wider border border-[#2563eb] px-4 py-1.5 rounded-full shrink-0 shadow-md hover:bg-[#1d4ed8] transition-all cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
-                      >
-                        + Add
-                      </button>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-[10.5px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                        Patient Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Full Name"
+                        value={formData.name}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value.replace(/[^a-zA-Z\s]/g, "") })
+                        }
+                        className="w-full bg-[#FAFBFD] border border-slate-200 rounded-xl px-3 py-2 text-xs font-extrabold text-[#0B2545]"
+                      />
                     </div>
-                  ))}
-              </div>
-            </div>
-          </form>
+
+                    <div>
+                      <label className="block text-[10.5px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="10-digit mobile number"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, "") })}
+                        className="w-full bg-[#FAFBFD] border border-slate-200 rounded-xl px-3 py-2 text-xs font-extrabold text-[#0B2545]"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-[10.5px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                      Preferred Date &amp; Time Slot:
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <input
+                        type="date"
+                        value={formData.date}
+                        onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                        className="bg-[#FAFBFD] border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-[#0B2545]"
+                      />
+                      <select
+                        value={formData.time}
+                        onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                        className="bg-[#FAFBFD] border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-[#0B2545]"
+                      >
+                        <option value="">Select Time Slot</option>
+                        {generateTimeSlots(formData.date).map((slot) => (
+                          <option key={slot} value={slot}>
+                            {slot}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {formData.collectionType === "home" && (
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-[10.5px] font-black text-slate-700 uppercase tracking-wider">
+                          Doorstep Address in Bengaluru *
+                        </label>
+                        <button
+                          type="button"
+                          onClick={detectLocation}
+                          disabled={locating}
+                          className="text-[10px] font-bold text-[#D69A18] hover:underline"
+                        >
+                          {locating ? "Detecting..." : "Auto-Detect"}
+                        </button>
+                      </div>
+
+                      {detectedAddress && (
+                        <div className="bg-emerald-50 border border-emerald-200 p-2 rounded-lg text-[10.5px] text-emerald-900 mb-1.5">
+                          <span>{detectedAddress} </span>
+                          <button
+                            type="button"
+                            onClick={useDetectedAddress}
+                            className="font-bold underline text-emerald-700"
+                          >
+                            Use this
+                          </button>
+                        </div>
+                      )}
+
+                      <textarea
+                        rows={2}
+                        required
+                        placeholder="Flat, Street, Area, Pincode..."
+                        value={formData.address}
+                        onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                        className="w-full bg-[#FAFBFD] border border-slate-200 rounded-xl p-2.5 text-xs font-extrabold text-[#0B2545] resize-none"
+                      />
+                    </div>
+                  )}
+
+                  {error && (
+                    <div className="bg-red-50 border border-red-200 p-2.5 rounded-xl text-red-700 text-xs font-bold">
+                      {error}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-black py-3 rounded-xl text-xs uppercase tracking-wider shadow-xs cursor-pointer disabled:opacity-60 text-center"
+                    style={{ color: "#ffffff" }}
+                  >
+                    {submitting ? "Submitting Request..." : "Confirm Booking Request ✓"}
+                  </button>
+                </div>
+              )}
+            </form>
+          </div>
         )}
       </div>
 
-      {/* Right Info Sidebar */}
+      {/* Optional Right Sidebar */}
       {showSidebar && (
-        <div className="w-full lg:w-1/3 space-y-6">
-          {selectedItems.filter(i => i.kind === 'package').map((pkg) => (
-            <div key={pkg.id} className="glass-card p-6 rounded-3xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-[#2563eb] text-white px-3 py-1 rounded-bl-xl text-[10px] font-extrabold uppercase tracking-wider shadow-sm">
-                Selected
-              </div>
-              <h3 className="font-extrabold text-[#0c4a6e] text-lg mb-2 pr-16">{pkg.name}</h3>
-              
-              <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-2xl font-black text-[#0284c7]">₹{pkg.price}</span>
-                <span className="text-sm text-slate-400 line-through">₹{pkg.old_price}</span>
-              </div>
-              
-              <div className="mb-4">
-                <p className="text-[11px] text-slate-600 font-semibold mb-2 flex items-center gap-1.5">
-                  <Shield className="w-3.5 h-3.5 text-[#0284c7]" /> {pkg.parameters}
-                </p>
-                <p className="text-[11px] text-slate-700 font-medium leading-relaxed">
-                  <strong>Includes:</strong> {pkg.includes}
-                </p>
-              </div>
-            </div>
-          ))}
-          
-          <div className="glass-panel text-[#0c4a6e] p-6 rounded-3xl border border-sky-300/40">
-            <h3 className="font-black text-lg mb-4 text-[#0c4a6e]">Why Book with QXL?</h3>
-            <ul className="space-y-4 text-xs font-semibold">
-              <li className="flex items-start gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 text-[11px] font-extrabold shadow-sm">✓</span>
-                <span>Advanced NABL Accredited standards with expert validation</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 text-[11px] font-extrabold shadow-sm">✓</span>
-                <span>100% sterile vacuum containers for collection</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 text-[11px] font-extrabold shadow-sm">✓</span>
-                <span>Cold-chain logistics ensures sample integrity</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="w-5 h-5 rounded-full bg-[#0284c7] text-white flex items-center justify-center flex-shrink-0 text-[11px] font-extrabold shadow-sm">✓</span>
-                <span>Secure digital PDF reports directly on WhatsApp</span>
-              </li>
-            </ul>
-          </div>
+        <div className="w-full lg:w-1/3 bg-white p-5 rounded-3xl border border-slate-200 shadow-2xs space-y-4">
+          <h4 className="text-xs font-black text-[#0B2545] uppercase tracking-wider border-b border-slate-100 pb-2">
+            Why Book With QXL?
+          </h4>
+          <ul className="space-y-2.5 text-xs font-semibold text-slate-700">
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+              <span>NABL Accredited Super Speciality Laboratory (MC-6849)</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+              <span>Free doorstep home collection across all Bengaluru localities</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+              <span>Doctor-reviewed reports delivered straight to WhatsApp</span>
+            </li>
+          </ul>
 
-          <div className="bg-white border border-gray-150 rounded-3xl p-6 shadow-[0_2px_10px_rgba(0,0,0,0.01)] text-center">
-            <h3 className="font-bold text-slate-800 text-sm mb-2">Need Instant Help?</h3>
-            <p className="text-slate-500 text-xs mb-4 font-semibold">Speak directly with our test booking coordinators</p>
-            <a href="tel:+919964639639" className="inline-flex items-center gap-2 bg-[#dbeafe] text-[#2563eb] font-extrabold px-6 py-2.5 rounded-full text-xs hover:bg-[#d5e8ed] transition-colors">
-              <Phone className="w-4 h-4" /> Call +91 9964 639 639
+          <div className="bg-[#FFF8EB] border border-[#F3DBA7] p-3 rounded-2xl text-center">
+            <span className="text-[10px] font-black text-amber-800 uppercase tracking-wider block mb-1">
+              Need Instant Support?
+            </span>
+            <a
+              href="tel:+919964639639"
+              className="text-xs font-black text-[#0B2545] hover:text-[#D69A18] flex items-center justify-center gap-1"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#D69A18]" />
+              <span>+91 9964 639 639</span>
             </a>
           </div>
         </div>

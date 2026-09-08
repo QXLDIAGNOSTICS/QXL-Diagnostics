@@ -262,9 +262,15 @@ const nextConfig: NextConfig = {
       { source: "/tests/urine-routine-microscopy", destination: "/urine-routine-microscopy", permanent: true },
       { source: "/tests/total-protein", destination: "/total-protein", permanent: true },
 
+      // ── P0 Cannibalisation Fix: Redirect Duplicate Intent Slugs → Canonical URLs ────
+      { source: "/cbc-test", destination: "/cbc-test-bangalore", permanent: true },
+      { source: "/cbc-test/", destination: "/cbc-test-bangalore", permanent: true },
+      { source: "/hba1c-test", destination: "/hba1c-test-bangalore", permanent: true },
+      { source: "/hba1c-test/", destination: "/hba1c-test-bangalore", permanent: true },
+
       // ── Short Test Slugs → Canonical Test Landing Pages ──────────────────────
-      { source: "/tests/cbc", destination: "/complete-blood-count", permanent: true },
-      { source: "/tests/hba1c", destination: "/hba1c", permanent: true },
+      { source: "/tests/cbc", destination: "/cbc-test-bangalore", permanent: true },
+      { source: "/tests/hba1c", destination: "/hba1c-test-bangalore", permanent: true },
       { source: "/tests/tsh", destination: "/tsh", permanent: true },
       { source: "/tests/thyroid", destination: "/thyroid-profile", permanent: true },
       { source: "/tests/vitamin-d", destination: "/vitamin-d", permanent: true },

@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: "CBC Test in Bangalore — Complete Blood Count",
   description: "Book a CBC test in Bangalore — anaemia, infection & immunity screening. No fasting needed, free home collection, same-day NABL Accredited report.",
   alternates: {
-    canonical: "https://qxldiagnostics.com/cbc-test",
+    canonical: "https://qxldiagnostics.com/cbc-test-bangalore",
   },
   openGraph: {
     title: "CBC Test in Bangalore — Complete Blood Count | QXL Diagnostics",
     description: "Book a CBC test in Bangalore — anaemia, infection & immunity screening. No fasting needed, free home collection, same-day NABL Accredited report.",
-    url: "https://qxldiagnostics.com/cbc-test",
+    url: "https://qxldiagnostics.com/cbc-test-bangalore",
     type: "website",
   },
 };

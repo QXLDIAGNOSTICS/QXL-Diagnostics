@@ -54,11 +54,11 @@ export const ISO_STANDARD = CONFIG_ISO;
 /** Centralized Business Hours specification to differentiate physical walk-ins vs 24x7 support */
 export const BUSINESS_HOURS = {
   kengeri: {
-    display: "Walk-in: 6:30 AM – 8:00 PM (Mon–Sun); 24x7 Emergency Processing",
-    opens: "06:30",
-    closes: "20:00",
-    sunOpens: "06:30",
-    sunCloses: "20:00",
+    display: "Open 24 Hours, 7 Days a Week (24×7 Lab Operations & Walk-ins)",
+    opens: "00:00",
+    closes: "24:00",
+    sunOpens: "00:00",
+    sunCloses: "24:00",
   },
   yelahanka: {
     display: "Walk-in: 7:00 AM – 8:00 PM (Mon–Sun)",
@@ -116,7 +116,7 @@ export const LOCATIONS: BusinessLocation[] = [
     lat: 12.9113827,
     lng: 77.4850301,
     isNabl: true,
-    hours: "Walk-in: 6:30 AM – 8:00 PM (Mon–Sun)",
+    hours: "Open 24 Hours, 7 Days a Week (24×7)",
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=QXL+Diagnostics+Kengeri+Bengaluru",
   },
   {

@@ -86,7 +86,7 @@ export default function QualityAccreditationPage() {
         "name": "How does QXL Diagnostics ensure sample identity and prevent sample swaps?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "QXL employs 100% bedside primary tube barcoding at specimen collection. Automated analyzers read sample barcodes directly via bidirectional LIS interfacing, completely eliminating manual transcription and tube swapping."
+          "text": "QXL employs bedside primary tube barcoding at specimen collection. Automated analyzers read sample barcodes directly via bidirectional LIS interfacing, avoiding manual transcription and preventing sample transposition."
         }
       },
       {
@@ -123,8 +123,8 @@ export default function QualityAccreditationPage() {
     },
     {
       icon: Lock,
-      title: "100% Barcode Primary Tube Tracking",
-      desc: "Bedside barcoding combined with bidirectional LIS instrument interfacing ensures 100% sample identity integrity with zero manual data entry swaps.",
+      title: "Barcode Primary Tube Tracking",
+      desc: "Bedside barcoding combined with bidirectional LIS instrument interfacing ensures rigorous sample tracking & identity verification with automated LIMS barcode matching.",
     },
     {
       icon: Stethoscope,
@@ -254,7 +254,7 @@ export default function QualityAccreditationPage() {
                 </div>
                 <h3 className="text-xl font-extrabold text-[#0f2d5e]">Automated Platform Calibration</h3>
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                  QXL operates fully automated biochemistry, immunoassay, and haematology analyzers from industry leaders (Roche, Sysmex, Mindray). Daily 2-point calibration and routine preventative maintenance ensure zero drift in analytical precision.
+                  QXL operates fully automated biochemistry, immunoassay, and haematology analyzers from industry leaders (Roche, Sysmex, Mindray). Daily 2-point calibration and routine preventative maintenance maintain daily internal quality control (IQC) and NABL-mandated calibration for consistent analytical performance.
                 </p>
               </div>
               <div className="bg-white p-3 rounded-2xl border border-slate-200 text-xs font-bold text-slate-700">

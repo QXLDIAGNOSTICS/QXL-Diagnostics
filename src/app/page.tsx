@@ -24,6 +24,7 @@ import { isCampaignActive } from "../lib/rakshaBandhanConfig";
 import ScooterPhlebotomistSvg from "../components/ScooterPhlebotomistSvg";
 import StickyBookingForm from "../components/StickyBookingForm";
 import FeaturedTestsSlider from "../components/FeaturedTestsSlider";
+import LocalityCheckWidget from "../components/LocalityCheckWidget";
 import { parseCartItems, addItemToCart, removeItemFromCart } from "../lib/cart";
 
 const BlogSlider = dynamic(() => import("../components/BlogSlider"));
@@ -962,24 +963,6 @@ export default function Home() {
         {/* ── MOBILE ONLY UI/UX (lg:hidden) — STRICT MATCH TO USER SCREENSHOT ── */}
         <div className="lg:hidden w-full bg-[#FAFBFD] px-4 pt-3 pb-4 space-y-4">
           
-          {/* 1. Brand Hero Header & Doctor-Led Positioning */}
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-1 bg-amber-50 border border-amber-300 text-amber-900 font-extrabold text-[10px] px-2.5 py-0.5 rounded-full shadow-2xs">
-                ★ 5.0 Google Rating (80+ Reviews)
-              </span>
-              <div className="bg-[#E6F8F0] border border-[#BBEBD6] text-[#008A52] font-black text-[10.5px] px-2.5 py-0.5 rounded-full flex items-center gap-1 shrink-0 shadow-2xs">
-                <span>✓ NABL MC-6849</span>
-              </div>
-            </div>
-            <h1 className="text-[19px] font-black text-[#0B2545] leading-tight tracking-tight">
-              Every report signed by a consultant doctor. <span className="text-[#D69A18]">Not just a machine.</span>
-            </h1>
-            <p className="text-slate-600 text-[11.5px] font-semibold leading-relaxed">
-              NABL-accredited super speciality lab in Bengaluru. Free home collection &amp; same-day reports.
-            </p>
-          </div>
-
           {/* 2. Search & Upload Prescription Bar */}
           <div className="relative flex items-center w-full">
             <div className="relative flex-1 flex items-center bg-white border border-slate-200/90 rounded-full px-4 py-2.5 shadow-xs focus-within:border-[#D69A18] focus-within:ring-2 focus-within:ring-[#D69A18]/20">
@@ -1341,7 +1324,7 @@ export default function Home() {
 
         {/* ── Action Cards — Warm Gold Amber Theme & Larger Buttons ── */}
         <section className="pt-2 pb-5 z-30 relative -mt-3">
-          <div className="max-w-[1260px] mx-auto px-4 w-full">
+          <div className="max-w-[1260px] mx-auto px-4 w-full space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
               
               {/* Card 1: Upload Prescription */}
