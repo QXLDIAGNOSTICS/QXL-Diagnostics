@@ -202,11 +202,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Ensure headings inside dark blue cards or dark blue containers always render pure white text */
-.bg-\[\#0f2d5e\] h1, .bg-\[\#0f2d5e\] h2, .bg-\[\#0f2d5e\] h3, .bg-\[\#0f2d5e\] h4, .bg-\[\#0f2d5e\] h5, .bg-\[\#0f2d5e\] h6,
-[class*="bg-[#0f2d5e]"] h1, [class*="bg-[#0f2d5e]"] h2, [class*="bg-[#0f2d5e]"] h3, [class*="bg-[#0f2d5e]"] h4, [class*="bg-[#0f2d5e]"] h5, [class*="bg-[#0f2d5e]"] h6,
-[class*="from-[#0f2d5e]"] h1, [class*="from-[#0f2d5e]"] h2, [class*="from-[#0f2d5e]"] h3, [class*="from-[#0f2d5e]"] h4, [class*="from-[#0f2d5e]"] h5, [class*="from-[#0f2d5e]"] h6,
-[class*="from-[#0a3281]"] h1, [class*="from-[#0a3281]"] h2, [class*="from-[#0a3281]"] h3, [class*="from-[#0a3281]"] h4, [class*="from-[#0a3281]"] h5, [class*="from-[#0a3281]"] h6,
-[class*="from-[#16386b]"] h1, [class*="from-[#16386b]"] h2, [class*="from-[#16386b]"] h3, [class*="from-[#16386b]"] h4, [class*="from-[#16386b]"] h5, [class*="from-[#16386b]"] h6 {
+.bg-gradient-to-br h1, .bg-gradient-to-br h2,
+[class*="bg-[#0"] h1, [class*="bg-[#0"] h2, [class*="bg-[#0"] h3, [class*="bg-[#0"] h4,
+[class*="bg-[#1"] h1, [class*="bg-[#1"] h2, [class*="bg-[#1"] h3, [class*="bg-[#1"] h4,
+[class*="from-[#0"] h1, [class*="from-[#0"] h2, [class*="from-[#0"] h3, [class*="from-[#0"] h4,
+[class*="from-[#1"] h1, [class*="from-[#1"] h2, [class*="from-[#1"] h3, [class*="from-[#1"] h4,
+.text-white, h1.text-white, h2.text-white, h3.text-white, h4.text-white, h5.text-white, h6.text-white {
   color: #ffffff !important;
 }
 

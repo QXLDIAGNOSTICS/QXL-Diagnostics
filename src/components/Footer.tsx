@@ -48,8 +48,9 @@ export default function Footer() {
     footerDesc: "QXL Diagnostics is a NABL Accredited super speciality diagnostic laboratory in Bengaluru offering advanced pathology, molecular diagnostics, histopathology, and AI-assisted precision diagnostics.",
     navItems: [
       {label: "Home", href: "/", visible: true},
-      {label: "For Doctors & Hospitals", href: "/for-hospitals", visible: true},
       {label: "About Us", href: "/about", visible: true},
+      {label: "Careers", href: "/careers", visible: true},
+      {label: "Hospital Lab Management", href: "/hospital-laboratory-management", visible: true},
       {label: "Founder & Consultants", href: "/team", visible: true},
       {label: "Our Specialities", href: "/specialities", visible: true},
       {label: "Packages", href: "/packages", visible: true},
@@ -172,7 +173,7 @@ export default function Footer() {
               </div>
             </div>
             <span className="logo-text-footer font-black text-xl text-white block hidden">{settings.logoText || "QXL"}</span>
-            <p className="text-white/45 text-xs leading-relaxed font-medium max-w-sm">
+            <p className="text-slate-200 text-xs leading-relaxed font-medium max-w-sm">
               {settings.footerDesc}
             </p>
           </div>
@@ -187,7 +188,7 @@ export default function Footer() {
                 if (String(l.label).toLowerCase() === "login") { label = user ? "Profile" : "Login"; href = user ? "/profile" : "/login"; }
                 return (
                   <li key={label}>
-                    <Link href={href} className="text-white/60 hover:text-[#D69A18] text-xs font-semibold transition-all flex items-center gap-1.5 group">
+                    <Link href={href} className="text-slate-200 hover:text-[#D69A18] text-xs font-semibold transition-all flex items-center gap-1.5 group">
                       <span className="w-1 h-1 rounded-full bg-[#D69A18]/60 flex-shrink-0" />
                       <span className="truncate">{label}</span>
                     </Link>
@@ -203,7 +204,7 @@ export default function Footer() {
             <ul className="grid grid-cols-2 md:grid-cols-1 gap-x-3 gap-y-2">
               {specialities.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-white/60 hover:text-[#D69A18] text-xs font-semibold transition-all flex items-center gap-1.5 group">
+                  <Link href={l.href} className="text-slate-200 hover:text-[#D69A18] text-xs font-semibold transition-all flex items-center gap-1.5 group">
                     <span className="w-1 h-1 rounded-full bg-[#D69A18]/60 flex-shrink-0" />
                     <span className="truncate">{l.label}</span>
                   </Link>
@@ -222,7 +223,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-white text-xs font-bold mb-0.5">Main Lab (Kengeri)</p>
-                  <p className="text-white/45 text-[11px] font-medium leading-relaxed">{settings.hqAddress || "3rd Floor, SLN Complex, Kengeri, Bengaluru – 560 060"}</p>
+                  <p className="text-slate-200 text-[11px] font-medium leading-relaxed">{settings.hqAddress || "3rd Floor, SLN Complex, Kengeri, Bengaluru – 560 060"}</p>
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
@@ -231,7 +232,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-white text-xs font-bold mb-0.5">North Hub (Yelahanka)</p>
-                  <p className="text-white/45 text-[11px] font-medium leading-relaxed">{settings.northHubAddress || "L Square, Yelahanka, Bengaluru – 560 064"}</p>
+                  <p className="text-slate-200 text-[11px] font-medium leading-relaxed">{settings.northHubAddress || "L Square, Yelahanka, Bengaluru – 560 064"}</p>
                 </div>
               </li>
               <li className="flex items-center gap-2.5">
@@ -242,14 +243,14 @@ export default function Footer() {
                   <a href={`tel:${(settings.phone_e164 || settings.contactPhone || '+919964639639').replace(/\s+/g, '')}`} className="text-white text-xs font-extrabold hover:text-[#D69A18] transition-colors">
                     {settings.phone_display || settings.contactPhone || '+91 9964 639 639'}
                   </a>
-                  <span className="text-white/40 text-[10px] font-semibold block">{settings.workingHours}</span>
+                  <span className="text-slate-300 text-[10px] font-semibold block">{settings.workingHours}</span>
                 </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-amber-500/10 border border-amber-500/20">
                   <Mail className="w-3.5 h-3.5 text-[#D69A18]" />
                 </div>
-                <a href={`mailto:${settings.supportEmail}`} className="text-white/50 text-xs font-medium hover:text-[#D69A18] transition-colors truncate">
+                <a href={`mailto:${settings.supportEmail}`} className="text-slate-200 text-xs font-medium hover:text-[#D69A18] transition-colors truncate">
                   {settings.supportEmail}
                 </a>
               </li>
@@ -268,10 +269,10 @@ export default function Footer() {
         }}
       >
         <div className="max-w-[1260px] mx-auto px-4 pt-4 pb-20 lg:pb-5 flex flex-col md:flex-row items-center justify-between gap-3 text-center">
-          <p className="text-white/40 text-[11px] font-medium">
+          <p className="text-slate-200 text-[11px] font-medium">
             {settings.copyrightText || `© ${year} QXL Diagnostics. All rights reserved.`}
           </p>
-          <p className="text-white/35 text-[11px] font-semibold text-center">
+          <p className="text-slate-300 text-[11px] font-semibold text-center">
             {currentDate && `Last updated: ${currentDate} · `}NABL Accredited Medical Laboratory · {ISO_STANDARD} · Bengaluru, Karnataka
           </p>
           <div className="flex gap-3 items-center justify-center flex-wrap my-1">

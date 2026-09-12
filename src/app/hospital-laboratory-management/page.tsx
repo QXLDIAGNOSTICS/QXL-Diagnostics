@@ -298,19 +298,19 @@ export default function HospitalLabManagementPage() {
           </span>
 
           <div className="max-w-5xl">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-5 leading-tight text-white tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-5 leading-tight !text-white tracking-tight" style={{ color: '#ffffff' }}>
               Hospital Laboratory Management for Hospitals in India
             </h1>
-            <p className="text-sky-100 text-base md:text-lg leading-relaxed mb-4 font-semibold max-w-4xl">
+            <p className="text-slate-100 text-base md:text-lg leading-relaxed mb-4 font-medium max-w-4xl">
               Run a better hospital laboratory without carrying the entire operational burden yourself.
             </p>
-            <p className="text-sky-200 text-sm md:text-base leading-relaxed mb-8 max-w-4xl font-medium">
+            <p className="text-slate-200 text-sm md:text-base leading-relaxed mb-8 max-w-4xl font-medium">
               QXL Diagnostics Hospital Laboratory Management — HLM helps hospitals operate reliable, responsive and financially sustainable diagnostic services while retaining the tests that clinicians need immediately within the hospital.
             </p>
 
-            <div className="bg-white/8 border border-white/15 rounded-2xl p-5 mb-8 max-w-3xl">
-              <p className="text-sky-100 text-sm font-semibold leading-relaxed mb-3">
-                Instead of choosing between an expensive fully self-operated laboratory and sending every sample to an outside laboratory, QXL builds a <strong className="text-white">hybrid hospital laboratory model</strong>:
+            <div className="bg-white/10 border border-white/20 rounded-2xl p-5 mb-8 max-w-3xl">
+              <p className="text-slate-100 text-sm font-medium leading-relaxed mb-3">
+                Instead of choosing between an expensive fully self-operated laboratory and sending every sample to an outside laboratory, QXL builds a <strong className="text-white" style={{ color: '#ffffff' }}>hybrid hospital laboratory model</strong>:
               </p>
               <ul className="space-y-2">
                 {[

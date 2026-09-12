@@ -63,30 +63,30 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
             Health Information · Clinically Reviewed
           </span>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 leading-tight text-white tracking-tight max-w-4xl">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 leading-tight !text-white tracking-tight max-w-4xl" style={{ color: '#ffffff' }}>
             {data.h1}
           </h1>
 
           {data.quickAnswer && (
-            <div className="bg-white/8 border border-white/15 rounded-2xl p-5 max-w-3xl mb-6">
-              <p className="text-sky-100 text-sm font-semibold leading-relaxed">
-                <span className="font-black text-white">Quick Answer: </span>
+            <div className="bg-white/10 border border-white/20 rounded-2xl p-5 max-w-3xl mb-6">
+              <p className="text-slate-100 text-sm font-medium leading-relaxed">
+                <span className="font-black text-white" style={{ color: '#ffffff' }}>Quick Answer: </span>
                 {data.quickAnswer}
               </p>
             </div>
           )}
 
-          <p className="text-sky-200 text-sm md:text-base font-semibold leading-relaxed max-w-3xl mb-6">
+          <p className="text-slate-100 text-sm md:text-base font-medium leading-relaxed max-w-3xl mb-6">
             {data.intro}
           </p>
 
           {/* Trust Strip */}
           <div className="flex flex-wrap items-center gap-5 pt-5 border-t border-white/15">
-            <div className="flex items-center gap-2 text-xs text-sky-200 font-bold">
+            <div className="flex items-center gap-2 text-xs text-slate-100 font-bold">
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>Medically reviewed by {data.reviewedBy}</span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-sky-200 font-bold">
+            <div className="flex items-center gap-2 text-xs text-slate-100 font-bold">
               <BookOpen className="w-4 h-4 text-amber-400 shrink-0" />
               <span>Last reviewed: {data.lastReviewed}</span>
             </div>

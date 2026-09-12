@@ -261,13 +261,13 @@ export default function CareersPage() {
               <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-5 shadow-sm">
                 We&apos;re Hiring · Bengaluru, Karnataka
               </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-5 leading-tight text-white tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-5 leading-tight !text-white tracking-tight" style={{ color: '#ffffff' }}>
                 Build Your Career in Diagnostic Excellence
               </h1>
-              <p className="text-sky-100 text-base md:text-lg font-semibold leading-relaxed mb-5">
+              <p className="text-slate-100 text-base md:text-lg font-medium leading-relaxed mb-5">
                 QXL Diagnostics is a NABL-accredited super speciality diagnostic laboratory. We are growing — and we are looking for talented, committed people who want to do diagnostic medicine the right way.
               </p>
-              <p className="text-sky-200 text-sm font-semibold leading-relaxed mb-8">
+              <p className="text-slate-200 text-sm font-medium leading-relaxed mb-8">
                 Every laboratory result we produce affects a real patient&apos;s care. That responsibility is why we take quality seriously — and why we want team members who do too.
               </p>
 
@@ -291,17 +291,17 @@ export default function CareersPage() {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: ShieldCheck, color: "text-emerald-400", stat: "NABL", label: `Accredited · ${NABL_CERTIFICATE}` },
-                { icon: BookOpen, color: "text-amber-400", stat: "150+", label: "NABL Assessments by Founder" },
-                { icon: Users, color: "text-purple-300", stat: "190+", label: "B2B Hospital & Lab Partners" },
-                { icon: Zap, color: "text-sky-300", stat: "24×7", label: "Central Lab Operations" },
-                { icon: FlaskConical, color: "text-rose-300", stat: "1500+", label: "Tests in Reference Menu" },
-                { icon: MapPin, color: "text-teal-300", stat: "2", label: "Bengaluru Locations" },
+                { icon: ShieldCheck, color: "text-emerald-300", stat: "NABL", label: `Accredited · ${NABL_CERTIFICATE}` },
+                { icon: BookOpen, color: "text-amber-300", stat: "150+", label: "NABL Assessments by Founder" },
+                { icon: Users, color: "text-purple-200", stat: "190+", label: "B2B Hospital & Lab Partners" },
+                { icon: Zap, color: "text-sky-200", stat: "24×7", label: "Central Lab Operations" },
+                { icon: FlaskConical, color: "text-rose-200", stat: "1500+", label: "Tests in Reference Menu" },
+                { icon: MapPin, color: "text-teal-200", stat: "2", label: "Bengaluru Locations" },
               ].map((s, i) => (
-                <div key={i} className="bg-white/8 border border-white/15 rounded-2xl p-5 space-y-2">
+                <div key={i} className="bg-white/10 border border-white/20 rounded-2xl p-5 space-y-2">
                   <s.icon className={`w-5 h-5 ${s.color}`} />
-                  <p className={`text-2xl font-black ${s.color}`}>{s.stat}</p>
-                  <p className="text-xs text-sky-200 font-semibold leading-tight">{s.label}</p>
+                  <p className="text-2xl font-black text-white" style={{ color: '#ffffff' }}>{s.stat}</p>
+                  <p className="text-xs text-slate-100 font-medium leading-tight">{s.label}</p>
                 </div>
               ))}
             </div>
