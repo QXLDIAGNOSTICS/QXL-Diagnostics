@@ -1,290 +1,4 @@
-/**
- * Single Canonical Package Catalogue for QXL Diagnostics.
- * Reconciles prices, MRPs, parameter counts, names, and stable slugs sitewide.
- * Includes 7 Core Preventive Packages + 42 Doctor-Driven Speciality Diagnostic Packages.
- */
-
-export interface PackageCategoryBreakdown {
-  categoryName: string;
-  testsCount: number;
-  testsList: string[];
-}
-
-export interface PackageItem {
-  id: string;
-  slug: string;
-  name: string;
-  price?: number;
-  mrp?: number;
-  parametersCount?: number;
-  parametersLabel: string;
-  category: string;
-  tag?: string;
-  includes: string;
-  highlights: string[];
-  fastingHours?: string;
-  tat?: string;
-  sampleType?: string;
-  isPopular?: boolean;
-  contactForPrice?: boolean;
-  priceDisplay?: string;
-  guidanceLevel?: "SELF-REQUEST POSSIBLE" | "CONSULTATION RECOMMENDED" | "DOCTOR-DIRECTED";
-  mayHelpWhen?: string;
-  beforeBooking?: string;
-  keyTests?: string[];
-  guideNumber?: string;
-  detailedBreakdown?: PackageCategoryBreakdown[];
-}
-
-export const PREVENTIVE_PACKAGES: PackageItem[] = [
-  {
-    id: "q-quick-fit",
-    slug: "q-quick-fit",
-    name: "Quick Fit Package",
-    price: 1770,
-    mrp: 4696,
-    parametersCount: 14,
-    parametersLabel: "14+ Parameters",
-    category: "Fitness",
-    tag: "FITNESS BASELINE",
-    includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests, TSH, Vitamin D, CBC, ESR, Urine Routine.",
-    highlights: ["Essential fitness screening", "Diabetes & lipid baseline", "Liver & kidney health"],
-    fastingHours: "8–10 Hours Fasting Required",
-    tat: "Reports within 6 hours",
-    sampleType: "Blood & Urine Sample",
-    detailedBreakdown: [
-      {
-        categoryName: "Diabetes & Glycemic Profile (3)",
-        testsCount: 3,
-        testsList: ["Fasting Blood Sugar (FBS)", "HbA1c (Glycosylated Haemoglobin)", "Estimated Average Glucose (eAG)"]
-      },
-      {
-        categoryName: "Lipid & Cardiac Baseline (5)",
-        testsCount: 5,
-        testsList: ["Total Cholesterol", "Triglycerides", "HDL Cholesterol", "LDL Cholesterol", "VLDL Cholesterol"]
-      },
-      {
-        categoryName: "Hepatic & Renal Screening (4)",
-        testsCount: 4,
-        testsList: ["SGOT (AST)", "SGPT (ALT)", "Serum Creatinine", "Blood Urea Nitrogen (BUN)"]
-      },
-      {
-        categoryName: "Thyroid & Haematology (2)",
-        testsCount: 2,
-        testsList: ["TSH (Thyroid Stimulating Hormone)", "Complete Blood Count (CBC Baseline)"]
-      }
-    ]
-  },
-  {
-    id: "q-screen-diabetes",
-    slug: "q-screen-diabetes",
-    name: "Q-Screen Diabetes Package",
-    price: 1900,
-    mrp: 4960,
-    parametersCount: 16,
-    parametersLabel: "16+ Parameters",
-    category: "Diabetes",
-    tag: "DIABETES CARE",
-    includes: "FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, Liver Function Test, Kidney Function Test, TSH, CBC, ESR, Urine Routine.",
-    highlights: ["Early diabetes detection", "Monitor glycemic control", "Renal impact evaluation"],
-    fastingHours: "8–10 Hours Fasting Required",
-    tat: "Reports within 6 hours",
-    sampleType: "Blood & Urine Sample",
-    detailedBreakdown: [
-      {
-        categoryName: "Glycemic & Beta-Cell Control (4)",
-        testsCount: 4,
-        testsList: ["Fasting Blood Sugar (FBS)", "HbA1c (Glycosylated Haemoglobin)", "Estimated Average Glucose (eAG)", "C-Peptide Serum Assay"]
-      },
-      {
-        categoryName: "Renal Micro-Vascular Health (3)",
-        testsCount: 3,
-        testsList: ["Urine Microalbumin", "Urine Creatinine", "Urine Albumin-Creatinine Ratio (ACR)"]
-      },
-      {
-        categoryName: "Lipid & Organ Baseline (9)",
-        testsCount: 9,
-        testsList: ["Total Cholesterol", "Triglycerides", "HDL", "LDL", "VLDL", "Serum Creatinine", "Blood Urea", "SGPT (ALT)", "TSH"]
-      }
-    ]
-  },
-  {
-    id: "q-master-health-pro",
-    slug: "q-master-health-pro",
-    name: "Q-Master Health Pro Package",
-    price: 4600,
-    mrp: 9600,
-    parametersCount: 92,
-    parametersLabel: "92 Parameters",
-    category: "Executive",
-    tag: "MOST BOOKED PRO",
-    includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, LFT, KFT (Creatinine, Urea, BUN, Uric Acid, Na, K, Cl), Thyroid Profile (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine, Gastritis Screen (H. pylori IgG), hs-CRP.",
-    highlights: ["Complete systemic evaluation", "Cardiovascular risk markers", "Full vitamin & thyroid profile"],
-    fastingHours: "10–12 Hours Fasting Required",
-    tat: "Reports within 6 hours",
-    sampleType: "Blood & Urine Sample",
-    isPopular: true,
-    detailedBreakdown: [
-      {
-        categoryName: "Diabetes & Insulin Control (5)",
-        testsCount: 5,
-        testsList: ["Fasting Blood Sugar (FBS)", "HbA1c", "Estimated Average Glucose (eAG)", "Fasting Serum Insulin", "HOMA-IR Index"]
-      },
-      {
-        categoryName: "Lipid & Cardiac Risk Markers (9)",
-        testsCount: 9,
-        testsList: ["Total Cholesterol", "Triglycerides", "HDL Cholesterol", "LDL Cholesterol", "VLDL", "Apolipoprotein A-1", "Apolipoprotein B", "Apo B/A1 Ratio", "hs-CRP"]
-      },
-      {
-        categoryName: "Liver Function Panel (11)",
-        testsCount: 11,
-        testsList: ["Total Bilirubin", "Direct Bilirubin", "Indirect Bilirubin", "SGOT (AST)", "SGPT (ALT)", "Alkaline Phosphatase", "Total Protein", "Albumin", "Globulin", "A/G Ratio", "GGT"]
-      },
-      {
-        categoryName: "Kidney & Electrolytes Panel (9)",
-        testsCount: 9,
-        testsList: ["Serum Creatinine", "Blood Urea", "BUN", "Uric Acid", "Sodium (Na)", "Potassium (K)", "Chloride (Cl)", "Total Calcium", "Phosphorus"]
-      },
-      {
-        categoryName: "Thyroid & Vitamins (5)",
-        testsCount: 5,
-        testsList: ["Total T3", "Total T4", "TSH", "Vitamin D (25-OH Total)", "Vitamin B12 (Cobalamin)"]
-      },
-      {
-        categoryName: "Complete Blood Count & Urine (43)",
-        testsCount: 43,
-        testsList: ["Hemoglobin", "RBC Count", "WBC Total Count", "Platelet Count", "Differential Count (5 Parts)", "PCV", "MCV", "MCH", "MCHC", "RDW", "ESR", "Urine Complete Analysis (25 Parameters)"]
-      }
-    ]
-  },
-  {
-    id: "q-advanced-arthritis",
-    slug: "q-advanced-arthritis",
-    name: "Q-Advanced Arthritis & Autoimmune Panel",
-    price: 6900,
-    mrp: 12660,
-    parametersCount: 22,
-    parametersLabel: "22+ Parameters",
-    category: "Speciality",
-    tag: "ADVANCED AUTOIMMUNE",
-    includes: "FBS, HbA1c, Lipid Profile, hs-CRP, LFT, KFT, Thyroid Screen, Iron Studies, Bone Health (Calcium, Phosphorus), Vitamin B12, Vitamin D, Autoimmune Markers (RF, Anti-CCP, ANA), DHEA-S, Cortisol, CBC, ESR, Urine Routine.",
-    highlights: ["Autoimmune joint evaluation", "Inflammatory markers (hs-CRP, ESR)", "Bone & iron metabolism"],
-    fastingHours: "Fasting Preferred",
-    tat: "Reports within 24 hours",
-    sampleType: "Blood & Urine Sample",
-    detailedBreakdown: [
-      {
-        categoryName: "Autoimmune & Joint Biomarkers (4)",
-        testsCount: 4,
-        testsList: ["Rheumatoid Factor (RF Quantitative)", "Anti-CCP Antibodies", "ANA (Antinuclear Antibodies IFA Screen)", "Uric Acid"]
-      },
-      {
-        categoryName: "Inflammatory Response (2)",
-        testsCount: 2,
-        testsList: ["hs-CRP (High-Sensitivity CRP)", "ESR (Erythrocyte Sedimentation Rate)"]
-      },
-      {
-        categoryName: "Bone & Vitamin Profile (4)",
-        testsCount: 4,
-        testsList: ["Total Calcium", "Phosphorus", "Vitamin D (25-OH)", "Vitamin B12"]
-      },
-      {
-        categoryName: "Endocrine & Steroid Profile (2)",
-        testsCount: 2,
-        testsList: ["DHEA-S", "Morning Cortisol"]
-      },
-      {
-        categoryName: "Organ & Blood Count Baseline (10)",
-        testsCount: 10,
-        testsList: ["Liver Function Panel", "Kidney Function Panel", "Complete Blood Count (CBC)"]
-      }
-    ]
-  },
-  {
-    id: "q-oncology-biomarker",
-    slug: "q-oncology-biomarker",
-    name: "Q-Oncology Biomarker Panel",
-    price: 7900,
-    mrp: 13600,
-    parametersCount: 15,
-    parametersLabel: "15+ Parameters",
-    category: "Oncology",
-    tag: "SPECIALIST ONCOLOGY",
-    includes: "Tumour Biomarkers (AFP, CEA, Beta HCG, PSA Male / CA-125 Female, CA 19-9), CBC, ESR, Urine Routine, Stool Calprotectin, FOBT, Protein Electrophoresis.",
-    highlights: ["Physician-directed tumour markers", "Monoclonal protein screening", "Stool calprotectin & occult blood"],
-    fastingHours: "Fasting Preferred",
-    tat: "Reports within 24–48 hours",
-    sampleType: "Blood, Urine & Stool Sample",
-    detailedBreakdown: [
-      {
-        categoryName: "Tumour Biomarkers (6)",
-        testsCount: 6,
-        testsList: ["Alpha-Fetoprotein (AFP)", "Carcinoembryonic Antigen (CEA)", "CA-125 (Ovarian/General)", "CA 19-9 (Pancreatic/GI)", "Quantitative Beta-HCG", "PSA Total (Male Specific)"]
-      },
-      {
-        categoryName: "GI & Stool Screening (2)",
-        testsCount: 2,
-        testsList: ["Stool Calprotectin", "FOBT (Fecal Occult Blood Test)"]
-      },
-      {
-        categoryName: "Protein & Hematology Screen (7)",
-        testsCount: 7,
-        testsList: ["Serum Protein Electrophoresis (SPEP)", "Complete Blood Count (CBC)", "ESR", "Urine Routine Analysis"]
-      }
-    ]
-  },
-  {
-    id: "ultra-full-body-checkup",
-    slug: "ultra-full-body-checkup",
-    name: "Ultra Full Body Checkup - Master",
-    price: 4999,
-    mrp: 18588,
-    parametersCount: 117,
-    parametersLabel: "117 Parameters",
-    category: "Executive",
-    tag: "SENIOR CONSULTANT MASTER",
-    includes: "All 92 Master Health Pro Parameters + Homocysteine + Lipoprotein(a) + Iron Profile (Iron, TIBC, Ferritin, % Saturation) + Electrolyte Profile.",
-    highlights: ["117 comprehensive parameters", "Cardiac risk indicators (Homocysteine, Lp-a)", "Complete iron & vitamin panel"],
-    fastingHours: "10–12 Hours Fasting Required",
-    tat: "Reports within 6 hours",
-    sampleType: "Blood & Urine Sample",
-    detailedBreakdown: [
-      {
-        categoryName: "Advanced Cardiac & Vascular Risk (4)",
-        testsCount: 4,
-        testsList: ["Homocysteine", "Lipoprotein(a)", "hs-CRP", "Apo B / Apo A-1 Ratio"]
-      },
-      {
-        categoryName: "Iron & Anemia Profile (4)",
-        testsCount: 4,
-        testsList: ["Serum Iron", "Total Iron Binding Capacity (TIBC)", "Serum Ferritin", "% Transferrin Saturation"]
-      },
-      {
-        categoryName: "Systemic Executive Checkup (109)",
-        testsCount: 109,
-        testsList: ["Includes all 92 parameters of Master Health Pro: Diabetes, LFT, KFT, Electrolytes, Thyroid, Vitamins B12 & D, Complete Blood Count, and Urine Analysis."]
-      }
-    ]
-  },
-  {
-    id: "q-cardiovascular-risk",
-    slug: "q-cardiovascular-risk",
-    name: "Q-Cardiovascular Risk Assessment Package",
-    price: 9000,
-    mrp: 18900,
-    parametersCount: 25,
-    parametersLabel: "25+ Parameters",
-    category: "Cardiology",
-    tag: "CARDIOVASCULAR PRO",
-    includes: "CBC, Lipid Profile, Kidney Screen, Urine Routine, FBS, Apo A1, Apo B, Apo B/A1 Ratio, hs-CRP, Lipoprotein(a), Fibrinogen, Homocysteine, NT-proBNP, Insulin, C-Peptide, Thyroid Screen, Cortisol, Serum Magnesium.",
-    highlights: ["Advanced cardiac biomarker profiling", "Lp(a), ApoB, Homocysteine & NT-proBNP", "Endothelial & metabolic risk"],
-    fastingHours: "12 Hours Fasting",
-    tat: "Reports within 24 hours",
-    sampleType: "Blood & Urine Sample"
-  }
-];
-
-export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
+[
   {
     "id": "pkg-01-anemia-evaluation-profile",
     "slug": "pkg-01-anemia-evaluation-profile",
@@ -300,8 +14,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Complete Blood Count (CBC), Ferritin, Serum iron, TIBC and transferrin saturation, Reticulocyte count, Vitamin B12, Serum folate, CRP/ESR when inflammation is suspected",
     "highlights": [
       "May help when: Fatigue, pallor, low hemoglobin or suspected nutrient deficiency",
-      "Includes: Complete Blood Count (CBC)",
-      "Includes: Ferritin",
+      "Key components: Complete Blood Count (CBC), Ferritin, Serum iron, TIBC and transferrin saturation...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "Fatigue, pallor, low hemoglobin or suspected nutrient deficiency",
@@ -334,8 +47,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "CBC, ESR and CRP, Rheumatoid factor, Anti-CCP, ANA with targeted reflex testing, Uric acid, HLA-B27 when clinically compatible, Kidney and liver baseline tests",
     "highlights": [
       "May help when: Persistent inflammatory joint pain, swelling or stiffness",
-      "Includes: CBC",
-      "Includes: ESR and CRP",
+      "Key components: CBC, ESR and CRP, Rheumatoid factor...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Persistent inflammatory joint pain, swelling or stiffness",
@@ -369,8 +81,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "CBC, ABO/Rh group and antibody screen, Urinalysis and urine culture, Glucose assessment, HIV, hepatitis B/C and syphilis screening, Rubella IgG, TSH and STI NAAT according to risk/protocol",
     "highlights": [
       "May help when: Initial laboratory assessment during pregnancy",
-      "Includes: CBC",
-      "Includes: ABO/Rh group and antibody screen",
+      "Key components: CBC, ABO/Rh group and antibody screen, Urinalysis and urine culture...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Initial laboratory assessment during pregnancy",
@@ -403,8 +114,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Serum iron, Ferritin, TIBC or transferrin, UIBC, Calculated transferrin saturation, CRP when ferritin may be affected by inflammation",
     "highlights": [
       "May help when: Suspected iron deficiency, overload or treatment monitoring",
-      "Includes: Serum iron",
-      "Includes: Ferritin",
+      "Key components: Serum iron, Ferritin, TIBC or transferrin...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "Suspected iron deficiency, overload or treatment monitoring",
@@ -436,8 +146,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Total testosterone, SHBG and albumin, Calculated free testosterone, DHEA-S, Androstenedione, DHT when indicated, 17-hydroxyprogesterone when indicated",
     "highlights": [
       "May help when: Androgen excess/deficiency symptoms or reproductive concerns",
-      "Includes: Total testosterone",
-      "Includes: SHBG and albumin",
+      "Key components: Total testosterone, SHBG and albumin, Calculated free testosterone...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Androgen excess/deficiency symptoms or reproductive concerns",
@@ -470,8 +179,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Liver function tests: bilirubin, AST, ALT, ALP, GGT and proteins, Total IgG, ANA and smooth-muscle antibody, LKM-1 and SLA antibodies, Antimitochondrial antibody, Hepatitis B/C screening to exclude viral causes, IgG4 or metabolic tests when indicated",
     "highlights": [
       "May help when: Abnormal liver tests with suspected autoimmune disease",
-      "Includes: Liver function tests: bilirubin, AST, ALT, ALP, GGT and proteins",
-      "Includes: Total IgG",
+      "Key components: Liver function tests: bilirubin, AST, ALT, ALP, GGT and proteins, Total IgG, ANA and smooth-muscle antibody...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Abnormal liver tests with suspected autoimmune disease",
@@ -504,8 +212,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "8 a.m. cortisol with paired ACTH, Sodium and potassium, Glucose, Creatinine, Cosyntropin stimulation test when indicated, Renin/aldosterone for suspected primary disease, 21-hydroxylase antibodies when indicated",
     "highlights": [
       "May help when: Symptoms or clinical suspicion of cortisol deficiency",
-      "Includes: 8 a.m. cortisol with paired ACTH",
-      "Includes: Sodium and potassium",
+      "Key components: 8 a.m. cortisol with paired ACTH, Sodium and potassium, Glucose...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Symptoms or clinical suspicion of cortisol deficiency",
@@ -538,8 +245,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Fasting or random glucose, Urea/BUN, Creatinine with calculated eGFR, Sodium, Potassium, Chloride, Bicarbonate, Calcium",
     "highlights": [
       "May help when: General metabolic, glucose, kidney and electrolyte assessment",
-      "Includes: Fasting or random glucose",
-      "Includes: Urea/BUN",
+      "Key components: Fasting or random glucose, Urea/BUN, Creatinine with calculated eGFR...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "General metabolic, glucose, kidney and electrolyte assessment",
@@ -573,8 +279,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "No routine blood test is recommended for breast-cancer screening, Clinical breast assessment and age/risk-appropriate imaging, CA 15-3, CA 27.29 or CEA only when an oncologist selects them for monitoring",
     "highlights": [
       "May help when: Screening guidance or oncologist-directed biomarker monitoring",
-      "Includes: No routine blood test is recommended for breast-cancer screening",
-      "Includes: Clinical breast assessment and age/risk-appropriate imaging",
+      "Key components: No routine blood test is recommended for breast-cancer screening, Clinical breast assessment and age/risk-appropriate imaging, CA 15-3, CA 27.29 or CEA only when an oncologist selects them for monitoring",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Screening guidance or oncologist-directed biomarker monitoring",
@@ -603,8 +308,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Calcium, Phosphorus, Magnesium, Albumin, Alkaline phosphatase, 25-OH vitamin D, Intact PTH, Creatinine with eGFR",
     "highlights": [
       "May help when: Vitamin D, mineral balance or general bone-health concerns",
-      "Includes: Calcium",
-      "Includes: Phosphorus",
+      "Key components: Calcium, Phosphorus, Magnesium...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "Vitamin D, mineral balance or general bone-health concerns",
@@ -638,8 +342,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Lipid profile with LDL and non-HDL, High-sensitivity CRP for selected risk assessment, High-sensitivity troponin I OR T for acute symptoms, BNP/NT-proBNP for suspected heart failure, ApoB and lipoprotein(a) when indicated",
     "highlights": [
       "May help when: Cardiovascular risk review or acute symptoms through separate pathways",
-      "Includes: Lipid profile with LDL and non-HDL",
-      "Includes: High-sensitivity CRP for selected risk assessment",
+      "Key components: Lipid profile with LDL and non-HDL, High-sensitivity CRP for selected risk assessment, High-sensitivity troponin I OR T for acute symptoms...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Cardiovascular risk review or acute symptoms through separate pathways",
@@ -670,8 +373,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Anticardiolipin IgG, Anticardiolipin IgM, Anti-beta-2 glycoprotein I IgG/IgM, Lupus anticoagulant, Repeat qualifying positives after at least 12 weeks",
     "highlights": [
       "May help when: Thrombosis or defined pregnancy complications",
-      "Includes: Anticardiolipin IgG",
-      "Includes: Anticardiolipin IgM",
+      "Key components: Anticardiolipin IgG, Anticardiolipin IgM, Anti-beta-2 glycoprotein I IgG/IgM...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Thrombosis or defined pregnancy complications",
@@ -702,8 +404,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Prothrombin time/INR, Activated partial thromboplastin time (APTT), CBC with platelet count",
     "highlights": [
       "May help when: Bleeding history, anticoagulant monitoring or selected procedures",
-      "Includes: Prothrombin time/INR",
-      "Includes: Activated partial thromboplastin time (APTT)",
+      "Key components: Prothrombin time/INR, Activated partial thromboplastin time (APTT), CBC with platelet count",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Bleeding history, anticoagulant monitoring or selected procedures",
@@ -732,8 +433,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "PT/INR, APTT, Fibrinogen, Thrombin time, Platelet count, D-dimer only when clinically indicated, Mixing studies or von Willebrand testing when indicated",
     "highlights": [
       "May help when: Unexplained bleeding/clotting or abnormal basic tests",
-      "Includes: PT/INR",
-      "Includes: APTT",
+      "Key components: PT/INR, APTT, Fibrinogen...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Unexplained bleeding/clotting or abnormal basic tests",
@@ -766,8 +466,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "PAPP-A, Free beta-hCG, Nuchal-translucency ultrasound, Maternal and gestational information for validated risk calculation",
     "highlights": [
       "May help when: First-trimester aneuploidy risk screening",
-      "Includes: PAPP-A",
-      "Includes: Free beta-hCG",
+      "Key components: PAPP-A, Free beta-hCG, Nuchal-translucency ultrasound...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "First-trimester aneuploidy risk screening",
@@ -797,8 +496,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Alpha-fetoprotein (AFP) hCG, Unconjugated estriol (uE3), Maternal and gestational information for validated risk calculation",
     "highlights": [
       "May help when: Second-trimester biochemical risk screening",
-      "Includes: Alpha-fetoprotein (AFP) hCG",
-      "Includes: Unconjugated estriol (uE3)",
+      "Key components: Alpha-fetoprotein (AFP) hCG, Unconjugated estriol (uE3), Maternal and gestational information for validated risk calculation",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Second-trimester biochemical risk screening",
@@ -827,8 +525,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Alpha-fetoprotein (AFP) hCG, Unconjugated estriol (uE3), Inhibin A, Maternal and gestational information for validated risk calculation",
     "highlights": [
       "May help when: Second-trimester biochemical risk screening",
-      "Includes: Alpha-fetoprotein (AFP) hCG",
-      "Includes: Unconjugated estriol (uE3)",
+      "Key components: Alpha-fetoprotein (AFP) hCG, Unconjugated estriol (uE3), Inhibin A...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Second-trimester biochemical risk screening",
@@ -858,8 +555,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Sodium, Potassium, Chloride, Bicarbonate/total carbon dioxide, Magnesium when indicated, Calcium when indicated",
     "highlights": [
       "May help when: Vomiting, dehydration, kidney disease or medication monitoring",
-      "Includes: Sodium",
-      "Includes: Potassium",
+      "Key components: Sodium, Potassium, Chloride...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "Vomiting, dehydration, kidney disease or medication monitoring",
@@ -891,8 +587,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "HIV-1/2 antigen-antibody test, Hepatitis B infection/immunity panel, Hepatitis C screening, Chlamydia and gonorrhea NAAT, Syphilis screening with confirmation, Other site-specific tests based on exposure",
     "highlights": [
       "May help when: Risk-based STI screening, symptoms or exposure concerns",
-      "Includes: HIV-1/2 antigen-antibody test",
-      "Includes: Hepatitis B infection/immunity panel",
+      "Key components: HIV-1/2 antigen-antibody test, Hepatitis B infection/immunity panel, Hepatitis C screening...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Risk-based STI screening, symptoms or exposure concerns",
@@ -924,8 +619,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "FSH and LH, Prolactin, Estradiol, Cycle-timed progesterone, AMH, TSH, DHEA-S, Testosterone/SHBG, Pregnancy test when appropriate",
     "highlights": [
       "May help when: Fertility evaluation with cycle-timed interpretation",
-      "Includes: FSH and LH",
-      "Includes: Prolactin",
+      "Key components: FSH and LH, Prolactin, Estradiol...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Fertility evaluation with cycle-timed interpretation",
@@ -960,8 +654,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "TSH and free T4, FSH, LH, Estradiol, Pregnancy test or prolactin when presentation is atypical",
     "highlights": [
       "May help when: Uncertain menopause or premature ovarian insufficiency concerns",
-      "Includes: TSH and free T4",
-      "Includes: FSH",
+      "Key components: TSH and free T4, FSH, LH...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Uncertain menopause or premature ovarian insufficiency concerns",
@@ -992,8 +685,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Pregnancy test when appropriate, TSH and free T4, FSH, Prolactin, Estradiol, Androgen/17-OHP testing only for specific symptoms, HbA1c and lipids as a separate health assessment",
     "highlights": [
       "May help when: Complex amenorrhea or atypical endocrine symptoms",
-      "Includes: Pregnancy test when appropriate",
-      "Includes: TSH and free T4",
+      "Key components: Pregnancy test when appropriate, TSH and free T4, FSH...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Complex amenorrhea or atypical endocrine symptoms",
@@ -1026,8 +718,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Measles IgG, Mumps IgG, Rubella IgG, PCR/IgM only through an acute- infection pathway when disease is suspected",
     "highlights": [
       "May help when: Immunity documentation when vaccination records are unavailable",
-      "Includes: Measles IgG",
-      "Includes: Mumps IgG",
+      "Key components: Measles IgG, Mumps IgG, Rubella IgG...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "Immunity documentation when vaccination records are unavailable",
@@ -1057,8 +748,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "CBC, Serum protein electrophoresis (SPEP), Serum immunofixation, Free light chains and ratio, IgG, IgA and IgM, Calcium and creatinine/eGFR, Albumin, total protein, LDH and beta-2 microglobulin, Urine electrophoresis/ immunofixation when indicated",
     "highlights": [
       "May help when: Suspected monoclonal protein disorder under specialist review",
-      "Includes: CBC",
-      "Includes: Serum protein electrophoresis (SPEP)",
+      "Key components: CBC, Serum protein electrophoresis (SPEP), Serum immunofixation...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Suspected monoclonal protein disorder under specialist review",
@@ -1092,8 +782,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "CBC, ESR and CRP, Rheumatoid factor/anti-CCP when indicated, Uric acid, Vitamin D and calcium when indicated, Joint-fluid analysis for suspected infection or crystals",
     "highlights": [
       "May help when: Selected joint or musculoskeletal symptoms after assessment",
-      "Includes: CBC",
-      "Includes: ESR and CRP",
+      "Key components: CBC, ESR and CRP, Rheumatoid factor/anti-CCP when indicated...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Selected joint or musculoskeletal symptoms after assessment",
@@ -1125,8 +814,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Calcium, phosphorus and magnesium, 25-OH vitamin D, Intact PTH, Albumin and ALP, Creatinine, TSH, P1NP and osteocalcin, Beta-CTX when monitoring is required",
     "highlights": [
       "May help when: Low bone density, fractures or secondary-cause evaluation",
-      "Includes: Calcium, phosphorus and magnesium",
-      "Includes: 25-OH vitamin D",
+      "Key components: Calcium, phosphorus and magnesium, 25-OH vitamin D, Intact PTH...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Low bone density, fractures or secondary-cause evaluation",
@@ -1160,8 +848,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Lupus anticoagulant, Anticardiolipin IgG/IgM, Anti-beta-2 glycoprotein I IgG/IgM, Repeat qualifying positives after at least 12 weeks, Other tests only after obstetric/ specialist review",
     "highlights": [
       "May help when: Recurrent pregnancy loss or APS evaluation",
-      "Includes: Lupus anticoagulant",
-      "Includes: Anticardiolipin IgG/IgM",
+      "Key components: Lupus anticoagulant, Anticardiolipin IgG/IgM, Anti-beta-2 glycoprotein I IgG/IgM...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Recurrent pregnancy loss or APS evaluation",
@@ -1192,8 +879,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Total PSA, Repeat PSA after resolving temporary causes of elevation when advised, Urinalysis and creatinine/eGFR for urinary symptoms",
     "highlights": [
       "May help when: PSA-based prostate assessment after shared decision-making",
-      "Includes: Total PSA",
-      "Includes: Repeat PSA after resolving temporary causes of elevation when advised",
+      "Key components: Total PSA, Repeat PSA after resolving temporary causes of elevation when advised, Urinalysis and creatinine/eGFR for urinary symptoms",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "PSA-based prostate assessment after shared decision-making",
@@ -1222,8 +908,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Total PSA, Reflex free PSA with calculated free-to-total percentage, PHI/4Kscore only when selected by a urologist, Urology assessment and MRI when indicated",
     "highlights": [
       "May help when: PSA risk clarification through a urology pathway",
-      "Includes: Total PSA",
-      "Includes: Reflex free PSA with calculated free-to-total percentage",
+      "Key components: Total PSA, Reflex free PSA with calculated free-to-total percentage, PHI/4Kscore only when selected by a urologist...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "PSA risk clarification through a urology pathway",
@@ -1253,8 +938,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "TSH, Total/free testosterone and SHBG, DHEA-S, Prolactin, FSH and LH, HbA1c or oral glucose tolerance test, Full lipid profile, Pregnancy test/17-OHP when indicated",
     "highlights": [
       "May help when: Irregular cycles, androgen symptoms or suspected PCOS",
-      "Includes: TSH",
-      "Includes: Total/free testosterone and SHBG",
+      "Key components: TSH, Total/free testosterone and SHBG, DHEA-S...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Irregular cycles, androgen symptoms or suspected PCOS",
@@ -1288,8 +972,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "TSH, Total/free testosterone and SHBG, DHEA-S, Prolactin, 17-hydroxyprogesterone, HbA1c or oral glucose tolerance test, Full lipid profile, Pregnancy test when appropriate",
     "highlights": [
       "May help when: Clinical evaluation of suspected PCOS - not population screening",
-      "Includes: TSH",
-      "Includes: Total/free testosterone and SHBG",
+      "Key components: TSH, Total/free testosterone and SHBG, DHEA-S...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Clinical evaluation of suspected PCOS - not population screening",
@@ -1323,8 +1006,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Anticardiolipin IgG/IgM, Anti-beta-2 glycoprotein I IgG/IgM, Lupus anticoagulant, Repeat qualifying positives after at least 12 weeks",
     "highlights": [
       "May help when: Suspected antiphospholipid syndrome",
-      "Includes: Anticardiolipin IgG/IgM",
-      "Includes: Anti-beta-2 glycoprotein I IgG/IgM",
+      "Key components: Anticardiolipin IgG/IgM, Anti-beta-2 glycoprotein I IgG/IgM, Lupus anticoagulant...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Suspected antiphospholipid syndrome",
@@ -1354,8 +1036,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Complete Blood Count (CBC), Serum iron, TIBC, Ferritin, Calculated transferrin saturation",
     "highlights": [
       "May help when: A focused first-line check for possible iron deficiency",
-      "Includes: Complete Blood Count (CBC)",
-      "Includes: Serum iron",
+      "Key components: Complete Blood Count (CBC), Serum iron, TIBC...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "A focused first-line check for possible iron deficiency",
@@ -1386,8 +1067,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Urea/BUN, Creatinine with calculated eGFR, Uric acid, Sodium, potassium and chloride, Routine urinalysis, Urine ACR for diabetes, hypertension or CKD risk",
     "highlights": [
       "May help when: Routine kidney assessment or diabetes/hypertension risk",
-      "Includes: Urea/BUN",
-      "Includes: Creatinine with calculated eGFR",
+      "Key components: Urea/BUN, Creatinine with calculated eGFR, Uric acid...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "Routine kidney assessment or diabetes/hypertension risk",
@@ -1419,8 +1099,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Urea/BUN, Creatinine with eGFR, Sodium, potassium and chloride, Calcium, phosphorus and magnesium, Serum albumin, Routine urinalysis, Urine albumin-creatinine ratio (UACR)",
     "highlights": [
       "May help when: Expanded kidney and mineral assessment",
-      "Includes: Urea/BUN",
-      "Includes: Creatinine with eGFR",
+      "Key components: Urea/BUN, Creatinine with eGFR, Sodium, potassium and chloride...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "Expanded kidney and mineral assessment",
@@ -1453,8 +1132,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "CBC, CRP, Liver function tests, Creatinine/eGFR and electrolytes, Malaria rapid test and smear when relevant, Dengue test selected by illness day, Urinalysis/culture when indicated",
     "highlights": [
       "May help when: Acute fever assessed according to illness day and local risk",
-      "Includes: CBC",
-      "Includes: CRP",
+      "Key components: CBC, CRP, Liver function tests...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Acute fever assessed according to illness day and local risk",
@@ -1487,8 +1165,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "HbA1c, Fasting blood glucose, Post-meal blood glucose, Creatinine with calculated eGFR",
     "highlights": [
       "May help when: Diabetes screening or basic glucose monitoring",
-      "Includes: HbA1c",
-      "Includes: Fasting blood glucose",
+      "Key components: HbA1c, Fasting blood glucose, Post-meal blood glucose...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "Diabetes screening or basic glucose monitoring",
@@ -1518,8 +1195,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "HbA1c, Fasting and post-meal glucose, Lipid profile, Creatinine with eGFR, Urine albumin-creatinine ratio, Routine urinalysis, Liver function tests",
     "highlights": [
       "May help when: Ongoing diabetes care with kidney and heart-risk monitoring",
-      "Includes: HbA1c",
-      "Includes: Fasting and post-meal glucose",
+      "Key components: HbA1c, Fasting and post-meal glucose, Lipid profile...",
       "Guidance: SELF-REQUEST POSSIBLE"
     ],
     "mayHelpWhen": "Ongoing diabetes care with kidney and heart-risk monitoring",
@@ -1552,8 +1228,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Correct specimen selected for the suspected site, Gram stain where appropriate, Culture and organism identification, Antimicrobial susceptibility testing, Anaerobic, fungal or mycobacterial culture when indicated",
     "highlights": [
       "May help when: Suspected bacterial infection with the correct specimen",
-      "Includes: Correct specimen selected for the suspected site",
-      "Includes: Gram stain where appropriate",
+      "Key components: Correct specimen selected for the suspected site, Gram stain where appropriate, Culture and organism identification...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Suspected bacterial infection with the correct specimen",
@@ -1584,8 +1259,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Sputum CBNAAT/molecular test, AFB smear, Mycobacterial culture, Drug-susceptibility testing, HIV screening, Baseline liver/kidney tests before treatment, IGRA/TB Gold only for latent- infection assessment",
     "highlights": [
       "May help when: Suspected active TB or separate latent-infection assessment",
-      "Includes: Sputum CBNAAT/molecular test",
-      "Includes: AFB smear",
+      "Key components: Sputum CBNAAT/molecular test, AFB smear, Mycobacterial culture...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Suspected active TB or separate latent-infection assessment",
@@ -1618,8 +1292,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "CBC and CRP, Kidney, electrolyte and liver tests for moderate/severe illness, Respiratory viral NAAT, Sputum Gram stain/culture when indicated, Blood cultures or urinary antigens for selected severe cases",
     "highlights": [
       "May help when: Suspected pneumonia after clinical assessment and imaging",
-      "Includes: CBC and CRP",
-      "Includes: Kidney, electrolyte and liver tests for moderate/severe illness",
+      "Key components: CBC and CRP, Kidney, electrolyte and liver tests for moderate/severe illness, Respiratory viral NAAT...",
       "Guidance: DOCTOR-DIRECTED"
     ],
     "mayHelpWhen": "Suspected pneumonia after clinical assessment and imaging",
@@ -1650,8 +1323,7 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "includes": "Immunoassay screen for 10 defined drug classes, Urine creatinine, specific gravity and pH, Oxidant/adulterant checks, GC-MS or LC-MS/MS confirmation for non-negative results, Defined cutoffs and chain-of- custody where required",
     "highlights": [
       "May help when: Clinical, workplace or legal testing with defined purpose",
-      "Includes: Immunoassay screen for 10 defined drug classes",
-      "Includes: Urine creatinine, specific gravity and pH",
+      "Key components: Immunoassay screen for 10 defined drug classes, Urine creatinine, specific gravity and pH, Oxidant/adulterant checks...",
       "Guidance: CONSULTATION RECOMMENDED"
     ],
     "mayHelpWhen": "Clinical, workplace or legal testing with defined purpose",
@@ -1667,27 +1339,4 @@ export const PATIENT_GUIDE_PACKAGES: PackageItem[] = [
     "tat": "Same-Day / Standard Clinical TAT",
     "sampleType": "Blood / Specimen as per protocol"
   }
-];
-
-export const CANONICAL_PACKAGES: PackageItem[] = [
-  ...PREVENTIVE_PACKAGES,
-  ...PATIENT_GUIDE_PACKAGES,
-];
-
-export function getPackageBySlugOrId(identifier: string): PackageItem | undefined {
-  if (!identifier) return undefined;
-  const clean = identifier.trim().toLowerCase();
-  return CANONICAL_PACKAGES.find(
-    (p) =>
-      p.id.toLowerCase() === clean ||
-      p.slug.toLowerCase() === clean ||
-      p.name.toLowerCase() === clean ||
-      p.guideNumber?.toLowerCase() === clean ||
-      clean.includes(p.id.toLowerCase())
-  );
-}
-
-export function computeDiscountPercentage(price?: number, mrp?: number): number {
-  if (!price || !mrp || mrp <= price) return 0;
-  return Math.round(((mrp - price) / mrp) * 100);
-}
+]

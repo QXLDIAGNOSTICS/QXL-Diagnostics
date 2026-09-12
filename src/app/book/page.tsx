@@ -25,6 +25,12 @@ import {
   Search,
   Check,
   Filter,
+  Send,
+  Bot,
+  Mic,
+  MicOff,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import { api, type TestCatalogItem, type HealthPackage, type Booking } from "@/lib/api";
 import { useAuth } from "@/lib/useAuth";
@@ -34,6 +40,8 @@ import { trackChatGPTBookingStart, trackChatGPTBookingCompleted } from "@/lib/ch
 import { matchMasterItem, MASTER_CATALOGUE } from "@/lib/masterCatalogue";
 import { parseCartItems, addItemToCart, removeItemFromCart, type CartItem } from "@/lib/cart";
 import { homeCollectionAreas } from "@/lib/locationsData";
+import ReactMarkdown from "react-markdown";
+import { QXL_AI_KEY, OPENAI_API_KEY, getQxlSystemPrompt, getGroundedClinicalAiResponse, fetchOpenAiSpeech } from "@/lib/qxlAiSystemPrompt";
 
 type CatalogEntry = {
   id: string;
@@ -112,6 +120,234 @@ export default function BookPage() {
   const [selectedItems, setSelectedItems] = useState<CatalogEntry[]>([]);
   const [testInput, setTestInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
+
+  // AI Assistant Search State
+  const [aiQuery, setAiQuery] = useState<string>("");
+  const [aiLoading, setAiLoading] = useState<boolean>(false);
+  const [aiResponse, setAiResponse] = useState<string | null>(null);
+  const [aiRecommendedItems, setAiRecommendedItems] = useState<CatalogEntry[]>([]);
+
+  // Speech-to-Text & Text-to-Speech Voice States for Booking AI Chat
+  const [isAiListening, setIsAiListening] = useState(false);
+  const [isSpeakingResponse, setIsSpeakingResponse] = useState(false);
+  const aiRecognitionRef = useRef<any>(null);
+  const aiResponseRef = useRef<HTMLDivElement>(null);
+
+  const getIndianFemaleVoice = (): SpeechSynthesisVoice | null => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) return null;
+    const voices = window.speechSynthesis.getVoices();
+    if (!voices || voices.length === 0) return null;
+
+    const indianFemale = voices.find((v) => {
+      const name = v.name.toLowerCase();
+      const lang = v.lang.toLowerCase();
+      const isIndian = lang.includes("in") || name.includes("india");
+      const isFemale =
+        name.includes("female") ||
+        name.includes("heera") ||
+        name.includes("neerja") ||
+        name.includes("veena") ||
+        name.includes("sangeeta") ||
+        name.includes("google");
+      return isIndian && isFemale;
+    });
+    if (indianFemale) return indianFemale;
+
+    const anyIndian = voices.find((v) => v.lang.toLowerCase().includes("en-in") || v.lang.toLowerCase().includes("hi-in"));
+    if (anyIndian) return anyIndian;
+
+    const femaleVoice = voices.find((v) => {
+      const name = v.name.toLowerCase();
+      return name.includes("female") || name.includes("zira") || name.includes("samantha") || name.includes("victoria");
+    });
+    return femaleVoice || voices[0] || null;
+  };
+
+  const toggleAiListening = () => {
+    if (isAiListening) {
+      if (aiRecognitionRef.current) {
+        try { aiRecognitionRef.current.stop(); } catch {}
+      }
+      setIsAiListening(false);
+      return;
+    }
+
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Voice speech recognition is not supported in this browser. Please use Chrome, Edge, or Safari.");
+      return;
+    }
+
+    try {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "en-IN";
+
+      recognition.onstart = () => setIsAiListening(true);
+      recognition.onresult = (event: any) => {
+        let transcriptStr = "";
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          transcriptStr += event.results[i][0].transcript;
+        }
+        if (transcriptStr.trim()) {
+          setAiQuery(transcriptStr);
+        }
+      };
+      recognition.onerror = (event: any) => {
+        console.warn("Speech recognition error:", event.error);
+        setIsAiListening(false);
+      };
+      recognition.onend = () => setIsAiListening(false);
+
+      aiRecognitionRef.current = recognition;
+      recognition.start();
+    } catch (err) {
+      console.error("Speech recognition error:", err);
+      setIsAiListening(false);
+    }
+  };
+
+  const speakAiResponse = (text: string) => {
+    if (typeof window === "undefined" || !("speechSynthesis" in window)) {
+      alert("Text-to-speech is not supported in this browser.");
+      return;
+    }
+
+    if (isSpeakingResponse && window.speechSynthesis.speaking) {
+      window.speechSynthesis.cancel();
+      setIsSpeakingResponse(false);
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    const cleanText = text
+      .replace(/[*#_~🚨🩸🦋💇⚡🦴🩺]/g, "")
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+      .replace(/₹/g, "Rupees ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    if (!cleanText) return;
+
+    const utterance = new SpeechSynthesisUtterance(cleanText);
+    const voice = getIndianFemaleVoice();
+    if (voice) {
+      utterance.voice = voice;
+    }
+    utterance.lang = "en-IN";
+    utterance.pitch = 1.1; // Warm Indian Female voice pitch
+    utterance.rate = 0.95;
+
+    setIsSpeakingResponse(true);
+    utterance.onend = () => setIsSpeakingResponse(false);
+    utterance.onerror = () => setIsSpeakingResponse(false);
+
+    window.speechSynthesis.speak(utterance);
+  };
+
+  const handleAiSearch = async (queryText?: string) => {
+    const q = (queryText || aiQuery || testInput).trim();
+    if (!q) return;
+
+    // 1. INSTANT zero-latency doctor response (<10ms) for ultra-fast performance!
+    const instantReply = getGroundedClinicalAiResponse(q);
+    setAiResponse(instantReply);
+
+    // Compute instant catalog matches from instant reply & query keywords
+    const lowerQ = q.toLowerCase();
+    const matchedInstant: CatalogEntry[] = catalog.filter((c) => {
+      const nameL = c.name.toLowerCase();
+      return (
+        instantReply.toLowerCase().includes(nameL) ||
+        (lowerQ.includes("fever") && (nameL.includes("fever") || nameL.includes("cbc") || nameL.includes("quick fit"))) ||
+        (lowerQ.includes("diabet") && (nameL.includes("hba1c") || nameL.includes("sugar") || nameL.includes("diabetes"))) ||
+        (lowerQ.includes("thyroid") && (nameL.includes("thyroid") || nameL.includes("tsh"))) ||
+        (lowerQ.includes("full body") && c.kind === "package") ||
+        (lowerQ.includes("fatigue") && (nameL.includes("vitamin d") || nameL.includes("b12") || nameL.includes("quick fit")))
+      );
+    });
+    setAiRecommendedItems(matchedInstant.length > 0 ? matchedInstant.slice(0, 6) : catalog.filter(c => c.kind === "package").slice(0, 4));
+    setAiLoading(true);
+
+    setTimeout(() => {
+      aiResponseRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 30);
+
+    try {
+      const openAiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY || OPENAI_API_KEY;
+      if (openAiKey) {
+        const prompt = getQxlSystemPrompt(q);
+        const res = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${openAiKey}`
+          },
+          body: JSON.stringify({
+            model: "gpt-4o-mini",
+            messages: [
+              { role: "system", content: prompt },
+              { role: "user", content: q }
+            ],
+            temperature: 0.3,
+            max_tokens: 600
+          })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          const reply = data.choices?.[0]?.message?.content || "";
+          if (reply.trim()) {
+            setAiResponse(reply);
+            const lowerReply = reply.toLowerCase();
+            const matched: CatalogEntry[] = [];
+            for (const item of catalog) {
+              if (lowerReply.includes(item.name.toLowerCase())) {
+                matched.push(item);
+              }
+            }
+            if (matched.length > 0) setAiRecommendedItems(matched.slice(0, 6));
+            return;
+          }
+        }
+      }
+
+      const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || QXL_AI_KEY;
+      const prompt = getQxlSystemPrompt(q);
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ role: "user", parts: [{ text: prompt }] }],
+            generationConfig: { temperature: 0.3, maxOutputTokens: 600 },
+          }),
+        }
+      );
+      if (res.ok) {
+        const data = await res.json();
+        const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+        if (reply.trim()) {
+          setAiResponse(reply);
+          const lowerReply = reply.toLowerCase();
+          const matched: CatalogEntry[] = [];
+          for (const item of catalog) {
+            if (lowerReply.includes(item.name.toLowerCase())) {
+              matched.push(item);
+            }
+          }
+          if (matched.length > 0) setAiRecommendedItems(matched.slice(0, 6));
+          return;
+        }
+      }
+    } catch {
+      // Instant response is already active
+    } finally {
+      setAiLoading(false);
+    }
+  };
 
   // Right sidebar catalog state
   const [rightFilterCat, setRightFilterCat] = useState<string>("all");
@@ -573,8 +809,8 @@ export default function BookPage() {
       {/* ── MAIN CONTENT CONTAINER ── */}
       <main className="max-w-[1200px] mx-auto px-4 pt-6 w-full">
         {submitted ? (
-          /* ── SUCCESS CONFIRMATION VIEW ── */
           <div className="bg-white p-6 sm:p-10 rounded-3xl border border-emerald-200 shadow-md text-center max-w-2xl mx-auto my-8">
+            {/* SUCCESS CONFIRMATION VIEW */}
             <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-xs">
               <CheckCircle2 className="w-10 h-10" />
             </div>
@@ -647,8 +883,8 @@ export default function BookPage() {
             </button>
           </div>
         ) : (
-          /* ── 2-STEP BOOKING FLOW FORM ── */
           <div className="space-y-6">
+            {/* 2-STEP BOOKING FLOW FORM */}
             {/* 2-Step Interactive Progress Bar */}
             <div className="bg-white p-3.5 sm:p-4 rounded-2xl border border-slate-200 shadow-2xs">
               <div className="flex items-center justify-between mb-2 px-1">
@@ -695,115 +931,46 @@ export default function BookPage() {
             </div>
 
             <form onSubmit={handleSubmit}>
-              {/* ─────────────────────────────────────────────────────────────
-                  STEP 1: SELECT TESTS, PACKAGES & VIEW ALL IN RIGHT SIDEBAR
-              ───────────────────────────────────────────────────────────── */}
+              {/* STEP 1: SELECT TESTS & PACKAGES */}
               {currentStep === 1 && (
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                   {/* Left Column (Main Search & Featured Packages View - 7 Cols) */}
                   <div className="lg:col-span-7 space-y-5">
-                    {/* 1. Collection Mode Selector */}
-                    <div className="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-2xs">
-                      <label className="text-xs font-black text-[#0B2545] uppercase tracking-wider block mb-3">
-                        Choose Sample Collection Mode:
-                      </label>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <label
-                          className={`flex items-start cursor-pointer border rounded-2xl p-3.5 transition-all ${
-                            formData.collectionType === "home"
-                              ? "border-[#D69A18] bg-[#FFF8EB] ring-2 ring-[#D69A18]/20 shadow-2xs"
-                              : "border-slate-200 hover:bg-slate-50"
-                          }`}
-                        >
-                          <input
-                            type="radio"
-                            name="collectionType"
-                            value="home"
-                            checked={formData.collectionType === "home"}
-                            onChange={() => setFormData({ ...formData, collectionType: "home" })}
-                            className="text-[#D69A18] focus:ring-[#D69A18] mr-2.5 w-4 h-4 mt-0.5 shrink-0"
-                          />
-                          <div>
-                            <span className="text-xs font-black text-[#0B2545] flex items-center gap-1.5">
-                              <Home className="w-4 h-4 text-[#D69A18]" /> Free Doorstep Home Collection
-                            </span>
-                            <p className="text-[11px] text-slate-500 font-semibold mt-0.5">
-                              Trained phlebotomist collects blood at your residence across Bengaluru
-                            </p>
+                    {/* 1. Free Doorstep Home Sample Collection Banner */}
+                    <div className="bg-gradient-to-r from-[#0B2545] to-[#128C7E] p-5 rounded-3xl shadow-md border border-[#128C7E]/40 space-y-3">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2.5">
+                          <div className="w-10 h-10 rounded-2xl bg-white/15 border border-white/30 flex items-center justify-center shrink-0">
+                            <Home className="w-5 h-5 text-white" />
                           </div>
-                        </label>
-
-                        <label
-                          className={`flex items-start cursor-pointer border rounded-2xl p-3.5 transition-all ${
-                            formData.collectionType === "center"
-                              ? "border-[#D69A18] bg-[#FFF8EB] ring-2 ring-[#D69A18]/20 shadow-2xs"
-                              : "border-slate-200 hover:bg-slate-50"
-                          }`}
-                        >
-                          <input
-                            type="radio"
-                            name="collectionType"
-                            value="center"
-                            checked={formData.collectionType === "center"}
-                            onChange={() => setFormData({ ...formData, collectionType: "center" })}
-                            className="text-[#D69A18] focus:ring-[#D69A18] mr-2.5 w-4 h-4 mt-0.5 shrink-0"
-                          />
                           <div>
-                            <span className="text-xs font-black text-[#0B2545] flex items-center gap-1.5">
-                              <Building2 className="w-4 h-4 text-[#D69A18]" /> Walk-in Lab Center
+                            <span className="bg-amber-400 text-slate-950 font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider block w-fit mb-1 shadow-2xs">
+                              100% Free Doorstep Collection
                             </span>
-                            <p className="text-[11px] text-slate-500 font-semibold mt-0.5">
-                              Visit QXL NABL Accredited Super Speciality Lab or Express Center
-                            </p>
-                          </div>
-                        </label>
-                      </div>
-
-                      {/* Location Select Dropdown */}
-                      <div className="mt-3.5 pt-3 border-t border-slate-100">
-                        <label className="text-[11px] font-black text-[#0B2545] uppercase tracking-wider block mb-1.5 flex items-center justify-between">
-                          <span className="flex items-center gap-1.5">
-                            <MapPin className="w-3.5 h-3.5 text-[#D69A18]" /> Select Bengaluru Location / Lab Hub:
-                          </span>
-                          <span className="text-[10px] text-emerald-700 font-extrabold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
-                            60+ Locations Covered
-                          </span>
-                        </label>
-
-                        <div className="relative">
-                          <select
-                            value={formData.selectedCenter}
-                            onChange={(e) => setFormData({ ...formData, selectedCenter: e.target.value as any })}
-                            className="w-full bg-[#FAFBFD] border-2 border-[#F3DBA7] focus:border-[#D69A18] text-[#0B2545] font-black text-xs rounded-2xl px-3.5 py-2.5 appearance-none shadow-2xs cursor-pointer outline-none transition-all pr-10"
-                          >
-                            <optgroup label="🏢 QXL NABL Super Speciality Labs & Express Hubs">
-                              <option value="kengeri-main-lab">🏢 Kengeri Main Reference Lab (NABL Accredited — Mysore Road - Open 24×7)</option>
-                              <option value="yelahanka-north-hub">🏢 Yelahanka North Express Hub (NABL Accredited — RMZ Galleria)</option>
-                              <option value="central-hub">🏢 Central Hub — Koramangala / MG Road</option>
-                              <option value="jp-nagar-hub">🏢 South Hub — JP Nagar 5th Phase</option>
-                              <option value="whitefield-hub">🏢 East Hub — Whitefield ITPL Main Road</option>
-                              <option value="indiranagar-hub">🏢 East Hub — Indiranagar 100ft Road</option>
-                              <option value="rajajinagar-hub">🏢 West Hub — Rajajinagar Chord Road</option>
-                              <option value="hebbal-hub">🏢 North Hub — Hebbal / Sahakara Nagar</option>
-                              <option value="electronic-city-hub">🏢 South-East Hub — Electronic City Phase 1</option>
-                              <option value="hsr-layout-hub">🏢 South Hub — HSR Layout Sector 1</option>
-                              <option value="rr-nagar-hub">🏢 West Hub — Rajarajeshwari Nagar (RR Nagar)</option>
-                              <option value="jayanagar-hub">🏢 South Hub — Jayanagar 4th Block</option>
-                              <option value="banashankari-hub">🏢 South-West Hub — Banashankari 3rd Stage</option>
-                              <option value="vijayanagar-hub">🏢 West Hub — Vijayanagar RPC Layout</option>
-                            </optgroup>
-                            <optgroup label="📍 All 60+ Doorstep Sample Collection Localities">
-                              {homeCollectionAreas.map((area) => (
-                                <option key={area.id} value={area.slug}>
-                                  📍 {area.name} (Pincodes: {area.pincodes.join(", ")})
-                                </option>
-                              ))}
-                            </optgroup>
-                          </select>
-                          <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#D69A18] font-bold text-xs">
-                            ▼
+                            <h3 className="text-base sm:text-lg font-black leading-tight !text-white m-0" style={{ color: "#FFFFFF", textShadow: "0 1px 3px rgba(0,0,0,0.4)" }}>
+                              Home Sample Collection Across Bengaluru
+                            </h3>
                           </div>
                         </div>
+                        <span className="hidden sm:inline-flex text-[11px] font-extrabold bg-white/20 text-white px-3 py-1 rounded-full border border-white/40 whitespace-nowrap shadow-2xs" style={{ color: "#FFFFFF" }}>
+                          60+ Localities Covered
+                        </span>
+                      </div>
+
+                      <p className="text-xs text-emerald-50 font-semibold leading-relaxed" style={{ color: "#F0FDF4" }}>
+                        Our trained certified phlebotomists collect samples right at your doorstep across Bengaluru (Kengeri, Koramangala, Whitefield, Yelahanka, HSR, Indiranagar, Jayanagar, JP Nagar, RR Nagar &amp; all pincodes).
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 pt-1 border-t border-white/20 text-[11px] font-bold">
+                        <span className="bg-white/15 border border-white/30 text-white px-3 py-1 rounded-xl flex items-center gap-1 shadow-2xs" style={{ color: "#FFFFFF" }}>
+                          ✓ ₹0 Home Visit Fee
+                        </span>
+                        <span className="bg-white/15 border border-white/30 text-white px-3 py-1 rounded-xl flex items-center gap-1 shadow-2xs" style={{ color: "#FFFFFF" }}>
+                          ✓ NABL Accredited (MC-6849)
+                        </span>
+                        <span className="bg-white/15 border border-white/30 text-white px-3 py-1 rounded-xl flex items-center gap-1 shadow-2xs" style={{ color: "#FFFFFF" }}>
+                          ✓ Same-Day Digital Reports
+                        </span>
                       </div>
                     </div>
 
@@ -1022,6 +1189,246 @@ export default function BookPage() {
                       </button>
                     </div>
 
+                    {/* ── CARD 1.5: AUTHENTIC WHATSAPP DIAGNOSTIC CHAT ASSISTANT ── */}
+                    <div className="rounded-3xl border-2 border-[#128C7E]/40 shadow-xl overflow-hidden bg-[#efeae2] flex flex-col font-sans">
+                      {/* WhatsApp Deep Teal Header */}
+                      <div className="bg-gradient-to-r from-[#075e54] to-[#128C7E] text-white p-3.5 flex items-center justify-between shadow-md shrink-0">
+                        <div className="flex items-center gap-2.5">
+                          <div className="relative w-8 h-8 rounded-full bg-white/20 border border-white/40 flex items-center justify-center shrink-0">
+                            <Bot className="w-4 h-4 text-white" />
+                            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-[#075e54] rounded-full"></span>
+                          </div>
+                          <div>
+                            <h3 className="text-xs font-black text-white leading-tight flex items-center gap-1.5" style={{ color: "#FFFFFF", fontWeight: 900 }}>
+                              <span>QXL AI Assistant</span>
+                              <span className="bg-emerald-500/30 text-emerald-200 text-[9px] px-1.5 py-0.2 rounded font-black border border-emerald-400/40">
+                                NABL
+                              </span>
+                            </h3>
+                            <p className="text-[10.5px] text-emerald-100 font-medium opacity-90" style={{ color: "#D1FAE5" }}>
+                              {aiLoading ? "typing..." : "Online · Doctor-Led AI"}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Reset / Back to Menu button */}
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setAiResponse(null);
+                              setAiQuery("");
+                            }}
+                            className="bg-white/20 hover:bg-white/35 text-white font-extrabold text-[10.5px] px-2.5 py-1 rounded-lg border border-white/30 transition-all flex items-center gap-1 cursor-pointer shrink-0"
+                            style={{ color: "#FFFFFF" }}
+                          >
+                            <ArrowRight className="w-3 h-3 rotate-180 text-white" />
+                            <span>← Menu</span>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* WhatsApp Chat Wallpaper Body Canvas */}
+                      <div className="p-3.5 space-y-3 max-h-[380px] overflow-y-auto bg-[#efeae2] scroll-smooth">
+                        {/* Active AI Response Bubble (Shown AT THE TOP when available) */}
+                        {aiResponse ? (
+                          <div ref={aiResponseRef} className="bg-white border-2 border-[#128C7E]/40 p-3.5 rounded-2xl shadow-md self-start text-xs text-slate-800 leading-relaxed space-y-2.5 w-full animate-in fade-in duration-300">
+                            <div className="flex items-center justify-between border-b border-slate-100 pb-2 mb-1">
+                              <span className="text-[11px] font-black text-[#128C7E] flex items-center gap-1">
+                                🤖 QXL AI Answer:
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => { setAiResponse(null); setAiQuery(""); }}
+                                className="text-[10px] font-extrabold text-[#128C7E] bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2 py-0.5 rounded-md cursor-pointer"
+                              >
+                                ← Back to Menu
+                              </button>
+                            </div>
+
+                            <div className="prose prose-slate max-w-none text-xs leading-relaxed font-medium">
+                              <ReactMarkdown>{aiResponse}</ReactMarkdown>
+                            </div>
+
+                            {/* Speaker Voice Readout Button */}
+                            <button
+                              type="button"
+                              onClick={() => speakAiResponse(aiResponse)}
+                              className="mt-1 text-[10.5px] font-extrabold text-[#128C7E] hover:text-[#075e54] flex items-center gap-1.5 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 px-2.5 py-1 rounded-full cursor-pointer transition-all"
+                            >
+                              {isSpeakingResponse ? (
+                                <>
+                                  <VolumeX className="w-3.5 h-3.5 text-red-500 animate-pulse" />
+                                  <span className="text-red-600 font-extrabold">Stop Voice</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Volume2 className="w-3.5 h-3.5 text-[#128C7E]" />
+                                  <span>Listen AI Voice</span>
+                                </>
+                              )}
+                            </button>
+
+                            {aiRecommendedItems.length > 0 && (
+                              <div className="pt-2 border-t border-slate-100 space-y-1.5">
+                                <p className="text-[10.5px] font-black text-[#128C7E] uppercase tracking-wider mb-1">
+                                  💡 Recommended Tests (1-Tap Add to Booking):
+                                </p>
+                                {aiRecommendedItems.map((item) => {
+                                  const isAdded = selectedItems.some((s) => s.name.toLowerCase() === item.name.toLowerCase());
+                                  return (
+                                    <div
+                                      key={item.id}
+                                      className="bg-[#f0fdf4] border border-emerald-200 p-2 rounded-xl flex items-center justify-between gap-2 text-[11px]"
+                                    >
+                                      <div className="truncate">
+                                        <span className="font-bold text-[#0B2545] block truncate">{item.name}</span>
+                                        <span className="text-[10px] text-[#D69A18] font-black">₹{item.price}</span>
+                                      </div>
+                                      <button
+                                        type="button"
+                                        onClick={() => (isAdded ? removeItem(item.id) : addItem(item))}
+                                        className={`text-[10px] font-black px-2.5 py-0.5 rounded-full transition-all shrink-0 cursor-pointer ${
+                                          isAdded
+                                            ? "bg-emerald-600 text-white shadow-2xs"
+                                            : "bg-[#128C7E] hover:bg-[#075e54] text-white shadow-2xs"
+                                        }`}
+                                      >
+                                        {isAdded ? "✓ Added" : "+ Add"}
+                                      </button>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <>
+                            {/* Initial Assistant Welcome Bubble */}
+                            <div className="bg-white border border-slate-200 p-3 rounded-2xl rounded-tl-none max-w-[95%] shadow-sm self-start text-xs text-slate-800 leading-relaxed font-medium space-y-2">
+                              <p className="font-bold text-[#0B2545]">👋 Hello! I am the QXL AI Assistant.</p>
+                              <p className="text-slate-600 text-[11.5px]">Ask any question about blood tests, fasting, packages, or symptoms, or pick a quick menu option:</p>
+                            </div>
+
+                            {/* Interactive Categories Menu Grid */}
+                            <div className="grid grid-cols-2 gap-1.5 py-1 self-start w-full">
+                              {[
+                                { label: "🏥 General FAQs", q: "What is QXL Diagnostics and lab locations?" },
+                                { label: "💉 Blood Tests & Price", q: "What blood tests do you offer and prices?" },
+                                { label: "🏠 Home Collection", q: "Do you provide home sample collection in Bengaluru?" },
+                                { label: "💰 Health Packages", q: "What health checkup packages do you offer?" },
+                                { label: "📄 Reports & Turnaround", q: "How to download my lab reports?" },
+                                { label: "🩺 Symptom Checker", q: "Recommend tests for fatigue and symptoms" },
+                                { label: "👵 Senior & Women", q: "Best health checkup package for senior citizens and women" },
+                                { label: "💬 Speak to Support", q: "How to contact QXL Diagnostics support or doctor?" },
+                              ].map((cat, idx) => (
+                                <button
+                                  key={idx}
+                                  type="button"
+                                  onClick={() => handleAiSearch(cat.q)}
+                                  className="bg-white hover:bg-[#128C7E] hover:text-white text-[#0B2545] border border-slate-200 hover:border-[#128C7E] p-2 rounded-xl text-[11px] font-extrabold transition-all text-left shadow-2xs flex items-center gap-1 cursor-pointer truncate"
+                                >
+                                  <span className="truncate">{cat.label}</span>
+                                </button>
+                              ))}
+                            </div>
+                          </>
+                        )}
+
+                        {aiLoading && (
+                          <div ref={aiResponseRef} className="bg-white p-3 rounded-xl rounded-tl-none self-start border border-slate-200 shadow-2xs flex items-center gap-2">
+                            <span className="w-2 h-2 bg-[#128C7E] rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                            <span className="w-2 h-2 bg-[#128C7E] rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                            <span className="w-2 h-2 bg-[#128C7E] rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                            <span className="text-xs font-extrabold text-[#128C7E] ml-1">QXL AI is finding your answer...</span>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Quick Action Chips Bar */}
+                      <div className="bg-white px-3 py-2 border-t border-slate-200 flex gap-1.5 overflow-x-auto scrollbar-hide shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setAiResponse(null);
+                            setAiQuery("");
+                          }}
+                          className="bg-emerald-50 text-[#128C7E] border border-emerald-200 font-black text-[10px] px-2.5 py-1 rounded-full whitespace-nowrap shrink-0 hover:bg-emerald-100 transition-all cursor-pointer"
+                        >
+                          ← Back to Menu
+                        </button>
+                        {[
+                          "Fatigue Tests",
+                          "Fasting for Lipid?",
+                          "CBC Price",
+                          "Diabetes Package",
+                          "Senior Checkup"
+                        ].map((chip, idx) => (
+                          <button
+                            key={idx}
+                            type="button"
+                            onClick={() => handleAiSearch(chip)}
+                            className="bg-slate-100 hover:bg-[#128C7E] hover:text-white text-slate-700 font-extrabold text-[10px] px-2.5 py-1 rounded-full whitespace-nowrap shrink-0 transition-all cursor-pointer"
+                          >
+                            💬 {chip}
+                          </button>
+                        ))}
+                      </div>
+
+                      {/* WhatsApp Input Bar */}
+                      <div className="bg-[#f0f0f0] p-2.5 border-t border-slate-200 flex gap-2 items-center shrink-0 flex-col sm:flex-row">
+                        {isAiListening && (
+                          <div className="w-full flex items-center justify-between px-3 py-1 bg-red-50 border border-red-200 rounded-lg text-[11px] text-red-700 font-bold animate-pulse">
+                            <span className="flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
+                              🎙️ Listening to voice...
+                            </span>
+                            <button type="button" onClick={toggleAiListening} className="text-[10px] text-red-600 underline font-black">
+                              Done
+                            </button>
+                          </div>
+                        )}
+                        <div className="flex gap-2 items-center w-full">
+                          <input
+                            type="text"
+                            placeholder={isAiListening ? "Listening to your voice..." : "Type a message or question..."}
+                            value={aiQuery}
+                            onChange={(e) => setAiQuery(e.target.value)}
+                            onKeyDown={(e) => {
+                              if (e.key === "Enter") {
+                                e.preventDefault();
+                                handleAiSearch();
+                              }
+                            }}
+                            className="flex-1 bg-white border border-slate-300 focus:border-[#128C7E] text-[#111827] placeholder:text-slate-400 text-xs font-bold px-3.5 py-2.5 rounded-full outline-none shadow-2xs"
+                          />
+
+                          {/* Mic Voice Dictation Button */}
+                          <button
+                            type="button"
+                            onClick={toggleAiListening}
+                            className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer shrink-0 border ${
+                              isAiListening
+                                ? "bg-red-600 text-white border-red-400 animate-pulse shadow-[0_0_12px_rgba(220,38,38,0.6)]"
+                                : "bg-white text-[#128C7E] hover:bg-emerald-50 border-slate-300"
+                            }`}
+                            aria-label={isAiListening ? "Stop listening" : "Speak to AI"}
+                            title={isAiListening ? "Listening... click to stop" : "Click to speak to AI"}
+                          >
+                            {isAiListening ? <MicOff className="w-4 h-4 text-white" /> : <Mic className="w-4 h-4 text-[#128C7E]" />}
+                          </button>
+
+                          <button
+                            type="button"
+                            onClick={() => handleAiSearch()}
+                            disabled={aiLoading}
+                            className="bg-[#128C7E] hover:bg-[#075e54] text-white font-black text-xs p-2.5 rounded-full transition-all shrink-0 cursor-pointer shadow-md active:scale-95 disabled:opacity-50 flex items-center justify-center w-9 h-9"
+                          >
+                            {aiLoading ? <Loader2 className="w-4 h-4 animate-spin text-white" /> : <Send className="w-4 h-4 text-white" />}
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
                     {/* ── CARD 2: ALL PACKAGES & TESTS RIGHT SIDEBAR CATALOG ── */}
                     <div className="bg-white p-4 rounded-3xl border border-slate-200 shadow-sm space-y-3">
                       <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
@@ -1118,12 +1525,9 @@ export default function BookPage() {
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {/* ─────────────────────────────────────────────────────────────
-                  STEP 2: PATIENT DETAILS, LOCALITY CHECK, SCHEDULE & SUBMIT
-              ───────────────────────────────────────────────────────────── */}
+              {/* STEP 2: PATIENT DETAILS & SCHEDULE */}
               {currentStep === 2 && (
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                   {/* Left Column (Patient & Schedule Form) */}
@@ -1258,96 +1662,54 @@ export default function BookPage() {
                     </div>
 
                     {/* Doorstep Address with Locality Checker inside Step 2 */}
-                    {formData.collectionType === "home" ? (
-                      <div className="space-y-4">
-                        {/* Doorstep Locality Check Widget placed inside Step 2 */}
-                        <LocalityCheckWidget variant="hero" />
+                    <div className="space-y-4">
+                      {/* Doorstep Locality Check Widget placed inside Step 2 */}
+                      <LocalityCheckWidget variant="hero" />
 
-                        <div className="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-2xs space-y-3">
-                          <div className="flex items-center justify-between">
-                            <h3 className="text-xs font-black text-[#0B2545] uppercase tracking-wider flex items-center gap-2">
-                              <MapPin className="w-4 h-4 text-[#D69A18]" /> Doorstep Address in Bengaluru
-                            </h3>
+                      <div className="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-2xs space-y-3">
+                        <div className="flex items-center justify-between">
+                          <h3 className="text-xs font-black text-[#0B2545] uppercase tracking-wider flex items-center gap-2">
+                            <MapPin className="w-4 h-4 text-[#D69A18]" /> Doorstep Address in Bengaluru
+                          </h3>
+                          <button
+                            type="button"
+                            onClick={detectLocation}
+                            disabled={locating}
+                            className="text-[11px] font-extrabold bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] px-3 py-1 rounded-full flex items-center gap-1 hover:bg-[#D69A18] hover:text-white transition-all shrink-0 cursor-pointer"
+                          >
+                            {locating ? <Loader2 className="w-3 h-3 animate-spin" /> : <LocateFixed className="w-3 h-3" />}
+                            <span>{locating ? "Detecting..." : "Auto-Detect My Location"}</span>
+                          </button>
+                        </div>
+
+                        {detectedAddress && (
+                          <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs text-emerald-900 flex flex-col gap-2">
+                            <p>
+                              <strong>Detected Address:</strong> {detectedAddress}
+                            </p>
                             <button
                               type="button"
-                              onClick={detectLocation}
-                              disabled={locating}
-                              className="text-[11px] font-extrabold bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] px-3 py-1 rounded-full flex items-center gap-1 hover:bg-[#D69A18] hover:text-white transition-all shrink-0 cursor-pointer"
+                              onClick={useDetectedAddress}
+                              className="bg-emerald-600 text-white font-extrabold px-3 py-1 rounded-lg text-[10.5px] w-fit"
                             >
-                              {locating ? <Loader2 className="w-3 h-3 animate-spin" /> : <LocateFixed className="w-3 h-3" />}
-                              <span>{locating ? "Detecting..." : "Auto-Detect My Location"}</span>
+                              Use Detected Address ✓
                             </button>
                           </div>
+                        )}
+                        {locationError && (
+                          <p className="text-[11px] font-bold text-amber-700">{locationError}</p>
+                        )}
 
-                          {detectedAddress && (
-                            <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs text-emerald-900 flex flex-col gap-2">
-                              <p>
-                                <strong>Detected Address:</strong> {detectedAddress}
-                              </p>
-                              <button
-                                type="button"
-                                onClick={useDetectedAddress}
-                                className="bg-emerald-600 text-white font-extrabold px-3 py-1 rounded-lg text-[10.5px] w-fit"
-                              >
-                                Use Detected Address ✓
-                              </button>
-                            </div>
-                          )}
-                          {locationError && (
-                            <p className="text-[11px] font-bold text-amber-700">{locationError}</p>
-                          )}
-
-                          <textarea
-                            rows={3}
-                            required
-                            placeholder="House No, Apartment Name, Street, Area, Landmark, Pincode..."
-                            value={formData.address}
-                            onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                            className="w-full bg-[#FAFBFD] border border-slate-200 rounded-xl p-3 text-xs font-extrabold text-[#0B2545] placeholder:text-slate-400 focus:outline-none focus:border-[#D69A18] focus:ring-2 focus:ring-[#D69A18]/20 transition-all resize-none shadow-2xs"
-                          />
-                        </div>
+                        <textarea
+                          rows={3}
+                          required
+                          placeholder="House No, Apartment Name, Street, Area, Landmark, Pincode..."
+                          value={formData.address}
+                          onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                          className="w-full bg-[#FAFBFD] border border-slate-200 rounded-xl p-3 text-xs font-extrabold text-[#0B2545] placeholder:text-slate-400 focus:outline-none focus:border-[#D69A18] focus:ring-2 focus:ring-[#D69A18]/20 transition-all resize-none shadow-2xs"
+                        />
                       </div>
-                    ) : (
-                      <div className="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-2xs space-y-3">
-                        <h3 className="text-xs font-black text-[#0B2545] uppercase tracking-wider flex items-center gap-2">
-                          <Building2 className="w-4 h-4 text-[#D69A18]" /> Select Walk-in Lab Center
-                        </h3>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          <div
-                            onClick={() => setFormData({ ...formData, selectedCenter: "kengeri-main-lab" })}
-                            className={`p-3.5 rounded-2xl border cursor-pointer transition-all ${
-                              formData.selectedCenter === "kengeri-main-lab"
-                                ? "border-[#D69A18] bg-[#FFF8EB] ring-2 ring-[#D69A18]/20 shadow-2xs"
-                                : "border-slate-200 hover:bg-slate-50"
-                            }`}
-                          >
-                            <span className="text-xs font-black text-[#0B2545] block">
-                              Kengeri Main Reference Lab (NABL)
-                            </span>
-                            <p className="text-[11px] text-slate-500 font-semibold mt-0.5">
-                              3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060
-                            </p>
-                          </div>
-
-                          <div
-                            onClick={() => setFormData({ ...formData, selectedCenter: "yelahanka-north-hub" })}
-                            className={`p-3.5 rounded-2xl border cursor-pointer transition-all ${
-                              formData.selectedCenter === "yelahanka-north-hub"
-                                ? "border-[#D69A18] bg-[#FFF8EB] ring-2 ring-[#D69A18]/20 shadow-2xs"
-                                : "border-slate-200 hover:bg-slate-50"
-                            }`}
-                          >
-                            <span className="text-xs font-black text-[#0B2545] block">
-                              Yelahanka North Express Hub
-                            </span>
-                            <p className="text-[11px] text-slate-500 font-semibold mt-0.5">
-                              L Square, opp RMZ Galleria Mall, Yelahanka, Bengaluru 560064
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    )}
+                    </div>
 
                     {/* DPDP Act 2023 Consent Checkbox */}
                     <div className="bg-slate-50 border border-slate-200 rounded-2xl p-3.5">
