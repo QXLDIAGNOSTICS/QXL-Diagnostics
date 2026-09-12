@@ -132,6 +132,17 @@ export default function Footer() {
             >
               Book Now <ArrowRight className="w-3.5 h-3.5" />
             </Link>
+            <Link
+              href="/careers"
+              className="inline-flex items-center gap-1.5 font-extrabold px-4 py-2 rounded-full text-xs uppercase tracking-wide text-white transition-all hover:scale-105"
+              style={{
+                background: 'rgba(255, 255, 255, 0.15)',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
+              }}
+            >
+              💼 Careers
+            </Link>
           </div>
         </div>
       </div>
@@ -297,8 +308,9 @@ export default function Footer() {
               </Link>
             ))}
             <div className="w-px h-4 mx-1 bg-white/10" />
-            <Link href="/privacy-policy" className="text-white/50 hover:text-white text-xs font-semibold transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-white/50 hover:text-white text-xs font-semibold transition-colors">Terms of Use</Link>
+            <Link href="/careers" className="text-slate-200 hover:text-[#D69A18] text-xs font-semibold transition-colors">Careers</Link>
+            <Link href="/privacy-policy" className="text-slate-200 hover:text-white text-xs font-semibold transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-slate-200 hover:text-white text-xs font-semibold transition-colors">Terms of Use</Link>
           </div>
         </div>
       </div>
