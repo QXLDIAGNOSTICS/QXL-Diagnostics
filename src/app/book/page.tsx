@@ -104,19 +104,21 @@ export default function BookPage() {
   });
   const [consentChecked, setConsentChecked] = useState(true);
 
-  // Catalog state - populated with master catalogue
+  // Catalog state - populated with master catalogue (Packages FIRST)
   const [catalog, setCatalog] = useState<CatalogEntry[]>(() =>
-    MASTER_CATALOGUE.map((m) => ({
-      id: m.id,
-      name: m.name,
-      kind: m.kind,
-      price: m.price,
-      old_price: m.mrp,
-      home_collection_available: m.homeCollectionAvailable,
-      parameters: m.paramText,
-      includes: m.includes,
-      category: m.category,
-    }))
+    [...MASTER_CATALOGUE]
+      .sort((a, b) => (a.kind === "package" ? -1 : b.kind === "package" ? 1 : 0))
+      .map((m) => ({
+        id: m.id,
+        name: m.name,
+        kind: m.kind,
+        price: m.price,
+        old_price: m.mrp,
+        home_collection_available: m.homeCollectionAvailable,
+        parameters: m.paramText,
+        includes: m.includes,
+        category: m.category,
+      }))
   );
   const [catalogLoading, setCatalogLoading] = useState(false);
   const [selectedItems, setSelectedItems] = useState<CatalogEntry[]>([]);
@@ -281,8 +283,12 @@ export default function BookPage() {
     ? catalog
         .filter((c) => c.name.toLowerCase().includes(testInput.trim().toLowerCase()))
         .filter((c) => !selectedItems.some((s) => s.id === c.id))
+        .sort((a, b) => (a.kind === "package" ? -1 : b.kind === "package" ? 1 : 0))
         .slice(0, 15)
-    : catalog.filter((c) => !selectedItems.some((s) => s.id === c.id)).slice(0, 10);
+    : catalog
+        .filter((c) => !selectedItems.some((s) => s.id === c.id))
+        .sort((a, b) => (a.kind === "package" ? -1 : b.kind === "package" ? 1 : 0))
+        .slice(0, 10);
 
   const addItem = (item: CatalogEntry) => {
     setSelectedItems((prev) =>
@@ -646,20 +652,26 @@ export default function BookPage() {
     return true;
   };
 
-  const filteredRightCatalog = catalog.filter((item) => {
-    if (!matchCategoryFilter(item, rightFilterCat)) return false;
+  const filteredRightCatalog = catalog
+    .filter((item) => {
+      if (!matchCategoryFilter(item, rightFilterCat)) return false;
 
-    const query = (testInput || rightSearchQuery).trim().toLowerCase();
-    if (query) {
-      return (
-        item.name.toLowerCase().includes(query) ||
-        (item.parameters && item.parameters.toLowerCase().includes(query)) ||
-        (item.includes && item.includes.toLowerCase().includes(query)) ||
-        (item.category && item.category.toLowerCase().includes(query))
-      );
-    }
-    return true;
-  });
+      const query = (testInput || rightSearchQuery).trim().toLowerCase();
+      if (query) {
+        return (
+          item.name.toLowerCase().includes(query) ||
+          (item.parameters && item.parameters.toLowerCase().includes(query)) ||
+          (item.includes && item.includes.toLowerCase().includes(query)) ||
+          (item.category && item.category.toLowerCase().includes(query))
+        );
+      }
+      return true;
+    })
+    .sort((a, b) => {
+      if (a.kind === "package" && b.kind !== "package") return -1;
+      if (a.kind !== "package" && b.kind === "package") return 1;
+      return 0;
+    });
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] pb-24 lg:pb-16 text-slate-800">
