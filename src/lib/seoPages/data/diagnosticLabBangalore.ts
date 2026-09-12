@@ -5,10 +5,10 @@ export const diagnosticLabBangalore: SeoLandingData = {
   breadcrumbLabel: "Diagnostic Lab Bangalore",
   pageType: "service",
   heroBadge: "NABL Accredited Laboratory (MC-6849) | ISO 15189:2022",
-  h1Lead: "Diagnostic Lab in Bangalore —",
-  h1Highlight: "Doctor-Led, NABL Accredited, Trusted by Bengaluru",
+  h1Lead: "Doctor-Led NABL Accredited ",
+  h1Highlight: "Diagnostic Lab in Bengaluru",
   heroIntro:
-    "QXL Diagnostics is a super-speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection across the city, and same-day digital reports for most routine investigations — every report reviewed under specialist medical supervision.",
+    "Advanced diagnostic testing with qualified medical oversight, home sample collection across Bengaluru and reliable turnaround times.",
   aiOverviewTitle: "Why choose QXL Diagnostics?",
   aiOverview:
     "QXL Diagnostics is a doctor-led, NABL Accredited (MC-6849) super-speciality diagnostic lab in Bangalore following ISO 15189:2022 quality standards. Founded by Clinical Biochemist Dr. Shantakumar Muruda, QXL combines advanced automation, molecular diagnostics and consultant-reviewed reporting with free home sample collection across Bengaluru.",

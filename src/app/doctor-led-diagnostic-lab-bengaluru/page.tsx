@@ -22,7 +22,7 @@ import { BookingFormWidget } from "../../components/BookingFormWidget";
 import { WHATSAPP_LINK } from "../../lib/businessInfo";
 
 export const metadata: Metadata = {
-  title: "Doctor-Led Diagnostic Lab in Bengaluru | QXL Diagnostics",
+  title: "Diagnostic Lab in Bengaluru | NABL Accredited & Doctor-Led | QXL Diagnostics",
   description: "Discover QXL Diagnostics, a NABL Accredited, doctor-led diagnostic lab in Bengaluru combining advanced technology, quality systems and specialist medical review.",
   keywords: [
     "doctor-led diagnostic lab in Bengaluru",
@@ -103,29 +103,26 @@ export default function DoctorLedSeoPage() {
                 </div>
 
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
-                  QXL Diagnostics: Bengaluru’s <span className="text-sky-400">Doctor-Led Laboratory</span> for Smart, Clinically Accurate Testing
+                  Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru
                 </h1>
 
                 <p className="text-slate-300 text-base sm:text-lg font-medium max-w-2xl leading-relaxed">
-                  Founded by <strong className="text-white font-bold">Clinical Biochemist Dr. Shantakumar Muruda</strong>, QXL Diagnostics combines advanced automation, discipline-specific quality control, and direct specialist oversight to deliver reports doctors trust.
+                  Advanced diagnostic testing with qualified medical oversight, home sample collection across Bengaluru and reliable turnaround times.
                 </p>
 
                 <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
                   <Link
-                    href="/book"
+                    href="/tests"
                     className="bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-sky-500/50 transition-all text-xs uppercase tracking-wider"
                   >
-                    Book a Test Online
+                    Book a Test
                   </Link>
-                  <a
-                    href={WHATSAPP_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Link
+                    href="/home-collection"
                     className="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-6 py-3.5 rounded-2xl shadow-md transition-all text-xs uppercase tracking-wider flex items-center gap-2"
                   >
-                    <MessageCircle className="w-4 h-4" />
-                    <span>WhatsApp Booking</span>
-                  </a>
+                    <span>Book Home Collection</span>
+                  </Link>
                 </div>
               </div>
 

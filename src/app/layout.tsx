@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     apple: "/icon.png",
   },
   title: {
-    default: "QXL Diagnostics Bengaluru | Doctor-Led NABL Accredited Lab",
+    default: "Diagnostic Lab in Bengaluru | NABL Accredited & Doctor-Led | QXL Diagnostics",
     template: "%s",
   },
   alternates: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://qxldiagnostics.com",
     siteName: "QXL Diagnostics",
-    title: "QXL Diagnostics Bengaluru | Doctor-Led NABL Accredited Lab",
+    title: "Diagnostic Lab in Bengaluru | NABL Accredited & Doctor-Led | QXL Diagnostics",
     description:
       "Advanced diagnostic testing in Bengaluru. NABL Accredited (MC-6849), free doorstep sample collection, 300+ tests, same-day digital reports.",
     images: [
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "QXL Diagnostics | NABL Accredited Lab Bengaluru",
+    title: "Diagnostic Lab in Bengaluru | NABL Accredited & Doctor-Led | QXL Diagnostics",
     description:
       "NABL Accredited diagnostic lab in Bengaluru. Home collection, 300+ tests, same-day reports.",
     images: [
