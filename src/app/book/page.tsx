@@ -516,36 +516,146 @@ export default function BookPage() {
     return dates;
   };
 
-  const filteredRightCatalog = catalog.filter((item) => {
-    if (rightFilterCat === "package" && item.kind !== "package") return false;
-    if (rightFilterCat === "test" && item.kind !== "test") return false;
-    if (
-      rightFilterCat === "diabetes" &&
-      !item.name.toLowerCase().includes("sugar") &&
-      !item.name.toLowerCase().includes("glucose") &&
-      !item.name.toLowerCase().includes("hba1c")
-    )
-      return false;
-    if (
-      rightFilterCat === "thyroid" &&
-      !item.name.toLowerCase().includes("thyroid") &&
-      !item.name.toLowerCase().includes("tsh")
-    )
-      return false;
-    if (
-      rightFilterCat === "heart" &&
-      !item.name.toLowerCase().includes("lipid") &&
-      !item.name.toLowerCase().includes("cholesterol") &&
-      !item.name.toLowerCase().includes("crp")
-    )
-      return false;
+  const matchCategoryFilter = (item: CatalogEntry, catId: string): boolean => {
+    if (catId === "all") return true;
+    if (catId === "package" || catId === "packages") return item.kind === "package";
+    if (catId === "test" || catId === "tests") return item.kind === "test";
 
-    if (rightSearchQuery.trim()) {
-      const q = rightSearchQuery.trim().toLowerCase();
+    const lowerName = item.name.toLowerCase();
+    const lowerCat = (item.category || "").toLowerCase();
+
+    if (catId === "diabetes") {
       return (
-        item.name.toLowerCase().includes(q) ||
-        (item.parameters && item.parameters.toLowerCase().includes(q)) ||
-        (item.includes && item.includes.toLowerCase().includes(q))
+        lowerCat.includes("diabetes") ||
+        lowerName.includes("hba1c") ||
+        lowerName.includes("glucose") ||
+        lowerName.includes("sugar") ||
+        lowerName.includes("insulin") ||
+        lowerName.includes("c-peptide") ||
+        lowerName.includes("homa") ||
+        lowerName.includes("acr") ||
+        lowerName.includes("diabetes")
+      );
+    }
+    if (catId === "thyroid") {
+      return (
+        lowerCat.includes("thyroid") ||
+        lowerName.includes("thyroid") ||
+        lowerName.includes("tsh") ||
+        lowerName.includes("ft3") ||
+        lowerName.includes("ft4") ||
+        lowerName.includes("triiodothyronine") ||
+        lowerName.includes("thyroxine") ||
+        lowerName.includes("tpo") ||
+        lowerName.includes("thyroglobulin")
+      );
+    }
+    if (catId === "heart") {
+      return (
+        lowerCat.includes("heart") ||
+        lowerCat.includes("cardio") ||
+        lowerName.includes("lipid") ||
+        lowerName.includes("cholesterol") ||
+        lowerName.includes("crp") ||
+        lowerName.includes("troponin") ||
+        lowerName.includes("bnp") ||
+        lowerName.includes("cardiac") ||
+        lowerName.includes("apolipoprotein") ||
+        lowerName.includes("lipoprotein") ||
+        lowerName.includes("homocysteine") ||
+        lowerName.includes("ck-mb") ||
+        lowerName.includes("cardiovascular")
+      );
+    }
+    if (catId === "vitamins") {
+      return (
+        lowerCat.includes("vitamin") ||
+        lowerName.includes("vitamin") ||
+        lowerName.includes("ferritin") ||
+        lowerName.includes("iron") ||
+        lowerName.includes("calcium") ||
+        lowerName.includes("magnesium") ||
+        lowerName.includes("electrolyte") ||
+        lowerName.includes("uric acid")
+      );
+    }
+    if (catId === "hormones") {
+      return (
+        lowerCat.includes("hormone") ||
+        lowerName.includes("testosterone") ||
+        lowerName.includes("prolactin") ||
+        lowerName.includes("luteinizing") ||
+        lowerName.includes("follicle") ||
+        lowerName.includes("estradiol") ||
+        lowerName.includes("progesterone") ||
+        lowerName.includes("müllerian") ||
+        lowerName.includes("cortisol") ||
+        lowerName.includes("dhea") ||
+        lowerName.includes("gonadotropin") ||
+        lowerName.includes("hcg")
+      );
+    }
+    if (catId === "autoimmune") {
+      return (
+        lowerCat.includes("autoimmune") ||
+        lowerName.includes("antinuclear") ||
+        lowerName.includes("ana ") ||
+        lowerName.includes("ana-") ||
+        lowerName.includes("dna antibody") ||
+        lowerName.includes("extractable nuclear") ||
+        lowerName.includes("citrullinated") ||
+        lowerName.includes("rheumatoid") ||
+        lowerName.includes("anca") ||
+        lowerName.includes("complement") ||
+        lowerName.includes("coeliac") ||
+        lowerName.includes("aquaporin") ||
+        lowerName.includes("myelin") ||
+        lowerName.includes("encephalitis") ||
+        lowerName.includes("arthritis")
+      );
+    }
+    if (catId === "oncology") {
+      return (
+        lowerCat.includes("oncology") ||
+        lowerCat.includes("cancer") ||
+        lowerName.includes("prostate") ||
+        lowerName.includes("psa") ||
+        lowerName.includes("cancer antigen") ||
+        lowerName.includes("carcinoembryonic") ||
+        lowerName.includes("alpha-fetoprotein") ||
+        lowerName.includes("electrophoresis") ||
+        lowerName.includes("immunofixation") ||
+        lowerName.includes("light chain") ||
+        lowerName.includes("flow cytometry") ||
+        lowerName.includes("tumour")
+      );
+    }
+    if (catId === "infections") {
+      return (
+        lowerCat.includes("infection") ||
+        lowerName.includes("dengue") ||
+        lowerName.includes("malaria") ||
+        lowerName.includes("typhoid") ||
+        lowerName.includes("hepatitis") ||
+        lowerName.includes("hiv") ||
+        lowerName.includes("influenza") ||
+        lowerName.includes("urine routine") ||
+        lowerName.includes("fever")
+      );
+    }
+    return true;
+  };
+
+  const filteredRightCatalog = catalog.filter((item) => {
+    if (!matchCategoryFilter(item, rightFilterCat)) return false;
+
+    const query = (testInput || rightSearchQuery).trim().toLowerCase();
+    if (query) {
+      return (
+        item.name.toLowerCase().includes(query) ||
+        (item.parameters && item.parameters.toLowerCase().includes(query)) ||
+        (item.includes && item.includes.toLowerCase().includes(query)) ||
+        (item.category && item.category.toLowerCase().includes(query))
       );
     }
     return true;
@@ -696,7 +806,7 @@ export default function BookPage() {
             {/* ── STEP 1: SELECT TESTS ── */}
             {currentStep === 1 && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                {/* LEFT 7 COLUMNS: SEARCH & FEATURED PACKAGES */}
+                {/* LEFT 7 COLUMNS: SEARCH, CATEGORY FILTERS & CATALOGUE LIST */}
                 <div className="lg:col-span-7 space-y-5">
                   {/* Home Collection Banner */}
                   <div className="bg-gradient-to-r from-[#0B2545] to-[#128C7E] p-5 rounded-3xl text-white shadow-sm space-y-3">
@@ -786,22 +896,79 @@ export default function BookPage() {
                     )}
                   </div>
 
-                  {/* Featured Preventive Health Packages Grid */}
-                  <div className="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-2xs space-y-3">
-                    <h3 className="text-xs font-black text-[#0B2545] uppercase tracking-wider flex items-center justify-between">
-                      <span>🔥 Featured Preventive Health Packages</span>
-                      <span className="text-[10.5px] text-[#D69A18] font-extrabold">NABL Accredited</span>
-                    </h3>
+                  {/* ── PROMINENT CATEGORY FILTER BUTTONS & MASTER CATALOG ── */}
+                  <div className="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-2xs space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
+                      <div>
+                        <h3 className="text-xs font-black text-[#0B2545] uppercase tracking-wider flex items-center gap-1.5">
+                          <Filter className="w-4 h-4 text-[#D69A18]" /> Filter Diagnostic Catalog
+                        </h3>
+                        <p className="text-[11px] text-slate-500 font-semibold mt-0.5">
+                          Click any category button below to show matching packages &amp; tests.
+                        </p>
+                      </div>
+                      <span className="bg-amber-100 text-amber-900 border border-amber-300 text-[10.5px] font-black px-2.5 py-1 rounded-full w-fit shrink-0">
+                        {filteredRightCatalog.length} Items Found
+                      </span>
+                    </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {catalog
-                        .filter((c) => c.kind === "package")
-                        .slice(0, 4)
-                        .map((pkg) => {
-                          const isAdded = selectedItems.some((s) => s.name.toLowerCase() === pkg.name.toLowerCase());
+                    {/* Category Buttons List Bar */}
+                    <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-amber-200">
+                      {[
+                        { id: "all", label: "All", icon: "✨" },
+                        { id: "package", label: "Packages", icon: "📦" },
+                        { id: "test", label: "Tests", icon: "🧪" },
+                        { id: "diabetes", label: "Diabetes", icon: "🍬" },
+                        { id: "thyroid", label: "Thyroid", icon: "🦋" },
+                        { id: "heart", label: "Heart", icon: "❤️" },
+                        { id: "vitamins", label: "Vitamins & Minerals", icon: "☀️" },
+                        { id: "hormones", label: "Hormones", icon: "⚡" },
+                        { id: "autoimmune", label: "Autoimmune", icon: "🧬" },
+                        { id: "oncology", label: "Oncology", icon: "🔬" },
+                        { id: "infections", label: "Infections", icon: "🦠" },
+                      ].map((cat) => {
+                        const isActive = rightFilterCat === cat.id;
+                        return (
+                          <button
+                            key={cat.id}
+                            type="button"
+                            onClick={() => setRightFilterCat(cat.id)}
+                            className={`px-3 py-2 rounded-xl text-xs font-black shrink-0 transition-all cursor-pointer flex items-center gap-1.5 ${
+                              isActive
+                                ? "bg-[#0B2545] text-white shadow-sm ring-2 ring-[#D69A18]"
+                                : "bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200"
+                            }`}
+                          >
+                            <span>{cat.icon}</span>
+                            <span>{cat.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Master Catalogue Item Card Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[540px] overflow-y-auto pr-1">
+                      {filteredRightCatalog.length === 0 ? (
+                        <div className="col-span-full py-8 text-center bg-slate-50 rounded-2xl border border-dashed border-slate-200">
+                          <p className="text-xs font-extrabold text-slate-600">No tests match your selected filter or search query.</p>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setRightFilterCat("all");
+                              setTestInput("");
+                              setRightSearchQuery("");
+                            }}
+                            className="mt-2 text-xs font-black text-[#D69A18] hover:underline cursor-pointer"
+                          >
+                            Reset Filters &amp; Show All 100+ Tests
+                          </button>
+                        </div>
+                      ) : (
+                        filteredRightCatalog.map((item) => {
+                          const isAdded = selectedItems.some((s) => s.name.toLowerCase() === item.name.toLowerCase());
                           return (
                             <div
-                              key={pkg.id}
+                              key={item.id}
                               className={`p-3.5 rounded-2xl border transition-all flex flex-col justify-between ${
                                 isAdded
                                   ? "bg-emerald-50 border-emerald-300 shadow-2xs"
@@ -810,28 +977,41 @@ export default function BookPage() {
                             >
                               <div>
                                 <div className="flex items-center justify-between gap-1 mb-1">
-                                  <h4 className="text-xs font-black text-[#0B2545] leading-tight">{pkg.name}</h4>
-                                  <span className="text-xs font-black text-[#D69A18]">₹{pkg.price}</span>
+                                  <span
+                                    className={`text-[9.5px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                                      item.kind === "package" ? "bg-amber-100 text-amber-900" : "bg-blue-100 text-blue-900"
+                                    }`}
+                                  >
+                                    {item.kind === "package" ? "PACKAGE" : "TEST"}
+                                  </span>
+                                  <div className="flex items-center gap-1">
+                                    {item.old_price && item.old_price > (item.price || 0) && (
+                                      <span className="text-[10px] text-slate-400 line-through">₹{item.old_price}</span>
+                                    )}
+                                    <span className="text-xs font-black text-[#D69A18]">₹{item.price}</span>
+                                  </div>
                                 </div>
-                                <p className="text-[10px] text-slate-500 font-semibold line-clamp-2 leading-relaxed">
-                                  {pkg.includes || pkg.parameters}
+                                <h4 className="text-xs font-black text-[#0B2545] leading-tight mb-1">{item.name}</h4>
+                                <p className="text-[10.5px] text-slate-500 font-semibold line-clamp-2 leading-relaxed">
+                                  {item.parameters || item.includes || "NABL Accredited Parameter Panel"}
                                 </p>
                               </div>
 
                               <button
                                 type="button"
-                                onClick={() => (isAdded ? removeItem(pkg.id) : addItem(pkg))}
-                                className={`mt-3 w-full py-2 rounded-xl text-[10.5px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+                                onClick={() => (isAdded ? removeItem(item.id) : addItem(item))}
+                                className={`mt-3 w-full py-2 rounded-xl text-[10.5px] font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                                   isAdded
-                                    ? "bg-emerald-600 text-white"
+                                    ? "bg-emerald-600 text-white shadow-2xs"
                                     : "bg-[#FFF8EB] border border-[#F3DBA7] text-[#0B2545] hover:bg-[#D69A18] hover:text-white"
                                 }`}
                               >
-                                {isAdded ? "✓ Added to Cart" : "+ Add Package"}
+                                {isAdded ? "✓ Added to Booking" : "+ Add"}
                               </button>
                             </div>
                           );
-                        })}
+                        })
+                      )}
                     </div>
                   </div>
                 </div>
@@ -853,7 +1033,7 @@ export default function BookPage() {
                       <div className="text-center py-5 px-3 bg-[#FAFBFD] rounded-2xl border border-dashed border-slate-200">
                         <p className="text-xs font-bold text-slate-600">Your cart is empty.</p>
                         <p className="text-[11px] text-slate-400 font-semibold mt-1">
-                          Search above or browse the catalog below to add tests.
+                          Search above or select a category to add tests to your booking.
                         </p>
                       </div>
                     ) : (
@@ -923,7 +1103,7 @@ export default function BookPage() {
                   <div className="bg-white p-4 rounded-3xl border border-slate-200 shadow-2xs space-y-3">
                     <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                       <h3 className="text-xs font-black text-[#0B2545] uppercase tracking-wider flex items-center gap-1.5">
-                        <Filter className="w-3.5 h-3.5 text-[#D69A18]" /> All Packages &amp; Tests ({filteredRightCatalog.length})
+                        <Filter className="w-3.5 h-3.5 text-[#D69A18]" /> Quick Catalog Filters ({filteredRightCatalog.length})
                       </h3>
                       <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
                         1-Tap Add
@@ -946,6 +1126,11 @@ export default function BookPage() {
                         { id: "diabetes", label: "Diabetes" },
                         { id: "thyroid", label: "Thyroid" },
                         { id: "heart", label: "Heart" },
+                        { id: "vitamins", label: "Vitamins" },
+                        { id: "hormones", label: "Hormones" },
+                        { id: "autoimmune", label: "Autoimmune" },
+                        { id: "oncology", label: "Oncology" },
+                        { id: "infections", label: "Infections" },
                       ].map((cat) => (
                         <button
                           key={cat.id}
@@ -962,7 +1147,7 @@ export default function BookPage() {
                       ))}
                     </div>
 
-                    <div className="max-h-[380px] overflow-y-auto space-y-2 pr-1 divide-y divide-slate-100">
+                    <div className="max-h-[340px] overflow-y-auto space-y-2 pr-1 divide-y divide-slate-100">
                       {filteredRightCatalog.map((item) => {
                         const isAdded = selectedItems.some((s) => s.name.toLowerCase() === item.name.toLowerCase());
                         return (
