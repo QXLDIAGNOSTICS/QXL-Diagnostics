@@ -304,11 +304,16 @@ const faqSchema = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "MedicalBusiness",
   "@id": "https://qxldiagnostics.com/#organization",
   "name": "QXL Diagnostics",
-  "legalName": "Qualitify Healthtech Pvt Ltd",
-  "url": "https://qxldiagnostics.com",
+  "alternateName": "QXL Diagnostics Super Speciality Lab",
+  "url": "https://qxldiagnostics.com/",
+  "description":
+    "QXL Diagnostics is a doctor-led, NABL-accredited super speciality diagnostic laboratory in Bengaluru offering pathology, biochemistry, molecular diagnostics, histopathology, preventive health checkups and home sample collection.",
+  "telephone": "+91-9964-639-639",
+  "email": "info@qxldiagnostics.com",
+  "slogan": "Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru",
   "logo": "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   "sameAs": [
     "https://www.facebook.com/qxldiagnostics",
@@ -319,12 +324,48 @@ const organizationSchema = {
     "https://www.justdial.com/Bangalore/QXL-Diagnostics",
     "https://maps.google.com/?q=QXL+Diagnostics+Kengeri+Bengaluru"
   ],
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+91-9964-639639",
-    "contactType": "customer service",
-    "areaServed": "IN",
-    "availableLanguage": ["en", "hi", "kn", "ta", "te", "ml"]
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3rd Floor, SLN Complex, Mysore Road, Kengeri",
+    "addressLocality": "Bengaluru",
+    "addressRegion": "Karnataka",
+    "postalCode": "560060",
+    "addressCountry": "IN"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Bengaluru"
+  },
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "NABL Accreditation Number",
+      "value": "MC-6849"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "Laboratory Standard",
+      "value": "ISO 15189:2022"
+    }
+  ],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "Laboratory Accreditation",
+    "name": "NABL Medical Laboratory Accreditation MC-6849"
+  },
+  "department": {
+    "@type": "MedicalBusiness",
+    "@id": "https://qxldiagnostics.com/locations/yelahanka#location",
+    "name": "QXL Diagnostics North Hub",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "L Square, opposite RMZ Galleria Mall, Yelahanka",
+      "addressLocality": "Bengaluru",
+      "addressRegion": "Karnataka",
+      "postalCode": "560064",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91-9964-639-639"
   }
 };
 

@@ -2,19 +2,24 @@ import { NextResponse } from 'next';
 
 const BASE_URL = 'https://qxldiagnostics.com';
 
-const DOCTOR_PAGES = [
-  '/doctors',
-  '/team',
-  '/dr-shantakumar-muruda',
-  '/dr-pritilata-rout',
-  '/dr-ajitha-pillai',
-  '/dr-naveen-kumar-n',
+const B2B_PAGES = [
+  '/super-speciality-reference-lab-bengaluru',
+  '/b2b-reference-lab',
+  '/b2b-reference-laboratory-bengaluru',
+  '/hospital-services',
+  '/hospital-laboratory-management',
+  '/for-doctors',
+  '/for-hospitals',
+  '/doctor-partnership',
+  '/franchise',
+  '/corporate',
+  '/corporate-health-packages',
 ];
 
 export async function GET() {
   const lastmod = new Date().toISOString();
 
-  const urlsXml = DOCTOR_PAGES.map(
+  const urlsXml = B2B_PAGES.map(
     (path) => `  <url>
     <loc>${BASE_URL}${path}</loc>
     <lastmod>${lastmod}</lastmod>

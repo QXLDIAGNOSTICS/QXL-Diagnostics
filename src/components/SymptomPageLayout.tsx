@@ -44,8 +44,61 @@ interface SymptomPageProps {
 }
 
 export default function SymptomPageLayout({ data, children }: SymptomPageProps) {
+  const fullUrl = `${SITE_URL}${data.url}`;
+  const graphNodes: Record<string, unknown>[] = [
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${fullUrl}#breadcrumb`,
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        { "@type": "ListItem", position: 2, name: "Health Information", item: `${SITE_URL}/health/symptoms-causes` },
+        { "@type": "ListItem", position: 3, name: "Symptoms & Causes", item: `${SITE_URL}/health/symptoms-causes` },
+        { "@type": "ListItem", position: 4, name: data.h1, item: fullUrl },
+      ],
+    },
+    {
+      "@type": ["WebPage", "MedicalWebPage"],
+      "@id": `${fullUrl}#webpage`,
+      url: fullUrl,
+      name: data.seoTitle,
+      description: data.metaDescription,
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      breadcrumb: { "@id": `${fullUrl}#breadcrumb` },
+      provider: { "@id": `${SITE_URL}/#organization` },
+      reviewedBy: {
+        "@type": "Physician",
+        "@id": `${SITE_URL}/dr-shantakumar-muruda#physician`,
+        name: "Dr. Shantakumar Muruda, MD",
+        url: `${SITE_URL}/dr-shantakumar-muruda`,
+        medicalSpecialty: "Medical Biochemistry & Pathology",
+        worksFor: { "@id": `${SITE_URL}/#organization` },
+      },
+      lastReviewed: data.lastReviewed,
+      areaServed: { "@type": "City", name: "Bengaluru" },
+      inLanguage: "en-IN",
+    },
+  ];
+
+  if (data.faqs && data.faqs.length > 0) {
+    graphNodes.push({
+      "@type": "FAQPage",
+      "@id": `${fullUrl}#faq`,
+      mainEntity: data.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+
+  const jsonLdGraph = { "@context": "https://schema.org", "@graph": graphNodes };
+
   return (
     <div className="bg-[#f8fafc] min-h-screen text-slate-800">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
+      />
       {/* ── HERO ── */}
       <section className="bg-gradient-to-br from-[#0B2545] via-[#0f2d5e] to-[#164263] text-white py-12 md:py-16 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle at 70% 30%, #2563eb 0%, transparent 60%)" }} />

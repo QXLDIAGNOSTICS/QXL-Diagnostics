@@ -1,25 +1,43 @@
-import { NextResponse } from 'next/server';
-import { SITE_URL, LOCATIONS } from '@/lib/businessInfo';
+import { NextResponse } from 'next';
+import { LOCATIONS } from '@/lib/businessInfo';
 import { homeCollectionAreas } from '@/lib/locationsData';
 
+const BASE_URL = 'https://qxldiagnostics.com';
+
+const STATIC_LOCATIONS = [
+  '/locations',
+  '/centers',
+  '/diagnostic-lab-kengeri',
+  '/diagnostic-lab-yelahanka',
+  '/diagnostic-lab-rr-nagar',
+  '/diagnostic-lab-nagarabhavi',
+  '/diagnostic-lab-vijayanagar',
+];
+
 export async function GET() {
-  const locUrls = [
-    ...LOCATIONS.map(l => `${SITE_URL}/locations/${l.slug}`),
-    ...homeCollectionAreas.map(a => `${SITE_URL}/locations/${a.slug}`),
+  const lastmod = new Date().toISOString();
+
+  const dynamicLocPaths = [
+    ...LOCATIONS.map((loc) => `/locations/${loc.slug}`),
+    ...homeCollectionAreas.map((area) => `/locations/${area.slug}`),
   ];
 
-  const urls = locUrls.map(u => `
-    <url>
-      <loc>${u}</loc>
-      <lastmod>${new Date().toISOString()}</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.85</priority>
-    </url>
-  `).join('');
+  const allLocationPaths = Array.from(new Set([...STATIC_LOCATIONS, ...dynamicLocPaths]));
+
+  const urlsXml = allLocationPaths
+    .map(
+      (path) => `  <url>
+    <loc>${BASE_URL}${path}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>`
+    )
+    .join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${urls}
+${urlsXml}
 </urlset>`;
 
   return new NextResponse(xml, {

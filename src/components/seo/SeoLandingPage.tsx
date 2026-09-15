@@ -85,6 +85,7 @@ function buildJsonLd(data: SeoLandingData) {
   const graph: Record<string, unknown>[] = [
     {
       "@type": "BreadcrumbList",
+      "@id": `${url}#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
         { "@type": "ListItem", position: 2, name: data.breadcrumbLabel, item: url },
@@ -97,9 +98,9 @@ function buildJsonLd(data: SeoLandingData) {
       name: `${data.h1Lead} ${data.h1Highlight}`.trim(),
       description,
       isPartOf: { "@id": `${SITE_URL}/#website` },
-      about:
+      mainEntity:
         data.pageType === "test" && data.medicalTestName
-          ? { "@id": `${url}#medical-test` }
+          ? { "@id": `${url}#medicaltest` }
           : undefined,
       breadcrumb: { "@id": `${url}#breadcrumb` },
       provider: { "@id": `${SITE_URL}/#organization` },
@@ -120,25 +121,46 @@ function buildJsonLd(data: SeoLandingData) {
   ];
 
   if (data.pageType === "test" && data.medicalTestName) {
-    graph.splice(1, 0, {
-      "@type": "MedicalTest",
-      "@id": `${url}#medical-test`,
-      name: data.medicalTestName,
-      url,
-      description,
-      howPerformed: "A small blood sample is collected by a trained phlebotomy specialist at home or at a QXL centre and analysed at our NABL Accredited laboratory.",
-      normalRange: "Reference ranges are printed on every report and interpreted against your age and sex. Please consult your doctor for clinical interpretation.",
-      reviewedBy: reviewerNode,
-      offers: {
-        "@type": "Offer",
-        priceCurrency: "INR",
-        price: data.price ? String(data.price) : undefined,
-        availability: "https://schema.org/InStock",
+    graph.push(
+      {
+        "@type": data.medicalTestName.toLowerCase().includes("blood") || data.slug.includes("blood") ? "BloodTest" : "MedicalTest",
+        "@id": `${url}#medicaltest`,
+        name: data.medicalTestName,
+        alternateName: data.synonyms && data.synonyms.length > 0 ? data.synonyms[0] : data.medicalTestName,
         url,
-        offeredBy: { "@id": `${SITE_URL}/#organization` },
-        areaServed: { "@type": "City", name: "Bengaluru" },
+        description,
+        howPerformed: "A small sample is collected by a trained phlebotomy specialist at home or at a QXL centre and analysed at our NABL Accredited laboratory.",
+        normalRange: "Reference ranges are printed on every report and interpreted against your age and sex. Please consult your doctor for clinical interpretation.",
+        owner: {
+          "@type": "MedicalBusiness",
+          "@id": `${SITE_URL}/#organization`,
+          name: "QXL Diagnostics",
+        },
+        reviewedBy: reviewerNode,
       },
-    });
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: `${data.medicalTestName} Testing Service`,
+        serviceType: "Diagnostic laboratory blood test",
+        provider: {
+          "@type": "MedicalBusiness",
+          "@id": `${SITE_URL}/#organization`,
+          name: "QXL Diagnostics",
+        },
+        areaServed: {
+          "@type": "City",
+          name: "Bengaluru",
+        },
+        offers: {
+          "@type": "Offer",
+          url,
+          priceCurrency: "INR",
+          price: data.price ? String(data.price) : undefined,
+          availability: "https://schema.org/InStock",
+        },
+      }
+    );
   }
 
   return { "@context": "https://schema.org", "@graph": graph };

@@ -49,6 +49,7 @@ export default function Footer() {
     navItems: [
       {label: "Home", href: "/", visible: true},
       {label: "About Us", href: "/about", visible: true},
+      {label: "Symptoms & Causes", href: "/health/symptoms-causes", visible: true},
       {label: "Careers", href: "/careers", visible: true},
       {label: "Hospital Lab Management", href: "/hospital-laboratory-management", visible: true},
       {label: "Founder & Consultants", href: "/team", visible: true},

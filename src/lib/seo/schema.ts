@@ -166,12 +166,16 @@ export function buildRootSchemaGraph() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": "MedicalBusiness",
         "@id": ORG_ID,
-        name: BUSINESS_NAME,
-        legalName: BUSINESS_LEGAL_NAME,
-        parentOrganization: { "@type": "Organization", name: BUSINESS_PARENT_COMPANY },
-        url: SITE_URL,
+        name: "QXL Diagnostics",
+        alternateName: "QXL Diagnostics Super Speciality Lab",
+        url: `${SITE_URL}/`,
+        description:
+          "QXL Diagnostics is a doctor-led, NABL-accredited super speciality diagnostic laboratory in Bengaluru offering pathology, biochemistry, molecular diagnostics, histopathology, preventive health checkups and home sample collection.",
+        telephone: "+91-9964-639-639",
+        email: EMAIL,
+        slogan: "Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru",
         logo: {
           "@type": "ImageObject",
           url: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto,w_512/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
@@ -179,35 +183,35 @@ export function buildRootSchemaGraph() {
         image:
           "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
         sameAs: Object.values(SOCIAL_LINKS),
-        email: EMAIL,
-        telephone: PHONE_DISPLAY,
-        contactPoint: [
-          {
-            "@type": "ContactPoint",
-            telephone: PHONE_DISPLAY,
-            contactType: "customer service",
-            areaServed: "IN",
-            availableLanguage: ["en", "hi", "kn"],
-          },
-          {
-            "@type": "ContactPoint",
-            telephone: PHONE_DISPLAY,
-            contactType: "reservations",
-            areaServed: "Bengaluru",
-            availableLanguage: ["en", "hi", "kn"],
-          },
-        ],
-        foundingLocation: {
-          "@type": "Place",
-          name: "Bengaluru, Karnataka, India",
+        address: postalAddress(kengeri),
+        areaServed: {
+          "@type": "City",
+          name: "Bengaluru",
         },
-        knowsAbout: [
-          "Clinical pathology",
-          "NABL ISO 15189 laboratory medicine",
-          "Home phlebotomy",
-          "Molecular diagnostics",
-          "Preventive health screening",
+        identifier: [
+          {
+            "@type": "PropertyValue",
+            propertyID: "NABL Accreditation Number",
+            value: NABL_CERTIFICATE,
+          },
+          {
+            "@type": "PropertyValue",
+            propertyID: "Laboratory Standard",
+            value: ISO_STANDARD,
+          },
         ],
+        hasCredential: {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "Laboratory Accreditation",
+          name: `NABL Medical Laboratory Accreditation ${NABL_CERTIFICATE}`,
+        },
+        department: {
+          "@type": "MedicalBusiness",
+          "@id": `${SITE_URL}/locations/yelahanka#location`,
+          name: "QXL Diagnostics North Hub",
+          address: postalAddress(yelahanka),
+          telephone: "+91-9964-639-639",
+        },
       },
       {
         "@type": "WebSite",
