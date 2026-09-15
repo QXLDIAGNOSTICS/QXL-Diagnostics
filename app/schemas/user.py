@@ -8,7 +8,7 @@ from datetime import date, datetime
 from pydantic import BaseModel, ConfigDict, EmailStr, field_validator
 
 from app.core.roles import ROLE_PATIENT, ROLE_SUPER_ADMIN
-from app.core.security import normalize_phone_number
+from app.core.security import normalize_optional_email, normalize_phone_number
 
 # Role values are validated for *shape* only here; the actual allow-list
 # (built-in + super-admin-defined custom roles) is enforced against the
@@ -21,6 +21,13 @@ class UserBase(BaseModel):
     phone: str
     name: str | None = None
     date_of_birth: date | None = None
+
+    @field_validator("email", mode="before")
+    @classmethod
+    def _blank_email_to_none(cls, v: object) -> object:
+        if isinstance(v, str):
+            return normalize_optional_email(v)
+        return v
 
 
 class UserRead(UserBase):

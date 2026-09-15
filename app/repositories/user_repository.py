@@ -7,6 +7,7 @@ from datetime import date, datetime
 from sqlalchemy import func, or_, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.security import normalize_optional_email
 from app.models.user import User
 
 
@@ -45,7 +46,7 @@ class UserRepository:
         role: str = "patient",
     ) -> User:
         user = User(
-            email=email,
+            email=normalize_optional_email(email),
             phone=phone,
             password_hash=password_hash,
             name=name,
@@ -65,7 +66,7 @@ class UserRepository:
         date_of_birth: date | None = None,
     ) -> User:
         if email is not None:
-            user.email = email
+            user.email = normalize_optional_email(email)
         if name is not None:
             user.name = name
         if date_of_birth is not None:

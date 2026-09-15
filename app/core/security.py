@@ -113,6 +113,15 @@ def mask_phone(phone: str, keep: int = 3) -> str:
     return f"{'*' * (len(phone) - keep)}{phone[-keep:]}"
 
 
+# ── Email normalization ──────────────────────────────────────────────────────
+
+
+def normalize_optional_email(email: str | None) -> str | None:
+    """Treat blank strings as missing — phone-only accounts store NULL, not ''."""
+    e = (email or "").strip()
+    return e or None
+
+
 # ── Phone normalization ──────────────────────────────────────────────────────
 
 
