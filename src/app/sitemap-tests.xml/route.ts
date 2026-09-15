@@ -1,4 +1,4 @@
-import { NextResponse } from 'next';
+import { NextResponse } from 'next/server';
 import { cms100MasterData } from '@/lib/seoPages/cms100MasterData';
 
 const BASE_URL = 'https://qxldiagnostics.com';
