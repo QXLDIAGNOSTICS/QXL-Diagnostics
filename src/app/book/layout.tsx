@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "Book blood tests and health packages online with QXL Diagnostics. Choose home sample collection or a walk-in visit to our NABL Accredited lab in Bengaluru. Same-day digital reports.",
   alternates: { canonical: "/book" },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
   openGraph: {

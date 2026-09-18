@@ -142,7 +142,7 @@ export default function Footer() {
                 boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
               }}
             >
-              💼 Careers
+              Careers
             </Link>
           </div>
         </div>
@@ -287,31 +287,37 @@ export default function Footer() {
           <p className="text-slate-300 text-[11px] font-semibold text-center">
             {currentDate && `Last updated: ${currentDate} · `}NABL Accredited Medical Laboratory · {ISO_STANDARD} · Bengaluru, Karnataka
           </p>
-          <div className="flex gap-3 items-center justify-center flex-wrap my-1">
-            {[
-              { href: SOCIAL_LINKS.facebook, label: "Facebook", path: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" },
-              { href: SOCIAL_LINKS.instagram, label: "Instagram", path: null, isInsta: true },
-              { href: SOCIAL_LINKS.linkedin, label: "LinkedIn", path: null, isLi: true },
-            ].map(s => (
-              <Link key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110"
-                style={{ background: GLASS, border: GLASS_BORDER }}
-                aria-label={s.label}>
-                {s.path && (
-                  <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d={s.path} /></svg>
-                )}
-                {s.isInsta && (
-                  <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                )}
-                {s.isLi && (
-                  <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                )}
-              </Link>
-            ))}
-            <div className="w-px h-4 mx-1 bg-white/10" />
-            <Link href="/careers" className="text-slate-200 hover:text-[#D69A18] text-xs font-semibold transition-colors">Careers</Link>
-            <Link href="/privacy-policy" className="text-slate-200 hover:text-white text-xs font-semibold transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="text-slate-200 hover:text-white text-xs font-semibold transition-colors">Terms of Use</Link>
+          <div className="flex items-center justify-center gap-3 flex-wrap my-1">
+            <div className="flex items-center gap-2.5 shrink-0">
+              {[
+                { href: SOCIAL_LINKS.facebook, label: "Facebook", path: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" },
+                { href: SOCIAL_LINKS.instagram, label: "Instagram", path: null, isInsta: true },
+                { href: SOCIAL_LINKS.linkedin, label: "LinkedIn", path: null, isLi: true },
+              ].map(s => (
+                <Link key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-110"
+                  style={{ background: GLASS, border: GLASS_BORDER }}
+                  aria-label={s.label}>
+                  {s.path && (
+                    <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d={s.path} /></svg>
+                  )}
+                  {s.isInsta && (
+                    <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                  )}
+                  {s.isLi && (
+                    <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                  )}
+                </Link>
+              ))}
+            </div>
+            <div className="w-px h-4 mx-1 bg-white/10 hidden sm:block shrink-0" />
+            <div className="flex items-center gap-2.5 shrink-0 text-xs font-semibold whitespace-nowrap">
+              <Link href="/careers" className="text-slate-200 hover:text-[#D69A18] transition-colors">Careers</Link>
+              <span className="text-white/30 text-[10px]">•</span>
+              <Link href="/privacy-policy" className="text-slate-200 hover:text-white transition-colors">Privacy Policy</Link>
+              <span className="text-white/30 text-[10px]">•</span>
+              <Link href="/terms" className="text-slate-200 hover:text-white transition-colors">Terms of Use</Link>
+            </div>
           </div>
         </div>
       </div>

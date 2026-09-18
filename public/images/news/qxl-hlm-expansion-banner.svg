@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bgGlowFixed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2545"/>
+      <stop offset="50%" stop-color="#0f2d5e"/>
+      <stop offset="100%" stop-color="#164263"/>
+    </linearGradient>
+    <linearGradient id="goldGradientFixed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFF8EB"/>
+      <stop offset="50%" stop-color="#F3DBA7"/>
+      <stop offset="100%" stop-color="#D69A18"/>
+    </linearGradient>
+    <linearGradient id="cardGradFixed" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.04"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="800" height="500" rx="16" fill="url(#bgGlowFixed)"/>
+
+  <!-- Geometric Grid Accent -->
+  <g opacity="0.08" stroke="#ffffff" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="500"/>
+    <line x1="400" y1="0" x2="400" y2="500"/>
+    <line x1="600" y1="0" x2="600" y2="500"/>
+  </g>
+
+  <!-- Glowing Orbs -->
+  <circle cx="680" cy="120" r="180" fill="#2563eb" opacity="0.25" filter="blur(30px)"/>
+  <circle cx="120" cy="400" r="150" fill="#D69A18" opacity="0.2" filter="blur(30px)"/>
+
+  <!-- Top Badge (Centered) -->
+  <rect x="270" y="40" width="260" height="34" rx="17" fill="url(#goldGradientFixed)"/>
+  <text x="400" y="62" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="11" fill="#0f2d5e" text-anchor="middle" letter-spacing="2">NATIONAL MEDIA COVERAGE</text>
+
+  <!-- Title Heading (Centered & Scaled safely) -->
+  <text x="400" y="130" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff" text-anchor="middle">QXL Diagnostics Targets 60</text>
+  <text x="400" y="172" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="28" fill="#38bdf8" text-anchor="middle">Hospital Lab Partnerships by 2028</text>
+
+  <!-- Subtitle -->
+  <text x="400" y="218" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="600" font-size="14" fill="#cbd5e1" text-anchor="middle">Business Wire India Press Release Distribution</text>
+
+  <!-- Stat Panel -->
+  <rect x="60" y="260" width="680" height="150" rx="20" fill="url(#cardGradFixed)" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+
+  <!-- Stat 1 -->
+  <g transform="translate(170, 290)">
+    <text x="0" y="40" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="38" fill="#F3DBA7" text-anchor="middle">177</text>
+    <text x="0" y="66" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="11" fill="#ffffff" text-anchor="middle" letter-spacing="1">ONLINE POSTINGS</text>
+  </g>
+
+  <!-- Divider 1 -->
+  <line x1="290" y1="285" x2="290" y2="385" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Stat 2 -->
+  <g transform="translate(400, 290)">
+    <text x="0" y="40" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="38" fill="#38bdf8" text-anchor="middle">8</text>
+    <text x="0" y="66" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="11" fill="#ffffff" text-anchor="middle" letter-spacing="1">TOP OUTLETS</text>
+  </g>
+
+  <!-- Divider 2 -->
+  <line x1="510" y1="285" x2="510" y2="385" stroke="#ffffff" stroke-opacity="0.25" stroke-width="1.5"/>
+
+  <!-- Stat 3 -->
+  <g transform="translate(630, 290)">
+    <text x="0" y="40" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="38" fill="#4ade80" text-anchor="middle">60</text>
+    <text x="0" y="66" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="11" fill="#ffffff" text-anchor="middle" letter-spacing="1">LAB TARGET</text>
+  </g>
+
+  <!-- Footer Branding -->
+  <text x="400" y="465" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="12" fill="#D69A18" text-anchor="middle" letter-spacing="1">QXL DIAGNOSTICS SUPER SPECIALITY LAB</text>
+</svg>

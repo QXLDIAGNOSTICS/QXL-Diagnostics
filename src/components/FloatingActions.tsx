@@ -1,9 +1,11 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { HelpCircle, Phone, MessageCircle, Bot, Calendar, X, ChevronRight } from 'lucide-react';
-import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function FloatingActions() {
+  const pathname = usePathname();
+  const isBookPage = pathname?.startsWith('/book');
   const [isVisible, setIsVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,7 +24,7 @@ export default function FloatingActions() {
   return (
     <>
       {/* Floating Help Button */}
-      <div className={`fixed bottom-20 lg:bottom-8 right-4 lg:right-8 z-[9990] transition-all duration-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
+      <div className={`${isBookPage ? 'hidden lg:block' : ''} fixed bottom-20 lg:bottom-8 right-4 lg:right-8 z-[9990] transition-all duration-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
         <button
           onClick={() => setIsOpen(true)}
           className="flex items-center gap-2 bg-[#0f2d5e] text-white px-4 py-3 rounded-full shadow-xl hover:bg-[#1a3d75] active:scale-95 transition-all cursor-pointer border border-white/20"

@@ -17,8 +17,6 @@ const DISALLOWED_PRIVATE_ROUTES = [
   '/report',
   '/report/',
   '/reports/',
-  '/book',
-  '/book/',
   '/cart',
   '/cart/',
   '/checkout',

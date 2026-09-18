@@ -1,10 +1,13 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { getWhatsAppLink } from "@/lib/businessInfo";
 
 export default function WhatsAppButton() {
+  const pathname = usePathname();
   const whatsappUrl = getWhatsAppLink() || "https://wa.me/919964639639";
+  const isBookPage = pathname?.startsWith("/book");
 
   return (
     <a
@@ -13,7 +16,11 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
       title="Chat on WhatsApp"
-      className="fixed bottom-[74px] right-3.5 sm:bottom-[84px] sm:right-4 lg:bottom-6 lg:right-6 z-[10000] flex items-center justify-center w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-md sm:shadow-lg shadow-emerald-600/30 cursor-pointer border-2 border-white transition-all duration-200 active:scale-95 group"
+      className={`fixed z-[10000] items-center justify-center rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-md sm:shadow-lg shadow-emerald-600/30 cursor-pointer border-2 border-white transition-all duration-200 active:scale-95 group ${
+        isBookPage
+          ? "hidden lg:flex w-14 h-14 bottom-6 right-6"
+          : "flex w-11 h-11 sm:w-14 sm:h-14 bottom-[74px] right-3.5 sm:bottom-[84px] sm:right-4 lg:bottom-6 lg:right-6"
+      }`}
     >
       <svg
         viewBox="0 0 24 24"

@@ -119,51 +119,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Analytical Equipment ── */}
-      <section className="py-6 sm:py-10 bg-slate-50/70 border-b border-slate-100">
-        <div className="max-w-[1260px] mx-auto px-3 sm:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-6">
-            <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider mb-2 shadow-2xs">
-              State-of-the-Art Technology
-            </span>
-            <h2 className="text-xl sm:text-3xl font-black text-[#0f2d5e] mb-1">
-              Our Analytical Equipment
-            </h2>
-            <div className="w-12 h-1 bg-[#D69A18] mx-auto rounded-full mt-2" />
-            <p className="text-slate-600 text-xs sm:text-sm font-medium mt-2">
-              Equipped with world-class analytical instruments for maximum precision and rapid turnaround times.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 items-stretch">
-            <div className="rounded-2xl overflow-hidden h-[220px] sm:h-[280px] md:h-[340px] border border-slate-200 shadow-sm flex items-center justify-center bg-slate-100">
-              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150168/Assets-QXL/legacy-assets/image/equipment_1.jpg" alt="Lab Technician operating equipment" className="w-full h-full object-cover object-center" />
-            </div>
-            <div className="rounded-2xl overflow-hidden h-[220px] sm:h-[280px] md:h-[340px] border border-slate-200 shadow-sm flex items-center justify-center bg-slate-100">
-              <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150172/Assets-QXL/legacy-assets/image/equipment_2.png" alt="Analytical Equipment in use" className="w-full h-full object-cover object-center" />
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 text-left">
-            {[
-              { title: "DXI 9000 Analyzer", desc: "High-throughput clinical chemistry analyzer renowned for accuracy in biochemical parameter analysis. Designed for high-volume operations with rapid turnaround." },
-              { title: "IMMULITE 2000", desc: "Advanced immunoassay analyzer for hormone profiling, tumor marker testing, infectious disease serology, and allergy detection with high sensitivity." },
-              { title: "VITEK System", desc: "Automated microbial identification and antimicrobial susceptibility testing system supporting targeted pathogen therapy." },
-              { title: "BACT/ALERT", desc: "Automated blood culture system for early detection of microbial growth, critical for rapid diagnosis of bloodstream infections and sepsis." },
-              { title: "PHADIATOP / Allergy Testing", desc: "Advanced in vitro allergy testing platform detecting specific IgE antibodies for India-specific food and environmental panels." },
-              { title: "FTIR Spectroscopy", desc: "Fourier Transform Infrared Spectroscopy for precise chemical compound characterisation, used for stone composition analysis." },
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-4 rounded-2xl border border-slate-200 shadow-2xs text-left space-y-1.5">
-                <div className="w-9 h-9 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mb-2">
-                  <Cpu className="w-4 h-4 text-[#D69A18]" />
-                </div>
-                <h3 className="font-extrabold text-[#0f2d5e] text-xs sm:text-sm">{feature.title}</h3>
-                <p className="text-slate-600 text-[11.5px] sm:text-xs leading-relaxed font-medium">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* ── What We Offer ── */}
       <section className="py-6 sm:py-10 bg-white border-b border-slate-100">

@@ -84,7 +84,6 @@ export default function AiChat() {
   const pathname = usePathname();
   const { user, loading: authLoading, refresh } = useAuth();
   const siteSettings = useSiteSettings();
-  if (pathname === '/book') return null;
   const [isOpen, setIsOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [isFABsHidden, setIsFABsHidden] = useState(false);
@@ -1316,36 +1315,6 @@ export default function AiChat() {
 
           {/* Input Area — Clean White Base */}
           <div className="p-3 border-t border-slate-200 bg-white rounded-b-[28px] shrink-0">
-            {/* Speak to AI toggle button */}
-            <button
-              type="button"
-              onClick={() => {
-                const next = !voiceMode;
-                voiceModeRef.current = next;
-                setVoiceMode(next);
-                setVoiceStatus('idle');
-                setVoiceError('');
-                if (!next) {
-                  if (mediaRecorderRef.current?.state === 'recording') {
-                    try { mediaRecorderRef.current.stop(); } catch {}
-                  }
-                  if (voiceAudioRef.current) {
-                    voiceAudioRef.current.pause();
-                    voiceAudioRef.current = null;
-                  }
-                  if (window.speechSynthesis?.speaking) window.speechSynthesis.cancel();
-                }
-              }}
-              className={`w-full mb-2 font-black text-[11.5px] py-2 px-3 rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-all active:scale-[0.98] ${
-                voiceMode
-                  ? 'bg-red-50 border border-red-200 text-red-700 hover:bg-red-100'
-                  : 'bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-700 hover:from-emerald-700 hover:to-blue-800 text-white shadow-xs'
-              }`}
-            >
-              <Mic className={`w-4 h-4 ${ voiceMode ? 'text-red-500' : 'text-emerald-200' }`} />
-              <span>{voiceMode ? '✕ Close Voice Mode' : '🎙️ Speak to AI — Live Voice'}</span>
-            </button>
-
             {selectedFile && (
               <div className="flex items-center justify-between p-2 mb-2 bg-blue-50 border border-blue-200 rounded-xl text-xs text-blue-900 font-semibold">
                 <span className="truncate max-w-[240px]">
@@ -1369,36 +1338,6 @@ export default function AiChat() {
                 placeholder={selectedFile ? "Add a message..." : "Ask a health question..."}
                 className="flex-1 bg-[#f8fafc] border border-slate-300 focus:border-[#0B2545] focus:bg-white text-[#0B2545] placeholder:text-slate-400 rounded-full px-4 py-2.5 text-xs outline-none font-medium transition-colors"
               />
-
-              {/* Mic icon button — toggles voice panel */}
-              <button
-                type="button"
-                onClick={() => {
-                  const next = !voiceMode;
-                  voiceModeRef.current = next;
-                  setVoiceMode(next);
-                  setVoiceStatus('idle');
-                  setVoiceError('');
-                  if (!next) {
-                    if (mediaRecorderRef.current?.state === 'recording') {
-                      try { mediaRecorderRef.current.stop(); } catch {}
-                    }
-                    if (voiceAudioRef.current) {
-                      voiceAudioRef.current.pause();
-                      voiceAudioRef.current = null;
-                    }
-                    if (window.speechSynthesis?.speaking) window.speechSynthesis.cancel();
-                  }
-                }}
-                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all cursor-pointer shrink-0 border ${
-                  voiceMode
-                    ? 'bg-red-500 text-white border-red-400 shadow-[0_0_12px_rgba(239,68,68,0.5)]'
-                    : 'bg-gradient-to-br from-emerald-500 to-teal-600 text-white border-emerald-400 shadow-md hover:from-emerald-600 hover:to-teal-700'
-                } active:scale-90`}
-                aria-label={voiceMode ? 'Close voice mode' : 'Open voice mode'}
-              >
-                {voiceMode ? <MicOff className="w-4 h-4 text-white" /> : <Mic className="w-4 h-4 text-white" />}
-              </button>
 
               <button
                 onClick={() => handleSend()}

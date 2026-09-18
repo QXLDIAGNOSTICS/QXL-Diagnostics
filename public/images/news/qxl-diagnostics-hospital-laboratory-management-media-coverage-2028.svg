@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2545"/>
+      <stop offset="50%" stop-color="#0f2d5e"/>
+      <stop offset="100%" stop-color="#164263"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F3DBA7"/>
+      <stop offset="50%" stop-color="#D69A18"/>
+      <stop offset="100%" stop-color="#B88313"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="150" r="300" fill="#2563eb" opacity="0.1"/>
+  <circle cx="100" cy="500" r="250" fill="#D69A18" opacity="0.1"/>
+
+  <rect x="80" y="80" width="180" height="36" rx="18" fill="url(#gold)"/>
+  <text x="170" y="103" font-family="Arial, sans-serif" font-weight="900" font-size="13" fill="#ffffff" text-anchor="middle" letter-spacing="2">MEDIA COVERAGE</text>
+
+  <text x="80" y="210" font-family="Arial, sans-serif" font-weight="900" font-size="44" fill="#ffffff">QXL Diagnostics Targets 60 Hospital</text>
+  <text x="80" y="265" font-family="Arial, sans-serif" font-weight="900" font-size="44" fill="#ffffff">Laboratory Partnerships by 2028</text>
+
+  <text x="80" y="340" font-family="Arial, sans-serif" font-weight="500" font-size="22" fill="#94a3b8">National media coverage of QXL Diagnostics' Hospital Laboratory Management expansion strategy.</text>
+
+  <rect x="80" y="420" width="1040" height="130" rx="20" fill="#ffffff" opacity="0.08" stroke="#ffffff" stroke-opacity="0.15"/>
+
+  <text x="120" y="475" font-family="Arial, sans-serif" font-weight="900" font-size="32" fill="#38bdf8">177 Online Postings</text>
+  <text x="120" y="510" font-family="Arial, sans-serif" font-weight="600" font-size="16" fill="#cbd5e1">Covered across leading business publications including Business Standard, The Hindu, BusinessLine, News18, The Tribune &amp; ANI</text>
+
+  <text x="1120" y="575" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#D69A18" text-anchor="end">qxldiagnostics.com</text>
+</svg>

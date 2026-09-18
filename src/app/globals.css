@@ -1706,3 +1706,240 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
     0 12px 28px -4px rgba(214, 154, 24, 0.55),
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.6) !important;
 }
+
+/* ═══════════════════════════════════════════════════════
+   QXL DIAGNOSTICS — MEDIA COVERAGE INTEGRATION STYLES
+   ═══════════════════════════════════════════════════════ */
+
+.qxl-media-section {
+  padding: 72px 20px;
+  background: #ffffff;
+}
+
+.qxl-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.qxl-media-eyebrow {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #D69A18;
+  text-align: center;
+}
+
+.qxl-media-section h2 {
+  margin: 0 0 16px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.15;
+  color: #0f2d5e;
+  text-align: center;
+}
+
+.qxl-media-intro {
+  max-width: 760px;
+  margin: 0 auto 38px;
+  font-size: 17px;
+  line-height: 1.7;
+  text-align: center;
+  color: #475569;
+}
+
+.qxl-media-logos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  align-items: center;
+  margin: 35px 0 45px;
+}
+
+.qxl-media-logos a {
+  min-height: 90px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.qxl-media-logos a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  border-color: #D69A18;
+}
+
+.qxl-media-logos img {
+  max-width: 100%;
+  max-height: 48px;
+  object-fit: contain;
+}
+
+.qxl-featured-media {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 36px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.qxl-featured-media h3 {
+  margin-top: 0;
+  font-size: 24px;
+  line-height: 1.35;
+  color: #0f2d5e;
+  font-weight: 800;
+}
+
+.qxl-featured-media p {
+  line-height: 1.7;
+  color: #334155;
+}
+
+.qxl-media-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 14px;
+  padding: 13px 26px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  background: #0f2d5e;
+  color: #ffffff !important;
+  transition: all 0.2s ease;
+}
+
+.qxl-media-button:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+}
+
+.qxl-coverage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.qxl-coverage-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+.qxl-coverage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(15, 45, 94, 0.08);
+  border-color: #D69A18;
+}
+
+.qxl-coverage-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f2d5e;
+  margin-bottom: 10px;
+}
+
+.qxl-coverage-card p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.qxl-coverage-card a {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f2d5e;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+
+.qxl-coverage-card a:hover {
+  color: #D69A18;
+}
+
+.qxl-hlm-media {
+  padding: 56px 20px;
+  background: #ffffff;
+  border-y: 1px solid #e2e8f0;
+}
+
+.qxl-hlm-media-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.qxl-mobile-hlm-cta {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .qxl-media-logos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .qxl-coverage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .qxl-media-section {
+    padding: 48px 16px;
+  }
+  .qxl-media-logos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .qxl-media-logos a {
+    min-height: 75px;
+    padding: 12px;
+  }
+  .qxl-featured-media {
+    padding: 24px 18px;
+  }
+  .qxl-coverage-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .qxl-mobile-hlm-cta {
+    display: block;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 999;
+  }
+  .qxl-mobile-hlm-cta a {
+    display: block;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    background: #0f2d5e;
+    color: #ffffff !important;
+    box-shadow: 0 8px 24px rgba(15, 45, 94, 0.35);
+  }
+}

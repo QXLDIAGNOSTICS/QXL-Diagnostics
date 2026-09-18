@@ -815,6 +815,37 @@ export default function HospitalLabManagementPage() {
         </div>
       </section>
 
+      {/* ── HLM MEDIA AUTHORITY BLOCK ── */}
+      <section className="qxl-hlm-media">
+        <div className="qxl-container text-center">
+          <p className="qxl-media-eyebrow">
+            QXL HLM IN THE NEWS
+          </p>
+          <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1 mb-3">
+            QXL Diagnostics&apos; Hospital Laboratory Management Expansion
+          </h2>
+          <p className="text-slate-600 text-sm font-semibold max-w-2xl mx-auto leading-relaxed">
+            QXL Diagnostics has announced plans to expand its Hospital Laboratory Management network, targeting 60 hospital laboratory partnerships by 2028.
+          </p>
+          <div className="qxl-hlm-media-links">
+            <a
+              href="https://www.business-standard.com/content/press-releases-ani/qxl-diagnostics-targets-60-hospital-laboratory-partnerships-by-2028-126091600351_1.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 bg-[#0f2d5e] text-white px-5 py-3 rounded-xl font-bold text-xs hover:bg-[#1e3a8a] transition-all"
+            >
+              <span>Read coverage in Business Standard →</span>
+            </a>
+            <Link
+              href="/news/qxl-diagnostics-60-hospital-laboratory-partnerships-2028/"
+              className="inline-flex items-center gap-1.5 bg-white border border-[#D69A18] text-[#0f2d5e] px-5 py-3 rounded-xl font-bold text-xs hover:bg-amber-50 transition-all"
+            >
+              <span>View All Media Coverage →</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── HOW TO PARTNER ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-10">

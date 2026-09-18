@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 60" width="160" height="60">
+  <rect width="160" height="60" fill="none"/>
+  <text x="80" y="38" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="32" fill="#D32F2F" text-anchor="middle" letter-spacing="2">ANI</text>
+  <text x="80" y="49" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9" fill="#1976D2" text-anchor="middle" letter-spacing="3">NEWS</text>
+</svg>

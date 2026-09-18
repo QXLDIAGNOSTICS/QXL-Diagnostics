@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="bgGlowFixed2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F2D5E"/>
+    </linearGradient>
+    <linearGradient id="goldGradientFixed2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D69A18"/>
+      <stop offset="100%" stop-color="#E08500"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" rx="16" fill="url(#bgGlowFixed2)"/>
+
+  <circle cx="650" cy="380" r="220" fill="#2563eb" opacity="0.2" filter="blur(40px)"/>
+  <circle cx="150" cy="100" r="160" fill="#D69A18" opacity="0.15" filter="blur(30px)"/>
+
+  <rect x="250" y="40" width="300" height="34" rx="17" fill="url(#goldGradientFixed2)"/>
+  <text x="400" y="62" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="11" fill="#ffffff" text-anchor="middle" letter-spacing="2">HOSPITAL LABORATORY MODEL</text>
+
+  <text x="400" y="130" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="28" fill="#ffffff" text-anchor="middle">Turnkey Lab Management &amp;</text>
+  <text x="400" y="172" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="900" font-size="28" fill="#38bdf8" text-anchor="middle">Reference Laboratory Services</text>
+
+  <text x="400" y="218" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="500" font-size="14" fill="#94a3b8" text-anchor="middle">NABL-accredited diagnostic infrastructure &amp; 24×7 hospital laboratory operations</text>
+
+  <rect x="60" y="260" width="680" height="150" rx="20" fill="#ffffff" fill-opacity="0.06" stroke="#ffffff" stroke-opacity="0.18" stroke-width="1.5"/>
+
+  <g transform="translate(130, 290)">
+    <rect x="-20" y="5" width="40" height="40" rx="12" fill="#2563eb" fill-opacity="0.3"/>
+    <text x="0" y="31" font-family="Arial" font-weight="900" font-size="20" fill="#38bdf8" text-anchor="middle">✓</text>
+    <text x="0" y="65" font-family="'Plus Jakarta Sans', Arial" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle">Onsite Emergency Testing</text>
+    <text x="0" y="83" font-family="'Plus Jakarta Sans', Arial" font-weight="500" font-size="11" fill="#94a3b8" text-anchor="middle">24×7 critical care support</text>
+  </g>
+
+  <g transform="translate(400, 290)">
+    <rect x="-20" y="5" width="40" height="40" rx="12" fill="#D69A18" fill-opacity="0.3"/>
+    <text x="0" y="31" font-family="Arial" font-weight="900" font-size="20" fill="#F3DBA7" text-anchor="middle">★</text>
+    <text x="0" y="65" font-family="'Plus Jakarta Sans', Arial" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle">NABL Quality Governance</text>
+    <text x="0" y="83" font-family="'Plus Jakarta Sans', Arial" font-weight="500" font-size="11" fill="#94a3b8" text-anchor="middle">Accreditation readiness &amp; IQC</text>
+  </g>
+
+  <g transform="translate(670, 290)">
+    <rect x="-20" y="5" width="40" height="40" rx="12" fill="#10b981" fill-opacity="0.3"/>
+    <text x="0" y="31" font-family="Arial" font-weight="900" font-size="20" fill="#4ade80" text-anchor="middle">◆</text>
+    <text x="0" y="65" font-family="'Plus Jakarta Sans', Arial" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle">Turnkey Operations</text>
+    <text x="0" y="83" font-family="'Plus Jakarta Sans', Arial" font-weight="500" font-size="11" fill="#94a3b8" text-anchor="middle">Equipment &amp; manpower</text>
+  </g>
+
+  <text x="400" y="465" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-size="12" fill="#D69A18" text-anchor="middle" letter-spacing="1">QXL DIAGNOSTICS BENGALURU</text>
+</svg>

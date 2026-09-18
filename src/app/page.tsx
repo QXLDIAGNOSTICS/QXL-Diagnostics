@@ -19,6 +19,7 @@ import DoctorLedLabSection from "../components/DoctorLedLabSection";
 import RunningTextMarquee from "../components/RunningTextMarquee";
 import RakshaOfferCard from "../components/rakshaBandhan/RakshaOfferCard";
 import MobileTrustBadges from "../components/MobileTrustBadges";
+import { MediaCoverageSection } from "../components/MediaCoverageSection";
 import SmartSearchBar from "../components/SmartSearchBar";
 import { isCampaignActive } from "../lib/rakshaBandhanConfig";
 import ScooterPhlebotomistSvg from "../components/ScooterPhlebotomistSvg";
@@ -1725,6 +1726,9 @@ export default function Home() {
 
         {/* ── Why Choose QXL — Feature Slides (The QXL Difference) ── */}
         <WhyChooseSlider />
+
+        {/* ── QXL Diagnostics in the News ── */}
+        <MediaCoverageSection />
 
         {/* ── Home Collection ── */}
         <HomeCollectionSection />

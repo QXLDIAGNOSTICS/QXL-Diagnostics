@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <rect width="240" height="60" fill="none"/>
+  <text x="120" y="32" font-family="'Times New Roman', Georgia, serif" font-weight="900" font-size="22" fill="#0f2d5e" text-anchor="middle" letter-spacing="0.5">Business Standard</text>
+  <line x1="20" y1="42" x2="220" y2="42" stroke="#D69A18" stroke-width="1.5"/>
+</svg>
