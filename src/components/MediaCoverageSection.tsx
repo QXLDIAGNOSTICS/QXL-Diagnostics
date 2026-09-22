@@ -82,42 +82,30 @@ export function MediaCoverageSection() {
           ))}
         </div>
 
-        <article className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 max-w-[920px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-          <div className="md:col-span-5 relative rounded-2xl overflow-hidden aspect-[16/10] bg-gradient-to-br from-[#0B2545] via-[#0f2d5e] to-[#164263] p-2 flex items-center justify-center border border-slate-200">
-            <Image
-              src="/images/news/qxl-hlm-expansion-banner.svg"
-              alt="QXL Diagnostics Targets 60 Hospital Laboratory Partnerships by 2028"
-              width={600}
-              height={380}
-              className="w-full h-full object-contain"
-            />
+        <article className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 max-w-[800px] mx-auto text-left space-y-4">
+          <div className="flex items-center gap-2">
+            <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
+              FEATURED RELEASE
+            </span>
+            <span className="text-xs text-slate-400 font-semibold">• 177 Postings</span>
           </div>
 
-          <div className="md:col-span-7 text-left space-y-3">
-            <div className="flex items-center gap-2">
-              <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
-                FEATURED RELEASE
-              </span>
-              <span className="text-xs text-slate-400 font-semibold">• 177 Postings</span>
-            </div>
+          <h3 className="text-xl sm:text-2xl font-black text-[#0f2d5e] leading-snug m-0">
+            QXL Diagnostics Targets 60 Hospital Laboratory Partnerships by 2028
+          </h3>
 
-            <h3 className="text-xl sm:text-2xl font-black text-[#0f2d5e] leading-snug m-0">
-              QXL Diagnostics Targets 60 Hospital Laboratory Partnerships by 2028
-            </h3>
+          <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed m-0">
+            QXL Diagnostics is expanding its Hospital Laboratory Management model to support hospitals with laboratory operations, quality systems, diagnostics infrastructure and reference laboratory services.
+          </p>
 
-            <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed m-0">
-              QXL Diagnostics is expanding its Hospital Laboratory Management model to support hospitals with laboratory operations, quality systems, diagnostics infrastructure and reference laboratory services.
-            </p>
-
-            <div className="pt-2">
-              <Link
-                className="qxl-media-button"
-                href="/news/qxl-diagnostics-60-hospital-laboratory-partnerships-2028/"
-              >
-                <span>View Full Media Coverage</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
-            </div>
+          <div className="pt-2">
+            <Link
+              className="qxl-media-button inline-flex items-center gap-2 bg-[#0f2d5e] hover:bg-[#1a3d75] text-white font-extrabold px-6 py-3 rounded-2xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer"
+              href="/news/qxl-diagnostics-60-hospital-laboratory-partnerships-2028/"
+            >
+              <span>View Full Media Coverage</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </article>
       </div>

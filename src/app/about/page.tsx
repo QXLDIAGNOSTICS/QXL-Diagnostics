@@ -5,6 +5,7 @@ import { Target, CheckCircle, ShieldCheck, MapPin, Mail, Phone, Cpu, Sparkles, C
 import Accreditations from '@/components/Accreditations';
 import FaqSection from '@/components/FaqSection';
 import DoctorLedManifesto from '@/components/DoctorLedManifesto';
+import LabGallerySlider from '@/components/LabGallerySlider';
 
 export default function AboutPage() {
   const scrollRef = React.useRef<HTMLDivElement>(null);
@@ -24,17 +25,17 @@ export default function AboutPage() {
         <div className="max-w-[1260px] mx-auto px-3 sm:px-6">
           <div className="bg-[#FFFBF0] p-2 sm:p-3 rounded-2xl sm:rounded-3xl border border-[#F3DBA7] shadow-sm relative overflow-hidden">
             <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar rounded-xl sm:rounded-2xl">
-              <div className="min-w-full flex-none snap-start">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150040/Assets-QXL/legacy-assets/image/about_banner_final_1.png" alt="QXL Diagnostic Lab" className="w-full h-[180px] sm:h-[320px] md:h-[420px] object-cover rounded-xl sm:rounded-2xl" />
+              <div className="min-w-full flex-none snap-start flex items-center justify-center">
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150040/Assets-QXL/legacy-assets/image/about_banner_final_1.png" alt="QXL Diagnostic Lab" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
               </div>
-              <div className="min-w-full flex-none snap-start">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150042/Assets-QXL/legacy-assets/image/about_banner_final_2.jpg" alt="Pathology Laboratory" className="w-full h-[180px] sm:h-[320px] md:h-[420px] object-cover rounded-xl sm:rounded-2xl" />
+              <div className="min-w-full flex-none snap-start flex items-center justify-center">
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150042/Assets-QXL/legacy-assets/image/about_banner_final_2.jpg" alt="Pathology Laboratory" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
               </div>
-              <div className="min-w-full flex-none snap-start">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150045/Assets-QXL/legacy-assets/image/about_banner_final_3.png" alt="Doctor-Led Diagnostics" className="w-full h-[180px] sm:h-[320px] md:h-[420px] object-cover rounded-xl sm:rounded-2xl" />
+              <div className="min-w-full flex-none snap-start flex items-center justify-center">
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150045/Assets-QXL/legacy-assets/image/about_banner_final_3.png" alt="Doctor-Led Diagnostics" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
               </div>
-              <div className="min-w-full flex-none snap-start">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150046/Assets-QXL/legacy-assets/image/about_banner_final_4.png" alt="State of the Art Equipment" className="w-full h-[180px] sm:h-[320px] md:h-[420px] object-cover rounded-xl sm:rounded-2xl" />
+              <div className="min-w-full flex-none snap-start flex items-center justify-center">
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150046/Assets-QXL/legacy-assets/image/about_banner_final_4.png" alt="State of the Art Equipment" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
               </div>
             </div>
             
@@ -118,6 +119,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* ── Interactive Lab Infrastructure & Technology Slider ── */}
+      <LabGallerySlider />
 
 
 

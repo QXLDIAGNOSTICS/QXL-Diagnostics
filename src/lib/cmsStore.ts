@@ -156,8 +156,8 @@ const defaultBlogs = [
     excerpt: "Discover why over 70% of urban adults suffer from undetected Vitamin D and Thyroid hormone imbalances, and how early screening prevents chronic fatigue.",
     content: "Unexplained tiredness, muscle weakness, mood swings, weight fluctuations, and hair thinning are among the most common symptoms reported to general practitioners in urban India. Clinical pathology data from QXL Diagnostics reveals that over 70% of patients presenting with these vague symptoms suffer from concurrent Vitamin D (25-OH) deficiency and Subclinical Hypothyroidism.\n\n### Why Do These Deficiencies Co-Exist?\n1. **Sunlight Avoidance & Indoor Lifestyles:** Modern office routines limit natural UV-B exposure, leading to impaired cutaneous Vitamin D synthesis.\n2. **Autoimmune Interplay:** Low Vitamin D levels are strongly linked to autoimmune thyroiditis (Hashimoto's Thyroiditis). Vitamin D acts as an immunomodulator; its deficiency exacerbates autoimmune thyroid destruction.\n3. **Metabolic Downregulation:** Thyroid hormones regulate cellular energy expenditure. When T3 and T4 levels drop, bone metabolism and nutrient absorption slow down.\n\n### Recommended Biomarker Panel\n- **Serum 25-Hydroxy Vitamin D** (Optimum: 30–100 ng/mL)\n- **Thyroid Profile** (Total T3, Total T4, Ultrasensitive TSH)\n- **Anti-TPO Antibodies** (if TSH is > 4.5 µIU/mL)\n\nEarly identification via a simple fasting blood test enables targeted supplementation and hormonal balance, reversing fatigue before secondary bone loss or lipid derangement occurs.",
     author: "Dr. Shantakumar Muruda",
-    date: "September 18, 2026",
-    created_at: "2026-09-18T09:00:00Z",
+    date: "September 22, 2026",
+    created_at: "2026-09-22T09:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
@@ -167,8 +167,8 @@ const defaultBlogs = [
     excerpt: "Learn why relying solely on Fasting Blood Glucose can miss early prediabetes, and how HbA1c provides a 90-day glycemic blueprint.",
     content: "India is often termed the diabetes capital of the world, with over 100 million individuals living with diabetes and another 136 million with prediabetes. Yet, many people still rely on a single point-in-time Fasting Blood Sugar (FBS) test for annual health checks.\n\n### The Difference Between FBS and HbA1c\n- **Fasting Blood Sugar (FBS):** Measures instantaneous glucose concentration in plasma after 8–10 hours of fasting. It is heavily influenced by stress, dinner composition, sleep quality, and physical activity the previous evening.\n- **HbA1c (Glycated Hemoglobin):** Measures the percentage of hemoglobin coated with glucose over the 90-day lifespan of red blood cells. It reflects true long-term glycemic control regardless of day-to-day acute fluctuations.\n\n### Clinical Insights: Why Test Both?\n- **Catching Early Prediabetes:** Up to 35% of individuals with normal Fasting Glucose (< 100 mg/dL) demonstrate an elevated HbA1c (5.7% – 6.4%), signifying early insulin resistance.\n- **Estimated Average Glucose (eAG):** Modern NABL laboratories report eAG alongside HbA1c, converting percentages into familiar mg/dL values for easy patient monitoring.\n- **Microvascular Risk Assessment:** Combining FBS, HbA1c, Urine Microalbumin, and Lipid Profile offers complete protection against diabetic nephropathy and cardiovascular complications.",
     author: "Dr. Pritilata Rout",
-    date: "September 16, 2026",
-    created_at: "2026-09-16T10:30:00Z",
+    date: "September 21, 2026",
+    created_at: "2026-09-21T10:30:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
@@ -178,8 +178,8 @@ const defaultBlogs = [
     excerpt: "Explore how hybrid onsite-reference laboratory management helps hospitals optimize operating costs while delivering rapid 24x7 emergency diagnostic testing.",
     content: "Hospital Laboratory Management (HLM) is rapidly emerging as an essential operational strategy for healthcare providers in India. Hospitals face rising capital costs for advanced diagnostic equipment, ongoing maintenance contracts, reagent waste from minimum order quantities, and 24×7 staffing challenges.\n\nAt QXL Diagnostics, our HLM model resolves these operational pressures through a flexible hybrid structure:\n\n1. **Onsite Emergency Laboratory:** High-frequency, stat investigations (CBC, Blood Sugar, Electrolytes, Troponin, Basic Coagulation) remain inside the hospital for immediate clinical decision-making.\n2. **Reference Laboratory Integration:** Low-volume, specialised investigations (autoimmune profiles, molecular diagnostics, special chemistry, immunohistochemistry) are transferred directly to QXL's NABL-accredited reference laboratory.\n3. **Quality & Governance:** Full NABL ISO 15189:2022 quality systems, IQC, EQAS, equipment calibration, and senior consultant oversight are integrated into hospital operations.\n\nThis partnership allows hospital administrators to convert fixed laboratory overhead into predictable operational costs while offering patients a comprehensive 1500+ test menu.",
     author: "Dr. Shantakumar Muruda",
-    date: "September 15, 2026",
-    created_at: "2026-09-15T08:00:00Z",
+    date: "September 20, 2026",
+    created_at: "2026-09-20T08:00:00Z",
     image: "/image/slide_lab_facility.png"
   },
   {
@@ -189,8 +189,8 @@ const defaultBlogs = [
     excerpt: "From chronic fatigue and dizziness to unexplained weight loss and joint pain, learn how targeted blood testing guides clinical diagnosis.",
     content: "Symptoms like persistent tiredness, recurrent headaches, unexpected weight changes, or hair fall are common reasons patients seek medical care. While symptoms describe how you feel, objective laboratory testing reveals what is occurring at a cellular and metabolic level.\n\nOur medical team has created comprehensive diagnostic guides for 19 core symptoms, explaining:\n\n- **Fatigue & Weakness:** Evaluation of Vitamin D (25-OH), Vitamin B12, Serum Ferritin, Thyroid Stimulating Hormone (TSH), and Complete Blood Count (CBC).\n- **Headaches & Dizziness:** Screening for metabolic imbalance, severe anemia, electrolyte shifts, and glycemic fluctuations.\n- **Unexplained Weight Loss:** Investigating Fasting Glucose, HbA1c, Thyroid Profile, Liver Function, and Inflammatory Markers (ESR/CRP).\n- **Joint & Muscle Aches:** Testing Uric Acid, Rheumatoid Factor (RF), Anti-CCP, ANA, and Bone Mineral Panels.\n\nUnderstanding these biomarker pathways empowers patients to have informed clinical discussions with their treating physicians.",
     author: "Dr. Pritilata Rout",
-    date: "September 14, 2026",
-    created_at: "2026-09-14T10:00:00Z",
+    date: "September 19, 2026",
+    created_at: "2026-09-19T10:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
@@ -200,8 +200,8 @@ const defaultBlogs = [
     excerpt: "Learn about internal quality controls (IQC), EQAS proficiency testing, and medical laboratory standards that ensure accurate test reporting.",
     content: "When a doctor makes a clinical decision—whether diagnosing diabetes, monitoring kidney function, or planning cancer therapy—the accuracy of the laboratory report is paramount. NABL Accreditation (MC-6849) under ISO 15189:2022 is the benchmark for medical laboratory competence.\n\nAt QXL Diagnostics, quality assurance encompasses three critical phases:\n\n1. **Pre-Analytical:** Temperature-controlled sample transport, barcoded primary tube validation, and standardized sample preparation.\n2. **Analytical:** Daily Internal Quality Control (IQC) using multi-level controls, regular calibration, and participation in External Quality Assessment Schemes (EQAS).\n3. **Post-Analytical:** Multi-layer result verification and clinical sign-off by senior consultant doctors (MD Pathologists, Biochemists, Microbiologists).\n\nThis rigorous framework ensures that every report delivered to patients and doctors meets international scientific standards.",
     author: "Dr. Shantakumar Muruda",
-    date: "September 12, 2026",
-    created_at: "2026-09-12T09:30:00Z",
+    date: "September 18, 2026",
+    created_at: "2026-09-18T09:30:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
@@ -211,8 +211,8 @@ const defaultBlogs = [
     excerpt: "Comparing Quick Fit, Q-Screen Diabetes, and Q-Master Pro checkups to find the optimal screening for your age and risk profile.",
     content: "Preventive diagnostic screening helps detect asymptomatic metabolic conditions long before clinical complications arise. However, choosing the right checkup profile depends on your age, family history, and lifestyle factors.\n\n- **Quick Fit Package (₹1,770):** 14+ core parameters (FBS, HbA1c, Lipid Profile, LFT, KFT, TSH, Vit D, CBC) ideal for routine annual wellness screening in young adults.\n- **Q-Screen Diabetes Profile (₹1,900):** 16+ targeted parameters including Urine Microalbumin, C-Peptide, and Glycemic Markers for individuals with a family history of diabetes.\n- **Q-Master Health Pro (₹4,600):** 92 comprehensive parameters incorporating Electrolytes, Vit B12, hs-CRP, and H. Pylori IgG for in-depth adult health assessment.\n- **Ultra Full Body Checkup (₹4,999):** 117 parameters adding Homocysteine, Lipoprotein(a), and Complete Iron Panel for advanced cardiovascular risk evaluation.",
     author: "Dr. Ajitha Pillai",
-    date: "September 10, 2026",
-    created_at: "2026-09-10T11:00:00Z",
+    date: "September 17, 2026",
+    created_at: "2026-09-17T11:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
   },
   {
@@ -222,8 +222,8 @@ const defaultBlogs = [
     excerpt: "How certified phlebotomists maintain cold chain storage and tube integrity from your home to our central reference laboratory.",
     content: "Doorstep home collection offers immense convenience, but maintaining sample integrity requires strict technical protocols. From vacuum tube collection to temperature management, every step matters.\n\nQXL Diagnostics provides 100% Free Doorstep Collection across all 60+ Bengaluru localities. Our trained phlebotomists:\n\n- Use pre-labeled, barcoded vacuum collection tubes (BD Vacutainer).\n- Transport samples in insulated thermal cold-chain bags with calibrated gel packs to prevent hemolysis or enzymatic degradation.\n- Deliver samples directly to our 24×7 central reference laboratory in Kengeri for immediate processing.\n\nThis ensures that home-collected blood samples achieve identical analytical accuracy to walk-in laboratory visits.",
     author: "Dr. Naveen Kumar N",
-    date: "September 08, 2026",
-    created_at: "2026-09-08T08:30:00Z",
+    date: "September 16, 2026",
+    created_at: "2026-09-16T08:30:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
   },
   {
@@ -233,8 +233,8 @@ const defaultBlogs = [
     excerpt: "Discover how QXL Diagnostics integrates artificial intelligence to deliver faster, more accurate pathology reports.",
     content: "Artificial Intelligence is transforming healthcare, and at QXL Diagnostics, we are at the forefront of this revolution. By integrating AI algorithms into our diagnostic workflows, our pathologists can identify cellular abnormalities with enhanced analytical precision under senior pathologist supervision.\n\nAI doesn't replace our expert doctors; it acts as a powerful second set of eyes, rapidly analyzing thousands of data points in blood smears and tissue samples to flag potential issues. This reduces human error and significantly decreases turnaround times, meaning you get your results faster without compromising on accuracy.\n\nWhether it's a routine CBC or a complex histopathology report, AI-assisted diagnostics ensure that your doctor receives the most reliable data to guide your treatment.",
     author: "Dr. Shantakumar Muruda",
-    date: "September 05, 2026",
-    created_at: "2026-09-05T10:00:00Z",
+    date: "September 15, 2026",
+    created_at: "2026-09-15T10:00:00Z",
     image: "/image/slide_lab_facility.png"
   },
   {
@@ -244,8 +244,8 @@ const defaultBlogs = [
     excerpt: "Anti-Mullerian Hormone (AMH) testing is crucial for understanding ovarian reserve. Learn who needs it and why.",
     content: "Anti-Mullerian Hormone (AMH) is a protein produced by the cells inside the ovarian follicles. Measuring AMH levels in the blood is currently the most accurate way to assess a woman's ovarian reserve—essentially, the number of eggs she has remaining.\n\nUnlike other fertility hormones, AMH levels remain relatively stable throughout the menstrual cycle, meaning the test can be taken on any day. It's an invaluable tool for women planning for pregnancy, those considering IVF, or those experiencing symptoms of PCOS (where AMH is typically elevated).\n\nAt QXL Diagnostics, we use advanced CLIA technology to provide highly accurate AMH results, empowering women with the knowledge they need to make informed family planning decisions.",
     author: "Dr. Pritilata Rout",
-    date: "September 03, 2026",
-    created_at: "2026-09-03T10:00:00Z",
+    date: "September 14, 2026",
+    created_at: "2026-09-14T10:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
@@ -255,8 +255,8 @@ const defaultBlogs = [
     excerpt: "Chronic sneezing, rashes, or digestive issues? Learn how comprehensive allergy testing can pinpoint the exact cause.",
     content: "Allergies occur when your immune system overreacts to a foreign substance, such as pollen, pet dander, or specific foods. While symptoms can range from mild sneezing to severe anaphylaxis, identifying the exact trigger is often a frustrating guessing game.\n\nQXL Diagnostics offers comprehensive allergy panels that test for hundreds of common environmental and food allergens specific to the Indian context. Using a single blood sample, we can measure specific IgE antibodies to pinpoint exactly what is causing your symptoms.\n\nArmed with an accurate allergy profile, you and your doctor can develop a targeted avoidance strategy or immunotherapy plan, finally bringing relief from chronic allergic reactions.",
     author: "Dr. Ajitha Pillai",
-    date: "September 01, 2026",
-    created_at: "2026-09-01T10:00:00Z",
+    date: "September 12, 2026",
+    created_at: "2026-09-12T10:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   }
 ];

@@ -15,70 +15,70 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
       title: 'Hospital Laboratory Management (HLM): Transforming Diagnostic Models in India',
       slug: 'hospital-laboratory-management-transforming-models',
       excerpt: 'Explore how hybrid onsite-reference laboratory management helps hospitals optimize operating costs while delivering rapid 24x7 emergency diagnostic testing.',
-      created_at: '2026-09-12T08:00:00.000Z'
+      created_at: '2026-09-22T08:00:00.000Z'
     },
     {
       id: 'b-new-2',
       title: 'Understanding 19 Key Health Symptoms: When to Get Blood Biomarker Screening',
       slug: 'understanding-19-key-health-symptoms-blood-screening',
       excerpt: 'From chronic fatigue and dizziness to unexplained weight loss and joint pain, learn how targeted blood testing guides clinical diagnosis.',
-      created_at: '2026-09-10T10:00:00.000Z'
+      created_at: '2026-09-21T10:00:00.000Z'
     },
     {
       id: 'b-new-3',
       title: 'NABL ISO 15189:2022 Accreditation: What It Means for Sample Precision',
       slug: 'nabl-iso-15189-2022-accreditation-sample-precision',
       excerpt: 'Learn about internal quality controls (IQC), EQAS proficiency testing, and medical laboratory standards that ensure accurate test reporting.',
-      created_at: '2026-09-08T09:30:00.000Z'
+      created_at: '2026-09-20T09:30:00.000Z'
     },
     {
       id: 'b-new-4',
       title: 'Master Health Checkup Packages: Selecting the Right Full Body Profile',
       slug: 'selecting-right-full-body-health-package',
       excerpt: 'Comparing Quick Fit, Q-Screen Diabetes, and Q-Master Pro checkups to find the optimal screening for your age and risk profile.',
-      created_at: '2026-09-05T11:00:00.000Z'
+      created_at: '2026-09-19T11:00:00.000Z'
     },
     {
       id: 'b-new-5',
       title: 'Free Doorstep Sample Collection Across Bengaluru: Safety & Sample Integrity',
       slug: 'free-doorstep-home-sample-collection-bengaluru',
       excerpt: 'How certified phlebotomists maintain cold chain storage and tube integrity from your home to our central reference laboratory.',
-      created_at: '2026-09-02T08:30:00.000Z'
+      created_at: '2026-09-18T08:30:00.000Z'
     },
     {
       id: 'b1',
       title: 'The Future is Now: AI-Assisted Diagnostics at QXL',
       slug: 'ai-assisted-diagnostics',
       excerpt: 'Discover how QXL Diagnostics integrates artificial intelligence to deliver faster, more accurate pathology reports.',
-      created_at: '2026-08-28T00:00:00.000Z'
+      created_at: '2026-09-17T00:00:00.000Z'
     },
     {
       id: 'b2',
       title: 'Understanding AMH: Your Guide to Fertility Testing',
       slug: 'understanding-amh-fertility-testing',
       excerpt: 'Anti-Mullerian Hormone (AMH) testing is crucial for understanding ovarian reserve. Learn who needs it and why.',
-      created_at: '2026-08-24T00:00:00.000Z'
+      created_at: '2026-09-16T00:00:00.000Z'
     },
     {
       id: 'b3',
       title: 'Allergy Testing: Identifying Your Hidden Triggers',
       slug: 'allergy-testing-hidden-triggers',
       excerpt: 'Chronic sneezing, rashes, or digestive issues? Learn how comprehensive allergy testing can pinpoint the exact cause.',
-      created_at: '2026-08-20T00:00:00.000Z'
+      created_at: '2026-09-15T00:00:00.000Z'
     },
     {
       id: 'b4',
       title: 'Beyond Cholesterol: Advanced Cardiac Risk Assessment',
       slug: 'beyond-cholesterol-cardiac-risk',
       excerpt: 'A standard lipid profile isn\'t always enough. Learn about hs-CRP, Lp(a), and advanced markers for heart health.',
-      created_at: '2026-08-15T00:00:00.000Z'
+      created_at: '2026-09-14T00:00:00.000Z'
     },
     {
       id: 'b5',
       title: 'Role of Vitamin D in Immunity and Bone Health',
       slug: 'role-of-vitamin-d-immunity-bone-health',
       excerpt: 'Understand why Vitamin D is more than just a vitamin. Learn about its massive role in regulating your immune system and preventing bone loss.',
-      created_at: '2026-08-10T00:00:00.000Z'
+      created_at: '2026-09-12T00:00:00.000Z'
     }
   ].map(b => ({
     content: null,

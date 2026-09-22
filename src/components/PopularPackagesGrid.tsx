@@ -41,7 +41,7 @@ export default function PopularPackagesGrid() {
   }, []);
 
   const filteredPackages = useMemo(() => {
-    return CANONICAL_PACKAGES.filter((pkg) => {
+    const list = CANONICAL_PACKAGES.filter((pkg) => {
       // Search match
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase().trim();
@@ -63,7 +63,22 @@ export default function PopularPackagesGrid() {
       }
       return true;
     });
+
+    // Sort by price: lowest price first, followed by doctor-directed/quote packages
+    return list.sort((a, b) => {
+      const priceA = typeof a.price === 'number' && a.price > 0 && !a.contactForPrice ? a.price : 999999;
+      const priceB = typeof b.price === 'number' && b.price > 0 && !b.contactForPrice ? b.price : 999999;
+      return priceA - priceB;
+    });
   }, [searchQuery, selectedCategory, selectedGuidance]);
+
+  const standardPackages = useMemo(() => {
+    return filteredPackages.filter((pkg) => typeof pkg.price === 'number' && pkg.price > 0 && !pkg.contactForPrice);
+  }, [filteredPackages]);
+
+  const contactPackages = useMemo(() => {
+    return filteredPackages.filter((pkg) => pkg.contactForPrice || typeof pkg.price !== 'number' || pkg.price === 0);
+  }, [filteredPackages]);
 
   const handleAddToCart = (pkg: PackageItem) => {
     if (pkg.contactForPrice || !pkg.price) {
@@ -96,7 +111,7 @@ export default function PopularPackagesGrid() {
   };
 
   return (
-    <section className="py-12 bg-[#f8faff] border-t border-slate-200 relative">
+    <section className="py-6 sm:py-8 bg-[#f8faff] border-t border-slate-200 relative">
       {addedToast && (
         <div className="fixed bottom-6 right-6 z-[99999] bg-slate-900 text-white font-extrabold px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2 border border-slate-700 animate-bounce">
           <span className="text-emerald-400">✓</span>
@@ -106,35 +121,35 @@ export default function PopularPackagesGrid() {
 
       <div className="max-w-[1200px] mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8">
-          <span className="bg-blue-100 text-blue-900 border border-blue-200 font-extrabold text-xs px-3.5 py-1 rounded-full uppercase tracking-wider">
-            NABL ACCREDITED (MC-6849) | ISO 15189:2022
+        <div className="text-center max-w-3xl mx-auto mb-4 sm:mb-5">
+          <span className="bg-blue-100 text-blue-900 border border-blue-200 font-extrabold text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+            NABL ACCREDITED (MC-6849) • ISO 15189:2022
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-[#0f2d5e] mt-2">
-            Routine &amp; Doctor-Driven Speciality Packages
-          </h2>
-          <p className="text-slate-600 text-xs sm:text-sm mt-1 font-semibold">
-            Explore 42 routine, speciality &amp; physician-guided diagnostic profiles. Free home sample collection across Bengaluru &amp; same-day reports.
+          <h1 className="text-xl sm:text-2xl font-black text-[#0f2d5e] mt-1.5">
+            Complete Diagnostic Packages
+          </h1>
+          <p className="text-slate-600 text-xs mt-0.5 font-semibold">
+            Doctor-curated health checkups with free doorstep sample collection across Bengaluru &amp; same-day reports.
           </p>
         </div>
 
         {/* ── Search & Filter Control Bar ── */}
-        <div className="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200 shadow-2xs mb-8 space-y-4">
+        <div className="bg-white p-3 sm:p-4 rounded-2xl border border-slate-200 shadow-2xs mb-5 space-y-2.5">
           {/* Top Row: Search Input */}
           <div className="relative">
-            <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+            <Search className="w-3.5 h-3.5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search 49+ packages (e.g. #01 Anemia, PCOS, Diabetes, Thyroid, Cortisol, Troponin, Fever)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#f8fafc] border border-slate-200 focus:border-[#2563eb] focus:bg-white text-slate-800 font-bold text-xs sm:text-sm rounded-2xl pl-11 pr-4 py-3 outline-none transition-all"
+              className="w-full bg-[#f8fafc] border border-slate-200 focus:border-[#2563eb] focus:bg-white text-slate-800 font-bold text-xs rounded-xl pl-9 pr-4 py-2 outline-none transition-all"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 font-bold text-xs bg-slate-200 rounded-full w-5 h-5 flex items-center justify-center"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 font-bold text-[10px] bg-slate-200 rounded-full w-4 h-4 flex items-center justify-center"
               >
                 ✕
               </button>
@@ -143,7 +158,7 @@ export default function PopularPackagesGrid() {
 
           {/* Guidance Level Filter Tabs */}
           <div className="flex flex-wrap items-center gap-1.5 pt-1 border-t border-slate-100">
-            <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider mr-1 shrink-0">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider mr-1 shrink-0">
               Guidance Level:
             </span>
             {[
@@ -156,7 +171,7 @@ export default function PopularPackagesGrid() {
                 key={g.key}
                 type="button"
                 onClick={() => setSelectedGuidance(g.key)}
-                className={`text-xs font-black px-3 py-1.5 rounded-full border transition-all cursor-pointer ${
+                className={`text-[11px] font-black px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
                   selectedGuidance === g.key
                     ? 'bg-[#0f2d5e] text-white border-[#0f2d5e] shadow-2xs'
                     : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
@@ -168,8 +183,8 @@ export default function PopularPackagesGrid() {
           </div>
 
           {/* Category Filter Pills (Scrollable) */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar pt-1 border-t border-slate-100">
-            <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider mr-1 shrink-0">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 no-scrollbar pt-1 border-t border-slate-100">
+            <span className="text-[10px] font-black text-slate-400 uppercase tracking-wider mr-1 shrink-0">
               Category:
             </span>
             {categories.map((cat) => (
@@ -177,7 +192,7 @@ export default function PopularPackagesGrid() {
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`text-[11px] font-extrabold px-3 py-1 rounded-xl border whitespace-nowrap transition-all cursor-pointer shrink-0 ${
+                className={`text-[10.5px] font-extrabold px-2.5 py-0.5 rounded-lg border whitespace-nowrap transition-all cursor-pointer shrink-0 ${
                   selectedCategory === cat
                     ? 'bg-blue-600 text-white border-blue-600 shadow-2xs'
                     : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
@@ -190,7 +205,7 @@ export default function PopularPackagesGrid() {
         </div>
 
         {/* Results Counter */}
-        <div className="flex items-center justify-between mb-4 px-1">
+        <div className="flex items-center justify-between mb-6 px-1">
           <p className="text-xs font-black text-slate-500 uppercase tracking-wider">
             Showing {filteredPackages.length} of {CANONICAL_PACKAGES.length} Diagnostic Packages
           </p>
@@ -209,7 +224,7 @@ export default function PopularPackagesGrid() {
           )}
         </div>
 
-        {/* Package Cards Grid */}
+        {/* Package Containers */}
         {filteredPackages.length === 0 ? (
           <div className="bg-white rounded-3xl p-12 text-center border border-slate-200 shadow-2xs max-w-lg mx-auto my-8">
             <AlertCircle className="w-10 h-10 text-amber-500 mx-auto mb-3" />
@@ -230,125 +245,237 @@ export default function PopularPackagesGrid() {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPackages.map((pkg: PackageItem) => {
-              const isDoctorDriven = pkg.contactForPrice || !pkg.price;
-              const hasPrice = typeof pkg.price === 'number' && pkg.price > 0 && !pkg.contactForPrice;
-              const saveAmount = hasPrice && pkg.mrp ? pkg.mrp - pkg.price! : 0;
-
-              return (
-                <div
-                  key={pkg.id}
-                  className="bg-white border border-slate-200 hover:border-blue-400 hover:shadow-xl rounded-3xl p-6 shadow-sm transition-all duration-300 flex flex-col justify-between h-full relative group"
-                >
+          <div className="space-y-10">
+            {/* CONTAINER 1: Standard Packages with Transparent Fixed Pricing */}
+            {standardPackages.length > 0 && (
+              <div className="bg-white rounded-3xl p-5 sm:p-8 border border-slate-200/80 shadow-2xs">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-slate-100">
                   <div>
-                    {/* Guidance / Tag Bar */}
-                    <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className={`inline-block px-2.5 py-0.5 rounded text-[9.5px] font-black uppercase tracking-wider border ${getGuidanceBadgeStyle(pkg.guidanceLevel)}`}>
-                        {pkg.guidanceLevel || pkg.tag || 'PREVENTIVE OFFER'}
-                      </span>
-                      <span className="text-[10.5px] font-extrabold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full flex items-center gap-1 shrink-0">
-                        <Dna className="w-3 h-3 text-[#D69A18]" />
-                        {pkg.parametersLabel}
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-0.5 rounded-full">
+                        Instant Online Booking ({standardPackages.length} Packages)
                       </span>
                     </div>
-
-                    <h3 className="font-extrabold text-slate-900 text-base sm:text-lg leading-snug mb-2 group-hover:text-[#2563eb] transition-colors">
-                      {pkg.name}
-                    </h3>
-
-                    {/* May Help When Tagline if present */}
-                    {pkg.mayHelpWhen && (
-                      <p className="text-[11px] font-extrabold text-blue-900 bg-blue-50/70 border border-blue-100 px-2.5 py-1 rounded-xl mb-3 leading-snug">
-                        💡 {pkg.mayHelpWhen}
-                      </p>
-                    )}
-
-                    {/* Key Highlights */}
-                    <div className="mb-3 space-y-1.5">
-                      {pkg.highlights.map((b, i) => (
-                        <div key={i} className="text-xs text-slate-700 flex items-start gap-1.5 font-semibold leading-tight">
-                          <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-500 mt-0.5" />
-                          <span className="line-clamp-2">{b}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Inclusions */}
-                    <div className="my-3 pt-3 border-t border-dashed border-gray-200">
-                      <p className="text-xs text-slate-600 font-medium line-clamp-3 leading-relaxed">
-                        <strong className="text-slate-800 font-bold">Includes:</strong> {pkg.includes}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Card Bottom Area: Pricing & Actions */}
-                  <div className="pt-4 mt-auto border-t border-gray-100 space-y-3">
-                    <div className="flex items-center justify-between gap-2">
-                      {hasPrice ? (
-                        <div>
-                          <span className="text-xs text-slate-400 line-through block mb-0.5 font-semibold">₹{pkg.mrp}</span>
-                          <div className="flex items-baseline gap-1.5">
-                            <span className="text-2xl font-black text-slate-900">₹{pkg.price}</span>
-                            <span className="text-[10px] font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
-                              Save ₹{saveAmount}
-                            </span>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="bg-amber-50 border border-amber-200 px-3 py-1.5 rounded-2xl flex-1">
-                          <span className="text-[10px] font-black uppercase text-amber-800 tracking-wider block">
-                            Pricing Guidance
-                          </span>
-                          <span className="text-xs sm:text-sm font-black text-[#0f2d5e] flex items-center gap-1">
-                            <Phone className="w-3.5 h-3.5 text-emerald-600" />
-                            Contact Us for Price
-                          </span>
-                        </div>
-                      )}
-
-                      <button
-                        type="button"
-                        onClick={() => setSelectedPkg(pkg)}
-                        className="text-xs font-extrabold text-[#2563eb] hover:text-[#1d4ed8] hover:underline flex items-center gap-1 cursor-pointer bg-blue-50 hover:bg-blue-100 px-3 py-2 rounded-xl border border-blue-200 transition-all shrink-0"
-                      >
-                        <Info className="w-3.5 h-3.5" />
-                        Full Details
-                      </button>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2">
-                      {isDoctorDriven ? (
-                        <a
-                          href={`https://wa.me/919964639639?text=${encodeURIComponent(`Hi QXL Diagnostics, I want to enquire about the price & details for ${pkg.name}`)}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-sm bg-emerald-600 hover:bg-emerald-700 text-white text-center col-span-2"
-                        >
-                          <MessageCircle className="w-4 h-4" /> Contact Us to Know Price
-                        </a>
-                      ) : (
-                        <React.Fragment>
-                          <button
-                            type="button"
-                            onClick={() => handleAddToCart(pkg)}
-                            className="w-full py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-slate-700 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all cursor-pointer text-center"
-                          >
-                            + Add to Cart
-                          </button>
-                          <Link
-                            href={`/book?package=${pkg.slug}`}
-                            className="flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-center"
-                          >
-                            Book Now <ArrowRight className="w-3.5 h-3.5" />
-                          </Link>
-                        </React.Fragment>
-                      )}
-                    </div>
+                    <h2 className="text-xl sm:text-2xl font-black text-[#0f2d5e]">
+                      Standard Health Packages
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-600 font-semibold mt-0.5">
+                      Doctor-curated preventive health checkups with transparent pricing and free doorstep sample collection.
+                    </p>
                   </div>
                 </div>
-              );
-            })}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {standardPackages.map((pkg: PackageItem) => {
+                    const saveAmount = pkg.price && pkg.mrp ? pkg.mrp - pkg.price : 0;
+                    return (
+                      <div
+                        key={pkg.id}
+                        className="bg-white border border-slate-200 hover:border-blue-400 hover:shadow-xl rounded-3xl p-6 shadow-xs transition-all duration-300 flex flex-col justify-between h-full relative group"
+                      >
+                        <div>
+                          {/* Guidance / Tag Bar */}
+                          <div className="flex items-center justify-between gap-2 mb-2">
+                            <span className={`inline-block px-2.5 py-0.5 rounded text-[9.5px] font-black uppercase tracking-wider border ${getGuidanceBadgeStyle(pkg.guidanceLevel)}`}>
+                              {pkg.guidanceLevel || pkg.tag || 'PREVENTIVE OFFER'}
+                            </span>
+                            <span className="text-[10.5px] font-extrabold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full flex items-center gap-1 shrink-0">
+                              <Dna className="w-3 h-3 text-[#D69A18]" />
+                              {pkg.parametersLabel}
+                            </span>
+                          </div>
+
+                          <h3 className="font-extrabold text-slate-900 text-base sm:text-lg leading-snug mb-2 group-hover:text-[#2563eb] transition-colors">
+                            {pkg.name}
+                          </h3>
+
+                          {/* May Help When Tagline if present */}
+                          {pkg.mayHelpWhen && (
+                            <p className="text-[11px] font-extrabold text-blue-900 bg-blue-50/70 border border-blue-100 px-2.5 py-1 rounded-xl mb-3 leading-snug">
+                              💡 {pkg.mayHelpWhen}
+                            </p>
+                          )}
+
+                          {/* Key Highlights */}
+                          <div className="mb-3 space-y-1.5">
+                            {pkg.highlights.map((b, i) => (
+                              <div key={i} className="text-xs text-slate-700 flex items-start gap-1.5 font-semibold leading-tight">
+                                <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-500 mt-0.5" />
+                                <span className="line-clamp-2">{b}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Inclusions */}
+                          <div className="my-3 pt-3 border-t border-dashed border-gray-200">
+                            <p className="text-xs text-slate-600 font-medium line-clamp-3 leading-relaxed">
+                              <strong className="text-slate-800 font-bold">Includes:</strong> {pkg.includes}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Card Bottom Area: Pricing & Actions */}
+                        <div className="pt-4 mt-auto border-t border-gray-100 space-y-3">
+                          <div className="flex items-center justify-between gap-2 min-h-[44px]">
+                            <div>
+                              <span className="text-[11px] text-slate-400 line-through block mb-0.5 font-semibold">₹{pkg.mrp}</span>
+                              <div className="flex items-baseline gap-1.5">
+                                <span className="text-2xl font-black text-slate-900">₹{pkg.price}</span>
+                                {saveAmount > 0 && (
+                                  <span className="text-[10px] font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
+                                    Save ₹{saveAmount}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+
+                            <button
+                              type="button"
+                              onClick={() => setSelectedPkg(pkg)}
+                              className="text-xs font-extrabold text-[#2563eb] hover:text-[#1d4ed8] flex items-center gap-1 cursor-pointer bg-blue-50 hover:bg-blue-100 px-3 py-2 rounded-xl border border-blue-200 transition-all shrink-0"
+                            >
+                              <Info className="w-3.5 h-3.5" />
+                              Details
+                            </button>
+                          </div>
+
+                          <div className="grid grid-cols-2 gap-2">
+                            <button
+                              type="button"
+                              onClick={() => handleAddToCart(pkg)}
+                              className="w-full py-2.5 rounded-xl text-[11px] font-black uppercase tracking-wider text-slate-700 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all cursor-pointer text-center"
+                            >
+                              + Add to Cart
+                            </button>
+                            <Link
+                              href={`/book?package=${pkg.slug}`}
+                              className="flex items-center justify-center gap-1 w-full py-2.5 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all shadow-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-center"
+                            >
+                              Book Now <ArrowRight className="w-3.5 h-3.5" />
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* CONTAINER 2: Doctor-Directed & Speciality Packages (Price on Request) */}
+            {contactPackages.length > 0 && (
+              <div className="bg-gradient-to-b from-purple-50/60 via-slate-50/30 to-white rounded-3xl p-5 sm:p-8 border border-purple-200/80 shadow-2xs">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-purple-100">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+                      <span className="text-[11px] font-black uppercase tracking-wider text-purple-900 bg-purple-100 border border-purple-200 px-3 py-0.5 rounded-full">
+                        Specialist &amp; Doctor-Directed ({contactPackages.length} Panels)
+                      </span>
+                    </div>
+                    <h2 className="text-xl sm:text-2xl font-black text-[#0f2d5e]">
+                      Doctor-Directed &amp; Speciality Packages
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-600 font-semibold mt-0.5">
+                      Specialised profiles requiring tailored specimen handling or clinical guidance. Contact us for pricing &amp; consultation.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {contactPackages.map((pkg: PackageItem) => (
+                    <div
+                      key={pkg.id}
+                      className="bg-white border border-purple-200/80 hover:border-purple-400 hover:shadow-xl rounded-3xl p-6 shadow-xs transition-all duration-300 flex flex-col justify-between h-full relative group"
+                    >
+                      <div>
+                        {/* Guidance / Tag Bar */}
+                        <div className="flex items-center justify-between gap-2 mb-2">
+                          <span className={`inline-block px-2.5 py-0.5 rounded text-[9.5px] font-black uppercase tracking-wider border ${getGuidanceBadgeStyle(pkg.guidanceLevel)}`}>
+                            {pkg.guidanceLevel || pkg.tag || 'DOCTOR-DIRECTED'}
+                          </span>
+                          <span className="text-[10.5px] font-extrabold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full flex items-center gap-1 shrink-0">
+                            <Dna className="w-3 h-3 text-[#D69A18]" />
+                            {pkg.parametersLabel}
+                          </span>
+                        </div>
+
+                        <h3 className="font-extrabold text-slate-900 text-base sm:text-lg leading-snug mb-2 group-hover:text-purple-700 transition-colors">
+                          {pkg.name}
+                        </h3>
+
+                        {/* May Help When Tagline if present */}
+                        {pkg.mayHelpWhen && (
+                          <p className="text-[11px] font-extrabold text-purple-900 bg-purple-50 border border-purple-100 px-2.5 py-1 rounded-xl mb-3 leading-snug">
+                            💡 {pkg.mayHelpWhen}
+                          </p>
+                        )}
+
+                        {/* Key Highlights */}
+                        <div className="mb-3 space-y-1.5">
+                          {pkg.highlights.map((b, i) => (
+                            <div key={i} className="text-xs text-slate-700 flex items-start gap-1.5 font-semibold leading-tight">
+                              <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-purple-600 mt-0.5" />
+                              <span className="line-clamp-2">{b}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Inclusions */}
+                        <div className="my-3 pt-3 border-t border-dashed border-purple-100">
+                          <p className="text-xs text-slate-600 font-medium line-clamp-3 leading-relaxed">
+                            <strong className="text-slate-800 font-bold">Includes:</strong> {pkg.includes}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Card Bottom Area: Pricing Guidance & Aligned Buttons */}
+                      <div className="pt-4 mt-auto border-t border-gray-100 space-y-3">
+                        <div className="flex items-center justify-between gap-2 min-h-[44px]">
+                          <div className="bg-amber-50/90 border border-amber-200/80 px-3 py-1.5 rounded-2xl flex-1">
+                            <span className="text-[9.5px] font-black uppercase text-amber-800 tracking-wider block">
+                              Pricing Guidance
+                            </span>
+                            <span className="text-xs font-black text-[#0f2d5e] flex items-center gap-1">
+                              <Phone className="w-3 h-3 text-emerald-600" />
+                              Contact for Price
+                            </span>
+                          </div>
+
+                          <button
+                            type="button"
+                            onClick={() => setSelectedPkg(pkg)}
+                            className="text-xs font-extrabold text-purple-700 hover:text-purple-900 flex items-center gap-1 cursor-pointer bg-purple-50 hover:bg-purple-100 px-3 py-2 rounded-xl border border-purple-200 transition-all shrink-0"
+                          >
+                            <Info className="w-3.5 h-3.5" />
+                            Details
+                          </button>
+                        </div>
+
+                        {/* Perfectly Aligned 2-Column Action Grid */}
+                        <div className="grid grid-cols-2 gap-2">
+                          <a
+                            href="tel:+919964639639"
+                            className="flex items-center justify-center gap-1 w-full py-2.5 rounded-xl text-[11px] font-black uppercase tracking-wider text-slate-700 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all text-center"
+                          >
+                            <Phone className="w-3.5 h-3.5 text-emerald-600" /> Call Us
+                          </a>
+                          <a
+                            href={`https://wa.me/919964639639?text=${encodeURIComponent(`Hi QXL Diagnostics, I want to enquire about the price & details for ${pkg.name}`)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-1 w-full py-2.5 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all shadow-sm bg-emerald-600 hover:bg-emerald-700 text-white text-center"
+                          >
+                            <MessageCircle className="w-3.5 h-3.5" /> Enquire Price
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

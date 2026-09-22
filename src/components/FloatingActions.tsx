@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { HelpCircle, Phone, MessageCircle, Bot, Calendar, X, ChevronRight } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 export default function FloatingActions() {
   const pathname = usePathname();
