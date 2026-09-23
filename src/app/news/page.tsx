@@ -194,6 +194,9 @@ export default function NewsIndexPage() {
                 <span>Read Full Media Coverage &amp; 8 Outlets</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
+            </div>
+          </div>
+        </div>
 
         {/* Digital Health News Editorial Feature */}
         <div className="mt-8 bg-gradient-to-br from-white via-sky-50/40 to-white rounded-3xl border border-sky-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
