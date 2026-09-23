@@ -819,8 +819,8 @@ export default function AiChat() {
       )}
 
 
-      {/* QXL AI assis      {/* QXL AI assistant FAB & Ask Me Bubble Container (Desktop Only — Hidden on mobile per user request) */}
-      {siteSettings.ai_chat_enabled && !isFABsHidden && !isOpen && (
+      {/* QXL AI assistant FAB & Ask Me Bubble Container (Hidden on /book page per user request) */}
+      {siteSettings.ai_chat_enabled && !isFABsHidden && !isOpen && !pathname?.startsWith('/book') && (
         <div 
           className="hidden sm:flex fixed sm:bottom-[164px] sm:right-4 lg:bottom-[100px] lg:right-6 z-[10000] items-center transition-all duration-300 pointer-events-auto"
         >

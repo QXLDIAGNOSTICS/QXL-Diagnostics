@@ -1001,6 +1001,29 @@ export default function BookPage() {
                   <span>Upload Rx</span>
                 </button>
 
+                {/* Desktop WhatsApp Support Pill */}
+                <a
+                  href="https://wa.me/919964639639"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden lg:inline-flex px-2 py-0.5 rounded-md text-[10px] font-black transition-all cursor-pointer items-center gap-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 shadow-2xs"
+                  title="Chat on WhatsApp"
+                >
+                  <Bot className="w-2.5 h-2.5 text-emerald-600" />
+                  <span>WhatsApp (+91 9964 639 639)</span>
+                </a>
+
+                {/* Desktop Ask AI Assistant Pill */}
+                <button
+                  type="button"
+                  onClick={() => window.dispatchEvent(new CustomEvent('openAiChat'))}
+                  className="hidden lg:inline-flex px-2 py-0.5 rounded-md text-[10px] font-black transition-all cursor-pointer items-center gap-1 bg-blue-50 hover:bg-blue-100 text-blue-950 border border-blue-300 shadow-2xs"
+                  title="Ask QXL AI Assistant"
+                >
+                  <Sparkles className="w-2.5 h-2.5 text-blue-600" />
+                  <span>Ask AI Assistant</span>
+                </button>
+
                 {/* Quick Filter Pill: Doctor Recommended */}
                 <button
                   type="button"
@@ -1579,9 +1602,9 @@ export default function BookPage() {
         </main>
       )}
 
-      {/* STICKY FLOATING BOTTOM CART BAR */}
+      {/* STICKY FLOATING BOTTOM CART BAR (Mobile/Tablet only, hidden on Desktop where sidebar cart summary is visible) */}
       {screen === "catalog" && cartItems.length > 0 && (
-        <div className="fixed bottom-[68px] lg:bottom-6 left-3 right-3 lg:left-auto lg:right-6 lg:max-w-md z-[9990] bg-[#0B2545] text-white rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-emerald-400/40 flex items-center justify-between gap-3 animate-in slide-in-from-bottom duration-200">
+        <div className="lg:hidden fixed bottom-[68px] left-3 right-3 z-[9990] bg-[#0B2545] text-white rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-emerald-400/40 flex items-center justify-between gap-3 animate-in slide-in-from-bottom duration-200">
           <div className="flex items-center gap-3 min-w-0">
             <div className="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
               <ShoppingCart className="w-5 h-5 text-white" />

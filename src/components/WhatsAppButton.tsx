@@ -18,7 +18,7 @@ export default function WhatsAppButton() {
       title="Chat on WhatsApp"
       className={`fixed z-[10000] items-center justify-center rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-md sm:shadow-lg shadow-emerald-600/30 cursor-pointer border-2 border-white transition-all duration-200 active:scale-95 group ${
         isBookPage
-          ? "hidden lg:flex w-14 h-14 bottom-6 right-6"
+          ? "hidden"
           : "flex w-11 h-11 sm:w-14 sm:h-14 bottom-[74px] right-3.5 sm:bottom-[84px] sm:right-4 lg:bottom-6 lg:right-6"
       }`}
     >

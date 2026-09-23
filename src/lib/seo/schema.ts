@@ -4,6 +4,7 @@
  */
 
 import {
+  BUSINESS_HOURS,
   BUSINESS_LEGAL_NAME,
   BUSINESS_NAME,
   BUSINESS_PARENT_COMPANY,
@@ -138,7 +139,7 @@ export const SEO_FAQS = [
   },
   {
     q: "What are QXL Diagnostics lab hours?",
-    a: "Patient walk-in collection centre hours are Monday–Saturday 7:00 AM–9:00 PM and Sunday 7:00 AM–2:00 PM. Doorstep home collection is available daily from 6:00 AM to 8:00 PM across Bengaluru. NABL lab sample processing operates 24x7.",
+    a: `Walk-in patient collection hours: Kengeri Main Lab (${BUSINESS_HOURS.walkInHours.kengeri.display}) and Yelahanka North Hub (${BUSINESS_HOURS.walkInHours.yelahanka.display}). Doorstep home collection is available daily (${BUSINESS_HOURS.homeCollectionHours.display}). Central NABL sample processing operates 24×7.`,
   },
   {
     q: "Who founded QXL Diagnostics?",
@@ -262,15 +263,9 @@ export function buildRootSchemaGraph() {
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            opens: "07:00",
-            closes: "21:00",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: "Sunday",
-            opens: "07:00",
-            closes: "14:00",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            opens: "00:00",
+            closes: "23:59",
           },
         ],
         priceRange: "₹₹",
@@ -333,15 +328,9 @@ export function buildRootSchemaGraph() {
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
             opens: "07:00",
-            closes: "21:00",
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: "Sunday",
-            opens: "07:00",
-            closes: "14:00",
+            closes: "20:00",
           },
         ],
       },

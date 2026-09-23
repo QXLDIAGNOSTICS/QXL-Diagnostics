@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import { cmsStore } from '../lib/cmsStore';
 import { useAuth } from '../lib/useAuth';
-import { SOCIAL_LINKS, ISO_STANDARD } from '../lib/businessInfo';
+import { SOCIAL_LINKS, ISO_STANDARD, BUSINESS_HOURS } from '../lib/businessInfo';
 import { optimizeCloudinaryUrl } from '../lib/cloudinary';
 
 const FALLBACK_LOGO =
@@ -42,7 +42,7 @@ export default function Footer() {
     supportEmail: "info@qxldiagnostics.com",
     hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
     northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
-    workingHours: "Walk-in: 6:30 AM–8:00 PM (Mon–Sun) · 24×7 Lab Operations",
+    workingHours: `Walk-in: Kengeri 24×7 · Yelahanka 7 AM–8 PM · Home Collection 7 AM–9 PM`,
     whatsappNumber: "+91 9964 639 639",
     copyrightText: `© ${year} QXL Diagnostics. All rights reserved.`,
     footerDesc: "QXL Diagnostics is a NABL Accredited super speciality diagnostic laboratory in Bengaluru offering advanced pathology, molecular diagnostics, histopathology, and AI-assisted precision diagnostics.",

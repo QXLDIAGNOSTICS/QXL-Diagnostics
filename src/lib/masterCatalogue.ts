@@ -29,6 +29,36 @@ export interface MasterCatalogEntry {
 }
 
 export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
+  {
+    id: "food-sensitivity-287",
+    name: "Comprehensive Food-Specific IgG Panel (287 Foods)",
+    shortName: "Food Sensitivity Test (287 Foods)",
+    category: "Allergy & Sensitivity",
+    price: 14500,
+    mrp: 18500,
+    parametersCount: 287,
+    paramText: "287 Food Antigens",
+    fasting: false,
+    fastingInstruction: "No Fasting Required",
+    sampleType: "Serum",
+    tat: "3–5 Days",
+    slug: "/food-sensitivity-test-bangalore",
+    icon: "🥗",
+    popular: true,
+    aliases: [
+      "food sensitivity test",
+      "food intolerance test bangalore",
+      "287 food sensitivity test",
+      "food sensitivity blood test",
+      "food intolerance blood test",
+      "igg food sensitivity test",
+      "food sensitivity microarray",
+      "food intolerance test price bangalore",
+      "food sensitivity test bangalore"
+    ],
+    homeCollectionAvailable: true,
+    kind: "test"
+  },
   // ── CORE BLOOD & ROUTINE TESTS ─────────────────────────────────────────────
   {
     id: "cbc",

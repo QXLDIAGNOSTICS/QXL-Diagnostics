@@ -87,5 +87,29 @@ export const CONDITIONS_DATA: Record<string, ConditionItem> = {
     faqs: [
       { question: "What is the most sensitive test for iron deficiency?", answer: "Serum Ferritin is the single most sensitive marker for detecting early iron store depletion before overt anaemia develops." }
     ]
+  },
+  "food-intolerance-digestive": {
+    slug: "food-intolerance-digestive",
+    title: "Food Sensitivity & Intolerance Diagnostics Bangalore | QXL",
+    h1Title: "Food Sensitivity & Digestive Intolerance Testing in Bangalore",
+    subtitle: "Comprehensive 287 IgG food antigen microarray panel for evaluating delayed dietary sensitivities, chronic bloating, and digestive discomfort.",
+    category: "Gastroenterology & Allergy",
+    symptoms: ["Chronic abdominal bloating & gas", "Recurrent IBS symptoms", "Unexplained skin rashes or eczema", "Post-meal fatigue & brain fog", "Irritable bowel discomfort"],
+    recommendedTests: [
+      { name: "Comprehensive Food Sensitivity Test (287 Foods)", slug: "food-sensitivity-test-bangalore", price: "14500", description: "Evaluates delayed IgG antibody reactivity against 287 food antigens." },
+      { name: "Total IgE Allergy Panel", slug: "ige-allergy-test", price: "1200", description: "Screens for immediate IgE-mediated allergic reactions." },
+      { name: "Liver Function Test (LFT)", slug: "liver-function-test", price: "425", description: "Evaluates hepatic digestive enzyme production and bile excretion." }
+    ],
+    overview: [
+      "Delayed food sensitivity involves Immunoglobulin G (IgG) antibody reactions to specific food proteins, causing symptoms hours to days after consumption.",
+      "Quantitative 287 food IgG testing provides an empirical basis for structured elimination and rotation diets under clinical guidance."
+    ],
+    guidelines: [
+      "No fasting is required for the 287 food sensitivity IgG blood panel.",
+      "Maintain a regular diet leading up to sample collection so circulating food-specific IgG antibodies remain detectable."
+    ],
+    faqs: [
+      { question: "How does a food sensitivity IgG test help structure a diet?", answer: "IgG testing categorizes 287 foods into low, moderate, and elevated reactivity tiers, allowing clinicians and nutritionists to guide targeted elimination diets." }
+    ]
   }
 };

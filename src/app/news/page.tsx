@@ -195,8 +195,62 @@ export default function NewsIndexPage() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
 
+        {/* Digital Health News Editorial Feature */}
+        <div className="mt-8 bg-gradient-to-br from-white via-sky-50/40 to-white rounded-3xl border border-sky-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div>
+              <div className="flex items-center gap-3 text-xs font-bold text-slate-500 mb-3 flex-wrap">
+                <span className="flex items-center gap-1.5 text-[#D69A18]">
+                  <Calendar className="w-4 h-4" />
+                  <time dateTime="2026-09-22">22 September 2026</time>
+                </span>
+                <span>•</span>
+                <span className="text-sky-800 font-extrabold bg-sky-100 px-2.5 py-0.5 rounded-full border border-sky-200">
+                  Digital Health News (DHN Feature)
+                </span>
+                <span>•</span>
+                <span className="text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full font-extrabold border border-emerald-200">
+                  Editorial Recognition
+                </span>
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-[#0f2d5e] leading-tight mb-4">
+                Digital Health News Features QXL Diagnostics&apos; Doctor-Led Quality Governance &amp; HLM Model
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium mb-5">
+                Digital Health News (DHN) published an exclusive editorial spotlighting QXL Diagnostics Super Speciality Lab for its technology-assisted laboratory quality systems, NABL accreditation standards, and physician-trusted Hospital Laboratory Management (HLM) framework.
+              </p>
+
+              {/* Key Highlights */}
+              <div className="bg-white border border-sky-150 rounded-2xl p-4 space-y-2 mb-2 shadow-2xs">
+                {[
+                  "Doctor-led clinical governance under Founder & Chief Clinical Biochemist Dr. Shantakumar Muruda",
+                  "Strict NABL MC-6849 & ISO 15189:2022 medical laboratory compliance",
+                  "Turnkey HLM model relieving hospitals of equipment capital burdens",
+                  "AI-assisted diagnostic guidance & same-day digital report delivery",
+                ].map((highlight, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-xs font-semibold text-slate-700">
+                    <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
+                    <span>{highlight}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+              <a
+                href="https://digitalhealthnews.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#0B2545] hover:bg-[#164263] text-white font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider inline-flex items-center gap-2 shadow-md transition-all active:scale-95"
+              >
+                <span>Read Digital Health News Feature</span>
+                <ExternalLink className="w-4 h-4 text-sky-300" />
+              </a>
+
               <span className="text-xs text-slate-500 font-semibold">
-                Covered in Business Standard, The Hindu, News18 &amp; more
+                Healthcare Industry Editorial &amp; Hospital Partnership Mention
               </span>
             </div>
           </div>

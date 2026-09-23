@@ -23,6 +23,7 @@ const HEALTH_PAGES = [
   '/health/numbness-tingling-causes',
   '/health/skin-rash-itching-causes',
   '/health/recurrent-infections-causes',
+  '/health/bloating-after-eating-food-sensitivity',
 ];
 
 export async function GET() {

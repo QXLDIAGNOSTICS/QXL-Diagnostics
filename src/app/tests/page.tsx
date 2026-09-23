@@ -350,6 +350,53 @@ export default function TestsPage() {
         )}
       </main>
 
+      {/* ── CRAWLABLE HTML DISCOVERY HUB FOR SEARCH ENGINES & USERS ── */}
+      <section className="max-w-[1260px] mx-auto px-4 mt-12 pt-8 border-t border-slate-200">
+        <div className="mb-6">
+          <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-2">
+            CRAWLABLE DIAGNOSTIC INDEX
+          </span>
+          <h2 className="text-xl sm:text-2xl font-black text-[#0f2d5e]">
+            Full Diagnostic Tests Directory (Alphabetical &amp; Specialty Index)
+          </h2>
+          <p className="text-slate-500 text-xs font-medium mt-1">
+            Browse all 300+ diagnostic tests offered at QXL Diagnostics Bengaluru by Specialty and Alphabetically.
+          </p>
+        </div>
+
+        {/* Specialty Alphabetical Crawlable Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 bg-slate-50 p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-2xs">
+          {["Allergy & Sensitivity", "Blood Tests", "Diabetes", "Heart", "Hormones", "Kidney", "Liver", "Thyroid", "Vitamins", "Minerals", "Urine Tests"].map((spec) => {
+            const specTests = MASTER_CATALOGUE.filter((t) => t.category === spec || (spec === "Allergy & Sensitivity" && t.category.includes("Allergy")));
+            if (specTests.length === 0) return null;
+            return (
+              <div key={spec} className="bg-white rounded-2xl p-4 border border-slate-200">
+                <h3 className="font-extrabold text-sm text-[#0f2d5e] pb-2 border-b border-slate-100 flex items-center justify-between">
+                  <span>{spec}</span>
+                  <span className="text-[10px] text-slate-400 font-bold bg-slate-100 px-2 py-0.5 rounded-full">{specTests.length} Tests</span>
+                </h3>
+                <ul className="mt-3 space-y-1.5 text-xs">
+                  {specTests.map((t) => {
+                    const testHref = t.slug.startsWith("/tests") ? t.slug : `/tests${t.slug}`;
+                    return (
+                      <li key={t.id}>
+                        <Link
+                          href={testHref}
+                          className="text-slate-700 hover:text-[#D69A18] font-semibold transition-colors flex items-center justify-between group"
+                        >
+                          <span className="group-hover:underline truncate">{t.name}</span>
+                          <span className="text-[11px] font-black text-slate-500 ml-2">₹{t.price}</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
       {/* SEO Content Footer Box */}
       <section className="max-w-[1260px] mx-auto px-4 mt-10">
         <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-xs space-y-4">

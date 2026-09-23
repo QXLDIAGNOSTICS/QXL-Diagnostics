@@ -51,14 +51,44 @@ export const NABL_CERTIFICATE = CONFIG_NABL_CERT; // NABL Certificate MC-6849
 export const NABL_ACCREDITATION_TEXT = CONFIG_TEXT;
 export const ISO_STANDARD = CONFIG_ISO;
 
-/** Centralized Business Hours specification to differentiate physical walk-ins vs 24x7 support */
+/** Centralized Business Hours specification to differentiate physical walk-ins vs lab processing vs home collection vs support */
 export const BUSINESS_HOURS = {
+  walkInHours: {
+    kengeri: {
+      display: "Open 24 Hours, 7 Days a Week (24×7 Walk-ins & Lab Operations)",
+      opens: "00:00",
+      closes: "23:59",
+      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    },
+    yelahanka: {
+      display: "Walk-in: 7:00 AM – 8:00 PM (Mon–Sun)",
+      opens: "07:00",
+      closes: "20:00",
+      days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    },
+  },
+  labProcessingHours: {
+    display: "24×7 Central NABL Laboratory Sample Processing",
+    hours: "24x7",
+  },
+  homeCollectionHours: {
+    display: "Doorstep Visits: 7:00 AM – 9:00 PM (Mon–Sun)",
+    opens: "07:00",
+    closes: "21:00",
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+  },
+  supportHours: {
+    display: "24×7 Online Booking & Phone Support (+91 9964 639 639)",
+    hours: "24x7",
+  },
+
+  // Legacy mappings for backwards compatibility
   kengeri: {
-    display: "Open 24 Hours, 7 Days a Week (24×7 Lab Operations & Walk-ins)",
+    display: "Open 24 Hours, 7 Days a Week (24×7 Walk-ins & Lab Operations)",
     opens: "00:00",
-    closes: "24:00",
+    closes: "23:59",
     sunOpens: "00:00",
-    sunCloses: "24:00",
+    sunCloses: "23:59",
   },
   yelahanka: {
     display: "Walk-in: 7:00 AM – 8:00 PM (Mon–Sun)",
