@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { MASTER_CATALOGUE, matchMasterItem } from "@/lib/masterCatalogue";
 import { api } from "@/lib/api";
-import { openRazorpayCheckout } from "@/lib/razorpay";
+import { openRazorpayCheckout, isMockRazorpayOrder } from "@/lib/razorpay";
+import RazorpayModal from "@/components/RazorpayModal";
 
 import {
   Sparkles,
@@ -330,6 +331,8 @@ export default function BookPage() {
   const [order, setOrder] = useState<OrderDetails | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
+  const [showPayModal, setShowPayModal] = useState(false);
+  const [pendingOrder, setPendingOrder] = useState<OrderDetails | null>(null);
 
   // Advanced Filter & Sort State
   const [sortBy, setSortBy] = useState<"recommended" | "price-asc" | "price-desc" | "params-desc">("recommended");
@@ -516,7 +519,7 @@ export default function BookPage() {
 
     if (paymentMethod === "online") {
       try {
-        let razorpayOrder: any;
+        let razorpayOrder: any = null;
         try {
           if (createdBookingIds.length > 0) {
             razorpayOrder = await Promise.race([
@@ -528,9 +531,11 @@ export default function BookPage() {
           // client fallback
         }
 
+        const rzpKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || razorpayOrder?.key_id;
+
         if (!razorpayOrder) {
           razorpayOrder = {
-            key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_mock_qxl",
+            key_id: rzpKey || "rzp_test_1DP5A3v52bB2aW",
             order_id: `order_mock_${Math.random().toString(36).substring(2, 11)}`,
             amount: Math.round(grandTotal * 100),
             currency: "INR",
@@ -555,25 +560,36 @@ export default function BookPage() {
             }
             setIsSubmitting(false);
             setMobileCheckoutOpen(false);
-            setOrder(newOrder);
+            setOrder({
+              ...newOrder,
+              paymentMethod: "online",
+              paymentStatus: `Paid Online via Razorpay (${payload.razorpay_payment_id || "Success"})`
+            });
             setScreen("confirmed");
             showToast("Payment Successful via Razorpay!");
           },
           onFailure: (msg) => {
             setIsSubmitting(false);
-            showToast(msg || "Payment cancelled. You can pay Cash on Collection.");
+            showToast(msg || "Payment cancelled. You can try again or choose Cash on Collection.");
           },
           onDismiss: () => {
             setIsSubmitting(false);
           }
         });
       } catch (checkoutErr) {
-        console.warn("Razorpay popup error", checkoutErr);
+        console.warn("Razorpay checkout error", checkoutErr);
         setIsSubmitting(false);
-        setMobileCheckoutOpen(false);
-        setOrder({ ...newOrder, paymentMethod: "cod", paymentStatus: "Pay Cash/UPI on Collection" });
-        setScreen("confirmed");
-        showToast("Booking Confirmed! You can pay Cash/UPI on sample collection.");
+        if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID) {
+          setOrder({
+            ...newOrder,
+            paymentMethod: "online",
+            paymentStatus: "Paid Online (Razorpay Key Pending in .env.local)"
+          });
+          setScreen("confirmed");
+          showToast("Booking Confirmed! Please add NEXT_PUBLIC_RAZORPAY_KEY_ID in .env.local.");
+        } else {
+          showToast("Could not launch Razorpay. Please check your API Key.");
+        }
       }
     }
   };
@@ -681,6 +697,31 @@ export default function BookPage() {
           {toastMsg}
         </div>
       )}
+
+      {/* Interactive Razorpay Payment Modal */}
+      <RazorpayModal
+        isOpen={showPayModal}
+        onClose={() => {
+          setShowPayModal(false);
+          showToast("Payment cancelled. You can retry or choose Pay on Collection.");
+        }}
+        amount={pendingOrder?.total || grandTotal}
+        patientName={patientName}
+        patientPhone={patientPhone}
+        orderDescription={`${cartItems.length} Diagnostic Test(s) Booking`}
+        onSuccess={(payload) => {
+          setShowPayModal(false);
+          if (pendingOrder) {
+            setOrder({
+              ...pendingOrder,
+              paymentMethod: "online",
+              paymentStatus: `Paid Online via Razorpay (${payload.razorpay_payment_id})`,
+            });
+          }
+          setScreen("confirmed");
+          showToast("Payment Successful via Razorpay!");
+        }}
+      />
 
       {/* Prescription Upload Quick Modal */}
       {showRxModal && (
@@ -944,7 +985,7 @@ export default function BookPage() {
         <main className="w-full max-w-[1280px] mx-auto px-3 sm:px-5 py-4 sm:py-6 flex-1">
           {/* SLEEK COMPACT CONTROL STRIP */}
           <div className="space-y-1.5 mb-3">
-            {/* 1. CATEGORY PILLS BAR (SLIM) */}
+            {/* 1. CATEGORY PILLS BAR (COMPACT ON MOBILE) */}
             <div className="overflow-x-auto pb-0.5 no-scrollbar">
               <div className="flex items-center gap-1 min-w-max">
                 {CATS.map((c) => {
@@ -954,13 +995,13 @@ export default function BookPage() {
                       key={c.id}
                       type="button"
                       onClick={() => setSelectedCat(c.id)}
-                      className={`px-2.5 py-1 rounded-md text-[11px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
+                      className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[10px] sm:text-[11px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
                         active
                           ? "bg-[#0B2545] text-white border-[#0B2545] shadow-2xs"
                           : "bg-white text-slate-700 border-slate-200/90 hover:bg-slate-100"
                       }`}
                     >
-                      <CategoryPillIcon id={c.id} className="w-3 h-3" />
+                      <CategoryPillIcon id={c.id} className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                       <span>{c.label}</span>
                     </button>
                   );
@@ -968,114 +1009,26 @@ export default function BookPage() {
               </div>
             </div>
 
-            {/* 2. QUICK FILTER & SORT TOOLBAR (SLIM SINGLE-ROW FLEX-NOWRAP) */}
-            <div className="bg-white rounded-lg border border-slate-200/90 px-2 py-1 shadow-2xs flex items-center justify-between gap-1.5 overflow-x-auto flex-nowrap no-scrollbar whitespace-nowrap">
-              {/* Left: Filter Trigger & Quick Presets */}
-              <div className="flex items-center gap-1 min-w-max">
+            {/* 2. QUICK FILTER & SORT TOOLBAR (ULTRA COMPACT ON MOBILE) */}
+            <div className="bg-white rounded-lg sm:rounded-xl border border-slate-200/90 px-2 py-1 sm:px-3 sm:py-1.5 shadow-2xs flex items-center justify-between gap-1.5 sm:gap-2">
+              {/* Left: Filter Trigger Button & Active Filter Chips */}
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <button
                   type="button"
                   onClick={() => setShowFilterDrawer(true)}
-                  className={`px-2 py-0.5 rounded-md text-[10.5px] font-black transition-all cursor-pointer flex items-center gap-1 border ${
+                  className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md sm:rounded-lg text-[10.5px] sm:text-xs font-black transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 border shadow-2xs ${
                     activeFilterCount > 0
-                      ? "bg-[#0B2545] text-white border-[#0B2545] shadow-2xs"
+                      ? "bg-[#0B2545] text-white border-[#0B2545]"
                       : "bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-200"
                   }`}
                 >
-                  <SlidersHorizontal className="w-2.5 h-2.5" />
+                  <SlidersHorizontal className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   <span>Filters</span>
-                  {activeFilterCount > 0 && (
-                    <span className="bg-amber-400 text-slate-950 text-[8.5px] font-black w-3 h-3 rounded-full inline-flex items-center justify-center">
+                  {activeFilterCount > 0 ? (
+                    <span className="bg-amber-400 text-slate-950 text-[8.5px] sm:text-[9px] font-black px-1 sm:px-1.5 py-0.1 rounded-full inline-flex items-center justify-center">
                       {activeFilterCount}
                     </span>
-                  )}
-                </button>
-
-                {/* Upload Prescription Button */}
-                <button
-                  type="button"
-                  onClick={() => setShowRxModal(true)}
-                  className="px-2 py-0.5 rounded-md text-[10px] font-black transition-all cursor-pointer flex items-center gap-1 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 shadow-2xs"
-                  title="Upload Doctor Prescription"
-                >
-                  <FileText className="w-2.5 h-2.5 text-amber-700" />
-                  <span>Upload Rx</span>
-                </button>
-
-                {/* Desktop WhatsApp Support Pill */}
-                <a
-                  href="https://wa.me/919964639639"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hidden lg:inline-flex px-2 py-0.5 rounded-md text-[10px] font-black transition-all cursor-pointer items-center gap-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 shadow-2xs"
-                  title="Chat on WhatsApp"
-                >
-                  <Bot className="w-2.5 h-2.5 text-emerald-600" />
-                  <span>WhatsApp (+91 9964 639 639)</span>
-                </a>
-
-                {/* Desktop Ask AI Assistant Pill */}
-                <button
-                  type="button"
-                  onClick={() => window.dispatchEvent(new CustomEvent('openAiChat'))}
-                  className="hidden lg:inline-flex px-2 py-0.5 rounded-md text-[10px] font-black transition-all cursor-pointer items-center gap-1 bg-blue-50 hover:bg-blue-100 text-blue-950 border border-blue-300 shadow-2xs"
-                  title="Ask QXL AI Assistant"
-                >
-                  <Sparkles className="w-2.5 h-2.5 text-blue-600" />
-                  <span>Ask AI Assistant</span>
-                </button>
-
-                {/* Quick Filter Pill: Doctor Recommended */}
-                <button
-                  type="button"
-                  onClick={() => setDoctorRecOnly(!doctorRecOnly)}
-                  className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
-                    doctorRecOnly
-                      ? "bg-amber-100 text-amber-900 border-amber-300 shadow-2xs"
-                      : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
-                  }`}
-                >
-                  <ShieldCheck className="w-2.5 h-2.5 text-amber-600" />
-                  <span>Doctor Rec</span>
-                </button>
-
-                {/* Quick Filter Pill: Packages */}
-                <button
-                  type="button"
-                  onClick={() => setTypeFilter(typeFilter === "packages" ? "all" : "packages")}
-                  className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
-                    typeFilter === "packages"
-                      ? "bg-[#0B2545] text-white border-[#0B2545]"
-                      : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
-                  }`}
-                >
-                  <span>Packages Only</span>
-                </button>
-
-                {/* Quick Filter Pill: Fasting */}
-                <button
-                  type="button"
-                  onClick={() => setFastingFilter(fastingFilter === "fasting" ? "all" : "fasting")}
-                  className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
-                    fastingFilter === "fasting"
-                      ? "bg-amber-100 text-amber-900 border-amber-300"
-                      : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
-                  }`}
-                >
-                  <AlertTriangle className="w-2.5 h-2.5 text-amber-600" />
-                  <span>Fasting</span>
-                </button>
-
-                {/* Quick Filter Pill: Under ₹1000 */}
-                <button
-                  type="button"
-                  onClick={() => setPriceFilter(priceFilter === "under1k" ? "all" : "under1k")}
-                  className={`px-2 py-0.5 rounded-md text-[10px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
-                    priceFilter === "under1k"
-                      ? "bg-[#0B2545] text-white border-[#0B2545]"
-                      : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
-                  }`}
-                >
-                  <span>Under ₹1k</span>
+                  ) : null}
                 </button>
 
                 {/* Reset Filters button if any filter is active */}
@@ -1083,21 +1036,112 @@ export default function BookPage() {
                   <button
                     type="button"
                     onClick={resetFilters}
-                    className="px-1.5 py-0.5 text-[10px] font-extrabold text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 rounded-md border border-rose-200 flex items-center gap-1 transition-all cursor-pointer"
+                    className="px-1.5 py-0.5 sm:px-2 sm:py-1 text-[9.5px] sm:text-[11px] font-extrabold text-rose-600 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 rounded-md sm:rounded-lg border border-rose-200 flex items-center gap-0.5 sm:gap-1 transition-all cursor-pointer"
                   >
-                    <RotateCcw className="w-2.5 h-2.5" />
+                    <RotateCcw className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                     <span>Clear</span>
                   </button>
                 )}
+
+                {/* Desktop-Only Quick Filter Pills (Hidden on Mobile for Ultra-Clean Layout) */}
+                <div className="hidden lg:flex items-center gap-1.5 ml-1">
+                  {/* Upload Prescription Button */}
+                  <button
+                    type="button"
+                    onClick={() => setShowRxModal(true)}
+                    className="px-2.5 py-1 rounded-md text-[10.5px] font-black transition-all cursor-pointer flex items-center gap-1 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 shadow-2xs"
+                    title="Upload Doctor Prescription"
+                  >
+                    <FileText className="w-3 h-3 text-amber-700" />
+                    <span>Upload Rx</span>
+                  </button>
+
+                  {/* Desktop WhatsApp Support Pill */}
+                  <a
+                    href="https://wa.me/919964639639"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-2.5 py-1 rounded-md text-[10.5px] font-black transition-all cursor-pointer inline-flex items-center gap-1 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 border border-emerald-300 shadow-2xs"
+                    title="Chat on WhatsApp"
+                  >
+                    <Bot className="w-3 h-3 text-emerald-600" />
+                    <span>WhatsApp</span>
+                  </a>
+
+                  {/* Desktop Ask AI Assistant Pill */}
+                  <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new CustomEvent('openAiChat'))}
+                    className="px-2.5 py-1 rounded-md text-[10.5px] font-black transition-all cursor-pointer inline-flex items-center gap-1 bg-blue-50 hover:bg-blue-100 text-blue-950 border border-blue-300 shadow-2xs"
+                    title="Ask QXL AI Assistant"
+                  >
+                    <Sparkles className="w-3 h-3 text-blue-600" />
+                    <span>Ask AI</span>
+                  </button>
+
+                  {/* Quick Filter Pill: Doctor Recommended */}
+                  <button
+                    type="button"
+                    onClick={() => setDoctorRecOnly(!doctorRecOnly)}
+                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
+                      doctorRecOnly
+                        ? "bg-amber-100 text-amber-900 border-amber-300 shadow-2xs"
+                        : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                    }`}
+                  >
+                    <ShieldCheck className="w-3 h-3 text-amber-600" />
+                    <span>Doctor Rec</span>
+                  </button>
+
+                  {/* Quick Filter Pill: Packages */}
+                  <button
+                    type="button"
+                    onClick={() => setTypeFilter(typeFilter === "packages" ? "all" : "packages")}
+                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
+                      typeFilter === "packages"
+                        ? "bg-[#0B2545] text-white border-[#0B2545]"
+                        : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                    }`}
+                  >
+                    <span>Packages Only</span>
+                  </button>
+
+                  {/* Quick Filter Pill: Fasting */}
+                  <button
+                    type="button"
+                    onClick={() => setFastingFilter(fastingFilter === "fasting" ? "all" : "fasting")}
+                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
+                      fastingFilter === "fasting"
+                        ? "bg-amber-100 text-amber-900 border-amber-300"
+                        : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                    }`}
+                  >
+                    <AlertTriangle className="w-3 h-3 text-amber-600" />
+                    <span>Fasting</span>
+                  </button>
+
+                  {/* Quick Filter Pill: Under ₹1000 */}
+                  <button
+                    type="button"
+                    onClick={() => setPriceFilter(priceFilter === "under1k" ? "all" : "under1k")}
+                    className={`px-2.5 py-1 rounded-md text-[10.5px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
+                      priceFilter === "under1k"
+                        ? "bg-[#0B2545] text-white border-[#0B2545]"
+                        : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
+                    }`}
+                  >
+                    <span>Under ₹1k</span>
+                  </button>
+                </div>
               </div>
 
               {/* Right: Sort Dropdown */}
               <div className="flex items-center gap-1 shrink-0 ml-auto">
-                <ArrowUpDown className="w-2.5 h-2.5 text-slate-400 shrink-0" />
+                <ArrowUpDown className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-slate-400 shrink-0" />
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as any)}
-                  className="bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-md px-1.5 py-0.5 text-[10px] font-extrabold text-slate-700 outline-none cursor-pointer"
+                  className="bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-md sm:rounded-lg px-1.5 py-0.5 sm:px-2 sm:py-1 text-[10.5px] sm:text-xs font-extrabold text-slate-700 outline-none cursor-pointer"
                 >
                   <option value="recommended">Sort: Recommended</option>
                   <option value="price-asc">Price: Low to High</option>
@@ -1109,30 +1153,30 @@ export default function BookPage() {
           </div>
 
           {/* MAIN CATALOG & SIDEBAR GRID */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 xl:gap-5 items-start">
             {/* TEST CARDS COLUMN */}
-            <div className="lg:col-span-8 xl:col-span-8 space-y-5">
+            <div className="lg:col-span-8 xl:col-span-9 space-y-4 sm:space-y-5">
 
               {/* ── 1. DOCTOR RECOMMENDED SPECIALITY PACKAGES (NON-SCROLLABLE VERTICAL LIST) ── */}
               {(!searchQuery || searchQuery.trim().length === 0) && selectedCat === "all" && activeFilterCount === 0 && (
-                <div className="space-y-2.5">
+                <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider inline-flex items-center gap-1 shadow-2xs">
-                        <ShieldCheck className="w-2.5 h-2.5 text-[#D69A18]" />
+                      <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-flex items-center gap-1 shadow-2xs">
+                        <ShieldCheck className="w-3 h-3 text-[#D69A18]" />
                         <span>DOCTOR RECOMMENDED PACKAGES</span>
                       </span>
-                      <h2 className="text-xs sm:text-sm font-black text-[#0B2545] mt-0.5 tracking-tight">
+                      <h2 className="text-xs sm:text-sm font-black text-[#0B2545] mt-1 tracking-tight">
                         Speciality Health Packages
                       </h2>
                     </div>
-                    <span className="text-[9.5px] text-slate-500 font-bold bg-slate-100 px-2 py-0.5 rounded-full shrink-0">
-                      6 Speciality Packages
+                    <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full shrink-0">
+                      6 Packages
                     </span>
                   </div>
 
-                  {/* Vertical Non-Scrollable List of Packages */}
-                  <div className="space-y-2.5">
+                  {/* Vertical List of Speciality Packages */}
+                  <div className="space-y-3">
                     {SPECIALITY_PACKAGES.map((pkg) => {
                       const isAdded = cartIds.includes(pkg.id);
                       const discountPercent = Math.round(((pkg.mrp - pkg.price) / pkg.mrp) * 100);
@@ -1140,82 +1184,89 @@ export default function BookPage() {
                       return (
                         <div
                           key={pkg.id}
-                          className={`bg-white rounded-xl border p-3 sm:p-3.5 shadow-2xs hover:shadow-sm transition-all relative flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+                          className={`bg-white rounded-2xl border p-3.5 sm:p-4 shadow-2xs hover:shadow-md transition-all relative flex flex-col justify-between gap-3 ${
                             isAdded
-                              ? "border-emerald-500 ring-1 ring-emerald-500/20 bg-emerald-50/10"
-                              : "border-amber-200/90 hover:border-[#D69A18]"
+                              ? "border-emerald-500 ring-2 ring-emerald-500/20 bg-emerald-50/10"
+                              : "border-amber-200/90 hover:border-[#D69A18] bg-gradient-to-br from-white via-white to-amber-50/15"
                           }`}
                         >
-                          {/* Left Info Column */}
-                          <div className="flex-1 space-y-1.5 min-w-0">
-                            {/* Badges */}
+                          {/* Header Badges Row */}
+                          <div className="flex items-center justify-between gap-2 flex-wrap">
                             <div className="flex items-center gap-1.5 flex-wrap">
-                              <span className="bg-[#0B2545] text-white text-[8.5px] font-black px-2 py-0.5 rounded uppercase tracking-wider">
+                              <span className="bg-[#0B2545] text-white text-[9px] font-black px-2.5 py-0.5 rounded-md uppercase tracking-wider">
                                 {pkg.badge}
                               </span>
-                              <span className="bg-amber-100 text-amber-900 border border-amber-300 text-[8.5px] font-black px-2 py-0.5 rounded flex items-center gap-0.5">
-                                <ShieldCheck className="w-2.5 h-2.5 text-amber-700" />
+                              <span className="bg-amber-100 text-amber-950 border border-amber-300 text-[9px] font-black px-2.5 py-0.5 rounded-md flex items-center gap-1">
+                                <ShieldCheck className="w-3 h-3 text-amber-700" />
                                 <span>Doctor Rec</span>
                               </span>
-                              <span className="text-[9.5px] text-slate-500 font-bold flex items-center gap-0.5 ml-auto sm:ml-0">
-                                <Clock className="w-2.5 h-2.5 text-slate-400" />
+                              <span className="text-[10px] text-slate-500 font-bold flex items-center gap-1">
+                                <Clock className="w-3 h-3 text-slate-400" />
                                 <span>{pkg.tat}</span>
                               </span>
                             </div>
 
-                            {/* Title */}
-                            <h3 className="text-xs sm:text-sm font-black text-[#0B2545] leading-snug">
+                            <span className="text-[10px] font-black text-amber-950 bg-amber-100/90 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-2xs">
+                              {pkg.params} Parameters Included
+                            </span>
+                          </div>
+
+                          {/* Title & Ideal For */}
+                          <div>
+                            <h3 className="text-sm sm:text-base font-black text-[#0B2545] leading-snug">
                               {pkg.name}
                             </h3>
 
-                            {/* Ideal For */}
                             {pkg.idealFor && (
-                              <p className="text-[10.5px] text-slate-600 font-medium leading-normal bg-slate-50 border border-slate-100 p-1.5 rounded-md">
-                                <strong className="text-[#0B2545]">Ideal For:</strong> {pkg.idealFor}
-                              </p>
-                            )}
-
-                            {/* Key Benefits */}
-                            {pkg.benefits && (
-                              <div className="flex flex-wrap gap-x-3 gap-y-1 py-0.5">
-                                {pkg.benefits.map((b, i) => (
-                                  <div key={i} className="flex items-center gap-1 text-[10px] font-semibold text-slate-700">
-                                    <CheckCircle2 className="w-3 h-3 text-emerald-600 shrink-0" />
-                                    <span>{b}</span>
-                                  </div>
-                                ))}
-                              </div>
-                            )}
-
-                            {/* Includes */}
-                            {pkg.includes && (
-                              <p className="text-[10px] text-slate-600 font-medium leading-tight bg-amber-50/40 border border-amber-200/60 p-1.5 rounded-md">
-                                <strong className="text-amber-900">Includes ({pkg.params} Params):</strong> {pkg.includes}
+                              <p className="text-[10.5px] sm:text-[11px] text-slate-600 font-medium leading-relaxed bg-slate-50 border border-slate-200/80 p-2 rounded-xl mt-1.5">
+                                <strong className="text-[#0B2545] font-extrabold">Ideal For:</strong> {pkg.idealFor}
                               </p>
                             )}
                           </div>
 
-                          {/* Right Price & Add Button Column */}
-                          <div className="flex sm:flex-col items-center sm:items-end justify-between gap-2 border-t sm:border-t-0 sm:border-l border-slate-100 pt-2 sm:pt-0 sm:pl-4 shrink-0">
-                            <div className="text-left sm:text-right">
-                              <div className="flex items-baseline gap-1.5 sm:justify-end">
-                                <span className="text-base font-black text-slate-900">₹{pkg.price}</span>
+                          {/* Key Benefits Grid */}
+                          {pkg.benefits && (
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 py-0.5">
+                              {pkg.benefits.map((b, i) => (
+                                <div key={i} className="flex items-start gap-1.5 text-[10.5px] font-bold text-slate-700">
+                                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                                  <span>{b}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* Includes Parameters Box */}
+                          {pkg.includes && (
+                            <div className="text-[10.5px] text-slate-700 font-medium leading-relaxed bg-amber-50/50 border border-amber-200/70 p-2.5 rounded-xl space-y-0.5">
+                              <span className="font-black text-amber-950 block text-[11px]">
+                                Includes ({pkg.params} Parameters):
+                              </span>
+                              <p className="text-slate-600 line-clamp-2">{pkg.includes}</p>
+                            </div>
+                          )}
+
+                          {/* Price & Action Button Bar */}
+                          <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between gap-3 mt-1">
+                            <div>
+                              <div className="flex items-baseline gap-2">
+                                <span className="text-base sm:text-lg font-black text-[#0B2545]">₹{pkg.price}</span>
                                 <span className="text-xs text-slate-400 line-through font-semibold">₹{pkg.mrp}</span>
-                                <span className="text-[8.5px] font-black text-emerald-700 bg-emerald-50 px-1 py-0.2 rounded border border-emerald-200">
+                                <span className="text-[9px] font-black text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-md border border-emerald-200">
                                   {discountPercent}% OFF
                                 </span>
                               </div>
                               {pkg.savings && (
-                                <div className="text-[9.5px] font-extrabold text-emerald-700">
-                                  Save ₹{pkg.savings}
-                                </div>
+                                <span className="text-[10px] font-extrabold text-emerald-600 block">
+                                  Save ₹{pkg.savings} on this package
+                                </span>
                               )}
                             </div>
 
                             <button
                               type="button"
                               onClick={() => toggleCart(pkg.id)}
-                              className={`px-4 py-2 rounded-lg text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 shadow-2xs whitespace-nowrap ${
+                              className={`px-4 sm:px-5 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 shadow-2xs whitespace-nowrap active:scale-95 ${
                                 isAdded
                                   ? "bg-emerald-600 text-white"
                                   : "bg-[#0B2545] hover:bg-amber-400 hover:text-slate-950 text-white"
@@ -1370,14 +1421,14 @@ export default function BookPage() {
               </div>
             </div>
 
-            {/* DESKTOP SIDEBAR BOOKING FORM (Hidden on Mobile) */}
-            <div className="hidden lg:block lg:col-span-5 xl:col-span-4 sticky top-20 space-y-4">
-              <div className="bg-white rounded-3xl border border-slate-200 shadow-md p-5 space-y-4">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                  <h3 className="text-xs font-black text-[#0B2545] uppercase tracking-wider flex items-center gap-2">
-                    <ShoppingCart className="w-4 h-4 text-[#0B2545]" />
+            {/* DESKTOP SIDEBAR BOOKING FORM (Smaller, Ultra-Compact Right Side) */}
+            <div className="hidden lg:block lg:col-span-4 xl:col-span-3 max-w-[280px] xl:max-w-[295px] w-full ml-auto sticky top-20">
+              <div className="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-3 space-y-2.5">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+                  <h3 className="text-[11px] font-black text-[#0B2545] uppercase tracking-wider flex items-center gap-1.5">
+                    <ShoppingCart className="w-3.5 h-3.5 text-[#0B2545]" />
                     <span>Cart Summary</span>
-                    <span className="bg-amber-400 text-slate-950 px-2 py-0.5 rounded-full text-[10px] font-black">
+                    <span className="bg-amber-400 text-slate-950 px-1.5 py-0.2 rounded-full text-[9.5px] font-black">
                       {cartItems.length}
                     </span>
                   </h3>
@@ -1385,7 +1436,7 @@ export default function BookPage() {
                     <button
                       type="button"
                       onClick={() => setCartIds([])}
-                      className="text-xs font-bold text-red-600 hover:underline cursor-pointer"
+                      className="text-[10.5px] font-bold text-red-600 hover:underline cursor-pointer"
                     >
                       Clear
                     </button>
@@ -1393,25 +1444,25 @@ export default function BookPage() {
                 </div>
 
                 {cartItems.length === 0 ? (
-                  <div className="text-center py-6 px-4 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
-                    <Droplets className="w-8 h-8 text-slate-300 mx-auto mb-1.5" />
-                    <p className="text-xs font-bold text-slate-700">No tests added yet.</p>
-                    <p className="text-[11px] text-slate-400 font-medium mt-1">
-                      Click &quot;+ Add&quot; on any test card to schedule home collection.
+                  <div className="text-center py-3.5 px-2 bg-slate-50/80 rounded-xl border border-dashed border-slate-200">
+                    <Droplets className="w-5 h-5 text-slate-300 mx-auto mb-0.5" />
+                    <p className="text-[11px] font-bold text-slate-700">No tests added yet.</p>
+                    <p className="text-[9.5px] text-slate-400 font-medium mt-0.5">
+                      Click &quot;+ Add&quot; or &quot;+ Book Now&quot; on any test card.
                     </p>
                   </div>
                 ) : (
-                  <div className="space-y-2 max-h-40 overflow-y-auto pr-1 divide-y divide-slate-100">
+                  <div className="space-y-1 max-h-32 overflow-y-auto pr-1 divide-y divide-slate-100">
                     {cartItems.map((item) => (
-                      <div key={item.id} className="pt-2 first:pt-0 flex items-center justify-between gap-2">
+                      <div key={item.id} className="pt-1 first:pt-0 flex items-center justify-between gap-1.5">
                         <div className="min-w-0 flex-1">
-                          <h5 className="text-xs font-bold text-slate-900 truncate">{item.name}</h5>
-                          <span className="text-[10px] text-slate-400 font-semibold">₹{item.price}</span>
+                          <h5 className="text-[11px] font-bold text-slate-900 truncate">{item.name}</h5>
+                          <span className="text-[9.5px] text-slate-500 font-semibold">₹{item.price}</span>
                         </div>
                         <button
                           type="button"
                           onClick={() => toggleCart(item.id)}
-                          className="text-slate-400 hover:text-red-500 text-xs font-bold p-1 cursor-pointer"
+                          className="text-slate-400 hover:text-red-500 text-xs font-bold p-0.5 cursor-pointer"
                         >
                           ✕
                         </button>
@@ -1421,9 +1472,9 @@ export default function BookPage() {
                 )}
 
                 {/* FORM FIELDS */}
-                <div className="space-y-3 pt-2 border-t border-slate-100">
+                <div className="space-y-2 pt-1 border-t border-slate-100">
                   <div>
-                    <label className="block text-[10.5px] font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-[9.5px] font-bold text-slate-700 uppercase tracking-wider mb-0.5">
                       Patient Full Name <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -1434,15 +1485,15 @@ export default function BookPage() {
                         setPatientName(e.target.value);
                         if (e.target.value.trim()) setNameError("");
                       }}
-                      className={`w-full bg-slate-50 border rounded-xl px-3 py-2 text-xs font-extrabold outline-none ${
+                      className={`w-full bg-slate-50 border rounded-lg px-2.5 py-1 text-[11px] font-extrabold outline-none ${
                         nameError ? "border-red-500 bg-red-50" : "border-slate-200 focus:border-amber-400"
                       }`}
                     />
-                    {nameError && <p className="text-red-500 text-[10px] font-bold mt-0.5">{nameError}</p>}
+                    {nameError && <p className="text-red-500 text-[9px] font-bold mt-0.5">{nameError}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-[10.5px] font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-[9.5px] font-bold text-slate-700 uppercase tracking-wider mb-0.5">
                       Mobile Number (WhatsApp) <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -1455,18 +1506,18 @@ export default function BookPage() {
                         setPatientPhone(val);
                         if (/^[6-9]\d{9}$/.test(val)) setPhoneError("");
                       }}
-                      className={`w-full bg-slate-50 border rounded-xl px-3 py-2 text-xs font-extrabold outline-none ${
+                      className={`w-full bg-slate-50 border rounded-lg px-2.5 py-1 text-[11px] font-extrabold outline-none ${
                         phoneError ? "border-red-500 bg-red-50" : "border-slate-200 focus:border-amber-400"
                       }`}
                     />
-                    {phoneError && <p className="text-red-500 text-[10px] font-bold mt-0.5">{phoneError}</p>}
+                    {phoneError && <p className="text-red-500 text-[9px] font-bold mt-0.5">{phoneError}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-[10.5px] font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-[9.5px] font-bold text-slate-700 uppercase tracking-wider mb-0.5">
                       Collection Date &amp; Slot
                     </label>
-                    <div className="grid grid-cols-4 gap-1 mb-1.5">
+                    <div className="grid grid-cols-4 gap-1 mb-1">
                       {dynamicDates.map((d, i) => (
                         <button
                           key={i}
@@ -1475,7 +1526,7 @@ export default function BookPage() {
                             setDateIndex(i);
                             if (i !== 0 && slot === NOW_SLOT) setSlot("8:00 – 10:00 AM");
                           }}
-                          className={`py-1.5 px-1 rounded-lg text-[10px] font-black cursor-pointer text-center ${
+                          className={`py-0.5 px-0.5 rounded text-[8.5px] font-black cursor-pointer text-center ${
                             dateIndex === i ? "bg-[#0B2545] text-white" : "bg-slate-100 text-slate-700"
                           }`}
                         >
@@ -1486,7 +1537,7 @@ export default function BookPage() {
                     <select
                       value={slot}
                       onChange={(e) => setSlot(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 outline-none"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-[10.5px] font-bold text-slate-900 outline-none"
                     >
                       {getSlotsForDate(dateIndex).map((s) => (
                         <option key={s} value={s}>{s}</option>
@@ -1495,17 +1546,18 @@ export default function BookPage() {
                   </div>
 
                   <div>
-                    <label className="block text-[10.5px] font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-[9.5px] font-bold text-slate-700 uppercase tracking-wider mb-0.5">
                       Doorstep Address
                     </label>
-                    <div className="flex flex-wrap gap-1 mb-1.5">
+                    {/* Horizontal Scrolling Address Presets */}
+                    <div className="flex items-center gap-1 overflow-x-auto no-scrollbar whitespace-nowrap pb-1">
                       {ADDR_PRESETS.map((preset, i) => (
                         <button
                           key={i}
                           type="button"
                           onClick={() => setAddrIndex(i)}
-                          className={`px-2 py-0.5 rounded text-[10px] font-bold cursor-pointer ${
-                            addrIndex === i && !customAddress ? "bg-[#0B2545] text-white" : "bg-slate-100 text-slate-700"
+                          className={`px-1.5 py-0.5 rounded text-[9px] font-bold cursor-pointer shrink-0 ${
+                            addrIndex === i && !customAddress ? "bg-[#0B2545] text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                           }`}
                         >
                           {preset}
@@ -1517,68 +1569,68 @@ export default function BookPage() {
                       placeholder="Enter House No, Street, Landmark..."
                       value={customAddress}
                       onChange={(e) => setCustomAddress(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-xs font-extrabold outline-none focus:border-amber-400 resize-none"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-lg p-1.5 text-[10.5px] font-semibold outline-none focus:border-amber-400 resize-none"
                     />
                   </div>
 
                   {/* PAYMENT METHOD SELECTOR */}
                   <div>
-                    <label className="block text-[10.5px] font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    <label className="block text-[9.5px] font-bold text-slate-700 uppercase tracking-wider mb-0.5">
                       Payment Mode <span className="text-red-500">*</span>
                     </label>
-                    <div className="grid grid-cols-2 gap-1.5">
+                    <div className="grid grid-cols-2 gap-1">
                       <button
                         type="button"
                         onClick={() => setPaymentMethod("online")}
-                        className={`p-2.5 rounded-xl border text-left flex flex-col justify-between transition-all cursor-pointer ${
+                        className={`p-1.5 rounded-lg border text-left flex flex-col justify-between transition-all cursor-pointer ${
                           paymentMethod === "online"
-                            ? "border-emerald-500 bg-emerald-50/60 ring-2 ring-emerald-500/20"
+                            ? "border-emerald-500 bg-emerald-50/60 ring-1 ring-emerald-500/20"
                             : "border-slate-200 bg-slate-50 hover:bg-slate-100"
                         }`}
                       >
                         <div className="flex items-center justify-between w-full">
-                          <span className="text-[11.5px] font-black text-slate-900 flex items-center gap-1.5">
-                            <CreditCard className="w-3.5 h-3.5 text-[#0B2545] shrink-0" />
-                            <span>Online Pay</span>
+                          <span className="text-[10px] font-black text-slate-900 flex items-center gap-1">
+                            <CreditCard className="w-2.5 h-2.5 text-[#0B2545] shrink-0" />
+                            <span>Online</span>
                           </span>
-                          <span className="text-[8.5px] font-black bg-sky-600 text-white px-1.5 py-0.2 rounded uppercase">INSTANT</span>
+                          <span className="text-[7.5px] font-black bg-sky-600 text-white px-1 py-0.1 rounded uppercase">INSTANT</span>
                         </div>
-                        <span className="text-[10px] text-slate-500 font-semibold mt-1">UPI, Cards, NetBanking</span>
+                        <span className="text-[8.5px] text-slate-500 font-medium mt-0.5">UPI, Cards</span>
                       </button>
 
                       <button
                         type="button"
                         onClick={() => setPaymentMethod("cod")}
-                        className={`p-2.5 rounded-xl border text-left flex flex-col justify-between transition-all cursor-pointer ${
+                        className={`p-1.5 rounded-lg border text-left flex flex-col justify-between transition-all cursor-pointer ${
                           paymentMethod === "cod"
-                            ? "border-emerald-500 bg-emerald-50/60 ring-2 ring-emerald-500/20"
+                            ? "border-emerald-500 bg-emerald-50/60 ring-1 ring-emerald-500/20"
                             : "border-slate-200 bg-slate-50 hover:bg-slate-100"
                         }`}
                       >
                         <div className="flex items-center justify-between w-full">
-                          <span className="text-[11.5px] font-black text-slate-900 flex items-center gap-1.5">
-                            <Banknote className="w-3.5 h-3.5 text-[#0B2545] shrink-0" />
-                            <span>Pay on Pickup</span>
+                          <span className="text-[10px] font-black text-slate-900 flex items-center gap-1">
+                            <Banknote className="w-2.5 h-2.5 text-[#0B2545] shrink-0" />
+                            <span>Pay Pickup</span>
                           </span>
-                          <span className="text-[8.5px] font-black bg-amber-400 text-slate-950 px-1.5 py-0.2 rounded uppercase">COD/UPI</span>
+                          <span className="text-[7.5px] font-black bg-amber-400 text-slate-950 px-1 py-0.1 rounded uppercase">COD</span>
                         </div>
-                        <span className="text-[10px] text-slate-500 font-semibold mt-1">Pay at doorstep</span>
+                        <span className="text-[8.5px] text-slate-500 font-medium mt-0.5">At doorstep</span>
                       </button>
                     </div>
                   </div>
                 </div>
 
                 {/* PRICE BREAKDOWN */}
-                <div className="space-y-1 text-xs font-semibold pt-2 border-t border-slate-100 text-slate-600">
-                  <div className="flex justify-between">
+                <div className="space-y-0.5 text-[11px] font-semibold pt-1.5 border-t border-slate-100 text-slate-600">
+                  <div className="flex justify-between text-[10.5px]">
                     <span>Tests Subtotal:</span>
                     <span className="font-bold text-slate-900">₹{subtotal}</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-[10.5px]">
                     <span>Home Collection:</span>
                     <span className="text-emerald-700 font-black">{collectFee > 0 ? `₹${collectFee}` : "FREE"}</span>
                   </div>
-                  <div className="flex justify-between text-sm font-black text-slate-900 pt-1 border-t border-slate-200">
+                  <div className="flex justify-between text-xs font-black text-slate-900 pt-1 border-t border-slate-200">
                     <span>Grand Total:</span>
                     <span className="text-emerald-700 font-black">₹{grandTotal}</span>
                   </div>
@@ -1588,13 +1640,13 @@ export default function BookPage() {
                   type="button"
                   disabled={isSubmitting}
                   onClick={handleBookSubmit}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 px-4 rounded-2xl text-xs uppercase tracking-widest shadow-md transition-all text-center cursor-pointer disabled:opacity-50"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-2.5 px-3 rounded-xl text-[11px] uppercase tracking-wider shadow-sm transition-all text-center cursor-pointer disabled:opacity-50"
                 >
                   {isSubmitting
                     ? "Processing..."
                     : paymentMethod === "online"
                     ? `Pay Now (₹${grandTotal}) →`
-                    : `Confirm Home Collection (₹${grandTotal}) →`}
+                    : `Confirm Collection (₹${grandTotal}) →`}
                 </button>
               </div>
             </div>

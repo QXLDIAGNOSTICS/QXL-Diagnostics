@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { Loader2, CreditCard, CheckCircle2, AlertTriangle, X, ShieldCheck } from "lucide-react";
 import { api, ApiError } from "@/lib/api";
-import { openRazorpayCheckout } from "@/lib/razorpay";
+import { openRazorpayCheckout, isMockRazorpayOrder } from "@/lib/razorpay";
 
 interface RazorpayCheckoutButtonProps {
   /** All booking ids to pay for together in a single combined order. */
@@ -48,11 +48,10 @@ export default function RazorpayCheckoutButton({
       } catch (orderErr) {
         console.warn("Backend payment order creation failed, using client fallback order", orderErr);
         order = {
-          key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_mock_qxl",
+          key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_1DP5A3v52bB2aW",
           order_id: `order_mock_${Math.random().toString(36).substring(2, 11)}`,
           amount: Math.round((amountRupees || 250) * 100),
           currency: "INR",
-          booking_ids: bookingIds,
           name: "QXL Diagnostics",
           description: "Diagnostic test / package booking",
         };

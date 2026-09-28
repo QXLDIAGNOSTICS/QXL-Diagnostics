@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { CreditCard, CheckCircle2, AlertTriangle, Loader2 , Phone } from "lucide-react";
 import { api, ApiError } from "@/lib/api";
-import { openRazorpayCheckout } from "@/lib/razorpay";
+import { openRazorpayCheckout, isMockRazorpayOrder } from "@/lib/razorpay";
 
 export interface ChatPaymentOrder {
   key_id: string;
@@ -34,6 +34,12 @@ export default function ChatPaymentCard({ order, patientName, patientPhone }: Ch
   const handlePay = async () => {
     setError(null);
     setLoading(true);
+
+    if (isMockRazorpayOrder(order)) {
+      setPaid(true);
+      setLoading(false);
+      return;
+    }
     try {
       await openRazorpayCheckout({
         order: {

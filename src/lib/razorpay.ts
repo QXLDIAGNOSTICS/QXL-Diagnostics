@@ -48,6 +48,13 @@ export interface RazorpayOrderInfo {
   description?: string;
 }
 
+export function isMockRazorpayOrder(order?: RazorpayOrderInfo | null): boolean {
+  if (!order || !order.order_id || !order.key_id) return true;
+  if (typeof order.order_id === "string" && order.order_id.startsWith("order_mock_")) return true;
+  if (typeof order.key_id === "string" && (order.key_id.startsWith("rzp_test_mock") || order.key_id === "rzp_test_mock_qxl")) return true;
+  return false;
+}
+
 export interface RazorpayVerifyPayload {
   razorpay_order_id: string;
   razorpay_payment_id: string;
@@ -62,7 +69,7 @@ export interface OpenRazorpayCheckoutOptions {
   onDismiss?: () => void;
 }
 
-/** Loads Checkout.js (if needed) and opens the Razorpay payment modal. */
+/** Loads Checkout.js (if needed) and opens the Razorpay payment modal page. */
 export async function openRazorpayCheckout({
   order,
   prefill,
@@ -75,26 +82,37 @@ export async function openRazorpayCheckout({
     throw new Error("Payment gateway could not be loaded. Please check your connection and try again.");
   }
 
-  const rzp = new window.Razorpay({
-    key: order.key_id,
+  const rawKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || order?.key_id;
+  const validKey =
+    rawKey && typeof rawKey === "string" && !rawKey.startsWith("rzp_test_mock") && rawKey !== "rzp_test_mock_qxl"
+      ? rawKey
+      : (process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "");
+
+  const rzpOptions: Record<string, unknown> = {
+    key: validKey,
     amount: order.amount,
-    currency: order.currency,
+    currency: order.currency || "INR",
     name: order.name || "QXL Diagnostics",
     description: order.description || "Diagnostic test / package booking",
-    order_id: order.order_id,
     prefill: {
       name: prefill?.name || undefined,
       email: prefill?.email || undefined,
       contact: prefill?.contact || undefined,
     },
-    theme: { color: "#2563eb" },
+    theme: { color: "#0B2545" },
     handler: (response: unknown) => {
       void onSuccess(response as RazorpayVerifyPayload);
     },
     modal: {
       ondismiss: () => onDismiss?.(),
     },
-  });
+  };
+
+  if (order.order_id && typeof order.order_id === "string" && !order.order_id.startsWith("order_mock_")) {
+    rzpOptions.order_id = order.order_id;
+  }
+
+  const rzp = new window.Razorpay(rzpOptions);
 
   rzp.on("payment.failed", (response: unknown) => {
     const err = (response as { error?: { description?: string } })?.error;
