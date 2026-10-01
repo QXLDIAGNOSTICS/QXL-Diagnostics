@@ -76,8 +76,8 @@ export default function RazorpayModal({
               <ShieldCheck className="w-4 h-4 text-white" />
             </div>
             <span className="font-extrabold text-sm tracking-wide">Razorpay</span>
-            <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider ml-auto mr-8">
-              TEST MODE
+            <span className="bg-emerald-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider ml-auto mr-8">
+              SECURE LIVE GATEWAY
             </span>
           </div>
 

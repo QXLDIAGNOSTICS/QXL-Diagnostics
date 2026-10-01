@@ -521,26 +521,24 @@ export default function BookPage() {
       try {
         let razorpayOrder: any = null;
         try {
-          if (createdBookingIds.length > 0) {
-            razorpayOrder = await Promise.race([
-              api.payments.createOrder(createdBookingIds),
-              new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout")), 3000))
-            ]);
-          }
+          razorpayOrder = await Promise.race([
+            api.payments.createOrder(createdBookingIds, grandTotal),
+            new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout")), 4000))
+          ]);
         } catch {
           // client fallback
         }
 
-        const rzpKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || razorpayOrder?.key_id;
+        const rzpKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || razorpayOrder?.key_id || "rzp_live_TIoMgoerMx4pbE";
 
-        if (!razorpayOrder) {
+        if (!razorpayOrder || !razorpayOrder.order_id) {
           razorpayOrder = {
-            key_id: rzpKey || "rzp_test_1DP5A3v52bB2aW",
-            order_id: `order_mock_${Math.random().toString(36).substring(2, 11)}`,
+            key_id: rzpKey,
+            order_id: "",
             amount: Math.round(grandTotal * 100),
             currency: "INR",
             name: "QXL Diagnostics",
-            description: `${cartItems.length} Blood Test(s) Booking`
+            description: `${cartItems.length} Diagnostic Test(s) Booking`
           };
         }
 

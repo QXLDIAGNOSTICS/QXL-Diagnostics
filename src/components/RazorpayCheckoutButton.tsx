@@ -44,12 +44,15 @@ export default function RazorpayCheckoutButton({
       );
 
       try {
-        order = await api.payments.createOrder(validUuidIds.length > 0 ? validUuidIds : bookingIds);
+        order = await api.payments.createOrder(
+          validUuidIds.length > 0 ? validUuidIds : bookingIds,
+          amountRupees || undefined
+        );
       } catch (orderErr) {
         console.warn("Backend payment order creation failed, using client fallback order", orderErr);
         order = {
-          key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_test_1DP5A3v52bB2aW",
-          order_id: `order_mock_${Math.random().toString(36).substring(2, 11)}`,
+          key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_live_TIoMgoerMx4pbE",
+          order_id: "",
           amount: Math.round((amountRupees || 250) * 100),
           currency: "INR",
           name: "QXL Diagnostics",

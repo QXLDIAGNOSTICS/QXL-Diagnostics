@@ -145,6 +145,14 @@ export const SEO_FAQS = [
     q: "Who founded QXL Diagnostics?",
     a: "QXL Diagnostics was founded by Dr. Shantakumar Muruda, MD (Biochemistry), a Clinical Biochemist, Laboratory Director, and NABL Lead Assessor with extensive assessment experience across Indian laboratories.",
   },
+  {
+    q: "What payment methods are accepted for diagnostic test booking at QXL Diagnostics?",
+    a: "QXL Diagnostics accepts instant online payments via Razorpay (UPI, Credit Cards, Debit Cards, Netbanking, Paytm, PhonePe, Google Pay) as well as Cash / UPI on sample collection.",
+  },
+  {
+    q: "How does QXL Diagnostics ensure sample quality during home collection in Bengaluru?",
+    a: "Blood samples collected during doorstep visits are immediately sealed and transported in certified cold-chain boxes with temperature monitoring directly to QXL's NABL Accredited central processing lab.",
+  },
 ];
 
 function postalAddress(loc: (typeof LOCATIONS)[number]) {
@@ -271,9 +279,18 @@ export function buildRootSchemaGraph() {
         priceRange: "₹₹",
         currenciesAccepted: "INR",
         paymentAccepted: "Cash, UPI, Credit Card, Debit Card, Razorpay",
+        dateModified: new Date().toISOString().split("T")[0],
         areaServed: [
           { "@type": "City", name: "Bengaluru" },
           { "@type": "AdministrativeArea", name: "Karnataka" },
+          { "@type": "Place", name: "Kengeri, Bengaluru" },
+          { "@type": "Place", name: "Yelahanka, Bengaluru" },
+          { "@type": "Place", name: "Whitefield, Bengaluru" },
+          { "@type": "Place", name: "Indiranagar, Bengaluru" },
+          { "@type": "Place", name: "Koramangala, Bengaluru" },
+          { "@type": "Place", name: "Jayanagar, Bengaluru" },
+          { "@type": "Place", name: "Nayandahalli, Bengaluru" },
+          { "@type": "Place", name: "Nagarabhavi, Bengaluru" },
         ],
         availableService: PRIMARY_SERVICES.map((s) => ({
           "@type": "MedicalTest" as const,

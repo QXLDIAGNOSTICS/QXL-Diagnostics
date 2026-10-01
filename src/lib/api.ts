@@ -646,8 +646,8 @@ export const api = {
       ),
   },
   payments: {
-    createOrder: (bookingIds: string[]) =>
-      post<CreateOrderResponse>('/payments/orders', { booking_ids: bookingIds }),
+    createOrder: (bookingIds: string[], amount?: number) =>
+      post<CreateOrderResponse>('/payments/orders', { booking_ids: bookingIds, amount }),
     verify: (data: VerifyPaymentRequest) => post<PaymentRead>('/payments/verify', data),
     reconcile: (paymentId: string) => post<PaymentRead>(`/payments/${paymentId}/reconcile`),
   },

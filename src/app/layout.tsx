@@ -152,6 +152,9 @@ const localBusinessSchema = {
     geoRadius: "30000"
   },
   priceRange: "₹₹",
+  currenciesAccepted: "INR",
+  paymentAccepted: "Cash, UPI, Credit Card, Debit Card, Razorpay",
+  dateModified: "2026-10-01",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.8",
