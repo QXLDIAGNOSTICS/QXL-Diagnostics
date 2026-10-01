@@ -296,7 +296,7 @@ export default function SymptomsCausesHubPage() {
             </div>
             <div className="flex items-center gap-2 text-xs text-sky-200 font-bold">
               <BookOpen className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Last reviewed: September 2026</span>
+              <span>Last reviewed: October 2026</span>
             </div>
           </div>
         </div>
@@ -404,7 +404,7 @@ export default function SymptomsCausesHubPage() {
             <strong>Medically reviewed by:</strong> Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder &amp; CEO, QXL Diagnostics Super Speciality Lab, Bengaluru
           </p>
           <p className="text-xs text-slate-600 font-semibold mt-2">
-            <strong>Last medically reviewed:</strong> 2026-09-11
+            <strong>Last medically reviewed:</strong> 2026-10-01
           </p>
           <p className="text-xs text-slate-500 font-semibold mt-3 leading-relaxed">
             <strong>Medical Disclaimer:</strong> This information is intended for general health education and does not replace consultation, diagnosis or treatment by a qualified healthcare professional. Seek urgent medical attention for severe, sudden or rapidly worsening symptoms or any emergency warning signs described on the individual symptom pages.

@@ -150,7 +150,7 @@ export default function NewsIndexPage() {
               <div className="flex items-center gap-3 text-xs font-bold text-slate-500 mb-3 flex-wrap">
                 <span className="flex items-center gap-1.5 text-[#D69A18]">
                   <Calendar className="w-4 h-4" />
-                  <time dateTime="2026-09-16">16 September 2026</time>
+                  <time dateTime="2026-10-01">01 October 2026</time>
                 </span>
                 <span>•</span>
                 <span>Business Wire India Distribution</span>
@@ -205,7 +205,7 @@ export default function NewsIndexPage() {
               <div className="flex items-center gap-3 text-xs font-bold text-slate-500 mb-3 flex-wrap">
                 <span className="flex items-center gap-1.5 text-[#D69A18]">
                   <Calendar className="w-4 h-4" />
-                  <time dateTime="2026-09-22">22 September 2026</time>
+                  <time dateTime="2026-09-29">29 September 2026</time>
                 </span>
                 <span>•</span>
                 <span className="text-sky-800 font-extrabold bg-sky-100 px-2.5 py-0.5 rounded-full border border-sky-200">
