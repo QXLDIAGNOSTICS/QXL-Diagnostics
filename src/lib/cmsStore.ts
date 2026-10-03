@@ -150,6 +150,28 @@ const defaultFaqs = [
 
 const defaultBlogs = [
   {
+    id: "blog-new-12",
+    title: "QXL Yelahanka North Hub: Comprehensive Express Pathology & Home Sample Collection in North Bengaluru",
+    slug: "qxl-yelahanka-north-hub-express-pathology-home-collection",
+    excerpt: "QXL Diagnostics expands NABL accredited testing with the Yelahanka North Hub opposite RMZ Galleria Mall, offering walk-in diagnostics, 300+ tests, and doorstep collection across North Bengaluru.",
+    content: "Residents and families across Yelahanka New Town, Yelahanka Old Town, Sahakarnagar, Hebbal, Vidyaranyapura, and Jakkur now have direct access to NABL Accredited (MC-6849) express pathology at QXL Diagnostics North Hub.\n\n### Strategic Location & Facilities at North Hub\nLocated at L Square, opposite RMZ Galleria Mall, Yelahanka (Bengaluru 560064), our North Hub facility provides:\n- **Walk-in Patient Desk:** 7:00 AM – 8:00 PM (Monday to Sunday) for routine blood draw and urine collection.\n- **Express Phlebotomy Dispatch:** Rapid doorstep sample collection servicing all pincodes in Yelahanka (560064, 560065, 560097, 560092).\n- **Temperature-Controlled Cold Chain Transit:** Samples are sealed in barcoded Vacutainers and transported in thermal carrier units to maintain 100% sample stability.\n\n### Popular Diagnostic Panels at Yelahanka\n- Complete Blood Count (CBC) with Automated Differential\n- HbA1c & Dual Glycemic Profile (Fasting + PP Glucose)\n- Thyroid Care Panel (Ultrasensitive TSH, Free T3, Free T4, Anti-TPO)\n- Quick Fit Package (12+ Parameters) & Executive Health Checkup (80+ Parameters)\n\nSame-day digital reports are delivered directly via WhatsApp and email, validated by senior consultant pathologists.",
+    author: "Dr. Shantakumar Muruda",
+    date: "October 3, 2026",
+    created_at: "2026-10-03T08:00:00Z",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
+  },
+  {
+    id: "blog-new-13",
+    title: "Preventive Full Body Health Checkup Guide 2026: Comparing 80-Parameter Packages vs Advanced Profiles",
+    slug: "preventive-full-body-health-checkup-guide-2026-packages-comparison",
+    excerpt: "Confused about choosing a health checkup package? Learn how to select between basic preventive screens and 117-parameter comprehensive risk profiles.",
+    content: "Preventive health screening is the single most effective way to detect asymptomatic lifestyle disorders—such as fatty liver disease, prediabetes, subclinical thyroiditis, dyslipidemia, and renal strain—before clinical symptoms manifest.\n\n### Key Comparisons: Finding Your Ideal Package\n1. **Essential / Quick Fit Package (12–20 Parameters):** Ideal for young adults (aged 18–35) seeking annual routine monitoring of blood sugar, HbA1c, CBC, lipid ratios, and basic organ function.\n2. **Executive Health Checkup (80+ Parameters):** Recommended for working professionals (aged 30–50) to evaluate Vitamin D3, Vitamin B12, Cardiac Risk Markers (hs-CRP), LFT, KFT, and Thyroid profile.\n3. **Senior Citizen Wellness & Ultra Full Body (100+ Parameters):** Tailored for adults aged 50+ or individuals with family histories of diabetes or cardiovascular disease, including Homocysteine, Electrolytes, Uric Acid, Urine Microalbumin, and Prostate Specific Antigen (PSA) / AMH.\n\nEvery QXL Diagnostics health package includes free doorstep blood collection across Bengaluru and doctor-reviewed reports delivered within 6 to 12 hours.",
+    author: "Dr. Pritilata Rout",
+    date: "October 2, 2026",
+    created_at: "2026-10-02T09:00:00Z",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
+  },
+  {
     id: "blog-new-8",
     title: "Seamless Doorstep Blood Test Booking in Bengaluru with Instant Razorpay Online Payments",
     slug: "seamless-doorstep-blood-test-booking-bengaluru-razorpay",

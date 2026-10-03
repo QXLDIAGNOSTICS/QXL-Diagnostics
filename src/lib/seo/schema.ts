@@ -61,6 +61,11 @@ export const SEO_KEYWORDS = [
   "pathology lab near me Bengaluru",
   "NABL lab near Kengeri",
   "diagnostic centre Yelahanka",
+  "QXL North Hub Yelahanka",
+  "QXL Diagnostics Yelahanka",
+  "blood test at home Yelahanka",
+  "NABL accredited lab Yelahanka",
+  "RMZ Galleria diagnostic center",
   "health checkup package Bangalore price",
 ];
 
