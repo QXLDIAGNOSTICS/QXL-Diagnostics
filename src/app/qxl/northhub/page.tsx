@@ -5,17 +5,15 @@ import {
   Phone,
   Clock,
   ShieldCheck,
-  Activity,
   CheckCircle2,
   Navigation,
   Sparkles,
   Calendar,
   Award,
   FlaskConical,
-  HeartPulse,
   Microscope,
-  FileText,
-  ChevronRight
+  ChevronRight,
+  MessageSquare
 } from "lucide-react";
 import {
   BUSINESS_NAME,
@@ -148,69 +146,69 @@ export default function QXlNorthHubPage() {
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-20">
+    <div className="bg-slate-50 min-h-screen pb-24 md:pb-16 antialiased">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(hubSchema) }}
       />
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-14 lg:py-20 relative overflow-hidden border-b border-sky-900">
+      <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-10 sm:py-16 lg:py-20 relative overflow-hidden border-b border-sky-900">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-60"></div>
         <div className="max-w-[1260px] mx-auto px-4 w-full relative z-10">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <div className="max-w-3xl">
-              <div className="flex flex-wrap items-center gap-2.5 mb-4">
-                <span className="bg-[#D69A18] text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
-                  <Award className="w-3.5 h-3.5" /> NABL ACCREDITED ({NABL_CERTIFICATE})
+            <div className="max-w-3xl w-full">
+              <div className="flex flex-wrap items-center gap-2 mb-3.5">
+                <span className="bg-[#D69A18] text-white text-[9.5px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-xs flex items-center gap-1">
+                  <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> NABL ACCREDITED ({NABL_CERTIFICATE})
                 </span>
-                <span className="bg-white/10 text-sky-200 border border-white/20 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+                <span className="bg-white/10 text-sky-200 border border-white/20 text-[9.5px] sm:text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
                   EXPRESS DIAGNOSTIC HUB
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl font-black mb-4 leading-tight !text-white" style={{ color: "#ffffff" }}>
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black mb-3.5 leading-tight text-white" style={{ color: "#ffffff" }}>
                 QXL Diagnostics — Yelahanka North Hub
               </h1>
 
-              <p className="text-sky-100 text-sm sm:text-base font-medium leading-relaxed mb-8 max-w-2xl">
+              <p className="text-sky-100 text-xs sm:text-base font-medium leading-relaxed mb-6 sm:mb-8 max-w-2xl">
                 State-of-the-art diagnostic laboratory hub located opposite RMZ Galleria Mall. Serving Yelahanka, Sahakarnagar, Hebbal, Vidyaranyapura, Jakkur, and North Bengaluru with doctor-led accuracy &amp; same-day digital reports.
               </p>
 
-              <div className="flex flex-wrap items-center gap-3">
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
                 <Link
                   href="/book"
-                  className="bg-[#2563eb] hover:bg-blue-700 text-white font-black px-8 py-3.5 rounded-full transition-all shadow-lg text-xs sm:text-sm uppercase tracking-wide flex items-center gap-2"
+                  className="bg-[#2563eb] hover:bg-blue-700 text-white font-black px-6 py-3.5 rounded-2xl sm:rounded-full transition-all shadow-lg text-xs sm:text-sm uppercase tracking-wide flex items-center justify-center gap-2 text-center"
                 >
-                  <Calendar className="w-4 h-4" /> Book Walk-In / Home Test →
+                  <Calendar className="w-4 h-4 shrink-0" /> Book Walk-In / Home Test →
                 </Link>
                 <a
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noreferrer"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-7 py-3.5 rounded-full transition-all shadow-md text-xs sm:text-sm flex items-center gap-2"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-6 py-3.5 rounded-2xl sm:rounded-full transition-all shadow-md text-xs sm:text-sm flex items-center justify-center gap-2 text-center"
                 >
-                  <Phone className="w-4 h-4" /> WhatsApp Booking
+                  <MessageSquare className="w-4 h-4 shrink-0" /> WhatsApp Booking
                 </a>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=QXL+Diagnostics+Yelahanka+Bengaluru"
                   target="_blank"
                   rel="noreferrer"
-                  className="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold px-6 py-3.5 rounded-full transition-all text-xs sm:text-sm flex items-center gap-2"
+                  className="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold px-5 py-3.5 rounded-2xl sm:rounded-full transition-all text-xs sm:text-sm flex items-center justify-center gap-2 text-center"
                 >
-                  <Navigation className="w-4 h-4 text-amber-400" /> Get Directions
+                  <Navigation className="w-4 h-4 text-amber-400 shrink-0" /> Get Directions
                 </a>
               </div>
             </div>
 
             {/* Quick Info Card */}
-            <div className="w-full lg:w-[380px] bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 text-white shadow-2xl shrink-0">
-              <h3 className="text-base font-extrabold mb-4 pb-3 border-b border-white/15 flex items-center gap-2">
-                <FlaskConical className="w-5 h-5 text-amber-400" /> Hub Highlights
+            <div className="w-full lg:w-[380px] bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl sm:rounded-3xl p-5 sm:p-6 text-white shadow-2xl shrink-0">
+              <h3 className="text-sm sm:text-base font-extrabold mb-3 sm:mb-4 pb-2.5 border-b border-white/15 flex items-center gap-2">
+                <FlaskConical className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 shrink-0" /> Hub Highlights
               </h3>
-              <div className="space-y-4 text-xs">
+              <div className="space-y-3.5 text-xs">
                 <div>
-                  <span className="text-sky-200 uppercase font-black tracking-wider text-[10px] block mb-1">
+                  <span className="text-sky-200 uppercase font-black tracking-wider text-[9.5px] block mb-0.5">
                     Location Address
                   </span>
                   <p className="font-semibold text-white leading-relaxed">
@@ -218,19 +216,19 @@ export default function QXlNorthHubPage() {
                   </p>
                 </div>
                 <div>
-                  <span className="text-sky-200 uppercase font-black tracking-wider text-[10px] block mb-1">
+                  <span className="text-sky-200 uppercase font-black tracking-wider text-[9.5px] block mb-0.5">
                     Walk-In &amp; Sample Desk Hours
                   </span>
                   <p className="font-semibold text-white">7:00 AM – 8:00 PM (Mon–Sun)</p>
                 </div>
                 <div>
-                  <span className="text-sky-200 uppercase font-black tracking-wider text-[10px] block mb-1">
+                  <span className="text-sky-200 uppercase font-black tracking-wider text-[9.5px] block mb-0.5">
                     Doorstep Home Collection
                   </span>
                   <p className="font-semibold text-white">7:00 AM – 9:00 PM (All 7 Days)</p>
                 </div>
                 <div>
-                  <span className="text-sky-200 uppercase font-black tracking-wider text-[10px] block mb-1">
+                  <span className="text-sky-200 uppercase font-black tracking-wider text-[9.5px] block mb-0.5">
                     Direct Hub Helpline
                   </span>
                   <a href={`tel:${PHONE_E164}`} className="font-black text-sm text-amber-300 hover:underline">
@@ -244,61 +242,69 @@ export default function QXlNorthHubPage() {
       </section>
 
       {/* Main Content Body */}
-      <section className="py-12">
-        <div className="max-w-[1260px] mx-auto px-4 w-full space-y-10">
+      <section className="py-8 sm:py-12 px-3 sm:px-4">
+        <div className="max-w-[1260px] mx-auto w-full space-y-8 sm:space-y-10">
 
           {/* Key Features Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
-              <div className="w-12 h-12 bg-sky-50 text-[#2563eb] rounded-2xl flex items-center justify-center mb-4">
-                <ShieldCheck className="w-6 h-6" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
+            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-2xs flex items-start sm:flex-col gap-4 sm:gap-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-sky-50 text-[#2563eb] rounded-2xl flex items-center justify-center shrink-0 sm:mb-4">
+                <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h3 className="font-black text-[#0f2d5e] text-sm mb-1.5">NABL Accredited Lab</h3>
-              <p className="text-slate-600 text-xs font-medium leading-relaxed">
-                Adhering strictly to {ISO_STANDARD} quality standards with multi-stage quality control.
-              </p>
+              <div>
+                <h3 className="font-black text-[#0f2d5e] text-xs sm:text-sm mb-1">NABL Accredited Lab</h3>
+                <p className="text-slate-600 text-[11px] sm:text-xs font-medium leading-relaxed">
+                  Adhering strictly to {ISO_STANDARD} quality standards with multi-stage controls.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
-              <div className="w-12 h-12 bg-sky-50 text-[#2563eb] rounded-2xl flex items-center justify-center mb-4">
-                <Microscope className="w-6 h-6" />
+            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-2xs flex items-start sm:flex-col gap-4 sm:gap-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-sky-50 text-[#2563eb] rounded-2xl flex items-center justify-center shrink-0 sm:mb-4">
+                <Microscope className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h3 className="font-black text-[#0f2d5e] text-sm mb-1.5">Doctor-Led Diagnostics</h3>
-              <p className="text-slate-600 text-xs font-medium leading-relaxed">
-                Consultant Pathologists and Biochemists review every test before report release.
-              </p>
+              <div>
+                <h3 className="font-black text-[#0f2d5e] text-xs sm:text-sm mb-1">Doctor-Led Diagnostics</h3>
+                <p className="text-slate-600 text-[11px] sm:text-xs font-medium leading-relaxed">
+                  Consultant Pathologists and Biochemists review every test before report release.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
-              <div className="w-12 h-12 bg-sky-50 text-[#2563eb] rounded-2xl flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6" />
+            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-2xs flex items-start sm:flex-col gap-4 sm:gap-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-sky-50 text-[#2563eb] rounded-2xl flex items-center justify-center shrink-0 sm:mb-4">
+                <Clock className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h3 className="font-black text-[#0f2d5e] text-sm mb-1.5">Same-Day Digital Reports</h3>
-              <p className="text-slate-600 text-xs font-medium leading-relaxed">
-                Receive doctor-validated PDF reports via WhatsApp &amp; email in as fast as 6 hours.
-              </p>
+              <div>
+                <h3 className="font-black text-[#0f2d5e] text-xs sm:text-sm mb-1">Same-Day Digital Reports</h3>
+                <p className="text-slate-600 text-[11px] sm:text-xs font-medium leading-relaxed">
+                  Receive doctor-validated PDF reports via WhatsApp &amp; email in 6 to 12 hours.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-2xs">
-              <div className="w-12 h-12 bg-sky-50 text-[#2563eb] rounded-2xl flex items-center justify-center mb-4">
-                <MapPin className="w-6 h-6" />
+            <div className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-2xs flex items-start sm:flex-col gap-4 sm:gap-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-sky-50 text-[#2563eb] rounded-2xl flex items-center justify-center shrink-0 sm:mb-4">
+                <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
-              <h3 className="font-black text-[#0f2d5e] text-sm mb-1.5">Free Home Collection</h3>
-              <p className="text-slate-600 text-xs font-medium leading-relaxed">
-                Painless doorstep sample collection with sterile equipment and cold-chain transport.
-              </p>
+              <div>
+                <h3 className="font-black text-[#0f2d5e] text-xs sm:text-sm mb-1">Free Home Collection</h3>
+                <p className="text-slate-600 text-[11px] sm:text-xs font-medium leading-relaxed">
+                  Painless doorstep sample collection with sterile equipment and cold-chain transport.
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Popular Packages */}
-          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-2xs space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-200 shadow-2xs space-y-5 sm:space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3.5">
               <div>
-                <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[9.5px] sm:text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                   HEALTH PACKAGES
                 </span>
-                <h2 className="text-2xl font-black text-[#0f2d5e] mt-1">
-                  Popular Health Checkup Packages at North Hub
+                <h2 className="text-xl sm:text-2xl font-black text-[#0f2d5e] mt-1">
+                  Popular Checkup Packages at North Hub
                 </h2>
               </div>
               <Link href="/packages" className="text-xs font-black text-[#2563eb] hover:underline flex items-center gap-1">
@@ -306,26 +312,26 @@ export default function QXlNorthHubPage() {
               </Link>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
               {popularPackages.map((pkg) => (
                 <div
                   key={pkg.name}
-                  className="border border-sky-100 bg-gradient-to-b from-sky-50/50 to-white p-6 rounded-2xl flex flex-col justify-between hover:border-blue-300 transition-all shadow-2xs"
+                  className="border border-sky-100 bg-gradient-to-b from-sky-50/50 to-white p-5 sm:p-6 rounded-2xl flex flex-col justify-between hover:border-blue-300 transition-all shadow-2xs"
                 >
                   <div>
                     <span className="bg-[#2563eb] text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                       {pkg.badge}
                     </span>
-                    <h3 className="font-black text-[#0f2d5e] text-lg mt-3">{pkg.name}</h3>
-                    <p className="text-xs text-blue-700 font-bold mt-1">{pkg.params}</p>
+                    <h3 className="font-black text-[#0f2d5e] text-base sm:text-lg mt-2.5">{pkg.name}</h3>
+                    <p className="text-xs text-blue-700 font-bold mt-0.5">{pkg.params}</p>
                     <p className="text-xs text-slate-600 font-medium mt-2 leading-relaxed">{pkg.desc}</p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between">
                     <div>
-                      <span className="text-2xl font-black text-emerald-600">{pkg.price}</span>
-                      <span className="text-xs text-slate-400 line-through ml-2">{pkg.mrp}</span>
-                      <span className="text-[10px] bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-full ml-1">
+                      <span className="text-xl sm:text-2xl font-black text-emerald-600">{pkg.price}</span>
+                      <span className="text-xs text-slate-400 line-through ml-1.5">{pkg.mrp}</span>
+                      <span className="text-[9.5px] bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-full ml-1">
                         {pkg.discount}
                       </span>
                     </div>
@@ -342,19 +348,19 @@ export default function QXlNorthHubPage() {
           </div>
 
           {/* Routine & Speciality Tests */}
-          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-2xs space-y-6">
-            <h2 className="text-2xl font-black text-[#0f2d5e]">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-200 shadow-2xs space-y-4 sm:space-y-6">
+            <h2 className="text-xl sm:text-2xl font-black text-[#0f2d5e]">
               Routine &amp; Speciality Tests Available at North Hub
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-3xl">
               Over 300+ pathology, biochemistry, endocrine, and microbiology tests processed under NABL-certified cold chain and quality assurance.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3">
               {routineTests.map((t) => (
                 <Link
                   key={t}
                   href="/book"
-                  className="bg-slate-50 border border-slate-200 text-slate-800 font-extrabold text-xs p-3.5 rounded-xl hover:bg-sky-50 hover:border-blue-300 hover:text-[#2563eb] transition-all flex items-center gap-2"
+                  className="bg-slate-50 border border-slate-200 text-slate-800 font-extrabold text-xs p-3 sm:p-3.5 rounded-xl hover:bg-sky-50 hover:border-blue-300 hover:text-[#2563eb] transition-all flex items-center gap-2"
                 >
                   <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                   <span>{t}</span>
@@ -364,20 +370,20 @@ export default function QXlNorthHubPage() {
           </div>
 
           {/* Location Map & Catchment Areas */}
-          <div className="grid lg:grid-cols-12 gap-8 items-stretch">
+          <div className="grid lg:grid-cols-12 gap-5 sm:gap-8 items-stretch">
             
             {/* Left Address Details */}
-            <div className="lg:col-span-5 bg-white rounded-3xl p-8 border border-slate-200 shadow-2xs flex flex-col justify-between">
+            <div className="lg:col-span-5 bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-200 shadow-2xs flex flex-col justify-between">
               <div>
-                <span className="bg-sky-50 text-[#2563eb] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                <span className="bg-sky-50 text-[#2563eb] text-[9.5px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
                   VISIT OUR HUB
                 </span>
-                <h2 className="text-2xl font-black text-[#0f2d5e] mt-2 mb-4">Location &amp; Directions</h2>
-                <div className="space-y-4 text-xs text-slate-700">
+                <h2 className="text-xl sm:text-2xl font-black text-[#0f2d5e] mt-2 mb-3 sm:mb-4">Location &amp; Directions</h2>
+                <div className="space-y-3.5 text-xs text-slate-700">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-[#2563eb] shrink-0 mt-0.5" />
+                    <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#2563eb] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-slate-900 font-extrabold text-sm mb-1">
+                      <strong className="block text-slate-900 font-extrabold text-xs sm:text-sm mb-0.5">
                         QXL Diagnostics North Hub
                       </strong>
                       <p className="leading-relaxed">
@@ -387,25 +393,25 @@ export default function QXlNorthHubPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Clock className="w-5 h-5 text-[#2563eb] shrink-0 mt-0.5" />
+                    <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-[#2563eb] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-slate-900 font-extrabold text-sm mb-1">Timings</strong>
+                      <strong className="block text-slate-900 font-extrabold text-xs sm:text-sm mb-0.5">Timings</strong>
                       <p>Walk-in Desk: 7:00 AM – 8:00 PM (Mon–Sun)</p>
                       <p className="text-slate-500 text-[11px] mt-0.5">Lab processing operates 24×7</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-3">
-                    <Phone className="w-5 h-5 text-[#2563eb] shrink-0 mt-0.5" />
+                    <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#2563eb] shrink-0 mt-0.5" />
                     <div>
-                      <strong className="block text-slate-900 font-extrabold text-sm mb-1">Contact &amp; Bookings</strong>
+                      <strong className="block text-slate-900 font-extrabold text-xs sm:text-sm mb-0.5">Contact &amp; Bookings</strong>
                       <p className="font-bold text-slate-900">{PHONE_DISPLAY}</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-slate-100">
-                  <h4 className="font-black text-xs text-[#0f2d5e] uppercase tracking-wider mb-2">
+                <div className="mt-5 pt-4 border-t border-slate-100">
+                  <h4 className="font-black text-xs text-[#0f2d5e] uppercase tracking-wider mb-1.5">
                     Catchment Localities Covered:
                   </h4>
                   <p className="text-xs text-slate-600 leading-relaxed font-medium">
@@ -414,7 +420,7 @@ export default function QXlNorthHubPage() {
                 </div>
               </div>
 
-              <div className="mt-6 flex gap-3">
+              <div className="mt-5 flex gap-3">
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=QXL+Diagnostics+Yelahanka+Bengaluru"
                   target="_blank"
@@ -427,12 +433,12 @@ export default function QXlNorthHubPage() {
             </div>
 
             {/* Right Map Embed */}
-            <div className="lg:col-span-7 bg-white rounded-3xl p-3 border border-slate-200 shadow-2xs h-[400px] lg:h-auto overflow-hidden">
+            <div className="lg:col-span-7 bg-white rounded-2xl sm:rounded-3xl p-2.5 sm:p-3 border border-slate-200 shadow-2xs h-[300px] sm:h-[400px] lg:h-auto overflow-hidden">
               <iframe
                 src="https://maps.google.com/maps?q=QXL+Diagnostics+Yelahanka+Bengaluru&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
-                style={{ border: 0, borderRadius: "1.25rem" }}
+                style={{ border: 0, borderRadius: "1rem" }}
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -442,12 +448,12 @@ export default function QXlNorthHubPage() {
           </div>
 
           {/* FAQs */}
-          <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-2xs space-y-6">
-            <h2 className="text-2xl font-black text-[#0f2d5e]">Frequently Asked Questions (FAQs)</h2>
-            <div className="grid md:grid-cols-2 gap-4">
+          <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-200 shadow-2xs space-y-4 sm:space-y-6">
+            <h2 className="text-xl sm:text-2xl font-black text-[#0f2d5e]">Frequently Asked Questions (FAQs)</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-4">
               {faqs.map((faq) => (
-                <div key={faq.q} className="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-                  <h3 className="text-[#0f2d5e] font-black text-sm mb-2 flex items-start gap-2">
+                <div key={faq.q} className="bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5">
+                  <h3 className="text-[#0f2d5e] font-black text-xs sm:text-sm mb-1.5 flex items-start gap-2">
                     <Sparkles className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
                     <span>{faq.q}</span>
                   </h3>
@@ -459,6 +465,30 @@ export default function QXlNorthHubPage() {
 
         </div>
       </section>
+
+      {/* Mobile Sticky Bottom Action Bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 flex items-center justify-between gap-2 md:hidden shadow-lg">
+        <a
+          href={`tel:${PHONE_E164}`}
+          className="flex-1 bg-slate-100 text-[#0f2d5e] font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-all"
+        >
+          <Phone className="w-3.5 h-3.5 text-[#2563eb]" /> Call Hub
+        </a>
+        <a
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noreferrer"
+          className="flex-1 bg-emerald-600 text-white font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-all"
+        >
+          <MessageSquare className="w-3.5 h-3.5" /> WhatsApp
+        </a>
+        <Link
+          href="/book"
+          className="flex-1 bg-[#2563eb] text-white font-black py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-all uppercase tracking-wider"
+        >
+          <Calendar className="w-3.5 h-3.5" /> Book Test
+        </Link>
+      </div>
     </div>
   );
 }
