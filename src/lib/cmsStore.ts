@@ -150,14 +150,69 @@ const defaultFaqs = [
 
 const defaultBlogs = [
   {
+    id: "blog-new-14",
+    title: "Comprehensive Food-Specific IgG Sensitivity Microarray (287 Foods): A Doctor-Led Guide for Chronic Symptoms",
+    slug: "food-specific-igg-287-foods-sensitivity-elimination-guide",
+    excerpt: "Struggling with chronic bloating, IBS, migraines, or unexplained fatigue? Discover how high-throughput microarray IgG testing identifies delayed food sensitivities across 287 antigens under medical guidance.",
+    content: "Chronic low-grade gut inflammation, irritable bowel symptoms, skin flare-ups, and unexplained lethargy often trace back to delayed non-IgE food sensitivities rather than immediate acute Type-1 allergies. While classical IgE antibodies trigger instant histamine reactions (such as hives or anaphylaxis), food-specific Immunoglobulin G (IgG) antibodies form circulating immune complexes that manifest 24 to 72 hours after consuming culprit foods.\n\n### Why 287-Food Microarray IgG Testing Leads Precision Clinical Nutrition\n1. **High-Throughput Antigens:** Evaluates 287 individual food items spanning dairy, gluten, grains, seafood, spices, nuts, and fruit proteins on advanced microarray platforms.\n2. **Quantitative Staining Ratios:** Pinpoints mild, moderate, and high antibody reactivity for structured elimination diets.\n3. **Clinical Guidance:** Reviewed by consultant biochemists to ensure nutritional adequacy during trial elimination and reintroduction phases.\n\nAt QXL Diagnostics, every food sensitivity report includes personalized dietary guidance validated by senior laboratory consultants.",
+    author: "Dr. Shantakumar Muruda",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T09:30:00Z",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg"
+  },
+  {
+    id: "blog-new-15",
+    title: "Emergency Cardiac Biomarkers: Understanding High-Sensitivity Troponin I, hs-CRP & NT-proBNP in Bengaluru",
+    slug: "cardiac-biomarkers-hs-troponin-hscrp-nt-probnp-guide",
+    excerpt: "Learn why emergency departments and cardiologists rely on high-sensitivity Cardiac Troponin I and hs-CRP for early myocardial injury and heart failure evaluation.",
+    content: "Acute chest pressure, dyspnea on exertion, or unexplained palpitations demand immediate medical assessment. High-sensitivity Cardiac Troponin (hs-cTnI) detects subtle myocardial injury within 2 to 4 hours of symptom onset, providing clinicians with invaluable diagnostic clarity.\n\n### Key Cardiovascular Markers Explained:\n- **High-Sensitivity Troponin I (hs-TnI):** Specific biomarker for cardiac cell necrosis, reported with sub-4-hour turnaround for emergency triaging.\n- **hs-CRP (High-Sensitivity C-Reactive Protein):** Measures low-grade arterial wall inflammation and predicts long-term atherosclerotic plaque rupture risk.\n- **NT-proBNP:** Assesses ventricular wall stretch and congestive heart failure progression.\n- **Lipoprotein(a) & Homocysteine:** Independent genetic markers for premature coronary artery disease.",
+    author: "Dr. Pritilata Rout",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T09:00:00Z",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
+  },
+  {
+    id: "blog-new-16",
+    title: "Speciality Kidney & Liver Function Testing: eGFR, Cystatin C, Microalbuminuria & Liver Enzyme Ratios",
+    slug: "speciality-kidney-liver-function-egfr-cystatin-c-lft-guide",
+    excerpt: "An in-depth guide to interpreting Liver Function Tests (LFT) and Kidney Function Tests (KFT), including AST/ALT ratios, eGFR filtration, and early microalbuminuria detection.",
+    content: "Silent organ stress often develops without noticeable symptoms. Annual kidney and liver screening provides actionable metrics for early medical intervention.\n\n### Liver Function Test (LFT) Analytes:\n- **Bilirubin (Total, Direct, Indirect):** Assesses hepatic conjugation, bile flow clearance, and hemolytic states.\n- **SGOT (AST) & SGPT (ALT):** Intracellular enzymes indicating hepatocyte stress, alcoholic liver disease, or fatty liver (NAFLD).\n- **Alkaline Phosphatase (ALP) & GGT:** Biomarkers for biliary tract obstruction and cholestasis.\n\n### Kidney Function Test (KFT) Analytes:\n- **Serum Creatinine & eGFR (CKD-EPI):** Precision renal filtration capacity calculation.\n- **Urine Albumin-to-Creatinine Ratio (UACR):** Early detection marker for diabetic nephropathy before routine dipstick proteinuria.",
+    author: "Dr. Naveen Kumar N",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:30:00Z",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
+  },
+  {
+    id: "blog-new-17",
+    title: "Allergy IgE Panels vs Food Intolerance: Deciphering Clinical Differences & Specialist Diagnostics",
+    slug: "allergy-ige-vs-food-intolerance-clinical-diagnostics-guide",
+    excerpt: "Understand the physiological differences between immediate IgE-mediated type-1 hypersensitivity and delayed non-IgE food intolerances for accurate diagnosis.",
+    content: "Patients frequently confuse true food allergies with food intolerances. Understanding the distinct immunological pathways is vital for appropriate diagnostic selection.\n\n### IgE Allergy vs Non-IgE Sensitivity:\n- **Type 1 IgE Hypersensitivity:** Rapid onset (minutes to hours), involving mast cell histamine release. Tests: Total IgE & Specific IgE allergen panels.\n- **Enzymatic & Non-IgE Intolerance:** Slow onset (hours to days), involving delayed gastrointestinal sensitivity or enzyme deficiencies (e.g. lactase deficiency).\n\nQXL Diagnostics provides comprehensive specific IgE allergy profiles and 287-food IgG sensitivity panels with phlebotomy home collection across Bengaluru.",
+    author: "Dr. Ajitha Pillai",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
+  },
+  {
+    id: "blog-new-18",
+    title: "Doctor-Led NABL ISO 15189:2022 Diagnostics in Bengaluru: Quality Control & Patient Trust",
+    slug: "doctor-led-nabl-iso-15189-2022-diagnostics-bengaluru-quality",
+    excerpt: "Explore how QXL Diagnostics combines NABL accredited quality systems (MC-6849), daily Westgard IQC, and consultant doctor sign-offs across Bengaluru.",
+    content: "Diagnostic reliability is the cornerstone of effective healthcare. At QXL Diagnostics, every sample collected at home or walk-in hubs undergoes multi-tier quality validation under NABL ISO 15189:2022 guidelines.\n\nFrom automated barcoding and cold-chain sample transit to multi-rule Westgard IQC and MD Pathologist verification, our process guarantees that every report delivered to patients meets strict medical standards.",
+    author: "Dr. Shantakumar Muruda",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T07:30:00Z",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
+  },
+  {
     id: "blog-new-12",
     title: "QXL Yelahanka North Hub: Comprehensive Express Pathology & Home Sample Collection in North Bengaluru",
     slug: "qxl-yelahanka-north-hub-express-pathology-home-collection",
     excerpt: "QXL Diagnostics expands NABL accredited testing with the Yelahanka North Hub opposite RMZ Galleria Mall, offering walk-in diagnostics, 300+ tests, and doorstep collection across North Bengaluru.",
     content: "Residents and families across Yelahanka New Town, Yelahanka Old Town, Sahakarnagar, Hebbal, Vidyaranyapura, and Jakkur now have direct access to NABL Accredited (MC-6849) express pathology at QXL Diagnostics North Hub.\n\n### Strategic Location & Facilities at North Hub\nLocated at L Square, opposite RMZ Galleria Mall, Yelahanka (Bengaluru 560064), our North Hub facility provides:\n- **Walk-in Patient Desk:** 7:00 AM – 8:00 PM (Monday to Sunday) for routine blood draw and urine collection.\n- **Express Phlebotomy Dispatch:** Rapid doorstep sample collection servicing all pincodes in Yelahanka (560064, 560065, 560097, 560092).\n- **Temperature-Controlled Cold Chain Transit:** Samples are sealed in barcoded Vacutainers and transported in thermal carrier units to maintain 100% sample stability.\n\n### Popular Diagnostic Panels at Yelahanka\n- Complete Blood Count (CBC) with Automated Differential\n- HbA1c & Dual Glycemic Profile (Fasting + PP Glucose)\n- Thyroid Care Panel (Ultrasensitive TSH, Free T3, Free T4, Anti-TPO)\n- Quick Fit Package (12+ Parameters) & Executive Health Checkup (80+ Parameters)\n\nSame-day digital reports are delivered directly via WhatsApp and email, validated by senior consultant pathologists.",
     author: "Dr. Shantakumar Muruda",
-    date: "October 3, 2026",
-    created_at: "2026-10-03T08:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
@@ -167,8 +222,8 @@ const defaultBlogs = [
     excerpt: "Confused about choosing a health checkup package? Learn how to select between basic preventive screens and 117-parameter comprehensive risk profiles.",
     content: "Preventive health screening is the single most effective way to detect asymptomatic lifestyle disorders—such as fatty liver disease, prediabetes, subclinical thyroiditis, dyslipidemia, and renal strain—before clinical symptoms manifest.\n\n### Key Comparisons: Finding Your Ideal Package\n1. **Essential / Quick Fit Package (12–20 Parameters):** Ideal for young adults (aged 18–35) seeking annual routine monitoring of blood sugar, HbA1c, CBC, lipid ratios, and basic organ function.\n2. **Executive Health Checkup (80+ Parameters):** Recommended for working professionals (aged 30–50) to evaluate Vitamin D3, Vitamin B12, Cardiac Risk Markers (hs-CRP), LFT, KFT, and Thyroid profile.\n3. **Senior Citizen Wellness & Ultra Full Body (100+ Parameters):** Tailored for adults aged 50+ or individuals with family histories of diabetes or cardiovascular disease, including Homocysteine, Electrolytes, Uric Acid, Urine Microalbumin, and Prostate Specific Antigen (PSA) / AMH.\n\nEvery QXL Diagnostics health package includes free doorstep blood collection across Bengaluru and doctor-reviewed reports delivered within 6 to 12 hours.",
     author: "Dr. Pritilata Rout",
-    date: "October 2, 2026",
-    created_at: "2026-10-02T09:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
   },
   {
@@ -178,8 +233,8 @@ const defaultBlogs = [
     excerpt: "Learn how QXL Diagnostics enables 100% free home sample collection across 60+ Bengaluru localities with instant Razorpay online payments and same-day digital reports.",
     content: "Booking a blood test at home in Bengaluru should be effortless, secure, and transparent. With QXL Diagnostics, patients can select 300+ NABL accredited tests or master health checkups, choose a preferred time slot, and pay instantly online via Razorpay (UPI, Google Pay, PhonePe, Cards, Netbanking) or opt for Cash / UPI on collection.\n\n### Why Online Pre-Booking & Instant Razorpay Checkout Matters\n1. **Guaranteed Slot Reservation:** Pre-paying via Razorpay instantly confirms your phlebotomist appointment slot, including urgent early morning (6:00 AM – 8:00 AM) collections.\n2. **256-Bit SSL Encrypted Transactions:** All transactions are processed through Razorpay's PCI-DSS compliant secure payment gateway, ensuring zero fraud risk.\n3. **Transparent Billing:** Clear itemized digital receipts sent immediately to WhatsApp and email with zero hidden collection charges.\n\n### Cold-Chain Sample Transport Standards\nEvery doorstep sample collected in Bengaluru (from Kengeri, Yelahanka, Whitefield, Indiranagar, Koramangala to Electronic City) is immediately sealed in barcoded BD Vacutainer tubes and placed in certified cold-chain insulated transport boxes. Samples reach our central NABL processing lab within 90 minutes for same-day digital reporting.",
     author: "Dr. Shantakumar Muruda",
-    date: "October 1, 2026",
-    created_at: "2026-10-01T07:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
@@ -189,8 +244,8 @@ const defaultBlogs = [
     excerpt: "Discover NABL-certified super speciality diagnostic testing at QXL Diagnostics Main Lab (Kengeri) and North Hub (Yelahanka), offering 300+ tests and 24x7 lab processing.",
     content: "Whether visiting our main lab on Mysore Road in Kengeri or our North Hub opposite RMZ Galleria Mall in Yelahanka, QXL Diagnostics offers state-of-the-art diagnostic facilities for individuals and families across Bengaluru.\n\n### Why Choose NABL Accredited (MC-6849) Testing?\n- **Doctor-Led Clinical Oversight:** Founded by Dr. Shantakumar Muruda, MD (Biochemistry), a senior Clinical Biochemist and NABL Lead Assessor.\n- **Advanced Technology:** Equipped with high-throughput immunoassay analyzers, molecular PCR setups, and automated hematology systems.\n- **Fast Turnaround Time (TAT):** Over 90% of routine diagnostic reports—including CBC, HbA1c, Thyroid Profile, Lipid Profile, LFT, and KFT—are delivered digitally on the same day.\n\n### Neighborhood Coverage Across Bengaluru\nResidents in Kengeri, Yelahanka, Whitefield, Indiranagar, Koramangala, Jayanagar, Nayandahalli, Nagarabhavi, and Vidyaranyapura can access walk-in collection centers or schedule free doorstep home sample collection daily.",
     author: "Dr. Pritilata Rout",
-    date: "September 30, 2026",
-    created_at: "2026-09-30T09:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
   },
   {
@@ -200,8 +255,8 @@ const defaultBlogs = [
     excerpt: "Explore how ANA IFA (Indirect Immunofluorescence Assay) detects systemic autoimmune conditions like Lupus (SLE), Sjogren's, and Systemic Sclerosis.",
     content: "Autoimmune disorders affect millions worldwide, occurring when the immune system mistakenly attacks healthy body tissues. Diagnosing conditions such as Systemic Lupus Erythematosus (SLE), Rheumatoid Arthritis, Sjogren's Syndrome, or Autoimmune Hepatitis requires precise laboratory evaluation.\n\n### Why ANA IFA is the Gold Standard\n1. **Superior Sensitivity:** Anti-Nuclear Antibody (ANA) testing by Indirect Immunofluorescence Assay (IFA) on HEp-2 cells is recommended by international rheumatology guidelines over standard ELISA screening.\n2. **Staining Pattern Analysis:** ANA IFA identifies distinct cellular fluorescence patterns—Nuclear Homogeneous, Speckled, Nucleolar, Centromere, and Cytoplasmic—which pinpoint specific autoantibody candidates.\n3. **Refinement via Immunoblotting:** When an ANA IFA test returns positive, QXL Diagnostics conducts comprehensive ENA (Extractable Nuclear Antigen) profile panels to detect anti-dsDNA, anti-SS-A/Ro, anti-SS-B/La, anti-Sm, and anti-Scl-70 antibodies.\n\nEarly autoimmune screening prevents irreversible joint, kidney, and vascular damage.",
     author: "Dr. Ajitha Pillai",
-    date: "September 29, 2026",
-    created_at: "2026-09-29T10:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
@@ -211,8 +266,8 @@ const defaultBlogs = [
     excerpt: "Learn how real-time PCR panels rapidly detect viral, bacterial, and fungal pathogens in respiratory, gastrointestinal, and blood infections.",
     content: "Traditional microbial cultures can take 48 to 72 hours to yield definitive pathogen identification. In acute infections—such as severe respiratory illness, fever of unknown origin, viral gastroenteritis, or sepsis—every hour matters.\n\n### Advantages of Real-Time Molecular PCR\n- **Unmatched Sensitivity & Specificity:** Detects microbial DNA/RNA directly, even in low copy numbers or post-antibiotic treatment.\n- **Multiplex Capability:** Single sample testing for multiple pathogens simultaneously (e.g. Dengue, Malaria, Chikungunya, Typhoid, Influenza A/B, RSV).\n- **Sub-6-Hour Reporting:** Rapid turnaround allows treating physicians to initiate targeted antimicrobial therapy immediately, reducing unnecessary broad-spectrum antibiotic use.\n\nQXL Diagnostics operates state-of-the-art molecular diagnostic equipment in Bengaluru, certified under NABL ISO 15189:2022 standards.",
     author: "Dr. Naveen Kumar N",
-    date: "September 28, 2026",
-    created_at: "2026-09-28T11:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
   },
   {
@@ -222,8 +277,8 @@ const defaultBlogs = [
     excerpt: "Discover why over 70% of urban adults suffer from undetected Vitamin D and Thyroid hormone imbalances, and how early screening prevents chronic fatigue.",
     content: "Unexplained tiredness, muscle weakness, mood swings, weight fluctuations, and hair thinning are among the most common symptoms reported to general practitioners in urban India. Clinical pathology data from QXL Diagnostics reveals that over 70% of patients presenting with these vague symptoms suffer from concurrent Vitamin D (25-OH) deficiency and Subclinical Hypothyroidism.\n\n### Why Do These Deficiencies Co-Exist?\n1. **Sunlight Avoidance & Indoor Lifestyles:** Modern office routines limit natural UV-B exposure, leading to impaired cutaneous Vitamin D synthesis.\n2. **Autoimmune Interplay:** Low Vitamin D levels are strongly linked to autoimmune thyroiditis (Hashimoto's Thyroiditis). Vitamin D acts as an immunomodulator; its deficiency exacerbates autoimmune thyroid destruction.\n3. **Metabolic Downregulation:** Thyroid hormones regulate cellular energy expenditure. When T3 and T4 levels drop, bone metabolism and nutrient absorption slow down.\n\n### Recommended Biomarker Panel\n- **Serum 25-Hydroxy Vitamin D** (Optimum: 30–100 ng/mL)\n- **Thyroid Profile** (Total T3, Total T4, Ultrasensitive TSH)\n- **Anti-TPO Antibodies** (if TSH is > 4.5 µIU/mL)\n\nEarly identification via a simple fasting blood test enables targeted supplementation and hormonal balance, reversing fatigue before secondary bone loss or lipid derangement occurs.",
     author: "Dr. Shantakumar Muruda",
-    date: "September 27, 2026",
-    created_at: "2026-09-27T09:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
@@ -233,8 +288,8 @@ const defaultBlogs = [
     excerpt: "Learn why relying solely on Fasting Blood Glucose can miss early prediabetes, and how HbA1c provides a 90-day glycemic blueprint.",
     content: "India is often termed the diabetes capital of the world, with over 100 million individuals living with diabetes and another 136 million with prediabetes. Yet, many people still rely on a single point-in-time Fasting Blood Sugar (FBS) test for annual health checks.\n\n### The Difference Between FBS and HbA1c\n- **Fasting Blood Sugar (FBS):** Measures instantaneous glucose concentration in plasma after 8–10 hours of fasting. It is heavily influenced by stress, dinner composition, sleep quality, and physical activity the previous evening.\n- **HbA1c (Glycated Hemoglobin):** Measures the percentage of hemoglobin coated with glucose over the 90-day lifespan of red blood cells. It reflects true long-term glycemic control regardless of day-to-day acute fluctuations.\n\n### Clinical Insights: Why Test Both?\n- **Catching Early Prediabetes:** Up to 35% of individuals with normal Fasting Glucose (< 100 mg/dL) demonstrate an elevated HbA1c (5.7% – 6.4%), signifying early insulin resistance.\n- **Estimated Average Glucose (eAG):** Modern NABL laboratories report eAG alongside HbA1c, converting percentages into familiar mg/dL values for easy patient monitoring.\n- **Microvascular Risk Assessment:** Combining FBS, HbA1c, Urine Microalbumin, and Lipid Profile offers complete protection against diabetic nephropathy and cardiovascular complications.",
     author: "Dr. Pritilata Rout",
-    date: "September 26, 2026",
-    created_at: "2026-09-26T10:30:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
@@ -244,8 +299,8 @@ const defaultBlogs = [
     excerpt: "Explore how hybrid onsite-reference laboratory management helps hospitals optimize operating costs while delivering rapid 24x7 emergency diagnostic testing.",
     content: "Hospital Laboratory Management (HLM) is rapidly emerging as an essential operational strategy for healthcare providers in India. Hospitals face rising capital costs for advanced diagnostic equipment, ongoing maintenance contracts, reagent waste from minimum order quantities, and 24×7 staffing challenges.\n\nAt QXL Diagnostics, our HLM model resolves these operational pressures through a flexible hybrid structure:\n\n1. **Onsite Emergency Laboratory:** High-frequency, stat investigations (CBC, Blood Sugar, Electrolytes, Troponin, Basic Coagulation) remain inside the hospital for immediate clinical decision-making.\n2. **Reference Laboratory Integration:** Low-volume, specialised investigations (autoimmune profiles, molecular diagnostics, special chemistry, immunohistochemistry) are transferred directly to QXL's NABL-accredited reference laboratory.\n3. **Quality & Governance:** Full NABL ISO 15189:2022 quality systems, IQC, EQAS, equipment calibration, and senior consultant oversight are integrated into hospital operations.\n\nThis partnership allows hospital administrators to convert fixed laboratory overhead into predictable operational costs while offering patients a comprehensive 1500+ test menu.",
     author: "Dr. Shantakumar Muruda",
-    date: "September 25, 2026",
-    created_at: "2026-09-25T08:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "/image/slide_lab_facility.png"
   },
   {
@@ -255,8 +310,8 @@ const defaultBlogs = [
     excerpt: "From chronic fatigue and dizziness to unexplained weight loss and joint pain, learn how targeted blood testing guides clinical diagnosis.",
     content: "Symptoms like persistent tiredness, recurrent headaches, unexpected weight changes, or hair fall are common reasons patients seek medical care. While symptoms describe how you feel, objective laboratory testing reveals what is occurring at a cellular and metabolic level.\n\nOur medical team has created comprehensive diagnostic guides for 19 core symptoms, explaining:\n\n- **Fatigue & Weakness:** Evaluation of Vitamin D (25-OH), Vitamin B12, Serum Ferritin, Thyroid Stimulating Hormone (TSH), and Complete Blood Count (CBC).\n- **Headaches & Dizziness:** Screening for metabolic imbalance, severe anemia, electrolyte shifts, and glycemic fluctuations.\n- **Unexplained Weight Loss:** Investigating Fasting Glucose, HbA1c, Thyroid Profile, Liver Function, and Inflammatory Markers (ESR/CRP).\n- **Joint & Muscle Aches:** Testing Uric Acid, Rheumatoid Factor (RF), Anti-CCP, ANA, and Bone Mineral Panels.\n\nUnderstanding these biomarker pathways empowers patients to have informed clinical discussions with their treating physicians.",
     author: "Dr. Pritilata Rout",
-    date: "September 24, 2026",
-    created_at: "2026-09-24T10:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
@@ -266,8 +321,8 @@ const defaultBlogs = [
     excerpt: "Learn about internal quality controls (IQC), EQAS proficiency testing, and medical laboratory standards that ensure accurate test reporting.",
     content: "When a doctor makes a clinical decision—whether diagnosing diabetes, monitoring kidney function, or planning cancer therapy—the accuracy of the laboratory report is paramount. NABL Accreditation (MC-6849) under ISO 15189:2022 is the benchmark for medical laboratory competence.\n\nAt QXL Diagnostics, quality assurance encompasses three critical phases:\n\n1. **Pre-Analytical:** Temperature-controlled sample transport, barcoded primary tube validation, and standardized sample preparation.\n2. **Analytical:** Daily Internal Quality Control (IQC) using multi-level controls, regular calibration, and participation in External Quality Assessment Schemes (EQAS).\n3. **Post-Analytical:** Multi-layer result verification and clinical sign-off by senior consultant doctors (MD Pathologists, Biochemists, Microbiologists).\n\nThis rigorous framework ensures that every report delivered to patients and doctors meets international scientific standards.",
     author: "Dr. Shantakumar Muruda",
-    date: "September 23, 2026",
-    created_at: "2026-09-23T09:30:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
@@ -277,8 +332,8 @@ const defaultBlogs = [
     excerpt: "Comparing Quick Fit, Q-Screen Diabetes, and Q-Master Pro checkups to find the optimal screening for your age and risk profile.",
     content: "Preventive diagnostic screening helps detect asymptomatic metabolic conditions long before clinical complications arise. However, choosing the right checkup profile depends on your age, family history, and lifestyle factors.\n\n- **Quick Fit Package (₹1,770):** 14+ core parameters (FBS, HbA1c, Lipid Profile, LFT, KFT, TSH, Vit D, CBC) ideal for routine annual wellness screening in young adults.\n- **Q-Screen Diabetes Profile (₹1,900):** 16+ targeted parameters including Urine Microalbumin, C-Peptide, and Glycemic Markers for individuals with a family history of diabetes.\n- **Q-Master Health Pro (₹4,600):** 92 comprehensive parameters incorporating Electrolytes, Vit B12, hs-CRP, and H. Pylori IgG for in-depth adult health assessment.\n- **Ultra Full Body Checkup (₹4,999):** 117 parameters adding Homocysteine, Lipoprotein(a), and Complete Iron Panel for advanced cardiovascular risk evaluation.",
     author: "Dr. Ajitha Pillai",
-    date: "September 22, 2026",
-    created_at: "2026-09-22T11:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
   },
   {
@@ -288,8 +343,8 @@ const defaultBlogs = [
     excerpt: "How certified phlebotomists maintain cold chain storage and tube integrity from your home to our central reference laboratory.",
     content: "Doorstep home collection offers immense convenience, but maintaining sample integrity requires strict technical protocols. From vacuum tube collection to temperature management, every step matters.\n\nQXL Diagnostics provides 100% Free Doorstep Collection across all 60+ Bengaluru localities. Our trained phlebotomists:\n\n- Use pre-labeled, barcoded vacuum collection tubes (BD Vacutainer).\n- Transport samples in insulated thermal cold-chain bags with calibrated gel packs to prevent hemolysis or enzymatic degradation.\n- Deliver samples directly to our 24×7 central reference laboratory in Kengeri for immediate processing.\n\nThis ensures that home-collected blood samples achieve identical analytical accuracy to walk-in laboratory visits.",
     author: "Dr. Naveen Kumar N",
-    date: "September 21, 2026",
-    created_at: "2026-09-21T08:30:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
   },
   {
@@ -299,8 +354,8 @@ const defaultBlogs = [
     excerpt: "Discover how QXL Diagnostics integrates artificial intelligence to deliver faster, more accurate pathology reports.",
     content: "Artificial Intelligence is transforming healthcare, and at QXL Diagnostics, we are at the forefront of this revolution. By integrating AI algorithms into our diagnostic workflows, our pathologists can identify cellular abnormalities with enhanced analytical precision under senior pathologist supervision.\n\nAI doesn't replace our expert doctors; it acts as a powerful second set of eyes, rapidly analyzing thousands of data points in blood smears and tissue samples to flag potential issues. This reduces human error and significantly decreases turnaround times, meaning you get your results faster without compromising on accuracy.\n\nWhether it's a routine CBC or a complex histopathology report, AI-assisted diagnostics ensure that your doctor receives the most reliable data to guide your treatment.",
     author: "Dr. Shantakumar Muruda",
-    date: "September 20, 2026",
-    created_at: "2026-09-20T10:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "/image/slide_lab_facility.png"
   },
   {
@@ -310,8 +365,8 @@ const defaultBlogs = [
     excerpt: "Anti-Mullerian Hormone (AMH) testing is crucial for understanding ovarian reserve. Learn who needs it and why.",
     content: "Anti-Mullerian Hormone (AMH) is a protein produced by the cells inside the ovarian follicles. Measuring AMH levels in the blood is currently the most accurate way to assess a woman's ovarian reserve—essentially, the number of eggs she has remaining.\n\nUnlike other fertility hormones, AMH levels remain relatively stable throughout the menstrual cycle, meaning the test can be taken on any day. It's an invaluable tool for women planning for pregnancy, those considering IVF, or those experiencing symptoms of PCOS (where AMH is typically elevated).\n\nAt QXL Diagnostics, we use advanced CLIA technology to provide highly accurate AMH results, empowering women with the knowledge they need to make informed family planning decisions.",
     author: "Dr. Pritilata Rout",
-    date: "September 19, 2026",
-    created_at: "2026-09-19T10:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
@@ -321,8 +376,8 @@ const defaultBlogs = [
     excerpt: "Chronic sneezing, rashes, or digestive issues? Learn how comprehensive allergy testing can pinpoint the exact cause.",
     content: "Allergies occur when your immune system overreacts to a foreign substance, such as pollen, pet dander, or specific foods. While symptoms can range from mild sneezing to severe anaphylaxis, identifying the exact trigger is often a frustrating guessing game.\n\nQXL Diagnostics offers comprehensive allergy panels that test for hundreds of common environmental and food allergens specific to the Indian context. Using a single blood sample, we can measure specific IgE antibodies to pinpoint exactly what is causing your symptoms.\n\nArmed with an accurate allergy profile, you and your doctor can develop a targeted avoidance strategy or immunotherapy plan, finally bringing relief from chronic allergic reactions.",
     author: "Dr. Ajitha Pillai",
-    date: "September 18, 2026",
-    created_at: "2026-09-18T10:00:00Z",
+    date: "October 7, 2026",
+    created_at: "2026-10-07T08:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   }
 ];

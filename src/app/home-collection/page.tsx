@@ -81,10 +81,10 @@ export default function HomeCollectionPage() {
             Schedule Home Collection
           </a>
 
-          {/* Badge: 100% Safe & Hygienic */}
+          {/* Badge: Strictly Hygienic & Temperature-Controlled */}
           <div className="flex items-center gap-1.5 mt-3 text-[11px] font-extrabold text-amber-900 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200">
             <ShieldCheck className="w-4 h-4 text-[#D69A18]" />
-            <span>100% Safe & Hygienic</span>
+            <span>Strictly Hygienic & Temperature-Controlled</span>
           </div>
         </div>
 

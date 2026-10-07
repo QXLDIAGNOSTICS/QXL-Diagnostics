@@ -105,7 +105,7 @@ function buildJsonLd(data: SeoLandingData) {
       breadcrumb: { "@id": `${url}#breadcrumb` },
       provider: { "@id": `${SITE_URL}/#organization` },
       reviewedBy: reviewerNode,
-      lastReviewed: data.lastReviewedDate || "2026-08-31",
+      lastReviewed: data.lastReviewedDate || "2026-10-07",
       areaServed: { "@type": "City", name: "Bengaluru" },
       inLanguage: "en-IN",
     },
@@ -268,7 +268,7 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
                   </Link>
                   {data.reviewerQuals && <span className="text-sky-300">({data.reviewerQuals})</span>}
                   <span className="text-sky-400">•</span>
-                  <span className="text-slate-300">Last Reviewed: {data.lastReviewedDate || "August 2026"}</span>
+                  <span className="text-slate-300">Last Reviewed: {data.lastReviewedDate || "October 2026"}</span>
                 </div>
               )}
             </div>

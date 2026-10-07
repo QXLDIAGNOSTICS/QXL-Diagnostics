@@ -16,7 +16,7 @@ export const cbcTest: SeoLandingData = {
   reviewerSlug: "dr-naveen-kumar-n",
   reviewerQuals: "DCP, DNB Pathology",
   publishedDate: "2026-01-15",
-  lastReviewedDate: "August 2026",
+  lastReviewedDate: "October 2026",
   references: [
     "World Health Organization (WHO). Haemoglobin concentrations for the diagnosis of anaemia and assessment of severity. WHO/NMH/NHD/MNM/11.1.",
     "Clinical and Laboratory Standards Institute (CLSI). H20-A2: Quantitative Hematology: Performance Guidelines for Automated Hematology Analyzers.",

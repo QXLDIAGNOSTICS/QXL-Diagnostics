@@ -16,7 +16,7 @@ export const hba1cTest: SeoLandingData = {
   reviewerSlug: "dr-shantakumar-muruda",
   reviewerQuals: "MD Biochemistry, NABL Lead Assessor",
   publishedDate: "2026-01-15",
-  lastReviewedDate: "August 2026",
+  lastReviewedDate: "October 2026",
   references: [
     "American Diabetes Association (ADA). Standards of Care in Diabetes—2026. Diabetes Care.",
     "World Health Organization (WHO). Use of Glycated Haemoglobin (HbA1c) in the Diagnosis of Diabetes Mellitus.",

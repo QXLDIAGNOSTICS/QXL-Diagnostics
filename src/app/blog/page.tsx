@@ -57,7 +57,7 @@ export default function BlogPage() {
                 ? blog.date
                 : blog.created_at
                 ? new Date(blog.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })
-                : "September 2026";
+                : "October 7, 2026";
 
               return (
                 <div 

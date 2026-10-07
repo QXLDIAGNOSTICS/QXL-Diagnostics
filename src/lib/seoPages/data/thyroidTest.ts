@@ -16,7 +16,7 @@ export const thyroidTest: SeoLandingData = {
   reviewerSlug: "dr-shantakumar-muruda",
   reviewerQuals: "MD Biochemistry, NABL Lead Assessor",
   publishedDate: "2026-01-15",
-  lastReviewedDate: "August 2026",
+  lastReviewedDate: "October 2026",
   references: [
     "American Thyroid Association (ATA) Guidelines for Diagnosis and Management of Thyroid Disease.",
     "Indian Thyroid Society (ITS) Consensus Guidelines for Thyroid Disorders in India.",

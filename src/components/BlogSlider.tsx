@@ -11,74 +11,60 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
 
   const fallbackBlogs: BlogPost[] = [
     {
+      id: 'b-new-14',
+      title: 'Comprehensive Food-Specific IgG Sensitivity Microarray (287 Foods): A Doctor-Led Guide for Chronic Symptoms',
+      slug: 'food-specific-igg-287-foods-sensitivity-elimination-guide',
+      excerpt: 'Struggling with chronic bloating, IBS, migraines, or unexplained fatigue? Discover how high-throughput microarray IgG testing identifies delayed food sensitivities across 287 antigens under medical guidance.',
+      created_at: '2026-10-07T09:30:00.000Z'
+    },
+    {
+      id: 'b-new-15',
+      title: 'Emergency Cardiac Biomarkers: Understanding High-Sensitivity Troponin I, hs-CRP & NT-proBNP in Bengaluru',
+      slug: 'cardiac-biomarkers-hs-troponin-hscrp-nt-probnp-guide',
+      excerpt: 'Learn why emergency departments and cardiologists rely on high-sensitivity Cardiac Troponin I and hs-CRP for early myocardial injury and heart failure evaluation.',
+      created_at: '2026-10-07T09:00:00.000Z'
+    },
+    {
+      id: 'b-new-16',
+      title: 'Speciality Kidney & Liver Function Testing: eGFR, Cystatin C, Microalbuminuria & Liver Enzyme Ratios',
+      slug: 'speciality-kidney-liver-function-egfr-cystatin-c-lft-guide',
+      excerpt: 'An in-depth guide to interpreting Liver Function Tests (LFT) and Kidney Function Tests (KFT), including AST/ALT ratios, eGFR filtration, and early microalbuminuria detection.',
+      created_at: '2026-10-07T08:30:00.000Z'
+    },
+    {
       id: 'b-new-1',
       title: 'Hospital Laboratory Management (HLM): Transforming Diagnostic Models in India',
       slug: 'hospital-laboratory-management-transforming-models',
       excerpt: 'Explore how hybrid onsite-reference laboratory management helps hospitals optimize operating costs while delivering rapid 24x7 emergency diagnostic testing.',
-      created_at: '2026-09-22T08:00:00.000Z'
+      created_at: '2026-10-07T08:00:00.000Z'
     },
     {
       id: 'b-new-2',
       title: 'Understanding 19 Key Health Symptoms: When to Get Blood Biomarker Screening',
       slug: 'understanding-19-key-health-symptoms-blood-screening',
       excerpt: 'From chronic fatigue and dizziness to unexplained weight loss and joint pain, learn how targeted blood testing guides clinical diagnosis.',
-      created_at: '2026-09-21T10:00:00.000Z'
+      created_at: '2026-10-07T08:00:00.000Z'
     },
     {
       id: 'b-new-3',
       title: 'NABL ISO 15189:2022 Accreditation: What It Means for Sample Precision',
       slug: 'nabl-iso-15189-2022-accreditation-sample-precision',
       excerpt: 'Learn about internal quality controls (IQC), EQAS proficiency testing, and medical laboratory standards that ensure accurate test reporting.',
-      created_at: '2026-09-20T09:30:00.000Z'
+      created_at: '2026-10-07T08:00:00.000Z'
     },
     {
       id: 'b-new-4',
       title: 'Master Health Checkup Packages: Selecting the Right Full Body Profile',
       slug: 'selecting-right-full-body-health-package',
       excerpt: 'Comparing Quick Fit, Q-Screen Diabetes, and Q-Master Pro checkups to find the optimal screening for your age and risk profile.',
-      created_at: '2026-09-19T11:00:00.000Z'
+      created_at: '2026-10-07T08:00:00.000Z'
     },
     {
       id: 'b-new-5',
       title: 'Free Doorstep Sample Collection Across Bengaluru: Safety & Sample Integrity',
       slug: 'free-doorstep-home-sample-collection-bengaluru',
       excerpt: 'How certified phlebotomists maintain cold chain storage and tube integrity from your home to our central reference laboratory.',
-      created_at: '2026-09-18T08:30:00.000Z'
-    },
-    {
-      id: 'b1',
-      title: 'The Future is Now: AI-Assisted Diagnostics at QXL',
-      slug: 'ai-assisted-diagnostics',
-      excerpt: 'Discover how QXL Diagnostics integrates artificial intelligence to deliver faster, more accurate pathology reports.',
-      created_at: '2026-09-17T00:00:00.000Z'
-    },
-    {
-      id: 'b2',
-      title: 'Understanding AMH: Your Guide to Fertility Testing',
-      slug: 'understanding-amh-fertility-testing',
-      excerpt: 'Anti-Mullerian Hormone (AMH) testing is crucial for understanding ovarian reserve. Learn who needs it and why.',
-      created_at: '2026-09-16T00:00:00.000Z'
-    },
-    {
-      id: 'b3',
-      title: 'Allergy Testing: Identifying Your Hidden Triggers',
-      slug: 'allergy-testing-hidden-triggers',
-      excerpt: 'Chronic sneezing, rashes, or digestive issues? Learn how comprehensive allergy testing can pinpoint the exact cause.',
-      created_at: '2026-09-15T00:00:00.000Z'
-    },
-    {
-      id: 'b4',
-      title: 'Beyond Cholesterol: Advanced Cardiac Risk Assessment',
-      slug: 'beyond-cholesterol-cardiac-risk',
-      excerpt: 'A standard lipid profile isn\'t always enough. Learn about hs-CRP, Lp(a), and advanced markers for heart health.',
-      created_at: '2026-09-14T00:00:00.000Z'
-    },
-    {
-      id: 'b5',
-      title: 'Role of Vitamin D in Immunity and Bone Health',
-      slug: 'role-of-vitamin-d-immunity-bone-health',
-      excerpt: 'Understand why Vitamin D is more than just a vitamin. Learn about its massive role in regulating your immune system and preventing bone loss.',
-      created_at: '2026-09-12T00:00:00.000Z'
+      created_at: '2026-10-07T08:00:00.000Z'
     }
   ].map(b => ({
     content: null,

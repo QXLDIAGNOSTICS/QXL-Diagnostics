@@ -106,7 +106,7 @@ function LoginPageInner() {
             </div>
 
             <p className="text-[10.5px] text-slate-400 font-semibold leading-relaxed text-center">
-              🔒 100% Safe &amp; Secure • No password needed. Instant SMS / WhatsApp OTP authentication.
+              🔒 Encrypted &amp; Secure • No password needed. Instant SMS / WhatsApp OTP authentication.
             </p>
           </div>
 
