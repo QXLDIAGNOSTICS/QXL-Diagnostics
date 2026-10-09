@@ -663,7 +663,7 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
             </div>
             
             {/* WhatsApp Chat Area */}
-            <div ref={chatContainerRef} className="flex-1 min-h-0 p-4 flex flex-col gap-3 overflow-y-auto z-10 scroll-smooth" style={{ backgroundImage: "url('https://i.pinimg.com/originals/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', minHeight: 0 }}>
+            <div ref={chatContainerRef} className="flex-1 min-h-0 p-4 flex flex-col gap-3 overflow-y-auto z-10 scroll-smooth bg-[#efeae2] bg-[radial-gradient(#e5ddd5_1px,transparent_1px)] [background-size:16px_16px]" style={{ minHeight: 0 }}>
               
               <AnimatePresence>
                 {messages.map((msg, idx) => (

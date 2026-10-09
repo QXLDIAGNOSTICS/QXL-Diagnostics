@@ -177,7 +177,7 @@ function WhyChooseSlider() {
                 className="absolute inset-0 w-full h-full flex items-center justify-center p-2 sm:p-4"
               >
                 <img
-                  src={slide.image}
+                  src={optimizeCloudinaryUrl(slide.image, { w: 450, crop: "fit" })}
                   alt={slide.specialty}
                   className="max-h-full max-w-full object-contain drop-shadow-md"
                 />
@@ -428,7 +428,7 @@ function PromoHighlightSlider() {
                 className="absolute inset-0 w-full h-full"
               >
                 <Image
-                  src={slide.image}
+                  src={optimizeCloudinaryUrl(slide.image, { w: 600, crop: "fill" })}
                   alt={slide.name}
                   fill
                   sizes="(max-width:768px) 36vw, 460px"
@@ -524,7 +524,7 @@ function MobileWhyChooseSlider() {
               style={{ backgroundColor: slide.imgBg }}
             >
               <Image
-                src={slide.image}
+                src={optimizeCloudinaryUrl(slide.image, { w: 250, crop: "fit" })}
                 alt={slide.specialty}
                 fill
                 sizes="115px"
@@ -611,7 +611,7 @@ function MobilePromoHighlightSlider() {
               className="absolute inset-0 w-full h-full"
               style={{ backgroundColor: slide.imgBg }}
             >
-              <Image src={slide.image} alt={slide.name} fill sizes="110px" className="object-cover object-center" />
+              <Image src={optimizeCloudinaryUrl(slide.image, { w: 250, crop: "fill" })} alt={slide.name} fill sizes="110px" className="object-cover object-center" />
             </motion.div>
           </AnimatePresence>
         </div>

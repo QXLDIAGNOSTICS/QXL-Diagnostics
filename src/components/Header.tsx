@@ -20,7 +20,7 @@ import AiDiagnostics from './AiDiagnostics';
 import { parseCartItems } from '../lib/cart';
 
 const FALLBACK_LOGO =
-  "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
+  "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto,w_400/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
 
 import { getActiveCampaign } from '../lib/campaignScheduler';
 import { isCampaignActive } from '../lib/rakshaBandhanConfig';
@@ -462,7 +462,7 @@ export default function Header() {
 
             <Link href="/" className="flex items-center py-1 shrink-0">
               <img
-                src={settings.logoImage || FALLBACK_LOGO}
+                src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 240, h: 70, crop: "fit" })}
                 alt={settings.siteName || "QXL Diagnostics"}
                 width={180}
                 height={48}

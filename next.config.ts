@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
   // delivery for the chat streaming route. Disable it here; in production
   // this should sit behind a reverse proxy/CDN (nginx, Cloudflare, etc.)
   // that handles compression for non-streaming responses instead.
-  compress: false,
+  compress: true,
   async rewrites() {
     return [
       {
@@ -329,6 +329,30 @@ const nextConfig: NextConfig = {
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(self), geolocation=(self)" },
           { key: "X-XSS-Protection", value: "1; mode=block" },
+        ],
+      },
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+      {
+        source: "/images/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, must-revalidate" },
+        ],
+      },
+      {
+        source: "/icons/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, must-revalidate" },
+        ],
+      },
+      {
+        source: "/(favicon.ico|manifest.json|robots.txt|sitemap.xml)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=86400, must-revalidate" },
         ],
       },
     ];

@@ -156,9 +156,9 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     name: "Q-Oncoscreen Package",
     idealFor: "Individuals with a family history of cancer or those advised by an oncologist. (40+ Years, Male / Female)",
     benefits: [
-      "Early detection of tumor markers",
-      "Screening for major cancers",
-      "Assess gastrointestinal health"
+      "Physician-directed tumor marker evaluation",
+      "Monitor specific oncology biomarkers",
+      "Assess gastrointestinal health markers"
     ],
     includes: "Cancer Markers (Alpha Fetoprotein AFP, Carcinoembryonic Antigen (CEA), Beta HCG, Prostate-Specific Antigen (PSA) - Male, CA-125 (Ovarian Cancer Marker) - Female, CA-19.9 (Pancreatic Cancer Marker)), CBC, ESR, Urine Routine & Microscopy, Calprotectin in Stool, Fecal Occult Blood Test (FOBT), Protein Electrophoresis.",
     mrp: 13600,

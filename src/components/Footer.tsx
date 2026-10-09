@@ -9,7 +9,7 @@ import { SOCIAL_LINKS, ISO_STANDARD, BUSINESS_HOURS } from '../lib/businessInfo'
 import { optimizeCloudinaryUrl } from '../lib/cloudinary';
 
 const FALLBACK_LOGO =
-  "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
+  "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto,w_400/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png";
 
 const specialities = [
   { label: "Cardiology Biomarkers", href: "/specialities/cardiology" },
