@@ -150,14 +150,25 @@ const defaultFaqs = [
 
 const defaultBlogs = [
   {
+    id: "blog-new-19",
+    title: "Advances in Clinical Diagnostics 2026: Next-Gen Molecular PCR & High-Throughput Immunoassays in Bengaluru",
+    slug: "advances-in-clinical-diagnostics-2026-molecular-pcr-immunoassays",
+    excerpt: "Explore the latest 2026 breakthroughs in sub-6-hour real-time PCR pathogen detection, automated chemiluminescence immunoassays, and doctor-led diagnostic protocols at QXL Diagnostics.",
+    content: "Rapid clinical precision is transforming patient outcomes in South Bengaluru. As diagnostic technology evolves in 2026, QXL Diagnostics continues to lead with state-of-the-art automated immunoassay systems and multiplex real-time PCR molecular testing.\n\n### Key Clinical Innovations in 2026:\n1. **Sub-6-Hour Pathogen Molecular Panels:** Rapid multiplex PCR testing for respiratory, gastrointestinal, and systemic tropical fever infections.\n2. **High-Throughput Chemiluminescence (CLIA):** Precision hormonal, vitamin D (25-OH), and cardiac marker quantification with sub-nanogram sensitivity.\n3. **Daily Dual-Level Westgard IQC & EQAS Alignment:** Every batch undergoes automated statistical quality control under ISO 15189:2022 standards.\n\nEvery report generated is reviewed and authorized by our senior team of consultant pathologists, clinical biochemists, and microbiologists.",
+    author: "Dr. Shantakumar Muruda",
+    date: "October 9, 2026",
+    created_at: "2026-10-09T08:30:00Z",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg"
+  },
+  {
     id: "blog-new-14",
     title: "Comprehensive Food-Specific IgG Sensitivity Microarray (287 Foods): A Doctor-Led Guide for Chronic Symptoms",
     slug: "food-specific-igg-287-foods-sensitivity-elimination-guide",
     excerpt: "Struggling with chronic bloating, IBS, migraines, or unexplained fatigue? Discover how high-throughput microarray IgG testing identifies delayed food sensitivities across 287 antigens under medical guidance.",
     content: "Chronic low-grade gut inflammation, irritable bowel symptoms, skin flare-ups, and unexplained lethargy often trace back to delayed non-IgE food sensitivities rather than immediate acute Type-1 allergies. While classical IgE antibodies trigger instant histamine reactions (such as hives or anaphylaxis), food-specific Immunoglobulin G (IgG) antibodies form circulating immune complexes that manifest 24 to 72 hours after consuming culprit foods.\n\n### Why 287-Food Microarray IgG Testing Leads Precision Clinical Nutrition\n1. **High-Throughput Antigens:** Evaluates 287 individual food items spanning dairy, gluten, grains, seafood, spices, nuts, and fruit proteins on advanced microarray platforms.\n2. **Quantitative Staining Ratios:** Pinpoints mild, moderate, and high antibody reactivity for structured elimination diets.\n3. **Clinical Guidance:** Reviewed by consultant biochemists to ensure nutritional adequacy during trial elimination and reintroduction phases.\n\nAt QXL Diagnostics, every food sensitivity report includes personalized dietary guidance validated by senior laboratory consultants.",
     author: "Dr. Shantakumar Muruda",
-    date: "October 7, 2026",
-    created_at: "2026-10-07T09:30:00Z",
+    date: "October 9, 2026",
+    created_at: "2026-10-09T07:30:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg"
   },
   {
