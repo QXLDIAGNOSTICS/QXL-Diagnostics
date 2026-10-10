@@ -4,6 +4,7 @@ import React, { useState, useEffect, use } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, Share2 } from "lucide-react";
 import { api, type BlogPost } from "../../../lib/api";
+import { cmsStore } from "../../../lib/cmsStore";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -19,15 +20,34 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
     (async () => {
       try {
         const found = await api.blog.get(unwrappedParams.id);
-        if (!cancelled) setBlog(found);
-        const { items } = await api.blog.list(6, 0);
-        if (!cancelled) setRelated(items.filter((b) => b.slug !== unwrappedParams.id));
+        if (!cancelled && found) {
+          setBlog(found);
+          const { items } = await api.blog.list(6, 0);
+          if (!cancelled && items && items.length > 0) {
+            setRelated(items.filter((b) => b.slug !== unwrappedParams.id));
+          } else if (!cancelled) {
+            const allLocal = cmsStore.getAll("blogs");
+            setRelated(allLocal.filter((b: any) => b.slug !== unwrappedParams.id && b.id !== unwrappedParams.id).slice(0, 4));
+          }
+          return;
+        }
       } catch {
-        if (!cancelled) setBlog(null);
-      } finally {
-        if (!cancelled) setLoading(false);
+        // Fall through to cmsStore fallback
       }
-    })();
+
+      if (!cancelled) {
+        const allLocal = cmsStore.getAll("blogs");
+        const found = allLocal.find((b: any) => b.slug === unwrappedParams.id || b.id === unwrappedParams.id);
+        if (found) {
+          setBlog(found as any);
+          setRelated(allLocal.filter((b: any) => b.slug !== unwrappedParams.id && b.id !== unwrappedParams.id).slice(0, 4));
+        } else {
+          setBlog(null);
+        }
+      }
+    })().finally(() => {
+      if (!cancelled) setLoading(false);
+    });
     return () => {
       cancelled = true;
     };

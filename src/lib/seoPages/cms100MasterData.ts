@@ -3,9 +3,9 @@ import type { DynamicPageData } from './dynamicPageResolver';
 export const cms100MasterData: Record<string, DynamicPageData> = {
   "complete-blood-count": {
     "slug": "complete-blood-count",
-    "title": "Complete Blood Count (CBC) Test in Bangalore | Price \u20b9260, Normal Range | QXL",
-    "metaDescription": "Book Complete Blood Count (CBC) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9260. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Complete Blood Count (CBC) Test in Bangalore | Price ₹260, Normal Range | QXL",
+    "metaDescription": "Book Complete Blood Count (CBC) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹260. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Complete Blood Count (CBC) Test in Bangalore",
     "subtitle": "High-precision Complete Blood Count assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "260",
@@ -110,9 +110,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "hba1c": {
     "slug": "hba1c",
-    "title": "Haemoglobin A1c (HbA1c) Test in Bangalore | Price \u20b9270, Normal Range | QXL",
-    "metaDescription": "Book Haemoglobin A1c (HbA1c) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9270. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Haemoglobin A1c (HbA1c) Test in Bangalore | Price ₹270, Normal Range | QXL",
+    "metaDescription": "Book Haemoglobin A1c (HbA1c) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹270. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Haemoglobin A1c (HbA1c) Test in Bangalore",
     "subtitle": "High-precision Haemoglobin A1c assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "270",
@@ -217,9 +217,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "fasting-blood-sugar": {
     "slug": "fasting-blood-sugar",
-    "title": "Fasting Plasma Glucose (Fasting Blood Sugar) Test in Bangalore | Price \u20b9280, Normal Range | QXL",
-    "metaDescription": "Book Fasting Plasma Glucose (Fasting Blood Sugar) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9280. 8 to 10 hours overnight fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Fasting Plasma Glucose (Fasting Blood Sugar) Test in Bangalore | Price ₹280, Normal Range | QXL",
+    "metaDescription": "Book Fasting Plasma Glucose (Fasting Blood Sugar) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹280. 8 to 10 hours overnight fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Fasting Plasma Glucose (Fasting Blood Sugar) Test in Bangalore",
     "subtitle": "High-precision Fasting Plasma Glucose assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 6 Hours.",
     "price": "280",
@@ -324,9 +324,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "post-prandial-blood-sugar": {
     "slug": "post-prandial-blood-sugar",
-    "title": "Postprandial Blood Glucose (PPBS) Test in Bangalore | Price \u20b9290, Normal Range | QXL",
-    "metaDescription": "Book Postprandial Blood Glucose (PPBS) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9290. 8 to 10 hours overnight fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Postprandial Blood Glucose (PPBS) Test in Bangalore | Price ₹290, Normal Range | QXL",
+    "metaDescription": "Book Postprandial Blood Glucose (PPBS) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹290. 8 to 10 hours overnight fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Postprandial Blood Glucose (PPBS) Test in Bangalore",
     "subtitle": "High-precision Postprandial Blood Glucose assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 6 Hours.",
     "price": "290",
@@ -431,9 +431,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "random-blood-sugar": {
     "slug": "random-blood-sugar",
-    "title": "Random Plasma Glucose (Random Blood Sugar) Test in Bangalore | Price \u20b9300, Normal Range | QXL",
-    "metaDescription": "Book Random Plasma Glucose (Random Blood Sugar) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9300. 8 to 10 hours overnight fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Random Plasma Glucose (Random Blood Sugar) Test in Bangalore | Price ₹300, Normal Range | QXL",
+    "metaDescription": "Book Random Plasma Glucose (Random Blood Sugar) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹300. 8 to 10 hours overnight fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Random Plasma Glucose (Random Blood Sugar) Test in Bangalore",
     "subtitle": "High-precision Random Plasma Glucose assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 6 Hours.",
     "price": "300",
@@ -538,9 +538,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "thyroid-profile": {
     "slug": "thyroid-profile",
-    "title": "Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) Test in Bangalore | Price \u20b9310, Normal Range | QXL",
-    "metaDescription": "Book Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9310. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) Test in Bangalore | Price ₹310, Normal Range | QXL",
+    "metaDescription": "Book Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹310. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) Test in Bangalore",
     "subtitle": "High-precision Thyroid Profile (TSH, Free T4 and Free T3) assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "310",
@@ -645,9 +645,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "tsh": {
     "slug": "tsh",
-    "title": "Thyroid-Stimulating Hormone (TSH) Test in Bangalore | Price \u20b9320, Normal Range | QXL",
-    "metaDescription": "Book Thyroid-Stimulating Hormone (TSH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9320. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Thyroid-Stimulating Hormone (TSH) Test in Bangalore | Price ₹320, Normal Range | QXL",
+    "metaDescription": "Book Thyroid-Stimulating Hormone (TSH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹320. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Thyroid-Stimulating Hormone (TSH) Test in Bangalore",
     "subtitle": "High-precision Thyroid-Stimulating Hormone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "320",
@@ -752,9 +752,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "free-t3": {
     "slug": "free-t3",
-    "title": "Free Triiodothyronine (FT3) Test in Bangalore | Price \u20b9330, Normal Range | QXL",
-    "metaDescription": "Book Free Triiodothyronine (FT3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9330. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Free Triiodothyronine (FT3) Test in Bangalore | Price ₹330, Normal Range | QXL",
+    "metaDescription": "Book Free Triiodothyronine (FT3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹330. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Free Triiodothyronine (FT3) Test in Bangalore",
     "subtitle": "High-precision Free Triiodothyronine assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "330",
@@ -859,9 +859,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "free-t4": {
     "slug": "free-t4",
-    "title": "Free Thyroxine (FT4) Test in Bangalore | Price \u20b9340, Normal Range | QXL",
-    "metaDescription": "Book Free Thyroxine (FT4) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9340. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Free Thyroxine (FT4) Test in Bangalore | Price ₹340, Normal Range | QXL",
+    "metaDescription": "Book Free Thyroxine (FT4) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹340. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Free Thyroxine (FT4) Test in Bangalore",
     "subtitle": "High-precision Free Thyroxine assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "340",
@@ -966,9 +966,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "lipid-profile": {
     "slug": "lipid-profile",
-    "title": "Lipid Profile (Lipid Profile) Test in Bangalore | Price \u20b9350, Normal Range | QXL",
-    "metaDescription": "Book Lipid Profile (Lipid Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9350. 8 to 10 hours overnight fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Lipid Profile (Lipid Profile) Test in Bangalore | Price ₹350, Normal Range | QXL",
+    "metaDescription": "Book Lipid Profile (Lipid Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹350. 8 to 10 hours overnight fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Lipid Profile (Lipid Profile) Test in Bangalore",
     "subtitle": "High-precision Lipid Profile assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 6 Hours.",
     "price": "350",
@@ -1073,9 +1073,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "liver-function-test": {
     "slug": "liver-function-test",
-    "title": "Liver Function Test Panel (Liver Function Test) Test in Bangalore | Price \u20b9360, Normal Range | QXL",
-    "metaDescription": "Book Liver Function Test Panel (Liver Function Test) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9360. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Liver Function Test Panel (Liver Function Test) Test in Bangalore | Price ₹360, Normal Range | QXL",
+    "metaDescription": "Book Liver Function Test Panel (Liver Function Test) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹360. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Liver Function Test Panel (Liver Function Test) Test in Bangalore",
     "subtitle": "High-precision Liver Function Test Panel assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "360",
@@ -1180,9 +1180,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "kidney-function-test": {
     "slug": "kidney-function-test",
-    "title": "Kidney Function Test Panel (Kidney Function Test) Test in Bangalore | Price \u20b9370, Normal Range | QXL",
-    "metaDescription": "Book Kidney Function Test Panel (Kidney Function Test) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9370. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Kidney Function Test Panel (Kidney Function Test) Test in Bangalore | Price ₹370, Normal Range | QXL",
+    "metaDescription": "Book Kidney Function Test Panel (Kidney Function Test) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹370. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Kidney Function Test Panel (Kidney Function Test) Test in Bangalore",
     "subtitle": "High-precision Kidney Function Test Panel assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "370",
@@ -1287,9 +1287,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "creatinine": {
     "slug": "creatinine",
-    "title": "Creatinine with Estimated Glomerular Filtration Rate (Creatinine) Test in Bangalore | Price \u20b9380, Normal Range | QXL",
-    "metaDescription": "Book Creatinine with Estimated Glomerular Filtration Rate (Creatinine) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9380. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Creatinine with Estimated Glomerular Filtration Rate (Creatinine) Test in Bangalore | Price ₹380, Normal Range | QXL",
+    "metaDescription": "Book Creatinine with Estimated Glomerular Filtration Rate (Creatinine) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹380. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Creatinine with Estimated Glomerular Filtration Rate (Creatinine) Test in Bangalore",
     "subtitle": "High-precision Creatinine with Estimated Glomerular Filtration Rate assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "380",
@@ -1394,9 +1394,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "uric-acid": {
     "slug": "uric-acid",
-    "title": "Uric Acid (Uric Acid) Test in Bangalore | Price \u20b9390, Normal Range | QXL",
-    "metaDescription": "Book Uric Acid (Uric Acid) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9390. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Uric Acid (Uric Acid) Test in Bangalore | Price ₹390, Normal Range | QXL",
+    "metaDescription": "Book Uric Acid (Uric Acid) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹390. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Uric Acid (Uric Acid) Test in Bangalore",
     "subtitle": "High-precision Uric Acid assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "390",
@@ -1501,9 +1501,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "crp": {
     "slug": "crp",
-    "title": "C-Reactive Protein (CRP) Test in Bangalore | Price \u20b9400, Normal Range | QXL",
-    "metaDescription": "Book C-Reactive Protein (CRP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9400. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "C-Reactive Protein (CRP) Test in Bangalore | Price ₹400, Normal Range | QXL",
+    "metaDescription": "Book C-Reactive Protein (CRP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹400. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "C-Reactive Protein (CRP) Test in Bangalore",
     "subtitle": "High-precision C-Reactive Protein assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "400",
@@ -1608,9 +1608,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "erythrocyte-sedimentation-rate": {
     "slug": "erythrocyte-sedimentation-rate",
-    "title": "Erythrocyte Sedimentation Rate (ESR) Test in Bangalore | Price \u20b9410, Normal Range | QXL",
-    "metaDescription": "Book Erythrocyte Sedimentation Rate (ESR) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9410. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Erythrocyte Sedimentation Rate (ESR) Test in Bangalore | Price ₹410, Normal Range | QXL",
+    "metaDescription": "Book Erythrocyte Sedimentation Rate (ESR) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹410. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Erythrocyte Sedimentation Rate (ESR) Test in Bangalore",
     "subtitle": "High-precision Erythrocyte Sedimentation Rate assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "410",
@@ -1715,9 +1715,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "vitamin-d": {
     "slug": "vitamin-d",
-    "title": "25-Hydroxy Vitamin D (Vitamin D) Test in Bangalore | Price \u20b9420, Normal Range | QXL",
-    "metaDescription": "Book 25-Hydroxy Vitamin D (Vitamin D) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9420. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "25-Hydroxy Vitamin D (Vitamin D) Test in Bangalore | Price ₹420, Normal Range | QXL",
+    "metaDescription": "Book 25-Hydroxy Vitamin D (Vitamin D) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹420. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "25-Hydroxy Vitamin D (Vitamin D) Test in Bangalore",
     "subtitle": "High-precision 25-Hydroxy Vitamin D assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "420",
@@ -1822,9 +1822,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "vitamin-b12": {
     "slug": "vitamin-b12",
-    "title": "Vitamin B12 (Vitamin B12) Test in Bangalore | Price \u20b9430, Normal Range | QXL",
-    "metaDescription": "Book Vitamin B12 (Vitamin B12) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9430. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Vitamin B12 (Vitamin B12) Test in Bangalore | Price ₹430, Normal Range | QXL",
+    "metaDescription": "Book Vitamin B12 (Vitamin B12) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹430. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Vitamin B12 (Vitamin B12) Test in Bangalore",
     "subtitle": "High-precision Vitamin B12 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "430",
@@ -1929,9 +1929,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "ferritin": {
     "slug": "ferritin",
-    "title": "Ferritin (Ferritin) Test in Bangalore | Price \u20b9440, Normal Range | QXL",
-    "metaDescription": "Book Ferritin (Ferritin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9440. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Ferritin (Ferritin) Test in Bangalore | Price ₹440, Normal Range | QXL",
+    "metaDescription": "Book Ferritin (Ferritin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹440. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Ferritin (Ferritin) Test in Bangalore",
     "subtitle": "High-precision Ferritin assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "440",
@@ -2036,9 +2036,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "iron-profile": {
     "slug": "iron-profile",
-    "title": "Iron Profile (Iron Profile) Test in Bangalore | Price \u20b9450, Normal Range | QXL",
-    "metaDescription": "Book Iron Profile (Iron Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9450. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Iron Profile (Iron Profile) Test in Bangalore | Price ₹450, Normal Range | QXL",
+    "metaDescription": "Book Iron Profile (Iron Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹450. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Iron Profile (Iron Profile) Test in Bangalore",
     "subtitle": "High-precision Iron Profile assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "450",
@@ -2143,9 +2143,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "calcium": {
     "slug": "calcium",
-    "title": "Total Calcium (Calcium) Test in Bangalore | Price \u20b9460, Normal Range | QXL",
-    "metaDescription": "Book Total Calcium (Calcium) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9460. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Total Calcium (Calcium) Test in Bangalore | Price ₹460, Normal Range | QXL",
+    "metaDescription": "Book Total Calcium (Calcium) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹460. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Total Calcium (Calcium) Test in Bangalore",
     "subtitle": "High-precision Total Calcium assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "460",
@@ -2250,9 +2250,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "magnesium": {
     "slug": "magnesium",
-    "title": "Magnesium (Magnesium) Test in Bangalore | Price \u20b9470, Normal Range | QXL",
-    "metaDescription": "Book Magnesium (Magnesium) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9470. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Magnesium (Magnesium) Test in Bangalore | Price ₹470, Normal Range | QXL",
+    "metaDescription": "Book Magnesium (Magnesium) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹470. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Magnesium (Magnesium) Test in Bangalore",
     "subtitle": "High-precision Magnesium assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "470",
@@ -2357,9 +2357,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "electrolytes": {
     "slug": "electrolytes",
-    "title": "Electrolyte Panel (Electrolytes) Test in Bangalore | Price \u20b9480, Normal Range | QXL",
-    "metaDescription": "Book Electrolyte Panel (Electrolytes) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9480. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Electrolyte Panel (Electrolytes) Test in Bangalore | Price ₹480, Normal Range | QXL",
+    "metaDescription": "Book Electrolyte Panel (Electrolytes) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹480. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Electrolyte Panel (Electrolytes) Test in Bangalore",
     "subtitle": "High-precision Electrolyte Panel assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "480",
@@ -2464,9 +2464,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "urine-routine-microscopy": {
     "slug": "urine-routine-microscopy",
-    "title": "Urine Routine Examination (Urine Routine) Test in Bangalore | Price \u20b9490, Normal Range | QXL",
-    "metaDescription": "Book Urine Routine Examination (Urine Routine) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9490. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Urine Routine Examination (Urine Routine) Test in Bangalore | Price ₹490, Normal Range | QXL",
+    "metaDescription": "Book Urine Routine Examination (Urine Routine) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹490. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Urine Routine Examination (Urine Routine) Test in Bangalore",
     "subtitle": "High-precision Urine Routine Examination assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "490",
@@ -2571,9 +2571,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "total-protein": {
     "slug": "total-protein",
-    "title": "Total Protein (Total Protein) Test in Bangalore | Price \u20b9500, Normal Range | QXL",
-    "metaDescription": "Book Total Protein (Total Protein) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9500. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Total Protein (Total Protein) Test in Bangalore | Price ₹500, Normal Range | QXL",
+    "metaDescription": "Book Total Protein (Total Protein) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹500. No fasting required. 6 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Total Protein (Total Protein) Test in Bangalore",
     "subtitle": "High-precision Total Protein assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "500",
@@ -2678,9 +2678,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "insulin-fasting": {
     "slug": "insulin-fasting",
-    "title": "Insulin, Serum (Insulin) Test in Bangalore | Price \u20b9510, Normal Range | QXL",
-    "metaDescription": "Book Insulin, Serum (Insulin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9510. 8 to 10 hours overnight fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Insulin, Serum (Insulin) Test in Bangalore | Price ₹510, Normal Range | QXL",
+    "metaDescription": "Book Insulin, Serum (Insulin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹510. 8 to 10 hours overnight fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Insulin, Serum (Insulin) Test in Bangalore",
     "subtitle": "High-precision Insulin, Serum assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 12 Hours.",
     "price": "510",
@@ -2785,9 +2785,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "c-peptide": {
     "slug": "c-peptide",
-    "title": "C-Peptide (C-peptide) Test in Bangalore | Price \u20b9520, Normal Range | QXL",
-    "metaDescription": "Book C-Peptide (C-peptide) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9520. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "C-Peptide (C-peptide) Test in Bangalore | Price ₹520, Normal Range | QXL",
+    "metaDescription": "Book C-Peptide (C-peptide) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹520. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "C-Peptide (C-peptide) Test in Bangalore",
     "subtitle": "High-precision C-Peptide assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "520",
@@ -2892,9 +2892,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "homa-ir": {
     "slug": "homa-ir",
-    "title": "HOMA-IR Calculation (HOMA-IR) Test in Bangalore | Price \u20b9530, Normal Range | QXL",
-    "metaDescription": "Book HOMA-IR Calculation (HOMA-IR) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9530. 8 to 10 hours overnight fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "HOMA-IR Calculation (HOMA-IR) Test in Bangalore | Price ₹530, Normal Range | QXL",
+    "metaDescription": "Book HOMA-IR Calculation (HOMA-IR) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹530. 8 to 10 hours overnight fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "HOMA-IR Calculation (HOMA-IR) Test in Bangalore",
     "subtitle": "High-precision HOMA-IR Calculation assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 12 Hours.",
     "price": "530",
@@ -2999,9 +2999,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "urine-microalbumin": {
     "slug": "urine-microalbumin",
-    "title": "Urine Albumin-Creatinine Ratio (Microalbumin) Test in Bangalore | Price \u20b9540, Normal Range | QXL",
-    "metaDescription": "Book Urine Albumin-Creatinine Ratio (Microalbumin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9540. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Urine Albumin-Creatinine Ratio (Microalbumin) Test in Bangalore | Price ₹540, Normal Range | QXL",
+    "metaDescription": "Book Urine Albumin-Creatinine Ratio (Microalbumin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹540. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Urine Albumin-Creatinine Ratio (Microalbumin) Test in Bangalore",
     "subtitle": "High-precision Urine Albumin-Creatinine Ratio assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "540",
@@ -3106,9 +3106,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "apob-test": {
     "slug": "apob-test",
-    "title": "Apolipoprotein B (ApoB) Test in Bangalore | Price \u20b9550, Normal Range | QXL",
-    "metaDescription": "Book Apolipoprotein B (ApoB) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9550. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Apolipoprotein B (ApoB) Test in Bangalore | Price ₹550, Normal Range | QXL",
+    "metaDescription": "Book Apolipoprotein B (ApoB) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹550. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Apolipoprotein B (ApoB) Test in Bangalore",
     "subtitle": "High-precision Apolipoprotein B assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "550",
@@ -3213,9 +3213,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "lipoprotein-a-test": {
     "slug": "lipoprotein-a-test",
-    "title": "Lipoprotein(a) (Lp(a)) Test in Bangalore | Price \u20b9560, Normal Range | QXL",
-    "metaDescription": "Book Lipoprotein(a) (Lp(a)) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9560. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Lipoprotein(a) (Lp(a)) Test in Bangalore | Price ₹560, Normal Range | QXL",
+    "metaDescription": "Book Lipoprotein(a) (Lp(a)) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹560. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Lipoprotein(a) (Lp(a)) Test in Bangalore",
     "subtitle": "High-precision Lipoprotein(a) assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "560",
@@ -3320,9 +3320,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "homocysteine-test": {
     "slug": "homocysteine-test",
-    "title": "Homocysteine (Homocysteine) Test in Bangalore | Price \u20b9570, Normal Range | QXL",
-    "metaDescription": "Book Homocysteine (Homocysteine) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9570. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Homocysteine (Homocysteine) Test in Bangalore | Price ₹570, Normal Range | QXL",
+    "metaDescription": "Book Homocysteine (Homocysteine) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹570. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Homocysteine (Homocysteine) Test in Bangalore",
     "subtitle": "High-precision Homocysteine assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "570",
@@ -3427,9 +3427,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "hs-crp": {
     "slug": "hs-crp",
-    "title": "High-Sensitivity C-Reactive Protein (hs-CRP) Test in Bangalore | Price \u20b9580, Normal Range | QXL",
-    "metaDescription": "Book High-Sensitivity C-Reactive Protein (hs-CRP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9580. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "High-Sensitivity C-Reactive Protein (hs-CRP) Test in Bangalore | Price ₹580, Normal Range | QXL",
+    "metaDescription": "Book High-Sensitivity C-Reactive Protein (hs-CRP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹580. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "High-Sensitivity C-Reactive Protein (hs-CRP) Test in Bangalore",
     "subtitle": "High-precision High-Sensitivity C-Reactive Protein assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "580",
@@ -3534,9 +3534,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "testosterone-total": {
     "slug": "testosterone-total",
-    "title": "Total Testosterone (Testosterone) Test in Bangalore | Price \u20b9590, Normal Range | QXL",
-    "metaDescription": "Book Total Testosterone (Testosterone) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9590. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Total Testosterone (Testosterone) Test in Bangalore | Price ₹590, Normal Range | QXL",
+    "metaDescription": "Book Total Testosterone (Testosterone) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹590. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Total Testosterone (Testosterone) Test in Bangalore",
     "subtitle": "High-precision Total Testosterone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "590",
@@ -3641,9 +3641,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "testosterone-free": {
     "slug": "testosterone-free",
-    "title": "Free Testosterone (Free Testosterone) Test in Bangalore | Price \u20b9600, Normal Range | QXL",
-    "metaDescription": "Book Free Testosterone (Free Testosterone) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9600. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Free Testosterone (Free Testosterone) Test in Bangalore | Price ₹600, Normal Range | QXL",
+    "metaDescription": "Book Free Testosterone (Free Testosterone) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹600. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Free Testosterone (Free Testosterone) Test in Bangalore",
     "subtitle": "High-precision Free Testosterone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "600",
@@ -3748,9 +3748,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "prolactin": {
     "slug": "prolactin",
-    "title": "Prolactin (Prolactin) Test in Bangalore | Price \u20b9610, Normal Range | QXL",
-    "metaDescription": "Book Prolactin (Prolactin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9610. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Prolactin (Prolactin) Test in Bangalore | Price ₹610, Normal Range | QXL",
+    "metaDescription": "Book Prolactin (Prolactin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹610. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Prolactin (Prolactin) Test in Bangalore",
     "subtitle": "High-precision Prolactin assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "610",
@@ -3855,9 +3855,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "lh": {
     "slug": "lh",
-    "title": "Luteinizing Hormone (LH) Test in Bangalore | Price \u20b9620, Normal Range | QXL",
-    "metaDescription": "Book Luteinizing Hormone (LH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9620. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Luteinizing Hormone (LH) Test in Bangalore | Price ₹620, Normal Range | QXL",
+    "metaDescription": "Book Luteinizing Hormone (LH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹620. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Luteinizing Hormone (LH) Test in Bangalore",
     "subtitle": "High-precision Luteinizing Hormone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "620",
@@ -3962,9 +3962,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "fsh": {
     "slug": "fsh",
-    "title": "Follicle-Stimulating Hormone (FSH) Test in Bangalore | Price \u20b9630, Normal Range | QXL",
-    "metaDescription": "Book Follicle-Stimulating Hormone (FSH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9630. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Follicle-Stimulating Hormone (FSH) Test in Bangalore | Price ₹630, Normal Range | QXL",
+    "metaDescription": "Book Follicle-Stimulating Hormone (FSH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹630. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Follicle-Stimulating Hormone (FSH) Test in Bangalore",
     "subtitle": "High-precision Follicle-Stimulating Hormone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "630",
@@ -4069,9 +4069,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "estradioli": {
     "slug": "estradioli",
-    "title": "Estradiol (Estradiol) Test in Bangalore | Price \u20b9640, Normal Range | QXL",
-    "metaDescription": "Book Estradiol (Estradiol) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9640. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Estradiol (Estradiol) Test in Bangalore | Price ₹640, Normal Range | QXL",
+    "metaDescription": "Book Estradiol (Estradiol) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹640. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Estradiol (Estradiol) Test in Bangalore",
     "subtitle": "High-precision Estradiol assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "640",
@@ -4176,9 +4176,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "progesterone": {
     "slug": "progesterone",
-    "title": "Progesterone (Progesterone) Test in Bangalore | Price \u20b9650, Normal Range | QXL",
-    "metaDescription": "Book Progesterone (Progesterone) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9650. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Progesterone (Progesterone) Test in Bangalore | Price ₹650, Normal Range | QXL",
+    "metaDescription": "Book Progesterone (Progesterone) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹650. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Progesterone (Progesterone) Test in Bangalore",
     "subtitle": "High-precision Progesterone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "650",
@@ -4283,11 +4283,11 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "amh": {
     "slug": "amh",
-    "title": "Anti-M\u00fcllerian Hormone (AMH) Test in Bangalore | Price \u20b9660, Normal Range | QXL",
-    "metaDescription": "Book Anti-M\u00fcllerian Hormone (AMH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9660. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
-    "h1Title": "Anti-M\u00fcllerian Hormone (AMH) Test in Bangalore",
-    "subtitle": "High-precision Anti-M\u00fcllerian Hormone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
+    "title": "Anti-Müllerian Hormone (AMH) Test in Bangalore | Price ₹660, Normal Range | QXL",
+    "metaDescription": "Book Anti-Müllerian Hormone (AMH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹660. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "Anti-Müllerian Hormone (AMH) Test in Bangalore",
+    "subtitle": "High-precision Anti-Müllerian Hormone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "660",
     "oldPrice": "957",
     "discountPercent": "31% OFF",
@@ -4297,14 +4297,14 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "turnaroundTime": "12 Hours",
     "category": "Reproductive Endocrinology",
     "overview": [
-      "The Anti-M\u00fcllerian Hormone (AMH) is an essential diagnostic laboratory investigation performed in the Reproductive Endocrinology department at QXL Diagnostics, Bengaluru.",
+      "The Anti-Müllerian Hormone (AMH) is an essential diagnostic laboratory investigation performed in the Reproductive Endocrinology department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Accredited central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
       "Every result undergoes automated dual-level internal quality control (IQC) and pathologist sign-off by Dr. Shantakumar Muruda, MD."
     ],
     "parametersList": [
-      "Anti-M\u00fcllerian Hormone (AMH) Quantitative Assay Level",
+      "Anti-Müllerian Hormone (AMH) Quantitative Assay Level",
       "Age- and Sex-Stratified Normal Reference Interval",
       "Clinical Alert Flags & Out-of-Range Highlights",
       "Preanalytical Hemolysis & Lipemia Quality Index",
@@ -4319,7 +4319,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       }
     ],
     "whyImportant": [
-      "Primary Indication: Evaluate anti-m\u00fcllerian hormone for diagnostic assessment.",
+      "Primary Indication: Evaluate anti-müllerian hormone for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
       "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
@@ -4330,43 +4330,43 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     ],
     "faqs": [
       {
-        "question": "What is the Anti-M\u00fcllerian Hormone (AMH) test?",
-        "answer": "The Anti-M\u00fcllerian Hormone (AMH) is an essential clinical investigation in the Reproductive Endocrinology department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "question": "What is the Anti-Müllerian Hormone (AMH) test?",
+        "answer": "The Anti-Müllerian Hormone (AMH) is an essential clinical investigation in the Reproductive Endocrinology department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
-        "question": "Why has my doctor recommended a Anti-M\u00fcllerian Hormone test?",
-        "answer": "Your physician ordered this test to evaluate anti-m\u00fcllerian hormone, detect underlying health issues early, and guide targeted medical treatment."
+        "question": "Why has my doctor recommended a Anti-Müllerian Hormone test?",
+        "answer": "Your physician ordered this test to evaluate anti-müllerian hormone, detect underlying health issues early, and guide targeted medical treatment."
       },
       {
-        "question": "What fasting or preparation is required for Anti-M\u00fcllerian Hormone?",
+        "question": "What fasting or preparation is required for Anti-Müllerian Hormone?",
         "answer": "No fasting required. Only plain water is permitted during fasting windows. Inform the phlebotomist about any ongoing prescription medicines or vitamin supplements."
       },
       {
-        "question": "How is the sample collected for Anti-M\u00fcllerian Hormone?",
+        "question": "How is the sample collected for Anti-Müllerian Hormone?",
         "answer": "A certified QXL phlebotomist collects a specimen of Serum using a sterile, barcoded vacuum tube and transports it in a temperature-monitored cold box."
       },
       {
-        "question": "How fast will I get my official report for Anti-M\u00fcllerian Hormone?",
-        "answer": "Verified digital PDF reports for Anti-M\u00fcllerian Hormone are delivered within 12 Hours of sample receipt via WhatsApp and Email."
+        "question": "How fast will I get my official report for Anti-Müllerian Hormone?",
+        "answer": "Verified digital PDF reports for Anti-Müllerian Hormone are delivered within 12 Hours of sample receipt via WhatsApp and Email."
       },
       {
-        "question": "Can I book home sample collection for Anti-M\u00fcllerian Hormone in Bangalore?",
+        "question": "Can I book home sample collection for Anti-Müllerian Hormone in Bangalore?",
         "answer": "Yes! QXL Diagnostics provides free doorstep sample collection across all major Bengaluru areas including Kengeri, RR Nagar, Yelahanka, Whitefield, Koramangala, and HSR Layout."
       },
       {
-        "question": "What factors or medications can interfere with Anti-M\u00fcllerian Hormone results?",
+        "question": "What factors or medications can interfere with Anti-Müllerian Hormone results?",
         "answer": "High-dose Biotin (Vitamin B7), corticosteroids, acute illness, physical stress, and hemolysis can alter baseline readings."
       },
       {
-        "question": "How are abnormal Anti-M\u00fcllerian Hormone results interpreted?",
+        "question": "How are abnormal Anti-Müllerian Hormone results interpreted?",
         "answer": "Out-of-range results represent clinical deviations requiring correlation with your physical symptoms and history by a qualified doctor."
       },
       {
-        "question": "What quality certifications back the Anti-M\u00fcllerian Hormone test at QXL?",
+        "question": "What quality certifications back the Anti-Müllerian Hormone test at QXL?",
         "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
       },
       {
-        "question": "How often should I repeat or monitor my Anti-M\u00fcllerian Hormone test?",
+        "question": "How often should I repeat or monitor my Anti-Müllerian Hormone test?",
         "answer": "For routine wellness tracking, annual testing is customary. For condition management, your doctor may recommend testing every 3 to 6 months."
       }
     ],
@@ -4377,22 +4377,22 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "draftCode": "QXL-DRAFT-041",
     "aliases": [
       "AMH",
-      "Anti-M\u00fcllerian Hormone test",
-      "Anti-M\u00fcllerian Hormone Bangalore",
+      "Anti-Müllerian Hormone test",
+      "Anti-Müllerian Hormone Bangalore",
       "AMH report"
     ],
     "department": "Reproductive Endocrinology",
     "sampleVolume": "2 mL",
-    "indications": "Evaluate anti-m\u00fcllerian hormone baseline and clinical changes.",
+    "indications": "Evaluate anti-müllerian hormone baseline and clinical changes.",
     "limitations": [
       "Preanalytical sample quality, acute hydration, or drug therapy may affect results."
     ]
   },
   "cortisol": {
     "slug": "cortisol",
-    "title": "Cortisol (Cortisol) Test in Bangalore | Price \u20b9670, Normal Range | QXL",
-    "metaDescription": "Book Cortisol (Cortisol) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9670. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Cortisol (Cortisol) Test in Bangalore | Price ₹670, Normal Range | QXL",
+    "metaDescription": "Book Cortisol (Cortisol) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹670. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Cortisol (Cortisol) Test in Bangalore",
     "subtitle": "High-precision Cortisol assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "670",
@@ -4497,9 +4497,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "dhea-s": {
     "slug": "dhea-s",
-    "title": "Dehydroepiandrosterone Sulfate (DHEAS) Test in Bangalore | Price \u20b9680, Normal Range | QXL",
-    "metaDescription": "Book Dehydroepiandrosterone Sulfate (DHEAS) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9680. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Dehydroepiandrosterone Sulfate (DHEAS) Test in Bangalore | Price ₹680, Normal Range | QXL",
+    "metaDescription": "Book Dehydroepiandrosterone Sulfate (DHEAS) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹680. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Dehydroepiandrosterone Sulfate (DHEAS) Test in Bangalore",
     "subtitle": "High-precision Dehydroepiandrosterone Sulfate assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "680",
@@ -4604,9 +4604,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "beta-hcg": {
     "slug": "beta-hcg",
-    "title": "Quantitative Beta Human Chorionic Gonadotropin (beta-hCG) Test in Bangalore | Price \u20b9690, Normal Range | QXL",
-    "metaDescription": "Book Quantitative Beta Human Chorionic Gonadotropin (beta-hCG) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9690. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Quantitative Beta Human Chorionic Gonadotropin (beta-hCG) Test in Bangalore | Price ₹690, Normal Range | QXL",
+    "metaDescription": "Book Quantitative Beta Human Chorionic Gonadotropin (beta-hCG) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹690. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Quantitative Beta Human Chorionic Gonadotropin (beta-hCG) Test in Bangalore",
     "subtitle": "High-precision Quantitative Beta Human Chorionic Gonadotropin assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "690",
@@ -4711,9 +4711,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "double-marker-test": {
     "slug": "double-marker-test",
-    "title": "First-Trimester Double Marker Screen (Double Marker) Test in Bangalore | Price \u20b9700, Normal Range | QXL",
-    "metaDescription": "Book First-Trimester Double Marker Screen (Double Marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9700. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "First-Trimester Double Marker Screen (Double Marker) Test in Bangalore | Price ₹700, Normal Range | QXL",
+    "metaDescription": "Book First-Trimester Double Marker Screen (Double Marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹700. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "First-Trimester Double Marker Screen (Double Marker) Test in Bangalore",
     "subtitle": "High-precision First-Trimester Double Marker Screen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "700",
@@ -4818,9 +4818,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "papp-a-test": {
     "slug": "papp-a-test",
-    "title": "Pregnancy-Associated Plasma Protein A (PAPP-A) Test in Bangalore | Price \u20b9710, Normal Range | QXL",
-    "metaDescription": "Book Pregnancy-Associated Plasma Protein A (PAPP-A) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9710. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Pregnancy-Associated Plasma Protein A (PAPP-A) Test in Bangalore | Price ₹710, Normal Range | QXL",
+    "metaDescription": "Book Pregnancy-Associated Plasma Protein A (PAPP-A) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹710. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Pregnancy-Associated Plasma Protein A (PAPP-A) Test in Bangalore",
     "subtitle": "High-precision Pregnancy-Associated Plasma Protein A assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "710",
@@ -4925,9 +4925,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "free-beta-hcg-test": {
     "slug": "free-beta-hcg-test",
-    "title": "Free Beta Human Chorionic Gonadotropin (Free beta-hCG) Test in Bangalore | Price \u20b9720, Normal Range | QXL",
-    "metaDescription": "Book Free Beta Human Chorionic Gonadotropin (Free beta-hCG) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9720. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Free Beta Human Chorionic Gonadotropin (Free beta-hCG) Test in Bangalore | Price ₹720, Normal Range | QXL",
+    "metaDescription": "Book Free Beta Human Chorionic Gonadotropin (Free beta-hCG) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹720. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Free Beta Human Chorionic Gonadotropin (Free beta-hCG) Test in Bangalore",
     "subtitle": "High-precision Free Beta Human Chorionic Gonadotropin assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "720",
@@ -5032,9 +5032,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "triple-marker-test": {
     "slug": "triple-marker-test",
-    "title": "Second-Trimester Triple Marker Screen (Triple Marker) Test in Bangalore | Price \u20b9730, Normal Range | QXL",
-    "metaDescription": "Book Second-Trimester Triple Marker Screen (Triple Marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9730. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Second-Trimester Triple Marker Screen (Triple Marker) Test in Bangalore | Price ₹730, Normal Range | QXL",
+    "metaDescription": "Book Second-Trimester Triple Marker Screen (Triple Marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹730. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Second-Trimester Triple Marker Screen (Triple Marker) Test in Bangalore",
     "subtitle": "High-precision Second-Trimester Triple Marker Screen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "730",
@@ -5139,9 +5139,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "quadruple-marker-test": {
     "slug": "quadruple-marker-test",
-    "title": "Second-Trimester Quadruple Marker Screen (Quadruple Marker) Test in Bangalore | Price \u20b9740, Normal Range | QXL",
-    "metaDescription": "Book Second-Trimester Quadruple Marker Screen (Quadruple Marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9740. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Second-Trimester Quadruple Marker Screen (Quadruple Marker) Test in Bangalore | Price ₹740, Normal Range | QXL",
+    "metaDescription": "Book Second-Trimester Quadruple Marker Screen (Quadruple Marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹740. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Second-Trimester Quadruple Marker Screen (Quadruple Marker) Test in Bangalore",
     "subtitle": "High-precision Second-Trimester Quadruple Marker Screen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "740",
@@ -5246,9 +5246,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "ana-test": {
     "slug": "ana-test",
-    "title": "Antinuclear Antibody Screen (ANA) Test in Bangalore | Price \u20b9750, Normal Range | QXL",
-    "metaDescription": "Book Antinuclear Antibody Screen (ANA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9750. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Antinuclear Antibody Screen (ANA) Test in Bangalore | Price ₹750, Normal Range | QXL",
+    "metaDescription": "Book Antinuclear Antibody Screen (ANA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹750. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Antinuclear Antibody Screen (ANA) Test in Bangalore",
     "subtitle": "High-precision Antinuclear Antibody Screen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "750",
@@ -5353,9 +5353,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "ana-profile": {
     "slug": "ana-profile",
-    "title": "Antinuclear Antibody Profile (ANA Profile) Test in Bangalore | Price \u20b9760, Normal Range | QXL",
-    "metaDescription": "Book Antinuclear Antibody Profile (ANA Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9760. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Antinuclear Antibody Profile (ANA Profile) Test in Bangalore | Price ₹760, Normal Range | QXL",
+    "metaDescription": "Book Antinuclear Antibody Profile (ANA Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹760. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Antinuclear Antibody Profile (ANA Profile) Test in Bangalore",
     "subtitle": "High-precision Antinuclear Antibody Profile assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "760",
@@ -5460,9 +5460,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "ana-ifa-test": {
     "slug": "ana-ifa-test",
-    "title": "Antinuclear Antibody by HEp-2 Indirect Immunofluorescence (ANA IFA) Test in Bangalore | Price \u20b9770, Normal Range | QXL",
-    "metaDescription": "Book Antinuclear Antibody by HEp-2 Indirect Immunofluorescence (ANA IFA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9770. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Antinuclear Antibody by HEp-2 Indirect Immunofluorescence (ANA IFA) Test in Bangalore | Price ₹770, Normal Range | QXL",
+    "metaDescription": "Book Antinuclear Antibody by HEp-2 Indirect Immunofluorescence (ANA IFA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹770. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Antinuclear Antibody by HEp-2 Indirect Immunofluorescence (ANA IFA) Test in Bangalore",
     "subtitle": "High-precision Antinuclear Antibody by HEp-2 Indirect Immunofluorescence assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "770",
@@ -5567,9 +5567,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "anti-dsdna-test": {
     "slug": "anti-dsdna-test",
-    "title": "Anti-Double-Stranded DNA Antibody (Anti-dsDNA) Test in Bangalore | Price \u20b9780, Normal Range | QXL",
-    "metaDescription": "Book Anti-Double-Stranded DNA Antibody (Anti-dsDNA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9780. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Anti-Double-Stranded DNA Antibody (Anti-dsDNA) Test in Bangalore | Price ₹780, Normal Range | QXL",
+    "metaDescription": "Book Anti-Double-Stranded DNA Antibody (Anti-dsDNA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹780. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Anti-Double-Stranded DNA Antibody (Anti-dsDNA) Test in Bangalore",
     "subtitle": "High-precision Anti-Double-Stranded DNA Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "780",
@@ -5674,9 +5674,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "ena-profile-test": {
     "slug": "ena-profile-test",
-    "title": "Extractable Nuclear Antigen Profile (ENA Profile) Test in Bangalore | Price \u20b9790, Normal Range | QXL",
-    "metaDescription": "Book Extractable Nuclear Antigen Profile (ENA Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9790. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Extractable Nuclear Antigen Profile (ENA Profile) Test in Bangalore | Price ₹790, Normal Range | QXL",
+    "metaDescription": "Book Extractable Nuclear Antigen Profile (ENA Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹790. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Extractable Nuclear Antigen Profile (ENA Profile) Test in Bangalore",
     "subtitle": "High-precision Extractable Nuclear Antigen Profile assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "790",
@@ -5781,9 +5781,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "anti-ccp-test": {
     "slug": "anti-ccp-test",
-    "title": "Anti-Cyclic Citrullinated Peptide Antibody (Anti-CCP) Test in Bangalore | Price \u20b9800, Normal Range | QXL",
-    "metaDescription": "Book Anti-Cyclic Citrullinated Peptide Antibody (Anti-CCP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9800. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Anti-Cyclic Citrullinated Peptide Antibody (Anti-CCP) Test in Bangalore | Price ₹800, Normal Range | QXL",
+    "metaDescription": "Book Anti-Cyclic Citrullinated Peptide Antibody (Anti-CCP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹800. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Anti-Cyclic Citrullinated Peptide Antibody (Anti-CCP) Test in Bangalore",
     "subtitle": "High-precision Anti-Cyclic Citrullinated Peptide Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "800",
@@ -5888,9 +5888,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "rheumatoid-factor-test": {
     "slug": "rheumatoid-factor-test",
-    "title": "Rheumatoid Factor (Rheumatoid Factor) Test in Bangalore | Price \u20b9810, Normal Range | QXL",
-    "metaDescription": "Book Rheumatoid Factor (Rheumatoid Factor) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9810. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Rheumatoid Factor (Rheumatoid Factor) Test in Bangalore | Price ₹810, Normal Range | QXL",
+    "metaDescription": "Book Rheumatoid Factor (Rheumatoid Factor) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹810. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Rheumatoid Factor (Rheumatoid Factor) Test in Bangalore",
     "subtitle": "High-precision Rheumatoid Factor assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "810",
@@ -5995,9 +5995,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "anca-test": {
     "slug": "anca-test",
-    "title": "Antineutrophil Cytoplasmic Antibodies by IFA (ANCA) Test in Bangalore | Price \u20b9820, Normal Range | QXL",
-    "metaDescription": "Book Antineutrophil Cytoplasmic Antibodies by IFA (ANCA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9820. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Antineutrophil Cytoplasmic Antibodies by IFA (ANCA) Test in Bangalore | Price ₹820, Normal Range | QXL",
+    "metaDescription": "Book Antineutrophil Cytoplasmic Antibodies by IFA (ANCA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹820. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Antineutrophil Cytoplasmic Antibodies by IFA (ANCA) Test in Bangalore",
     "subtitle": "High-precision Antineutrophil Cytoplasmic Antibodies by IFA assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "820",
@@ -6102,9 +6102,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "pr3-test": {
     "slug": "pr3-test",
-    "title": "Proteinase 3 Antibody (PR3) Test in Bangalore | Price \u20b9830, Normal Range | QXL",
-    "metaDescription": "Book Proteinase 3 Antibody (PR3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9830. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Proteinase 3 Antibody (PR3) Test in Bangalore | Price ₹830, Normal Range | QXL",
+    "metaDescription": "Book Proteinase 3 Antibody (PR3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹830. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Proteinase 3 Antibody (PR3) Test in Bangalore",
     "subtitle": "High-precision Proteinase 3 Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "830",
@@ -6209,9 +6209,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "mpo-test": {
     "slug": "mpo-test",
-    "title": "Myeloperoxidase Antibody (MPO) Test in Bangalore | Price \u20b9840, Normal Range | QXL",
-    "metaDescription": "Book Myeloperoxidase Antibody (MPO) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9840. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Myeloperoxidase Antibody (MPO) Test in Bangalore | Price ₹840, Normal Range | QXL",
+    "metaDescription": "Book Myeloperoxidase Antibody (MPO) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹840. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Myeloperoxidase Antibody (MPO) Test in Bangalore",
     "subtitle": "High-precision Myeloperoxidase Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "840",
@@ -6316,9 +6316,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "c3-complement-test": {
     "slug": "c3-complement-test",
-    "title": "Complement Component C3 (C3) Test in Bangalore | Price \u20b9850, Normal Range | QXL",
-    "metaDescription": "Book Complement Component C3 (C3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9850. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Complement Component C3 (C3) Test in Bangalore | Price ₹850, Normal Range | QXL",
+    "metaDescription": "Book Complement Component C3 (C3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹850. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Complement Component C3 (C3) Test in Bangalore",
     "subtitle": "High-precision Complement Component C3 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "850",
@@ -6423,9 +6423,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "c4-complement-test": {
     "slug": "c4-complement-test",
-    "title": "Complement Component C4 (C4) Test in Bangalore | Price \u20b9860, Normal Range | QXL",
-    "metaDescription": "Book Complement Component C4 (C4) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9860. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Complement Component C4 (C4) Test in Bangalore | Price ₹860, Normal Range | QXL",
+    "metaDescription": "Book Complement Component C4 (C4) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹860. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Complement Component C4 (C4) Test in Bangalore",
     "subtitle": "High-precision Complement Component C4 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "860",
@@ -6530,9 +6530,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "total-ige-test": {
     "slug": "total-ige-test",
-    "title": "Total Immunoglobulin E (Total IgE) Test in Bangalore | Price \u20b9870, Normal Range | QXL",
-    "metaDescription": "Book Total Immunoglobulin E (Total IgE) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9870. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Total Immunoglobulin E (Total IgE) Test in Bangalore | Price ₹870, Normal Range | QXL",
+    "metaDescription": "Book Total Immunoglobulin E (Total IgE) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹870. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Total Immunoglobulin E (Total IgE) Test in Bangalore",
     "subtitle": "High-precision Total Immunoglobulin E assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "870",
@@ -6637,9 +6637,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "specific-ige-test": {
     "slug": "specific-ige-test",
-    "title": "Allergen-Specific Immunoglobulin E (Specific IgE) Test in Bangalore | Price \u20b9880, Normal Range | QXL",
-    "metaDescription": "Book Allergen-Specific Immunoglobulin E (Specific IgE) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9880. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Allergen-Specific Immunoglobulin E (Specific IgE) Test in Bangalore | Price ₹880, Normal Range | QXL",
+    "metaDescription": "Book Allergen-Specific Immunoglobulin E (Specific IgE) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹880. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Allergen-Specific Immunoglobulin E (Specific IgE) Test in Bangalore",
     "subtitle": "High-precision Allergen-Specific Immunoglobulin E assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "880",
@@ -6744,9 +6744,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "allergy-profile-test": {
     "slug": "allergy-profile-test",
-    "title": "Allergy Profile (Allergy Profile) Test in Bangalore | Price \u20b9890, Normal Range | QXL",
-    "metaDescription": "Book Allergy Profile (Allergy Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9890. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Allergy Profile (Allergy Profile) Test in Bangalore | Price ₹890, Normal Range | QXL",
+    "metaDescription": "Book Allergy Profile (Allergy Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹890. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Allergy Profile (Allergy Profile) Test in Bangalore",
     "subtitle": "High-precision Allergy Profile assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "890",
@@ -6851,9 +6851,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "food-intolerance-test": {
     "slug": "food-intolerance-test",
-    "title": "Food-Specific IgG Panel (Food Intolerance) (Food Intolerance Test) Test in Bangalore | Price \u20b9900, Normal Range | QXL",
-    "metaDescription": "Book Food-Specific IgG Panel (Food Intolerance) (Food Intolerance Test) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9900. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Food-Specific IgG Panel (Food Intolerance) (Food Intolerance Test) Test in Bangalore | Price ₹900, Normal Range | QXL",
+    "metaDescription": "Book Food-Specific IgG Panel (Food Intolerance) (Food Intolerance Test) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹900. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Food-Specific IgG Panel (Food Intolerance) (Food Intolerance Test) Test in Bangalore",
     "subtitle": "High-precision Food-Specific IgG Panel (Food Intolerance) assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "900",
@@ -6958,9 +6958,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "psa-test": {
     "slug": "psa-test",
-    "title": "Total Prostate-Specific Antigen (PSA) Test in Bangalore | Price \u20b9910, Normal Range | QXL",
-    "metaDescription": "Book Total Prostate-Specific Antigen (PSA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9910. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Total Prostate-Specific Antigen (PSA) Test in Bangalore | Price ₹910, Normal Range | QXL",
+    "metaDescription": "Book Total Prostate-Specific Antigen (PSA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹910. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Total Prostate-Specific Antigen (PSA) Test in Bangalore",
     "subtitle": "High-precision Total Prostate-Specific Antigen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "910",
@@ -7065,9 +7065,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "free-psa": {
     "slug": "free-psa",
-    "title": "Free Prostate-Specific Antigen (Free PSA) Test in Bangalore | Price \u20b9920, Normal Range | QXL",
-    "metaDescription": "Book Free Prostate-Specific Antigen (Free PSA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9920. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Free Prostate-Specific Antigen (Free PSA) Test in Bangalore | Price ₹920, Normal Range | QXL",
+    "metaDescription": "Book Free Prostate-Specific Antigen (Free PSA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹920. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Free Prostate-Specific Antigen (Free PSA) Test in Bangalore",
     "subtitle": "High-precision Free Prostate-Specific Antigen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "920",
@@ -7172,9 +7172,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "ca-125": {
     "slug": "ca-125",
-    "title": "Cancer Antigen 125 (CA-125) Test in Bangalore | Price \u20b9930, Normal Range | QXL",
-    "metaDescription": "Book Cancer Antigen 125 (CA-125) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9930. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Cancer Antigen 125 (CA-125) Test in Bangalore | Price ₹930, Normal Range | QXL",
+    "metaDescription": "Book Cancer Antigen 125 (CA-125) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹930. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Cancer Antigen 125 (CA-125) Test in Bangalore",
     "subtitle": "High-precision Cancer Antigen 125 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "930",
@@ -7279,9 +7279,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "cea": {
     "slug": "cea",
-    "title": "Carcinoembryonic Antigen (CEA) Test in Bangalore | Price \u20b9940, Normal Range | QXL",
-    "metaDescription": "Book Carcinoembryonic Antigen (CEA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9940. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Carcinoembryonic Antigen (CEA) Test in Bangalore | Price ₹940, Normal Range | QXL",
+    "metaDescription": "Book Carcinoembryonic Antigen (CEA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹940. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Carcinoembryonic Antigen (CEA) Test in Bangalore",
     "subtitle": "High-precision Carcinoembryonic Antigen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "940",
@@ -7386,9 +7386,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "afp": {
     "slug": "afp",
-    "title": "Alpha-Fetoprotein Tumour Marker (AFP) Test in Bangalore | Price \u20b9950, Normal Range | QXL",
-    "metaDescription": "Book Alpha-Fetoprotein Tumour Marker (AFP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9950. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Alpha-Fetoprotein Tumour Marker (AFP) Test in Bangalore | Price ₹950, Normal Range | QXL",
+    "metaDescription": "Book Alpha-Fetoprotein Tumour Marker (AFP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹950. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Alpha-Fetoprotein Tumour Marker (AFP) Test in Bangalore",
     "subtitle": "High-precision Alpha-Fetoprotein Tumour Marker assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "950",
@@ -7493,9 +7493,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "ca-19-9": {
     "slug": "ca-19-9",
-    "title": "Cancer Antigen 19-9 (CA 19-9) Test in Bangalore | Price \u20b9960, Normal Range | QXL",
-    "metaDescription": "Book Cancer Antigen 19-9 (CA 19-9) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9960. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Cancer Antigen 19-9 (CA 19-9) Test in Bangalore | Price ₹960, Normal Range | QXL",
+    "metaDescription": "Book Cancer Antigen 19-9 (CA 19-9) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹960. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Cancer Antigen 19-9 (CA 19-9) Test in Bangalore",
     "subtitle": "High-precision Cancer Antigen 19-9 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "960",
@@ -7600,9 +7600,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "ca-15-3": {
     "slug": "ca-15-3",
-    "title": "Cancer Antigen 15-3 (CA 15-3) Test in Bangalore | Price \u20b9970, Normal Range | QXL",
-    "metaDescription": "Book Cancer Antigen 15-3 (CA 15-3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9970. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Cancer Antigen 15-3 (CA 15-3) Test in Bangalore | Price ₹970, Normal Range | QXL",
+    "metaDescription": "Book Cancer Antigen 15-3 (CA 15-3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹970. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Cancer Antigen 15-3 (CA 15-3) Test in Bangalore",
     "subtitle": "High-precision Cancer Antigen 15-3 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "970",
@@ -7707,9 +7707,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "beta-hcg-tumour-marker": {
     "slug": "beta-hcg-tumour-marker",
-    "title": "Beta-hCG Tumour Marker (beta-hCG tumour marker) Test in Bangalore | Price \u20b9980, Normal Range | QXL",
-    "metaDescription": "Book Beta-hCG Tumour Marker (beta-hCG tumour marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9980. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Beta-hCG Tumour Marker (beta-hCG tumour marker) Test in Bangalore | Price ₹980, Normal Range | QXL",
+    "metaDescription": "Book Beta-hCG Tumour Marker (beta-hCG tumour marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹980. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Beta-hCG Tumour Marker (beta-hCG tumour marker) Test in Bangalore",
     "subtitle": "High-precision Beta-hCG Tumour Marker assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "980",
@@ -7814,9 +7814,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "troponin-test": {
     "slug": "troponin-test",
-    "title": "High-Sensitivity Cardiac Troponin (Troponin) Test in Bangalore | Price \u20b9990, Normal Range | QXL",
-    "metaDescription": "Book High-Sensitivity Cardiac Troponin (Troponin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b9990. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "High-Sensitivity Cardiac Troponin (Troponin) Test in Bangalore | Price ₹990, Normal Range | QXL",
+    "metaDescription": "Book High-Sensitivity Cardiac Troponin (Troponin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹990. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "High-Sensitivity Cardiac Troponin (Troponin) Test in Bangalore",
     "subtitle": "High-precision High-Sensitivity Cardiac Troponin assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "990",
@@ -7921,9 +7921,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "nt-probnp": {
     "slug": "nt-probnp",
-    "title": "N-Terminal pro-B-Type Natriuretic Peptide (NT-proBNP) Test in Bangalore | Price \u20b91000, Normal Range | QXL",
-    "metaDescription": "Book N-Terminal pro-B-Type Natriuretic Peptide (NT-proBNP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91000. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "N-Terminal pro-B-Type Natriuretic Peptide (NT-proBNP) Test in Bangalore | Price ₹1000, Normal Range | QXL",
+    "metaDescription": "Book N-Terminal pro-B-Type Natriuretic Peptide (NT-proBNP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1000. No fasting required. 12 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "N-Terminal pro-B-Type Natriuretic Peptide (NT-proBNP) Test in Bangalore",
     "subtitle": "High-precision N-Terminal pro-B-Type Natriuretic Peptide assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "1000",
@@ -8028,9 +8028,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "ck-mb": {
     "slug": "ck-mb",
-    "title": "Creatine Kinase-MB Mass (CK-MB) Test in Bangalore | Price \u20b91010, Normal Range | QXL",
-    "metaDescription": "Book Creatine Kinase-MB Mass (CK-MB) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91010. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Creatine Kinase-MB Mass (CK-MB) Test in Bangalore | Price ₹1010, Normal Range | QXL",
+    "metaDescription": "Book Creatine Kinase-MB Mass (CK-MB) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1010. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Creatine Kinase-MB Mass (CK-MB) Test in Bangalore",
     "subtitle": "High-precision Creatine Kinase-MB Mass assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1010",
@@ -8135,9 +8135,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "apob": {
     "slug": "apob",
-    "title": "Apolipoprotein B (Advanced Lipid) (ApoB) Test in Bangalore | Price \u20b91020, Normal Range | QXL",
-    "metaDescription": "Book Apolipoprotein B (Advanced Lipid) (ApoB) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91020. 8 to 10 hours overnight fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Apolipoprotein B (Advanced Lipid) (ApoB) Test in Bangalore | Price ₹1020, Normal Range | QXL",
+    "metaDescription": "Book Apolipoprotein B (Advanced Lipid) (ApoB) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1020. 8 to 10 hours overnight fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Apolipoprotein B (Advanced Lipid) (ApoB) Test in Bangalore",
     "subtitle": "High-precision Apolipoprotein B (Advanced Lipid) assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 24 Hours.",
     "price": "1020",
@@ -8242,9 +8242,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "lipoprotein-a": {
     "slug": "lipoprotein-a",
-    "title": "Lipoprotein(a) (Genomic Lipid) (Lp(a)) Test in Bangalore | Price \u20b91030, Normal Range | QXL",
-    "metaDescription": "Book Lipoprotein(a) (Genomic Lipid) (Lp(a)) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91030. 8 to 10 hours overnight fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Lipoprotein(a) (Genomic Lipid) (Lp(a)) Test in Bangalore | Price ₹1030, Normal Range | QXL",
+    "metaDescription": "Book Lipoprotein(a) (Genomic Lipid) (Lp(a)) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1030. 8 to 10 hours overnight fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Lipoprotein(a) (Genomic Lipid) (Lp(a)) Test in Bangalore",
     "subtitle": "High-precision Lipoprotein(a) (Genomic Lipid) assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 24 Hours.",
     "price": "1030",
@@ -8349,9 +8349,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "spep": {
     "slug": "spep",
-    "title": "Serum Protein Electrophoresis (SPEP) Test in Bangalore | Price \u20b91040, Normal Range | QXL",
-    "metaDescription": "Book Serum Protein Electrophoresis (SPEP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91040. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Serum Protein Electrophoresis (SPEP) Test in Bangalore | Price ₹1040, Normal Range | QXL",
+    "metaDescription": "Book Serum Protein Electrophoresis (SPEP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1040. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Serum Protein Electrophoresis (SPEP) Test in Bangalore",
     "subtitle": "High-precision Serum Protein Electrophoresis assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1040",
@@ -8456,9 +8456,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "immunofixation": {
     "slug": "immunofixation",
-    "title": "Serum Immunofixation Electrophoresis (Immunofixation) Test in Bangalore | Price \u20b91050, Normal Range | QXL",
-    "metaDescription": "Book Serum Immunofixation Electrophoresis (Immunofixation) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91050. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Serum Immunofixation Electrophoresis (Immunofixation) Test in Bangalore | Price ₹1050, Normal Range | QXL",
+    "metaDescription": "Book Serum Immunofixation Electrophoresis (Immunofixation) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1050. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Serum Immunofixation Electrophoresis (Immunofixation) Test in Bangalore",
     "subtitle": "High-precision Serum Immunofixation Electrophoresis assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1050",
@@ -8563,9 +8563,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "serum-free-light-chains": {
     "slug": "serum-free-light-chains",
-    "title": "Serum Free Light Chains with Kappa/Lambda Ratio (Serum Free Light Chains) Test in Bangalore | Price \u20b91060, Normal Range | QXL",
-    "metaDescription": "Book Serum Free Light Chains with Kappa/Lambda Ratio (Serum Free Light Chains) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91060. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Serum Free Light Chains with Kappa/Lambda Ratio (Serum Free Light Chains) Test in Bangalore | Price ₹1060, Normal Range | QXL",
+    "metaDescription": "Book Serum Free Light Chains with Kappa/Lambda Ratio (Serum Free Light Chains) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1060. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Serum Free Light Chains with Kappa/Lambda Ratio (Serum Free Light Chains) Test in Bangalore",
     "subtitle": "High-precision Serum Free Light Chains with Kappa/Lambda Ratio assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1060",
@@ -8670,9 +8670,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "urine-protein-electrophoresis": {
     "slug": "urine-protein-electrophoresis",
-    "title": "Urine Protein Electrophoresis (Urine Protein Electrophoresis) Test in Bangalore | Price \u20b91070, Normal Range | QXL",
-    "metaDescription": "Book Urine Protein Electrophoresis (Urine Protein Electrophoresis) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91070. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Urine Protein Electrophoresis (Urine Protein Electrophoresis) Test in Bangalore | Price ₹1070, Normal Range | QXL",
+    "metaDescription": "Book Urine Protein Electrophoresis (Urine Protein Electrophoresis) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1070. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Urine Protein Electrophoresis (Urine Protein Electrophoresis) Test in Bangalore",
     "subtitle": "High-precision Urine Protein Electrophoresis assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1070",
@@ -8777,9 +8777,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "dengue-ns1-antigen": {
     "slug": "dengue-ns1-antigen",
-    "title": "Dengue NS1 Antigen (Dengue NS1) Test in Bangalore | Price \u20b91080, Normal Range | QXL",
-    "metaDescription": "Book Dengue NS1 Antigen (Dengue NS1) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91080. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Dengue NS1 Antigen (Dengue NS1) Test in Bangalore | Price ₹1080, Normal Range | QXL",
+    "metaDescription": "Book Dengue NS1 Antigen (Dengue NS1) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1080. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Dengue NS1 Antigen (Dengue NS1) Test in Bangalore",
     "subtitle": "High-precision Dengue NS1 Antigen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1080",
@@ -8884,9 +8884,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "dengue-igm-igg": {
     "slug": "dengue-igm-igg",
-    "title": "Dengue IgM and IgG Antibodies (Dengue IgM/IgG) Test in Bangalore | Price \u20b91090, Normal Range | QXL",
-    "metaDescription": "Book Dengue IgM and IgG Antibodies (Dengue IgM/IgG) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91090. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Dengue IgM and IgG Antibodies (Dengue IgM/IgG) Test in Bangalore | Price ₹1090, Normal Range | QXL",
+    "metaDescription": "Book Dengue IgM and IgG Antibodies (Dengue IgM/IgG) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1090. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Dengue IgM and IgG Antibodies (Dengue IgM/IgG) Test in Bangalore",
     "subtitle": "High-precision Dengue IgM and IgG Antibodies assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1090",
@@ -8991,9 +8991,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "malaria-parasite": {
     "slug": "malaria-parasite",
-    "title": "Malaria Parasite Detection (Malaria) Test in Bangalore | Price \u20b91100, Normal Range | QXL",
-    "metaDescription": "Book Malaria Parasite Detection (Malaria) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91100. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Malaria Parasite Detection (Malaria) Test in Bangalore | Price ₹1100, Normal Range | QXL",
+    "metaDescription": "Book Malaria Parasite Detection (Malaria) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1100. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Malaria Parasite Detection (Malaria) Test in Bangalore",
     "subtitle": "High-precision Malaria Parasite Detection assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1100",
@@ -9098,9 +9098,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "widal-test": {
     "slug": "widal-test",
-    "title": "Typhoid Fever Diagnostic Testing (Typhoid) Test in Bangalore | Price \u20b91110, Normal Range | QXL",
-    "metaDescription": "Book Typhoid Fever Diagnostic Testing (Typhoid) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91110. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Typhoid Fever Diagnostic Testing (Typhoid) Test in Bangalore | Price ₹1110, Normal Range | QXL",
+    "metaDescription": "Book Typhoid Fever Diagnostic Testing (Typhoid) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1110. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Typhoid Fever Diagnostic Testing (Typhoid) Test in Bangalore",
     "subtitle": "High-precision Typhoid Fever Diagnostic Testing assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1110",
@@ -9205,9 +9205,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "hbsag": {
     "slug": "hbsag",
-    "title": "Hepatitis B Surface Antigen (HBsAg) Test in Bangalore | Price \u20b91120, Normal Range | QXL",
-    "metaDescription": "Book Hepatitis B Surface Antigen (HBsAg) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91120. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Hepatitis B Surface Antigen (HBsAg) Test in Bangalore | Price ₹1120, Normal Range | QXL",
+    "metaDescription": "Book Hepatitis B Surface Antigen (HBsAg) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1120. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Hepatitis B Surface Antigen (HBsAg) Test in Bangalore",
     "subtitle": "High-precision Hepatitis B Surface Antigen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1120",
@@ -9312,9 +9312,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "anti-hcv": {
     "slug": "anti-hcv",
-    "title": "Hepatitis C Antibody (HCV) Test in Bangalore | Price \u20b91130, Normal Range | QXL",
-    "metaDescription": "Book Hepatitis C Antibody (HCV) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91130. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Hepatitis C Antibody (HCV) Test in Bangalore | Price ₹1130, Normal Range | QXL",
+    "metaDescription": "Book Hepatitis C Antibody (HCV) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1130. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Hepatitis C Antibody (HCV) Test in Bangalore",
     "subtitle": "High-precision Hepatitis C Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1130",
@@ -9419,9 +9419,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "hiv-1-2-antibody": {
     "slug": "hiv-1-2-antibody",
-    "title": "HIV-1/2 Antigen and Antibody Screening (HIV screening) Test in Bangalore | Price \u20b91140, Normal Range | QXL",
-    "metaDescription": "Book HIV-1/2 Antigen and Antibody Screening (HIV screening) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91140. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "HIV-1/2 Antigen and Antibody Screening (HIV screening) Test in Bangalore | Price ₹1140, Normal Range | QXL",
+    "metaDescription": "Book HIV-1/2 Antigen and Antibody Screening (HIV screening) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1140. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "HIV-1/2 Antigen and Antibody Screening (HIV screening) Test in Bangalore",
     "subtitle": "High-precision HIV-1/2 Antigen and Antibody Screening assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1140",
@@ -9526,9 +9526,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "h1n1-pcr-test": {
     "slug": "h1n1-pcr-test",
-    "title": "Influenza A(H1N1) RT-PCR (H1N1 PCR) Test in Bangalore | Price \u20b91150, Normal Range | QXL",
-    "metaDescription": "Book Influenza A(H1N1) RT-PCR (H1N1 PCR) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91150. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Influenza A(H1N1) RT-PCR (H1N1 PCR) Test in Bangalore | Price ₹1150, Normal Range | QXL",
+    "metaDescription": "Book Influenza A(H1N1) RT-PCR (H1N1 PCR) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1150. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Influenza A(H1N1) RT-PCR (H1N1 PCR) Test in Bangalore",
     "subtitle": "High-precision Influenza A(H1N1) RT-PCR assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1150",
@@ -9633,9 +9633,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "aqp4-nmo-antibody": {
     "slug": "aqp4-nmo-antibody",
-    "title": "Aquaporin-4 IgG Antibody (AQP4/NMO) Test in Bangalore | Price \u20b91160, Normal Range | QXL",
-    "metaDescription": "Book Aquaporin-4 IgG Antibody (AQP4/NMO) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91160. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Aquaporin-4 IgG Antibody (AQP4/NMO) Test in Bangalore | Price ₹1160, Normal Range | QXL",
+    "metaDescription": "Book Aquaporin-4 IgG Antibody (AQP4/NMO) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1160. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Aquaporin-4 IgG Antibody (AQP4/NMO) Test in Bangalore",
     "subtitle": "High-precision Aquaporin-4 IgG Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1160",
@@ -9740,9 +9740,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "mog-antibody": {
     "slug": "mog-antibody",
-    "title": "Myelin Oligodendrocyte Glycoprotein IgG1 Antibody (MOG Antibody) Test in Bangalore | Price \u20b91170, Normal Range | QXL",
-    "metaDescription": "Book Myelin Oligodendrocyte Glycoprotein IgG1 Antibody (MOG Antibody) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91170. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Myelin Oligodendrocyte Glycoprotein IgG1 Antibody (MOG Antibody) Test in Bangalore | Price ₹1170, Normal Range | QXL",
+    "metaDescription": "Book Myelin Oligodendrocyte Glycoprotein IgG1 Antibody (MOG Antibody) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1170. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Myelin Oligodendrocyte Glycoprotein IgG1 Antibody (MOG Antibody) Test in Bangalore",
     "subtitle": "High-precision Myelin Oligodendrocyte Glycoprotein IgG1 Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1170",
@@ -9847,9 +9847,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "anti-nmda-receptor-antibody": {
     "slug": "anti-nmda-receptor-antibody",
-    "title": "N-Methyl-D-Aspartate Receptor Antibody (Anti-NMDA receptor antibody) Test in Bangalore | Price \u20b91180, Normal Range | QXL",
-    "metaDescription": "Book N-Methyl-D-Aspartate Receptor Antibody (Anti-NMDA receptor antibody) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91180. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "N-Methyl-D-Aspartate Receptor Antibody (Anti-NMDA receptor antibody) Test in Bangalore | Price ₹1180, Normal Range | QXL",
+    "metaDescription": "Book N-Methyl-D-Aspartate Receptor Antibody (Anti-NMDA receptor antibody) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1180. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "N-Methyl-D-Aspartate Receptor Antibody (Anti-NMDA receptor antibody) Test in Bangalore",
     "subtitle": "High-precision N-Methyl-D-Aspartate Receptor Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1180",
@@ -9954,9 +9954,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "paraneoplastic-panel": {
     "slug": "paraneoplastic-panel",
-    "title": "Paraneoplastic Neurologic Antibody Panel (Paraneoplastic panel) Test in Bangalore | Price \u20b91190, Normal Range | QXL",
-    "metaDescription": "Book Paraneoplastic Neurologic Antibody Panel (Paraneoplastic panel) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91190. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Paraneoplastic Neurologic Antibody Panel (Paraneoplastic panel) Test in Bangalore | Price ₹1190, Normal Range | QXL",
+    "metaDescription": "Book Paraneoplastic Neurologic Antibody Panel (Paraneoplastic panel) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1190. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Paraneoplastic Neurologic Antibody Panel (Paraneoplastic panel) Test in Bangalore",
     "subtitle": "High-precision Paraneoplastic Neurologic Antibody Panel assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1190",
@@ -10061,9 +10061,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "autoimmune-encephalitis-panel": {
     "slug": "autoimmune-encephalitis-panel",
-    "title": "Autoimmune Encephalitis Antibody Panel (Autoimmune encephalitis panel) Test in Bangalore | Price \u20b91200, Normal Range | QXL",
-    "metaDescription": "Book Autoimmune Encephalitis Antibody Panel (Autoimmune encephalitis panel) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91200. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Autoimmune Encephalitis Antibody Panel (Autoimmune encephalitis panel) Test in Bangalore | Price ₹1200, Normal Range | QXL",
+    "metaDescription": "Book Autoimmune Encephalitis Antibody Panel (Autoimmune encephalitis panel) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1200. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Autoimmune Encephalitis Antibody Panel (Autoimmune encephalitis panel) Test in Bangalore",
     "subtitle": "High-precision Autoimmune Encephalitis Antibody Panel assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1200",
@@ -10168,9 +10168,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "oligoclonal-bands": {
     "slug": "oligoclonal-bands",
-    "title": "Oligoclonal Bands, Paired CSF and Serum (Oligoclonal bands) Test in Bangalore | Price \u20b91210, Normal Range | QXL",
-    "metaDescription": "Book Oligoclonal Bands, Paired CSF and Serum (Oligoclonal bands) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91210. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Oligoclonal Bands, Paired CSF and Serum (Oligoclonal bands) Test in Bangalore | Price ₹1210, Normal Range | QXL",
+    "metaDescription": "Book Oligoclonal Bands, Paired CSF and Serum (Oligoclonal bands) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1210. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Oligoclonal Bands, Paired CSF and Serum (Oligoclonal bands) Test in Bangalore",
     "subtitle": "High-precision Oligoclonal Bands, Paired CSF and Serum assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1210",
@@ -10275,9 +10275,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "coeliac-profile": {
     "slug": "coeliac-profile",
-    "title": "Coeliac Disease Antibody Profile (Coeliac Profile) Test in Bangalore | Price \u20b91220, Normal Range | QXL",
-    "metaDescription": "Book Coeliac Disease Antibody Profile (Coeliac Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91220. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Coeliac Disease Antibody Profile (Coeliac Profile) Test in Bangalore | Price ₹1220, Normal Range | QXL",
+    "metaDescription": "Book Coeliac Disease Antibody Profile (Coeliac Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1220. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Coeliac Disease Antibody Profile (Coeliac Profile) Test in Bangalore",
     "subtitle": "High-precision Coeliac Disease Antibody Profile assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1220",
@@ -10382,9 +10382,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "anti-tpo": {
     "slug": "anti-tpo",
-    "title": "Thyroid Peroxidase Antibody (Anti-TPO) Test in Bangalore | Price \u20b91230, Normal Range | QXL",
-    "metaDescription": "Book Thyroid Peroxidase Antibody (Anti-TPO) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91230. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Thyroid Peroxidase Antibody (Anti-TPO) Test in Bangalore | Price ₹1230, Normal Range | QXL",
+    "metaDescription": "Book Thyroid Peroxidase Antibody (Anti-TPO) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1230. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Thyroid Peroxidase Antibody (Anti-TPO) Test in Bangalore",
     "subtitle": "High-precision Thyroid Peroxidase Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1230",
@@ -10489,9 +10489,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "thyroglobulin-antibody": {
     "slug": "thyroglobulin-antibody",
-    "title": "Thyroglobulin Antibody (Thyroglobulin antibody) Test in Bangalore | Price \u20b91240, Normal Range | QXL",
-    "metaDescription": "Book Thyroglobulin Antibody (Thyroglobulin antibody) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91240. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Thyroglobulin Antibody (Thyroglobulin antibody) Test in Bangalore | Price ₹1240, Normal Range | QXL",
+    "metaDescription": "Book Thyroglobulin Antibody (Thyroglobulin antibody) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1240. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Thyroglobulin Antibody (Thyroglobulin antibody) Test in Bangalore",
     "subtitle": "High-precision Thyroglobulin Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1240",
@@ -10596,9 +10596,9 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "flow-cytometry": {
     "slug": "flow-cytometry",
-    "title": "Flow Cytometry Immunophenotyping (Flow Cytometry) Test in Bangalore | Price \u20b91250, Normal Range | QXL",
-    "metaDescription": "Book Flow Cytometry Immunophenotyping (Flow Cytometry) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at \u20b91250. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "title": "Flow Cytometry Immunophenotyping (Flow Cytometry) Test in Bangalore | Price ₹1250, Normal Range | QXL",
+    "metaDescription": "Book Flow Cytometry Immunophenotyping (Flow Cytometry) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1250. No fasting required. 24 Hours.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Flow Cytometry Immunophenotyping (Flow Cytometry) Test in Bangalore",
     "subtitle": "High-precision Flow Cytometry Immunophenotyping assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1250",
@@ -10700,5 +10700,2051 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "limitations": [
       "Preanalytical sample quality, acute hydration, or drug therapy may affect results."
     ]
+  },
+  "1-25-dihydroxy-vitamin-d": {
+    "slug": "1-25-dihydroxy-vitamin-d",
+    "title": "1,25-Dihydroxy Vitamin D Test: Uses & Results | QXL",
+    "metaDescription": "Learn why active vitamin D is tested, how to prepare, and what high or low calcitriol means in calcium disorders, kidney disease and childhood rickets.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "1,25-Dihydroxy Vitamin D Test in Bangalore",
+    "subtitle": "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Serum",
+    "fastingRequired": "Assay-specific; confirm at booking",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 1,25-Dihydroxy Vitamin D (QXL-CMS-0001) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
+      "Clinical Significance: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+      "Container & Handling: Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+      "Specimen Protocol: Serum (Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.)",
+      "Patient Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "Is 1,25-dihydroxy vitamin D the usual vitamin D test?",
+        "answer": "No. The usual test of vitamin D stores is 25-hydroxyvitamin D. This test measures the active hormone, calcitriol, and answers different questions about calcium regulation and vitamin D activation."
+      },
+      {
+        "question": "Why would a doctor order calcitriol with a calcium test?",
+        "answer": "Calcium and parathyroid hormone help control calcitriol production. Measuring them together can help investigate otherwise unexplained high or low calcium, particularly when kidney disease or an unusual vitamin D disorder is suspected."
+      },
+      {
+        "question": "Do I need to fast for 1,25-dihydroxy vitamin D?",
+        "answer": "Preparation depends on the assay selected by the laboratory. Confirm whether a short fast is requested, and report vitamin D or calcitriol supplements. Do not stop a prescribed medicine on your own."
+      },
+      {
+        "question": "What sample is used for the active vitamin D test?",
+        "answer": "A blood sample is collected and the serum is tested. The laboratory chooses a compatible serum tube and the volume needed for its method."
+      },
+      {
+        "question": "Does high calcitriol mean I have taken too much vitamin D?",
+        "answer": "Not necessarily. High calcitriol can occur with granulomatous inflammation, increased parathyroid activity or certain inherited disorders. Vitamin D toxicity is usually assessed using 25-hydroxyvitamin D and calcium; calcitriol alone is unreliable for that purpose."
+      },
+      {
+        "question": "Can kidney disease cause low calcitriol?",
+        "answer": "Yes. The kidneys normally activate vitamin D. Reduced activation can lower calcitriol in kidney disease, but the clinician also considers phosphate, calcium, PTH and treatment before drawing a conclusion."
+      },
+      {
+        "question": "Why might a child with rickets need this test?",
+        "answer": "Some inherited forms of rickets affect vitamin D activation or the response to active vitamin D. Calcitriol helps distinguish these possibilities when interpreted alongside other bone and mineral tests using pediatric reference intervals."
+      },
+      {
+        "question": "Can calcitriol be normal when vitamin D stores are low?",
+        "answer": "Yes. Hormonal regulation can maintain or increase calcitriol despite depleted vitamin D stores. A normal calcitriol result therefore does not replace a 25-hydroxyvitamin D measurement."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0001",
+    "draftCode": "DRAFT-QXL-CMS-0001",
+    "aliases": [
+      "Calcitriol",
+      "1",
+      "25(OH)2D",
+      "Active vitamin D"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+    "limitations": [
+      "Medication / Assay Interferences: Vitamin D preparations and medicines affecting calcium metabolism can change the biological result. Analytical interference depends on whether the assay is an immunoassay or mass-spectrometry method.",
+      "Pediatric Considerations: In a child with rickets, calcitriol is interpreted with 25-hydroxyvitamin D, phosphate, calcium, alkaline phosphatase and PTH. Inherited defects can cause low or high calcitriol; a pediatric interval is essential."
+    ],
+    "clinicalSignificance": "Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+    "preanalyticalNotes": "Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.. Container: Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.",
+    "interpretiveNotes": "High: An elevated result can occur with increased parathyroid activity, granulomatous disease or some lymphomas. It must be assessed with calcium, phosphate, parathyroid hormone and 25-hydroxyvitamin D.\nLow: Reduced kidney activation, hypoparathyroidism or certain inherited enzyme defects can lower calcitriol. A low value does not, by itself, show how much vitamin D is stored in the body.",
+    "textbookReferences": []
+  },
+  "calcitriol": {
+    "slug": "1-25-dihydroxy-vitamin-d",
+    "title": "1,25-Dihydroxy Vitamin D Test: Uses & Results | QXL",
+    "metaDescription": "Learn why active vitamin D is tested, how to prepare, and what high or low calcitriol means in calcium disorders, kidney disease and childhood rickets.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "1,25-Dihydroxy Vitamin D Test in Bangalore",
+    "subtitle": "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Serum",
+    "fastingRequired": "Assay-specific; confirm at booking",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 1,25-Dihydroxy Vitamin D (QXL-CMS-0001) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
+      "Clinical Significance: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+      "Container & Handling: Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+      "Specimen Protocol: Serum (Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.)",
+      "Patient Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "Is 1,25-dihydroxy vitamin D the usual vitamin D test?",
+        "answer": "No. The usual test of vitamin D stores is 25-hydroxyvitamin D. This test measures the active hormone, calcitriol, and answers different questions about calcium regulation and vitamin D activation."
+      },
+      {
+        "question": "Why would a doctor order calcitriol with a calcium test?",
+        "answer": "Calcium and parathyroid hormone help control calcitriol production. Measuring them together can help investigate otherwise unexplained high or low calcium, particularly when kidney disease or an unusual vitamin D disorder is suspected."
+      },
+      {
+        "question": "Do I need to fast for 1,25-dihydroxy vitamin D?",
+        "answer": "Preparation depends on the assay selected by the laboratory. Confirm whether a short fast is requested, and report vitamin D or calcitriol supplements. Do not stop a prescribed medicine on your own."
+      },
+      {
+        "question": "What sample is used for the active vitamin D test?",
+        "answer": "A blood sample is collected and the serum is tested. The laboratory chooses a compatible serum tube and the volume needed for its method."
+      },
+      {
+        "question": "Does high calcitriol mean I have taken too much vitamin D?",
+        "answer": "Not necessarily. High calcitriol can occur with granulomatous inflammation, increased parathyroid activity or certain inherited disorders. Vitamin D toxicity is usually assessed using 25-hydroxyvitamin D and calcium; calcitriol alone is unreliable for that purpose."
+      },
+      {
+        "question": "Can kidney disease cause low calcitriol?",
+        "answer": "Yes. The kidneys normally activate vitamin D. Reduced activation can lower calcitriol in kidney disease, but the clinician also considers phosphate, calcium, PTH and treatment before drawing a conclusion."
+      },
+      {
+        "question": "Why might a child with rickets need this test?",
+        "answer": "Some inherited forms of rickets affect vitamin D activation or the response to active vitamin D. Calcitriol helps distinguish these possibilities when interpreted alongside other bone and mineral tests using pediatric reference intervals."
+      },
+      {
+        "question": "Can calcitriol be normal when vitamin D stores are low?",
+        "answer": "Yes. Hormonal regulation can maintain or increase calcitriol despite depleted vitamin D stores. A normal calcitriol result therefore does not replace a 25-hydroxyvitamin D measurement."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0001",
+    "draftCode": "DRAFT-QXL-CMS-0001",
+    "aliases": [
+      "[Calcitriol",
+      "1",
+      "25(OH)2D",
+      "Active vitamin D]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+    "limitations": [
+      "Medication / Assay Interferences: Vitamin D preparations and medicines affecting calcium metabolism can change the biological result. Analytical interference depends on whether the assay is an immunoassay or mass-spectrometry method.",
+      "Pediatric Considerations: In a child with rickets, calcitriol is interpreted with 25-hydroxyvitamin D, phosphate, calcium, alkaline phosphatase and PTH. Inherited defects can cause low or high calcitriol; a pediatric interval is essential."
+    ],
+    "clinicalSignificance": "Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+    "preanalyticalNotes": "Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.. Container: Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.",
+    "interpretiveNotes": "High: An elevated result can occur with increased parathyroid activity, granulomatous disease or some lymphomas. It must be assessed with calcium, phosphate, parathyroid hormone and 25-hydroxyvitamin D.\nLow: Reduced kidney activation, hypoparathyroidism or certain inherited enzyme defects can lower calcitriol. A low value does not, by itself, show how much vitamin D is stored in the body.",
+    "textbookReferences": []
+  },
+  "25-oh-2d": {
+    "slug": "1-25-dihydroxy-vitamin-d",
+    "title": "1,25-Dihydroxy Vitamin D Test: Uses & Results | QXL",
+    "metaDescription": "Learn why active vitamin D is tested, how to prepare, and what high or low calcitriol means in calcium disorders, kidney disease and childhood rickets.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "1,25-Dihydroxy Vitamin D Test in Bangalore",
+    "subtitle": "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Serum",
+    "fastingRequired": "Assay-specific; confirm at booking",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 1,25-Dihydroxy Vitamin D (QXL-CMS-0001) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
+      "Clinical Significance: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+      "Container & Handling: Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+      "Specimen Protocol: Serum (Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.)",
+      "Patient Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "Is 1,25-dihydroxy vitamin D the usual vitamin D test?",
+        "answer": "No. The usual test of vitamin D stores is 25-hydroxyvitamin D. This test measures the active hormone, calcitriol, and answers different questions about calcium regulation and vitamin D activation."
+      },
+      {
+        "question": "Why would a doctor order calcitriol with a calcium test?",
+        "answer": "Calcium and parathyroid hormone help control calcitriol production. Measuring them together can help investigate otherwise unexplained high or low calcium, particularly when kidney disease or an unusual vitamin D disorder is suspected."
+      },
+      {
+        "question": "Do I need to fast for 1,25-dihydroxy vitamin D?",
+        "answer": "Preparation depends on the assay selected by the laboratory. Confirm whether a short fast is requested, and report vitamin D or calcitriol supplements. Do not stop a prescribed medicine on your own."
+      },
+      {
+        "question": "What sample is used for the active vitamin D test?",
+        "answer": "A blood sample is collected and the serum is tested. The laboratory chooses a compatible serum tube and the volume needed for its method."
+      },
+      {
+        "question": "Does high calcitriol mean I have taken too much vitamin D?",
+        "answer": "Not necessarily. High calcitriol can occur with granulomatous inflammation, increased parathyroid activity or certain inherited disorders. Vitamin D toxicity is usually assessed using 25-hydroxyvitamin D and calcium; calcitriol alone is unreliable for that purpose."
+      },
+      {
+        "question": "Can kidney disease cause low calcitriol?",
+        "answer": "Yes. The kidneys normally activate vitamin D. Reduced activation can lower calcitriol in kidney disease, but the clinician also considers phosphate, calcium, PTH and treatment before drawing a conclusion."
+      },
+      {
+        "question": "Why might a child with rickets need this test?",
+        "answer": "Some inherited forms of rickets affect vitamin D activation or the response to active vitamin D. Calcitriol helps distinguish these possibilities when interpreted alongside other bone and mineral tests using pediatric reference intervals."
+      },
+      {
+        "question": "Can calcitriol be normal when vitamin D stores are low?",
+        "answer": "Yes. Hormonal regulation can maintain or increase calcitriol despite depleted vitamin D stores. A normal calcitriol result therefore does not replace a 25-hydroxyvitamin D measurement."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0001",
+    "draftCode": "DRAFT-QXL-CMS-0001",
+    "aliases": [
+      "[Calcitriol",
+      "1",
+      "25(OH)2D",
+      "Active vitamin D]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+    "limitations": [
+      "Medication / Assay Interferences: Vitamin D preparations and medicines affecting calcium metabolism can change the biological result. Analytical interference depends on whether the assay is an immunoassay or mass-spectrometry method.",
+      "Pediatric Considerations: In a child with rickets, calcitriol is interpreted with 25-hydroxyvitamin D, phosphate, calcium, alkaline phosphatase and PTH. Inherited defects can cause low or high calcitriol; a pediatric interval is essential."
+    ],
+    "clinicalSignificance": "Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+    "preanalyticalNotes": "Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.. Container: Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.",
+    "interpretiveNotes": "High: An elevated result can occur with increased parathyroid activity, granulomatous disease or some lymphomas. It must be assessed with calcium, phosphate, parathyroid hormone and 25-hydroxyvitamin D.\nLow: Reduced kidney activation, hypoparathyroidism or certain inherited enzyme defects can lower calcitriol. A low value does not, by itself, show how much vitamin D is stored in the body.",
+    "textbookReferences": []
+  },
+  "active-vitamin-d": {
+    "slug": "1-25-dihydroxy-vitamin-d",
+    "title": "1,25-Dihydroxy Vitamin D Test: Uses & Results | QXL",
+    "metaDescription": "Learn why active vitamin D is tested, how to prepare, and what high or low calcitriol means in calcium disorders, kidney disease and childhood rickets.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "1,25-Dihydroxy Vitamin D Test in Bangalore",
+    "subtitle": "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Serum",
+    "fastingRequired": "Assay-specific; confirm at booking",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 1,25-Dihydroxy Vitamin D (QXL-CMS-0001) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
+      "Clinical Significance: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+      "Container & Handling: Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+      "Specimen Protocol: Serum (Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.)",
+      "Patient Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "Is 1,25-dihydroxy vitamin D the usual vitamin D test?",
+        "answer": "No. The usual test of vitamin D stores is 25-hydroxyvitamin D. This test measures the active hormone, calcitriol, and answers different questions about calcium regulation and vitamin D activation."
+      },
+      {
+        "question": "Why would a doctor order calcitriol with a calcium test?",
+        "answer": "Calcium and parathyroid hormone help control calcitriol production. Measuring them together can help investigate otherwise unexplained high or low calcium, particularly when kidney disease or an unusual vitamin D disorder is suspected."
+      },
+      {
+        "question": "Do I need to fast for 1,25-dihydroxy vitamin D?",
+        "answer": "Preparation depends on the assay selected by the laboratory. Confirm whether a short fast is requested, and report vitamin D or calcitriol supplements. Do not stop a prescribed medicine on your own."
+      },
+      {
+        "question": "What sample is used for the active vitamin D test?",
+        "answer": "A blood sample is collected and the serum is tested. The laboratory chooses a compatible serum tube and the volume needed for its method."
+      },
+      {
+        "question": "Does high calcitriol mean I have taken too much vitamin D?",
+        "answer": "Not necessarily. High calcitriol can occur with granulomatous inflammation, increased parathyroid activity or certain inherited disorders. Vitamin D toxicity is usually assessed using 25-hydroxyvitamin D and calcium; calcitriol alone is unreliable for that purpose."
+      },
+      {
+        "question": "Can kidney disease cause low calcitriol?",
+        "answer": "Yes. The kidneys normally activate vitamin D. Reduced activation can lower calcitriol in kidney disease, but the clinician also considers phosphate, calcium, PTH and treatment before drawing a conclusion."
+      },
+      {
+        "question": "Why might a child with rickets need this test?",
+        "answer": "Some inherited forms of rickets affect vitamin D activation or the response to active vitamin D. Calcitriol helps distinguish these possibilities when interpreted alongside other bone and mineral tests using pediatric reference intervals."
+      },
+      {
+        "question": "Can calcitriol be normal when vitamin D stores are low?",
+        "answer": "Yes. Hormonal regulation can maintain or increase calcitriol despite depleted vitamin D stores. A normal calcitriol result therefore does not replace a 25-hydroxyvitamin D measurement."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0001",
+    "draftCode": "DRAFT-QXL-CMS-0001",
+    "aliases": [
+      "[Calcitriol",
+      "1",
+      "25(OH)2D",
+      "Active vitamin D]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+    "limitations": [
+      "Medication / Assay Interferences: Vitamin D preparations and medicines affecting calcium metabolism can change the biological result. Analytical interference depends on whether the assay is an immunoassay or mass-spectrometry method.",
+      "Pediatric Considerations: In a child with rickets, calcitriol is interpreted with 25-hydroxyvitamin D, phosphate, calcium, alkaline phosphatase and PTH. Inherited defects can cause low or high calcitriol; a pediatric interval is essential."
+    ],
+    "clinicalSignificance": "Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
+    "preanalyticalNotes": "Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.. Container: Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.",
+    "interpretiveNotes": "High: An elevated result can occur with increased parathyroid activity, granulomatous disease or some lymphomas. It must be assessed with calcium, phosphate, parathyroid hormone and 25-hydroxyvitamin D.\nLow: Reduced kidney activation, hypoparathyroidism or certain inherited enzyme defects can lower calcitriol. A low value does not, by itself, show how much vitamin D is stored in the body.",
+    "textbookReferences": []
+  },
+  "17-alpha-hydroxyprogesterone": {
+    "slug": "17-alpha-hydroxyprogesterone",
+    "title": "17-OHP Test: Preparation, CAH & Results | QXL",
+    "metaDescription": "Understand the 17-hydroxyprogesterone test for congenital adrenal hyperplasia, morning and menstrual timing, raised results and newborn considerations.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "17-Alpha-Hydroxyprogesterone Test in Bangalore",
+    "subtitle": "Measures a steroid precursor used in adrenal hormone production. It commonly accumulates when the 21-hydroxylase enzyme is deficient.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Serum",
+    "fastingRequired": "Not routinely the key requirement; follow any accompanying fasting or stimulation-test protocol.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 17-Alpha-Hydroxyprogesterone (QXL-CMS-0002) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures a steroid precursor used in adrenal hormone production. It commonly accumulates when the 21-hydroxylase enzyme is deficient.",
+      "Clinical Significance: Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+      "Container & Handling: Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+      "Specimen Protocol: Serum (Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.)",
+      "Patient Preparation: For a baseline androgen-excess investigation, collection is usually early morning and, in menstruating patients, during the early follicular phase. Record steroid treatment and collection time. Follow the endocrinologist timing plan for treatment monitoring or stimulation testing.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What is the 17-OHP test used for?",
+        "answer": "It helps investigate an adrenal enzyme disorder called congenital adrenal hyperplasia. Doctors also use it in selected patients with excess androgen symptoms and to monitor people already receiving treatment for this disorder."
+      },
+      {
+        "question": "Is 17-hydroxyprogesterone the same as progesterone?",
+        "answer": "No. They are different steroid hormones measured by separate tests. A progesterone test used to assess ovulation does not substitute for 17-OHP when investigating congenital adrenal hyperplasia."
+      },
+      {
+        "question": "What time and cycle day should I have a 17-OHP test?",
+        "answer": "Baseline screening is generally done early in the morning. If you menstruate, the clinician usually requests the early follicular phase. If periods are absent or irregular, follow the ordering clinician collection plan."
+      },
+      {
+        "question": "Do I need fasting or a special sample for 17-OHP?",
+        "answer": "The serum test needs a blood sample. Timing is usually more important than fasting, but a combined panel or stimulation protocol may have extra instructions. Newborn blood-spot screening uses a separate collection method."
+      },
+      {
+        "question": "Does high 17-OHP confirm congenital adrenal hyperplasia?",
+        "answer": "A high value can support the diagnosis, but interpretation depends on the degree of elevation, age and method. Borderline results may need repeat testing, an ACTH stimulation test or other adrenal hormones."
+      },
+      {
+        "question": "What does low 17-OHP mean during CAH treatment?",
+        "answer": "It may reflect suppression by steroid treatment. The target is individualized, and an excessively suppressed value can be relevant to overtreatment. Only the treating clinician should adjust treatment after reviewing the whole clinical picture."
+      },
+      {
+        "question": "Why can a premature baby have a raised 17-OHP result?",
+        "answer": "Prematurity, early postnatal physiology, illness and assay cross-reactivity can increase screening values. The screening team uses age-appropriate interpretation and follow-up tests to distinguish these effects from congenital adrenal hyperplasia."
+      },
+      {
+        "question": "Should I take my steroid dose before a 17-OHP blood test?",
+        "answer": "Ask the treating team for the exact sampling plan. Monitoring may require a sample before a dose or at a consistent interval afterward. Do not omit steroid replacement without explicit medical instructions."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0002",
+    "draftCode": "DRAFT-QXL-CMS-0002",
+    "aliases": [
+      "17-OHP",
+      "17-Hydroxyprogesterone"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+    "limitations": [
+      "Medication / Assay Interferences: Cross-reacting steroids can affect some immunoassays, particularly in newborn samples. Glucocorticoid treatment, time of day and menstrual phase influence the result.",
+      "Pediatric Considerations: Healthy newborns, especially premature or unwell infants, can have elevated 17-OHP. Interpret with gestational age, postnatal age, assay method and the newborn screening pathway; an abnormal screen requires clinical follow-up."
+    ],
+    "clinicalSignificance": "Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+    "preanalyticalNotes": "Preparation: For a baseline androgen-excess investigation, collection is usually early morning and, in menstruating patients, during the early follicular phase. Record steroid treatment and collection time. Follow the endocrinologist timing plan for treatment monitoring or stimulation testing.. Container: Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.",
+    "interpretiveNotes": "High: A marked elevation may support congenital adrenal hyperplasia, especially 21-hydroxylase deficiency. Modest elevations also occur with physiological timing, illness or prematurity and may require repeat or ACTH-stimulated testing.\nLow: A low value is usually not a disease diagnosis on its own. In treated congenital adrenal hyperplasia, suppression must be considered alongside growth, symptoms and other hormones; the patient should not adjust steroid doses independently.",
+    "textbookReferences": []
+  },
+  "17-ohp": {
+    "slug": "17-alpha-hydroxyprogesterone",
+    "title": "17-OHP Test: Preparation, CAH & Results | QXL",
+    "metaDescription": "Understand the 17-hydroxyprogesterone test for congenital adrenal hyperplasia, morning and menstrual timing, raised results and newborn considerations.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "17-Alpha-Hydroxyprogesterone Test in Bangalore",
+    "subtitle": "Measures a steroid precursor used in adrenal hormone production. It commonly accumulates when the 21-hydroxylase enzyme is deficient.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Serum",
+    "fastingRequired": "Not routinely the key requirement; follow any accompanying fasting or stimulation-test protocol.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 17-Alpha-Hydroxyprogesterone (QXL-CMS-0002) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures a steroid precursor used in adrenal hormone production. It commonly accumulates when the 21-hydroxylase enzyme is deficient.",
+      "Clinical Significance: Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+      "Container & Handling: Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+      "Specimen Protocol: Serum (Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.)",
+      "Patient Preparation: For a baseline androgen-excess investigation, collection is usually early morning and, in menstruating patients, during the early follicular phase. Record steroid treatment and collection time. Follow the endocrinologist timing plan for treatment monitoring or stimulation testing.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What is the 17-OHP test used for?",
+        "answer": "It helps investigate an adrenal enzyme disorder called congenital adrenal hyperplasia. Doctors also use it in selected patients with excess androgen symptoms and to monitor people already receiving treatment for this disorder."
+      },
+      {
+        "question": "Is 17-hydroxyprogesterone the same as progesterone?",
+        "answer": "No. They are different steroid hormones measured by separate tests. A progesterone test used to assess ovulation does not substitute for 17-OHP when investigating congenital adrenal hyperplasia."
+      },
+      {
+        "question": "What time and cycle day should I have a 17-OHP test?",
+        "answer": "Baseline screening is generally done early in the morning. If you menstruate, the clinician usually requests the early follicular phase. If periods are absent or irregular, follow the ordering clinician collection plan."
+      },
+      {
+        "question": "Do I need fasting or a special sample for 17-OHP?",
+        "answer": "The serum test needs a blood sample. Timing is usually more important than fasting, but a combined panel or stimulation protocol may have extra instructions. Newborn blood-spot screening uses a separate collection method."
+      },
+      {
+        "question": "Does high 17-OHP confirm congenital adrenal hyperplasia?",
+        "answer": "A high value can support the diagnosis, but interpretation depends on the degree of elevation, age and method. Borderline results may need repeat testing, an ACTH stimulation test or other adrenal hormones."
+      },
+      {
+        "question": "What does low 17-OHP mean during CAH treatment?",
+        "answer": "It may reflect suppression by steroid treatment. The target is individualized, and an excessively suppressed value can be relevant to overtreatment. Only the treating clinician should adjust treatment after reviewing the whole clinical picture."
+      },
+      {
+        "question": "Why can a premature baby have a raised 17-OHP result?",
+        "answer": "Prematurity, early postnatal physiology, illness and assay cross-reactivity can increase screening values. The screening team uses age-appropriate interpretation and follow-up tests to distinguish these effects from congenital adrenal hyperplasia."
+      },
+      {
+        "question": "Should I take my steroid dose before a 17-OHP blood test?",
+        "answer": "Ask the treating team for the exact sampling plan. Monitoring may require a sample before a dose or at a consistent interval afterward. Do not omit steroid replacement without explicit medical instructions."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0002",
+    "draftCode": "DRAFT-QXL-CMS-0002",
+    "aliases": [
+      "[17-OHP",
+      "17-Hydroxyprogesterone]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+    "limitations": [
+      "Medication / Assay Interferences: Cross-reacting steroids can affect some immunoassays, particularly in newborn samples. Glucocorticoid treatment, time of day and menstrual phase influence the result.",
+      "Pediatric Considerations: Healthy newborns, especially premature or unwell infants, can have elevated 17-OHP. Interpret with gestational age, postnatal age, assay method and the newborn screening pathway; an abnormal screen requires clinical follow-up."
+    ],
+    "clinicalSignificance": "Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+    "preanalyticalNotes": "Preparation: For a baseline androgen-excess investigation, collection is usually early morning and, in menstruating patients, during the early follicular phase. Record steroid treatment and collection time. Follow the endocrinologist timing plan for treatment monitoring or stimulation testing.. Container: Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.",
+    "interpretiveNotes": "High: A marked elevation may support congenital adrenal hyperplasia, especially 21-hydroxylase deficiency. Modest elevations also occur with physiological timing, illness or prematurity and may require repeat or ACTH-stimulated testing.\nLow: A low value is usually not a disease diagnosis on its own. In treated congenital adrenal hyperplasia, suppression must be considered alongside growth, symptoms and other hormones; the patient should not adjust steroid doses independently.",
+    "textbookReferences": []
+  },
+  "17-hydroxyprogesterone": {
+    "slug": "17-alpha-hydroxyprogesterone",
+    "title": "17-OHP Test: Preparation, CAH & Results | QXL",
+    "metaDescription": "Understand the 17-hydroxyprogesterone test for congenital adrenal hyperplasia, morning and menstrual timing, raised results and newborn considerations.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "17-Alpha-Hydroxyprogesterone Test in Bangalore",
+    "subtitle": "Measures a steroid precursor used in adrenal hormone production. It commonly accumulates when the 21-hydroxylase enzyme is deficient.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Serum",
+    "fastingRequired": "Not routinely the key requirement; follow any accompanying fasting or stimulation-test protocol.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 17-Alpha-Hydroxyprogesterone (QXL-CMS-0002) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures a steroid precursor used in adrenal hormone production. It commonly accumulates when the 21-hydroxylase enzyme is deficient.",
+      "Clinical Significance: Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+      "Container & Handling: Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+      "Specimen Protocol: Serum (Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.)",
+      "Patient Preparation: For a baseline androgen-excess investigation, collection is usually early morning and, in menstruating patients, during the early follicular phase. Record steroid treatment and collection time. Follow the endocrinologist timing plan for treatment monitoring or stimulation testing.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What is the 17-OHP test used for?",
+        "answer": "It helps investigate an adrenal enzyme disorder called congenital adrenal hyperplasia. Doctors also use it in selected patients with excess androgen symptoms and to monitor people already receiving treatment for this disorder."
+      },
+      {
+        "question": "Is 17-hydroxyprogesterone the same as progesterone?",
+        "answer": "No. They are different steroid hormones measured by separate tests. A progesterone test used to assess ovulation does not substitute for 17-OHP when investigating congenital adrenal hyperplasia."
+      },
+      {
+        "question": "What time and cycle day should I have a 17-OHP test?",
+        "answer": "Baseline screening is generally done early in the morning. If you menstruate, the clinician usually requests the early follicular phase. If periods are absent or irregular, follow the ordering clinician collection plan."
+      },
+      {
+        "question": "Do I need fasting or a special sample for 17-OHP?",
+        "answer": "The serum test needs a blood sample. Timing is usually more important than fasting, but a combined panel or stimulation protocol may have extra instructions. Newborn blood-spot screening uses a separate collection method."
+      },
+      {
+        "question": "Does high 17-OHP confirm congenital adrenal hyperplasia?",
+        "answer": "A high value can support the diagnosis, but interpretation depends on the degree of elevation, age and method. Borderline results may need repeat testing, an ACTH stimulation test or other adrenal hormones."
+      },
+      {
+        "question": "What does low 17-OHP mean during CAH treatment?",
+        "answer": "It may reflect suppression by steroid treatment. The target is individualized, and an excessively suppressed value can be relevant to overtreatment. Only the treating clinician should adjust treatment after reviewing the whole clinical picture."
+      },
+      {
+        "question": "Why can a premature baby have a raised 17-OHP result?",
+        "answer": "Prematurity, early postnatal physiology, illness and assay cross-reactivity can increase screening values. The screening team uses age-appropriate interpretation and follow-up tests to distinguish these effects from congenital adrenal hyperplasia."
+      },
+      {
+        "question": "Should I take my steroid dose before a 17-OHP blood test?",
+        "answer": "Ask the treating team for the exact sampling plan. Monitoring may require a sample before a dose or at a consistent interval afterward. Do not omit steroid replacement without explicit medical instructions."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0002",
+    "draftCode": "DRAFT-QXL-CMS-0002",
+    "aliases": [
+      "[17-OHP",
+      "17-Hydroxyprogesterone]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+    "limitations": [
+      "Medication / Assay Interferences: Cross-reacting steroids can affect some immunoassays, particularly in newborn samples. Glucocorticoid treatment, time of day and menstrual phase influence the result.",
+      "Pediatric Considerations: Healthy newborns, especially premature or unwell infants, can have elevated 17-OHP. Interpret with gestational age, postnatal age, assay method and the newborn screening pathway; an abnormal screen requires clinical follow-up."
+    ],
+    "clinicalSignificance": "Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
+    "preanalyticalNotes": "Preparation: For a baseline androgen-excess investigation, collection is usually early morning and, in menstruating patients, during the early follicular phase. Record steroid treatment and collection time. Follow the endocrinologist timing plan for treatment monitoring or stimulation testing.. Container: Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.",
+    "interpretiveNotes": "High: A marked elevation may support congenital adrenal hyperplasia, especially 21-hydroxylase deficiency. Modest elevations also occur with physiological timing, illness or prematurity and may require repeat or ACTH-stimulated testing.\nLow: A low value is usually not a disease diagnosis on its own. In treated congenital adrenal hyperplasia, suppression must be considered alongside growth, symptoms and other hormones; the patient should not adjust steroid doses independently.",
+    "textbookReferences": []
+  },
+  "21-hydroxylase-antibodies-serum": {
+    "slug": "21-hydroxylase-antibodies-serum",
+    "title": "21-Hydroxylase Antibody Test: Uses & Results | QXL",
+    "metaDescription": "Learn how 21-hydroxylase antibodies help assess autoimmune adrenal disease, what positive and negative results mean, and how this differs from CAH testing.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "21-Hydroxylase Antibodies, Serum Test in Bangalore",
+    "subtitle": "Detects antibodies directed against the adrenal enzyme 21-hydroxylase, which can indicate autoimmune damage affecting adrenal hormone production.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Serum",
+    "fastingRequired": "Usually not required for the antibody test alone.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 21-Hydroxylase Antibodies, Serum (QXL-CMS-0003) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Detects antibodies directed against the adrenal enzyme 21-hydroxylase, which can indicate autoimmune damage affecting adrenal hormone production.",
+      "Clinical Significance: Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+      "Container & Handling: Laboratory-approved serum tube, with serum quality assessed for the chosen assay.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+      "Specimen Protocol: Serum (Laboratory-approved serum tube, with serum quality assessed for the chosen assay.)",
+      "Patient Preparation: Fasting is not generally central to this antibody test. Tell the clinician about steroid replacement and immunosuppressive medicines. Continue prescribed treatment; cortisol or stimulation testing ordered at the same visit may have separate timing instructions.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "Why are 21-hydroxylase antibodies tested?",
+        "answer": "They help determine whether an autoimmune process is responsible for adrenal insufficiency. The test looks for the cause of adrenal disease rather than directly measuring cortisol production."
+      },
+      {
+        "question": "Does a positive 21-hydroxylase antibody result mean Addison disease?",
+        "answer": "It supports autoimmune adrenal disease, but the diagnosis also requires assessment of adrenal function and clinical findings. Antibodies alone do not show whether adrenal hormone production is currently sufficient."
+      },
+      {
+        "question": "Can the antibody result be negative if I have adrenal insufficiency?",
+        "answer": "Yes. Adrenal insufficiency has autoimmune and non-autoimmune causes, and this antibody is not detected in every autoimmune case. A negative result cannot replace cortisol, ACTH or appropriate stimulation testing."
+      },
+      {
+        "question": "Is this the test for inherited 21-hydroxylase deficiency?",
+        "answer": "No. Inherited 21-hydroxylase deficiency is a form of congenital adrenal hyperplasia, usually investigated with 17-hydroxyprogesterone and other hormonal or genetic tests. This test measures an autoimmune antibody."
+      },
+      {
+        "question": "Do I need to fast for 21-hydroxylase antibodies?",
+        "answer": "Fasting is usually unnecessary for this antibody test alone. If cortisol or another timed test is also ordered, follow its separate instructions and confirm the collection plan with the laboratory."
+      },
+      {
+        "question": "What sample is needed for adrenal 21-hydroxylase antibodies?",
+        "answer": "A blood sample is collected for serum testing. Markedly haemolysed or fatty samples may be unsuitable for a particular method, and the laboratory may request recollection."
+      },
+      {
+        "question": "Are 21-hydroxylase antibodies useful in children?",
+        "answer": "They can support evaluation of autoimmune adrenal disease, including autoimmune polyglandular syndromes. They are not a substitute for newborn congenital adrenal hyperplasia screening or assessment of adrenal function in an unwell child."
+      },
+      {
+        "question": "Should I stop hydrocortisone before the antibody test?",
+        "answer": "Do not stop steroid replacement yourself. The antibody assay and cortisol testing have different preparation needs. The endocrinology team should provide any changes required for a combined testing appointment."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0003",
+    "draftCode": "DRAFT-QXL-CMS-0003",
+    "aliases": [
+      "21-OH antibodies",
+      "Adrenal 21-hydroxylase autoantibodies"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+    "limitations": [
+      "Medication / Assay Interferences: Gross haemolysis or lipaemia may make the sample unsuitable for some assays. Heterophile or other interfering antibodies can occasionally produce discordant immunoassay results.",
+      "Pediatric Considerations: In children, autoimmune adrenal disease may form part of an autoimmune polyglandular syndrome. The antibody result must be considered with symptoms and adrenal function; it is not the newborn screen for congenital adrenal hyperplasia."
+    ],
+    "clinicalSignificance": "Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+    "preanalyticalNotes": "Preparation: Fasting is not generally central to this antibody test. Tell the clinician about steroid replacement and immunosuppressive medicines. Continue prescribed treatment; cortisol or stimulation testing ordered at the same visit may have separate timing instructions.. Container: Laboratory-approved serum tube, with serum quality assessed for the chosen assay.",
+    "interpretiveNotes": "High: A positive antibody result supports autoimmune adrenal disease in the appropriate setting. It does not measure remaining adrenal function or establish the need for treatment by itself.\nLow: A negative result reduces support for this autoimmune marker but does not exclude adrenal insufficiency or every case of autoimmune adrenal disease. Cortisol, ACTH and functional testing answer different questions.",
+    "textbookReferences": []
+  },
+  "21-oh-antibodies": {
+    "slug": "21-hydroxylase-antibodies-serum",
+    "title": "21-Hydroxylase Antibody Test: Uses & Results | QXL",
+    "metaDescription": "Learn how 21-hydroxylase antibodies help assess autoimmune adrenal disease, what positive and negative results mean, and how this differs from CAH testing.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "21-Hydroxylase Antibodies, Serum Test in Bangalore",
+    "subtitle": "Detects antibodies directed against the adrenal enzyme 21-hydroxylase, which can indicate autoimmune damage affecting adrenal hormone production.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Serum",
+    "fastingRequired": "Usually not required for the antibody test alone.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 21-Hydroxylase Antibodies, Serum (QXL-CMS-0003) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Detects antibodies directed against the adrenal enzyme 21-hydroxylase, which can indicate autoimmune damage affecting adrenal hormone production.",
+      "Clinical Significance: Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+      "Container & Handling: Laboratory-approved serum tube, with serum quality assessed for the chosen assay.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+      "Specimen Protocol: Serum (Laboratory-approved serum tube, with serum quality assessed for the chosen assay.)",
+      "Patient Preparation: Fasting is not generally central to this antibody test. Tell the clinician about steroid replacement and immunosuppressive medicines. Continue prescribed treatment; cortisol or stimulation testing ordered at the same visit may have separate timing instructions.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "Why are 21-hydroxylase antibodies tested?",
+        "answer": "They help determine whether an autoimmune process is responsible for adrenal insufficiency. The test looks for the cause of adrenal disease rather than directly measuring cortisol production."
+      },
+      {
+        "question": "Does a positive 21-hydroxylase antibody result mean Addison disease?",
+        "answer": "It supports autoimmune adrenal disease, but the diagnosis also requires assessment of adrenal function and clinical findings. Antibodies alone do not show whether adrenal hormone production is currently sufficient."
+      },
+      {
+        "question": "Can the antibody result be negative if I have adrenal insufficiency?",
+        "answer": "Yes. Adrenal insufficiency has autoimmune and non-autoimmune causes, and this antibody is not detected in every autoimmune case. A negative result cannot replace cortisol, ACTH or appropriate stimulation testing."
+      },
+      {
+        "question": "Is this the test for inherited 21-hydroxylase deficiency?",
+        "answer": "No. Inherited 21-hydroxylase deficiency is a form of congenital adrenal hyperplasia, usually investigated with 17-hydroxyprogesterone and other hormonal or genetic tests. This test measures an autoimmune antibody."
+      },
+      {
+        "question": "Do I need to fast for 21-hydroxylase antibodies?",
+        "answer": "Fasting is usually unnecessary for this antibody test alone. If cortisol or another timed test is also ordered, follow its separate instructions and confirm the collection plan with the laboratory."
+      },
+      {
+        "question": "What sample is needed for adrenal 21-hydroxylase antibodies?",
+        "answer": "A blood sample is collected for serum testing. Markedly haemolysed or fatty samples may be unsuitable for a particular method, and the laboratory may request recollection."
+      },
+      {
+        "question": "Are 21-hydroxylase antibodies useful in children?",
+        "answer": "They can support evaluation of autoimmune adrenal disease, including autoimmune polyglandular syndromes. They are not a substitute for newborn congenital adrenal hyperplasia screening or assessment of adrenal function in an unwell child."
+      },
+      {
+        "question": "Should I stop hydrocortisone before the antibody test?",
+        "answer": "Do not stop steroid replacement yourself. The antibody assay and cortisol testing have different preparation needs. The endocrinology team should provide any changes required for a combined testing appointment."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0003",
+    "draftCode": "DRAFT-QXL-CMS-0003",
+    "aliases": [
+      "[21-OH antibodies",
+      "Adrenal 21-hydroxylase autoantibodies]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+    "limitations": [
+      "Medication / Assay Interferences: Gross haemolysis or lipaemia may make the sample unsuitable for some assays. Heterophile or other interfering antibodies can occasionally produce discordant immunoassay results.",
+      "Pediatric Considerations: In children, autoimmune adrenal disease may form part of an autoimmune polyglandular syndrome. The antibody result must be considered with symptoms and adrenal function; it is not the newborn screen for congenital adrenal hyperplasia."
+    ],
+    "clinicalSignificance": "Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+    "preanalyticalNotes": "Preparation: Fasting is not generally central to this antibody test. Tell the clinician about steroid replacement and immunosuppressive medicines. Continue prescribed treatment; cortisol or stimulation testing ordered at the same visit may have separate timing instructions.. Container: Laboratory-approved serum tube, with serum quality assessed for the chosen assay.",
+    "interpretiveNotes": "High: A positive antibody result supports autoimmune adrenal disease in the appropriate setting. It does not measure remaining adrenal function or establish the need for treatment by itself.\nLow: A negative result reduces support for this autoimmune marker but does not exclude adrenal insufficiency or every case of autoimmune adrenal disease. Cortisol, ACTH and functional testing answer different questions.",
+    "textbookReferences": []
+  },
+  "adrenal-21-hydroxylase-autoantibodies": {
+    "slug": "21-hydroxylase-antibodies-serum",
+    "title": "21-Hydroxylase Antibody Test: Uses & Results | QXL",
+    "metaDescription": "Learn how 21-hydroxylase antibodies help assess autoimmune adrenal disease, what positive and negative results mean, and how this differs from CAH testing.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "21-Hydroxylase Antibodies, Serum Test in Bangalore",
+    "subtitle": "Detects antibodies directed against the adrenal enzyme 21-hydroxylase, which can indicate autoimmune damage affecting adrenal hormone production.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Serum",
+    "fastingRequired": "Usually not required for the antibody test alone.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 21-Hydroxylase Antibodies, Serum (QXL-CMS-0003) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Detects antibodies directed against the adrenal enzyme 21-hydroxylase, which can indicate autoimmune damage affecting adrenal hormone production.",
+      "Clinical Significance: Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+      "Container & Handling: Laboratory-approved serum tube, with serum quality assessed for the chosen assay.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+      "Specimen Protocol: Serum (Laboratory-approved serum tube, with serum quality assessed for the chosen assay.)",
+      "Patient Preparation: Fasting is not generally central to this antibody test. Tell the clinician about steroid replacement and immunosuppressive medicines. Continue prescribed treatment; cortisol or stimulation testing ordered at the same visit may have separate timing instructions.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "Why are 21-hydroxylase antibodies tested?",
+        "answer": "They help determine whether an autoimmune process is responsible for adrenal insufficiency. The test looks for the cause of adrenal disease rather than directly measuring cortisol production."
+      },
+      {
+        "question": "Does a positive 21-hydroxylase antibody result mean Addison disease?",
+        "answer": "It supports autoimmune adrenal disease, but the diagnosis also requires assessment of adrenal function and clinical findings. Antibodies alone do not show whether adrenal hormone production is currently sufficient."
+      },
+      {
+        "question": "Can the antibody result be negative if I have adrenal insufficiency?",
+        "answer": "Yes. Adrenal insufficiency has autoimmune and non-autoimmune causes, and this antibody is not detected in every autoimmune case. A negative result cannot replace cortisol, ACTH or appropriate stimulation testing."
+      },
+      {
+        "question": "Is this the test for inherited 21-hydroxylase deficiency?",
+        "answer": "No. Inherited 21-hydroxylase deficiency is a form of congenital adrenal hyperplasia, usually investigated with 17-hydroxyprogesterone and other hormonal or genetic tests. This test measures an autoimmune antibody."
+      },
+      {
+        "question": "Do I need to fast for 21-hydroxylase antibodies?",
+        "answer": "Fasting is usually unnecessary for this antibody test alone. If cortisol or another timed test is also ordered, follow its separate instructions and confirm the collection plan with the laboratory."
+      },
+      {
+        "question": "What sample is needed for adrenal 21-hydroxylase antibodies?",
+        "answer": "A blood sample is collected for serum testing. Markedly haemolysed or fatty samples may be unsuitable for a particular method, and the laboratory may request recollection."
+      },
+      {
+        "question": "Are 21-hydroxylase antibodies useful in children?",
+        "answer": "They can support evaluation of autoimmune adrenal disease, including autoimmune polyglandular syndromes. They are not a substitute for newborn congenital adrenal hyperplasia screening or assessment of adrenal function in an unwell child."
+      },
+      {
+        "question": "Should I stop hydrocortisone before the antibody test?",
+        "answer": "Do not stop steroid replacement yourself. The antibody assay and cortisol testing have different preparation needs. The endocrinology team should provide any changes required for a combined testing appointment."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0003",
+    "draftCode": "DRAFT-QXL-CMS-0003",
+    "aliases": [
+      "[21-OH antibodies",
+      "Adrenal 21-hydroxylase autoantibodies]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+    "limitations": [
+      "Medication / Assay Interferences: Gross haemolysis or lipaemia may make the sample unsuitable for some assays. Heterophile or other interfering antibodies can occasionally produce discordant immunoassay results.",
+      "Pediatric Considerations: In children, autoimmune adrenal disease may form part of an autoimmune polyglandular syndrome. The antibody result must be considered with symptoms and adrenal function; it is not the newborn screen for congenital adrenal hyperplasia."
+    ],
+    "clinicalSignificance": "Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
+    "preanalyticalNotes": "Preparation: Fasting is not generally central to this antibody test. Tell the clinician about steroid replacement and immunosuppressive medicines. Continue prescribed treatment; cortisol or stimulation testing ordered at the same visit may have separate timing instructions.. Container: Laboratory-approved serum tube, with serum quality assessed for the chosen assay.",
+    "interpretiveNotes": "High: A positive antibody result supports autoimmune adrenal disease in the appropriate setting. It does not measure remaining adrenal function or establish the need for treatment by itself.\nLow: A negative result reduces support for this autoimmune marker but does not exclude adrenal insufficiency or every case of autoimmune adrenal disease. Cortisol, ACTH and functional testing answer different questions.",
+    "textbookReferences": []
+  },
+  "24-hour-urine-urea": {
+    "slug": "24-hour-urine-urea",
+    "title": "24-Hour Urine Urea Test: Collection & Results | QXL",
+    "metaDescription": "Understand 24-hour urine urea testing for protein intake and nitrogen balance, how to collect the sample, and why diet and kidney function affect results.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Urea Test in Bangalore",
+    "subtitle": "Measures the amount of urea, a waste product of protein breakdown, passed in urine over a full day. Urea and urea nitrogen are related but use different reporting conventions.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Urea (QXL-CMS-0004) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures the amount of urea, a waste product of protein breakdown, passed in urine over a full day. Urea and urea nitrogen are related but use different reporting conventions.",
+      "Clinical Significance: Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: A day-long fast is not required. Maintain the diet and fluid intake prescribed by your clinician and document any protein supplements or nutrition support. Do not deliberately increase protein to alter the result. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine urea test measure?",
+        "answer": "Measures the amount of urea, a waste product of protein breakdown, passed in urine over a full day. Urea and urea nitrogen are related but use different reporting conventions."
+      },
+      {
+        "question": "Why might I need 24-hour urine urea testing?",
+        "answer": "Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine urea?",
+        "answer": "A day-long fast is not required. Maintain the diet and fluid intake prescribed by your clinician and document any protein supplements or nutrition support. Do not deliberately increase protein to alter the result."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine urea?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine urea result mean?",
+        "answer": "Higher excretion may reflect a protein-rich diet or increased breakdown of body protein. It is not, by itself, evidence of kidney failure, and the clinician considers nutrition, illness and medicines."
+      },
+      {
+        "question": "What can a low 24-hour urine urea result mean?",
+        "answer": "Lower excretion may reflect low protein intake, reduced urea production or excretion, or an incomplete collection. The result does not establish malnutrition or kidney disease without other information."
+      },
+      {
+        "question": "How is 24-hour urine urea interpreted in children?",
+        "answer": "Children have different body size, dietary intake and growth-related protein needs. An adult daily excretion interval should not be applied automatically; pediatric interpretation and collection support are needed."
+      },
+      {
+        "question": "Is 24-hour urine urea the same as a blood urea test?",
+        "answer": "No. This test measures daily urinary excretion; a blood test measures the circulating concentration. They cannot be compared using the same units or reference interval. Urinary urea nitrogen is also not numerically interchangeable with urea."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0004",
+    "draftCode": "DRAFT-QXL-CMS-0004",
+    "aliases": [
+      "Timed urinary urea excretion"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection.",
+    "limitations": [
+      "Medication / Assay Interferences: Recent dietary changes, catabolic illness and incomplete collection affect interpretation. Check whether the report expresses urea or urea nitrogen before comparing values.",
+      "Pediatric Considerations: Children have different body size, dietary intake and growth-related protein needs. An adult daily excretion interval should not be applied automatically; pediatric interpretation and collection support are needed."
+    ],
+    "clinicalSignificance": "Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection.",
+    "preanalyticalNotes": "Preparation: A day-long fast is not required. Maintain the diet and fluid intake prescribed by your clinician and document any protein supplements or nutrition support. Do not deliberately increase protein to alter the result. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Higher excretion may reflect a protein-rich diet or increased breakdown of body protein. It is not, by itself, evidence of kidney failure, and the clinician considers nutrition, illness and medicines.\nLow: Lower excretion may reflect low protein intake, reduced urea production or excretion, or an incomplete collection. The result does not establish malnutrition or kidney disease without other information.",
+    "textbookReferences": []
+  },
+  "timed-urinary-urea-excretion": {
+    "slug": "24-hour-urine-urea",
+    "title": "24-Hour Urine Urea Test: Collection & Results | QXL",
+    "metaDescription": "Understand 24-hour urine urea testing for protein intake and nitrogen balance, how to collect the sample, and why diet and kidney function affect results.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Urea Test in Bangalore",
+    "subtitle": "Measures the amount of urea, a waste product of protein breakdown, passed in urine over a full day. Urea and urea nitrogen are related but use different reporting conventions.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Urea (QXL-CMS-0004) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures the amount of urea, a waste product of protein breakdown, passed in urine over a full day. Urea and urea nitrogen are related but use different reporting conventions.",
+      "Clinical Significance: Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: A day-long fast is not required. Maintain the diet and fluid intake prescribed by your clinician and document any protein supplements or nutrition support. Do not deliberately increase protein to alter the result. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine urea test measure?",
+        "answer": "Measures the amount of urea, a waste product of protein breakdown, passed in urine over a full day. Urea and urea nitrogen are related but use different reporting conventions."
+      },
+      {
+        "question": "Why might I need 24-hour urine urea testing?",
+        "answer": "Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine urea?",
+        "answer": "A day-long fast is not required. Maintain the diet and fluid intake prescribed by your clinician and document any protein supplements or nutrition support. Do not deliberately increase protein to alter the result."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine urea?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine urea result mean?",
+        "answer": "Higher excretion may reflect a protein-rich diet or increased breakdown of body protein. It is not, by itself, evidence of kidney failure, and the clinician considers nutrition, illness and medicines."
+      },
+      {
+        "question": "What can a low 24-hour urine urea result mean?",
+        "answer": "Lower excretion may reflect low protein intake, reduced urea production or excretion, or an incomplete collection. The result does not establish malnutrition or kidney disease without other information."
+      },
+      {
+        "question": "How is 24-hour urine urea interpreted in children?",
+        "answer": "Children have different body size, dietary intake and growth-related protein needs. An adult daily excretion interval should not be applied automatically; pediatric interpretation and collection support are needed."
+      },
+      {
+        "question": "Is 24-hour urine urea the same as a blood urea test?",
+        "answer": "No. This test measures daily urinary excretion; a blood test measures the circulating concentration. They cannot be compared using the same units or reference interval. Urinary urea nitrogen is also not numerically interchangeable with urea."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0004",
+    "draftCode": "DRAFT-QXL-CMS-0004",
+    "aliases": [
+      "[Timed urinary urea excretion]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection.",
+    "limitations": [
+      "Medication / Assay Interferences: Recent dietary changes, catabolic illness and incomplete collection affect interpretation. Check whether the report expresses urea or urea nitrogen before comparing values.",
+      "Pediatric Considerations: Children have different body size, dietary intake and growth-related protein needs. An adult daily excretion interval should not be applied automatically; pediatric interpretation and collection support are needed."
+    ],
+    "clinicalSignificance": "Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection.",
+    "preanalyticalNotes": "Preparation: A day-long fast is not required. Maintain the diet and fluid intake prescribed by your clinician and document any protein supplements or nutrition support. Do not deliberately increase protein to alter the result. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Higher excretion may reflect a protein-rich diet or increased breakdown of body protein. It is not, by itself, evidence of kidney failure, and the clinician considers nutrition, illness and medicines.\nLow: Lower excretion may reflect low protein intake, reduced urea production or excretion, or an incomplete collection. The result does not establish malnutrition or kidney disease without other information.",
+    "textbookReferences": []
+  },
+  "24-hour-urine-oxalate": {
+    "slug": "24-hour-urine-oxalate",
+    "title": "24-Hour Urine Oxalate Test: Stone Risk & Prep | QXL",
+    "metaDescription": "Learn how urine oxalate helps investigate calcium oxalate stones, why vitamin C and collection technique matter, and what raised results mean in children.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Oxalate Test in Bangalore",
+    "subtitle": "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Oxalate (QXL-CMS-0005) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones.",
+      "Clinical Significance: Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine oxalate test measure?",
+        "answer": "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones."
+      },
+      {
+        "question": "Why might I need 24-hour urine oxalate testing?",
+        "answer": "Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine oxalate?",
+        "answer": "Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine oxalate?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine oxalate result mean?",
+        "answer": "Higher excretion may occur with dietary or intestinal oxalate absorption, excessive vitamin C intake or primary hyperoxaluria. Marked or persistent elevation needs specialist assessment, especially with childhood stones or kidney calcification."
+      },
+      {
+        "question": "What can a low 24-hour urine oxalate result mean?",
+        "answer": "Low oxalate excretion is generally not evidence of an oxalate deficiency. Diet and a missed part of the collection can lower the value; advanced kidney dysfunction can also make urinary excretion harder to interpret."
+      },
+      {
+        "question": "How is 24-hour urine oxalate interpreted in children?",
+        "answer": "Stones or nephrocalcinosis in a young child can warrant investigation for primary hyperoxaluria. A pediatric specialist may request an age-adjusted spot oxalate/creatinine ratio if timed collection is impractical; it is not automatically interchangeable."
+      },
+      {
+        "question": "Can vitamin C supplements affect a urine oxalate test?",
+        "answer": "Yes. Large vitamin C doses can increase oxalate production or complicate measurement. Give the laboratory the dose and timing of supplements. Do not change a prescribed treatment without discussing it with the clinician."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0005",
+    "draftCode": "DRAFT-QXL-CMS-0005",
+    "aliases": [
+      "24-hour urinary oxalic acid",
+      "Urinary oxalate excretion"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+    "limitations": [
+      "Medication / Assay Interferences: Vitamin C exposure, collection incompleteness and inadequate preservation can affect the result. Use the supplied container because oxalate collection requirements differ from those of routine urine tests.",
+      "Pediatric Considerations: Stones or nephrocalcinosis in a young child can warrant investigation for primary hyperoxaluria. A pediatric specialist may request an age-adjusted spot oxalate/creatinine ratio if timed collection is impractical; it is not automatically interchangeable."
+    ],
+    "clinicalSignificance": "Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+    "preanalyticalNotes": "Preparation: Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Higher excretion may occur with dietary or intestinal oxalate absorption, excessive vitamin C intake or primary hyperoxaluria. Marked or persistent elevation needs specialist assessment, especially with childhood stones or kidney calcification.\nLow: Low oxalate excretion is generally not evidence of an oxalate deficiency. Diet and a missed part of the collection can lower the value; advanced kidney dysfunction can also make urinary excretion harder to interpret.",
+    "textbookReferences": []
+  },
+  "24-hour-urinary-oxalic-acid": {
+    "slug": "24-hour-urine-oxalate",
+    "title": "24-Hour Urine Oxalate Test: Stone Risk & Prep | QXL",
+    "metaDescription": "Learn how urine oxalate helps investigate calcium oxalate stones, why vitamin C and collection technique matter, and what raised results mean in children.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Oxalate Test in Bangalore",
+    "subtitle": "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Oxalate (QXL-CMS-0005) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones.",
+      "Clinical Significance: Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine oxalate test measure?",
+        "answer": "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones."
+      },
+      {
+        "question": "Why might I need 24-hour urine oxalate testing?",
+        "answer": "Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine oxalate?",
+        "answer": "Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine oxalate?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine oxalate result mean?",
+        "answer": "Higher excretion may occur with dietary or intestinal oxalate absorption, excessive vitamin C intake or primary hyperoxaluria. Marked or persistent elevation needs specialist assessment, especially with childhood stones or kidney calcification."
+      },
+      {
+        "question": "What can a low 24-hour urine oxalate result mean?",
+        "answer": "Low oxalate excretion is generally not evidence of an oxalate deficiency. Diet and a missed part of the collection can lower the value; advanced kidney dysfunction can also make urinary excretion harder to interpret."
+      },
+      {
+        "question": "How is 24-hour urine oxalate interpreted in children?",
+        "answer": "Stones or nephrocalcinosis in a young child can warrant investigation for primary hyperoxaluria. A pediatric specialist may request an age-adjusted spot oxalate/creatinine ratio if timed collection is impractical; it is not automatically interchangeable."
+      },
+      {
+        "question": "Can vitamin C supplements affect a urine oxalate test?",
+        "answer": "Yes. Large vitamin C doses can increase oxalate production or complicate measurement. Give the laboratory the dose and timing of supplements. Do not change a prescribed treatment without discussing it with the clinician."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0005",
+    "draftCode": "DRAFT-QXL-CMS-0005",
+    "aliases": [
+      "[24-hour urinary oxalic acid",
+      "Urinary oxalate excretion]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+    "limitations": [
+      "Medication / Assay Interferences: Vitamin C exposure, collection incompleteness and inadequate preservation can affect the result. Use the supplied container because oxalate collection requirements differ from those of routine urine tests.",
+      "Pediatric Considerations: Stones or nephrocalcinosis in a young child can warrant investigation for primary hyperoxaluria. A pediatric specialist may request an age-adjusted spot oxalate/creatinine ratio if timed collection is impractical; it is not automatically interchangeable."
+    ],
+    "clinicalSignificance": "Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+    "preanalyticalNotes": "Preparation: Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Higher excretion may occur with dietary or intestinal oxalate absorption, excessive vitamin C intake or primary hyperoxaluria. Marked or persistent elevation needs specialist assessment, especially with childhood stones or kidney calcification.\nLow: Low oxalate excretion is generally not evidence of an oxalate deficiency. Diet and a missed part of the collection can lower the value; advanced kidney dysfunction can also make urinary excretion harder to interpret.",
+    "textbookReferences": []
+  },
+  "urinary-oxalate-excretion": {
+    "slug": "24-hour-urine-oxalate",
+    "title": "24-Hour Urine Oxalate Test: Stone Risk & Prep | QXL",
+    "metaDescription": "Learn how urine oxalate helps investigate calcium oxalate stones, why vitamin C and collection technique matter, and what raised results mean in children.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Oxalate Test in Bangalore",
+    "subtitle": "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Oxalate (QXL-CMS-0005) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones.",
+      "Clinical Significance: Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine oxalate test measure?",
+        "answer": "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones."
+      },
+      {
+        "question": "Why might I need 24-hour urine oxalate testing?",
+        "answer": "Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine oxalate?",
+        "answer": "Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine oxalate?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine oxalate result mean?",
+        "answer": "Higher excretion may occur with dietary or intestinal oxalate absorption, excessive vitamin C intake or primary hyperoxaluria. Marked or persistent elevation needs specialist assessment, especially with childhood stones or kidney calcification."
+      },
+      {
+        "question": "What can a low 24-hour urine oxalate result mean?",
+        "answer": "Low oxalate excretion is generally not evidence of an oxalate deficiency. Diet and a missed part of the collection can lower the value; advanced kidney dysfunction can also make urinary excretion harder to interpret."
+      },
+      {
+        "question": "How is 24-hour urine oxalate interpreted in children?",
+        "answer": "Stones or nephrocalcinosis in a young child can warrant investigation for primary hyperoxaluria. A pediatric specialist may request an age-adjusted spot oxalate/creatinine ratio if timed collection is impractical; it is not automatically interchangeable."
+      },
+      {
+        "question": "Can vitamin C supplements affect a urine oxalate test?",
+        "answer": "Yes. Large vitamin C doses can increase oxalate production or complicate measurement. Give the laboratory the dose and timing of supplements. Do not change a prescribed treatment without discussing it with the clinician."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0005",
+    "draftCode": "DRAFT-QXL-CMS-0005",
+    "aliases": [
+      "[24-hour urinary oxalic acid",
+      "Urinary oxalate excretion]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+    "limitations": [
+      "Medication / Assay Interferences: Vitamin C exposure, collection incompleteness and inadequate preservation can affect the result. Use the supplied container because oxalate collection requirements differ from those of routine urine tests.",
+      "Pediatric Considerations: Stones or nephrocalcinosis in a young child can warrant investigation for primary hyperoxaluria. A pediatric specialist may request an age-adjusted spot oxalate/creatinine ratio if timed collection is impractical; it is not automatically interchangeable."
+    ],
+    "clinicalSignificance": "Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
+    "preanalyticalNotes": "Preparation: Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Higher excretion may occur with dietary or intestinal oxalate absorption, excessive vitamin C intake or primary hyperoxaluria. Marked or persistent elevation needs specialist assessment, especially with childhood stones or kidney calcification.\nLow: Low oxalate excretion is generally not evidence of an oxalate deficiency. Diet and a missed part of the collection can lower the value; advanced kidney dysfunction can also make urinary excretion harder to interpret.",
+    "textbookReferences": []
+  },
+  "24-hour-urine-protein-creatinine-ratio": {
+    "slug": "24-hour-urine-protein-creatinine-ratio",
+    "title": "24-Hour Urine Protein/Creatinine Ratio Test | QXL",
+    "metaDescription": "Understand the timed urine protein/creatinine ratio, how it differs from daily protein loss, collection preparation and age-specific interpretation in children.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Protein/Creatinine Ratio Test in Bangalore",
+    "subtitle": "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Protein/Creatinine Ratio (QXL-CMS-0006) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day.",
+      "Clinical Significance: Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine protein/creatinine ratio test measure?",
+        "answer": "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day."
+      },
+      {
+        "question": "Why might I need 24-hour urine protein/creatinine ratio testing?",
+        "answer": "Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine protein/creatinine ratio?",
+        "answer": "No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine protein/creatinine ratio?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine protein/creatinine ratio result mean?",
+        "answer": "An increased ratio can reflect glomerular or tubular disease, excess filtered proteins, or temporary protein loss with fever or exercise. Low creatinine excretion from low muscle mass can increase the ratio without a proportional rise in protein loss."
+      },
+      {
+        "question": "What can a low 24-hour urine protein/creatinine ratio result mean?",
+        "answer": "A low ratio generally indicates little protein relative to creatinine. It does not rule out all kidney disease, and total protein measurement is less sensitive than urine albumin testing for small increases in albumin."
+      },
+      {
+        "question": "How is 24-hour urine protein/creatinine ratio interpreted in children?",
+        "answer": "In children, a first-morning spot protein/creatinine ratio is often useful and is interpreted using age-specific limits. It can help distinguish postural proteinuria from persistent loss; the ordering clinician must choose the collection type."
+      },
+      {
+        "question": "Can I compare the protein/creatinine ratio with mg of protein per day?",
+        "answer": "Not directly. A ratio may be reported in mg/g or mg/mmol, whereas daily protein loss uses mg/24 hours. Use the reference information for the exact reported measurement and do not substitute one unit system for another."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0006",
+    "draftCode": "DRAFT-QXL-CMS-0006",
+    "aliases": [
+      "Timed urine protein-to-creatinine ratio",
+      "24-hour urine PCR"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+    "limitations": [
+      "Medication / Assay Interferences: Blood or genital contamination, strenuous exercise and differences in creatinine excretion can alter the ratio. An incomplete collection cannot be assumed reliable simply because a ratio is reported.",
+      "Pediatric Considerations: In children, a first-morning spot protein/creatinine ratio is often useful and is interpreted using age-specific limits. It can help distinguish postural proteinuria from persistent loss; the ordering clinician must choose the collection type."
+    ],
+    "clinicalSignificance": "Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+    "preanalyticalNotes": "Preparation: No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: An increased ratio can reflect glomerular or tubular disease, excess filtered proteins, or temporary protein loss with fever or exercise. Low creatinine excretion from low muscle mass can increase the ratio without a proportional rise in protein loss.\nLow: A low ratio generally indicates little protein relative to creatinine. It does not rule out all kidney disease, and total protein measurement is less sensitive than urine albumin testing for small increases in albumin.",
+    "textbookReferences": []
+  },
+  "timed-urine-protein-to-creatinine-ratio": {
+    "slug": "24-hour-urine-protein-creatinine-ratio",
+    "title": "24-Hour Urine Protein/Creatinine Ratio Test | QXL",
+    "metaDescription": "Understand the timed urine protein/creatinine ratio, how it differs from daily protein loss, collection preparation and age-specific interpretation in children.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Protein/Creatinine Ratio Test in Bangalore",
+    "subtitle": "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Protein/Creatinine Ratio (QXL-CMS-0006) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day.",
+      "Clinical Significance: Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine protein/creatinine ratio test measure?",
+        "answer": "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day."
+      },
+      {
+        "question": "Why might I need 24-hour urine protein/creatinine ratio testing?",
+        "answer": "Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine protein/creatinine ratio?",
+        "answer": "No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine protein/creatinine ratio?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine protein/creatinine ratio result mean?",
+        "answer": "An increased ratio can reflect glomerular or tubular disease, excess filtered proteins, or temporary protein loss with fever or exercise. Low creatinine excretion from low muscle mass can increase the ratio without a proportional rise in protein loss."
+      },
+      {
+        "question": "What can a low 24-hour urine protein/creatinine ratio result mean?",
+        "answer": "A low ratio generally indicates little protein relative to creatinine. It does not rule out all kidney disease, and total protein measurement is less sensitive than urine albumin testing for small increases in albumin."
+      },
+      {
+        "question": "How is 24-hour urine protein/creatinine ratio interpreted in children?",
+        "answer": "In children, a first-morning spot protein/creatinine ratio is often useful and is interpreted using age-specific limits. It can help distinguish postural proteinuria from persistent loss; the ordering clinician must choose the collection type."
+      },
+      {
+        "question": "Can I compare the protein/creatinine ratio with mg of protein per day?",
+        "answer": "Not directly. A ratio may be reported in mg/g or mg/mmol, whereas daily protein loss uses mg/24 hours. Use the reference information for the exact reported measurement and do not substitute one unit system for another."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0006",
+    "draftCode": "DRAFT-QXL-CMS-0006",
+    "aliases": [
+      "[Timed urine protein-to-creatinine ratio",
+      "24-hour urine PCR]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+    "limitations": [
+      "Medication / Assay Interferences: Blood or genital contamination, strenuous exercise and differences in creatinine excretion can alter the ratio. An incomplete collection cannot be assumed reliable simply because a ratio is reported.",
+      "Pediatric Considerations: In children, a first-morning spot protein/creatinine ratio is often useful and is interpreted using age-specific limits. It can help distinguish postural proteinuria from persistent loss; the ordering clinician must choose the collection type."
+    ],
+    "clinicalSignificance": "Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+    "preanalyticalNotes": "Preparation: No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: An increased ratio can reflect glomerular or tubular disease, excess filtered proteins, or temporary protein loss with fever or exercise. Low creatinine excretion from low muscle mass can increase the ratio without a proportional rise in protein loss.\nLow: A low ratio generally indicates little protein relative to creatinine. It does not rule out all kidney disease, and total protein measurement is less sensitive than urine albumin testing for small increases in albumin.",
+    "textbookReferences": []
+  },
+  "24-hour-urine-pcr": {
+    "slug": "24-hour-urine-protein-creatinine-ratio",
+    "title": "24-Hour Urine Protein/Creatinine Ratio Test | QXL",
+    "metaDescription": "Understand the timed urine protein/creatinine ratio, how it differs from daily protein loss, collection preparation and age-specific interpretation in children.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Protein/Creatinine Ratio Test in Bangalore",
+    "subtitle": "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Protein/Creatinine Ratio (QXL-CMS-0006) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day.",
+      "Clinical Significance: Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine protein/creatinine ratio test measure?",
+        "answer": "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day."
+      },
+      {
+        "question": "Why might I need 24-hour urine protein/creatinine ratio testing?",
+        "answer": "Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine protein/creatinine ratio?",
+        "answer": "No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine protein/creatinine ratio?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine protein/creatinine ratio result mean?",
+        "answer": "An increased ratio can reflect glomerular or tubular disease, excess filtered proteins, or temporary protein loss with fever or exercise. Low creatinine excretion from low muscle mass can increase the ratio without a proportional rise in protein loss."
+      },
+      {
+        "question": "What can a low 24-hour urine protein/creatinine ratio result mean?",
+        "answer": "A low ratio generally indicates little protein relative to creatinine. It does not rule out all kidney disease, and total protein measurement is less sensitive than urine albumin testing for small increases in albumin."
+      },
+      {
+        "question": "How is 24-hour urine protein/creatinine ratio interpreted in children?",
+        "answer": "In children, a first-morning spot protein/creatinine ratio is often useful and is interpreted using age-specific limits. It can help distinguish postural proteinuria from persistent loss; the ordering clinician must choose the collection type."
+      },
+      {
+        "question": "Can I compare the protein/creatinine ratio with mg of protein per day?",
+        "answer": "Not directly. A ratio may be reported in mg/g or mg/mmol, whereas daily protein loss uses mg/24 hours. Use the reference information for the exact reported measurement and do not substitute one unit system for another."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0006",
+    "draftCode": "DRAFT-QXL-CMS-0006",
+    "aliases": [
+      "[Timed urine protein-to-creatinine ratio",
+      "24-hour urine PCR]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+    "limitations": [
+      "Medication / Assay Interferences: Blood or genital contamination, strenuous exercise and differences in creatinine excretion can alter the ratio. An incomplete collection cannot be assumed reliable simply because a ratio is reported.",
+      "Pediatric Considerations: In children, a first-morning spot protein/creatinine ratio is often useful and is interpreted using age-specific limits. It can help distinguish postural proteinuria from persistent loss; the ordering clinician must choose the collection type."
+    ],
+    "clinicalSignificance": "Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
+    "preanalyticalNotes": "Preparation: No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: An increased ratio can reflect glomerular or tubular disease, excess filtered proteins, or temporary protein loss with fever or exercise. Low creatinine excretion from low muscle mass can increase the ratio without a proportional rise in protein loss.\nLow: A low ratio generally indicates little protein relative to creatinine. It does not rule out all kidney disease, and total protein measurement is less sensitive than urine albumin testing for small increases in albumin.",
+    "textbookReferences": []
+  },
+  "24-hour-urine-creatinine": {
+    "slug": "24-hour-urine-creatinine",
+    "title": "24-Hour Urine Creatinine: Collection & Results | QXL",
+    "metaDescription": "Learn why 24-hour urine creatinine checks collection completeness, how muscle mass affects results, and when a paired blood test is needed for clearance.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Creatinine Test in Bangalore",
+    "subtitle": "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Creatinine (QXL-CMS-0007) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass.",
+      "Clinical Significance: Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine creatinine test measure?",
+        "answer": "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass."
+      },
+      {
+        "question": "Why might I need 24-hour urine creatinine testing?",
+        "answer": "Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine creatinine?",
+        "answer": "Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine creatinine?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine creatinine result mean?",
+        "answer": "Higher excretion can reflect greater muscle mass, meat or creatine intake, or collection for longer than requested. A high urine value is not interpreted in the same way as a high blood creatinine value."
+      },
+      {
+        "question": "What can a low 24-hour urine creatinine result mean?",
+        "answer": "Lower daily excretion may reflect low muscle mass or a missed part of the collection. It should not automatically be labelled kidney failure; the blood result, timing and patient characteristics must also be reviewed."
+      },
+      {
+        "question": "How is 24-hour urine creatinine interpreted in children?",
+        "answer": "Children excrete less creatinine than adults and values change with growth and muscle mass. Adult daily-excretion expectations cannot be used to judge a child collection without pediatric context."
+      },
+      {
+        "question": "Why was a blood creatinine test ordered with my urine collection?",
+        "answer": "Creatinine clearance compares creatinine in blood with the amount excreted in a timed urine collection. Correct collection duration and total urine volume are essential. A urine creatinine result alone cannot provide that clearance."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0007",
+    "draftCode": "DRAFT-QXL-CMS-0007",
+    "aliases": [
+      "Timed urinary creatinine",
+      "Daily creatinine excretion"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+    "limitations": [
+      "Medication / Assay Interferences: Collection duration, missing urine, muscle mass, meat intake and creatine supplements influence excretion. Assay-related interference differs between enzymatic and Jaffe creatinine methods.",
+      "Pediatric Considerations: Children excrete less creatinine than adults and values change with growth and muscle mass. Adult daily-excretion expectations cannot be used to judge a child collection without pediatric context."
+    ],
+    "clinicalSignificance": "Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+    "preanalyticalNotes": "Preparation: Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Higher excretion can reflect greater muscle mass, meat or creatine intake, or collection for longer than requested. A high urine value is not interpreted in the same way as a high blood creatinine value.\nLow: Lower daily excretion may reflect low muscle mass or a missed part of the collection. It should not automatically be labelled kidney failure; the blood result, timing and patient characteristics must also be reviewed.",
+    "textbookReferences": []
+  },
+  "timed-urinary-creatinine": {
+    "slug": "24-hour-urine-creatinine",
+    "title": "24-Hour Urine Creatinine: Collection & Results | QXL",
+    "metaDescription": "Learn why 24-hour urine creatinine checks collection completeness, how muscle mass affects results, and when a paired blood test is needed for clearance.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Creatinine Test in Bangalore",
+    "subtitle": "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Creatinine (QXL-CMS-0007) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass.",
+      "Clinical Significance: Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine creatinine test measure?",
+        "answer": "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass."
+      },
+      {
+        "question": "Why might I need 24-hour urine creatinine testing?",
+        "answer": "Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine creatinine?",
+        "answer": "Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine creatinine?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine creatinine result mean?",
+        "answer": "Higher excretion can reflect greater muscle mass, meat or creatine intake, or collection for longer than requested. A high urine value is not interpreted in the same way as a high blood creatinine value."
+      },
+      {
+        "question": "What can a low 24-hour urine creatinine result mean?",
+        "answer": "Lower daily excretion may reflect low muscle mass or a missed part of the collection. It should not automatically be labelled kidney failure; the blood result, timing and patient characteristics must also be reviewed."
+      },
+      {
+        "question": "How is 24-hour urine creatinine interpreted in children?",
+        "answer": "Children excrete less creatinine than adults and values change with growth and muscle mass. Adult daily-excretion expectations cannot be used to judge a child collection without pediatric context."
+      },
+      {
+        "question": "Why was a blood creatinine test ordered with my urine collection?",
+        "answer": "Creatinine clearance compares creatinine in blood with the amount excreted in a timed urine collection. Correct collection duration and total urine volume are essential. A urine creatinine result alone cannot provide that clearance."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0007",
+    "draftCode": "DRAFT-QXL-CMS-0007",
+    "aliases": [
+      "[Timed urinary creatinine",
+      "Daily creatinine excretion]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+    "limitations": [
+      "Medication / Assay Interferences: Collection duration, missing urine, muscle mass, meat intake and creatine supplements influence excretion. Assay-related interference differs between enzymatic and Jaffe creatinine methods.",
+      "Pediatric Considerations: Children excrete less creatinine than adults and values change with growth and muscle mass. Adult daily-excretion expectations cannot be used to judge a child collection without pediatric context."
+    ],
+    "clinicalSignificance": "Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+    "preanalyticalNotes": "Preparation: Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Higher excretion can reflect greater muscle mass, meat or creatine intake, or collection for longer than requested. A high urine value is not interpreted in the same way as a high blood creatinine value.\nLow: Lower daily excretion may reflect low muscle mass or a missed part of the collection. It should not automatically be labelled kidney failure; the blood result, timing and patient characteristics must also be reviewed.",
+    "textbookReferences": []
+  },
+  "daily-creatinine-excretion": {
+    "slug": "24-hour-urine-creatinine",
+    "title": "24-Hour Urine Creatinine: Collection & Results | QXL",
+    "metaDescription": "Learn why 24-hour urine creatinine checks collection completeness, how muscle mass affects results, and when a paired blood test is needed for clearance.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Creatinine Test in Bangalore",
+    "subtitle": "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Creatinine (QXL-CMS-0007) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass.",
+      "Clinical Significance: Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine creatinine test measure?",
+        "answer": "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass."
+      },
+      {
+        "question": "Why might I need 24-hour urine creatinine testing?",
+        "answer": "Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine creatinine?",
+        "answer": "Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine creatinine?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine creatinine result mean?",
+        "answer": "Higher excretion can reflect greater muscle mass, meat or creatine intake, or collection for longer than requested. A high urine value is not interpreted in the same way as a high blood creatinine value."
+      },
+      {
+        "question": "What can a low 24-hour urine creatinine result mean?",
+        "answer": "Lower daily excretion may reflect low muscle mass or a missed part of the collection. It should not automatically be labelled kidney failure; the blood result, timing and patient characteristics must also be reviewed."
+      },
+      {
+        "question": "How is 24-hour urine creatinine interpreted in children?",
+        "answer": "Children excrete less creatinine than adults and values change with growth and muscle mass. Adult daily-excretion expectations cannot be used to judge a child collection without pediatric context."
+      },
+      {
+        "question": "Why was a blood creatinine test ordered with my urine collection?",
+        "answer": "Creatinine clearance compares creatinine in blood with the amount excreted in a timed urine collection. Correct collection duration and total urine volume are essential. A urine creatinine result alone cannot provide that clearance."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0007",
+    "draftCode": "DRAFT-QXL-CMS-0007",
+    "aliases": [
+      "[Timed urinary creatinine",
+      "Daily creatinine excretion]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+    "limitations": [
+      "Medication / Assay Interferences: Collection duration, missing urine, muscle mass, meat intake and creatine supplements influence excretion. Assay-related interference differs between enzymatic and Jaffe creatinine methods.",
+      "Pediatric Considerations: Children excrete less creatinine than adults and values change with growth and muscle mass. Adult daily-excretion expectations cannot be used to judge a child collection without pediatric context."
+    ],
+    "clinicalSignificance": "Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
+    "preanalyticalNotes": "Preparation: Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Higher excretion can reflect greater muscle mass, meat or creatine intake, or collection for longer than requested. A high urine value is not interpreted in the same way as a high blood creatinine value.\nLow: Lower daily excretion may reflect low muscle mass or a missed part of the collection. It should not automatically be labelled kidney failure; the blood result, timing and patient characteristics must also be reviewed.",
+    "textbookReferences": []
+  },
+  "24-hour-urine-glucose": {
+    "slug": "24-hour-urine-glucose",
+    "title": "24-Hour Urine Glucose Test: Uses & Results | QXL",
+    "metaDescription": "Understand daily urine glucose measurement, why blood tests are usually preferred for diabetes, and how kidney handling, pregnancy and medicines affect results.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Glucose Test in Bangalore",
+    "subtitle": "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Glucose (QXL-CMS-0008) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced.",
+      "Clinical Significance: May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine glucose test measure?",
+        "answer": "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced."
+      },
+      {
+        "question": "Why might I need 24-hour urine glucose testing?",
+        "answer": "May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine glucose?",
+        "answer": "Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine glucose?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine glucose result mean?",
+        "answer": "Increased urine glucose can occur with high blood glucose, renal glycosuria, proximal tubular disease or medicines designed to increase urinary glucose loss. Pregnancy can also change the kidney threshold for glucose."
+      },
+      {
+        "question": "What can a low 24-hour urine glucose result mean?",
+        "answer": "Little or no glucose in urine is common and does not diagnose low blood sugar. It also does not exclude diabetes because the kidney threshold and blood glucose pattern differ between individuals."
+      },
+      {
+        "question": "How is 24-hour urine glucose interpreted in children?",
+        "answer": "A child with urine glucose needs clinical assessment and blood glucose correlation. Glycosuria with normal blood glucose may prompt evaluation for a tubular disorder such as Fanconi syndrome rather than an assumption of diabetes."
+      },
+      {
+        "question": "Can I test urine glucose instead of getting a blood glucose test for diabetes?",
+        "answer": "No. Urine glucose is less sensitive, depends on the kidney threshold and does not reflect real-time blood sugar. Blood glucose and HbA1c remain the standard tests for diagnosing and managing diabetes."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0008",
+    "draftCode": "DRAFT-QXL-CMS-0008",
+    "aliases": [
+      "Timed urine sugar",
+      "24-hour glycosuria measurement"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+    "limitations": [
+      "Medication / Assay Interferences: Delay or inadequate preservation can allow bacterial glucose consumption. Diet, blood glucose fluctuations and SGLT2 medicines affect urinary glucose biologically; interference from vitamin C depends on the measurement method.",
+      "Pediatric Considerations: A child with urine glucose needs clinical assessment and blood glucose correlation. Glycosuria with normal blood glucose may prompt evaluation for a tubular disorder such as Fanconi syndrome rather than an assumption of diabetes."
+    ],
+    "clinicalSignificance": "May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+    "preanalyticalNotes": "Preparation: Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Increased urine glucose can occur with high blood glucose, renal glycosuria, proximal tubular disease or medicines designed to increase urinary glucose loss. Pregnancy can also change the kidney threshold for glucose.\nLow: Little or no glucose in urine is common and does not diagnose low blood sugar. It also does not exclude diabetes because the kidney threshold and blood glucose pattern differ between individuals.",
+    "textbookReferences": []
+  },
+  "timed-urine-sugar": {
+    "slug": "24-hour-urine-glucose",
+    "title": "24-Hour Urine Glucose Test: Uses & Results | QXL",
+    "metaDescription": "Understand daily urine glucose measurement, why blood tests are usually preferred for diabetes, and how kidney handling, pregnancy and medicines affect results.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Glucose Test in Bangalore",
+    "subtitle": "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Glucose (QXL-CMS-0008) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced.",
+      "Clinical Significance: May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine glucose test measure?",
+        "answer": "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced."
+      },
+      {
+        "question": "Why might I need 24-hour urine glucose testing?",
+        "answer": "May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine glucose?",
+        "answer": "Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine glucose?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine glucose result mean?",
+        "answer": "Increased urine glucose can occur with high blood glucose, renal glycosuria, proximal tubular disease or medicines designed to increase urinary glucose loss. Pregnancy can also change the kidney threshold for glucose."
+      },
+      {
+        "question": "What can a low 24-hour urine glucose result mean?",
+        "answer": "Little or no glucose in urine is common and does not diagnose low blood sugar. It also does not exclude diabetes because the kidney threshold and blood glucose pattern differ between individuals."
+      },
+      {
+        "question": "How is 24-hour urine glucose interpreted in children?",
+        "answer": "A child with urine glucose needs clinical assessment and blood glucose correlation. Glycosuria with normal blood glucose may prompt evaluation for a tubular disorder such as Fanconi syndrome rather than an assumption of diabetes."
+      },
+      {
+        "question": "Can I test urine glucose instead of getting a blood glucose test for diabetes?",
+        "answer": "No. Urine glucose is less sensitive, depends on the kidney threshold and does not reflect real-time blood sugar. Blood glucose and HbA1c remain the standard tests for diagnosing and managing diabetes."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0008",
+    "draftCode": "DRAFT-QXL-CMS-0008",
+    "aliases": [
+      "[Timed urine sugar",
+      "24-hour glycosuria measurement]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+    "limitations": [
+      "Medication / Assay Interferences: Delay or inadequate preservation can allow bacterial glucose consumption. Diet, blood glucose fluctuations and SGLT2 medicines affect urinary glucose biologically; interference from vitamin C depends on the measurement method.",
+      "Pediatric Considerations: A child with urine glucose needs clinical assessment and blood glucose correlation. Glycosuria with normal blood glucose may prompt evaluation for a tubular disorder such as Fanconi syndrome rather than an assumption of diabetes."
+    ],
+    "clinicalSignificance": "May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+    "preanalyticalNotes": "Preparation: Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Increased urine glucose can occur with high blood glucose, renal glycosuria, proximal tubular disease or medicines designed to increase urinary glucose loss. Pregnancy can also change the kidney threshold for glucose.\nLow: Little or no glucose in urine is common and does not diagnose low blood sugar. It also does not exclude diabetes because the kidney threshold and blood glucose pattern differ between individuals.",
+    "textbookReferences": []
+  },
+  "24-hour-glycosuria-measurement": {
+    "slug": "24-hour-urine-glucose",
+    "title": "24-Hour Urine Glucose Test: Uses & Results | QXL",
+    "metaDescription": "Understand daily urine glucose measurement, why blood tests are usually preferred for diabetes, and how kidney handling, pregnancy and medicines affect results.",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "h1Title": "24-Hour Urine Glucose Test in Bangalore",
+    "subtitle": "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced.",
+    "price": "450",
+    "oldPrice": "650",
+    "discountPercent": "30% OFF",
+    "parametersCount": "Standard Clinical Assay",
+    "sampleType": "Complete 24-hour urine collection",
+    "fastingRequired": "Do not fast for the entire collection; follow any separately ordered preparation.",
+    "turnaroundTime": "12–24 Hours",
+    "category": "Super Speciality Diagnostics",
+    "overview": [
+      "The 24-Hour Urine Glucose (QXL-CMS-0008) is a specialized clinical investigation performed at QXL Diagnostics, Bengaluru.",
+      "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced.",
+      "Clinical Significance: May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+      "Container & Handling: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+      "Every result is verified by senior medical consultants under NABL ISO 15189:2022 quality controls."
+    ],
+    "whyImportant": [
+      "Primary Indication: May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+      "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
+      "Patient Preparation: Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
+      "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
+    ],
+    "faqs": [
+      {
+        "question": "What does the 24-hour urine glucose test measure?",
+        "answer": "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced."
+      },
+      {
+        "question": "Why might I need 24-hour urine glucose testing?",
+        "answer": "May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test."
+      },
+      {
+        "question": "Do I need to fast or change my diet for 24-hour urine glucose?",
+        "answer": "Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors."
+      },
+      {
+        "question": "How do I collect urine for 24-hour urine glucose?",
+        "answer": "Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative."
+      },
+      {
+        "question": "What can a high 24-hour urine glucose result mean?",
+        "answer": "Increased urine glucose can occur with high blood glucose, renal glycosuria, proximal tubular disease or medicines designed to increase urinary glucose loss. Pregnancy can also change the kidney threshold for glucose."
+      },
+      {
+        "question": "What can a low 24-hour urine glucose result mean?",
+        "answer": "Little or no glucose in urine is common and does not diagnose low blood sugar. It also does not exclude diabetes because the kidney threshold and blood glucose pattern differ between individuals."
+      },
+      {
+        "question": "How is 24-hour urine glucose interpreted in children?",
+        "answer": "A child with urine glucose needs clinical assessment and blood glucose correlation. Glycosuria with normal blood glucose may prompt evaluation for a tubular disorder such as Fanconi syndrome rather than an assumption of diabetes."
+      },
+      {
+        "question": "Can I test urine glucose instead of getting a blood glucose test for diabetes?",
+        "answer": "No. Urine glucose is less sensitive, depends on the kidney threshold and does not reflect real-time blood sugar. Blood glucose and HbA1c remain the standard tests for diagnosing and managing diabetes."
+      }
+    ],
+    "doctorSlug": "dr-shantakumar-muruda",
+    "doctorName": "Dr. Shantakumar Muruda",
+    "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
+    "testCode": "QXL-CMS-0008",
+    "draftCode": "DRAFT-QXL-CMS-0008",
+    "aliases": [
+      "[Timed urine sugar",
+      "24-hour glycosuria measurement]"
+    ],
+    "department": "Super Speciality Diagnostics",
+    "sampleVolume": "2 mL",
+    "indications": "May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+    "limitations": [
+      "Medication / Assay Interferences: Delay or inadequate preservation can allow bacterial glucose consumption. Diet, blood glucose fluctuations and SGLT2 medicines affect urinary glucose biologically; interference from vitamin C depends on the measurement method.",
+      "Pediatric Considerations: A child with urine glucose needs clinical assessment and blood glucose correlation. Glycosuria with normal blood glucose may prompt evaluation for a tubular disorder such as Fanconi syndrome rather than an assumption of diabetes."
+    ],
+    "clinicalSignificance": "May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
+    "preanalyticalNotes": "Preparation: Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.. Container: Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.",
+    "interpretiveNotes": "High: Increased urine glucose can occur with high blood glucose, renal glycosuria, proximal tubular disease or medicines designed to increase urinary glucose loss. Pregnancy can also change the kidney threshold for glucose.\nLow: Little or no glucose in urine is common and does not diagnose low blood sugar. It also does not exclude diabetes because the kidney threshold and blood glucose pattern differ between individuals.",
+    "textbookReferences": []
   }
 };

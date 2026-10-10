@@ -4,12 +4,20 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronRight, Calendar } from "lucide-react";
 import { api, type BlogPost } from "../lib/api";
+import { cmsStore } from "../lib/cmsStore";
 
 export default function BlogSlider({ decorativeHeading = false }: { decorativeHeading?: boolean }) {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const Heading = decorativeHeading ? 'p' : 'h2';
 
   const fallbackBlogs: BlogPost[] = [
+    {
+      id: 'blog-new-20',
+      title: 'Your Liver Works in Silence — A Simple Blood Test Lets You Listen',
+      slug: 'your-liver-works-in-silence-simple-blood-test',
+      excerpt: 'Most of us know when our stomach is upset or our knees ache. The liver is different. It can lose a good part of its working strength before you feel anything at all. Learn how routine LFT and PT/INR tests let you listen to your liver.',
+      created_at: '2026-10-10T10:00:00.000Z'
+    },
     {
       id: 'b-new-14',
       title: 'Comprehensive Food-Specific IgG Sensitivity Microarray (287 Foods): A Doctor-Led Guide for Chronic Symptoms',
@@ -79,19 +87,51 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
 
   useEffect(() => {
     let cancelled = false;
-    api.blog
-      .list(8, 0)
-      .then(({ items }) => {
-        if (!cancelled && items && items.length > 0) {
-          setBlogs(items);
-        } else if (!cancelled) {
-          setBlogs(fallbackBlogs);
+    (async () => {
+      let apiItems: BlogPost[] = [];
+      try {
+        const { items } = await api.blog.list(15, 0);
+        if (items && items.length > 0) apiItems = items;
+      } catch (err) {
+        console.error("Failed to load API blog posts, falling back to local", err);
+      }
+
+      if (cancelled) return;
+
+      const cmsBlogs = cmsStore.getAll("blogs");
+      const map = new Map<string, any>();
+
+      // 1. Add cmsBlogs first (contains blog-new-20 with newest 2026-10-10 timestamp)
+      for (const item of cmsBlogs) {
+        if (item.slug) map.set(item.slug, item);
+      }
+
+      // 2. Add fallbackBlogs
+      for (const item of fallbackBlogs) {
+        if (item.slug && !map.has(item.slug)) map.set(item.slug, item);
+      }
+
+      // 3. Add apiItems
+      for (const item of apiItems) {
+        if (item.slug && !map.has(item.slug)) map.set(item.slug, item);
+      }
+
+      const getTime = (item: any) => {
+        if (item.id === "blog-new-20" || item.slug === "your-liver-works-in-silence-simple-blood-test") {
+          return new Date("2026-10-10T10:00:00.000Z").getTime();
         }
-      })
-      .catch((err) => {
-        console.error("Failed to load blog posts, using fallback", err);
-        if (!cancelled) setBlogs(fallbackBlogs);
-      });
+        const val = item.created_at || item.date;
+        if (!val) return 0;
+        const parsed = new Date(val).getTime();
+        return isNaN(parsed) ? 0 : parsed;
+      };
+
+      const all = Array.from(map.values());
+      all.sort((a, b) => getTime(b) - getTime(a));
+
+      setBlogs(all.slice(0, 8));
+    })();
+
     return () => {
       cancelled = true;
     };

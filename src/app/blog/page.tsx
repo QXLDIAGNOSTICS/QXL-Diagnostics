@@ -13,15 +13,40 @@ export default function BlogPage() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
+      let apiItems: BlogPost[] = [];
       try {
         const { items } = await api.blog.list(50, 0);
-        if (!cancelled && items && items.length > 0) setBlogs(items);
-        else if (!cancelled) setBlogs(cmsStore.getAll("blogs"));
+        if (items && items.length > 0) apiItems = items;
       } catch {
-        if (!cancelled) setBlogs(cmsStore.getAll("blogs"));
-      } finally {
-        if (!cancelled) setLoading(false);
+        // Fallback to cmsStore
       }
+      if (cancelled) return;
+
+      const cmsBlogs = cmsStore.getAll("blogs");
+      const map = new Map<string, any>();
+
+      for (const item of cmsBlogs) {
+        if (item.slug) map.set(item.slug, item);
+      }
+      for (const item of apiItems) {
+        if (item.slug && !map.has(item.slug)) map.set(item.slug, item);
+      }
+
+      const getTime = (item: any) => {
+        if (item.id === "blog-new-20" || item.slug === "your-liver-works-in-silence-simple-blood-test") {
+          return new Date("2026-10-10T10:00:00.000Z").getTime();
+        }
+        const val = item.created_at || item.date;
+        if (!val) return 0;
+        const parsed = new Date(val).getTime();
+        return isNaN(parsed) ? 0 : parsed;
+      };
+
+      const all = Array.from(map.values());
+      all.sort((a, b) => getTime(b) - getTime(a));
+
+      setBlogs(all);
+      setLoading(false);
     })();
     return () => {
       cancelled = true;
