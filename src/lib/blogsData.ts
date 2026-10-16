@@ -463,3 +463,32 @@ export function getDefaultBlogBySlug(slugOrId: string): BlogPost | null {
 export function getAllDefaultBlogs(): BlogPost[] {
   return defaultBlogs;
 }
+
+export function getBlogCategory(blog: { category?: string; slug?: string; title?: string }): string {
+  if (blog.category) {
+    const c = blog.category.toLowerCase();
+    if (c.includes("pregnan") || c.includes("maternal") || c.includes("women")) return "Pregnancy & Women's Health";
+    if (c.includes("cardio") || c.includes("heart")) return "Cardiology & Heart";
+    if (c.includes("liver") || c.includes("kidney")) return "Liver & Kidney";
+    if (c.includes("diabet") || c.includes("thyroid")) return "Diabetes & Thyroid";
+    if (c.includes("allerg") || c.includes("autoimmun") || c.includes("intolerance")) return "Allergy & Immunology";
+    if (c.includes("nabl") || c.includes("pcr") || c.includes("molecul")) return "Lab Science & NABL";
+    return blog.category;
+  }
+  const s = `${blog.slug || ""} ${blog.title || ""}`.toLowerCase();
+  if (s.includes("pregnan") || s.includes("prenatal") || s.includes("marker") || s.includes("amh") || s.includes("fertility")) return "Pregnancy & Women's Health";
+  if (s.includes("apob") || s.includes("cardiac") || s.includes("troponin") || s.includes("heart") || s.includes("ldl") || s.includes("cholesterol")) return "Cardiology & Heart";
+  if (s.includes("liver") || s.includes("kidney") || s.includes("lft") || s.includes("egfr") || s.includes("cystatin")) return "Liver & Kidney";
+  if (s.includes("diabetes") || s.includes("hba1c") || s.includes("thyroid") || s.includes("vitamin d") || s.includes("sugar")) return "Diabetes & Thyroid";
+  if (s.includes("allerg") || s.includes("igg") || s.includes("ige") || s.includes("intolerance") || s.includes("ana") || s.includes("autoimmune")) return "Allergy & Immunology";
+  if (s.includes("nabl") || s.includes("iso") || s.includes("pcr") || s.includes("molecular") || s.includes("immuno") || s.includes("hlm") || s.includes("quality")) return "Lab Science & NABL";
+  return "Preventive Health";
+}
+
+export function getReadingTime(content: string = ""): string {
+  if (!content) return "5 min read";
+  const words = content.trim().split(/\s+/).length;
+  const minutes = Math.max(3, Math.ceil(words / 200));
+  return `${minutes} min read`;
+}
+
