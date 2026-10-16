@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, ShieldCheck } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, ShieldCheck, MapPin, Building2, Stethoscope, ArrowRight } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { defaultBlogs, getDefaultBlogBySlug } from "@/lib/blogsData";
@@ -29,11 +29,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonical = `https://qxldiagnostics.com/blog/${blog.slug}/`;
   const imageUrl = (blog as any).image || "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
 
+  const reviewer = (blog as any).reviewer || "Dr. Shantakumar Muruda, MD (Biochemistry)";
+
   return {
     title: { absolute: title },
     description,
+    keywords: [
+      "personalised pregnancy testing Bengaluru",
+      "pregnancy blood tests Bengaluru",
+      "prenatal screening tests Bangalore",
+      "double marker test Bangalore",
+      "triple marker test Bangalore",
+      "quadruple marker test Bangalore",
+      "NIPT test Bangalore",
+      "gestational diabetes test Bangalore",
+      "QXL Diagnostics Bengaluru",
+      "NABL accredited lab Bangalore",
+      "home blood collection Bangalore",
+    ],
     alternates: {
       canonical,
+    },
+    other: {
+      "geo.region": "IN-KA",
+      "geo.placename": "Bengaluru",
+      "geo.position": "12.9177;77.4835",
+      "ICBM": "12.9177, 77.4835",
+      "medical-reviewed-by": reviewer,
+      "nabl-accreditation": "MC-6849",
+      "dc.coverage": "Bengaluru, Karnataka, India",
     },
     openGraph: {
       title,
@@ -177,6 +201,137 @@ export default async function SingleBlogPage({ params }: Props) {
           <p className="text-xl font-medium text-slate-700 mb-8 leading-relaxed bg-slate-50 p-5 rounded-2xl border border-slate-150">
             {blog.excerpt}
           </p>
+
+          {/* AEO & GEO Fast-Answer / Trimester Matrix (Optimized for LLM Snippet Extraction & Patient Clarity) */}
+          {blog.slug === "personalised-pregnancy-testing-bengaluru" && (
+            <section
+              aria-label="Prenatal Testing Timeline Quick Reference"
+              className="my-8 bg-gradient-to-br from-blue-50/90 via-sky-50/70 to-indigo-50/50 border border-blue-200/80 rounded-3xl p-6 sm:p-8 shadow-sm not-prose"
+            >
+              <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+                <span className="inline-flex items-center gap-1.5 bg-[#2563eb] text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <Stethoscope className="w-3.5 h-3.5" /> AEO / GEO Clinical Summary
+                </span>
+                <span className="text-xs font-bold text-slate-600 flex items-center gap-1">
+                  <MapPin className="w-3.5 h-3.5 text-[#2563eb]" /> Bengaluru Laboratory Hub (NABL MC-6849)
+                </span>
+              </div>
+
+              <h2 className="text-xl sm:text-2xl font-extrabold text-[#0d2e42] mb-3 tracking-tight">
+                Quick Reference: Prenatal Blood Testing by Trimester in Bengaluru
+              </h2>
+
+              <div className="bg-white/80 backdrop-blur-sm border border-blue-100 rounded-2xl p-4 mb-6 text-sm text-slate-700 leading-relaxed font-medium shadow-xs">
+                <strong className="text-[#0d2e42] font-bold block mb-1">Direct Clinical Answer:</strong>
+                Personalised pregnancy testing in Bengaluru is a doctor-guided laboratory protocol matching specific biochemical tests (Double Marker, NIPT, Triple/Quad Screen, OGTT) to gestational age, maternal risk history, and ultrasound findings. It does <em>not</em> mean ordering unnecessary test packages or using experimental AI to replace obstetric evaluation.
+              </div>
+
+              {/* Trimester Matrix Table */}
+              <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white shadow-xs mb-6">
+                <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                  <thead>
+                    <tr className="bg-slate-100/80 text-slate-900 border-b border-slate-200 font-extrabold">
+                      <th className="p-3.5">Stage &amp; Window</th>
+                      <th className="p-3.5">Key Blood Investigations</th>
+                      <th className="p-3.5">Clinical Purpose</th>
+                      <th className="p-3.5 text-right">QXL Test Page</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100 text-slate-700 font-medium">
+                    <tr className="hover:bg-slate-50/80 transition-colors">
+                      <td className="p-3.5 font-bold text-slate-900 whitespace-nowrap">
+                        First Trimester<br />
+                        <span className="text-[11px] font-semibold text-blue-600">11w 0d – 13w 6d</span>
+                      </td>
+                      <td className="p-3.5">
+                        <strong className="text-slate-900">Double Marker Test</strong> (PAPP-A + Free β-hCG) with NT scan
+                      </td>
+                      <td className="p-3.5 text-xs">
+                        Screens for Down syndrome (T21), Edwards (T18), Patau (T13). Low PAPP-A provides early pre-eclampsia risk indicator.
+                      </td>
+                      <td className="p-3.5 text-right whitespace-nowrap">
+                        <Link href="/double-marker-test-bangalore" className="inline-flex items-center gap-1 font-bold text-blue-600 hover:text-blue-800 hover:underline">
+                          View Test <ArrowRight className="w-3 h-3" />
+                        </Link>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-slate-50/80 transition-colors">
+                      <td className="p-3.5 font-bold text-slate-900 whitespace-nowrap">
+                        From 10+ Weeks<br />
+                        <span className="text-[11px] font-semibold text-slate-500">Anytime 1st/2nd Tri</span>
+                      </td>
+                      <td className="p-3.5">
+                        <strong className="text-slate-900">NIPT / Cell-Free DNA</strong> (Placental DNA in maternal blood)
+                      </td>
+                      <td className="p-3.5 text-xs">
+                        High sensitivity (&gt;99%) for common trisomies. <em>Screening test</em>; screen-positive requires CVS/amniocentesis confirmation.
+                      </td>
+                      <td className="p-3.5 text-right text-xs text-slate-500 font-semibold whitespace-nowrap">
+                        Doctor Guided
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-slate-50/80 transition-colors">
+                      <td className="p-3.5 font-bold text-slate-900 whitespace-nowrap">
+                        Second Trimester<br />
+                        <span className="text-[11px] font-semibold text-blue-600">15w 0d – 20w 6d</span>
+                      </td>
+                      <td className="p-3.5">
+                        <strong className="text-slate-900">Quadruple Marker</strong> (AFP, hCG, uE3, Inhibin A) or <strong>Triple Marker</strong>
+                      </td>
+                      <td className="p-3.5 text-xs">
+                        Preferred screen if 1st-trimester window was missed. Screens for Down syndrome and Open Neural Tube Defects (Spina Bifida via AFP).
+                      </td>
+                      <td className="p-3.5 text-right whitespace-nowrap">
+                        <div className="flex flex-col items-end gap-1">
+                          <Link href="/triple-marker-test-bangalore" className="font-bold text-blue-600 hover:underline text-xs">
+                            Triple Marker
+                          </Link>
+                          <Link href="/quadruple-marker-test-bangalore" className="font-bold text-blue-600 hover:underline text-xs">
+                            Quad Marker
+                          </Link>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-slate-50/80 transition-colors">
+                      <td className="p-3.5 font-bold text-slate-900 whitespace-nowrap">
+                        Mid Pregnancy<br />
+                        <span className="text-[11px] font-semibold text-slate-500">24 – 28 Weeks</span>
+                      </td>
+                      <td className="p-3.5">
+                        <strong className="text-slate-900">Gestational Diabetes (OGTT)</strong> 75g Glucose Protocol
+                      </td>
+                      <td className="p-3.5 text-xs">
+                        Screens for maternal glucose intolerance to prevent macrosomia and obstetric complications.
+                      </td>
+                      <td className="p-3.5 text-right whitespace-nowrap">
+                        <Link href="/book" className="font-bold text-emerald-600 hover:underline text-xs">
+                          Book Test
+                        </Link>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Local Bengaluru Authority & Access Grounding */}
+              <div className="grid sm:grid-cols-2 gap-4 text-xs text-slate-600">
+                <div className="bg-white/70 p-3.5 rounded-xl border border-blue-100 flex items-start gap-2.5">
+                  <Building2 className="w-4 h-4 text-[#2563eb] shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900 block font-bold mb-0.5">Central Lab &amp; Hub Locations</strong>
+                    <span>Central Lab: 3rd Flr SLN Complex, Mysore Rd, Kengeri (560060) · North Hub: Galleria Mall, Yelahanka (560064). NABL Certificate: MC-6849.</span>
+                  </div>
+                </div>
+                <div className="bg-white/70 p-3.5 rounded-xl border border-blue-100 flex items-start gap-2.5">
+                  <MapPin className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-900 block font-bold mb-0.5">Doorstep Home Blood Collection</strong>
+                    <span>Temperature-controlled cold-chain phlebotomy across all Bengaluru zones. Call +91 9964 639 639.</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
 
           <div className="markdown-content leading-loose">
             <ReactMarkdown

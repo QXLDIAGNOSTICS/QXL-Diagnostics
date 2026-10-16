@@ -67,6 +67,32 @@ export default function WomensHealthPage() {
               </ul>
             </section>
 
+            {/* Featured Prenatal Clinical Guide Card */}
+            <div className="bg-gradient-to-r from-sky-50 via-indigo-50 to-purple-50 border border-sky-200 rounded-2xl p-6 shadow-xs mb-8">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="bg-sky-600 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                      Featured Clinical Guide
+                    </span>
+                    <span className="text-xs font-semibold text-sky-800">2026 Evidence Review</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">
+                    Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care
+                  </h3>
+                  <p className="text-gray-600 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                    Trimester-by-trimester antenatal screening timeline, Double Marker vs NIPT comparisons, and gestational diabetes protocols under consultant pathologist review.
+                  </p>
+                </div>
+                <Link
+                  href="/blog/personalised-pregnancy-testing-bengaluru"
+                  className="inline-flex items-center gap-1.5 bg-sky-600 hover:bg-sky-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs sm:text-sm whitespace-nowrap shadow-sm transition-all"
+                >
+                  Read Clinical Guide <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
             <section id="test-profiles">
               <h2 className="text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">
                 <Baby className="w-6 h-6 text-sky-600" /> Women's Health Test Profiles

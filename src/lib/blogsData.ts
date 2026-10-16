@@ -29,79 +29,166 @@ export const defaultBlogs: BlogPost[] = [
     created_at: "2026-10-16T12:00:00Z",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
     custom_schema: {
-    "@context": "https://schema.org",
-    "@graph": [
+      "@context": "https://schema.org",
+      "@graph": [
         {
-            "@type": "BlogPosting",
-            "@id": "https://qxldiagnostics.com/blog/personalised-pregnancy-testing-bengaluru/#article",
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://qxldiagnostics.com/blog/personalised-pregnancy-testing-bengaluru/"
+          "@type": ["BlogPosting", "MedicalScholarlyArticle"],
+          "@id": "https://qxldiagnostics.com/blog/personalised-pregnancy-testing-bengaluru/#article",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://qxldiagnostics.com/blog/personalised-pregnancy-testing-bengaluru/"
+          },
+          "headline": "Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care",
+          "description": "Explore pregnancy blood tests by trimester, double marker, NIPT and gestational diabetes screening. Personalised prenatal testing with QXL Bengaluru.",
+          "inLanguage": "en-IN",
+          "author": {
+            "@type": "Organization",
+            "name": "QXL Diagnostics Medical Editorial Team",
+            "url": "https://qxldiagnostics.com/"
+          },
+          "reviewedBy": {
+            "@type": "Person",
+            "name": "Dr. Shantakumar Muruda",
+            "jobTitle": "MD Biochemistry, NABL Lead Assessor",
+            "worksFor": {
+              "@type": "DiagnosticLab",
+              "name": "QXL Diagnostics"
+            }
+          },
+          "publisher": {
+            "@type": ["DiagnosticLab", "MedicalOrganization"],
+            "@id": "https://qxldiagnostics.com/#kengeri-lab",
+            "name": "QXL Diagnostics",
+            "legalName": "Qualitify Healthtech Private Limited",
+            "url": "https://qxldiagnostics.com/",
+            "telephone": "+919964639639",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "3rd Floor, SLN Complex, Mysore Road, Kengeri",
+              "addressLocality": "Bengaluru",
+              "addressRegion": "Karnataka",
+              "postalCode": "560060",
+              "addressCountry": "IN"
             },
-            "headline": "Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care",
-            "description": "Explore pregnancy blood tests by trimester, double marker, NIPT and gestational diabetes screening. Personalised prenatal testing with QXL Bengaluru.",
-            "inLanguage": "en-IN",
-            "author": {
-                "@type": "Organization",
-                "name": "QXL Diagnostics Medical Editorial Team"
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 12.9177,
+              "longitude": 77.4835
             },
-            "publisher": {
-                "@type": "Organization",
-                "name": "QXL Diagnostics",
-                "url": "https://qxldiagnostics.com/"
+            "hasCredential": {
+              "@type": "EducationalOccupationalCredential",
+              "name": "NABL Accreditation MC-6849",
+              "credentialCategory": "ISO 15189:2022 Medical Laboratory"
+            }
+          },
+          "contentLocation": {
+            "@type": "Place",
+            "name": "Bengaluru, Karnataka, India",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Bengaluru",
+              "addressRegion": "Karnataka",
+              "postalCode": "560060",
+              "addressCountry": "IN"
             },
-            "datePublished": "2026-10-16T12:00:00+05:30",
-            "dateModified": "2026-10-16T12:00:00+05:30",
-            "image": "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
-            "about": [
-                {
-                    "@type": "Thing",
-                    "name": "Prenatal screening"
-                },
-                {
-                    "@type": "Thing",
-                    "name": "Antenatal blood testing"
-                },
-                {
-                    "@type": "Thing",
-                    "name": "Pregnancy risk assessment"
-                }
-            ],
-            "citation": [
-                "https://doi.org/10.2196/88450",
-                "https://doi.org/10.1016/j.eclinm.2026.104138",
-                "https://www.acog.org/womens-health/faqs/prenatal-genetic-screening-tests",
-                "https://www.who.int/teams/global-hiv-hepatitis-and-stis-programmes/populations/pregnant-and-lactating-women-and-girls",
-                "https://www.acog.org/clinical/clinical-guidance/practice-advisory/articles/2026/01/screening-for-fetal-chromosomal-abnormalities",
-                "https://nhm.gov.in/images/pdf/programmes/maternal-health/guidelines/National_Guidelines_for_Diagnosis_%26_Management_of_Gestational_Diabetes_Mellitus.pdf",
-                "https://www.acog.org/clinical/clinical-guidance/practice-advisory/articles/2021/12/low-dose-aspirin-use-for-the-prevention-of-preeclampsia-and-related-morbidity-and-mortality"
-            ]
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 12.9177,
+              "longitude": 77.4835
+            }
+          },
+          "datePublished": "2026-10-16T12:00:00+05:30",
+          "dateModified": "2026-10-16T12:00:00+05:30",
+          "image": "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
+          "mentions": [
+            { "@type": "MedicalTest", "name": "Double Marker Test", "url": "https://qxldiagnostics.com/double-marker-test-bangalore" },
+            { "@type": "MedicalTest", "name": "Triple Marker Test", "url": "https://qxldiagnostics.com/triple-marker-test-bangalore" },
+            { "@type": "MedicalTest", "name": "Quadruple Marker Test", "url": "https://qxldiagnostics.com/quadruple-marker-test-bangalore" }
+          ],
+          "about": [
+            { "@type": "MedicalCondition", "name": "Down Syndrome (Trisomy 21)" },
+            { "@type": "MedicalCondition", "name": "Edwards Syndrome (Trisomy 18)" },
+            { "@type": "MedicalCondition", "name": "Patau Syndrome (Trisomy 13)" },
+            { "@type": "MedicalCondition", "name": "Open Neural Tube Defects" },
+            { "@type": "MedicalCondition", "name": "Gestational Diabetes Mellitus" },
+            { "@type": "MedicalCondition", "name": "Pre-eclampsia" },
+            { "@type": "MedicalTest", "name": "Double Marker Test (PAPP-A + Free Beta-hCG)" },
+            { "@type": "MedicalTest", "name": "Triple Marker Test (AFP + hCG + uE3)" },
+            { "@type": "MedicalTest", "name": "Quadruple Marker Test (AFP + hCG + uE3 + Inhibin A)" },
+            { "@type": "MedicalTest", "name": "Non-Invasive Prenatal Testing (NIPT / Cell-Free DNA)" },
+            { "@type": "MedicalTest", "name": "Oral Glucose Tolerance Test (OGTT)" }
+          ],
+          "citation": [
+            "https://doi.org/10.2196/88450",
+            "https://doi.org/10.1016/j.eclinm.2026.104138",
+            "https://www.acog.org/womens-health/faqs/prenatal-genetic-screening-tests",
+            "https://www.who.int/teams/global-hiv-hepatitis-and-stis-programmes/populations/pregnant-and-lactating-women-and-girls",
+            "https://www.acog.org/clinical/clinical-guidance/practice-advisory/articles/2026/01/screening-for-fetal-chromosomal-abnormalities",
+            "https://nhm.gov.in/images/pdf/programmes/maternal-health/guidelines/National_Guidelines_for_Diagnosis_%26_Management_of_Gestational_Diabetes_Mellitus.pdf",
+            "https://www.acog.org/clinical/clinical-guidance/practice-advisory/articles/2021/12/low-dose-aspirin-use-for-the-prevention-of-preeclampsia-and-related-morbidity-and-mortality",
+            "https://qxldiagnostics.com/"
+          ]
         },
         {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://qxldiagnostics.com/"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Blog",
-                    "item": "https://qxldiagnostics.com/blog"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "Personalised pregnancy testing",
-                    "item": "https://qxldiagnostics.com/blog/personalised-pregnancy-testing-bengaluru/"
-                }
-            ]
+          "@type": "MedicalWebPage",
+          "@id": "https://qxldiagnostics.com/blog/personalised-pregnancy-testing-bengaluru/#medicalwebpage",
+          "url": "https://qxldiagnostics.com/blog/personalised-pregnancy-testing-bengaluru/",
+          "name": "Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care",
+          "headline": "Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care",
+          "description": "Evidence-reviewed guide to prenatal screening tests by trimester in Bengaluru: Double marker, NIPT, Triple marker, Quadruple marker, and Gestational Diabetes.",
+          "inLanguage": "en-IN",
+          "medicalAudience": {
+            "@type": "MedicalAudience",
+            "audienceType": "Pregnant women, expectant parents, and clinicians in Bengaluru"
+          },
+          "aspect": [
+            "Overview",
+            "First Trimester Screening",
+            "Second Trimester Screening",
+            "NIPT vs Serum Markers",
+            "Gestational Diabetes Screening",
+            "Pre-eclampsia Risk Factors",
+            "Report Interpretation"
+          ],
+          "about": [
+            { "@type": "MedicalCondition", "name": "Down Syndrome (Trisomy 21)" },
+            { "@type": "MedicalCondition", "name": "Edwards Syndrome (Trisomy 18)" },
+            { "@type": "MedicalCondition", "name": "Patau Syndrome (Trisomy 13)" },
+            { "@type": "MedicalCondition", "name": "Neural Tube Defects (Spina Bifida)" },
+            { "@type": "MedicalCondition", "name": "Gestational Diabetes Mellitus" },
+            { "@type": "MedicalCondition", "name": "Pre-eclampsia" },
+            { "@type": "MedicalTest", "name": "Double Marker Test (PAPP-A and Free Beta-hCG)" },
+            { "@type": "MedicalTest", "name": "Triple Marker Test (AFP, Total hCG, uE3)" },
+            { "@type": "MedicalTest", "name": "Quadruple Marker Test (AFP, Total hCG, uE3, Inhibin A)" },
+            { "@type": "MedicalTest", "name": "Non-Invasive Prenatal Testing (NIPT / Cell-Free DNA)" },
+            { "@type": "MedicalTest", "name": "Oral Glucose Tolerance Test (OGTT)" }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://qxldiagnostics.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://qxldiagnostics.com/blog"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Personalised pregnancy testing",
+              "item": "https://qxldiagnostics.com/blog/personalised-pregnancy-testing-bengaluru/"
+            }
+          ]
         }
-    ]
-}
+      ]
+    }
   },
   {
     id: "blog-new-21",

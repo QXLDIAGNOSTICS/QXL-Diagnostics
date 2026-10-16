@@ -72,6 +72,7 @@ export const doubleMarkerTest: SeoLandingData = {
     },
   ],
   relatedLinks: [
+    { label: "Personalised Pregnancy Testing Guide", href: "/blog/personalised-pregnancy-testing-bengaluru", desc: "Trimester-by-trimester guide to prenatal screening in Bengaluru" },
     { label: "Prenatal Speciality", href: "/specialities/womens-health", desc: "Complete maternal health tests" },
     { label: "Thyroid Test", href: "/thyroid-test", desc: "First trimester TSH monitoring" },
     { label: "Book Double Marker", href: "/book", desc: "Book home sample collection" },

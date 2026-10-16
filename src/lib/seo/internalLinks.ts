@@ -313,6 +313,14 @@ export const TEST_INTERNAL_LINKS: Record<string, TestInternalLinks> = {
     doctorName: "Dr. Shantakumar Muruda",
     doctorQuals: "MD Biochemistry",
   },
+  "quadruple-marker-test-bangalore": {
+    relatedTests: ["double-marker-test-bangalore", "triple-marker-test-bangalore", "beta-hcg-test-bangalore", "antenatal-profile-test-bangalore"],
+    speciality: "womens-health",
+    relatedConditions: [],
+    doctorSlug: "dr-pritilata-rout",
+    doctorName: "Dr. Pritilata Rout",
+    doctorQuals: "MD Pathology",
+  },
 
   // ── Oncology ──────────────────────────────────────────────────────────────
   "psa-test-bangalore": {

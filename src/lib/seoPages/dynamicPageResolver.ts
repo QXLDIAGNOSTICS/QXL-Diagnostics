@@ -37,6 +37,12 @@ export interface DynamicPageData {
   referenceRanges?: ReferenceRange[];
   /** Related test slugs for internal linking. */
   relatedTests?: string[];
+  /** Featured clinical blog or research guide link. */
+  relatedGuide?: {
+    title: string;
+    href: string;
+    description: string;
+  };
   /** Attributed clinical interpretation note from a QXL MD. */
   doctorNote?: string;
   /** Doctor slug for link to profile page. */

@@ -144,7 +144,13 @@ export default async function DynamicSlugTestPage({ params }: Props) {
           "name": doctorName,
           "jobTitle": doctorQuals,
           "worksFor": { "@type": "Organization", "name": "QXL Diagnostics" }
-        }
+        },
+        "subjectOf": data.relatedGuide ? {
+          "@type": "MedicalWebPage",
+          "name": data.relatedGuide.title,
+          "url": `${SITE_URL}${data.relatedGuide.href}`,
+          "description": data.relatedGuide.description
+        } : undefined
       },
       {
         "@type": "Service",
@@ -410,6 +416,34 @@ export default async function DynamicSlugTestPage({ params }: Props) {
                 ))}
               </div>
             </div>
+
+            {/* Featured Clinical Guide */}
+            {data.relatedGuide && (
+              <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-sky-50 border border-blue-200 rounded-3xl p-6 shadow-xs">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="bg-[#2563eb] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        Doctor-Reviewed Clinical Guide
+                      </span>
+                      <span className="text-xs font-semibold text-blue-900">2026 Evidence Update</span>
+                    </div>
+                    <h3 className="text-base font-bold text-[#0f2d5e] mb-1">
+                      {data.relatedGuide.title}
+                    </h3>
+                    <p className="text-slate-600 text-xs leading-relaxed">
+                      {data.relatedGuide.description}
+                    </p>
+                  </div>
+                  <Link
+                    href={data.relatedGuide.href}
+                    className="inline-flex items-center gap-1.5 bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xs font-bold px-4 py-2.5 rounded-xl whitespace-nowrap shadow-sm transition-all self-start sm:self-center"
+                  >
+                    Read Guide <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            )}
 
             {/* Related Tests Grid */}
             {relatedTests.length > 0 && (

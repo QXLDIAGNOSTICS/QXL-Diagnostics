@@ -70,7 +70,23 @@ export const prenatalScreeningPages: Record<string, DynamicPageData> = {
     doctorNote: "Double marker screening provides a risk ratio, not a diagnostic result. Screen-positive results (>1:250) are followed up with non-invasive prenatal testing (NIPT) or amniocentesis after detailed genetic counseling. Low PAPP-A (<0.4 MoM) independently predicts pre-eclampsia and growth restriction, guiding proactive obstetric surveillance.",
     doctorSlug: "dr-shantakumar-muruda",
     doctorName: "Dr. Shantakumar Muruda",
-    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor",
+    relatedGuide: {
+      title: "Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care",
+      href: "/blog/personalised-pregnancy-testing-bengaluru",
+      description: "Learn which antenatal tests matter at each trimester, how Double Marker compares to NIPT, and how to plan doctor-guided screening in Bengaluru."
+    },
+    relatedTests: ["triple-marker-test-bangalore", "quadruple-marker-test-bangalore", "beta-hcg-test-bangalore", "antenatal-profile-test-bangalore"],
+    aeoPhrases: [
+      "Double marker test normal range is 0.5 to 2.0 MoM for PAPP-A and Free Beta-hCG",
+      "Double marker screening window is 11 weeks 0 days to 13 weeks 6 days (ideal CRL 45-84 mm)",
+      "Screen-positive double marker indicates statistical risk ratio (>1:250), not birth defect diagnosis"
+    ],
+    geoPhrases: [
+      "Double marker test cost in Bangalore is Rs 2,200 at QXL Diagnostics NABL accredited lab",
+      "Prenatal blood sample collection at home across Bengaluru including Kengeri, Yelahanka, Whitefield, Indiranagar, and Jayanagar",
+      "FMF-software calibrated prenatal screening in Bengaluru"
+    ]
   },
 
   // ── 2. PAPP-A Test ─────────────────────────────────────────────────────────
@@ -264,14 +280,29 @@ export const prenatalScreeningPages: Record<string, DynamicPageData> = {
       { question: "Do I need to fast for a triple marker test?", answer: "No, fasting is not required. What the laboratory requires is accurate gestational age from an ultrasound scan, maternal weight, age, and diabetes status." },
       { question: "What is a normal triple marker result?", answer: "A calculated risk below 1 in 250 for Down syndrome, and an AFP level below 2.0 MoM for neural tube defects, reported as screen negative." },
       { question: "Is the triple marker or quadruple marker better?", answer: "The quadruple marker is superior because it adds Inhibin A, improving Down syndrome detection rates to 75–81% compared to approximately 65–70% for the triple marker." },
-      { question: "Does a high risk result mean my baby has a birth defect?", answer: "No. It is a screening probability estimate. Most women with a high-risk result have healthy, normal babies. Diagnostic confirmation requires NIPT, detailed ultrasound, or amniocentesis." },
+      { question: "Does a high risk result mean my baby has a birth defect?", answer: "No. It is a screening probability estimate. Most women with a high-risk result have healthy, normal babies. Further evaluation includes genetic counselling, cell-free DNA (NIPT) screening, a targeted level-II ultrasound, or diagnostic confirmation via amniocentesis." },
       { question: "Can triple marker test be done in twin pregnancies?", answer: "Yes, but marker levels are higher due to two placentas, requiring specialized twin algorithms. Interpretation carries higher uncertainty than in singletons." },
       { question: "What should I do if my triple marker test is high risk?", answer: "Consult your obstetrician for genetic counselling. Recommended follow-up steps include a high-resolution level-II anomaly scan at 18–22 weeks, NIPT, or diagnostic amniocentesis." }
     ],
     doctorNote: "The triple marker test remains a vital second-trimester screen. If a patient missed the first-trimester double marker, the triple or quadruple test provides essential risk calculation for Down syndrome and open neural tube defects before the 18–22 week anomaly scan.",
     doctorSlug: "dr-shantakumar-muruda",
     doctorName: "Dr. Shantakumar Muruda",
-    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor",
+    relatedGuide: {
+      title: "Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care",
+      href: "/blog/personalised-pregnancy-testing-bengaluru",
+      description: "Discover pregnancy blood tests by trimester, triple marker, and gestational diabetes screening with QXL Bengaluru."
+    },
+    relatedTests: ["double-marker-test-bangalore", "quadruple-marker-test-bangalore", "beta-hcg-test-bangalore", "antenatal-profile-test-bangalore"],
+    aeoPhrases: [
+      "Triple marker test timing is between 15 weeks 0 days and 20 weeks 6 days (optimal 16–18 weeks)",
+      "Measures AFP, Total hCG, and Unconjugated Oestriol (uE3) for Down syndrome and spina bifida risk",
+      "A high-risk triple marker result requires genetic counselling, NIPT screening, or amniocentesis confirmation"
+    ],
+    geoPhrases: [
+      "Triple marker test price in Bangalore is Rs 2,400 at QXL Diagnostics",
+      "NABL accredited second-trimester prenatal testing in Bengaluru with doorstep phlebotomy"
+    ]
   },
 
   // ── 5. Quadruple Marker Test ────────────────────────────────────────────────
@@ -342,7 +373,22 @@ export const prenatalScreeningPages: Record<string, DynamicPageData> = {
     doctorNote: "The quadruple marker test is the preferred second-trimester biochemical screen. By adding Inhibin A, we achieve significantly higher accuracy for Down syndrome detection than the older triple test. I recommend it for any patient who missed the first-trimester double marker window.",
     doctorSlug: "dr-shantakumar-muruda",
     doctorName: "Dr. Shantakumar Muruda",
-    doctorQuals: "MD Biochemistry, NABL Lead Assessor"
+    doctorQuals: "MD Biochemistry, NABL Lead Assessor",
+    relatedGuide: {
+      title: "Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care",
+      href: "/blog/personalised-pregnancy-testing-bengaluru",
+      description: "Explore pregnancy blood tests by trimester, quad marker, NIPT, and gestational diabetes screening with QXL Bengaluru."
+    },
+    relatedTests: ["double-marker-test-bangalore", "triple-marker-test-bangalore", "beta-hcg-test-bangalore", "antenatal-profile-test-bangalore"],
+    aeoPhrases: [
+      "Quadruple marker test timing is 15 weeks 0 days to 20 weeks 6 days of pregnancy",
+      "Quad screen measures AFP, hCG, uE3, and Inhibin A with 75-81% Down syndrome detection sensitivity",
+      "Inhibin A addition makes quad screen the gold standard second-trimester biochemical screen"
+    ],
+    geoPhrases: [
+      "Quadruple marker test cost in Bangalore is Rs 2,800 at QXL Diagnostics",
+      "NABL accredited quad marker screening with home blood collection in Bengaluru"
+    ]
   }
 };
 
