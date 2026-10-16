@@ -4,21 +4,21 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
   "complete-blood-count": {
     "slug": "complete-blood-count",
     "title": "Complete Blood Count Test in Bangalore | Price, Normal Range & Home Collection | QXL",
-    "metaDescription": "Book Complete Blood Count (CBC) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at \u20b9350. No fasting required.",
-    "badge": "NABL Accredited lab (MC-6849) \u00b7 FREE HOME COLLECTION",
+    "metaDescription": "Book Complete Blood Count (CBC) at home in Bangalore. NABL Accredited precision, same-day digital reports, starting at ₹250. No fasting required.",
+    "badge": "NABL Accredited lab (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Complete Blood Count (CBC) in Bangalore",
-    "subtitle": "Complete Blood Count evaluates 24 parameters (rbc, wbc, differential, platelets, indices) with NABL Accredited precision. No fasting required.",
-    "price": "350",
-    "oldPrice": "500",
-    "discountPercent": "30% OFF",
-    "parametersCount": "24 Parameters (RBC, WBC, Differential, Platelets, Indices)",
+    "subtitle": "Complete Blood Count evaluates 26 parameters (rbc, wbc, differential, platelets, indices) with NABL Accredited precision. No fasting required.",
+    "price": "250",
+    "oldPrice": "350",
+    "discountPercent": "29% OFF",
+    "parametersCount": "26 Parameters (RBC, WBC, Differential, Platelets, Indices)",
     "sampleType": "EDTA Whole Blood",
     "fastingRequired": "No fasting required.",
-    "turnaroundTime": "Same Day (4\u20136 Hours)",
+    "turnaroundTime": "Same Day (4–6 Hours)",
     "category": "Haematology",
     "overview": [
       "Complete Blood Count (CBC) is a key diagnostic test offered by QXL Diagnostics in Bengaluru using automated, NABL Accredited laboratory analyzers.",
-      "This investigation measures 24 parameters (rbc, wbc, differential, platelets, indices) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
+      "This investigation measures 26 parameters (rbc, wbc, differential, platelets, indices) to provide quantitative clinical data for diagnosis, baseline health assessment, and monitoring.",
       "Samples are collected directly at your home by qualified phlebotomy specialists using sterile vacuum tubes and transported in temperature-controlled cold-chain kits."
     ],
     "whyImportant": [
@@ -30,7 +30,7 @@ export const excel100TestsData: Record<string, DynamicPageData> = {
     "faqs": [
       {
         "question": "What does the Complete Blood Count test measure?",
-        "answer": "The Complete Blood Count test measures 24 parameters (rbc, wbc, differential, platelets, indices) to evaluate patient health and organ function."
+        "answer": "The Complete Blood Count test measures 26 parameters (rbc, wbc, differential, platelets, indices) to evaluate patient health and organ function."
       },
       {
         "question": "Do I need to fast for Complete Blood Count?",

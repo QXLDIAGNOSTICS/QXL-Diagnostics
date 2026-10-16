@@ -109,12 +109,14 @@ const defaultPackages = CANONICAL_PACKAGES.map((pkg) => ({
 }));
 
 const defaultTests = [
-  { id: "test-1", name: "BILE ACIDS - SERUM", price: "2500", old_price: "3333", parameters: "Single Parameter" },
-  { id: "test-2", name: "COMPLETE BLOOD COUNT (CBC)", price: "395", old_price: "527", parameters: "24 Parameters" },
-  { id: "test-3", name: "HBA1C, GLYCATED HEMOGLOBIN", price: "610", old_price: "813", parameters: "Single Parameter" },
-  { id: "test-4", name: "LIPID PROFILE", price: "800", old_price: "1067", parameters: "9 Parameters" },
-  { id: "test-5", name: "LIVER FUNCTION TEST (LFT)", price: "800", old_price: "1067", parameters: "11 Parameters" },
-  { id: "test-6", name: "SEX HORMONE BINDING GLOBULIN (SHBG)", price: "2900", old_price: "3867", parameters: "Single Parameter" }
+  { id: "test-1", name: "COMPLETE BLOOD COUNT (CBC)", price: "250", old_price: "350", parameters: "26 Parameters" },
+  { id: "test-2", name: "HBA1C, GLYCATED HEMOGLOBIN", price: "380", old_price: "720", parameters: "3 Parameters" },
+  { id: "test-3", name: "APOLIPOPROTEIN B (APOB)", price: "550", old_price: "665", parameters: "1 Parameter" },
+  { id: "test-4", name: "THYROID PROFILE (T3, T4, TSH)", price: "350", old_price: "550", parameters: "3 Parameters" },
+  { id: "test-5", name: "VITAMIN D (25-OH TOTAL)", price: "410", old_price: "1300", parameters: "1 Parameter" },
+  { id: "test-6", name: "LIPID PROFILE", price: "336", old_price: "800", parameters: "8 Parameters" },
+  { id: "test-7", name: "LIVER FUNCTION TEST (LFT)", price: "425", old_price: "780", parameters: "11 Parameters" },
+  { id: "test-8", name: "KIDNEY FUNCTION TEST (KFT)", price: "425", old_price: "1150", parameters: "10 Parameters" }
 ];
 
 const defaultDepartments = [
@@ -411,7 +413,7 @@ const defaultSettings = {
     supportEmail: "info@qxldiagnostics.com",
   hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
   northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
-  workingHours: "Centres: Mon–Sat 7 AM–9 PM, Sun 7 AM–2 PM (24×7 Lab Processing)",
+  workingHours: "Walk-in: Kengeri 6:30 AM–8 PM (24×7 Lab Processing) · Yelahanka 7 AM–8 PM · Home Collection 7 AM–9 PM · 24×7 Support: +91 9964 639 639",
   copyrightText: "© 2026 QXL Diagnostics. All rights reserved.",
   footerDesc: "QXL Diagnostics is a super speciality diagnostic laboratory in Bengaluru offering advanced pathology, microbiology, immunology, molecular diagnostics, histopathology, cytology and precision diagnostic services for patients, clinicians and hospitals.",
   // Contact info — now comes from backend API via SiteSettings

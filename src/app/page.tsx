@@ -266,9 +266,9 @@ const promoSlides = [
     price: "₹1,770",
     original: "₹4,696",
     tag: "FITNESS CARE",
-    desc: "Essential screening covering blood sugar, lipids, liver, kidney, TSH, vitamin D, and CBC.",
+    desc: "Essential fitness screening covering 80 parameters across blood sugar, lipids, liver, kidney, TSH, vitamin D, CBC & urine.",
     includes: ["FBS, HbA1c, eAG, Lipid Profile", "Liver Function, Kidney Function", "TSH, Vitamin D, CBC, ESR", "Urine Routine & Microscopy"],
-    tests: "12+ Parameters",
+    tests: "80 Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
     imgBg: "#FFF7ED",
     ctaLink: "/book?package=pkg-fit",
@@ -757,7 +757,7 @@ export default function Home() {
     {
       badge: "🩺 MOST POPULAR",
       title: "Quick Fit Health Package",
-      sub: "Blood Sugar, Lipids, Liver, Kidney, TSH & Vitamin D",
+      sub: "80 Parameters · Blood Sugar, Lipids, Liver, Kidney, TSH & Vitamin D",
       price: "₹1,770",
       bgGradient: "bg-gradient-to-br from-indigo-50/95 via-blue-50/90 to-sky-50/80 border border-indigo-200/90 shadow-sm",
       badgeStyle: "bg-indigo-100 text-indigo-950 border border-indigo-200",
@@ -768,7 +768,7 @@ export default function Home() {
       badge: "🩸 ROUTINE SCREENING",
       title: "CBC & Blood Count",
       sub: "26 Haematology Parameters with Free Home Collection",
-      price: "₹299",
+      price: "₹250",
       bgGradient: "bg-gradient-to-br from-sky-50/95 via-cyan-50/90 to-blue-50/80 border border-sky-200/90 shadow-sm",
       badgeStyle: "bg-sky-100 text-sky-950 border border-sky-200",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/slide_blood_test.jpg",
@@ -1086,38 +1086,38 @@ export default function Home() {
                 {
                   id: "cbc-test",
                   name: "CBC",
-                  sub: "Complete Blood Count",
+                  sub: "26 Haematology Parameters",
                   tat: "Report in 6 hours",
                   fasting: "No Fasting",
-                  price: 299,
-                  originalPrice: 800
+                  price: 250,
+                  originalPrice: 350
                 },
                 {
                   id: "thyroid-tsh",
-                  name: "Thyroid (TSH)",
-                  sub: "Total T3, T4 & TSH Profile",
+                  name: "Thyroid Profile",
+                  sub: "Free T3, Free T4 & TSH",
                   tat: "Report in 6 hours",
                   fasting: "No Fasting",
-                  price: 399,
-                  originalPrice: 1100
+                  price: 350,
+                  originalPrice: 550
                 },
                 {
                   id: "hba1c-test",
                   name: "HbA1c",
-                  sub: "Glycated Hemoglobin · A1c",
+                  sub: "Glycated Hemoglobin · 3 Params",
                   tat: "Report in 6 hours",
                   fasting: "No Fasting",
-                  price: 399,
-                  originalPrice: 1200
+                  price: 380,
+                  originalPrice: 720
                 },
                 {
                   id: "vitamin-d-total",
                   name: "Vitamin D Total",
                   sub: "25-OH Hydroxy Vit D3",
-                  tat: "Report in 24 hours",
+                  tat: "Report in 6 hours",
                   fasting: "No Fasting",
-                  price: 899,
-                  originalPrice: 2400
+                  price: 410,
+                  originalPrice: 1300
                 }
               ].map((test) => {
                 const isAdded = cartItems.includes(test.name.toLowerCase()) || cartItems.includes(test.id);

@@ -97,12 +97,12 @@ export default function SeoContent() {
             
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">
               <h4 className="font-bold text-[#0f2d5e] text-[14px] mb-2">Is QXL Diagnostics good for advanced or molecular testing in Bangalore?</h4>
-              <p className="text-slate-600 text-[13px] leading-relaxed">Yes. QXL is a doctor-driven super speciality lab with AI-assisted workflows, molecular/infectious disease capabilities, and senior pathologist review—positioned for advanced diagnostics beyond routine pathology.</p>
+              <p className="text-slate-600 text-[13px] leading-relaxed">Yes. QXL is a doctor-driven super speciality lab with AI-assisted workflows, molecular/infectious disease capabilities, and multi-disciplinary specialist doctor review (clinical biochemistry, pathology, and microbiology)—positioned for advanced diagnostics beyond routine pathology.</p>
             </div>
             
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">
               <h4 className="font-bold text-[#0f2d5e] text-[14px] mb-2">What are QXL Diagnostics lab hours?</h4>
-              <p className="text-slate-600 text-[13px] leading-relaxed">Centre walk-in collection hours are Monday–Saturday 7:00 AM–9:00 PM and Sunday 7:00 AM–2:00 PM. Doorstep home collection is available daily from 6:00 AM to 8:00 PM across Bengaluru. NABL lab sample processing operates 24x7.</p>
+              <p className="text-slate-600 text-[13px] leading-relaxed">Walk-in patient collection hours: Kengeri Main Lab (6:30 AM – 8:00 PM, Mon–Sun, with 24×7 emergency &amp; central lab processing) and Yelahanka North Hub (7:00 AM – 8:00 PM, Mon–Sun). Doorstep home sample collection operates daily from 7:00 AM to 9:00 PM across Bengaluru. 24×7 phone/WhatsApp support: +91 9964 639 639.</p>
             </div>
             
             <div className="bg-[#f8faff] rounded-xl border border-gray-100 p-5">

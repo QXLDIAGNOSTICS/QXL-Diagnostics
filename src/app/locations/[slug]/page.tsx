@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const title = `${loc.shortName} Diagnostic Lab | ${BUSINESS_NAME} Bengaluru`;
     const description = `Visit ${loc.name} — NABL (${NABL_CERTIFICATE}) ${ISO_STANDARD} diagnostics near ${loc.shortName}. Home blood collection, CBC, thyroid, full body checkup. Call ${PHONE_DISPLAY}.`;
     return {
-      title,
+      title: { absolute: title },
       description,
       alternates: { canonical: `https://qxldiagnostics.com/locations/${loc.slug}` },
       openGraph: {
@@ -54,14 +54,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // 2. Check if home collection area
   const areaLoc = homeCollectionAreas.find((loc) => loc.slug === slug);
   if (areaLoc) {
+    const title = `Blood Test at Home in ${areaLoc.name} | QXL Diagnostics`;
     return {
-      title: `Blood Test at Home in ${areaLoc.name} | QXL Diagnostics`,
+      title: { absolute: title },
       description: `Book blood test with free home collection in ${areaLoc.name}, Bengaluru. NABL Accredited lab, CBC, HbA1c, thyroid, lipid & full body checkup packages with same-day reports.`,
       alternates: {
         canonical: `https://qxldiagnostics.com/locations/${slug}`,
       },
       openGraph: {
-        title: `Blood Test at Home in ${areaLoc.name} | QXL Diagnostics`,
+        title,
         description: `Free home sample collection in ${areaLoc.name}, Bengaluru. NABL Accredited lab, same-day reports.`,
         url: `https://qxldiagnostics.com/locations/${slug}`,
         locale: "en_IN",
@@ -78,7 +79,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  return { title: "Location not found | QXL Diagnostics" };
+  return { title: { absolute: "Location not found | QXL Diagnostics" } };
 }
 
 export default async function CombinedLocationPage({ params }: Props) {
@@ -226,27 +227,37 @@ export default async function CombinedLocationPage({ params }: Props) {
   // 2. Render home collection area if matches
   const areaLoc = homeCollectionAreas.find((loc) => loc.slug === slug);
   if (areaLoc) {
-    const localBusinessSchema = {
+    const serviceAreaSchema = {
       "@context": "https://schema.org",
-      "@type": "MedicalClinic",
-      "name": `QXL Diagnostics Home Collection - ${areaLoc.name}`,
+      "@type": "Service",
+      "serviceType": "Diagnostic Test Home Sample Collection",
+      "name": `QXL Diagnostics Home Sample Collection — ${areaLoc.name}`,
       "description": areaLoc.description,
       "url": `https://qxldiagnostics.com/locations/${slug}`,
-      "telephone": "+91-9964-639639",
+      "provider": {
+        "@type": "DiagnosticLab",
+        "@id": "https://qxldiagnostics.com/#kengeri-lab",
+        "name": "QXL Diagnostics Super Speciality Lab",
+        "url": "https://qxldiagnostics.com",
+        "telephone": "+91-9964-639-639",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3rd Floor, SLN Complex, Mysore Road, Kengeri",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "postalCode": "560060",
+          "addressCountry": "IN"
+        }
+      },
       "areaServed": {
         "@type": "Place",
-        "name": areaLoc.name,
+        "name": `${areaLoc.name}, Bengaluru`,
         "address": {
           "@type": "PostalAddress",
           "addressLocality": areaLoc.name,
           "addressRegion": "Karnataka",
           "addressCountry": "IN"
         }
-      },
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": "QXL Diagnostics",
-        "url": "https://qxldiagnostics.com"
       }
     };
 
@@ -256,7 +267,7 @@ export default async function CombinedLocationPage({ params }: Props) {
 
     return (
       <div className="bg-[#f8fafc] min-h-screen pb-20">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceAreaSchema) }} />
         
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-12 lg:py-16 border-b border-sky-900">
@@ -347,14 +358,14 @@ export default async function CombinedLocationPage({ params }: Props) {
                     <div>
                       <span className="bg-[#2563eb] text-white text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">MOST BOOKED</span>
                       <h3 className="font-black text-[#0f2d5e] text-base mt-2">Quick Fit Package</h3>
-                      <p className="text-xs text-slate-600 font-medium mt-1 leading-relaxed">12+ Parameters including Fasting Sugar, HbA1c, Lipid Profile, LFT, KFT, Vitamin D &amp; CBC.</p>
+                      <p className="text-xs text-slate-600 font-medium mt-1 leading-relaxed">80 Parameters (14 Core Panels) including Fasting Sugar, HbA1c, Lipid Profile, LFT, KFT, Vitamin D &amp; CBC.</p>
                       <div className="mt-3 flex items-baseline gap-2">
                         <span className="text-xl font-black text-emerald-600">₹1,770</span>
                         <span className="text-xs text-slate-400 line-through">₹4,696</span>
                         <span className="text-[10px] bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-full">62% OFF</span>
                       </div>
                     </div>
-                    <Link href="/book?package=Quick%20Fit%20Package" className="mt-4 bg-[#2563eb] text-white text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition-colors text-center uppercase tracking-wide">
+                    <Link href="/book?package=q-quick-fit" className="mt-4 bg-[#2563eb] text-white text-xs font-extrabold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition-colors text-center uppercase tracking-wide">
                       Book Quick Fit →
                     </Link>
                   </div>

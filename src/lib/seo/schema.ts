@@ -4,6 +4,7 @@
  */
 
 import {
+  ACCREDITATION_MASTER,
   BUSINESS_HOURS,
   BUSINESS_LEGAL_NAME,
   BUSINESS_NAME,
@@ -20,6 +21,7 @@ import {
 const ORG_ID = `${SITE_URL}/#organization`;
 const WEBSITE_ID = `${SITE_URL}/#website`;
 const MAIN_LAB_ID = `${SITE_URL}/#kengeri-lab`;
+const CERTIFICATION_ID = `${SITE_URL}/#nabl-mc-6849`;
 
 export const SEO_KEYWORDS = [
   "diagnostic lab Bengaluru",
@@ -214,6 +216,9 @@ export function buildRootSchemaGraph() {
             value: ISO_STANDARD,
           },
         ],
+        hasCertification: {
+          "@id": CERTIFICATION_ID,
+        },
         hasCredential: {
           "@type": "EducationalOccupationalCredential",
           credentialCategory: "Laboratory Accreditation",
@@ -277,8 +282,9 @@ export function buildRootSchemaGraph() {
           {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            opens: "00:00",
-            closes: "23:59",
+            opens: "06:30",
+            closes: "20:00",
+            description: "Patient Walk-in & Sample Collection (24×7 Central Lab Sample Processing)",
           },
         ],
         priceRange: "₹₹",
@@ -302,32 +308,9 @@ export function buildRootSchemaGraph() {
           name: s.name,
           url: s.url,
         })),
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.8",
-          bestRating: "5",
-          worstRating: "1",
-          reviewCount: "500",
-          ratingCount: "500",
+        hasCertification: {
+          "@id": CERTIFICATION_ID,
         },
-        review: [
-          {
-            "@type": "Review",
-            author: { "@type": "Person", name: "Priya S." },
-            datePublished: "2026-03-12",
-            reviewBody:
-              "Home collection was on time and reports came the same day. Clear communication on WhatsApp.",
-            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-          },
-          {
-            "@type": "Review",
-            author: { "@type": "Person", name: "Ramesh K." },
-            datePublished: "2026-01-28",
-            reviewBody:
-              "NABL lab with careful sample handling. Doctor-reviewed reports gave our family confidence.",
-            reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-          },
-        ],
         identifier: [
           { "@type": "PropertyValue", name: "NABL Certificate", value: NABL_CERTIFICATE },
           { "@type": "PropertyValue", name: "Quality Standard", value: ISO_STANDARD },
@@ -376,6 +359,21 @@ export function buildRootSchemaGraph() {
         })),
       },
       {
+        "@type": "Certification",
+        "@id": CERTIFICATION_ID,
+        name: `NABL Medical Laboratory Accreditation (${ACCREDITATION_MASTER.certificateNumber})`,
+        description: `Accredited Medical Testing Laboratory under ${ACCREDITATION_MASTER.isoStandard} for ${ACCREDITATION_MASTER.discipline}.`,
+        certificationIdentification: ACCREDITATION_MASTER.certificateNumber,
+        issuedBy: {
+          "@type": "Organization",
+          name: ACCREDITATION_MASTER.issuingBodyName,
+          url: ACCREDITATION_MASTER.issuingBodyUrl,
+        },
+        validFrom: ACCREDITATION_MASTER.issueDate,
+        validUntil: ACCREDITATION_MASTER.validityThrough,
+        url: ACCREDITATION_MASTER.officialVerificationUrl,
+      },
+      {
         "@type": "Person",
         "@id": `${SITE_URL}/#founder`,
         name: "Dr. Shantakumar Muruda",
@@ -386,6 +384,22 @@ export function buildRootSchemaGraph() {
           "@type": "EducationalOrganization",
           name: "Rajiv Gandhi University of Health Sciences",
         },
+        hasCredential: [
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "degree",
+            name: "MD (Biochemistry)",
+            recognizedBy: {
+              "@type": "EducationalOrganization",
+              name: "Rajiv Gandhi University of Health Sciences",
+            },
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "Professional Certification",
+            name: "NABL Lead Assessor (ISO 15189)",
+          },
+        ],
         description:
           "Dr. Shantakumar Muruda, MD, is Founder & CEO of QXL Diagnostics. Clinical Biochemist, Laboratory Director, and NABL Lead Assessor with extensive laboratory assessment experience.",
         knowsAbout: ["Clinical biochemistry", "NABL Accreditation", "Laboratory quality systems"],

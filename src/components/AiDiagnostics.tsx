@@ -303,14 +303,14 @@ const findAnswer = (query: string): { text: string; relatedQuestions?: string[] 
   
   if (q.includes('nearest center') || q.includes('location') || q.includes('branch') || q.includes('where is')) {
     return {
-      text: "📍 **QXL Diagnostics Center Locations**\n\nOur main super-specialty laboratory is located at:\n**3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060**\n\nWe also have multiple collection centers across Bengaluru. Allow location access in your browser or type your area name to find the closest collection center.\n\n🕒 **Lab Hours:** 24/7 Operations\n📞 **Phone:** +91 9964 639 639",
+      text: "📍 **QXL Diagnostics Center Locations**\n\nOur main super-specialty laboratory is located at:\n**3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060**\n\nOur North Express Hub is at:\n**L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064**\n\nWe also provide 100% free home sample collection across all Bengaluru localities.\n\n🕒 **Walk-in Hours:** Kengeri 6:30 AM – 8:00 PM (24×7 Central Lab Processing) · Yelahanka 7:00 AM – 8:00 PM · Home Collection 7:00 AM – 9:00 PM\n📞 **24×7 Helpline / WhatsApp:** +91 9964 639 639",
       relatedQuestions: ["Book Home Collection", "Working Hours"]
     };
   }
   
   if (q.includes('home collection') || q.includes('home sample') || q.includes('technician visit')) {
     return {
-      text: "🏠 **Home Sample Collection Booking**\n\nWe offer convenient home sample collection across Bengaluru!\n\n**How it works:**\n1. Book online or message us on WhatsApp.\n2. Choose a date and time slot (available 6:00 AM - 8:00 PM).\n3. Our trained phlebotomy specialist visits you.\n4. Secure digital reports are delivered within 24 hours.\n\nWould you like me to schedule a collection slot for you today?",
+      text: "🏠 **Home Sample Collection Booking**\n\nWe offer convenient home sample collection across Bengaluru!\n\n**How it works:**\n1. Book online or message us on WhatsApp.\n2. Choose a date and time slot (available 7:00 AM - 9:00 PM daily).\n3. Our trained phlebotomy specialist visits you.\n4. Secure digital reports are delivered same-day (within 6 to 12 hours) via WhatsApp.\n\nWould you like me to schedule a collection slot for you today?",
       relatedQuestions: ["Is there any extra charge?", "Is fasting required?"]
     };
   }
@@ -339,7 +339,7 @@ const findAnswer = (query: string): { text: string; relatedQuestions?: string[] 
 
   if (q.includes('working hours') || q.includes('timings') || q.includes('hours') || q.includes('open')) {
     return {
-      text: "🕒 **QXL Diagnostics Timings**\n\n• **Main Kengeri Lab:** Open 24 Hours / 7 Days a week\n• **Home Sample Collection:** 6:00 AM to 8:00 PM (Daily)\n• **Collection Centers:** 7:00 AM to 7:00 PM (Monday - Saturday), 7:00 AM to 1:00 PM (Sundays)\n\nWe recommend booking home collection before 8:00 PM for next-morning slots.",
+      text: "🕒 **QXL Diagnostics Operating Hours**\n\n• **Kengeri Main Lab:** Walk-in 6:30 AM – 8:00 PM (Mon–Sun) | 24×7 Emergency & Central Lab Processing\n• **Yelahanka North Hub:** Walk-in 7:00 AM – 8:00 PM (Mon–Sun)\n• **Doorstep Home Collection:** 7:00 AM to 9:00 PM (Daily across Bengaluru)\n• **Support & Phone Bookings:** 24×7 Helpline (+91 9964 639 639)\n\nWe recommend booking home collection in advance for early morning fasting slots.",
       relatedQuestions: ["Find Nearest Center", "Do you provide home sample collection?"]
     };
   }

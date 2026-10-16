@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/quality-accreditation` },
   openGraph: {
     title: "NABL Accreditation & Clinical Quality Governance | QXL Diagnostics",
-    description: "ISO 15189:2022 accredited diagnostic testing, Westgard multi-rule IQC, and pathologist-verified reporting.",
+    description: "ISO 15189:2022 accredited diagnostic testing, Westgard multi-rule IQC, and multi-disciplinary doctor-authorized reporting.",
     url: `${SITE_URL}/quality-accreditation`,
     type: "website",
   },
@@ -128,8 +128,8 @@ export default function QualityAccreditationPage() {
     },
     {
       icon: Stethoscope,
-      title: "Consultant Pathologist Verification",
-      desc: "Every abnormal, high-complexity, or delta-check flagged investigation report is individually reviewed and authorized by consultant pathologists and clinical biochemists.",
+      title: "Specialist Consultant Authorization",
+      desc: "Every abnormal, high-complexity, or delta-check flagged investigation report is individually reviewed and authorized by consultant pathologists, clinical biochemists, and microbiologists.",
     },
   ];
 
@@ -149,7 +149,7 @@ export default function QualityAccreditationPage() {
             NABL Accreditation &amp; Clinical Quality Systems
           </h1>
           <p className="text-base md:text-lg text-sky-100 max-w-3xl font-medium leading-relaxed mb-6">
-            Doctor-led diagnostic excellence operating strictly under NABL Accreditation ({NABL_CERTIFICATE}), international ISO 15189:2022 standards, daily multi-rule Westgard IQC, and 100% pathologist authorization.
+            Doctor-led diagnostic excellence operating strictly under NABL Accreditation ({NABL_CERTIFICATE}), international ISO 15189:2022 standards, daily multi-rule Westgard IQC, and multi-disciplinary medical authorization by consultant pathologists, clinical biochemists, and microbiologists.
           </p>
           <div className="flex items-center text-xs text-sky-200 gap-2 font-semibold flex-wrap">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>

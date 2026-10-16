@@ -124,7 +124,7 @@ export const diagnosticLabBangalore: SeoLandingData = {
     },
     {
       q: "Where is QXL Diagnostics located in Bangalore?",
-      a: "Our Main Laboratory is at 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060. Our North Hub is at L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru 560064. Both are open Mon–Sat 7:00 AM–9:00 PM and Sun 7:00 AM–2:00 PM.",
+      a: "Our Main Laboratory is at 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060 (Walk-in: 6:30 AM – 8:00 PM Mon–Sun, with 24×7 emergency & central lab processing). Our North Hub is at L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru 560064 (Walk-in: 7:00 AM – 8:00 PM Mon–Sun). Doorstep home sample collection operates daily from 7:00 AM to 9:00 PM across Bengaluru.",
     },
     {
       q: "Do you offer home sample collection across Bangalore?",

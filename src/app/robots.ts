@@ -24,6 +24,7 @@ const DISALLOWED_PRIVATE_ROUTES = [
   '/api/patient/',
   '/api/reports/',
   '/api/bookings/',
+  '/api/private/',
   '/payment-terms/',
   '/unsubscribe/',
 ];

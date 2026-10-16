@@ -248,7 +248,7 @@ export default function PaymentTermsPage() {
                 ['Email', <a key="email" href="mailto:accounts@qxldiagnostics.com" className="text-[#2563eb] hover:underline font-bold">accounts@qxldiagnostics.com</a>],
                 ['Telephone', <a key="tel" href="tel:+919964639639" className="text-[#2563eb] hover:underline font-bold">+91 9964 639 639</a>],
                 ['Correspondence', '3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560060, Karnataka, India'],
-                ['Support hours', 'Monday to Saturday: 7:00 AM – 9:00 PM; Sunday: 7:00 AM – 2:00 PM IST'],
+                ['Support hours', 'Phone & WhatsApp Booking: 24×7 (+91 9964 639 639); Walk-in Centres: Kengeri 6:30 AM – 8:00 PM (24×7 lab processing), Yelahanka 7:00 AM – 8:00 PM IST'],
                 ['Response timeline', 'Acknowledgement within 48 hours; refund decisions within seven working days (Section 8); other grievances resolved ordinarily within 30 days'],
               ]} />
               <p className="text-sm text-slate-700 leading-relaxed">

@@ -3107,90 +3107,97 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   "apob-test": {
     "slug": "apob-test",
     "title": "Apolipoprotein B (ApoB) Test in Bangalore | Price ₹550, Normal Range | QXL",
-    "metaDescription": "Book Apolipoprotein B (ApoB) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹550. No fasting required. 12 Hours.",
+    "metaDescription": "Book Apolipoprotein B (ApoB) test at home in Bangalore. NABL Accredited precision, same-day reports, price ₹550. No fasting required. 12 Hours TAT.",
     "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
     "h1Title": "Apolipoprotein B (ApoB) Test in Bangalore",
-    "subtitle": "High-precision Apolipoprotein B assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
+    "subtitle": "High-precision automated Apolipoprotein B immunoturbidimetric assay accredited under ISO 15189:2022 standards. No fasting required. Verified digital reports within 12 Hours.",
     "price": "550",
-    "oldPrice": "797",
-    "discountPercent": "30% OFF",
-    "parametersCount": "Complete Clinical Panel",
+    "oldPrice": "665",
+    "discountPercent": "17% OFF",
+    "parametersCount": "1 Parameter (Atherogenic Particle Count)",
     "sampleType": "Serum",
-    "fastingRequired": "No fasting required.",
+    "fastingRequired": "No fasting required (fasting is optional unless ordered alongside a lipid profile).",
     "turnaroundTime": "12 Hours",
     "category": "Cardiology",
     "overview": [
-      "The Apolipoprotein B (ApoB) is an essential diagnostic laboratory investigation performed in the Cardiology department at QXL Diagnostics, Bengaluru.",
-      "Conducted inside our NABL Accredited central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
-      "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
-      "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
-      "Every result undergoes automated dual-level internal quality control (IQC) and pathologist sign-off by Dr. Shantakumar Muruda, MD."
+      "Apolipoprotein B (ApoB) is the primary structural protein found on all atherogenic lipoprotein particles, including LDL, VLDL, IDL, and Lp(a).",
+      "Because each atherogenic particle carries exactly one molecule of ApoB, measuring ApoB provides a direct particle count — a more accurate predictor of cardiovascular event risk than LDL cholesterol, especially in patients with diabetes, obesity, metabolic syndrome, or elevated triglycerides.",
+      "Conducted inside QXL Diagnostics' NABL Accredited central super speciality laboratory (MC-6849) using automated immunoturbidimetric analyzers calibrated to international WHO-IFCC standards.",
+      "Blood specimens are collected using single-use SST vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
+      "Every result undergoes automated dual-level internal quality control (IQC) and medical sign-off by Dr. Shantakumar Muruda, MD (Clinical Biochemistry), NABL Lead Assessor."
     ],
     "parametersList": [
-      "Apolipoprotein B (ApoB) Quantitative Assay Level",
-      "Age- and Sex-Stratified Normal Reference Interval",
-      "Clinical Alert Flags & Out-of-Range Highlights",
-      "Preanalytical Hemolysis & Lipemia Quality Index",
-      "Senior Pathologist Impression & Clinical Recommendations"
+      "Apolipoprotein B (ApoB) Concentration (mg/dL)",
+      "Cardiovascular Risk Stratification (Desirable, High, Very High)",
+      "ApoB / ApoA1 Ratio (when co-ordered with ApoA1)",
+      "Automated Preanalytical Hemolysis & Lipemia Quality Index",
+      "Clinical Biochemist Impression & Actionable Risk Flags"
     ],
     "referenceRanges": [
       {
-        "label": "ApoB Concentration",
-        "range": "Normal Reference Interval",
-        "unit": "Clinical Standard Units",
-        "interpretation": "normal"
+        "label": "Desirable (Low to Moderate ASCVD Risk)",
+        "range": "< 90",
+        "unit": "mg/dL",
+        "interpretation": "normal",
+        "note": "Standard primary prevention target for adults without major cardiovascular risk factors"
+      },
+      {
+        "label": "High Risk Target",
+        "range": "< 80",
+        "unit": "mg/dL",
+        "interpretation": "borderline",
+        "note": "Recommended target for patients with diabetes, metabolic syndrome, or marked dyslipidemia"
+      },
+      {
+        "label": "Very High Risk Target",
+        "range": "< 65",
+        "unit": "mg/dL",
+        "interpretation": "abnormal",
+        "note": "Strict secondary prevention target for established coronary artery disease or acute coronary syndrome"
       }
     ],
     "whyImportant": [
-      "Primary Indication: Evaluate apolipoprotein b for diagnostic assessment.",
-      "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
-      "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
+      "Direct Particle Count: Every atherogenic particle (LDL, VLDL, Lp(a)) carries exactly one ApoB molecule.",
+      "Superior to LDL-C: Detects hidden atherogenic risk when LDL-C appears deceptively normal (discordance).",
+      "No Fasting Needed: ApoB levels remain stable postprandially; can be drawn anytime.",
+      "Validated Methodology: Automated Immunoturbidimetry calibrated against WHO-IFCC reference standards.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022.",
+      "Turnaround Time (TAT): Verified digital PDF report delivered within 12 Hours via WhatsApp & Email.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
-      "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
-      "Home Collection: Available 7 days a week from 6:00 AM across 40+ Bengaluru areas.",
-      "Quality Assurance: Dual-level daily internal quality control (IQC) and EQAS validation."
+      "Home Collection: Available 7 days a week from 7:00 AM across all Bengaluru areas."
     ],
     "faqs": [
       {
         "question": "What is the Apolipoprotein B (ApoB) test?",
-        "answer": "The Apolipoprotein B (ApoB) is an essential clinical investigation in the Cardiology department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "answer": "The Apolipoprotein B (ApoB) test counts the total number of circulating atherogenic particles (LDL, VLDL, IDL, Lp(a)) in your blood. Unlike standard cholesterol tests that measure particle weight, ApoB counts the actual particles that cause arterial plaque."
       },
       {
-        "question": "Why has my doctor recommended a Apolipoprotein B test?",
-        "answer": "Your physician ordered this test to evaluate apolipoprotein b, detect underlying health issues early, and guide targeted medical treatment."
+        "question": "Why is ApoB a better cardiac risk marker than LDL cholesterol?",
+        "answer": "Atherosclerosis is driven by the number of particles penetrating the arterial wall. In people with insulin resistance, diabetes, or high triglycerides, LDL particles are small and dense, meaning LDL cholesterol mass can appear normal even when the particle number (ApoB) is dangerously elevated."
       },
       {
-        "question": "What fasting or preparation is required for Apolipoprotein B?",
-        "answer": "No fasting required. Only plain water is permitted during fasting windows. Inform the phlebotomist about any ongoing prescription medicines or vitamin supplements."
+        "question": "What fasting or preparation is required for ApoB?",
+        "answer": "No fasting is required for an isolated ApoB test because particle counts do not vary significantly after meals. However, if your doctor has co-ordered Fasting Blood Sugar or a full Lipid Profile, observe an 8 to 10 hour overnight fast."
       },
       {
-        "question": "How is the sample collected for Apolipoprotein B?",
-        "answer": "A certified QXL phlebotomist collects a specimen of Serum using a sterile, barcoded vacuum tube and transports it in a temperature-monitored cold box."
+        "question": "How is the sample collected for ApoB?",
+        "answer": "A certified QXL phlebotomist collects 2 mL of venous blood in a sterile gold-top SST tube and transports it in a temperature-controlled cold box to our NABL laboratory."
       },
       {
-        "question": "How fast will I get my official report for Apolipoprotein B?",
-        "answer": "Verified digital PDF reports for Apolipoprotein B are delivered within 12 Hours of sample receipt via WhatsApp and Email."
+        "question": "What is the normal reference range for ApoB?",
+        "answer": "Desirable level is below 90 mg/dL for individuals at low to moderate cardiovascular risk. For high-risk individuals (such as those with diabetes), the target is below 80 mg/dL, and for very high-risk patients with known heart disease, the guideline target is below 65 mg/dL."
       },
       {
-        "question": "Can I book home sample collection for Apolipoprotein B in Bangalore?",
-        "answer": "Yes! QXL Diagnostics provides free doorstep sample collection across all major Bengaluru areas including Kengeri, RR Nagar, Yelahanka, Whitefield, Koramangala, and HSR Layout."
+        "question": "How fast will I get my official report for ApoB?",
+        "answer": "Verified digital PDF reports for ApoB are delivered within 12 Hours of sample collection via WhatsApp and Email."
       },
       {
-        "question": "What factors or medications can interfere with Apolipoprotein B results?",
-        "answer": "High-dose Biotin (Vitamin B7), corticosteroids, acute illness, physical stress, and hemolysis can alter baseline readings."
+        "question": "Can I book home sample collection for ApoB in Bangalore?",
+        "answer": "Yes! QXL Diagnostics provides free doorstep sample collection across all Bengaluru localities including Kengeri, RR Nagar, Yelahanka, Whitefield, Koramangala, and HSR Layout."
       },
       {
-        "question": "How are abnormal Apolipoprotein B results interpreted?",
-        "answer": "Out-of-range results represent clinical deviations requiring correlation with your physical symptoms and history by a qualified doctor."
-      },
-      {
-        "question": "What quality certifications back the Apolipoprotein B test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
-      },
-      {
-        "question": "How often should I repeat or monitor my Apolipoprotein B test?",
-        "answer": "For routine wellness tracking, annual testing is customary. For condition management, your doctor may recommend testing every 3 to 6 months."
+        "question": "What factors or medications can interfere with ApoB results?",
+        "answer": "Lipid-lowering therapies (statins, PCSK9 inhibitors, ezetimibe) significantly lower ApoB levels. Acute inflammatory illness, severe liver dysfunction, and pregnancy may also alter circulating apolipoprotein levels."
       }
     ],
     "doctorSlug": "dr-shantakumar-muruda",
@@ -3204,11 +3211,13 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Apolipoprotein B Bangalore",
       "ApoB report"
     ],
-    "department": "Cardiology",
+    "department": "Cardiology & Clinical Biochemistry",
+    "method": "Automated Immunoturbidimetry (WHO-IFCC SP3 calibrated)",
     "sampleVolume": "2 mL",
-    "indications": "Evaluate apolipoprotein b baseline and clinical changes.",
+    "indications": "Evaluation of atherogenic particle burden, cardiovascular risk assessment in diabetes/metabolic syndrome, monitoring statin therapy response.",
     "limitations": [
-      "Preanalytical sample quality, acute hydration, or drug therapy may affect results."
+      "Marked lipemia or gross hemolysis may interfere with optical turbidimetric measurement.",
+      "Results must be correlated with overall clinical risk profile by treating physician."
     ]
   },
   "lipoprotein-a-test": {
@@ -8134,110 +8143,102 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     ]
   },
   "apob": {
-    "slug": "apob",
-    "title": "Apolipoprotein B (Advanced Lipid) (ApoB) Test in Bangalore | Price ₹1020, Normal Range | QXL",
-    "metaDescription": "Book Apolipoprotein B (Advanced Lipid) (ApoB) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1020. 8 to 10 hours overnight fasting required. 24 Hours.",
+    "slug": "apob-test",
+    "title": "Apolipoprotein B (ApoB) Test in Bangalore | Price ₹550, Normal Range | QXL",
+    "metaDescription": "Book Apolipoprotein B (ApoB) test at home in Bangalore. NABL Accredited precision, same-day reports, price ₹550. No fasting required. 12 Hours TAT.",
     "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
-    "h1Title": "Apolipoprotein B (Advanced Lipid) (ApoB) Test in Bangalore",
-    "subtitle": "High-precision Apolipoprotein B (Advanced Lipid) assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 24 Hours.",
-    "price": "1020",
-    "oldPrice": "1479",
-    "discountPercent": "31% OFF",
-    "parametersCount": "Complete Clinical Panel",
+    "h1Title": "Apolipoprotein B (ApoB) Test in Bangalore",
+    "subtitle": "High-precision automated Apolipoprotein B immunoturbidimetric assay accredited under ISO 15189:2022 standards. No fasting required. Verified digital reports within 12 Hours.",
+    "price": "550",
+    "oldPrice": "665",
+    "discountPercent": "17% OFF",
+    "parametersCount": "1 Parameter (Atherogenic Particle Count)",
     "sampleType": "Serum",
-    "fastingRequired": "8 to 10 hours overnight fasting required.",
-    "turnaroundTime": "24 Hours",
+    "fastingRequired": "No fasting required (fasting is optional unless ordered alongside a lipid profile).",
+    "turnaroundTime": "12 Hours",
     "category": "Cardiology",
     "overview": [
-      "The Apolipoprotein B (Advanced Lipid) (ApoB) is an essential diagnostic laboratory investigation performed in the Cardiology department at QXL Diagnostics, Bengaluru.",
-      "Conducted inside our NABL Accredited central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
-      "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
-      "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
-      "Every result undergoes automated dual-level internal quality control (IQC) and pathologist sign-off by Dr. Shantakumar Muruda, MD."
+      "Apolipoprotein B (ApoB) is the primary structural protein found on all atherogenic lipoprotein particles, including LDL, VLDL, IDL, and Lp(a).",
+      "Because each atherogenic particle carries exactly one molecule of ApoB, measuring ApoB provides a direct particle count — a more accurate predictor of cardiovascular event risk than LDL cholesterol.",
+      "Conducted inside QXL Diagnostics' NABL Accredited central super speciality laboratory (MC-6849) using automated immunoturbidimetric analyzers calibrated to international WHO-IFCC standards.",
+      "Every result undergoes automated dual-level internal quality control (IQC) and medical sign-off by Dr. Shantakumar Muruda, MD (Clinical Biochemistry), NABL Lead Assessor."
     ],
     "parametersList": [
-      "Apolipoprotein B (Advanced Lipid) (ApoB) Quantitative Assay Level",
-      "Age- and Sex-Stratified Normal Reference Interval",
-      "Clinical Alert Flags & Out-of-Range Highlights",
-      "Preanalytical Hemolysis & Lipemia Quality Index",
-      "Senior Pathologist Impression & Clinical Recommendations"
+      "Apolipoprotein B (ApoB) Concentration (mg/dL)",
+      "Cardiovascular Risk Stratification (Desirable, High, Very High)",
+      "ApoB / ApoA1 Ratio (when co-ordered with ApoA1)",
+      "Automated Preanalytical Hemolysis & Lipemia Quality Index",
+      "Clinical Biochemist Impression & Actionable Risk Flags"
     ],
     "referenceRanges": [
       {
-        "label": "ApoB Concentration",
-        "range": "Normal Reference Interval",
-        "unit": "Clinical Standard Units",
-        "interpretation": "normal"
+        "label": "Desirable (Low to Moderate ASCVD Risk)",
+        "range": "< 90",
+        "unit": "mg/dL",
+        "interpretation": "normal",
+        "note": "Standard primary prevention target for adults without major cardiovascular risk factors"
+      },
+      {
+        "label": "High Risk Target",
+        "range": "< 80",
+        "unit": "mg/dL",
+        "interpretation": "borderline",
+        "note": "Recommended target for patients with diabetes, metabolic syndrome, or marked dyslipidemia"
+      },
+      {
+        "label": "Very High Risk Target",
+        "range": "< 65",
+        "unit": "mg/dL",
+        "interpretation": "abnormal",
+        "note": "Strict secondary prevention target for established coronary artery disease or acute coronary syndrome"
       }
     ],
     "whyImportant": [
-      "Primary Indication: Evaluate apolipoprotein b (advanced lipid) for diagnostic assessment.",
-      "Specimen Protocol: Serum (8 to 10 hours overnight fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
-      "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
+      "Direct Particle Count: Every atherogenic particle (LDL, VLDL, Lp(a)) carries exactly one ApoB molecule.",
+      "Superior to LDL-C: Detects hidden atherogenic risk when LDL-C appears deceptively normal (discordance).",
+      "No Fasting Needed: ApoB levels remain stable postprandially; can be drawn anytime.",
+      "Validated Methodology: Automated Immunoturbidimetry calibrated against WHO-IFCC reference standards.",
+      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022.",
+      "Turnaround Time (TAT): Verified digital PDF report delivered within 12 Hours via WhatsApp & Email.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
-      "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
-      "Home Collection: Available 7 days a week from 6:00 AM across 40+ Bengaluru areas.",
-      "Quality Assurance: Dual-level daily internal quality control (IQC) and EQAS validation."
+      "Home Collection: Available 7 days a week from 7:00 AM across all Bengaluru areas."
     ],
     "faqs": [
       {
-        "question": "What is the Apolipoprotein B (Advanced Lipid) (ApoB) test?",
-        "answer": "The Apolipoprotein B (Advanced Lipid) (ApoB) is an essential clinical investigation in the Cardiology department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "question": "What is the Apolipoprotein B (ApoB) test?",
+        "answer": "The Apolipoprotein B (ApoB) test counts the total number of circulating atherogenic particles (LDL, VLDL, IDL, Lp(a)) in your blood. Unlike standard cholesterol tests that measure particle weight, ApoB counts the actual particles that cause arterial plaque."
       },
       {
-        "question": "Why has my doctor recommended a Apolipoprotein B (Advanced Lipid) test?",
-        "answer": "Your physician ordered this test to evaluate apolipoprotein b (advanced lipid), detect underlying health issues early, and guide targeted medical treatment."
+        "question": "Why is ApoB a better cardiac risk marker than LDL cholesterol?",
+        "answer": "Atherosclerosis is driven by the number of particles penetrating the arterial wall. In people with insulin resistance, diabetes, or high triglycerides, LDL particles are small and dense, meaning LDL cholesterol mass can appear normal even when the particle number (ApoB) is dangerously elevated."
       },
       {
-        "question": "What fasting or preparation is required for Apolipoprotein B (Advanced Lipid)?",
-        "answer": "8 to 10 hours overnight fasting required. Only plain water is permitted during fasting windows. Inform the phlebotomist about any ongoing prescription medicines or vitamin supplements."
+        "question": "What fasting or preparation is required for ApoB?",
+        "answer": "No fasting is required for an isolated ApoB test because particle counts do not vary significantly after meals. However, if your doctor has co-ordered Fasting Blood Sugar or a full Lipid Profile, observe an 8 to 10 hour overnight fast."
       },
       {
-        "question": "How is the sample collected for Apolipoprotein B (Advanced Lipid)?",
-        "answer": "A certified QXL phlebotomist collects a specimen of Serum using a sterile, barcoded vacuum tube and transports it in a temperature-monitored cold box."
-      },
-      {
-        "question": "How fast will I get my official report for Apolipoprotein B (Advanced Lipid)?",
-        "answer": "Verified digital PDF reports for Apolipoprotein B (Advanced Lipid) are delivered within 24 Hours of sample receipt via WhatsApp and Email."
-      },
-      {
-        "question": "Can I book home sample collection for Apolipoprotein B (Advanced Lipid) in Bangalore?",
-        "answer": "Yes! QXL Diagnostics provides free doorstep sample collection across all major Bengaluru areas including Kengeri, RR Nagar, Yelahanka, Whitefield, Koramangala, and HSR Layout."
-      },
-      {
-        "question": "What factors or medications can interfere with Apolipoprotein B (Advanced Lipid) results?",
-        "answer": "High-dose Biotin (Vitamin B7), corticosteroids, acute illness, physical stress, and hemolysis can alter baseline readings."
-      },
-      {
-        "question": "How are abnormal Apolipoprotein B (Advanced Lipid) results interpreted?",
-        "answer": "Out-of-range results represent clinical deviations requiring correlation with your physical symptoms and history by a qualified doctor."
-      },
-      {
-        "question": "What quality certifications back the Apolipoprotein B (Advanced Lipid) test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
-      },
-      {
-        "question": "How often should I repeat or monitor my Apolipoprotein B (Advanced Lipid) test?",
-        "answer": "For routine wellness tracking, annual testing is customary. For condition management, your doctor may recommend testing every 3 to 6 months."
+        "question": "How fast will I get my official report for ApoB?",
+        "answer": "Verified digital PDF reports for ApoB are delivered within 12 Hours of sample collection via WhatsApp and Email."
       }
     ],
     "doctorSlug": "dr-shantakumar-muruda",
     "doctorName": "Dr. Shantakumar Muruda",
     "doctorQuals": "MD Biochemistry, NABL Lead Assessor",
-    "testCode": "QXL-CMS-077",
-    "draftCode": "QXL-DRAFT-077",
+    "testCode": "QXL-CMS-030",
+    "draftCode": "QXL-DRAFT-030",
     "aliases": [
       "ApoB",
-      "Apolipoprotein B (Advanced Lipid) test",
-      "Apolipoprotein B (Advanced Lipid) Bangalore",
+      "Apolipoprotein B test",
+      "Apolipoprotein B Bangalore",
       "ApoB report"
     ],
-    "department": "Cardiology",
+    "department": "Cardiology & Clinical Biochemistry",
+    "method": "Automated Immunoturbidimetry (WHO-IFCC SP3 calibrated)",
     "sampleVolume": "2 mL",
-    "indications": "Evaluate apolipoprotein b (advanced lipid) baseline and clinical changes.",
+    "indications": "Evaluation of atherogenic particle burden, cardiovascular risk assessment in diabetes/metabolic syndrome, monitoring statin therapy response.",
     "limitations": [
-      "Preanalytical sample quality, acute hydration, or drug therapy may affect results."
+      "Marked lipemia or gross hemolysis may interfere with optical turbidimetric measurement.",
+      "Results must be correlated with overall clinical risk profile by treating physician."
     ]
   },
   "lipoprotein-a": {

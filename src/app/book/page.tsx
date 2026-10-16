@@ -73,7 +73,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     price: 1770,
     savings: 2926,
     doctorRecommended: true,
-    params: 68,
+    params: 80,
     fasting: true,
     tat: "Reports by next morning",
     icon: "body",
@@ -204,19 +204,20 @@ const INITIAL_TESTS: TestItem[] = [
   { id: "fb2", name: "Full Body Checkup – Advanced", cat: "fullbody", params: 92, price: 2499, mrp: 4999, fasting: true, tat: "Reports by next morning", icon: "body", keys: "annual master health complete vitamin d b12 hba1c iron hs-crp", popular: true },
   { id: "sr1", name: "Senior Citizen Health Check", cat: "fullbody", params: 78, price: 2199, mrp: 4200, fasting: true, tat: "Reports by next morning", icon: "body", keys: "elderly parents 60 plus" },
   { id: "db1", name: "Diabetes Care Panel", cat: "diabetes", params: 9, price: 899, mrp: 1600, fasting: true, tat: "Reports same day", icon: "drop", keys: "sugar glucose hba1c fbs ppbs microalbumin", popular: true },
-  { id: "db2", name: "HbA1c (Glycated Haemoglobin)", cat: "diabetes", params: 1, price: 399, mrp: 600, fasting: false, tat: "Reports in 6 hrs", icon: "drop", keys: "sugar glucose a1c 3 month average", popular: true },
-  { id: "th1", name: "Thyroid Profile (T3, T4, TSH)", cat: "thyroid", params: 3, price: 449, mrp: 800, fasting: false, tat: "Reports same day", icon: "thyroid", keys: "tsh t3 t4 hypothyroid weight hair fall", popular: true },
+  { id: "db2", name: "HbA1c (Glycated Haemoglobin)", cat: "diabetes", params: 3, price: 380, mrp: 720, fasting: false, tat: "Reports in 6 hrs", icon: "drop", keys: "sugar glucose a1c 3 month average", popular: true },
+  { id: "th1", name: "Thyroid Profile (T3, T4, TSH)", cat: "thyroid", params: 3, price: 350, mrp: 550, fasting: false, tat: "Reports same day", icon: "thyroid", keys: "tsh t3 t4 hypothyroid weight hair fall", popular: true },
   { id: "ht1", name: "Heart Health Panel", cat: "heart", params: 15, price: 1299, mrp: 2500, fasting: true, tat: "Reports same day", icon: "heart", keys: "cardiac cholesterol lipid hs-crp lp(a) apo" },
-  { id: "ht2", name: "Lipid Profile", cat: "heart", params: 8, price: 499, mrp: 900, fasting: true, tat: "Reports same day", icon: "heart", keys: "cholesterol triglycerides ldl hdl" },
+  { id: "ht2", name: "Lipid Profile", cat: "heart", params: 8, price: 336, mrp: 800, fasting: true, tat: "Reports same day", icon: "heart", keys: "cholesterol triglycerides ldl hdl" },
+  { id: "apob-test", name: "Apolipoprotein B (ApoB)", cat: "heart", params: 1, price: 550, mrp: 665, fasting: false, tat: "Reports in 12 hrs", icon: "heart", keys: "apob apolipoprotein b cardiac atherogenic ldl vldl plaque", popular: true },
   { id: "wm1", name: "Women's Wellness Panel", cat: "women", params: 55, price: 1899, mrp: 3600, fasting: true, tat: "Reports by next morning", icon: "women", keys: "female cbc thyroid vitamin iron calcium", popular: true },
   { id: "wm2", name: "PCOS Profile", cat: "women", params: 8, price: 1999, mrp: 3400, fasting: true, tat: "Reports in 24 hrs", icon: "women", keys: "pcod hormone lh fsh prolactin testosterone insulin" },
-  { id: "vt1", name: "Vitamin D (25-OH)", cat: "vitamins", params: 1, price: 1099, mrp: 1800, fasting: false, tat: "Reports same day", icon: "sun", keys: "vit d3 bone fatigue", popular: true },
-  { id: "vt2", name: "Vitamin B12", cat: "vitamins", params: 1, price: 749, mrp: 1200, fasting: false, tat: "Reports same day", icon: "sun", keys: "cobalamin tingling numbness fatigue", popular: true },
+  { id: "vt1", name: "Vitamin D (25-OH)", cat: "vitamins", params: 1, price: 410, mrp: 1300, fasting: false, tat: "Reports same day", icon: "sun", keys: "vit d3 bone fatigue", popular: true },
+  { id: "vt2", name: "Vitamin B12", cat: "vitamins", params: 1, price: 600, mrp: 1600, fasting: false, tat: "Reports same day", icon: "sun", keys: "cobalamin tingling numbness fatigue", popular: true },
   { id: "vt3", name: "Iron Profile", cat: "vitamins", params: 4, price: 799, mrp: 1400, fasting: true, tat: "Reports same day", icon: "drop", keys: "ferritin tibc transferrin anaemia anemia" },
   { id: "fv1", name: "Fever Panel", cat: "fever", params: 7, price: 1499, mrp: 2600, fasting: false, tat: "Reports in 6 hrs", icon: "thermo", keys: "dengue malaria typhoid crp viral" },
-  { id: "fv2", name: "Complete Blood Count (CBC)", cat: "fever", params: 24, price: 299, mrp: 450, fasting: false, tat: "Reports in 6 hrs", icon: "drop", keys: "haemoglobin hemoglobin platelets wbc infection", popular: true },
-  { id: "og1", name: "Liver Function Test (LFT)", cat: "organ", params: 11, price: 599, mrp: 1000, fasting: true, tat: "Reports same day", icon: "vial", keys: "sgot sgpt bilirubin fatty liver alcohol" },
-  { id: "og2", name: "Kidney Function Test (KFT)", cat: "organ", params: 10, price: 599, mrp: 1000, fasting: false, tat: "Reports same day", icon: "vial", keys: "rft creatinine urea uric acid egfr" },
+  { id: "fv2", name: "Complete Blood Count (CBC)", cat: "fever", params: 26, price: 250, mrp: 350, fasting: false, tat: "Reports in 6 hrs", icon: "drop", keys: "haemoglobin hemoglobin platelets wbc infection", popular: true },
+  { id: "og1", name: "Liver Function Test (LFT)", cat: "organ", params: 11, price: 425, mrp: 780, fasting: true, tat: "Reports same day", icon: "vial", keys: "sgot sgpt bilirubin fatty liver alcohol" },
+  { id: "og2", name: "Kidney Function Test (KFT)", cat: "organ", params: 10, price: 425, mrp: 1150, fasting: false, tat: "Reports same day", icon: "vial", keys: "rft creatinine urea uric acid egfr" },
   { id: "ss1", name: "GAD-65 Antibody (Type 1 Diabetes)", cat: "super", params: 1, price: 6400, mrp: 6400, fasting: false, tat: "Reports in 3–5 days", icon: "dna", keys: "autoantibody islet type 1 super speciality" }
 ];
 
@@ -383,8 +384,67 @@ export default function BookPage() {
     });
   }, []);
 
-  // Parse URL query params
+  // Package & test slug alias normalization table
+  const PACKAGE_ALIASES: Record<string, string> = {
+    "pkg-fit": "q-quick-fit",
+    "pkg-1770": "q-quick-fit",
+    "quick-fit": "q-quick-fit",
+    "quick fit": "q-quick-fit",
+    "quick fit package": "q-quick-fit",
+    "q-quick-fit": "q-quick-fit",
+    "q-diabetes-screen": "q-screen-diabetes",
+    "q-screen-diabetes": "q-screen-diabetes",
+    "diabetes-screen": "q-screen-diabetes",
+    "q-master-pro": "q-master-pro",
+    "q-master-health-pro": "q-master-pro",
+    "master-pro": "q-master-pro",
+    "q-cardio-risk": "q-cardio-risk",
+    "cardio-risk": "q-cardio-risk",
+    "q-arthritis-autoimmune": "q-arthritis-autoimmune",
+    "arthritis-autoimmune": "q-arthritis-autoimmune",
+    "q-onco-screen": "q-onco-screen",
+    "onco-screen": "q-onco-screen",
+    "cbc": "fv2",
+    "cbc-test": "fv2",
+    "complete-blood-count": "fv2",
+    "hba1c": "db2",
+    "hba1c-test": "db2",
+    "thyroid": "th1",
+    "thyroid-profile": "th1",
+    "thyroid-test": "th1",
+    "vitamin-d": "vt1",
+    "vitamin-d-test": "vt1",
+    "vitamin-b12": "vt2",
+    "vitamin-b12-test": "vt2",
+    "lipid-profile": "ht2",
+    "lft": "og1",
+    "kft": "og2",
+    "apob": "apob-test",
+    "apob-test": "apob-test",
+    "apolipoprotein-b": "apob-test"
+  };
+
+  const resolveItemId = (queryStr: string): string | null => {
+    if (!queryStr) return null;
+    const clean = queryStr.toLowerCase().trim();
+    if (PACKAGE_ALIASES[clean]) return PACKAGE_ALIASES[clean];
+
+    const match = matchMasterItem(queryStr);
+    if (match) {
+      if (PACKAGE_ALIASES[match.id]) return PACKAGE_ALIASES[match.id];
+      return match.id;
+    }
+
+    const found = INITIAL_TESTS.find(
+      (t) => t.id === queryStr || t.name.toLowerCase().includes(clean) || (t.keys && t.keys.includes(clean))
+    );
+    return found ? found.id : null;
+  };
+
+  // Parse URL query params and hydrate from localStorage
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const params = new URLSearchParams(window.location.search);
     const rawWanted = [
       ...params.getAll("tests"),
@@ -393,21 +453,30 @@ export default function BookPage() {
       params.get("pkg") || ""
     ].filter(Boolean);
 
-    if (!rawWanted.length) return;
-
-    const matchedIds: string[] = [];
+    const initialMatched: string[] = [];
     for (const w of rawWanted) {
-      const match = matchMasterItem(w);
-      if (match) {
-        matchedIds.push(match.id);
-      } else {
-        const found = INITIAL_TESTS.find((t) => t.id === w || t.name.toLowerCase().includes(w.toLowerCase()));
-        if (found) matchedIds.push(found.id);
-      }
+      const id = resolveItemId(w);
+      if (id) initialMatched.push(id);
     }
 
-    if (matchedIds.length > 0) {
-      setCartIds((prev) => Array.from(new Set([...prev, ...matchedIds])));
+    try {
+      const raw = localStorage.getItem("qxl_cart");
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          for (const item of parsed) {
+            const rawIdentifier = typeof item === "string" ? item : (item.id || item.name || "");
+            const id = resolveItemId(rawIdentifier);
+            if (id) initialMatched.push(id);
+          }
+        }
+      }
+    } catch {
+      // ignore
+    }
+
+    if (initialMatched.length > 0) {
+      setCartIds((prev) => Array.from(new Set([...prev, ...initialMatched])));
     }
   }, []);
 
@@ -436,6 +505,18 @@ export default function BookPage() {
       keys: ""
     };
   };
+
+  // Keep localStorage synchronized whenever cartIds change
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      const items = cartIds.map(getTestById);
+      localStorage.setItem("qxl_cart", JSON.stringify(items));
+      window.dispatchEvent(new Event("cart-updated"));
+    } catch {
+      // ignore
+    }
+  }, [cartIds, allTests]);
 
   const cartItems = cartIds.map(getTestById);
   const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
@@ -1444,9 +1525,9 @@ export default function BookPage() {
                 {cartItems.length === 0 ? (
                   <div className="text-center py-3.5 px-2 bg-slate-50/80 rounded-xl border border-dashed border-slate-200">
                     <Droplets className="w-5 h-5 text-slate-300 mx-auto mb-0.5" />
-                    <p className="text-[11px] font-bold text-slate-700">No tests added yet.</p>
+                    <p className="text-[11px] font-bold text-slate-700">Select Add to continue.</p>
                     <p className="text-[9.5px] text-slate-400 font-medium mt-0.5">
-                      Click &quot;+ Add&quot; or &quot;+ Book Now&quot; on any test card.
+                      Your cart is currently empty. Click &quot;+ Add&quot; on any diagnostic test or package above.
                     </p>
                   </div>
                 ) : (
@@ -1636,12 +1717,14 @@ export default function BookPage() {
 
                 <button
                   type="button"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || cartItems.length === 0}
                   onClick={handleBookSubmit}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-2.5 px-3 rounded-xl text-[11px] uppercase tracking-wider shadow-sm transition-all text-center cursor-pointer disabled:opacity-50"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-2.5 px-3 rounded-xl text-[11px] uppercase tracking-wider shadow-sm transition-all text-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting
                     ? "Processing..."
+                    : cartItems.length === 0
+                    ? "Select Tests to Continue"
                     : paymentMethod === "online"
                     ? `Pay Now (₹${grandTotal}) →`
                     : `Confirm Collection (₹${grandTotal}) →`}
@@ -1895,12 +1978,14 @@ export default function BookPage() {
             <div className="p-3 border-t border-slate-100 bg-white shrink-0">
               <button
                 type="button"
-                disabled={isSubmitting}
+                disabled={isSubmitting || cartItems.length === 0}
                 onClick={handleBookSubmit}
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 rounded-2xl text-xs uppercase tracking-widest shadow-md transition-all text-center cursor-pointer disabled:opacity-50"
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 rounded-2xl text-xs uppercase tracking-widest shadow-md transition-all text-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting
                   ? "Processing..."
+                  : cartItems.length === 0
+                  ? "Select Tests to Continue"
                   : paymentMethod === "online"
                   ? `Pay Now (₹${grandTotal}) →`
                   : `Confirm Home Collection (₹${grandTotal}) →`}

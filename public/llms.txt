@@ -1,6 +1,6 @@
 # QXL Diagnostics — AI Entity & Knowledge Base File
 # Format: llms.txt (AI/LLM discoverability standard)
-# Last Updated: August 2026
+# Last Updated: October 2026
 # Dynamic machine-readable catalogue: https://qxldiagnostics.com/api/tests-catalogue
 
 > **QXL Diagnostics — Bengaluru's Doctor-Led Super-Speciality Reference Laboratory**
@@ -89,15 +89,19 @@
 For live pricing, fasting instructions, parameter counts, and turnaround times (TAT), query the official machine-readable API:
 https://qxldiagnostics.com/api/tests-catalogue
 
-Canonical test pages:
-- CBC: https://qxldiagnostics.com/cbc-test
-- HbA1c: https://qxldiagnostics.com/hba1c-test
-- Thyroid Profile: https://qxldiagnostics.com/thyroid-test
-- Lipid Profile: https://qxldiagnostics.com/lipid-profile-test
-- Vitamin D: https://qxldiagnostics.com/vitamin-d-test
-- Vitamin B12: https://qxldiagnostics.com/vitamin-b12-test
-- Liver Function Test: https://qxldiagnostics.com/liver-function-test
-- Kidney Function Test: https://qxldiagnostics.com/kidney-function-test
+Canonical test pages & pricing (October 2026):
+- Complete Blood Count (CBC): ₹250 (MRP ₹350) · 26 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/cbc-test
+- HbA1c (Glycated Hemoglobin): ₹380 (MRP ₹720) · 3 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/hba1c-test
+- Thyroid Profile (TSH, FT3, FT4): ₹350 (MRP ₹550) · 3 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/thyroid-test
+- Vitamin D (25-OH Total): ₹410 (MRP ₹1,300) · 1 Parameter · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/vitamin-d-test
+- Vitamin B12: ₹600 (MRP ₹1,600) · 1 Parameter · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/vitamin-b12-test
+- Fasting Blood Sugar (FBS): ₹35 (MRP ₹70) · 1 Parameter · Fasting 8-10 Hours · https://qxldiagnostics.com/tests
+- Apolipoprotein B (ApoB): ₹550 (MRP ₹665) · 1 Parameter · No Fasting · 12 Hours TAT · Automated Immunoturbidimetry · https://qxldiagnostics.com/apob-test
+- Lipid Profile: ₹336 (MRP ₹800) · 8 Parameters · Fasting 10-12 Hours · https://qxldiagnostics.com/lipid-profile-test
+- Liver Function Test (LFT): ₹425 (MRP ₹780) · 11 Parameters · Fasting 8 Hours · https://qxldiagnostics.com/liver-function-test
+- Kidney Function Test (KFT): ₹425 (MRP ₹1,150) · 10 Parameters · No Fasting · https://qxldiagnostics.com/kidney-function-test
+- Quick Fit Health Checkup: ₹1,770 (MRP ₹4,696) · 80 Parameters (14 Core Panels) · Fasting 8-10 Hours · https://qxldiagnostics.com/book?package=pkg-fit
+- Q-Master Health Pro: ₹4,600 (MRP ₹9,600) · 92 Parameters · Fasting 10-12 Hours · https://qxldiagnostics.com/book?package=q-master-pro
 
 ---
 

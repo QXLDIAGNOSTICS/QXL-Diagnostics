@@ -79,48 +79,90 @@ export default async function DynamicSlugTestPage({ params }: Props) {
   const doctorName = data.doctorName ?? links?.doctorName ?? "Dr. Shantakumar Muruda";
   const doctorQuals = data.doctorQuals ?? links?.doctorQuals ?? "MD Biochemistry, NABL Lead Assessor";
 
+  const parsedParams = parseInt(String(data.parametersCount || "1"), 10);
+  const testTypes = !isNaN(parsedParams) && parsedParams > 1
+    ? ["MedicalTest", "MedicalTestPanel", "DiagnosticProcedure"]
+    : ["MedicalTest", "DiagnosticProcedure"];
+
+  const fullDescription = `${data.metaDescription} Specimen: ${data.sampleType}. Turnaround time: ${data.turnaroundTime}.`;
+
   const jsonLdSchema = {
     "@context": "https://schema.org",
-    "@type": "MedicalTest",
-    "name": data.h1Title,
-    "description": data.metaDescription,
-    "url": `${SITE_URL}/${slug}`,
-    "usesDevice": { "@type": "MedicalDevice", "name": "Automated Clinical Analyser — NABL Accredited" },
-    "normalRange": data.referenceRanges
-      ? data.referenceRanges.map(r => ({
-          "@type": "MedicalIntangible",
-          "name": r.label,
-          "description": `${r.range} ${r.unit}`
-        }))
-      : undefined,
-    "preparation": data.fastingRequired,
-    "relevantSpecialty": { "@type": "MedicalSpecialty", "name": data.category },
-    "provider": {
-      "@type": "DiagnosticLab",
-      "name": "QXL Diagnostics",
-      "alternateName": ["QXL Diagnostics Super Speciality Lab", "Qualitify Healthtech"],
-      "url": SITE_URL,
-      "telephone": PHONE_DISPLAY,
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "3rd Floor, SLN Complex, Mysore Road, Kengeri",
-        "addressLocality": "Bengaluru",
-        "addressRegion": "Karnataka",
-        "postalCode": "560060",
-        "addressCountry": "IN"
+    "@graph": [
+      {
+        "@type": testTypes,
+        "@id": `${SITE_URL}/${slug}#test`,
+        "name": data.h1Title,
+        "description": fullDescription,
+        "url": `${SITE_URL}/${slug}`,
+        "howPerformed": data.method || "Automated Clinical Diagnostic Analyser — ISO 15189:2022 / NABL Accredited",
+        "usesDevice": { "@type": "MedicalDevice", "name": "Automated Clinical Analyser — NABL Accredited" },
+        "normalRange": data.referenceRanges
+          ? data.referenceRanges.map(r => ({
+              "@type": "MedicalIntangible",
+              "name": r.label,
+              "description": `${r.range} ${r.unit}`
+            }))
+          : undefined,
+        "preparation": data.fastingRequired,
+        "relevantSpecialty": { "@type": "MedicalSpecialty", "name": data.category },
+        "code": data.testCode ? {
+          "@type": "MedicalCode",
+          "code": data.testCode,
+          "codingSystem": "Internal/LOINC"
+        } : undefined,
+        "offers": {
+          "@type": "Offer",
+          "price": data.price,
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "url": `${SITE_URL}/book?test=${slug}`
+        },
+        "provider": {
+          "@type": "DiagnosticLab",
+          "@id": `${SITE_URL}/#kengeri-lab`,
+          "name": "QXL Diagnostics Super Speciality Lab",
+          "alternateName": ["QXL Diagnostics", "Qualitify Healthtech"],
+          "url": SITE_URL,
+          "telephone": PHONE_DISPLAY,
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3rd Floor, SLN Complex, Mysore Road, Kengeri",
+            "addressLocality": "Bengaluru",
+            "addressRegion": "Karnataka",
+            "postalCode": "560060",
+            "addressCountry": "IN"
+          },
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "name": `NABL Accreditation ${NABL_CERTIFICATE}`,
+            "credentialCategory": "ISO 15189:2022 Medical Laboratory"
+          }
+        },
+        "reviewedBy": {
+          "@type": "Person",
+          "name": doctorName,
+          "jobTitle": doctorQuals,
+          "worksFor": { "@type": "Organization", "name": "QXL Diagnostics" }
+        }
       },
-      "hasCredential": {
-        "@type": "EducationalOccupationalCredential",
-        "name": `NABL Accreditation ${NABL_CERTIFICATE}`,
-        "credentialCategory": "ISO 15189:2022 Medical Laboratory"
+      {
+        "@type": "Service",
+        "@id": `${SITE_URL}/${slug}#service`,
+        "name": `${data.h1Title} with Home Sample Collection`,
+        "serviceType": "Diagnostic Medical Testing",
+        "description": `Doorstep blood collection across Bengaluru with temperature-controlled cold chain and testing at NABL Accredited Central Lab (${NABL_CERTIFICATE}). ${data.turnaroundTime} digital report delivery.`,
+        "provider": { "@id": `${SITE_URL}/#kengeri-lab` },
+        "areaServed": { "@type": "City", "name": "Bengaluru" },
+        "offers": {
+          "@type": "Offer",
+          "price": data.price,
+          "priceCurrency": "INR",
+          "availability": "https://schema.org/InStock",
+          "url": `${SITE_URL}/book?test=${slug}`
+        }
       }
-    },
-    "reviewedBy": {
-      "@type": "Person",
-      "name": doctorName,
-      "jobTitle": doctorQuals,
-      "worksFor": { "@type": "Organization", "name": "QXL Diagnostics" }
-    }
+    ]
   };
 
   const faqSchema = {

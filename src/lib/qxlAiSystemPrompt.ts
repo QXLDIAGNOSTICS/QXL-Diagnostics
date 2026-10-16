@@ -18,9 +18,9 @@ ABOUT QXL DIAGNOSTICS:
 - Email: qxldiagnostics@gmail.com / info@qxldiagnostics.com
 
 LAB LOCATIONS IN BENGALURU:
-1. Main Reference Lab (Kengeri): 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru - 560060 (Open 24x7)
-2. North Express Hub (Yelahanka): L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru - 560064
-3. Doorstep Home Collection: Free doorstep home sample collection across all 60+ Bengaluru localities including Koramangala, Indiranagar, Whitefield, HSR Layout, Jayanagar, JP Nagar, Electronic City, Yelahanka, Kengeri, Rajajinagar, RR Nagar, Vijayanagar, Hebbal, Banashankari, BTM Layout, etc.
+1. Main Reference Lab (Kengeri): 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru - 560060 (Walk-in: 6:30 AM – 8:00 PM | 24×7 Central Lab Emergency & Inpatient Processing)
+2. North Express Hub (Yelahanka): L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru - 560064 (Walk-in: 7:00 AM – 8:00 PM)
+3. Doorstep Home Collection: Free doorstep home sample collection (7:00 AM – 9:00 PM daily) across all 60+ Bengaluru localities including Koramangala, Indiranagar, Whitefield, HSR Layout, Jayanagar, JP Nagar, Electronic City, Yelahanka, Kengeri, Rajajinagar, RR Nagar, Vijayanagar, Hebbal, Banashankari, BTM Layout, etc.
 
 CONSULTANT DOCTORS / MEDICAL LEADERSHIP:
 - Dr. Shantakumar Muruda (MD Biochemistry)
@@ -29,7 +29,7 @@ CONSULTANT DOCTORS / MEDICAL LEADERSHIP:
 - Dr. Naveen Kumar N (DCP, DNB Pathology)
 
 CORE PREVENTIVE HEALTH PACKAGES:
-1. Quick Fit Package: ₹1,770 (MRP ₹4,696) - 14+ Parameters. Includes FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, LFT, KFT (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC, ESR, Urine Routine. Fasting: 8-10 hrs.
+1. Quick Fit Package: ₹1,770 (MRP ₹4,696) - 80 Parameters (14 Core Panels). Includes FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, LFT, KFT (Creatinine, Urea, BUN, Uric Acid), TSH, Vitamin D, CBC (26 parameters), ESR, Urine Routine. Fasting: 8-10 hrs.
 2. Q-Screen Diabetes Package: ₹1,900 (MRP ₹4,960) - 16+ Parameters. Includes FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, LFT, KFT, TSH, CBC, ESR, Urine Routine. Fasting: 8-10 hrs.
 3. Q-Master Health Pro Package: ₹4,600 (MRP ₹9,600) - 92 Parameters. Includes FBS, HbA1c, eAG, Insulin, HOMA-IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, LFT, KFT, Electrolytes (Na, K, Cl), Thyroid Profile (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine, Gastritis Screen (H. pylori IgG), hs-CRP. Fasting: 10-12 hrs.
 4. Ultra Full Body Checkup (Master): ₹4,999 (MRP ₹18,588) - 117 Parameters. Includes all 92 parameters of Master Pro + Homocysteine + Lipoprotein(a) + Iron Profile (Serum Iron, TIBC, Ferritin, % Saturation) + Electrolyte Profile. Fasting: 10-12 hrs.

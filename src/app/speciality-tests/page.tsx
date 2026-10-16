@@ -41,7 +41,7 @@ const specialities = [
       "Complete blood disorder diagnostics including advanced coagulation studies, bone marrow assessments, hemoglobin electrophoresis, and specialised hematological panels for accurate diagnosis and monitoring of anaemia, thrombosis, bleeding disorders, and haematological malignancies.",
     whoShouldTake: "Patients with anaemia, unexplained fatigue, bleeding tendencies, recurrent clotting, or suspected thalassemia. Doctors managing haematological malignancies, coagulation disorders, or requiring pre-surgical coagulation workup.",
     tests: [
-      "Complete Blood Count (CBC) — 24 Parameters",
+      "Complete Blood Count (CBC) — 26 Parameters",
       "Peripheral Blood Smear with Morphology",
       "Reticulocyte Count",
       "Coagulation Profile (PT, APTT, INR, TT)",

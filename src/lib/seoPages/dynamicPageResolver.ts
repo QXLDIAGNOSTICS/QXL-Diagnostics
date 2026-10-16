@@ -257,10 +257,10 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
     title: "CBC Test in Bangalore | Complete Blood Count & Home Collection | QXL",
     h1Title: "CBC – Complete Blood Count Test in Bangalore",
     subtitle: "Measures red blood cells, white blood cells, haemoglobin, hematocrit, differential count, and platelets to evaluate overall health, anaemia, infection, and immunity.",
-    price: "350",
-    oldPrice: "500",
-    discountPercent: "30% OFF",
-    parametersCount: "24 Parameters (RBC, WBC, Differential, Platelets, Indices)",
+    price: "250",
+    oldPrice: "350",
+    discountPercent: "29% OFF",
+    parametersCount: "26 Parameters (RBC, WBC, Differential, Platelets, Indices)",
     sampleType: "EDTA Whole Blood (K2/K3 EDTA)",
     fastingRequired: "No fasting required for CBC test alone.",
     turnaroundTime: "Same Day (4–6 Hours)",
@@ -276,14 +276,14 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Medically reviewed by Consultant Pathologists & Clinical Biochemists led by Dr. Shantakumar Muruda, MD."
     ],
     faqs: [
-      { question: "What parameters are included in a CBC test?", answer: "A CBC includes 24 parameters: Haemoglobin, RBC Count, PCV/HCT, MCV, MCH, MCHC, RDW, Total WBC Count, 5-part Differential (Neutrophils, Lymphocytes, Monocytes, Eosinophils, Basophils), and Platelet Count." },
+      { question: "What parameters are included in a CBC test?", answer: "A CBC includes 26 parameters: Haemoglobin, Total RBC Count, Hematocrit (PCV), Red Cell Indices (MCV, MCH, MCHC, RDW-CV, RDW-SD), Total Leukocyte Count (TLC), 5-part Differential WBC Count (Neutrophils, Lymphocytes, Monocytes, Eosinophils, Basophils), Absolute Leukocyte Counts, Platelet Count, MPV, PCT, and PDW." },
       { question: "Does CBC require fasting?", answer: "No, fasting is NOT required for a CBC blood draw." },
       { question: "When is a peripheral blood smear needed with a CBC?", answer: "A peripheral blood smear is performed when automated cell counters detect abnormal cell morphology, immature blood cells, or significant cell count abnormalities." },
       { question: "What does low haemoglobin mean?", answer: "Low haemoglobin (below 12 g/dL in women, 13 g/dL in men) indicates anaemia, which may result from iron deficiency, B12 deficiency, chronic disease, or blood loss." },
       { question: "Can I book a CBC blood test at home in Bangalore?", answer: "Yes. QXL Diagnostics offers free home blood collection for CBC across all Bengaluru localities including Kengeri, RR Nagar, Yelahanka, Nagarabhavi, Vijayanagar, and more." }
     ],
     category: "Haematology Diagnostics",
-    clinicalSignificance: "The Complete Blood Count (CBC) is the most frequently ordered laboratory investigation worldwide and remains the first-line test for evaluating systemic health. Haemoglobin and red cell indices identify the type and severity of anaemia; white cell count and differential distinguish bacterial from viral infections; platelet count guides clinical decisions in fever workups and bleeding disorders. A single CBC drawn at QXL Diagnostics provides 24 data points reviewed by our consultant haematopathologist.",
+    clinicalSignificance: "The Complete Blood Count (CBC) is the most frequently ordered laboratory investigation worldwide and remains the first-line test for evaluating systemic health. Haemoglobin and red cell indices identify the type and severity of anaemia; white cell count and differential distinguish bacterial from viral infections; platelet count guides clinical decisions in fever workups and bleeding disorders. A single CBC drawn at QXL Diagnostics provides 26 data points reviewed by our consultant haematopathologist.",
     whenToTest: ["Unexplained fatigue or weakness", "Persistent fever", "Frequent infections", "Easy bruising or bleeding", "Pre-operative fitness assessment", "Routine annual health check", "Dengue or malaria follow-up"],
     relatedTests: ["esr-test-bangalore", "iron-profile-test-bangalore", "ferritin-test-bangalore", "vitamin-b12-test-bangalore", "dengue-test-bangalore"],
     referenceRanges: [
@@ -1393,6 +1393,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
 
 const SIMPLE_SLUG_MAP: Record<string, string> = {
   "cbc": "cbc-test-bangalore",
+  "complete-blood-count": "cbc-test-bangalore",
   "hba1c": "hba1c-test-bangalore",
   "thyroid": "thyroid-test-bangalore",
   "vitamin-d": "vitamin-d-test-bangalore",
@@ -1410,6 +1411,9 @@ const SIMPLE_SLUG_MAP: Record<string, string> = {
   "dengue": "dengue-test-bangalore",
   "malaria": "malaria-test-bangalore",
   "typhoid": "typhoid-test-bangalore",
+  "apob": "apob-test",
+  "apolipoprotein-b": "apob-test",
+  "apob-test-bangalore": "apob-test",
   "hiv": "hiv-test-bangalore",
   "hbsag": "hepatitis-b-test-bangalore"
 };

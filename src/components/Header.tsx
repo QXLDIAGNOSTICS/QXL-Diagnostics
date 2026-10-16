@@ -243,7 +243,7 @@ export default function Header() {
         <div className="hidden lg:flex bg-[#0B2545] text-white text-[11px] font-black py-1 px-3 items-center overflow-hidden border-b border-amber-500/20 shadow-xs relative">
           <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] w-max cursor-pointer" style={{ animationDuration: '45s' }}>
             {[1, 2].map((repeatKey) => (
-              <div key={repeatKey} className="flex items-center gap-4 shrink-0 mr-8">
+              <div key={repeatKey} className="flex items-center gap-4 shrink-0 mr-8" aria-hidden={repeatKey === 2 ? true : undefined}>
                 <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">NABL ACCREDITED ({NABL_CERTIFICATE})</span>
                 <span className="text-sky-100 font-bold">•</span>
                 <div className="brand-strip text-[11px] font-black !text-white inline-flex items-center gap-1 m-0 p-0">

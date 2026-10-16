@@ -25,7 +25,9 @@ import {
 } from "@/lib/businessInfo";
 
 export const metadata: Metadata = {
-  title: "QXL Diagnostics Yelahanka | Blood Test & Home Collection Centre",
+  title: {
+    absolute: "QXL Diagnostics Yelahanka | Blood Test & Home Collection Centre",
+  },
   description:
     "Book blood test & full body checkups at QXL Diagnostics Yelahanka, Bengaluru. NABL Accredited (MC-6849) lab tests, 100% free doorstep sample collection across Yelahanka, same-day reports.",
   alternates: {
@@ -87,8 +89,8 @@ export default function QXlYelahankaPage() {
       price: "₹1,770",
       mrp: "₹4,696",
       discount: "62% OFF",
-      params: "12+ Parameters",
-      desc: "Fast Sugar, HbA1c, Lipid Profile, LFT, KFT, Vitamin D & CBC.",
+      params: "80 Parameters",
+      desc: "80 Parameters (14 Core Panels) including Fasting Sugar, HbA1c, Lipid Profile, LFT, KFT, Vitamin D & CBC.",
     },
     {
       name: "Executive Health Package",

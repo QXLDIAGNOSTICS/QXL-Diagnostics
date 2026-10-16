@@ -265,6 +265,8 @@ const nextConfig: NextConfig = {
       // ── P0 Cannibalisation Fix: Redirect Duplicate Intent Slugs → Canonical URLs ────
       { source: "/cbc-test", destination: "/cbc-test-bangalore", permanent: true },
       { source: "/cbc-test/", destination: "/cbc-test-bangalore", permanent: true },
+      { source: "/complete-blood-count", destination: "/cbc-test-bangalore", permanent: true },
+      { source: "/complete-blood-count/", destination: "/cbc-test-bangalore", permanent: true },
       { source: "/hba1c-test", destination: "/hba1c-test-bangalore", permanent: true },
       { source: "/hba1c-test/", destination: "/hba1c-test-bangalore", permanent: true },
 
@@ -317,6 +319,13 @@ const nextConfig: NextConfig = {
       { source: "/diagnostic-lab-bengaluru", destination: "/diagnostic-lab-bangalore", permanent: true },
       { source: "/home-blood-collection-bengaluru", destination: "/home-blood-collection-bangalore", permanent: true },
       { source: "/packages/full-body-checkup-bengaluru", destination: "/full-body-checkup-bangalore", permanent: true },
+      // Duplicate test intents canonical consolidation
+      { source: "/apob", destination: "/apob-test", permanent: true },
+      { source: "/apob/", destination: "/apob-test", permanent: true },
+      { source: "/tests/apob", destination: "/apob-test", permanent: true },
+      { source: "/tests/apob/", destination: "/apob-test", permanent: true },
+      { source: "/apolipoprotein-b", destination: "/apob-test", permanent: true },
+      { source: "/apolipoprotein-b/", destination: "/apob-test", permanent: true },
     ];
   },
   async headers() {

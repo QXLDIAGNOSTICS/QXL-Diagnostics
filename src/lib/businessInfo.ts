@@ -55,9 +55,9 @@ export const ISO_STANDARD = CONFIG_ISO;
 export const BUSINESS_HOURS = {
   walkInHours: {
     kengeri: {
-      display: "Open 24 Hours, 7 Days a Week (24×7 Walk-ins & Lab Operations)",
-      opens: "00:00",
-      closes: "23:59",
+      display: "Walk-in: 6:30 AM – 8:00 PM (Mon–Sun) | 24×7 Emergency & Central Lab Processing",
+      opens: "06:30",
+      closes: "20:00",
       days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
     },
     yelahanka: {
@@ -84,11 +84,11 @@ export const BUSINESS_HOURS = {
 
   // Legacy mappings for backwards compatibility
   kengeri: {
-    display: "Open 24 Hours, 7 Days a Week (24×7 Walk-ins & Lab Operations)",
-    opens: "00:00",
-    closes: "23:59",
-    sunOpens: "00:00",
-    sunCloses: "23:59",
+    display: "Walk-in: 6:30 AM – 8:00 PM (Mon–Sun) | 24×7 Emergency & Central Lab Processing",
+    opens: "06:30",
+    closes: "20:00",
+    sunOpens: "06:30",
+    sunCloses: "20:00",
   },
   yelahanka: {
     display: "Walk-in: 7:00 AM – 8:00 PM (Mon–Sun)",
@@ -146,7 +146,7 @@ export const LOCATIONS: BusinessLocation[] = [
     lat: 12.9113827,
     lng: 77.4850301,
     isNabl: true,
-    hours: "Open 24 Hours, 7 Days a Week (24×7)",
+    hours: "Walk-in: 6:30 AM – 8:00 PM (Mon–Sun) | 24×7 Emergency & Lab Processing",
     googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=QXL+Diagnostics+Kengeri+Bengaluru",
   },
   {
@@ -173,4 +173,24 @@ export const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/company/qxl-diagnostics",
   twitter: "https://twitter.com/qxldiagnostics",
   instagram: "https://www.instagram.com/qxldiagnostics",
+  youtube: "https://www.youtube.com/@qxldiagnostics",
 };
+
+/**
+ * Authoritative Accreditation Master
+ * Backed by verified official NABL public record (MC-6849).
+ */
+export const ACCREDITATION_MASTER = {
+  certificateNumber: NABL_CERTIFICATE, // MC-6849
+  isoStandard: ISO_STANDARD, // ISO 15189:2022
+  discipline: "Medical Testing (Clinical Biochemistry, Clinical Pathology, Haematology, Microbiology)",
+  accreditedLegalEntity: `${BUSINESS_NAME} (${BUSINESS_PARENT_COMPANY})`,
+  accreditedFacility: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060",
+  issueDate: "2024-09-18",
+  validityThrough: "2026-09-17",
+  status: "Active / Continuing under ISO 15189:2022 standard",
+  issuingBodyName: "National Accreditation Board for Testing and Calibration Laboratories (NABL)",
+  issuingBodyUrl: "https://nabl-india.org/",
+  officialVerificationUrl: "https://nablwp.qci.org.in/Form11/CertificateNew?id=104100&u=9Hi+XB5yQjvylM5cpTB3EA%3D%3D",
+};
+
