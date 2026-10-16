@@ -16,7 +16,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { defaultBlogs, getDefaultBlogBySlug, getBlogCategory, getReadingTime } from "@/lib/blogsData";
-import { extractHeadings, slugifyHeading } from "@/lib/blogUtils";
+import { extractHeadings, slugifyHeading, getNodeText } from "@/lib/blogUtils";
 import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
 import TableOfContents from "@/components/blog/TableOfContents";
 import BlogShareBar from "@/components/blog/BlogShareBar";
@@ -540,9 +540,7 @@ export default async function SingleBlogPage({ params }: Props) {
                   remarkPlugins={[remarkGfm]}
                   components={{
                     h2: ({ node, children, ...props }) => {
-                      const text = Array.isArray(children)
-                        ? children.map((c) => (typeof c === "string" ? c : "")).join("")
-                        : String(children || "");
+                      const text = getNodeText(children);
                       const id = slugifyHeading(text);
                       return (
                         <h2
@@ -563,9 +561,7 @@ export default async function SingleBlogPage({ params }: Props) {
                       );
                     },
                     h3: ({ node, children, ...props }) => {
-                      const text = Array.isArray(children)
-                        ? children.map((c) => (typeof c === "string" ? c : "")).join("")
-                        : String(children || "");
+                      const text = getNodeText(children);
                       const id = slugifyHeading(text);
                       return (
                         <h3

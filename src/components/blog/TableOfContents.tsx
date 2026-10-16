@@ -9,8 +9,15 @@ interface TableOfContentsProps {
 }
 
 export default function TableOfContents({ headings }: TableOfContentsProps) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [activeId, setActiveId] = useState<string>("");
+
+  useEffect(() => {
+    // Expand by default on tablet and desktop (>= 768px), keep collapsed on mobile
+    if (typeof window !== "undefined" && window.innerWidth >= 768) {
+      setIsOpen(true);
+    }
+  }, []);
 
   useEffect(() => {
     if (!headings.length) return;

@@ -5,6 +5,24 @@ export interface HeadingItem {
 }
 
 /**
+ * Recursively extracts plain text string from any string, number, array, or React element tree.
+ */
+export function getNodeText(node: any): string {
+  if (node == null) return "";
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(getNodeText).join("");
+  if (typeof node === "object") {
+    if (node.props && node.props.children) {
+      return getNodeText(node.props.children);
+    }
+    if ("value" in node) {
+      return String(node.value || "");
+    }
+  }
+  return "";
+}
+
+/**
  * Converts heading text to a clean URL-friendly anchor slug.
  */
 export function slugifyHeading(text: string): string {
