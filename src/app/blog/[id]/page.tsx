@@ -53,6 +53,12 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
     };
   }, [unwrappedParams.id]);
 
+  useEffect(() => {
+    if (!blog) return;
+    const pageTitle = (blog as any).seo_title || `${blog.title} | QXL Diagnostics`;
+    document.title = pageTitle;
+  }, [blog]);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#f8faff]">
@@ -83,7 +89,7 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
         {/* Blog Header */}
         <div className="mb-8">
           <span className="inline-block bg-[#dbeafe] text-[#2563eb] text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">
-            Medical Article
+            {blog.category || "Medical Article"}
           </span>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0d2e42] leading-tight mb-4">
             {blog.title}
@@ -97,7 +103,7 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
             return (
               <>
                 <p className="text-sm font-semibold text-slate-400 mb-6 flex items-center gap-2">
-                  Last Updated: {displayDate} (Reviewed by QXL Medical Team)
+                  Last Updated: {displayDate} · {(blog as any).reviewer ? `Reviewed by ${(blog as any).reviewer}` : "Reviewed by QXL Medical Team"}
                 </p>
                 
                 <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-semibold border-b border-gray-200 pb-6">
