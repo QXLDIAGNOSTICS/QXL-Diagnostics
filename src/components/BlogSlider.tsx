@@ -12,6 +12,20 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
 
   const fallbackBlogs: BlogPost[] = [
     {
+      id: 'blog-new-22',
+      title: 'Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care',
+      slug: 'personalised-pregnancy-testing-bengaluru',
+      excerpt: 'Explore pregnancy blood tests by trimester, double marker, NIPT and gestational diabetes screening. Personalised prenatal testing with QXL Bengaluru.',
+      created_at: '2026-10-16T12:00:00.000Z'
+    },
+    {
+      id: 'blog-new-21',
+      title: 'ApoB vs LDL-C: Why Apolipoprotein B is the Superior Cardiovascular Biomarker in 2026',
+      slug: 'apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide',
+      excerpt: 'A comprehensive medical guide on why Apolipoprotein B provides superior predictive value for atherogenic risk compared to conventional LDL cholesterol.',
+      created_at: '2026-10-15T09:00:00.000Z'
+    },
+    {
       id: 'blog-new-20',
       title: 'Your Liver Works in Silence — A Simple Blood Test Lets You Listen',
       slug: 'your-liver-works-in-silence-simple-blood-test',
@@ -117,6 +131,12 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
       }
 
       const getTime = (item: any) => {
+        if (item.id === "blog-new-22" || item.slug === "personalised-pregnancy-testing-bengaluru") {
+          return new Date("2026-10-16T12:00:00.000Z").getTime();
+        }
+        if (item.id === "blog-new-21" || item.slug === "apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide") {
+          return new Date("2026-10-15T09:00:00.000Z").getTime();
+        }
         if (item.id === "blog-new-20" || item.slug === "your-liver-works-in-silence-simple-blood-test") {
           return new Date("2026-10-10T10:00:00.000Z").getTime();
         }

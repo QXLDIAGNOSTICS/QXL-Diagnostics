@@ -53,6 +53,7 @@ export default function Footer() {
       {label: "Careers", href: "/careers", visible: true},
       {label: "Hospital Lab Management", href: "/hospital-laboratory-management", visible: true},
       {label: "Founder & Consultants", href: "/team", visible: true},
+      {label: "Clinical Health Blog", href: "/blog", visible: true},
       {label: "Our Specialities", href: "/specialities", visible: true},
       {label: "Packages", href: "/packages", visible: true},
       {label: "Find Nearest Centre", href: "/centers", visible: true},

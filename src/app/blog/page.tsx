@@ -476,6 +476,64 @@ export default function BlogPage() {
         </div>
 
       </div>
+
+      {/* Blog Collection & ItemList JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "CollectionPage",
+                "@id": "https://qxldiagnostics.com/blog/#webpage",
+                "url": "https://qxldiagnostics.com/blog",
+                "name": "Clinical Diagnostics Blog & Evidence-Based Health Guides | QXL Bengaluru",
+                "description": "Evidence-based laboratory guides, prenatal testing timelines, cardiac markers, liver health, and diagnostic advances reviewed by consultant pathologists at QXL Bengaluru.",
+                "inLanguage": "en-IN",
+                "breadcrumb": {
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [
+                    {
+                      "@type": "ListItem",
+                      "position": 1,
+                      "name": "Home",
+                      "item": "https://qxldiagnostics.com/"
+                    },
+                    {
+                      "@type": "ListItem",
+                      "position": 2,
+                      "name": "Clinical Blog & Health Guides",
+                      "item": "https://qxldiagnostics.com/blog"
+                    }
+                  ]
+                },
+                "publisher": {
+                  "@type": ["DiagnosticLab", "MedicalOrganization"],
+                  "@id": "https://qxldiagnostics.com/#kengeri-lab",
+                  "name": "QXL Diagnostics",
+                  "url": "https://qxldiagnostics.com/",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://res.cloudinary.com/btjglif5/image/upload/v1784150212/Assets-QXL/legacy-assets/image/qxl_logo.png"
+                  }
+                }
+              },
+              {
+                "@type": "ItemList",
+                "@id": "https://qxldiagnostics.com/blog/#articles",
+                "name": "Clinical Diagnostic Guides",
+                "itemListElement": defaultBlogs.map((b, i) => ({
+                  "@type": "ListItem",
+                  "position": i + 1,
+                  "name": b.title,
+                  "url": `https://qxldiagnostics.com/blog/${b.slug}`
+                }))
+              }
+            ]
+          }),
+        }}
+      />
     </div>
   );
 }

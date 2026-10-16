@@ -158,25 +158,78 @@ export default async function SingleBlogPage({ params }: Props) {
 
   const jsonLd = (blog as any).custom_schema || {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://qxldiagnostics.com/blog/${blog.slug}/`,
-    },
-    headline: blog.title,
-    description: blog.excerpt,
-    image: (blog as any).image,
-    author: {
-      "@type": "Organization",
-      name: blog.author,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "QXL Diagnostics",
-      url: "https://qxldiagnostics.com/",
-    },
-    datePublished: (blog as any).created_at || "2026-10-16T12:00:00+05:30",
-    dateModified: "2026-10-16T12:00:00+05:30",
+    "@graph": [
+      {
+        "@type": ["BlogPosting", "MedicalWebPage"],
+        "@id": `https://qxldiagnostics.com/blog/${blog.slug}/#article`,
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `https://qxldiagnostics.com/blog/${blog.slug}/`,
+        },
+        headline: blog.title,
+        description: blog.excerpt,
+        image:
+          (blog as any).image ||
+          "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
+        inLanguage: "en-IN",
+        author: {
+          "@type": "Organization",
+          name: blog.author,
+          url: "https://qxldiagnostics.com/",
+        },
+        reviewedBy: {
+          "@type": "Person",
+          name: "Dr. Shantakumar Muruda",
+          jobTitle: "MD Biochemistry, NABL Lead Assessor",
+          worksFor: {
+            "@type": "DiagnosticLab",
+            name: "QXL Diagnostics",
+          },
+        },
+        publisher: {
+          "@type": ["DiagnosticLab", "MedicalOrganization"],
+          "@id": "https://qxldiagnostics.com/#kengeri-lab",
+          name: "QXL Diagnostics",
+          url: "https://qxldiagnostics.com/",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150212/Assets-QXL/legacy-assets/image/qxl_logo.png",
+          },
+        },
+        datePublished: (blog as any).created_at || "2026-10-16T12:00:00+05:30",
+        dateModified: (blog as any).created_at || "2026-10-16T12:00:00+05:30",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `https://qxldiagnostics.com/blog/${blog.slug}/#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://qxldiagnostics.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: "https://qxldiagnostics.com/blog",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: category,
+            item: "https://qxldiagnostics.com/blog",
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            name: blog.title,
+            item: `https://qxldiagnostics.com/blog/${blog.slug}/`,
+          },
+        ],
+      },
+    ],
   };
 
   const coverImage =
