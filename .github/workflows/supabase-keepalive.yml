@@ -1,0 +1,21 @@
+name: Supabase Keep-Alive
+
+on:
+  schedule:
+    # Run every 3 days at 05:00 UTC to prevent the 7-day inactivity pause
+    - cron: '0 5 */3 * *'
+  workflow_dispatch: # Allows manual run anytime from GitHub Actions tab
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase Database & REST API
+        run: |
+          echo "Pinging Supabase Project (jovyzupnxiohhapcibqm)..."
+          # Send a request to the REST API root
+          HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            "https://jovyzupnxiohhapcibqm.supabase.co/rest/v1/" || true)
+          echo "HTTP response status: $HTTP_STATUS"
+          echo "Supabase keep-alive ping completed successfully."
