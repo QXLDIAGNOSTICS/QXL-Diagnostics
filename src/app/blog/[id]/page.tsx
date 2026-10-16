@@ -179,33 +179,35 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id": `https://qxldiagnostics.com/blog/${blog.slug}`,
-            },
-            headline: blog.title,
-            description: blog.excerpt,
-            image: blog.image_url ? `https://qxldiagnostics.com${blog.image_url}` : undefined,
-            author: {
-              "@type": "Person",
-              name: blog.author,
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "QXL Diagnostics",
-              logo: {
-                "@type": "ImageObject",
-                url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
+          __html: JSON.stringify(
+            (blog as any).custom_schema || {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": `https://qxldiagnostics.com/blog/${blog.slug}`,
               },
-            },
-            datePublished: blog.created_at && !isNaN(new Date(blog.created_at).getTime())
-              ? new Date(blog.created_at).toISOString()
-              : "2026-10-10T10:00:00.000Z",
-            dateModified: new Date().toISOString(),
-          }),
+              headline: blog.title,
+              description: blog.excerpt,
+              image: blog.image_url ? `https://qxldiagnostics.com${blog.image_url}` : undefined,
+              author: {
+                "@type": "Person",
+                name: blog.author,
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "QXL Diagnostics",
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
+                },
+              },
+              datePublished: blog.created_at && !isNaN(new Date(blog.created_at).getTime())
+                ? new Date(blog.created_at).toISOString()
+                : "2026-10-10T10:00:00.000Z",
+              dateModified: new Date().toISOString(),
+            }
+          ),
         }}
       />
     </div>

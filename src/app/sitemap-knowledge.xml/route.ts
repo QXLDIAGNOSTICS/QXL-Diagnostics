@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { SITE_URL } from '@/lib/businessInfo';
 
 const BLOG_SLUGS = [
+  'personalised-pregnancy-testing-bengaluru',
   'apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide',
   'your-liver-works-in-silence-simple-blood-test',
   'advances-in-clinical-diagnostics-2026-molecular-pcr-immunoassays',
