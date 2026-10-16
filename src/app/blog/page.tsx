@@ -33,6 +33,9 @@ export default function BlogPage() {
       }
 
       const getTime = (item: any) => {
+        if (item.id === "blog-new-21" || item.slug === "apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide") {
+          return new Date("2026-10-15T09:00:00.000Z").getTime();
+        }
         if (item.id === "blog-new-20" || item.slug === "your-liver-works-in-silence-simple-blood-test") {
           return new Date("2026-10-10T10:00:00.000Z").getTime();
         }

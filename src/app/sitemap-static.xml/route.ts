@@ -45,6 +45,7 @@ const STATIC_URLS = [
   { path: '/careers', priority: '0.5', changefreq: 'monthly' },
   { path: '/test-directory', priority: '0.8', changefreq: 'weekly' },
   { path: '/knowledge-centre', priority: '0.9', changefreq: 'daily' },
+  { path: '/blog', priority: '0.9', changefreq: 'daily' },
   { path: '/insights', priority: '0.8', changefreq: 'weekly' },
   { path: '/upload-prescription', priority: '0.7', changefreq: 'monthly' },
   { path: '/news', priority: '0.9', changefreq: 'weekly' },

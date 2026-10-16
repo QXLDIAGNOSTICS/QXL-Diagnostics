@@ -5,21 +5,38 @@ const BASE_URL = 'https://qxldiagnostics.com';
 
 const CORE_TEST_PAGES = [
   '/cbc-test-bangalore',
+  '/cbc-test',
+  '/apob-test',
   '/hba1c-test-bangalore',
+  '/hba1c-test',
   '/thyroid-test-bangalore',
+  '/thyroid-test',
   '/vitamin-d-test-bangalore',
+  '/vitamin-d-test',
   '/vitamin-b12-test-bangalore',
+  '/vitamin-b12-test',
   '/lipid-profile-test-bangalore',
+  '/lipid-profile-test',
   '/liver-function-test-bangalore',
+  '/liver-function-test',
   '/kidney-function-test-bangalore',
+  '/kidney-function-test',
   '/fasting-blood-sugar-test-bangalore',
 ];
+
+const RETIRED_REDIRECTED_SLUGS = new Set([
+  '/apob',
+  '/apolipoprotein-b',
+  '/complete-blood-count',
+  '/tests/apob',
+]);
 
 export async function GET() {
   const lastmod = new Date().toISOString();
   
   const cmsSlugs = Object.keys(cms100MasterData).map((slug) => `/${slug}`);
-  const allTestPaths = Array.from(new Set([...CORE_TEST_PAGES, ...cmsSlugs]));
+  const allTestPaths = Array.from(new Set([...CORE_TEST_PAGES, ...cmsSlugs]))
+    .filter((path) => !RETIRED_REDIRECTED_SLUGS.has(path));
 
   const urlsXml = allTestPaths
     .map(

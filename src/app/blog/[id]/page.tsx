@@ -93,7 +93,7 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
               ? (blog as any).date
               : blog.created_at && !isNaN(new Date(blog.created_at).getTime())
               ? new Date(blog.created_at).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })
-              : "September 2026";
+              : "October 2026";
             return (
               <>
                 <p className="text-sm font-semibold text-slate-400 mb-6 flex items-center gap-2">
@@ -201,8 +201,10 @@ export default function SingleBlogPage({ params }: { params: Promise<{ id: strin
                 url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
               },
             },
-            datePublished: new Date(blog.created_at).toISOString(),
-            dateModified: new Date(blog.created_at).toISOString(),
+            datePublished: blog.created_at && !isNaN(new Date(blog.created_at).getTime())
+              ? new Date(blog.created_at).toISOString()
+              : "2026-10-10T10:00:00.000Z",
+            dateModified: new Date().toISOString(),
           }),
         }}
       />

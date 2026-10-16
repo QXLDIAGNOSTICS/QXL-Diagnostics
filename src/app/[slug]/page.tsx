@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     other: {
       "medical-reviewed-by": links?.doctorName ?? pageData.doctorName ?? "Dr. Shantakumar Muruda",
       "medical-reviewer-credentials": links?.doctorQuals ?? pageData.doctorQuals ?? "MD Biochemistry",
-      "medical-review-date": "2026-08-31",
+      "medical-review-date": "2026-10-16",
       "medical-specialty": pageData.category,
       "nabl-accreditation": NABL_CERTIFICATE,
       "lab-iso-standard": ISO_STANDARD,
@@ -245,7 +245,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
               <MedicalReviewerBadge
                 doctorName={doctorName}
                 qualifications={doctorQuals}
-                reviewDate="August 2026"
+                reviewDate="October 2026"
               />
             </div>
 
@@ -450,7 +450,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
                 qualifications={doctorQuals}
                 specialty={data.category}
                 note={data.doctorNote}
-                reviewDate="August 2026"
+                reviewDate="October 2026"
               />
             )}
 

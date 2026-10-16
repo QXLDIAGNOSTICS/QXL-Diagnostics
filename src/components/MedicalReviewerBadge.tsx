@@ -13,7 +13,7 @@ export default function MedicalReviewerBadge({
   doctorName = "Dr. Shantakumar Muruda",
   doctorSlug = "dr-shantakumar-muruda",
   qualifications = "MD (Biochemistry)",
-  reviewDate = "18 August 2026",
+  reviewDate = "October 2026",
 }: Props) {
   const profileHref = doctorSlug.startsWith("/") ? doctorSlug : `/${doctorSlug}`;
   return (

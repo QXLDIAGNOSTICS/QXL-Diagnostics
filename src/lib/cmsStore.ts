@@ -152,6 +152,17 @@ const defaultFaqs = [
 
 const defaultBlogs = [
   {
+    id: "blog-new-21",
+    title: "Apolipoprotein B (ApoB) vs LDL Cholesterol in Bengaluru: The Definitive 2026 Guide to Atherogenic Heart Risk",
+    slug: "apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide",
+    excerpt: "Discover why international cardiologists and lipidologists recommend ApoB over standard LDL-C to count the exact number of plaque-causing atherogenic particles in the bloodstream.",
+    content: "### Why Standard Cholesterol Reports Miss Hidden Cardiac Risk\n\nFor decades, cardiovascular disease risk has been assessed using LDL Cholesterol (LDL-C). However, modern lipidology has demonstrated that LDL-C measures the *weight* or *mass* of cholesterol inside low-density lipoprotein particles—not the actual *number* of particles that penetrate the arterial endothelium.\n\nEvery single atherogenic particle—including LDL, VLDL, IDL, and Lipoprotein(a)—carries exactly **one molecule of Apolipoprotein B (ApoB)** on its outer shell. By measuring serum ApoB, the laboratory counts the direct number of circulating plaque-forming particles.\n\n### The Discordance Problem: When LDL Looks Normal but Risk is High\n\nIn clinical practice in Bengaluru, discordance between LDL-C and ApoB is particularly prevalent among patients with:\n- Type 2 Diabetes or Prediabetes\n- Metabolic Syndrome or Central Adiposity\n- Elevated Triglycerides (> 150 mg/dL) and Low HDL-C\n- Strong family history of premature coronary artery disease (CAD)\n\nIn these individuals, the liver produces high numbers of small, dense LDL particles. Because each particle carries less cholesterol per unit, the calculated LDL-C may appear deceptively normal (e.g. 95 mg/dL), while the actual ApoB particle count is dangerously elevated (> 110 mg/dL).\n\n### Clinical Reference Intervals for ApoB\n\n| Clinical Risk Category | Serum ApoB Target (mg/dL) | Clinical Action |\n| :--- | :--- | :--- |\n| **Optimal / Low Risk** | < 80 mg/dL | Maintain lifestyle, diet, and regular exercise |\n| **Moderate Risk** | 80 – 99 mg/dL | Annual monitoring and lifestyle optimization |\n| **High Risk (Diabetes, Pre-CAD)** | < 70 mg/dL | Aggressive medical lipid-lowering under physician guidance |\n| **Very High Risk (Post-MI, Stents)** | < 55 mg/dL | Intensive secondary prevention |\n\n### Patient Preparation: Fasting vs Non-Fasting\n\nUnlike traditional lipid profiles that require an 8-to-12 hour overnight fast to avoid triglyceride interference in the Friedewald formula, **ApoB testing requires no fasting**. Serum ApoB concentrations remain highly stable post-prandially and can be drawn at any time of day.\n\n### Accredited Laboratory Precision at QXL Diagnostics\n\nAt QXL Diagnostics (NABL Certificate MC-6849, ISO 15189:2022), Apolipoprotein B is measured using automated, WHO-IFCC standardized immunoturbidimetric assays calibrated against international reference material SP3-07. Reports are authorized by consultant clinical biochemists within 12 hours with free temperature-controlled home blood collection available across all Bengaluru pincodes.",
+    author: "Dr. Shantakumar Muruda, MD (Biochemistry)",
+    date: "October 15, 2026",
+    created_at: "2026-10-15T09:00:00Z",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
+  },
+  {
     id: "blog-new-20",
     title: "Your Liver Works in Silence — A Simple Blood Test Lets You Listen",
     slug: "your-liver-works-in-silence-simple-blood-test",

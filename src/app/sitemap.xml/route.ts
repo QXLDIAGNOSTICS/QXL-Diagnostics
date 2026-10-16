@@ -11,6 +11,7 @@ const CHILD_SITEMAPS = [
   'sitemap-locations.xml',
   'sitemap-doctors.xml',
   'sitemap-b2b.xml',
+  'sitemap-knowledge.xml',
 ];
 
 export async function GET() {

@@ -476,18 +476,13 @@ const rakshaOfferSchema = {
     "url": "https://qxldiagnostics.com/raksha-bandhan-health-checkup-bangalore",
     "priceCurrency": "INR",
     "price": "800",
-    "priceValidUntil": "2026-08-31",
+    "priceValidUntil": "2027-12-31",
     "itemCondition": "https://schema.org/NewCondition",
     "availability": "https://schema.org/InStock",
     "seller": {
       "@type": "Organization",
       "name": "QXL Diagnostics Super Speciality Lab"
     }
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "620"
   }
 };
 
