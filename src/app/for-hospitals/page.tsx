@@ -137,7 +137,7 @@ export default function ForHospitalsPage() {
       <section className="bg-gradient-to-br from-[#0B2545] via-[#0f2d5e] to-[#164263] text-white py-14 md:py-20 relative overflow-hidden">
         <div className="max-w-[1260px] mx-auto px-4 relative z-10">
           <div className="max-w-4xl">
-            <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">
+            <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">
               For Hospitals, Nursing Homes, Clinics &amp; Laboratories
             </span>
 
@@ -152,7 +152,7 @@ export default function ForHospitalsPage() {
             <div className="flex flex-wrap items-center gap-4 mb-10">
               <a
                 href="#b2b-form"
-                className="bg-[#D69A18] hover:bg-[#b88313] text-white font-black px-8 py-4 rounded-2xl text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all active:scale-95 cursor-pointer"
+                className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-8 py-4 rounded-2xl text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all active:scale-95 cursor-pointer"
               >
                 <span>Request a Rate Card</span>
                 <ArrowRight className="w-4 h-4" />
@@ -162,7 +162,7 @@ export default function ForHospitalsPage() {
                 href={`tel:${PHONE_E164}`}
                 className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-black px-7 py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
               >
-                <Phone className="w-4 h-4 text-[#D69A18]" />
+                <Phone className="w-4 h-4 text-[#2563EB]" />
                 <span>Speak to Dr. Muruda — {PHONE_DISPLAY}</span>
               </a>
             </div>
@@ -196,7 +196,7 @@ export default function ForHospitalsPage() {
       {/* ── 3. WHO THIS PAGE IS FOR ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Partnership Models</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Partnership Models</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
             Built for the lab you don&apos;t want to build
           </h2>
@@ -242,7 +242,7 @@ export default function ForHospitalsPage() {
       <section className="py-16 bg-white border-y border-slate-200">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Test Directory Highlights</span>
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Test Directory Highlights</span>
             <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
               Tests worth referring — and the ones you&apos;d rather not run yourself
             </h2>
@@ -254,7 +254,7 @@ export default function ForHospitalsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {disciplines.map((d, i) => (
               <div key={i} className="bg-[#f8fafc] border border-slate-200 p-6 rounded-2xl flex items-start gap-4">
-                <div className="w-8 h-8 rounded-xl bg-amber-100 text-[#D69A18] flex items-center justify-center font-black text-sm shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-amber-100 text-[#2563EB] flex items-center justify-center font-black text-sm shrink-0">
                   {i + 1}
                 </div>
                 <div>
@@ -276,7 +276,7 @@ export default function ForHospitalsPage() {
       {/* ── 5. HOW IT WORKS ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Operational Workflow</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Operational Workflow</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
             From your collection room to a signed report
           </h2>
@@ -302,54 +302,54 @@ export default function ForHospitalsPage() {
       </section>
 
       {/* ── 6. WHY QXL AND NOT NATIONAL CHAINS ── */}
-      <section className="py-16 bg-[#0B2545] text-white">
+      <section className="py-16 bg-gradient-to-b from-[#f0f7ff] via-white to-[#eaf3fe] text-slate-800 border-y border-blue-100">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Differentiators</span>
-            <h2 className="text-2xl md:text-3xl font-black text-white mt-1">
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Differentiators</span>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0B2545] mt-1">
               A lab run by a NABL assessor, not a franchise sales team
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-2">
-              <h3 className="font-extrabold text-[#D69A18] text-base">Assessor-Grade Quality</h3>
-              <p className="text-xs text-sky-100 font-semibold leading-relaxed">
+            <div className="bg-white border border-blue-200/80 p-6 rounded-2xl space-y-2 shadow-2xs hover:shadow-md transition-shadow">
+              <h3 className="font-extrabold text-[#2563EB] text-base">Assessor-Grade Quality</h3>
+              <p className="text-xs text-slate-600 font-semibold leading-relaxed">
                 QXL Founder Dr. Shantakumar Muruda (MD Biochemistry) is a NABL-empanelled Lead Assessor with 150+ accreditation assessments across India. Our quality system is built by someone who audits other labs for a living.
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-2">
-              <h3 className="font-extrabold text-[#D69A18] text-base">Doctors on the Phone</h3>
-              <p className="text-xs text-sky-100 font-semibold leading-relaxed">
+            <div className="bg-white border border-blue-200/80 p-6 rounded-2xl space-y-2 shadow-2xs hover:shadow-md transition-shadow">
+              <h3 className="font-extrabold text-[#2563EB] text-base">Doctors on the Phone</h3>
+              <p className="text-xs text-slate-600 font-semibold leading-relaxed">
                 Your clinicians can speak directly to the pathologist or biochemist who signed the report, not a call-centre script agent. Direct doctor-to-doctor consultations.
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-2">
-              <h3 className="font-extrabold text-[#D69A18] text-base">Local Turnaround</h3>
-              <p className="text-xs text-sky-100 font-semibold leading-relaxed">
+            <div className="bg-white border border-blue-200/80 p-6 rounded-2xl space-y-2 shadow-2xs hover:shadow-md transition-shadow">
+              <h3 className="font-extrabold text-[#2563EB] text-base">Local Turnaround</h3>
+              <p className="text-xs text-slate-600 font-semibold leading-relaxed">
                 Samples don&apos;t fly to another city. Same-day reporting on chemistry and immunoassay; rapid turnaround on IHC, histopathology and molecular PCR.
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-2">
-              <h3 className="font-extrabold text-[#D69A18] text-base">No Competition with You</h3>
-              <p className="text-xs text-sky-100 font-semibold leading-relaxed">
+            <div className="bg-white border border-blue-200/80 p-6 rounded-2xl space-y-2 shadow-2xs hover:shadow-md transition-shadow">
+              <h3 className="font-extrabold text-[#2563EB] text-base">No Competition with You</h3>
+              <p className="text-xs text-slate-600 font-semibold leading-relaxed">
                 We respect your clinician relationships. We don&apos;t run walk-in outlets competing directly in your immediate catchment area.
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-2">
-              <h3 className="font-extrabold text-[#D69A18] text-base">Accreditation as a Service</h3>
-              <p className="text-xs text-sky-100 font-semibold leading-relaxed">
+            <div className="bg-white border border-blue-200/80 p-6 rounded-2xl space-y-2 shadow-2xs hover:shadow-md transition-shadow">
+              <h3 className="font-extrabold text-[#2563EB] text-base">Accreditation as a Service</h3>
+              <p className="text-xs text-slate-600 font-semibold leading-relaxed">
                 For Hospital Lab Management (HLM) partners, we commit to taking your in-house laboratory to formal NABL accreditation within a defined timeline.
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-2">
-              <h3 className="font-extrabold text-[#D69A18] text-base">Clinical Interpretive Comments</h3>
-              <p className="text-xs text-sky-100 font-semibold leading-relaxed">
+            <div className="bg-white border border-blue-200/80 p-6 rounded-2xl space-y-2 shadow-2xs hover:shadow-md transition-shadow">
+              <h3 className="font-extrabold text-[#2563EB] text-base">Clinical Interpretive Comments</h3>
+              <p className="text-xs text-slate-600 font-semibold leading-relaxed">
                 Autoimmune IFA patterns, serum protein electrophoretic bands, and complex tumour markers include actionable clinical notes for your treating physicians.
               </p>
             </div>
@@ -360,7 +360,7 @@ export default function ForHospitalsPage() {
       {/* ── 9. FAQ SECTION ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">B2B Clarifications</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">B2B Clarifications</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
             Frequently Asked Questions by Medical Directors &amp; Lab In-charges
           </h2>
@@ -382,7 +382,7 @@ export default function ForHospitalsPage() {
           <div className="grid md:grid-cols-12 gap-10 items-center">
             
             <div className="md:col-span-6 space-y-6">
-              <span className="inline-block bg-[#D69A18] text-white text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
+              <span className="inline-block bg-[#2563EB] text-white text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
                 Start Referral Partnership
               </span>
               <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">

@@ -255,7 +255,7 @@ export default function FoodSensitivityTestPage() {
           <div className="grid md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-8 space-y-4">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="bg-[#D69A18] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                <span className="bg-[#2563EB] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
                   287 FOOD ANTIGEN PANEL
                 </span>
                 <span className="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[10px] font-bold px-3 py-1 rounded-full">
@@ -317,7 +317,7 @@ export default function FoodSensitivityTestPage() {
                 <div className="space-y-2 pt-2">
                   <Link
                     href={`/book?test=${testData.id}`}
-                    className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-95"
+                    className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-95"
                   >
                     <span>Book Home Collection</span>
                     <ArrowRight className="w-4 h-4" />
@@ -391,11 +391,11 @@ export default function FoodSensitivityTestPage() {
         <div className="max-w-[1240px] mx-auto px-4">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-[#0B2545] text-amber-400 flex items-center justify-center font-black text-xl shrink-0 shadow-md">
+              <div className="w-14 h-14 rounded-2xl bg-[#2563EB] text-white flex items-center justify-center font-black text-xl shrink-0 shadow-xs">
                 DS
               </div>
               <div>
-                <span className="text-[10px] font-black text-[#D69A18] uppercase tracking-wider block">CLINICAL REVIEWER</span>
+                <span className="text-[10px] font-black text-[#2563EB] uppercase tracking-wider block">CLINICAL REVIEWER</span>
                 <h3 className="text-lg font-black text-[#0f2d5e]">Dr. Shantakumar Muruda, MD</h3>
                 <p className="text-xs text-slate-500 font-semibold">Founder &amp; Chief Clinical Biochemist, NABL Lead Assessor</p>
               </div>
@@ -406,7 +406,7 @@ export default function FoodSensitivityTestPage() {
                 href="/team"
                 className="bg-slate-100 hover:bg-slate-200 text-[#0f2d5e] font-extrabold text-xs px-4 py-2.5 rounded-xl transition-colors inline-flex items-center gap-1.5"
               >
-                <UserCheck className="w-4 h-4 text-[#D69A18]" />
+                <UserCheck className="w-4 h-4 text-[#2563EB]" />
                 <span>View Specialist Profile</span>
               </Link>
               <Link
@@ -423,11 +423,11 @@ export default function FoodSensitivityTestPage() {
       {/* ── FREQUENTLY ASKED QUESTIONS (19 EVIDENCE-BASED AEO FAQS) ── */}
       <section className="py-12 max-w-[1240px] mx-auto px-4">
         <div className="mb-8">
-          <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-2">
+          <span className="bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-2">
             EVIDENCE-BASED MEDICAL FAQS
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-[#0f2d5e] flex items-center gap-2">
-            <HelpCircle className="w-7 h-7 text-[#D69A18]" />
+            <HelpCircle className="w-7 h-7 text-[#2563EB]" />
             <span>287 Food Sensitivity Test, Food Intolerance &amp; Post-Meal Bloating FAQs</span>
           </h2>
           <p className="text-slate-500 text-xs font-medium mt-1">
@@ -437,7 +437,7 @@ export default function FoodSensitivityTestPage() {
 
         <div className="grid md:grid-cols-2 gap-4">
           {FOOD_SENSITIVITY_FAQS.map((faq, idx) => (
-            <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs hover:border-[#D69A18] transition-colors">
+            <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-2xs hover:border-[#2563EB] transition-colors">
               <h3 className="font-extrabold text-[#0f2d5e] text-sm mb-2 leading-snug">{faq.name}</h3>
               <p className="text-slate-600 text-xs leading-relaxed font-medium">{faq.text}</p>
             </div>

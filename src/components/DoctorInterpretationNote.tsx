@@ -22,10 +22,7 @@ export default function DoctorInterpretationNote({
   photoUrl,
 }: Props) {
   return (
-    <div className="bg-gradient-to-br from-[#0f2d5e] to-[#1a4070] rounded-3xl p-6 shadow-xl relative overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute top-0 right-0 w-40 h-40 bg-[#2563eb]/20 rounded-full blur-3xl pointer-events-none" />
-
+    <div className="bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 rounded-3xl p-6 shadow-sm relative overflow-hidden">
       {/* Header */}
       <div className="flex items-start gap-4 mb-5 relative z-10">
         {/* Doctor avatar */}
@@ -34,10 +31,10 @@ export default function DoctorInterpretationNote({
             <img
               src={photoUrl}
               alt={doctorName}
-              className="w-14 h-14 rounded-2xl object-cover border-2 border-white/20 shadow-lg"
+              className="w-14 h-14 rounded-2xl object-cover border-2 border-white shadow-md"
             />
           ) : (
-            <div className="w-14 h-14 rounded-2xl bg-[#2563eb]/40 border border-white/20 flex items-center justify-center text-2xl font-black text-white shadow-inner">
+            <div className="w-14 h-14 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-2xl font-black text-[#0284c7] shadow-sm">
               {doctorName.charAt(3).toUpperCase()}
             </div>
           )}
@@ -45,31 +42,33 @@ export default function DoctorInterpretationNote({
 
         {/* Doctor info */}
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <BadgeCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-            <span className="text-emerald-300 text-[10px] font-extrabold uppercase tracking-widest">
+          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-emerald-50 border border-emerald-200 rounded-full mb-1">
+            <BadgeCheck className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+            <span className="text-emerald-700 text-[10px] font-extrabold uppercase tracking-wider">
               Doctor-Reviewed Content
             </span>
           </div>
-          <Link
-            href={`/${doctorSlug}`}
-            className="font-extrabold text-white text-sm hover:text-sky-300 transition-colors"
-          >
-            {doctorName}
-          </Link>
-          <p className="text-sky-200 text-[11px] font-medium mt-0.5">
+          <div>
+            <Link
+              href={`/${doctorSlug}`}
+              className="font-extrabold text-[#0B2545] text-sm hover:text-[#2563eb] transition-colors"
+            >
+              {doctorName}
+            </Link>
+          </div>
+          <p className="text-slate-500 text-[11px] font-medium mt-0.5">
             {qualifications} · {specialty}
           </p>
         </div>
       </div>
 
       {/* Quote */}
-      <div className="relative z-10 bg-white/8 border border-white/15 rounded-2xl p-5 backdrop-blur-sm">
-        <Quote className="w-5 h-5 text-sky-400/60 mb-2 flex-shrink-0" />
-        <p className="text-blue-100 text-sm leading-relaxed font-medium">
+      <div className="relative z-10 bg-white border border-blue-100 rounded-2xl p-5 shadow-sm">
+        <Quote className="w-5 h-5 text-sky-500/70 mb-2 flex-shrink-0" />
+        <p className="text-slate-700 text-sm leading-relaxed font-medium">
           {note}
         </p>
-        <p className="text-sky-300/60 text-[10px] font-semibold mt-3 pt-3 border-t border-white/10">
+        <p className="text-slate-400 text-[10px] font-semibold mt-3 pt-3 border-t border-slate-100">
           Clinically reviewed · {reviewDate} · QXL Diagnostics NABL Lab
         </p>
       </div>

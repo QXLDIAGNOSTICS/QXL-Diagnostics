@@ -38,8 +38,8 @@ export default function RunningTextMarquee() {
   return (
     <div className="w-full flex flex-col gap-1.5 py-2.5 bg-slate-100 overflow-hidden border-y border-slate-200 shadow-xs">
       
-      {/* ── Line 1: Blue Ticker (Diagnostic Tests) ── */}
-      <div className="relative w-full overflow-hidden flex items-center bg-[#0f2d5e] py-2 shadow-xs">
+      {/* ── Line 1: Sky Blue Ticker (Diagnostic Tests) ── */}
+      <div className="relative w-full overflow-hidden flex items-center bg-[#0284c7] py-2 shadow-xs">
         <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] cursor-pointer" style={{ animationDuration: '65s' }}>
           {tickerItems1.map((item, idx) => (
             <span key={`t1-p-${idx}`} className="inline-flex items-center gap-3 text-white text-xs sm:text-sm font-black uppercase tracking-wider mx-6">

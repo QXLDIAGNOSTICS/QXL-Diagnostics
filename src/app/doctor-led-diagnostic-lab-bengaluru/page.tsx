@@ -98,7 +98,7 @@ export default function DoctorLedSeoPage() {
               {/* Left Column Text */}
               <div className="flex-1 space-y-5 text-center lg:text-left">
                 <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 px-4 py-1.5 rounded-full text-sky-300 text-xs font-black uppercase tracking-wider">
-                  <Award className="w-4 h-4 text-amber-400" />
+                  <Award className="w-4 h-4 text-sky-400" />
                   <span>NABL Accredited Laboratory (MC-6849) | ISO 15189:2022</span>
                 </div>
 
@@ -133,7 +133,7 @@ export default function DoctorLedSeoPage() {
                 </span>
 
                 <h2 className="text-lg font-extrabold text-white mb-3 flex items-center gap-2">
-                  <UserCheck className="w-5 h-5 text-amber-400" />
+                  <UserCheck className="w-5 h-5 text-sky-400" />
                   What makes QXL Doctor-Led?
                 </h2>
 

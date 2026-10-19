@@ -99,9 +99,9 @@ export default function LocationsIndexPage() {
         </section>
 
         {/* Call to action */}
-        <div className="mt-16 bg-[#0f2d5e] text-white rounded-3xl p-8 text-center shadow-xl">
-          <h2 className="text-2xl font-black mb-3">Don't see your specific locality?</h2>
-          <p className="text-sky-200 text-sm max-w-xl mx-auto mb-6">
+        <div className="mt-16 bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 text-slate-800 rounded-3xl p-8 text-center shadow-md">
+          <h2 className="text-2xl font-black text-[#0B2545] mb-3">Don't see your specific locality?</h2>
+          <p className="text-slate-600 text-sm max-w-xl mx-auto mb-6">
             We cover 100% of pin codes in Bengaluru urban & rural districts. Call or WhatsApp our helpline to schedule an immediate home collection sample pickup.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

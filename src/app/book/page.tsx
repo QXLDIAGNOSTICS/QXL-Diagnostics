@@ -772,7 +772,7 @@ export default function BookPage() {
     <div className="bg-slate-50 min-h-screen font-sans text-slate-900 antialiased flex flex-col w-full pb-28 lg:pb-16">
       {/* Toast Popup */}
       {toastMsg && (
-        <div className="fixed bottom-20 lg:bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#0B2545] text-white text-xs md:text-sm font-extrabold px-6 py-3 rounded-full shadow-2xl border border-amber-400/40 animate-in fade-in zoom-in duration-200">
+        <div className="fixed bottom-20 lg:bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#0284c7] text-white text-xs md:text-sm font-extrabold px-6 py-3 rounded-full shadow-2xl border border-sky-300 animate-in fade-in zoom-in duration-200">
           {toastMsg}
         </div>
       )}
@@ -814,7 +814,7 @@ export default function BookPage() {
               ✕
             </button>
 
-            <div className="w-10 h-10 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] flex items-center justify-center text-xl mb-3 shadow-2xs">
+            <div className="w-10 h-10 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] flex items-center justify-center text-xl mb-3 shadow-2xs">
               <FileText className="w-5 h-5" />
             </div>
             <h3 className="text-base font-black text-[#0B2545]">Upload Doctor Prescription</h3>
@@ -846,12 +846,12 @@ export default function BookPage() {
 
                 <div className="border-2 border-dashed border-slate-200 rounded-2xl p-4 text-center bg-slate-50">
                   <div className="text-xs font-bold text-slate-600">Attach Prescription Image / PDF</div>
-                  <input type="file" accept="image/*,.pdf" className="mt-2 text-xs text-slate-500 file:mr-2 file:py-1 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#0B2545] file:text-white cursor-pointer" />
+                  <input type="file" accept="image/*,.pdf" className="mt-2 text-xs text-slate-500 file:mr-2 file:py-1 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#2563EB] file:text-white cursor-pointer" />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#0B2545] hover:bg-amber-400 hover:text-slate-950 text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer"
+                  className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer"
                 >
                   Request Call Back &amp; Test Booking
                 </button>
@@ -868,7 +868,7 @@ export default function BookPage() {
             {/* Drawer Header */}
             <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-[#0B2545] text-amber-400 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#2563EB] border border-blue-200 flex items-center justify-center">
                   <SlidersHorizontal className="w-4 h-4" />
                 </div>
                 <div>
@@ -900,7 +900,7 @@ export default function BookPage() {
                       onClick={() => setSelectedCat(c.id)}
                       className={`px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
                         selectedCat === c.id
-                          ? "bg-[#0B2545] text-white border-[#0B2545]"
+                          ? "bg-[#2563EB] text-white border-[#2563EB]"
                           : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                       }`}
                     >
@@ -928,7 +928,7 @@ export default function BookPage() {
                       onClick={() => setTypeFilter(t.id as any)}
                       className={`py-2 px-2.5 rounded-xl text-xs font-extrabold text-center transition-all border cursor-pointer ${
                         typeFilter === t.id
-                          ? "bg-[#0B2545] text-white border-[#0B2545] shadow-2xs"
+                          ? "bg-[#2563EB] text-white border-[#2563EB] shadow-2xs"
                           : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                       }`}
                     >
@@ -955,7 +955,7 @@ export default function BookPage() {
                       onClick={() => setFastingFilter(f.id as any)}
                       className={`py-2 px-2 rounded-xl text-xs font-extrabold text-center transition-all border cursor-pointer ${
                         fastingFilter === f.id
-                          ? "bg-[#0B2545] text-white border-[#0B2545]"
+                          ? "bg-[#2563EB] text-white border-[#2563EB]"
                           : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                       }`}
                     >
@@ -984,7 +984,7 @@ export default function BookPage() {
                       onClick={() => setPriceFilter(p.id as any)}
                       className={`px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all border cursor-pointer ${
                         priceFilter === p.id
-                          ? "bg-[#0B2545] text-white border-[#0B2545]"
+                          ? "bg-[#2563EB] text-white border-[#2563EB]"
                           : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
                       }`}
                     >
@@ -995,19 +995,19 @@ export default function BookPage() {
               </div>
 
               {/* 5. Doctor Recommended Toggle */}
-              <div className="bg-amber-50/70 border border-amber-200 rounded-2xl p-3.5 flex items-center justify-between gap-3">
+              <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-2xl p-3.5 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-amber-700 shrink-0" />
+                  <ShieldCheck className="w-5 h-5 text-[#2563EB] shrink-0" />
                   <div>
-                    <div className="text-xs font-black text-amber-950">Doctor Recommended Only</div>
-                    <div className="text-[10.5px] text-amber-800 font-medium">Show health packages recommended by clinicians</div>
+                    <div className="text-xs font-black text-[#0B2545]">Doctor Recommended Only</div>
+                    <div className="text-[10.5px] text-slate-600 font-medium">Show health packages recommended by clinicians</div>
                   </div>
                 </div>
                 <button
                   type="button"
                   onClick={() => setDoctorRecOnly(!doctorRecOnly)}
                   className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer ${
-                    doctorRecOnly ? "bg-amber-600" : "bg-slate-300"
+                    doctorRecOnly ? "bg-[#2563EB]" : "bg-slate-300"
                   }`}
                 >
                   <span
@@ -1050,7 +1050,7 @@ export default function BookPage() {
               <button
                 type="button"
                 onClick={() => setShowFilterDrawer(false)}
-                className="bg-[#0B2545] hover:bg-amber-400 hover:text-slate-950 text-white font-black text-xs px-6 py-2.5 rounded-xl uppercase tracking-wider transition-all cursor-pointer shadow-md"
+                className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black text-xs px-6 py-2.5 rounded-xl uppercase tracking-wider transition-all cursor-pointer shadow-md"
               >
                 Apply Filters ({sortedFilteredTests.length})
               </button>
@@ -1076,7 +1076,7 @@ export default function BookPage() {
                       onClick={() => setSelectedCat(c.id)}
                       className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[10px] sm:text-[11px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
                         active
-                          ? "bg-[#0B2545] text-white border-[#0B2545] shadow-2xs"
+                          ? "bg-[#2563EB] text-white border-[#2563EB] shadow-2xs"
                           : "bg-white text-slate-700 border-slate-200/90 hover:bg-slate-100"
                       }`}
                     >
@@ -1097,7 +1097,7 @@ export default function BookPage() {
                   onClick={() => setShowFilterDrawer(true)}
                   className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-md sm:rounded-lg text-[10.5px] sm:text-xs font-black transition-all cursor-pointer flex items-center gap-1 sm:gap-1.5 border shadow-2xs ${
                     activeFilterCount > 0
-                      ? "bg-[#0B2545] text-white border-[#0B2545]"
+                      ? "bg-[#2563EB] text-white border-[#2563EB]"
                       : "bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-200"
                   }`}
                 >
@@ -1128,10 +1128,10 @@ export default function BookPage() {
                   <button
                     type="button"
                     onClick={() => setShowRxModal(true)}
-                    className="px-2.5 py-1 rounded-md text-[10.5px] font-black transition-all cursor-pointer flex items-center gap-1 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-300 shadow-2xs"
+                    className="px-2.5 py-1 rounded-md text-[10.5px] font-black transition-all cursor-pointer flex items-center gap-1 bg-[#EFF6FF] hover:bg-blue-100 text-[#0B2545] border border-[#BFDBFE] shadow-2xs"
                     title="Upload Doctor Prescription"
                   >
-                    <FileText className="w-3 h-3 text-amber-700" />
+                    <FileText className="w-3 h-3 text-[#2563EB]" />
                     <span>Upload Rx</span>
                   </button>
 
@@ -1164,11 +1164,11 @@ export default function BookPage() {
                     onClick={() => setDoctorRecOnly(!doctorRecOnly)}
                     className={`px-2.5 py-1 rounded-md text-[10.5px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
                       doctorRecOnly
-                        ? "bg-amber-100 text-amber-900 border-amber-300 shadow-2xs"
+                        ? "bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE] shadow-2xs"
                         : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
                     }`}
                   >
-                    <ShieldCheck className="w-3 h-3 text-amber-600" />
+                    <ShieldCheck className="w-3 h-3 text-[#2563EB]" />
                     <span>Doctor Rec</span>
                   </button>
 
@@ -1178,7 +1178,7 @@ export default function BookPage() {
                     onClick={() => setTypeFilter(typeFilter === "packages" ? "all" : "packages")}
                     className={`px-2.5 py-1 rounded-md text-[10.5px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
                       typeFilter === "packages"
-                        ? "bg-[#0B2545] text-white border-[#0B2545]"
+                        ? "bg-[#2563EB] text-white border-[#2563EB]"
                         : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
                     }`}
                   >
@@ -1191,11 +1191,11 @@ export default function BookPage() {
                     onClick={() => setFastingFilter(fastingFilter === "fasting" ? "all" : "fasting")}
                     className={`px-2.5 py-1 rounded-md text-[10.5px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
                       fastingFilter === "fasting"
-                        ? "bg-amber-100 text-amber-900 border-amber-300"
+                        ? "bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE]"
                         : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
                     }`}
                   >
-                    <AlertTriangle className="w-3 h-3 text-amber-600" />
+                    <AlertTriangle className="w-3 h-3 text-[#2563EB]" />
                     <span>Fasting</span>
                   </button>
 
@@ -1205,7 +1205,7 @@ export default function BookPage() {
                     onClick={() => setPriceFilter(priceFilter === "under1k" ? "all" : "under1k")}
                     className={`px-2.5 py-1 rounded-md text-[10.5px] font-extrabold transition-all cursor-pointer flex items-center gap-1 border ${
                       priceFilter === "under1k"
-                        ? "bg-[#0B2545] text-white border-[#0B2545]"
+                        ? "bg-[#2563EB] text-white border-[#2563EB]"
                         : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50"
                     }`}
                   >
@@ -1241,8 +1241,8 @@ export default function BookPage() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-flex items-center gap-1 shadow-2xs">
-                        <ShieldCheck className="w-3 h-3 text-[#D69A18]" />
+                      <span className="bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-flex items-center gap-1 shadow-2xs">
+                        <ShieldCheck className="w-3 h-3 text-[#2563EB]" />
                         <span>DOCTOR RECOMMENDED PACKAGES</span>
                       </span>
                       <h2 className="text-xs sm:text-sm font-black text-[#0B2545] mt-1 tracking-tight">
@@ -1266,17 +1266,17 @@ export default function BookPage() {
                           className={`bg-white rounded-2xl border p-3.5 sm:p-4 shadow-2xs hover:shadow-md transition-all relative flex flex-col justify-between gap-3 ${
                             isAdded
                               ? "border-emerald-500 ring-2 ring-emerald-500/20 bg-emerald-50/10"
-                              : "border-amber-200/90 hover:border-[#D69A18] bg-gradient-to-br from-white via-white to-amber-50/15"
+                              : "border-amber-200/90 hover:border-[#2563EB] bg-gradient-to-br from-white via-white to-amber-50/15"
                           }`}
                         >
                           {/* Header Badges Row */}
                           <div className="flex items-center justify-between gap-2 flex-wrap">
                             <div className="flex items-center gap-1.5 flex-wrap">
-                              <span className="bg-[#0B2545] text-white text-[9px] font-black px-2.5 py-0.5 rounded-md uppercase tracking-wider">
+                              <span className="bg-[#2563EB] text-white text-[9px] font-black px-2.5 py-0.5 rounded-md uppercase tracking-wider">
                                 {pkg.badge}
                               </span>
-                              <span className="bg-amber-100 text-amber-950 border border-amber-300 text-[9px] font-black px-2.5 py-0.5 rounded-md flex items-center gap-1">
-                                <ShieldCheck className="w-3 h-3 text-amber-700" />
+                              <span className="bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] text-[9px] font-black px-2.5 py-0.5 rounded-md flex items-center gap-1">
+                                <ShieldCheck className="w-3 h-3 text-[#2563EB]" />
                                 <span>Doctor Rec</span>
                               </span>
                               <span className="text-[10px] text-slate-500 font-bold flex items-center gap-1">
@@ -1285,7 +1285,7 @@ export default function BookPage() {
                               </span>
                             </div>
 
-                            <span className="text-[10px] font-black text-amber-950 bg-amber-100/90 border border-amber-300 px-2.5 py-0.5 rounded-full shadow-2xs">
+                            <span className="text-[10px] font-black text-[#2563EB] bg-[#EFF6FF] border border-[#BFDBFE] px-2.5 py-0.5 rounded-full shadow-2xs">
                               {pkg.params} Parameters Included
                             </span>
                           </div>
@@ -1317,8 +1317,8 @@ export default function BookPage() {
 
                           {/* Includes Parameters Box */}
                           {pkg.includes && (
-                            <div className="text-[10.5px] text-slate-700 font-medium leading-relaxed bg-amber-50/50 border border-amber-200/70 p-2.5 rounded-xl space-y-0.5">
-                              <span className="font-black text-amber-950 block text-[11px]">
+                            <div className="text-[10.5px] text-slate-700 font-medium leading-relaxed bg-[#eaf2ff] border border-blue-100/70 p-2.5 rounded-xl space-y-0.5">
+                              <span className="font-black text-[#2563EB] block text-[11px]">
                                 Includes ({pkg.params} Parameters):
                               </span>
                               <p className="text-slate-600 line-clamp-2">{pkg.includes}</p>
@@ -1348,7 +1348,7 @@ export default function BookPage() {
                               className={`px-4 sm:px-5 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 shadow-2xs whitespace-nowrap active:scale-95 ${
                                 isAdded
                                   ? "bg-emerald-600 text-white"
-                                  : "bg-[#0B2545] hover:bg-amber-400 hover:text-slate-950 text-white"
+                                  : "bg-[#2563EB] hover:bg-[#1D4ED8] text-white"
                               }`}
                             >
                               {isAdded ? (
@@ -1374,14 +1374,14 @@ export default function BookPage() {
                   <h3 className="text-xs font-black text-[#0B2545] uppercase tracking-wider flex items-center gap-1.5">
                     <span>{activeFilterCount > 0 || searchQuery ? "Filtered Diagnostic Tests" : "All Diagnostic Tests & Speciality Panels"}</span>
                   </h3>
-                  <span className="text-[11px] font-extrabold text-[#0B2545] bg-[#FFF8EB] border border-[#F3DBA7] px-2.5 py-0.5 rounded-full">
+                  <span className="text-[11px] font-extrabold text-[#0B2545] bg-[#EFF6FF] border border-[#BFDBFE] px-2.5 py-0.5 rounded-full">
                     {sortedFilteredTests.length} Tests Available
                   </span>
                 </div>
 
                 {sortedFilteredTests.length === 0 ? (
                   <div className="bg-white rounded-3xl p-8 text-center border border-slate-200 shadow-2xs space-y-3">
-                    <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center mx-auto">
+                    <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#2563EB] border border-sky-200 flex items-center justify-center mx-auto">
                       <Filter className="w-6 h-6" />
                     </div>
                     <h3 className="text-sm sm:text-base font-extrabold text-slate-800">
@@ -1393,7 +1393,7 @@ export default function BookPage() {
                     <button
                       type="button"
                       onClick={resetFilters}
-                      className="px-5 py-2.5 bg-[#0B2545] hover:bg-amber-400 hover:text-slate-950 text-white font-black text-xs uppercase tracking-wider rounded-xl cursor-pointer shadow-md transition-all inline-flex items-center gap-2"
+                      className="px-5 py-2.5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black text-xs uppercase tracking-wider rounded-xl cursor-pointer shadow-md transition-all inline-flex items-center gap-2"
                     >
                       <RotateCcw className="w-4 h-4" />
                       <span>Clear All Filters</span>
@@ -1413,7 +1413,7 @@ export default function BookPage() {
                             isAdded
                               ? "border-emerald-500 ring-2 ring-emerald-500/20 bg-emerald-50/15"
                               : isPkg
-                              ? "border-amber-200/90 shadow-2xs hover:border-[#D69A18]"
+                              ? "border-sky-200/90 shadow-2xs hover:border-[#2563EB]"
                               : "border-slate-200"
                           }`}
                         >
@@ -1422,14 +1422,14 @@ export default function BookPage() {
                             <div className="flex items-center justify-between gap-1 mb-2">
                               <span className={`text-[9.5px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider border ${
                                 isPkg
-                                  ? "bg-amber-50 text-amber-900 border-amber-200"
+                                  ? "bg-[#EFF6FF] text-[#2563EB] border-[#BFDBFE]"
                                   : "bg-sky-50 text-sky-900 border-sky-200"
                               }`}>
                                 {isPkg ? "Package • " : ""}{t.params} {t.params === 1 ? "Parameter" : "Parameters"}
                               </span>
                               {t.fasting ? (
-                                <span className="bg-amber-100 text-amber-900 text-[9.5px] font-extrabold px-1.5 py-0.5 rounded-md flex items-center gap-1">
-                                  <AlertTriangle className="w-3 h-3 text-amber-700 shrink-0" />
+                                <span className="bg-sky-100 text-sky-900 text-[9.5px] font-extrabold px-1.5 py-0.5 rounded-md flex items-center gap-1 border border-sky-200">
+                                  <AlertTriangle className="w-3 h-3 text-[#2563EB] shrink-0" />
                                   <span>Fasting</span>
                                 </span>
                               ) : (
@@ -1479,7 +1479,7 @@ export default function BookPage() {
                               className={`px-3.5 py-2 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1 ${
                                 isAdded
                                   ? "bg-emerald-600 text-white shadow-xs"
-                                  : "bg-[#0B2545] text-white hover:bg-amber-400 hover:text-slate-950"
+                                  : "bg-[#2563EB] text-white hover:bg-[#1D4ED8]"
                               }`}
                             >
                               {isAdded ? (
@@ -1606,7 +1606,7 @@ export default function BookPage() {
                             if (i !== 0 && slot === NOW_SLOT) setSlot("8:00 – 10:00 AM");
                           }}
                           className={`py-0.5 px-0.5 rounded text-[8.5px] font-black cursor-pointer text-center ${
-                            dateIndex === i ? "bg-[#0B2545] text-white" : "bg-slate-100 text-slate-700"
+                            dateIndex === i ? "bg-[#2563EB] text-white" : "bg-slate-100 text-slate-700"
                           }`}
                         >
                           <div className="truncate">{d.label}</div>
@@ -1636,7 +1636,7 @@ export default function BookPage() {
                           type="button"
                           onClick={() => setAddrIndex(i)}
                           className={`px-1.5 py-0.5 rounded text-[9px] font-bold cursor-pointer shrink-0 ${
-                            addrIndex === i && !customAddress ? "bg-[#0B2545] text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                            addrIndex === i && !customAddress ? "bg-[#2563EB] text-white" : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                           }`}
                         >
                           {preset}
@@ -1737,7 +1737,7 @@ export default function BookPage() {
 
       {/* STICKY FLOATING BOTTOM CART BAR (Mobile/Tablet only, hidden on Desktop where sidebar cart summary is visible) */}
       {screen === "catalog" && cartItems.length > 0 && (
-        <div className="lg:hidden fixed bottom-[68px] left-3 right-3 z-[9990] bg-[#0B2545] text-white rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-emerald-400/40 flex items-center justify-between gap-3 animate-in slide-in-from-bottom duration-200">
+        <div className="lg:hidden fixed bottom-[68px] left-3 right-3 z-[9990] bg-white text-slate-800 rounded-2xl p-3 sm:p-3.5 shadow-2xl border border-blue-200 flex items-center justify-between gap-3 animate-in slide-in-from-bottom duration-200">
           <div className="flex items-center gap-3 min-w-0">
             <div className="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-xs">
               <ShoppingCart className="w-5 h-5 text-white" />
@@ -1870,7 +1870,7 @@ export default function BookPage() {
                         if (i !== 0 && slot === NOW_SLOT) setSlot("8:00 – 10:00 AM");
                       }}
                       className={`py-2 rounded-xl text-[11px] font-black cursor-pointer text-center ${
-                        dateIndex === i ? "bg-[#0B2545] text-white" : "bg-slate-100 text-slate-700"
+                        dateIndex === i ? "bg-[#2563EB] text-white" : "bg-slate-100 text-slate-700"
                       }`}
                     >
                       <div>{d.label}</div>
@@ -1905,7 +1905,7 @@ export default function BookPage() {
                       type="button"
                       onClick={() => setAddrIndex(i)}
                       className={`px-2.5 py-1 rounded-lg text-[10.5px] font-bold ${
-                        addrIndex === i && !customAddress ? "bg-[#0B2545] text-white" : "bg-slate-100 text-slate-700"
+                        addrIndex === i && !customAddress ? "bg-[#2563EB] text-white" : "bg-slate-100 text-slate-700"
                       }`}
                     >
                       {preset}
@@ -2074,7 +2074,7 @@ export default function BookPage() {
                 setOrder(null);
                 setScreen("catalog");
               }}
-              className="w-full bg-[#0B2545] hover:bg-amber-400 hover:text-slate-950 text-white font-extrabold py-3 rounded-xl text-xs uppercase tracking-wider cursor-pointer shadow-xs transition-colors"
+              className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold py-3 rounded-xl text-xs uppercase tracking-wider cursor-pointer shadow-xs transition-colors"
             >
               <span>Book More Tests</span>
             </button>

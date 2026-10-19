@@ -293,7 +293,7 @@ export default function HospitalLabManagementPage() {
             <span className="text-white">Hospital Laboratory Management</span>
           </nav>
 
-          <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-5 shadow-sm">
+          <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-5 shadow-sm">
             For Hospitals | Nursing Homes | Day-Care Hospitals | Specialty Hospitals | Healthcare Groups
           </span>
 
@@ -329,7 +329,7 @@ export default function HospitalLabManagementPage() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href="#hlm-inquiry"
-                className="bg-[#D69A18] hover:bg-[#b88313] text-white font-black px-8 py-4 rounded-2xl text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all active:scale-95"
+                className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-8 py-4 rounded-2xl text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all active:scale-95"
               >
                 <span>Request an HLM Feasibility Assessment</span>
                 <ArrowRight className="w-4 h-4" />
@@ -338,7 +338,7 @@ export default function HospitalLabManagementPage() {
                 href={`tel:${PHONE_E164}`}
                 className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-black px-7 py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
               >
-                <Phone className="w-4 h-4 text-[#D69A18]" />
+                <Phone className="w-4 h-4 text-[#2563EB]" />
                 <span>Hospital Partnerships: {PHONE_DISPLAY}</span>
               </a>
             </div>
@@ -348,7 +348,7 @@ export default function HospitalLabManagementPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-8 mt-8 border-t border-white/15">
             {[
               { icon: ShieldCheck, color: "text-emerald-400", text: `NABL Accredited · ${NABL_CERTIFICATE} · ${ISO_STANDARD}` },
-              { icon: Building2, color: "text-amber-400", text: "190+ B2B Hospital & Lab Clients" },
+              { icon: Building2, color: "text-sky-300", text: "190+ B2B Hospital & Lab Clients" },
               { icon: Stethoscope, color: "text-purple-300", text: "Doctor-Led — MD Biochemistry Founder" },
               { icon: Star, color: "text-sky-300", text: "NABL Lead Assessor · 150+ Assessments" },
             ].map((item, i) => (
@@ -364,7 +364,7 @@ export default function HospitalLabManagementPage() {
       {/* ── WHAT IS HLM ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Definition</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Definition</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1 mb-5">
             What is Hospital Laboratory Management?
           </h2>
@@ -395,7 +395,7 @@ export default function HospitalLabManagementPage() {
       <section className="py-16 bg-white border-y border-slate-200">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">The Operational Reality</span>
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">The Operational Reality</span>
             <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
               Why hospitals are reconsidering the traditional fully in-house laboratory model
             </h2>
@@ -407,7 +407,7 @@ export default function HospitalLabManagementPage() {
           <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-[#0f2d5e] text-white">
+                <tr className="bg-gradient-to-r from-[#eaf3fe] to-[#f4f8fe] text-[#0B2545] border-b border-blue-200">
                   <th className="text-left px-5 py-4 font-black text-xs">Hospital Challenge</th>
                   <th className="text-left px-5 py-4 font-black text-xs">What It Can Create</th>
                   <th className="text-left px-5 py-4 font-black text-xs">HLM Approach</th>
@@ -430,7 +430,7 @@ export default function HospitalLabManagementPage() {
       {/* ── HOW HLM WORKS ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">QXL Process</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">QXL Process</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
             How does Hospital Laboratory Management work?
           </h2>
@@ -458,7 +458,7 @@ export default function HospitalLabManagementPage() {
             { num: "8", title: "Performance Review", desc: "Hospital and QXL teams review agreed KPIs: TAT, sample rejection, equipment uptime, QC performance, critical-value communication and more." },
           ].map((step, i) => (
             <div key={i} className="bg-white rounded-2xl border border-slate-200 p-6 shadow-xs space-y-2 hover:border-blue-400 transition-all">
-              <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-900 border border-amber-300 flex items-center justify-center font-black text-sm">
+              <div className="w-9 h-9 rounded-xl bg-sky-100 text-[#2563EB] border border-sky-300 flex items-center justify-center font-black text-sm">
                 {step.num}
               </div>
               <h3 className="font-extrabold text-[#0f2d5e] text-sm">{step.title}</h3>
@@ -472,7 +472,7 @@ export default function HospitalLabManagementPage() {
       <section className="py-16 bg-white border-y border-slate-200">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Comparison</span>
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Comparison</span>
             <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
               HLM vs Owning and Operating Your Own In-House Laboratory
             </h2>
@@ -510,7 +510,7 @@ export default function HospitalLabManagementPage() {
       {/* ── WHICH HOSPITALS ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Target Facilities</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Target Facilities</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
             Which Hospitals Can Benefit Most From HLM?
           </h2>
@@ -579,7 +579,7 @@ export default function HospitalLabManagementPage() {
       {/* ── EMERGENCY TAT ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Critical Care</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Critical Care</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1 mb-6">
             How is Emergency Turnaround Time Managed?
           </h2>
@@ -595,7 +595,7 @@ export default function HospitalLabManagementPage() {
           <div className="grid md:grid-cols-2 gap-5 mb-6">
             {[
               { label: "STAT / Critical", color: "bg-red-100 border-red-300 text-red-800", desc: "For immediate emergency, ICU, OT or acute clinical decisions — must remain onsite when result cannot tolerate transport." },
-              { label: "Urgent", color: "bg-amber-100 border-amber-300 text-amber-800", desc: "Time-sensitive but not immediate. Defined turnaround targets within the HLM agreement." },
+              { label: "Urgent", color: "bg-sky-100 border-sky-300 text-sky-800", desc: "Time-sensitive but not immediate. Defined turnaround targets within the HLM agreement." },
               { label: "Routine Onsite", color: "bg-emerald-100 border-emerald-300 text-emerald-800", desc: "Frequent, high-volume investigations processed within the hospital laboratory." },
               { label: "Routine Reference / Specialised", color: "bg-blue-100 border-blue-300 text-blue-800", desc: "Lower-volume or complex investigations processed at QXL's NABL-accredited reference laboratory." },
             ].map((p, i) => (
@@ -631,14 +631,14 @@ export default function HospitalLabManagementPage() {
       </section>
 
       {/* ── QUALITY MANAGEMENT ── */}
-      <section className="py-16 bg-[#0B2545] text-white">
+      <section className="py-16 bg-gradient-to-b from-[#f0f7ff] via-white to-[#eaf3fe] text-slate-800 border-y border-blue-100">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Quality Systems</span>
-            <h2 className="text-2xl md:text-3xl font-black text-white mt-1">
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Quality Systems</span>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0B2545] mt-1">
               How Does QXL Manage Laboratory Quality?
             </h2>
-            <p className="text-sky-200 text-sm font-semibold mt-3 leading-relaxed">
+            <p className="text-slate-600 text-sm font-semibold mt-3 leading-relaxed">
               Modern laboratory quality extends from the moment a test is ordered until the clinically validated result reaches the treating team. ISO 15189:2022 covers requirements for the quality and competence of medical laboratories, and NABL accredits medical laboratories in India against ISO 15189.
             </p>
           </div>
@@ -658,12 +658,12 @@ export default function HospitalLabManagementPage() {
                 items: ["Result verification", "Critical-value communication", "Correct reference intervals", "TAT monitoring", "Document control", "Staff competency assessment", "Internal audits", "Non-conformity management & CAPA"],
               },
             ].map((section, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-3">
-                <h3 className="font-extrabold text-[#D69A18] text-base">{section.title}</h3>
+              <div key={i} className="bg-white border border-blue-200/80 rounded-2xl p-6 space-y-3 shadow-2xs hover:shadow-md transition-shadow">
+                <h3 className="font-extrabold text-[#2563EB] text-base">{section.title}</h3>
                 <ul className="space-y-1.5">
                   {section.items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-xs text-sky-100 font-semibold">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                    <li key={j} className="flex items-start gap-2 text-xs text-slate-700 font-semibold">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -677,7 +677,7 @@ export default function HospitalLabManagementPage() {
       {/* ── NABL ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Accreditation</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Accreditation</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1 mb-6">
             Can an HLM Hospital Laboratory Become NABL Accredited?
           </h2>
@@ -685,8 +685,8 @@ export default function HospitalLabManagementPage() {
             <p className="text-slate-700 text-sm font-semibold leading-relaxed">
               Yes, an HLM-operated hospital laboratory can build toward NABL accreditation, provided it meets the applicable NABL and ISO 15189 requirements.
             </p>
-            <div className="bg-amber-50/70 border border-amber-200 rounded-2xl p-5">
-              <p className="text-amber-900 text-sm font-bold leading-relaxed">
+            <div className="bg-sky-50/70 border border-sky-200 rounded-2xl p-5">
+              <p className="text-sky-900 text-sm font-bold leading-relaxed">
                 <strong>Important:</strong> QXL&apos;s NABL accreditation does not automatically make every hospital laboratory managed by QXL NABL accredited. Accreditation applies to the accredited laboratory and its approved scope and arrangements.
               </p>
             </div>
@@ -708,7 +708,7 @@ export default function HospitalLabManagementPage() {
       <section className="py-16 bg-white border-y border-slate-200">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Partnership Models</span>
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Partnership Models</span>
             <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
               QXL HLM Is Not a One-Size-Fits-All Contract
             </h2>
@@ -721,7 +721,7 @@ export default function HospitalLabManagementPage() {
                   model.color === "blue" ? "bg-blue-50 text-blue-600" :
                   model.color === "emerald" ? "bg-emerald-50 text-emerald-600" :
                   model.color === "purple" ? "bg-purple-50 text-purple-600" :
-                  "bg-amber-50 text-amber-600"
+                  "bg-sky-50 text-sky-600"
                 }`}>
                   <model.icon className="w-5 h-5" />
                 </div>
@@ -736,7 +736,7 @@ export default function HospitalLabManagementPage() {
       {/* ── ECONOMICS ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Economics</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Economics</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1 mb-5">
             HLM Can Change Hospital Laboratory Economics
           </h2>
@@ -771,11 +771,11 @@ export default function HospitalLabManagementPage() {
       </section>
 
       {/* ── WHY QXL ── */}
-      <section className="py-16 bg-[#0B2545] text-white">
+      <section className="py-16 bg-gradient-to-b from-white via-[#f0f7ff] to-white text-slate-800 border-b border-blue-100">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Why QXL</span>
-            <h2 className="text-2xl md:text-3xl font-black text-white mt-1">
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Why QXL</span>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0B2545] mt-1">
               Why QXL Diagnostics for Hospital Laboratory Management?
             </h2>
           </div>
@@ -806,9 +806,9 @@ export default function HospitalLabManagementPage() {
                 desc: "Clinicians can discuss complex or discordant results directly with QXL's laboratory medical specialists. Not a call-centre.",
               },
             ].map((item, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 p-6 rounded-2xl space-y-2">
-                <h3 className="font-extrabold text-[#D69A18] text-base">{item.title}</h3>
-                <p className="text-xs text-sky-100 font-semibold leading-relaxed">{item.desc}</p>
+              <div key={i} className="bg-white border border-blue-200/80 p-6 rounded-2xl space-y-2 shadow-2xs hover:shadow-md transition-shadow">
+                <h3 className="font-extrabold text-[#2563EB] text-base">{item.title}</h3>
+                <p className="text-xs text-slate-600 font-semibold leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -832,13 +832,13 @@ export default function HospitalLabManagementPage() {
               href="https://www.business-standard.com/content/press-releases-ani/qxl-diagnostics-targets-60-hospital-laboratory-partnerships-by-2028-126091600351_1.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-[#0f2d5e] text-white px-5 py-3 rounded-xl font-bold text-xs hover:bg-[#1e3a8a] transition-all"
+              className="inline-flex items-center gap-1.5 bg-[#2563EB] text-white px-5 py-3 rounded-xl font-bold text-xs hover:bg-[#1D4ED8] transition-all shadow-xs"
             >
               <span>Read coverage in Business Standard →</span>
             </a>
             <Link
               href="/news/qxl-diagnostics-60-hospital-laboratory-partnerships-2028/"
-              className="inline-flex items-center gap-1.5 bg-white border border-[#D69A18] text-[#0f2d5e] px-5 py-3 rounded-xl font-bold text-xs hover:bg-amber-50 transition-all"
+              className="inline-flex items-center gap-1.5 bg-white border border-[#2563EB] text-[#0f2d5e] px-5 py-3 rounded-xl font-bold text-xs hover:bg-amber-50 transition-all"
             >
               <span>View All Media Coverage →</span>
             </Link>
@@ -849,7 +849,7 @@ export default function HospitalLabManagementPage() {
       {/* ── HOW TO PARTNER ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Partnership Process</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Partnership Process</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
             How Can a Hospital Partner With QXL?
           </h2>
@@ -857,7 +857,7 @@ export default function HospitalLabManagementPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {partnershipSteps.map((step, i) => (
             <div key={i} className="bg-white border border-slate-200 p-5 rounded-2xl shadow-xs text-center space-y-2">
-              <span className="inline-block bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-black px-2.5 py-0.5 rounded-full">{step.step}</span>
+              <span className="inline-block bg-sky-100 text-[#2563EB] border border-sky-300 text-[10px] font-black px-2.5 py-0.5 rounded-full">{step.step}</span>
               <h3 className="font-extrabold text-[#0f2d5e] text-xs">{step.title}</h3>
               <p className="text-[11px] text-slate-600 font-semibold leading-relaxed">{step.desc}</p>
             </div>
@@ -869,7 +869,7 @@ export default function HospitalLabManagementPage() {
       <section className="py-16 bg-white border-y border-slate-200">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">FAQs</span>
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">FAQs</span>
             <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
               Frequently Asked Questions About Hospital Laboratory Management
             </h2>
@@ -889,7 +889,7 @@ export default function HospitalLabManagementPage() {
       <section id="hlm-inquiry" className="py-16 bg-gradient-to-br from-slate-900 to-[#0B2545] text-white">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <span className="inline-block bg-[#D69A18] text-white text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
+            <span className="inline-block bg-[#2563EB] text-white text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
               Request HLM Partnership
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
@@ -917,7 +917,7 @@ export default function HospitalLabManagementPage() {
                 href={`tel:${PHONE_E164}`}
                 className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-black px-7 py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
               >
-                <Phone className="w-4 h-4 text-[#D69A18]" />
+                <Phone className="w-4 h-4 text-[#2563EB]" />
                 <span>Hospital Partnerships: {PHONE_DISPLAY}</span>
               </a>
               <a

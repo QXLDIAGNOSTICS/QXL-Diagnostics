@@ -259,7 +259,7 @@ export default function SymptomsCausesHubPage() {
             <span className="text-white">Symptoms &amp; Causes</span>
           </nav>
 
-          <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">
+          <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">
             Clinically Reviewed Health Information
           </span>
 
@@ -280,7 +280,7 @@ export default function SymptomsCausesHubPage() {
                 "Which laboratory investigations may be considered?",
               ].map((q, i) => (
                 <div key={i} className="flex items-start gap-2 text-xs text-sky-200 font-semibold">
-                  <div className="w-5 h-5 rounded-full bg-[#D69A18]/20 border border-[#D69A18]/40 text-[#D69A18] flex items-center justify-center text-[10px] font-black shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-[#2563EB]/20 border border-[#2563EB]/40 text-[#2563EB] flex items-center justify-center text-[10px] font-black shrink-0">
                     {i + 1}
                   </div>
                   <span>{q}</span>
@@ -356,7 +356,7 @@ export default function SymptomsCausesHubPage() {
                   <span className={`text-[10px] font-bold px-2.5 py-1 rounded-lg border ${urgency.style}`}>
                     {urgency.label}
                   </span>
-                  <span className="text-[#D69A18] font-black text-xs flex items-center gap-1 group-hover:gap-2 transition-all">
+                  <span className="text-[#2563EB] font-black text-xs flex items-center gap-1 group-hover:gap-2 transition-all">
                     Read <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
@@ -382,7 +382,7 @@ export default function SymptomsCausesHubPage() {
                   <div className="bg-blue-50 border border-blue-200 rounded-xl px-4 py-2 text-xs font-extrabold text-[#0f2d5e] text-center whitespace-nowrap">
                     {step}
                   </div>
-                  {i < arr.length - 1 && <ArrowRight className="w-4 h-4 text-[#D69A18] shrink-0 hidden md:block" />}
+                  {i < arr.length - 1 && <ArrowRight className="w-4 h-4 text-[#2563EB] shrink-0 hidden md:block" />}
                 </React.Fragment>
               ))}
             </div>

@@ -168,7 +168,7 @@ const whyQxl = [
     icon: Star,
     title: "Career Growth in Clinical Diagnostics",
     desc: "QXL supports continuing education, NABL process training and professional development in laboratory medicine.",
-    color: "text-amber-600 bg-amber-50",
+    color: "text-[#0284C7] bg-sky-50",
   },
   {
     icon: Users,
@@ -197,7 +197,7 @@ const colorMap: Record<string, string> = {
   rose: "bg-rose-50 text-rose-600 border-rose-200",
   purple: "bg-purple-50 text-purple-600 border-purple-200",
   emerald: "bg-emerald-50 text-emerald-600 border-emerald-200",
-  amber: "bg-amber-50 text-amber-600 border-amber-200",
+  amber: "bg-sky-50 text-sky-700 border-sky-200",
   sky: "bg-sky-50 text-sky-600 border-sky-200",
 };
 
@@ -258,7 +258,7 @@ export default function CareersPage() {
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-5 shadow-sm">
+              <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-5 shadow-sm">
                 We&apos;re Hiring · Bengaluru, Karnataka
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-black mb-5 leading-tight !text-white tracking-tight" style={{ color: '#ffffff' }}>
@@ -272,7 +272,7 @@ export default function CareersPage() {
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a href="#open-roles" className="bg-[#D69A18] hover:bg-[#b88313] text-white font-black px-7 py-4 rounded-2xl text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all active:scale-95">
+                <a href="#open-roles" className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-7 py-4 rounded-2xl text-xs uppercase tracking-wider shadow-lg flex items-center gap-2 transition-all active:scale-95">
                   <span>View Open Roles</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
@@ -292,7 +292,7 @@ export default function CareersPage() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { icon: ShieldCheck, color: "text-emerald-300", stat: "NABL", label: `Accredited · ${NABL_CERTIFICATE}` },
-                { icon: BookOpen, color: "text-amber-300", stat: "150+", label: "NABL Assessments by Founder" },
+                { icon: BookOpen, color: "text-sky-300", stat: "150+", label: "NABL Assessments by Founder" },
                 { icon: Users, color: "text-purple-200", stat: "190+", label: "B2B Hospital & Lab Partners" },
                 { icon: Zap, color: "text-sky-200", stat: "24×7", label: "Central Lab Operations" },
                 { icon: FlaskConical, color: "text-rose-200", stat: "1500+", label: "Tests in Reference Menu" },
@@ -312,7 +312,7 @@ export default function CareersPage() {
       {/* ── WHY QXL ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Why Join Us</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Why Join Us</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
             Why Build Your Career at QXL Diagnostics?
           </h2>
@@ -335,25 +335,25 @@ export default function CareersPage() {
       </section>
 
       {/* ── OUR VALUES ── */}
-      <section className="py-16 bg-[#0B2545] text-white">
+      <section className="py-16 bg-gradient-to-b from-[#f0f7ff] via-white to-[#eaf3fe] text-slate-800 border-y border-blue-100">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Culture</span>
-            <h2 className="text-2xl md:text-3xl font-black text-white mt-1">
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Culture</span>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0B2545] mt-1">
               What We Believe
             </h2>
-            <p className="text-sky-200 text-sm font-semibold mt-3">
+            <p className="text-slate-600 text-sm font-semibold mt-3">
               Our values are not a wall poster. They are the things we actually argue about in case discussions, quality meetings and daily laboratory work.
             </p>
           </div>
           <div className="grid md:grid-cols-5 gap-5">
             {values.map((v, i) => (
-              <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-5 text-center space-y-2">
-                <div className="w-10 h-10 rounded-xl bg-[#D69A18]/20 border border-[#D69A18]/40 text-[#D69A18] flex items-center justify-center text-sm font-black mx-auto">
+              <div key={i} className="bg-white border border-blue-200/80 rounded-2xl p-5 text-center space-y-2 shadow-2xs hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 text-[#2563EB] flex items-center justify-center text-sm font-black mx-auto">
                   {i + 1}
                 </div>
-                <h3 className="font-extrabold text-white text-sm">{v.title}</h3>
-                <p className="text-xs text-sky-200 font-semibold leading-relaxed">{v.desc}</p>
+                <h3 className="font-extrabold text-[#0B2545] text-sm">{v.title}</h3>
+                <p className="text-xs text-slate-600 font-semibold leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -364,7 +364,7 @@ export default function CareersPage() {
       <section className="py-16 bg-white border-y border-slate-200">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Who We Are</span>
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Who We Are</span>
             <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1 mb-6">
               About QXL Diagnostics
             </h2>
@@ -409,7 +409,7 @@ export default function CareersPage() {
       {/* ── OPEN ROLES ── */}
       <section id="open-roles" className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Open Positions</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Open Positions</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
             Current Career Opportunities at QXL Diagnostics
           </h2>
@@ -483,7 +483,7 @@ export default function CareersPage() {
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Students & Trainees</span>
+              <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Students & Trainees</span>
               <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1 mb-4">
                 Internships, Traineeships and NABL Exposure
               </h2>
@@ -508,7 +508,7 @@ export default function CareersPage() {
               </div>
             </div>
             <div className="bg-gradient-to-br from-[#0B2545] to-[#0f2d5e] rounded-3xl p-8 text-white space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-[#D69A18]/20 border border-[#D69A18]/40 text-[#D69A18] flex items-center justify-center">
+              <div className="w-12 h-12 rounded-2xl bg-[#2563EB]/20 border border-[#2563EB]/40 text-[#2563EB] flex items-center justify-center">
                 <GraduationCap className="w-6 h-6" />
               </div>
               <h3 className="font-black text-xl">Apply for Internship</h3>
@@ -518,7 +518,7 @@ export default function CareersPage() {
               <div className="space-y-3 pt-2">
                 <a
                   href={`mailto:${EMAIL}?subject=Internship / Traineeship Enquiry — QXL Diagnostics&body=Dear Dr. Muruda,%0D%0A%0D%0AI am a student of [Programme/Institution] and I am interested in an internship / traineeship at QXL Diagnostics.%0D%0A%0D%0APlease find my CV attached.%0D%0A%0D%0ARegards`}
-                  className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-black px-4 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                  className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-4 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
                 >
                   <Mail className="w-4 h-4" />
                   <span>Email: {EMAIL}</span>
@@ -541,7 +541,7 @@ export default function CareersPage() {
       {/* ── GENERAL APPLICATION ── */}
       <section className="py-16 max-w-[1260px] mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest">Open Application</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">Open Application</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1 mb-4">
             Don&apos;t See Your Role Listed?
           </h2>
@@ -568,7 +568,7 @@ export default function CareersPage() {
             <div className="flex flex-wrap gap-3 justify-center pt-2">
               <a
                 href={`mailto:${EMAIL}?subject=Career Enquiry — QXL Diagnostics`}
-                className="bg-[#0f2d5e] hover:bg-[#0B2545] text-white font-black px-7 py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
+                className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-7 py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center gap-2 transition-all shadow-md"
               >
                 <Mail className="w-4 h-4" />
                 <span>Email: {EMAIL}</span>
@@ -596,13 +596,13 @@ export default function CareersPage() {
           <p className="text-sky-200 text-sm font-semibold max-w-2xl mx-auto leading-relaxed mb-6">
             We are proud of the work we do. Every specimen, every result, every patient interaction is a chance to make diagnostic medicine more reliable, more honest and more useful.
           </p>
-          <p className="text-[#D69A18] font-extrabold text-base mb-8">
+          <p className="text-[#2563EB] font-extrabold text-base mb-8">
             If that matters to you, we want to hear from you.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href={`mailto:${EMAIL}?subject=Career Enquiry — QXL Diagnostics`}
-              className="bg-[#D69A18] hover:bg-[#b88313] text-white font-black px-8 py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
+              className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-8 py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center gap-2 transition-all"
             >
               <Mail className="w-4 h-4" />
               <span>Send Your CV to {EMAIL}</span>

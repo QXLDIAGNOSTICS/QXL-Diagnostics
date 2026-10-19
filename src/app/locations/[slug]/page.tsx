@@ -433,39 +433,39 @@ export default async function CombinedLocationPage({ params }: Props) {
             
             {/* Sidebar */}
             <div className="w-full lg:w-[350px] space-y-6">
-              <div className="bg-[#0f2d5e] text-white rounded-3xl p-7 shadow-xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#2563eb]/30 rounded-full blur-2xl"></div>
-                <h3 className="text-lg font-extrabold mb-4 border-b border-white/10 pb-4">Area Coverage Details</h3>
+              <div className="bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 text-slate-800 rounded-3xl p-7 shadow-md relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#2563eb]/10 rounded-full blur-2xl"></div>
+                <h3 className="text-lg font-black text-[#0B2545] mb-4 border-b border-blue-200/80 pb-4">Area Coverage Details</h3>
                 
                 <div className="space-y-4">
                   <div>
-                    <span className="text-[10px] text-sky-200 uppercase font-extrabold tracking-wider block mb-1">Locality</span>
-                    <span className="font-extrabold text-base">{areaLoc.name}, Bengaluru</span>
+                    <span className="text-[10px] text-[#0284c7] uppercase font-extrabold tracking-wider block mb-1">Locality</span>
+                    <span className="font-extrabold text-base text-[#0B2545]">{areaLoc.name}, Bengaluru</span>
                   </div>
                   
                   <div>
-                    <span className="text-[10px] text-sky-200 uppercase font-extrabold tracking-wider block mb-1">Pincodes Covered</span>
+                    <span className="text-[10px] text-[#0284c7] uppercase font-extrabold tracking-wider block mb-1">Pincodes Covered</span>
                     <div className="flex flex-wrap gap-2 mt-1">
                       {areaLoc.pincodes.map(pin => (
-                        <span key={pin} className="bg-white/15 px-2.5 py-1 rounded-lg text-xs font-bold">{pin}</span>
+                        <span key={pin} className="bg-white border border-blue-200 text-[#0284c7] px-2.5 py-1 rounded-lg text-xs font-bold shadow-2xs">{pin}</span>
                       ))}
                     </div>
                   </div>
 
                   <div>
-                    <span className="text-[10px] text-sky-200 uppercase font-extrabold tracking-wider block mb-1">Doorstep Hours</span>
-                    <span className="font-bold text-sm">7:00 AM – 9:00 PM (Mon–Sun)</span>
+                    <span className="text-[10px] text-[#0284c7] uppercase font-extrabold tracking-wider block mb-1">Doorstep Hours</span>
+                    <span className="font-bold text-sm text-slate-700">7:00 AM – 9:00 PM (Mon–Sun)</span>
                   </div>
 
                   <div>
-                    <span className="text-[10px] text-sky-200 uppercase font-extrabold tracking-wider block mb-1">NABL Processing Hub</span>
-                    <span className="font-bold text-sm">{areaLoc.nearestLab}</span>
+                    <span className="text-[10px] text-[#0284c7] uppercase font-extrabold tracking-wider block mb-1">NABL Processing Hub</span>
+                    <span className="font-bold text-sm text-slate-700">{areaLoc.nearestLab}</span>
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-white/10">
-                  <a href="tel:+919964639639" className="flex items-center gap-3 text-white hover:text-sky-200 transition-colors">
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                <div className="mt-8 pt-6 border-t border-blue-200/80">
+                  <a href="tel:+919964639639" className="flex items-center gap-3 text-[#0B2545] hover:text-[#0284c7] transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#2563EB]">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>

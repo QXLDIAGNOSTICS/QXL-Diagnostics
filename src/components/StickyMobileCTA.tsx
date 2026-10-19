@@ -38,23 +38,23 @@ export default function StickyMobileCTA() {
       >
         <Link
           href="/book"
-          className="flex items-center justify-between bg-[#0f2d5e] text-white px-4 py-3 rounded-2xl shadow-xl border border-amber-400/40 active:scale-98 transition-all"
+          className="flex items-center justify-between bg-white text-slate-800 px-4 py-3 rounded-2xl shadow-xl border border-blue-200 active:scale-98 transition-all"
         >
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-[#D69A18] text-white flex items-center justify-center shrink-0 shadow-xs">
+            <div className="w-9 h-9 rounded-xl bg-[#2563EB] text-white flex items-center justify-center shrink-0 shadow-xs">
               <ShoppingCart className="w-4 h-4 text-white" />
             </div>
             <div>
-              <span className="font-extrabold text-white text-xs block leading-tight">
+              <span className="font-black text-[#0B2545] text-xs block leading-tight">
                 {cartItems.length} {cartItems.length === 1 ? "Test" : "Tests"} · ₹{totalAmount}
               </span>
-              <span className="text-[10.5px] text-amber-200 font-semibold leading-tight block">
+              <span className="text-[10.5px] text-[#0284c7] font-bold leading-tight block">
                 Free Doorstep Home Collection
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5 bg-[#D69A18] hover:bg-amber-600 text-white px-3.5 py-1.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-2xs">
+          <div className="flex items-center gap-1.5 bg-[#2563EB] hover:bg-blue-600 text-white px-3.5 py-1.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-2xs">
             <span>Continue</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </div>

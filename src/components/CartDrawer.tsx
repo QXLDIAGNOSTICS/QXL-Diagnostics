@@ -59,9 +59,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
       {/* Drawer Container */}
       <div className="relative w-full max-w-md bg-white h-full shadow-2xl flex flex-col z-10 overflow-hidden animate-in slide-in-from-right duration-300">
         {/* Header */}
-        <div className="bg-[#FFF8EB] border-b border-[#F3DBA7] p-4.5 flex items-center justify-between shrink-0">
+        <div className="bg-[#EFF6FF] border-b border-[#BFDBFE] p-4.5 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-[#D69A18] flex items-center justify-center text-white shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-[#2563EB] flex items-center justify-center text-white shrink-0">
               <ShoppingBag className="w-5 h-5 text-white" />
             </div>
             <div>
@@ -97,7 +97,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               <Link
                 href="/tests"
                 onClick={onClose}
-                className="bg-[#D69A18] hover:bg-[#b88313] !text-white font-black px-7 py-3 rounded-full text-xs uppercase tracking-wider shadow-md hover:shadow-lg active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
+                className="bg-[#2563EB] hover:bg-[#1D4ED8] !text-white font-black px-7 py-3 rounded-full text-xs uppercase tracking-wider shadow-md hover:shadow-lg active:scale-95 transition-all flex items-center gap-2 cursor-pointer"
                 style={{ color: '#ffffff' }}
               >
                 <Plus className="w-4 h-4 text-white" />
@@ -121,7 +121,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 {cartItems.map((item) => (
                   <div
                     key={item.id || item.name}
-                    className="bg-white border border-slate-200 rounded-2xl p-3.5 flex items-center justify-between shadow-2xs hover:border-[#D69A18]/50 transition-all"
+                    className="bg-white border border-slate-200 rounded-2xl p-3.5 flex items-center justify-between shadow-2xs hover:border-[#2563EB]/50 transition-all"
                   >
                     <div className="flex flex-col pr-2">
                       <span className="font-extrabold text-[#0f2d5e] text-xs leading-snug">
@@ -178,7 +178,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               <Link
                 href="/book"
                 onClick={onClose}
-                className="flex-1 py-3 px-4 rounded-xl bg-[#D69A18] hover:bg-[#b88313] !text-white font-black text-xs uppercase tracking-wider text-center shadow-md active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                className="flex-1 py-3 px-4 rounded-xl bg-[#2563EB] hover:bg-[#1D4ED8] !text-white font-black text-xs uppercase tracking-wider text-center shadow-md active:scale-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 style={{ color: '#ffffff' }}
               >
                 <span className="!text-white font-black" style={{ color: '#ffffff' }}>Checkout</span>

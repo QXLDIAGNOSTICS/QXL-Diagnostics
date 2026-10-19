@@ -25,19 +25,19 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-4">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10.5px] sm:text-xs font-black uppercase tracking-wider shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#D69A18]" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10.5px] sm:text-xs font-black uppercase tracking-wider shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#2563EB]" />
             <span>SPECIAL PREVENTIVE OFFER</span>
           </div>
         </div>
 
         {/* Offer Card Container — 2-Column Responsive Layout on Desktop */}
-        <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#F3DBA7] shadow-lg overflow-hidden relative max-w-xl lg:max-w-none mx-auto">
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#BFDBFE] shadow-lg overflow-hidden relative max-w-xl lg:max-w-none mx-auto">
           
           {/* Top Banner Ribbon */}
           <div className="bg-gradient-to-r from-[#15803d] via-[#16a34a] to-[#15803d] p-3.5 sm:p-5 text-white px-4 sm:px-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 relative overflow-hidden text-left border-b border-emerald-700/50">
             <div className="flex flex-wrap items-center gap-2 z-10">
-              <span className="p-1 px-2.5 rounded-lg bg-[#D69A18] text-white font-black text-[10px] sm:text-xs uppercase tracking-wider shadow-2xs shrink-0">
+              <span className="p-1 px-2.5 rounded-lg bg-[#2563EB] text-white font-black text-[10px] sm:text-xs uppercase tracking-wider shadow-2xs shrink-0">
                 ✨ SPECIAL OFFER
               </span>
               <h2 className="font-black text-sm sm:text-lg !text-white leading-tight">
@@ -55,9 +55,9 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
             
             {/* Left Column (Desktop: 7 Cols) — Campaign Overview & Parameter Breakdown */}
             <div className="lg:col-span-7 space-y-5 text-left order-2 lg:order-1 mt-4 lg:mt-0">
-              <div className="bg-[#FFF8EB] p-4 rounded-2xl border border-[#F3DBA7] space-y-2">
+              <div className="bg-[#EFF6FF] p-4 rounded-2xl border border-[#BFDBFE] space-y-2">
                 <div className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-[#D69A18] shrink-0" />
+                  <Shield className="w-5 h-5 text-[#2563EB] shrink-0" />
                   <h3 className="font-extrabold text-slate-900 text-sm sm:text-base">
                     NABL Accredited &amp; Doctor-Led Diagnostics
                   </h3>
@@ -72,7 +72,7 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
                   <h3 className="text-sm sm:text-base font-extrabold text-slate-900">
                     Included Health Tests ({RAKSHA_CAMPAIGN_CONFIG.parameterCount} Parameters)
                   </h3>
-                  <span className="text-[11px] text-[#D69A18] font-bold">Tap to inspect</span>
+                  <span className="text-[11px] text-[#2563EB] font-bold">Tap to inspect</span>
                 </div>
 
                 <div className="space-y-2.5">
@@ -88,14 +88,14 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
                           className="w-full px-4 py-3 text-left flex items-center justify-between hover:bg-amber-50/40 transition-colors gap-2 cursor-pointer"
                         >
                           <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                            <CheckCircle2 className="w-4.5 h-4.5 text-[#D69A18] shrink-0" />
+                            <CheckCircle2 className="w-4.5 h-4.5 text-[#2563EB] shrink-0" />
                             <span className="font-extrabold text-slate-900 text-xs sm:text-sm truncate">{cat.category}</span>
-                            <span className="shrink-0 whitespace-nowrap px-2.5 py-0.5 rounded-full bg-[#FFF8EB] text-[#D69A18] text-[10px] font-extrabold border border-[#F3DBA7]">
+                            <span className="shrink-0 whitespace-nowrap px-2.5 py-0.5 rounded-full bg-[#EFF6FF] text-[#2563EB] text-[10px] font-extrabold border border-[#BFDBFE]">
                               {cat.count} Tests
                             </span>
                           </div>
                           {isExpanded ? (
-                            <ChevronUp className="w-4 h-4 text-[#D69A18] shrink-0" />
+                            <ChevronUp className="w-4 h-4 text-[#2563EB] shrink-0" />
                           ) : (
                             <ChevronDown className="w-4 h-4 text-slate-400 shrink-0" />
                           )}
@@ -106,7 +106,7 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700">
                               {cat.items.map((test, tIdx) => (
                                 <div key={tIdx} className="flex items-center gap-2">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-[#D69A18] shrink-0" />
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] shrink-0" />
                                   <span className="text-xs leading-snug font-medium text-slate-700">{test}</span>
                                 </div>
                               ))}
@@ -128,15 +128,15 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
 
             {/* Right Column (Desktop: 5 Cols) — Pricing & Quick Action Box */}
             <div className="lg:col-span-5 order-1 lg:order-2 lg:sticky lg:top-24">
-              <div className="bg-[#FFFBF0] p-3.5 sm:p-6 rounded-2xl border border-[#F3DBA7] shadow-sm text-left space-y-3.5">
+              <div className="bg-[#F0F7FF] p-3.5 sm:p-6 rounded-2xl border border-[#BFDBFE] shadow-sm text-left space-y-3.5">
                 
                 {/* Tag Pill */}
-                <div className="p-2 px-3 bg-[#FFF8EB] border border-[#F3DBA7] rounded-xl text-[11px] font-bold text-[#D69A18] flex items-center justify-between gap-2">
+                <div className="p-2 px-3 bg-[#EFF6FF] border border-[#BFDBFE] rounded-xl text-[11px] font-bold text-[#2563EB] flex items-center justify-between gap-2">
                   <span className="flex items-center gap-1.5 font-extrabold text-xs">
-                    <Sparkles className="w-3.5 h-3.5 text-[#D69A18] shrink-0" />
+                    <Sparkles className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
                     <span>SPECIAL PREVENTIVE OFFER</span>
                   </span>
-                  <span className="bg-[#D69A18] text-white px-2.5 py-0.5 rounded-md text-[10px] font-black shrink-0">₹800 ONLY</span>
+                  <span className="bg-[#2563EB] text-white px-2.5 py-0.5 rounded-md text-[10px] font-black shrink-0">₹800 ONLY</span>
                 </div>
 
                 {/* Pricing row */}
@@ -155,8 +155,8 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
                 </div>
 
                 {/* Free Home Sample Collection Box */}
-                <div className="p-2.5 bg-[#FFF8EB] border border-[#F3DBA7] rounded-xl text-xs font-extrabold text-[#D69A18] flex items-center gap-2">
-                  <Home className="w-4 h-4 shrink-0 text-[#D69A18]" />
+                <div className="p-2.5 bg-[#EFF6FF] border border-[#BFDBFE] rounded-xl text-xs font-extrabold text-[#2563EB] flex items-center gap-2">
+                  <Home className="w-4 h-4 shrink-0 text-[#2563EB]" />
                   <span>Free Home Sample Collection Included</span>
                 </div>
 
@@ -183,7 +183,7 @@ export default function RakshaOfferCard({ onOpenBooking }: RakshaOfferCardProps)
                 {/* CTA Button */}
                 <button
                   onClick={() => onOpenBooking(RAKSHA_CAMPAIGN_CONFIG.offerTitle)}
-                  className="w-full py-3 px-5 bg-[#D69A18] hover:bg-[#b88313] text-white font-black rounded-xl shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 text-xs sm:text-sm uppercase tracking-wider group cursor-pointer"
+                  className="w-full py-3 px-5 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black rounded-xl shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 text-xs sm:text-sm uppercase tracking-wider group cursor-pointer"
                   style={{ color: '#ffffff' }}
                 >
                   <span>BOOK PACKAGE @ ₹800</span>

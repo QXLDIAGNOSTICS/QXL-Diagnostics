@@ -30,7 +30,7 @@ export default function ReferenceRangesTable({ ranges, disclaimer, testName }: P
     <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
       {/* Header */}
       <div className="flex items-center gap-3 px-6 py-4 border-b border-gray-100 bg-slate-50/60">
-        <div className="w-9 h-9 rounded-xl bg-[#0f2d5e] flex items-center justify-center flex-shrink-0">
+        <div className="w-9 h-9 rounded-xl bg-[#2563EB] flex items-center justify-center flex-shrink-0 shadow-2xs">
           <ShieldCheck className="w-5 h-5 text-white" />
         </div>
         <div>

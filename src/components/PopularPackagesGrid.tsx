@@ -173,7 +173,7 @@ export default function PopularPackagesGrid() {
                 onClick={() => setSelectedGuidance(g.key)}
                 className={`text-[11px] font-black px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
                   selectedGuidance === g.key
-                    ? 'bg-[#0f2d5e] text-white border-[#0f2d5e] shadow-2xs'
+                    ? 'bg-blue-600 text-white border-blue-600 shadow-2xs'
                     : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
                 }`}
               >
@@ -268,92 +268,69 @@ export default function PopularPackagesGrid() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {standardPackages.map((pkg: PackageItem) => {
-                    const saveAmount = pkg.price && pkg.mrp ? pkg.mrp - pkg.price : 0;
+                    const discountPercent = pkg.price && pkg.mrp ? Math.round(((pkg.mrp - pkg.price) / pkg.mrp) * 100) : 0;
+                    const tagLabel = pkg.name.toLowerCase().includes('quick') ? 'QUICK' : (pkg.tag || 'PREVENTIVE');
                     return (
                       <div
                         key={pkg.id}
-                        className="bg-white border border-slate-200 hover:border-blue-400 hover:shadow-xl rounded-3xl p-6 shadow-xs transition-all duration-300 flex flex-col justify-between h-full relative group"
+                        className="bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-xl rounded-3xl overflow-hidden shadow-xs transition-all duration-300 flex flex-col justify-between h-full group text-left"
                       >
-                        <div>
-                          {/* Guidance / Tag Bar */}
-                          <div className="flex items-center justify-between gap-2 mb-2">
-                            <span className={`inline-block px-2.5 py-0.5 rounded text-[9.5px] font-black uppercase tracking-wider border ${getGuidanceBadgeStyle(pkg.guidanceLevel)}`}>
-                              {pkg.guidanceLevel || pkg.tag || 'PREVENTIVE OFFER'}
+                        {/* Top Header matching screenshot */}
+                        <div className="bg-gradient-to-b from-[#eaf3fe] via-[#f4f8fe] to-white p-4 pb-3 border-b border-blue-100/50 flex items-center justify-between gap-2">
+                          <span className="bg-[#2563eb] text-white font-extrabold text-[11px] px-3.5 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                            {tagLabel}
+                          </span>
+                          {discountPercent > 0 && (
+                            <span className="bg-[#f0fdf4] text-emerald-700 border border-emerald-200 font-extrabold text-[11px] px-3 py-0.5 rounded-full shadow-2xs">
+                              {discountPercent}% OFF
                             </span>
-                            <span className="text-[10.5px] font-extrabold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full flex items-center gap-1 shrink-0">
-                              <Dna className="w-3 h-3 text-[#D69A18]" />
-                              {pkg.parametersLabel}
-                            </span>
-                          </div>
+                          )}
+                        </div>
 
-                          <h3 className="font-extrabold text-slate-900 text-base sm:text-lg leading-snug mb-2 group-hover:text-[#2563eb] transition-colors">
+                        <div className="p-5 flex flex-col justify-between flex-1 gap-3.5 bg-white">
+                          <h3 className="font-black text-slate-900 text-lg leading-tight group-hover:text-[#2563eb] transition-colors">
                             {pkg.name}
                           </h3>
 
-                          {/* May Help When Tagline if present */}
-                          {pkg.mayHelpWhen && (
-                            <p className="text-[11px] font-extrabold text-blue-900 bg-blue-50/70 border border-blue-100 px-2.5 py-1 rounded-xl mb-3 leading-snug">
-                              💡 {pkg.mayHelpWhen}
-                            </p>
-                          )}
-
-                          {/* Key Highlights */}
-                          <div className="mb-3 space-y-1.5">
-                            {pkg.highlights.map((b, i) => (
-                              <div key={i} className="text-xs text-slate-700 flex items-start gap-1.5 font-semibold leading-tight">
-                                <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-500 mt-0.5" />
-                                <span className="line-clamp-2">{b}</span>
-                              </div>
-                            ))}
+                          {/* Blue Parameter / Inclusions Box matching screenshot */}
+                          <div className="bg-[#eaf2ff] text-[#2563eb] border border-blue-100/60 p-3.5 rounded-2xl text-xs font-bold leading-relaxed line-clamp-2">
+                            {pkg.includes}
                           </div>
 
-                          {/* Inclusions */}
-                          <div className="my-3 pt-3 border-t border-dashed border-gray-200">
-                            <p className="text-xs text-slate-600 font-medium line-clamp-3 leading-relaxed">
-                              <strong className="text-slate-800 font-bold">Includes:</strong> {pkg.includes}
-                            </p>
+                          {/* Home collection line matching screenshot */}
+                          <div className="flex items-center gap-1.5 text-slate-600 font-semibold text-xs">
+                            <span>🏠</span>
+                            <span>Free Home Collection Available</span>
                           </div>
-                        </div>
 
-                        {/* Card Bottom Area: Pricing & Actions */}
-                        <div className="pt-4 mt-auto border-t border-gray-100 space-y-3">
-                          <div className="flex items-center justify-between gap-2 min-h-[44px]">
-                            <div>
-                              <span className="text-[11px] text-slate-400 line-through block mb-0.5 font-semibold">₹{pkg.mrp}</span>
-                              <div className="flex items-baseline gap-1.5">
-                                <span className="text-2xl font-black text-slate-900">₹{pkg.price}</span>
-                                {saveAmount > 0 && (
-                                  <span className="text-[10px] font-extrabold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full">
-                                    Save ₹{saveAmount}
-                                  </span>
-                                )}
-                              </div>
+                          {/* Pricing & Actions */}
+                          <div className="pt-3 mt-auto border-t border-slate-100 space-y-3">
+                            <div className="flex items-baseline gap-2.5">
+                              <span className="text-2xl sm:text-3xl font-black text-[#0B2545]">₹{pkg.price}</span>
+                              {pkg.mrp && pkg.price && pkg.mrp > pkg.price && (
+                                <span className="text-sm text-slate-400 line-through font-bold">₹{pkg.mrp}</span>
+                              )}
+                              {discountPercent > 0 && (
+                                <span className="text-sm font-black text-emerald-600">{discountPercent}% OFF</span>
+                              )}
                             </div>
 
-                            <button
-                              type="button"
-                              onClick={() => setSelectedPkg(pkg)}
-                              className="text-xs font-extrabold text-[#2563eb] hover:text-[#1d4ed8] flex items-center gap-1 cursor-pointer bg-blue-50 hover:bg-blue-100 px-3 py-2 rounded-xl border border-blue-200 transition-all shrink-0"
-                            >
-                              <Info className="w-3.5 h-3.5" />
-                              Details
-                            </button>
-                          </div>
-
-                          <div className="grid grid-cols-2 gap-2">
-                            <button
-                              type="button"
-                              onClick={() => handleAddToCart(pkg)}
-                              className="w-full py-2.5 rounded-xl text-[11px] font-black uppercase tracking-wider text-slate-700 border-2 border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all cursor-pointer text-center"
-                            >
-                              + Add to Cart
-                            </button>
-                            <Link
-                              href={`/book?package=${pkg.slug}`}
-                              className="flex items-center justify-center gap-1 w-full py-2.5 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all shadow-md bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-center"
-                            >
-                              Book Now <ArrowRight className="w-3.5 h-3.5" />
-                            </Link>
+                            <div className="grid grid-cols-2 gap-2.5 pt-1">
+                              <button
+                                type="button"
+                                onClick={() => setSelectedPkg(pkg)}
+                                className="w-full py-2.5 rounded-full text-xs font-black uppercase tracking-wider text-slate-800 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all text-center cursor-pointer shadow-2xs"
+                              >
+                                DETAILS
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => handleAddToCart(pkg)}
+                                className="w-full py-2.5 rounded-full text-xs font-black uppercase tracking-wider text-white bg-[#2563eb] hover:bg-[#1d4ed8] shadow-md hover:shadow-lg active:scale-95 transition-all text-center flex items-center justify-center gap-1 cursor-pointer"
+                              >
+                                BOOK NOW
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -396,7 +373,7 @@ export default function PopularPackagesGrid() {
                             {pkg.guidanceLevel || pkg.tag || 'DOCTOR-DIRECTED'}
                           </span>
                           <span className="text-[10.5px] font-extrabold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full flex items-center gap-1 shrink-0">
-                            <Dna className="w-3 h-3 text-[#D69A18]" />
+                            <Dna className="w-3 h-3 text-[#2563EB]" />
                             {pkg.parametersLabel}
                           </span>
                         </div>
@@ -513,10 +490,10 @@ export default function PopularPackagesGrid() {
             <div className="p-6 space-y-5 overflow-y-auto flex-1 text-slate-800">
               {/* Pricing Box */}
               {selectedPkg.contactForPrice || !selectedPkg.price ? (
-                <div className="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 p-4.5 rounded-2xl border border-amber-200 space-y-2">
+                <div className="bg-gradient-to-r from-sky-50 via-blue-50/60 to-sky-50 p-4.5 rounded-2xl border border-sky-200 space-y-2">
                   <div className="flex items-center justify-between">
                     <div>
-                      <span className="text-[10px] font-black text-amber-800 uppercase tracking-widest block">
+                      <span className="text-[10px] font-black text-[#2563EB] uppercase tracking-widest block">
                         PACKAGE PRICING &amp; BOOKING GUIDANCE
                       </span>
                       <span className="text-xl font-black text-[#0f2d5e]">Contact Us for Price Quote</span>
@@ -539,8 +516,8 @@ export default function PopularPackagesGrid() {
                   <div>
                     <span className="text-xs text-slate-400 line-through font-bold block mb-0.5">MRP ₹{selectedPkg.mrp}</span>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-3xl font-black text-[#0f2d5e]">₹{selectedPkg.price}</span>
-                      {selectedPkg.mrp && (
+                      <span className="text-3xl font-black text-[#0B2545]">₹{selectedPkg.price}</span>
+                      {selectedPkg.mrp && selectedPkg.price && (
                         <span className="bg-emerald-600 text-white text-xs font-black px-2.5 py-0.5 rounded-full">
                           Save ₹{selectedPkg.mrp - selectedPkg.price}
                         </span>
@@ -591,7 +568,7 @@ export default function PopularPackagesGrid() {
               {/* Fasting & Report TAT Bar */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-bold text-slate-700 bg-slate-50 p-3.5 rounded-2xl border border-slate-200">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#D69A18] shrink-0" />
+                  <Clock className="w-4 h-4 text-[#2563EB] shrink-0" />
                   <div>
                     <span className="block text-[10px] text-slate-400 font-extrabold uppercase">Report TAT</span>
                     <span>{selectedPkg.tat || "Standard Clinical TAT"}</span>

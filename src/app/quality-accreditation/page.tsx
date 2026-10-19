@@ -141,7 +141,7 @@ export default function QualityAccreditationPage() {
       {/* Header Banner */}
       <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-16 border-b border-sky-900 relative overflow-hidden">
         <div className="max-w-[1260px] mx-auto px-4 w-full relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/20 backdrop-blur-md border border-amber-300/40 text-amber-200 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-400/20 backdrop-blur-md border border-amber-300/40 text-sky-200 text-xs font-bold uppercase tracking-wider mb-4">
             <Award className="w-4 h-4 text-amber-300" />
             <span>NABL ACCREDITED LABORATORY ({NABL_CERTIFICATE})</span>
           </div>

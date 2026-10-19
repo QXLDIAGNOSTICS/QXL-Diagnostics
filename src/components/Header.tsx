@@ -241,26 +241,6 @@ export default function Header() {
           boxShadow: '0 4px 20px rgba(0, 0, 0, 0.03)'
         }}
       >
-        {/* Top Announcement Bar — Desktop (Deep Navy Bar with Smooth Marquee) */}
-        <div className="hidden lg:flex bg-[#0B2545] text-white text-[11px] font-black py-1 px-3 items-center overflow-hidden border-b border-amber-500/20 shadow-xs relative">
-          <div className="flex whitespace-nowrap animate-marquee-fast hover:[animation-play-state:paused] w-max cursor-pointer" style={{ animationDuration: '45s' }}>
-            {[1, 2].map((repeatKey) => (
-              <div key={repeatKey} className="flex items-center gap-4 shrink-0 mr-8" aria-hidden={repeatKey === 2 ? true : undefined}>
-                <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">NABL ACCREDITED ({NABL_CERTIFICATE})</span>
-                <span className="text-sky-100 font-bold">•</span>
-                <div className="brand-strip text-[11px] font-black !text-white inline-flex items-center gap-1 m-0 p-0">
-                  <span>Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</span>
-                </div>
-                <span className="text-sky-100 font-bold">•</span>
-                <span className="text-white text-[11px] font-black">300+ Tests &amp; Preventive Checkup Packages</span>
-                <span className="text-sky-100 font-bold">•</span>
-                <span className="text-white text-[11px] font-black">Free Doorstep Home Collection Across All Bengaluru Localities</span>
-                <span className="text-sky-100 font-bold">•</span>
-                <a href="tel:+919964639639" className="text-amber-300 font-extrabold hover:underline text-[11px]">24×7 Support: +91 9964 639 639</a>
-              </div>
-            ))}
-          </div>
-        </div>
 
       {/* ── DESKTOP HEADER (lg:block) ── */}
       <div className="hidden lg:block relative z-10">
@@ -303,7 +283,7 @@ export default function Header() {
                     }
                   }}
                 >
-                  <div className="w-7 h-7 rounded-full flex items-center justify-center mr-2 flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(255, 153, 51, 0.3) 0%, rgba(255, 153, 51, 0.1) 100%)', boxShadow: '0 2px 8px rgba(255, 153, 51, 0.2), inset 0 1px 0 rgba(255,255,255,0.8)' }}>
+                  <div className="w-7 h-7 rounded-full flex items-center justify-center mr-2 flex-shrink-0" style={{ background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.3) 0%, rgba(56, 189, 248, 0.1) 100%)', boxShadow: '0 2px 8px rgba(56, 189, 248, 0.2), inset 0 1px 0 rgba(255,255,255,0.8)' }}>
                     <MapPin className="w-3.5 h-3.5 text-[#000080]" />
                   </div>
                   <span className="font-semibold text-sm text-[#0b132b] max-w-[150px] truncate">
@@ -378,7 +358,7 @@ export default function Header() {
                   style={{ background: 'rgba(224,242,254,0.6)', border: '1px solid rgba(125,199,232,0.3)', backdropFilter: 'blur(8px)' }}
                   title={userDisplayName}
                 >
-                  <span className="w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-extrabold flex-shrink-0" style={{ background: 'linear-gradient(135deg, #D69A18 0%, #E08500 100%)', boxShadow: '0 2px 8px rgba(214,154,24,0.35)' }}>
+                  <span className="w-6 h-6 rounded-full text-white flex items-center justify-center text-xs font-extrabold flex-shrink-0" style={{ background: 'linear-gradient(135deg, #2563EB 0%, #0284C7 100%)', boxShadow: '0 2px 8px rgba(37, 99, 235,0.35)' }}>
                     {userInitial}
                   </span>
                   <span className="text-[12px] font-extrabold text-[#0B2545] truncate">{userDisplayName}</span>
@@ -390,10 +370,10 @@ export default function Header() {
               <Link
                 href="/book"
                 className="hidden xl:flex items-center justify-center w-9 h-9 rounded-full relative transition-all duration-200 hover:scale-105"
-                style={{ background: 'rgba(255,248,235,0.75)', border: '1px solid rgba(243,219,167,0.6)', backdropFilter: 'blur(8px)', boxShadow: '0 2px 12px rgba(214,154,24,0.15), inset 0 1px 0 rgba(255,255,255,0.85)' }}
+                style={{ background: 'rgba(239, 246, 255,0.75)', border: '1px solid rgba(191, 219, 254,0.6)', backdropFilter: 'blur(8px)', boxShadow: '0 2px 12px rgba(37, 99, 235,0.15), inset 0 1px 0 rgba(255,255,255,0.85)' }}
                 title="Cart / Booked Tests"
               >
-                <ShoppingCart className="w-4 h-4 text-[#D69A18]" />
+                <ShoppingCart className="w-4 h-4 text-[#2563EB]" />
                 {cartCount > 0 && (
                   <span className="absolute -top-1 -right-1 rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold text-white" style={{ background: 'linear-gradient(135deg, #f87171 0%, #ef4444 100%)', boxShadow: '0 2px 6px rgba(239,68,68,0.4)' }}>
                     {cartCount}
@@ -404,7 +384,7 @@ export default function Header() {
               <Link
                 href="/book"
                 className="hidden xl:inline-flex items-center font-black px-6 py-2.5 rounded-full text-[11px] uppercase tracking-wider whitespace-nowrap active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
-                style={{ background: 'linear-gradient(135deg, #D69A18 0%, #E08500 100%)', color: '#ffffff' }}
+                style={{ background: 'linear-gradient(135deg, #2563EB 0%, #0284C7 100%)', color: '#ffffff' }}
               >
                 <span className="!text-white font-black flex items-center gap-1.5" style={{ color: '#ffffff' }}>
                   <span>BOOK A TEST</span>
@@ -430,8 +410,8 @@ export default function Header() {
                       href={item.href}
                       className={`relative shrink-0 inline-flex items-center justify-center px-1.5 xl:px-2.5 2xl:px-3 py-1.5 rounded-lg uppercase tracking-wide whitespace-nowrap leading-none transition-all duration-200 ${
                         isActive
-                          ? "bg-[#FFF8EB] text-[#D69A18] font-black border border-[#F3DBA7]"
-                          : "text-[#0f2d5e] hover:bg-slate-100 hover:text-[#D69A18]"
+                          ? "bg-[#EFF6FF] text-[#2563EB] font-black border border-[#BFDBFE]"
+                          : "text-[#0f2d5e] hover:bg-slate-100 hover:text-[#2563EB]"
                       }`}
                     >
                       {item.label}
@@ -524,22 +504,22 @@ export default function Header() {
             aria-label="Change Location"
             title={location || "Bangalore"}
           >
-            <div className="w-4.5 h-4.5 rounded-full bg-[#FFF5E5] flex items-center justify-center shrink-0 border border-[#FDE6C2]">
-              <MapPin className="w-3 h-3 text-[#D69A18] shrink-0" />
+            <div className="w-4.5 h-4.5 rounded-full bg-[#EFF6FF] flex items-center justify-center shrink-0 border border-[#BFDBFE]">
+              <MapPin className="w-3 h-3 text-[#2563EB] shrink-0" />
             </div>
             <span className="truncate max-w-[120px] xs:max-w-[160px] font-extrabold text-[#0f2d5e]">
               {isMounted ? getShortLocationName(location) : "Bengaluru"}
             </span>
-            <ChevronDown className="w-3 h-3 text-[#D69A18] shrink-0" />
+            <ChevronDown className="w-3 h-3 text-[#2563EB] shrink-0" />
           </button>
 
           {/* Phone Number Display */}
           <a
             href="tel:+919964639639"
-            className="flex items-center gap-1.5 text-[11.5px] font-extrabold text-[#0B2545] hover:text-[#D69A18] transition-colors bg-white border border-slate-200/80 px-3 py-1 rounded-full shadow-2xs"
+            className="flex items-center gap-1.5 text-[11.5px] font-extrabold text-[#0B2545] hover:text-[#2563EB] transition-colors bg-white border border-slate-200/80 px-3 py-1 rounded-full shadow-2xs"
           >
-            <div className="w-4.5 h-4.5 rounded-full bg-[#FFF5E5] flex items-center justify-center shrink-0 border border-[#FDE6C2]">
-              <Phone className="w-2.5 h-2.5 text-[#D69A18] fill-[#D69A18] shrink-0" />
+            <div className="w-4.5 h-4.5 rounded-full bg-[#EFF6FF] flex items-center justify-center shrink-0 border border-[#BFDBFE]">
+              <Phone className="w-2.5 h-2.5 text-[#2563EB] fill-[#2563EB] shrink-0" />
             </div>
             <span className="tracking-tight font-black text-[#0B2545]">+91 9964 639 639</span>
           </a>
@@ -579,7 +559,7 @@ export default function Header() {
               {/* Header */}
               <div className="flex items-center justify-between px-5 py-3 border-b border-slate-100 shrink-0">
                 <div className="flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-[#D69A18]" />
+                  <MapPin className="w-5 h-5 text-[#2563EB]" />
                   <div>
                     <h3 className="font-black text-[#0f2d5e] text-base leading-tight">Select Location</h3>
                     <p className="text-[11px] text-slate-500 font-semibold">Home collection available in your area</p>
@@ -610,10 +590,10 @@ export default function Header() {
                       changeLocation("Bengaluru");
                     }
                   }}
-                  className="w-full p-3.5 rounded-2xl bg-amber-50/80 border border-[#F3DBA7] hover:bg-amber-100/80 transition-all flex items-center justify-between text-left cursor-pointer active:scale-98"
+                  className="w-full p-3.5 rounded-2xl bg-amber-50/80 border border-[#BFDBFE] hover:bg-amber-100/80 transition-all flex items-center justify-between text-left cursor-pointer active:scale-98"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-xl bg-[#D69A18] text-white flex items-center justify-center shrink-0 shadow-xs">
+                    <div className="w-9 h-9 rounded-xl bg-[#2563EB] text-white flex items-center justify-center shrink-0 shadow-xs">
                       <Globe className="w-5 h-5 text-white" />
                     </div>
                     <div>
@@ -623,7 +603,7 @@ export default function Header() {
                       <span className="text-[10.5px] text-slate-500 font-medium">Using GPS for instant detection</span>
                     </div>
                   </div>
-                  <ChevronRight className="w-4 h-4 text-[#D69A18]" />
+                  <ChevronRight className="w-4 h-4 text-[#2563EB]" />
                 </button>
 
                 {/* 2. Enter PIN Code */}
@@ -636,7 +616,7 @@ export default function Header() {
                       type="text"
                       maxLength={6}
                       placeholder="e.g. 560102"
-                      className="flex-1 bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-bold text-[#0f2d5e] focus:outline-none focus:border-[#D69A18]"
+                      className="flex-1 bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-xs font-bold text-[#0f2d5e] focus:outline-none focus:border-[#2563EB]"
                       onKeyDown={(e) => {
                         if (e.key === 'Enter' && e.currentTarget.value) {
                           changeLocation(`PIN ${e.currentTarget.value} - Bengaluru`);
@@ -649,7 +629,7 @@ export default function Header() {
                         const input = (e.currentTarget.previousElementSibling as HTMLInputElement)?.value;
                         if (input) changeLocation(`PIN ${input} - Bengaluru`);
                       }}
-                      className="bg-[#D69A18] hover:bg-[#b88313] text-white font-black px-4 py-2 rounded-xl text-xs uppercase tracking-wider shadow-xs transition-all cursor-pointer"
+                      className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-4 py-2 rounded-xl text-xs uppercase tracking-wider shadow-xs transition-all cursor-pointer"
                       style={{ color: '#ffffff' }}
                     >
                       Apply
@@ -694,14 +674,14 @@ export default function Header() {
                           <button
                             onClick={() => setExpandedCity(isExpanded ? null : cityKey)}
                             className={`w-full flex items-center justify-between px-4 py-3 font-extrabold text-xs transition-all ${
-                              isExpanded ? 'bg-amber-50 text-[#D69A18]' : 'text-slate-700'
+                              isExpanded ? 'bg-amber-50 text-[#2563EB]' : 'text-slate-700'
                             }`}
                           >
                             <span className="flex items-center gap-2">
-                              <MapPin className="w-4 h-4 text-[#D69A18]" />
+                              <MapPin className="w-4 h-4 text-[#2563EB]" />
                               {cityKey} Centres ({cityBranches.length})
                             </span>
-                            <ChevronDown className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180 text-[#D69A18]' : 'text-slate-400'}`} />
+                            <ChevronDown className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180 text-[#2563EB]' : 'text-slate-400'}`} />
                           </button>
 
                           {isExpanded && (
@@ -713,11 +693,11 @@ export default function Header() {
                                     key={branch.id}
                                     onClick={() => changeLocation(branch.name)}
                                     className={`w-full text-left px-4 py-2.5 text-xs transition-colors flex items-center justify-between ${
-                                      isBranchSelected ? 'font-extrabold text-[#D69A18] bg-amber-50/50' : 'text-slate-600 font-medium'
+                                      isBranchSelected ? 'font-extrabold text-[#2563EB] bg-amber-50/50' : 'text-slate-600 font-medium'
                                     }`}
                                   >
                                     <span>{getShortLocationName(branch.name)}</span>
-                                    {isBranchSelected && <span className="text-[#D69A18] font-bold">✓</span>}
+                                    {isBranchSelected && <span className="text-[#2563EB] font-bold">✓</span>}
                                   </button>
                                 );
                               })}
@@ -757,9 +737,9 @@ export default function Header() {
               className="fixed inset-y-0 left-0 w-[300px] h-full bg-white shadow-2xl flex flex-col z-[100001] overflow-hidden"
             >
               {/* Mobile Sidebar Header — High Contrast & Clean */}
-              <div className="bg-[#FFF8EB] border-b border-[#F3DBA7] p-5 flex items-center justify-between flex-shrink-0">
+              <div className="bg-[#EFF6FF] border-b border-[#BFDBFE] p-5 flex items-center justify-between flex-shrink-0">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-[#D69A18] flex items-center justify-center text-white shrink-0 shadow-sm">
+                  <div className="w-11 h-11 rounded-full bg-[#2563EB] flex items-center justify-center text-white shrink-0 shadow-sm">
                     {user ? <span className="text-base font-black text-white">{userInitial}</span> : <User className="w-6 h-6 text-white" />}
                   </div>
                   <div>
@@ -769,7 +749,7 @@ export default function Header() {
                     <Link
                       href={user ? "/profile" : "/login"}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="text-[12px] text-[#D69A18] font-bold hover:underline tracking-wide block mt-0.5"
+                      className="text-[12px] text-[#2563EB] font-bold hover:underline tracking-wide block mt-0.5"
                     >
                       {user ? "View Account Profile ›" : "Login or Register ›"}
                     </Link>
@@ -789,7 +769,7 @@ export default function Header() {
               <div className="flex-1 overflow-y-auto py-3 px-4 space-y-1">
                 <div className="flex items-center justify-between px-2 pb-2 mb-1 border-b border-slate-150/80">
                   <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest flex items-center gap-1">
-                    <Globe className="w-3.5 h-3.5 text-[#D69A18]" /> Translate Page
+                    <Globe className="w-3.5 h-3.5 text-[#2563EB]" /> Translate Page
                   </span>
                   <LanguageSwitcher />
                 </div>
@@ -804,12 +784,12 @@ export default function Header() {
                       onClick={() => setMobileMenuOpen(false)}
                       className={`px-4 py-3 rounded-2xl flex items-center justify-between transition-all ${
                         isActive
-                          ? 'bg-[#FFF8EB] text-[#D69A18] font-black border border-[#F3DBA7] shadow-2xs'
-                          : 'bg-slate-50 text-slate-800 font-bold hover:bg-amber-50/50 hover:text-[#D69A18] border border-slate-150/60'
+                          ? 'bg-[#EFF6FF] text-[#2563EB] font-black border border-[#BFDBFE] shadow-2xs'
+                          : 'bg-slate-50 text-slate-800 font-bold hover:bg-amber-50/50 hover:text-[#2563EB] border border-slate-150/60'
                       }`}
                     >
                       <span className="text-[13px]">{item.label}</span>
-                      <ChevronRight className={`w-4 h-4 shrink-0 ${isActive ? 'text-[#D69A18]' : 'text-slate-400'}`} />
+                      <ChevronRight className={`w-4 h-4 shrink-0 ${isActive ? 'text-[#2563EB]' : 'text-slate-400'}`} />
                     </Link>
                   );
                 })}
@@ -824,7 +804,7 @@ export default function Header() {
                 <div className="flex gap-2">
                   <a
                     href={`tel:${(settings.contactPhone || '+919964639639').replace(/\s+/g, '')}`}
-                    className="flex-1 text-center bg-[#D69A18] text-white font-extrabold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform"
+                    className="flex-1 text-center bg-[#2563EB] text-white font-extrabold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform"
                   >
                     <Phone className="w-3.5 h-3.5 text-white" /> Call
                   </a>
@@ -839,7 +819,7 @@ export default function Header() {
                 </div>
 
                 <div className="flex items-start gap-2.5 pt-1">
-                  <MapPin className="w-4 h-4 text-[#D69A18] shrink-0 mt-0.5" />
+                  <MapPin className="w-4 h-4 text-[#2563EB] shrink-0 mt-0.5" />
                   <div>
                     <p className="text-[#0f2d5e] text-[11px] font-black">QXL Main Lab (Kengeri)</p>
                     <p className="text-slate-500 text-[10.5px] font-medium leading-tight">SLN Complex, Mysore Road, Kengeri, Bengaluru</p>
@@ -864,14 +844,14 @@ export default function Header() {
           <Link
             href="/"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-              pathname === '/' ? 'text-[#D69A18]' : 'text-[#0F2D5E] hover:text-[#D69A18]'
+              pathname === '/' ? 'text-[#2563EB]' : 'text-[#0F2D5E] hover:text-[#2563EB]'
             }`}
           >
             <Home
-              className={`w-6 h-6 ${pathname === '/' ? 'text-[#D69A18] fill-[#D69A18]' : 'text-[#0F2D5E]'}`}
+              className={`w-6 h-6 ${pathname === '/' ? 'text-[#2563EB] fill-[#2563EB]' : 'text-[#0F2D5E]'}`}
               strokeWidth={pathname === '/' ? 2.2 : 2.0}
             />
-            <span className={`text-[11px] ${pathname === '/' ? 'font-extrabold text-[#D69A18]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
+            <span className={`text-[11px] ${pathname === '/' ? 'font-extrabold text-[#2563EB]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
               Home
             </span>
           </Link>
@@ -880,14 +860,14 @@ export default function Header() {
           <Link
             href="/tests"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-              pathname?.startsWith('/tests') ? 'text-[#D69A18]' : 'text-[#0F2D5E] hover:text-[#D69A18]'
+              pathname?.startsWith('/tests') ? 'text-[#2563EB]' : 'text-[#0F2D5E] hover:text-[#2563EB]'
             }`}
           >
             <Microscope
-              className={`w-6 h-6 ${pathname?.startsWith('/tests') ? 'text-[#D69A18]' : 'text-[#0F2D5E]'}`}
+              className={`w-6 h-6 ${pathname?.startsWith('/tests') ? 'text-[#2563EB]' : 'text-[#0F2D5E]'}`}
               strokeWidth={pathname?.startsWith('/tests') ? 2.4 : 2.0}
             />
-            <span className={`text-[11px] ${pathname?.startsWith('/tests') ? 'font-extrabold text-[#D69A18]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
+            <span className={`text-[11px] ${pathname?.startsWith('/tests') ? 'font-extrabold text-[#2563EB]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
               Tests
             </span>
           </Link>
@@ -990,14 +970,14 @@ export default function Header() {
           <Link
             href="/dashboard"
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-              pathname?.startsWith('/dashboard') ? 'text-[#D69A18]' : 'text-[#0F2D5E] hover:text-[#D69A18]'
+              pathname?.startsWith('/dashboard') ? 'text-[#2563EB]' : 'text-[#0F2D5E] hover:text-[#2563EB]'
             }`}
           >
             <CalendarCheck
-              className={`w-6 h-6 ${pathname?.startsWith('/dashboard') ? 'text-[#D69A18]' : 'text-[#0F2D5E]'}`}
+              className={`w-6 h-6 ${pathname?.startsWith('/dashboard') ? 'text-[#2563EB]' : 'text-[#0F2D5E]'}`}
               strokeWidth={pathname?.startsWith('/dashboard') ? 2.4 : 2.0}
             />
-            <span className={`text-[11px] ${pathname?.startsWith('/dashboard') ? 'font-extrabold text-[#D69A18]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
+            <span className={`text-[11px] ${pathname?.startsWith('/dashboard') ? 'font-extrabold text-[#2563EB]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
               Bookings
             </span>
           </Link>
@@ -1006,14 +986,14 @@ export default function Header() {
           <Link
             href={user ? "/profile" : "/login"}
             className={`flex flex-col items-center justify-center gap-0.5 flex-1 h-full active:scale-95 transition-transform ${
-              (pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#D69A18]' : 'text-[#0F2D5E] hover:text-[#D69A18]'
+              (pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#2563EB]' : 'text-[#0F2D5E] hover:text-[#2563EB]'
             }`}
           >
             <User
-              className={`w-6 h-6 ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#D69A18]' : 'text-[#0F2D5E]'}`}
+              className={`w-6 h-6 ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'text-[#2563EB]' : 'text-[#0F2D5E]'}`}
               strokeWidth={(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 2.4 : 2.0}
             />
-            <span className={`text-[11px] ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'font-extrabold text-[#D69A18]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
+            <span className={`text-[11px] ${(pathname?.startsWith('/profile') || pathname?.startsWith('/login')) ? 'font-extrabold text-[#2563EB]' : 'font-bold text-[#0F2D5E]'} tracking-tight`}>
               Profile
             </span>
           </Link>

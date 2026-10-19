@@ -97,10 +97,10 @@ function LoginPageInner() {
 
           {/* Footer Assistance & Privacy */}
           <div className="mt-6 pt-5 border-t border-slate-100 space-y-3">
-            <div className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-2xl p-3.5 text-left flex items-start gap-2.5 text-xs text-slate-700 font-medium">
+            <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-2xl p-3.5 text-left flex items-start gap-2.5 text-xs text-slate-700 font-medium">
               <span className="text-base leading-none">📞</span>
               <div>
-                <span className="font-extrabold text-[#D69A18] block mb-0.5">Senior Citizen &amp; Patient Assistance</span>
+                <span className="font-extrabold text-[#2563EB] block mb-0.5">Senior Citizen &amp; Patient Assistance</span>
                 <span className="text-slate-600">Need help with login or PDF reports? Call <a href="tel:+919964639639" className="text-[#0A5DAA] font-extrabold hover:underline">+91 9964 639 639</a> — reports can be sent directly via WhatsApp.</span>
               </div>
             </div>

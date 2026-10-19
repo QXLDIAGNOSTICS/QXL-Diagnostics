@@ -377,15 +377,15 @@ export default function SmartSearchBar({
         }}
         className={`group relative flex items-center w-full bg-white transition-all duration-300 cursor-pointer overflow-hidden ${
           isMobile
-            ? "rounded-2xl border border-slate-200 hover:border-[#D69A18] px-3.5 py-2.5 gap-2.5 shadow-2xs hover:shadow-[0_4px_20px_rgba(214,154,24,0.18)]"
-            : "rounded-xl border border-slate-200 hover:border-[#D69A18] py-3 px-3.5 gap-2.5 shadow-2xs hover:shadow-[0_4px_20px_rgba(214,154,24,0.18)]"
+            ? "rounded-2xl border border-slate-200 hover:border-[#2563EB] px-3.5 py-2.5 gap-2.5 shadow-2xs hover:shadow-[0_4px_20px_rgba(37, 99, 235,0.18)]"
+            : "rounded-xl border border-slate-200 hover:border-[#2563EB] py-3 px-3.5 gap-2.5 shadow-2xs hover:shadow-[0_4px_20px_rgba(37, 99, 235,0.18)]"
         }`}
       >
         {/* Subtle animated glowing background highlight on hover */}
         <div className="absolute inset-0 bg-gradient-to-r from-amber-400/0 via-amber-400/10 to-sky-400/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
         {/* Animated Search Icon */}
-        <Search className="w-4 h-4 text-slate-400 group-hover:text-[#D69A18] group-hover:scale-110 transition-all duration-300 shrink-0" />
+        <Search className="w-4 h-4 text-slate-400 group-hover:text-[#2563EB] group-hover:scale-110 transition-all duration-300 shrink-0" />
 
         {/* Cycling Text Animation */}
         <div className="flex-1 overflow-hidden h-5 relative flex items-center">
@@ -415,7 +415,7 @@ export default function SmartSearchBar({
           className="relative flex items-center justify-center p-1.5 hover:bg-amber-50 rounded-xl transition-all cursor-pointer shrink-0 border-l border-slate-200/80 pl-2 group/rx z-10"
           title="Upload Prescription"
         >
-          <FileText className="w-5 h-5 text-[#0f2d5e] group-hover/rx:text-[#D69A18] group-hover/rx:scale-110 transition-all duration-200" strokeWidth={1.8} />
+          <FileText className="w-5 h-5 text-[#0f2d5e] group-hover/rx:text-[#2563EB] group-hover/rx:scale-110 transition-all duration-200" strokeWidth={1.8} />
           <span className="absolute -bottom-1 -right-1.5 w-3.5 h-3.5 bg-rose-500 rounded-full border border-white flex items-center justify-center shadow-2xs group-hover/rx:scale-110 transition-transform">
             <Plus className="w-2.5 h-2.5 text-white" strokeWidth={3.5} />
           </span>
@@ -436,7 +436,7 @@ export default function SmartSearchBar({
               <ArrowLeft className="w-5 h-5 text-[#0f2d5e]" />
             </button>
 
-            <div className="flex-1 flex items-center bg-slate-50 border border-slate-200 focus-within:border-[#D69A18] rounded-2xl px-3.5 py-2.5 gap-2.5 shadow-inner">
+            <div className="flex-1 flex items-center bg-slate-50 border border-slate-200 focus-within:border-[#2563EB] rounded-2xl px-3.5 py-2.5 gap-2.5 shadow-inner">
               <Search className="w-4 h-4 text-slate-400 shrink-0" />
               <input
                 ref={inputRef}
@@ -469,10 +469,10 @@ export default function SmartSearchBar({
                 setIsOpen(false);
                 window.dispatchEvent(new CustomEvent("openPrescriptionModal"));
               }}
-              className="w-9 h-9 rounded-full bg-amber-50 border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0 cursor-pointer"
+              className="w-9 h-9 rounded-full bg-amber-50 border border-[#BFDBFE] flex items-center justify-center text-[#2563EB] shrink-0 cursor-pointer"
               title="Upload Prescription"
             >
-              <FileText className="w-4 h-4 text-[#D69A18]" />
+              <FileText className="w-4 h-4 text-[#2563EB]" />
             </button>
           </div>
 
@@ -506,7 +506,7 @@ export default function SmartSearchBar({
                           key={term}
                           type="button"
                           onClick={() => handleSelectSearch(term)}
-                          className="px-3.5 py-1.5 bg-slate-100 hover:bg-amber-50 border border-slate-200 hover:border-[#F3DBA7] text-[#0f2d5e] font-bold text-xs rounded-xl transition-all cursor-pointer flex items-center gap-1.5 active:scale-95"
+                          className="px-3.5 py-1.5 bg-slate-100 hover:bg-amber-50 border border-slate-200 hover:border-[#BFDBFE] text-[#0f2d5e] font-bold text-xs rounded-xl transition-all cursor-pointer flex items-center gap-1.5 active:scale-95"
                         >
                           <span>{term}</span>
                           <ChevronRight className="w-3 h-3 text-slate-400" />
@@ -519,7 +519,7 @@ export default function SmartSearchBar({
                 {/* 2. Popular Searches (P0 Exact Requirement List) */}
                 <div>
                   <div className="flex items-center gap-1.5 mb-3">
-                    <TrendingUp className="w-4 h-4 text-[#D69A18]" />
+                    <TrendingUp className="w-4 h-4 text-[#2563EB]" />
                     <h3 className="font-extrabold text-[#0f2d5e] text-xs uppercase tracking-wider">
                       Popular Searches
                     </h3>
@@ -531,9 +531,9 @@ export default function SmartSearchBar({
                         key={term}
                         type="button"
                         onClick={() => handleSelectSearch(term)}
-                        className="px-4 py-2 bg-[#FFF8EB] hover:bg-[#FFF2D6] border border-[#F3DBA7] hover:border-[#D69A18] text-[#0f2d5e] font-black text-xs rounded-xl shadow-2xs transition-all cursor-pointer flex items-center gap-2 active:scale-95"
+                        className="px-4 py-2 bg-[#EFF6FF] hover:bg-[#FFF2D6] border border-[#BFDBFE] hover:border-[#2563EB] text-[#0f2d5e] font-black text-xs rounded-xl shadow-2xs transition-all cursor-pointer flex items-center gap-2 active:scale-95"
                       >
-                        <span className="w-2 h-2 rounded-full bg-[#D69A18]" />
+                        <span className="w-2 h-2 rounded-full bg-[#2563EB]" />
                         <span>{term}</span>
                       </button>
                     ))}
@@ -545,7 +545,7 @@ export default function SmartSearchBar({
               <div className="space-y-4" role="status" aria-live="polite">
                 <div className="flex items-center justify-between pb-2 border-b border-slate-100">
                   <div className="flex items-center gap-1.5">
-                    <Sparkles className="w-4 h-4 text-[#D69A18]" />
+                    <Sparkles className="w-4 h-4 text-[#2563EB]" />
                     <span className="text-xs font-black text-slate-600 uppercase tracking-wider">
                       Intelligent Search Results ({matchedResults.length})
                     </span>
@@ -565,7 +565,7 @@ export default function SmartSearchBar({
                         setIsOpen(false);
                         router.push("/book");
                       }}
-                      className="inline-flex items-center gap-2 bg-[#D69A18] hover:bg-[#b88313] !text-white font-black px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+                      className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] !text-white font-black px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer"
                       style={{ color: "#ffffff" }}
                     >
                       <span className="!text-white font-black" style={{ color: "#ffffff" }}>Proceed to Custom Booking</span>
@@ -584,11 +584,11 @@ export default function SmartSearchBar({
                             setIsOpen(false);
                             router.push(`/book?tests=${encodeURIComponent(test.name)}`);
                           }}
-                          className="bg-white border border-slate-200 hover:border-[#D69A18] rounded-2xl p-3.5 flex items-center justify-between gap-3 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
+                          className="bg-white border border-slate-200 hover:border-[#2563EB] rounded-2xl p-3.5 flex items-center justify-between gap-3 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
                         >
                           <div className="flex flex-col gap-1 min-w-0">
                             <div className="flex items-center gap-2">
-                              <span className="bg-amber-50 text-[#D69A18] border border-[#F3DBA7] text-[9.5px] font-black px-2 py-0.5 rounded-full uppercase shrink-0">
+                              <span className="bg-amber-50 text-[#2563EB] border border-[#BFDBFE] text-[9.5px] font-black px-2 py-0.5 rounded-full uppercase shrink-0">
                                 {test.category}
                               </span>
                               <span className="font-extrabold text-[#0f2d5e] text-xs sm:text-sm leading-snug truncate">
@@ -619,7 +619,7 @@ export default function SmartSearchBar({
                               className={`px-3.5 py-1.5 rounded-xl text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer ${
                                 isAdded
                                   ? "bg-emerald-100 text-emerald-800 border border-emerald-300"
-                                  : "bg-[#D69A18] hover:bg-[#b88313] !text-white shadow-xs active:scale-95"
+                                  : "bg-[#2563EB] hover:bg-[#1D4ED8] !text-white shadow-xs active:scale-95"
                               }`}
                               style={!isAdded ? { color: "#ffffff" } : undefined}
                             >

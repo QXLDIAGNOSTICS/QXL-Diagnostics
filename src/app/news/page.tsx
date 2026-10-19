@@ -61,7 +61,7 @@ export default function NewsIndexPage() {
           </nav>
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="bg-[#D69A18] text-white text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-widest shadow-sm">
+            <span className="bg-[#2563EB] text-white text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-widest shadow-sm">
               QXL MEDIA CENTRE
             </span>
             <span className="bg-white/10 text-sky-200 border border-white/20 text-[10px] font-bold px-3 py-1 rounded-full">
@@ -80,7 +80,7 @@ export default function NewsIndexPage() {
           {/* Quick Stats Strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-white/15 max-w-4xl">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 text-center backdrop-blur-xs">
-              <span className="block text-2xl font-black text-[#F3DBA7]">177</span>
+              <span className="block text-2xl font-black text-[#BFDBFE]">177</span>
               <span className="text-[11px] text-sky-200 font-bold uppercase tracking-wider">Online Postings</span>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 text-center backdrop-blur-xs">
@@ -92,7 +92,7 @@ export default function NewsIndexPage() {
               <span className="text-[11px] text-sky-200 font-bold uppercase tracking-wider">Hospital Target 2028</span>
             </div>
             <div className="bg-white/5 border border-white/10 rounded-2xl p-3.5 text-center backdrop-blur-xs">
-              <span className="block text-2xl font-black text-amber-300">NABL</span>
+              <span className="block text-2xl font-black text-sky-300">NABL</span>
               <span className="text-[11px] text-sky-200 font-bold uppercase tracking-wider">Accredited Lab</span>
             </div>
           </div>
@@ -104,13 +104,13 @@ export default function NewsIndexPage() {
         <div className="max-w-[1240px] mx-auto px-4">
           
           <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
-            <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3 shadow-2xs">
+            <span className="bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest inline-block mb-3 shadow-2xs">
               NATIONAL MEDIA RECOGNITION
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-[#0f2d5e] tracking-tight uppercase leading-snug">
               AS FEATURED IN LEADING NATIONAL PUBLICATIONS
             </h2>
-            <div className="w-28 h-1.5 bg-gradient-to-r from-[#D69A18] via-amber-400 to-[#0f2d5e] mx-auto mt-3 rounded-full"></div>
+            <div className="w-28 h-1.5 bg-gradient-to-r from-[#2563EB] via-amber-400 to-[#0f2d5e] mx-auto mt-3 rounded-full"></div>
           </div>
 
           {/* 8 Prominent Outlet Cards */}
@@ -118,7 +118,7 @@ export default function NewsIndexPage() {
             {topOutlets.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:border-[#D69A18] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center min-h-[90px] sm:min-h-[110px] group"
+                className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-6 shadow-sm hover:shadow-xl hover:border-[#2563EB] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center min-h-[90px] sm:min-h-[110px] group"
               >
                 <Image
                   src={item.logo}
@@ -137,7 +137,7 @@ export default function NewsIndexPage() {
       {/* ── MAIN FEATURED ANNOUNCEMENT CARD ── */}
       <section className="py-14 max-w-[1240px] mx-auto px-4">
         <div className="mb-8">
-          <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest block mb-1">FEATURED COVERAGE</span>
+          <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest block mb-1">FEATURED COVERAGE</span>
           <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e]">Latest Media Announcement</h2>
         </div>
 
@@ -148,7 +148,7 @@ export default function NewsIndexPage() {
           <div className="p-6 sm:p-8 md:p-10 flex flex-col justify-between space-y-6">
             <div>
               <div className="flex items-center gap-3 text-xs font-bold text-slate-500 mb-3 flex-wrap">
-                <span className="flex items-center gap-1.5 text-[#D69A18]">
+                <span className="flex items-center gap-1.5 text-[#2563EB]">
                   <Calendar className="w-4 h-4" />
                   <time dateTime="2026-10-01">01 October 2026</time>
                 </span>
@@ -160,7 +160,7 @@ export default function NewsIndexPage() {
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-black text-[#0f2d5e] leading-tight mb-4 hover:text-[#D69A18] transition-colors">
+              <h3 className="text-2xl sm:text-3xl font-black text-[#0f2d5e] leading-tight mb-4 hover:text-[#2563EB] transition-colors">
                 <Link href="/news/qxl-diagnostics-60-hospital-laboratory-partnerships-2028/">
                   QXL Diagnostics Targets 60 Hospital Laboratory Partnerships by 2028
                 </Link>
@@ -189,7 +189,7 @@ export default function NewsIndexPage() {
             <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
               <Link
                 href="/news/qxl-diagnostics-60-hospital-laboratory-partnerships-2028/"
-                className="bg-[#0f2d5e] hover:bg-[#1e3a8a] text-white font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider inline-flex items-center gap-2 shadow-md transition-all active:scale-95"
+                className="bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#0284c7] border border-[#BFDBFE] font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider inline-flex items-center gap-2 shadow-xs hover:shadow-md transition-all active:scale-95"
               >
                 <span>Read Full Media Coverage &amp; 8 Outlets</span>
                 <ArrowRight className="w-4 h-4" />
@@ -203,7 +203,7 @@ export default function NewsIndexPage() {
           <div className="p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div>
               <div className="flex items-center gap-3 text-xs font-bold text-slate-500 mb-3 flex-wrap">
-                <span className="flex items-center gap-1.5 text-[#D69A18]">
+                <span className="flex items-center gap-1.5 text-[#2563EB]">
                   <Calendar className="w-4 h-4" />
                   <time dateTime="2026-09-29">29 September 2026</time>
                 </span>
@@ -246,10 +246,10 @@ export default function NewsIndexPage() {
                 href="https://digitalhealthnews.in"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#0B2545] hover:bg-[#164263] text-white font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider inline-flex items-center gap-2 shadow-md transition-all active:scale-95"
+                className="bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#0284c7] border border-[#BFDBFE] font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider inline-flex items-center gap-2 shadow-xs hover:shadow-md transition-all active:scale-95"
               >
                 <span>Read Digital Health News Feature</span>
-                <ExternalLink className="w-4 h-4 text-sky-300" />
+                <ExternalLink className="w-4 h-4 text-[#0284c7]" />
               </a>
 
               <span className="text-xs text-slate-500 font-semibold">
@@ -265,7 +265,7 @@ export default function NewsIndexPage() {
         <div className="bg-gradient-to-r from-[#0B2545] to-[#0f2d5e] rounded-3xl p-8 md:p-10 text-white relative overflow-hidden shadow-lg border border-white/10">
           <div className="grid md:grid-cols-12 gap-8 items-center relative z-10">
             <div className="md:col-span-8 space-y-3">
-              <span className="inline-block bg-[#D69A18] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+              <span className="inline-block bg-[#2563EB] text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
                 FOR HOSPITAL ADMINISTRATORS &amp; DIRECTORS
               </span>
               <h3 className="text-2xl md:text-3xl font-black text-white">
@@ -278,7 +278,7 @@ export default function NewsIndexPage() {
             <div className="md:col-span-4 text-left md:text-right">
               <Link
                 href="/hospital-laboratory-management/"
-                className="bg-[#D69A18] hover:bg-[#b88313] text-white font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider inline-flex items-center gap-2 shadow-md transition-all"
+                className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider inline-flex items-center gap-2 shadow-md transition-all"
               >
                 <span>Explore HLM Model</span>
                 <ArrowRight className="w-4 h-4" />

@@ -57,32 +57,32 @@
   --card-foreground: #0B2545;
   --popover: #FFFFFF;
   --popover-foreground: #0B2545;
-  --primary: #D69A18;
+  --primary: #2563EB;
   --primary-foreground: #FFFFFF;
-  --secondary: #FFF8EB;
-  --secondary-foreground: #0B2545;
+  --secondary: #EFF6FF;
+  --secondary-foreground: #1E40AF;
   --muted: #F8FAFC;
   --muted-foreground: #64748B;
-  --accent: #E08500;
+  --accent: #0284C7;
   --accent-foreground: #FFFFFF;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #E2E8F0;
   --input: #E2E8F0;
-  --ring: #D69A18;
-  --chart-1: #D69A18;
-  --chart-2: #E08500;
+  --ring: #2563EB;
+  --chart-1: #2563EB;
+  --chart-2: #0284C7;
   --chart-3: #0B2545;
-  --chart-4: #C58B12;
+  --chart-4: #38BDF8;
   --chart-5: #082142;
   --radius: 0.625rem;
   --sidebar: #FFFFFF;
   --sidebar-foreground: #0B2545;
-  --sidebar-primary: #D69A18;
+  --sidebar-primary: #2563EB;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #FFF8EB;
-  --sidebar-accent-foreground: #0B2545;
+  --sidebar-accent: #EFF6FF;
+  --sidebar-accent-foreground: #1E40AF;
   --sidebar-border: #E2E8F0;
-  --sidebar-ring: #D69A18;
+  --sidebar-ring: #2563EB;
 }
 
 
@@ -108,37 +108,37 @@
 
 /* ── Design Tokens ── */
 :root {
-  /* Brand palette — Warm Gold & Deep Navy (Exact QXL Diagnostic Mockup Scheme) */
-  --sky-50:  #fff8eb;
-  --sky-100: #fff1d6;
-  --sky-200: #fde3ac;
-  --sky-300: #fbc774;
-  --sky-400: #f6a63c;
-  --sky-500: #d69a18;
-  --sky-600: #e08500;
-  --sky-700: #c58b12;
-  --sky-800: #9c6806;
+  /* Brand palette — Sky Blue & Deep Navy (Medical Diagnostic Theme) */
+  --sky-50:  #f0f7ff;
+  --sky-100: #e0effe;
+  --sky-200: #bae0fd;
+  --sky-300: #7cc5fb;
+  --sky-400: #38bdf8;
+  --sky-500: #2563eb;
+  --sky-600: #1d4ed8;
+  --sky-700: #1e40af;
+  --sky-800: #1e3a8a;
   --sky-900: #082142;
 
   /* Primary Accent & Navy Theme */
-  --primary:       #D69A18;
-  --accent:        #E08500;
-  --accent-light:  #FFF8EB;
-  --accent-hover:  #C58B12;
+  --primary:       #2563EB;
+  --accent:        #0284C7;
+  --accent-light:  #EFF6FF;
+  --accent-hover:  #1D4ED8;
   --white:         #FFFFFF;
   --bg-light:      #F8FAFC;
   --text-main:     #0B2545;
   --text-muted:    #64748B;
   --border:        #E2E8F0;
   --success:       #10b981; 
-  --theme-primary: #D69A18;
-  --theme-secondary: #E08500;
+  --theme-primary: #2563EB;
+  --theme-secondary: #0284C7;
 
   /* Liquid glass tokens */
   --glass-bg:      rgba(255, 255, 255, 0.75);
   --glass-bg-2:    rgba(255, 255, 255, 0.90);
-  --glass-border:  rgba(214, 154, 24, 0.25);
-  --glass-shadow:  0 8px 40px rgba(214, 154, 24, 0.10), 0 1px 0 rgba(255,255,255,0.9) inset;
+  --glass-border:  rgba(37, 99, 235, 0.20);
+  --glass-shadow:  0 8px 40px rgba(37, 99, 235, 0.08), 0 1px 0 rgba(255,255,255,0.9) inset;
   --glass-blur:    blur(24px) saturate(180%);
 
   /* Spatial depth */
@@ -160,7 +160,7 @@ body {
   margin: 0;
   padding: 0;
   color: var(--text-main);
-  background: linear-gradient(160deg, #fff5eb 0%, #ffffff 45%, #eefbf1 100%);
+  background: linear-gradient(160deg, #f0f7ff 0%, #ffffff 45%, #f8faff 100%);
   background-attachment: fixed;
   line-height: 1.7;
   min-height: 100vh;
@@ -177,7 +177,7 @@ body::before {
   width: 80vw;
   height: 80vh;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 153, 51, 0.15) 0%, rgba(255, 153, 51, 0.05) 45%, transparent 70%); /* Saffron Orb */
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.16) 0%, rgba(37, 99, 235, 0.05) 45%, transparent 70%); /* Sky Blue Orb */
   pointer-events: none;
   z-index: -1;
 }
@@ -189,7 +189,7 @@ body::after {
   width: 60vw;
   height: 60vh;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(19, 136, 8, 0.15) 0%, rgba(19, 136, 8, 0.05) 50%, transparent 70%); /* Green Orb */
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.12) 0%, rgba(37, 99, 235, 0.04) 50%, transparent 70%); /* Deep Sky Orb */
   pointer-events: none;
   z-index: -1;
 }
@@ -281,20 +281,20 @@ img { max-width: 100%; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #ffffff !important;
-  background: linear-gradient(135deg, #D69A18 0%, #E08500 100%) !important; /* Ochre Warm Amber Button */
+  background: linear-gradient(135deg, #2563EB 0%, #0284C7 100%) !important; /* Sky Blue & Cyan Button */
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
   border: 1px solid rgba(255,255,255,0.45) !important;
-  box-shadow: 0 4px 20px rgba(214, 154, 24, 0.35), inset 0 1px 0 rgba(255,255,255,0.5) !important;
-  text-shadow: 0 1px 2px rgba(197, 139, 18, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35), inset 0 1px 0 rgba(255,255,255,0.5) !important;
+  text-shadow: 0 1px 2px rgba(30, 64, 175, 0.3) !important;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 .btn-sky:hover, .glass-btn:hover {
   transform: translateY(-2px) scale(1.02) !important;
-  box-shadow: 0 8px 30px rgba(214, 154, 24, 0.55), inset 0 1px 0 rgba(255,255,255,0.6) !important;
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.55), inset 0 1px 0 rgba(255,255,255,0.6) !important;
   color: #ffffff !important;
-  background: linear-gradient(135deg, #C58B12 0%, #C67300 100%) !important;
+  background: linear-gradient(135deg, #1D4ED8 0%, #0369A1 100%) !important;
 }
 .btn-sky:active, .glass-btn:active { transform: scale(0.96) !important; }
 
@@ -406,26 +406,26 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
   cursor: pointer; text-align: center; font-size: 13.5px; letter-spacing: 0.3px;
 }
 .btn-primary {
-  background: linear-gradient(135deg, rgba(255, 153, 51, 0.92) 0%, rgba(230, 138, 46, 0.95) 100%) !important; /* Saffron Button */
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.92) 0%, rgba(230, 138, 46, 0.95) 100%) !important; /* Saffron Button */
   color: #ffffff !important;
   backdrop-filter: blur(16px) saturate(180%) !important;
   border: 1px solid rgba(255,255,255,0.45) !important;
-  box-shadow: 0 4px 20px rgba(255, 153, 51, 0.35), inset 0 1px 0 rgba(255,255,255,0.5) !important;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35), inset 0 1px 0 rgba(255,255,255,0.5) !important;
 }
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.02) !important;
-  box-shadow: 0 8px 30px rgba(255, 153, 51, 0.55), inset 0 1px 0 rgba(255,255,255,0.6) !important;
+  box-shadow: 0 8px 30px rgba(56, 189, 248, 0.55), inset 0 1px 0 rgba(255,255,255,0.6) !important;
 }
 .btn-outline {
   background: rgba(255, 255, 255, 0.65) !important;
   backdrop-filter: blur(12px) !important;
   color: #0b132b !important;
-  border: 1px solid rgba(255, 153, 51, 0.45) !important;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 2px 12px rgba(255, 153, 51, 0.08) !important;
+  border: 1px solid rgba(56, 189, 248, 0.45) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 2px 12px rgba(56, 189, 248, 0.08) !important;
 }
 .btn-outline:hover {
   background: rgba(255, 245, 235, 0.85) !important; /* Light saffron bg */
-  border-color: rgba(255, 153, 51, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.6) !important;
   color: #000080 !important; /* Chakra Blue text */
   transform: translateY(-2px) !important;
 }
@@ -1604,19 +1604,19 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
             }
         }
 
-/* ── Mobile UI/UX Primary Theme (#D69A18) ── */
+/* ── Mobile UI/UX Primary Theme (#2563EB) ── */
 :root {
-  --mobile-primary: #D69A18;
-  --mobile-primary-hover: #C58B12;
-  --mobile-primary-light: #FFF8EB;
-  --mobile-primary-border: #F3DBA7;
+  --mobile-primary: #2563EB;
+  --mobile-primary-hover: #1D4ED8;
+  --mobile-primary-light: #EFF6FF;
+  --mobile-primary-border: #BFDBFE;
 }
 
-.bg-mobile-primary { background-color: #D69A18 !important; }
-.bg-mobile-primary-light { background-color: #FFF8EB !important; }
-.text-mobile-primary { color: #D69A18 !important; }
-.border-mobile-primary { border-color: #D69A18 !important; }
-.shadow-mobile-amber { box-shadow: 0 4px 14px rgba(214, 154, 24, 0.25) !important; }
+.bg-mobile-primary { background-color: #2563EB !important; }
+.bg-mobile-primary-light { background-color: #EFF6FF !important; }
+.text-mobile-primary { color: #2563EB !important; }
+.border-mobile-primary { border-color: #2563EB !important; }
+.shadow-mobile-blue, .shadow-mobile-blue { box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25) !important; }
 
 /* ── Liquid Glassmorphism Design System ── */
 .liquid-glass-card {
@@ -1628,7 +1628,7 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
     0 10px 30px -5px rgba(15, 45, 94, 0.07),
     0 4px 12px 0 rgba(0, 0, 0, 0.03),
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -1px 2px 0 rgba(214, 154, 24, 0.08);
+    inset 0 -1px 2px 0 rgba(37, 99, 235, 0.08);
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -1636,19 +1636,19 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
   background: rgba(255, 255, 255, 0.95);
   transform: translateY(-4px) scale(1.008);
   box-shadow: 
-    0 20px 40px -10px rgba(214, 154, 24, 0.18),
+    0 20px 40px -10px rgba(37, 99, 235, 0.18),
     0 8px 20px -4px rgba(15, 45, 94, 0.08),
     inset 0 1px 2px 0 rgba(255, 255, 255, 1);
-  border-color: rgba(214, 154, 24, 0.45);
+  border-color: rgba(37, 99, 235, 0.45);
 }
 
-.liquid-glass-gold {
-  background: linear-gradient(135deg, rgba(255, 251, 240, 0.92) 0%, rgba(255, 248, 235, 0.85) 100%);
+.liquid-glass-gold, .liquid-glass-sky {
+  background: linear-gradient(135deg, rgba(239, 246, 255, 0.95) 0%, rgba(224, 242, 254, 0.88) 100%);
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
-  border: 1px solid rgba(243, 219, 167, 0.85);
+  border: 1px solid rgba(191, 219, 254, 0.85);
   box-shadow: 
-    0 10px 28px -6px rgba(214, 154, 24, 0.15),
+    0 10px 28px -6px rgba(37, 99, 235, 0.15),
     inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
 }
 
@@ -1691,11 +1691,11 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
 }
 
 .liquid-glass-cta {
-  background: linear-gradient(135deg, #D69A18 0%, #c58b12 50%, #e0a320 100%) !important;
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 50%, #0284C7 100%) !important;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.4) !important;
   box-shadow: 
-    0 8px 20px -4px rgba(214, 154, 24, 0.4),
+    0 8px 20px -4px rgba(37, 99, 235, 0.4),
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.4) !important;
   transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
 }
@@ -1703,7 +1703,7 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
 .liquid-glass-cta:hover {
   transform: translateY(-2px) scale(1.02) !important;
   box-shadow: 
-    0 12px 28px -4px rgba(214, 154, 24, 0.55),
+    0 12px 28px -4px rgba(37, 99, 235, 0.55),
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.6) !important;
 }
 
@@ -1728,7 +1728,7 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
   font-weight: 700;
   letter-spacing: 1.6px;
   text-transform: uppercase;
-  color: #D69A18;
+  color: #2563EB;
   text-align: center;
 }
 
@@ -1771,8 +1771,8 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
 
 .qxl-media-logos a:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  border-color: #D69A18;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.12);
+  border-color: #2563EB;
 }
 
 .qxl-media-logos img {
@@ -1813,14 +1813,17 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
   border-radius: 12px;
   text-decoration: none;
   font-weight: 700;
-  background: #0f2d5e;
-  color: #ffffff !important;
+  background: #EFF6FF;
+  color: #0284c7 !important;
+  border: 1px solid #BFDBFE;
   transition: all 0.2s ease;
 }
 
 .qxl-media-button:hover {
-  background: #1e3a8a;
+  background: #DBEAFE;
+  color: #0369a1 !important;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
 }
 
 .qxl-coverage-grid {
@@ -1843,8 +1846,8 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
 
 .qxl-coverage-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(15, 45, 94, 0.08);
-  border-color: #D69A18;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+  border-color: #2563EB;
 }
 
 .qxl-coverage-card h3 {
@@ -1872,7 +1875,7 @@ a[class*="bg-[#2563eb]"] *, button[class*="bg-[#2563eb]"] * {
 }
 
 .qxl-coverage-card a:hover {
-  color: #D69A18;
+  color: #2563EB;
 }
 
 .qxl-hlm-media {

@@ -42,7 +42,7 @@ function ProfilePageInner() {
   if (loading) {
     return (
       <div className="bg-[#f8faff] min-h-[80vh] flex items-center justify-center">
-        <Loader2 className="w-8 h-8 text-[#D69A18] animate-spin" />
+        <Loader2 className="w-8 h-8 text-[#2563EB] animate-spin" />
       </div>
     );
   }
@@ -71,7 +71,7 @@ function ProfilePageInner() {
           {/* User Profile Card (Matching Screen 6) */}
           <div className="bg-white rounded-3xl p-5 border border-gray-150 shadow-xs flex items-center justify-between">
             <div className="flex items-center gap-3.5">
-              <div className="w-14 h-14 rounded-full border-2 border-[#D69A18] bg-[#FFF8EB] flex items-center justify-center text-[#D69A18] shrink-0 font-black text-xl">
+              <div className="w-14 h-14 rounded-full border-2 border-[#2563EB] bg-[#EFF6FF] flex items-center justify-center text-[#2563EB] shrink-0 font-black text-xl">
                 {user?.name ? user.name[0].toUpperCase() : "R"}
               </div>
               <div className="flex flex-col">
@@ -92,7 +92,7 @@ function ProfilePageInner() {
 
             <button
               onClick={() => setIsEditing(!isEditing)}
-              className="text-[#D69A18] text-xs font-black hover:underline"
+              className="text-[#2563EB] text-xs font-black hover:underline"
             >
               Edit
             </button>
@@ -123,14 +123,14 @@ function ProfilePageInner() {
                     className="flex items-center justify-between py-3.5 px-2 hover:bg-amber-50/50 rounded-xl transition-colors group"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
+                      <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#2563EB] shrink-0">
                         <ItemIcon className="w-4 h-4" />
                       </div>
-                      <span className="font-extrabold text-slate-800 text-xs group-hover:text-[#D69A18] transition-colors">
+                      <span className="font-extrabold text-slate-800 text-xs group-hover:text-[#2563EB] transition-colors">
                         {item.label}
                       </span>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#D69A18]" />
+                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-[#2563EB]" />
                   </Link>
                 );
               })}

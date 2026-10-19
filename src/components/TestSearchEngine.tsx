@@ -87,7 +87,7 @@ export default function TestSearchEngine({
             <button
               onClick={() => setFastingFilter("all")}
               className={`px-3 py-1 rounded-full font-bold transition-all ${
-                fastingFilter === "all" ? "bg-[#0f2d5e] text-white" : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                fastingFilter === "all" ? "bg-[#2563EB] text-white shadow-2xs" : "bg-slate-100 text-slate-600 hover:bg-slate-200"
               }`}
             >
               All Tests

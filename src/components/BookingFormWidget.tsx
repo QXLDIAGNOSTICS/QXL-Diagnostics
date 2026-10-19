@@ -367,7 +367,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                 patientEmail={formData.email || null}
                 patientPhone={formData.phone}
                 onPaid={() => setHasPaid(true)}
-                className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-black py-3 px-4 rounded-xl text-xs uppercase tracking-wider mb-4 cursor-pointer"
+                className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black py-3 px-4 rounded-xl text-xs uppercase tracking-wider mb-4 cursor-pointer"
               />
             )}
 
@@ -399,7 +399,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                   type="button"
                   onClick={() => setCurrentStep(1)}
                   className={`px-3 py-1 rounded-xl text-[11px] font-black transition-all cursor-pointer ${
-                    currentStep === 1 ? "bg-[#0B2545] text-white" : "bg-white border text-slate-600"
+                    currentStep === 1 ? "bg-[#2563EB] text-white shadow-xs" : "bg-white border text-slate-600"
                   }`}
                 >
                   1. Tests
@@ -415,7 +415,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                     }
                   }}
                   className={`px-3 py-1 rounded-xl text-[11px] font-black transition-all cursor-pointer ${
-                    currentStep === 2 ? "bg-[#0B2545] text-white" : "bg-white border text-slate-400"
+                    currentStep === 2 ? "bg-[#2563EB] text-white shadow-xs" : "bg-white border text-slate-400"
                   }`}
                 >
                   2. Patient
@@ -443,20 +443,20 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                         setShowSuggestions(true);
                       }}
                       onFocus={() => setShowSuggestions(true)}
-                      className="w-full bg-[#FAFBFD] border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-extrabold text-[#0B2545] placeholder:text-slate-400 focus:outline-none focus:border-[#D69A18]"
+                      className="w-full bg-[#FAFBFD] border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-extrabold text-[#0B2545] placeholder:text-slate-400 focus:outline-none focus:border-[#2563EB]"
                     />
 
                     {showSuggestions && suggestions.length > 0 && (
-                      <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#F3DBA7] rounded-xl shadow-xl z-50 overflow-hidden max-h-56 overflow-y-auto">
+                      <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#BFDBFE] rounded-xl shadow-xl z-50 overflow-hidden max-h-56 overflow-y-auto">
                         {suggestions.map((s) => (
                           <button
                             key={s.id}
                             type="button"
                             onClick={() => addItem(s)}
-                            className="w-full px-3.5 py-2 text-left hover:bg-[#FFF8EB] flex items-center justify-between border-b border-slate-100 last:border-0 cursor-pointer"
+                            className="w-full px-3.5 py-2 text-left hover:bg-[#EFF6FF] flex items-center justify-between border-b border-slate-100 last:border-0 cursor-pointer"
                           >
                             <span className="text-xs font-black text-[#0B2545]">{s.name}</span>
-                            <span className="text-xs font-black text-[#D69A18]">₹{s.price} +</span>
+                            <span className="text-xs font-black text-[#2563EB]">₹{s.price} +</span>
                           </button>
                         ))}
                       </div>
@@ -469,7 +469,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                       <span className="text-[11px] font-black text-[#0B2545] uppercase tracking-wider">
                         Cart Items ({selectedItems.length})
                       </span>
-                      <span className="text-xs font-black text-[#D69A18]">Total: ₹{subtotal}</span>
+                      <span className="text-xs font-black text-[#2563EB]">Total: ₹{subtotal}</span>
                     </div>
 
                     {selectedItems.length === 0 ? (
@@ -516,7 +516,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                       setError(null);
                       setCurrentStep(2);
                     }}
-                    className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-black py-3 rounded-xl text-xs uppercase tracking-wider shadow-xs cursor-pointer text-center"
+                    className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black py-3 rounded-xl text-xs uppercase tracking-wider shadow-xs cursor-pointer text-center"
                     style={{ color: "#ffffff" }}
                   >
                     Continue to Patient &amp; Schedule →
@@ -528,7 +528,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                   <button
                     type="button"
                     onClick={() => setCurrentStep(1)}
-                    className="text-[11px] font-black text-[#0B2545] hover:text-[#D69A18] flex items-center gap-1 cursor-pointer"
+                    className="text-[11px] font-black text-[#0B2545] hover:text-[#2563EB] flex items-center gap-1 cursor-pointer"
                   >
                     <ChevronLeft className="w-3.5 h-3.5" />
                     <span>← Edit Selected Tests ({selectedItems.length})</span>
@@ -602,7 +602,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                           type="button"
                           onClick={detectLocation}
                           disabled={locating}
-                          className="text-[10px] font-bold text-[#D69A18] hover:underline"
+                          className="text-[10px] font-bold text-[#2563EB] hover:underline"
                         >
                           {locating ? "Detecting..." : "Auto-Detect"}
                         </button>
@@ -641,7 +641,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-black py-3 rounded-xl text-xs uppercase tracking-wider shadow-xs cursor-pointer disabled:opacity-60 text-center"
+                    className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black py-3 rounded-xl text-xs uppercase tracking-wider shadow-xs cursor-pointer disabled:opacity-60 text-center"
                     style={{ color: "#ffffff" }}
                   >
                     {submitting ? "Submitting Request..." : "Confirm Booking Request ✓"}
@@ -674,15 +674,15 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
             </li>
           </ul>
 
-          <div className="bg-[#FFF8EB] border border-[#F3DBA7] p-3 rounded-2xl text-center">
+          <div className="bg-[#EFF6FF] border border-[#BFDBFE] p-3 rounded-2xl text-center">
             <span className="text-[10px] font-black text-amber-800 uppercase tracking-wider block mb-1">
               Need Instant Support?
             </span>
             <a
               href="tel:+919964639639"
-              className="text-xs font-black text-[#0B2545] hover:text-[#D69A18] flex items-center justify-center gap-1"
+              className="text-xs font-black text-[#0B2545] hover:text-[#2563EB] flex items-center justify-center gap-1"
             >
-              <Phone className="w-3.5 h-3.5 text-[#D69A18]" />
+              <Phone className="w-3.5 h-3.5 text-[#2563EB]" />
               <span>+91 9964 639 639</span>
             </a>
           </div>

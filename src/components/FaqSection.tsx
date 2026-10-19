@@ -29,7 +29,7 @@ function CallbackForm({ faqQuestion }: { faqQuestion: string }) {
       <div className="mt-3">
         <button 
           onClick={() => setShowForm(true)}
-          className="inline-flex items-center text-xs font-bold text-white bg-[#D69A18] hover:bg-amber-600 px-4 py-2 rounded-lg transition-colors shadow-2xs cursor-pointer"
+          className="inline-flex items-center text-xs font-bold text-white bg-[#2563EB] hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors shadow-2xs cursor-pointer"
         >
           Request Call Back
         </button>
@@ -45,7 +45,7 @@ function CallbackForm({ faqQuestion }: { faqQuestion: string }) {
         value={name}
         onChange={(e) => setName(e.target.value.replace(/[^a-zA-Z\s]/g, ''))}
         required
-        className="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#D69A18] bg-slate-50/50"
+        className="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#2563EB] bg-slate-50/50"
       />
       <input 
         type="tel" 
@@ -53,11 +53,11 @@ function CallbackForm({ faqQuestion }: { faqQuestion: string }) {
         value={phone}
         onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
         required
-        className="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#D69A18] bg-slate-50/50"
+        className="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#2563EB] bg-slate-50/50"
       />
       <button 
         type="submit" 
-        className="inline-flex items-center justify-center text-xs font-bold text-white bg-[#D69A18] hover:bg-amber-600 px-4 py-2 rounded-lg transition-colors shadow-2xs shrink-0 whitespace-nowrap cursor-pointer"
+        className="inline-flex items-center justify-center text-xs font-bold text-white bg-[#2563EB] hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors shadow-2xs shrink-0 whitespace-nowrap cursor-pointer"
       >
         Submit Request
       </button>
@@ -361,7 +361,7 @@ export default function FaqSection({ decorativeHeading = false }: { decorativeHe
       />
       <div className="max-w-3xl mx-auto px-3 sm:px-6 w-full">
         <div className="text-center mb-5 space-y-1">
-          <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+          <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
             Help Center
           </span>
           <Heading className="text-[#0f2d5e] text-xl sm:text-2xl font-black tracking-tight">
@@ -378,7 +378,7 @@ export default function FaqSection({ decorativeHeading = false }: { decorativeHe
               key={faq.id}
               className={`bg-white rounded-xl border transition-all duration-200 ${
                 openIdx === idx
-                  ? 'border-[#D69A18] shadow-xs bg-[#FFF8EB]/30'
+                  ? 'border-[#2563EB] shadow-xs bg-[#EFF6FF]/30'
                   : 'border-slate-200 hover:border-amber-300'
               }`}
             >
@@ -388,19 +388,19 @@ export default function FaqSection({ decorativeHeading = false }: { decorativeHe
               >
                 <span
                   className={`font-extrabold text-xs sm:text-[13.5px] pr-3 leading-snug ${
-                    openIdx === idx ? 'text-[#D69A18]' : 'text-[#0f2d5e]'
+                    openIdx === idx ? 'text-[#2563EB]' : 'text-[#0f2d5e]'
                   }`}
                 >
                   {faq.question}
                 </span>
                 <div
                   className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
-                    openIdx === idx ? 'bg-[#FFF8EB] text-[#D69A18]' : 'bg-slate-100 text-slate-400'
+                    openIdx === idx ? 'bg-[#EFF6FF] text-[#2563EB]' : 'bg-slate-100 text-slate-400'
                   }`}
                 >
                   <ChevronDown
                     className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                      openIdx === idx ? 'rotate-180 text-[#D69A18]' : 'text-slate-400'
+                      openIdx === idx ? 'rotate-180 text-[#2563EB]' : 'text-slate-400'
                     }`}
                   />
                 </div>
@@ -423,7 +423,7 @@ export default function FaqSection({ decorativeHeading = false }: { decorativeHe
           <div className="mt-6 text-center">
             <button
               onClick={() => setVisibleCount(prev => prev + 20)}
-              className="inline-flex items-center text-xs font-black text-[#D69A18] bg-[#FFF8EB] border border-[#F3DBA7] hover:bg-amber-100/60 px-6 py-2.5 rounded-xl transition-all shadow-2xs cursor-pointer"
+              className="inline-flex items-center text-xs font-black text-[#2563EB] bg-[#EFF6FF] border border-[#BFDBFE] hover:bg-amber-100/60 px-6 py-2.5 rounded-xl transition-all shadow-2xs cursor-pointer"
             >
               Load More FAQs &rarr;
             </button>

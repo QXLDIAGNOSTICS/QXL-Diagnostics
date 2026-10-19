@@ -26,8 +26,8 @@ const personas = [
     title: "Too busy to think about health.",
     quote: "“I’m young and active, nothing will happen.”",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150205/Assets-QXL/legacy-assets/image/happy_couple_phone.jpg",
-    color: "from-amber-500 to-orange-600",
-    badgeBg: "bg-amber-100 text-amber-700"
+    color: "from-sky-500 to-blue-600",
+    badgeBg: "bg-sky-100 text-[#0284C7]"
   },
   {
     role: "Grandparent",

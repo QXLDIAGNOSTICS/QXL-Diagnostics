@@ -9,7 +9,7 @@ interface DoctorReviewerCardProps {
 
 export default function DoctorReviewerCard({
   reviewer = "Dr. Shantakumar Muruda, MD (Biochemistry)",
-  date = "October 16, 2026",
+  date = "October 19, 2026",
 }: DoctorReviewerCardProps) {
   return (
     <section

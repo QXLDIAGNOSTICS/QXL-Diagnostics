@@ -174,7 +174,7 @@ export default function LabGallerySlider() {
     <section className="py-12 bg-slate-900 text-white overflow-hidden relative">
       {/* Subtle Background Glow */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[1260px] mx-auto px-4 relative z-10 space-y-10">
         
@@ -249,7 +249,7 @@ export default function LabGallerySlider() {
           <div className="lg:col-span-6 p-5 lg:p-6 flex flex-col justify-between space-y-4">
             <div className="space-y-2.5">
               <div className="flex items-center gap-2">
-                <span className="bg-amber-400/20 text-amber-300 border border-amber-400/40 text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+                <span className="bg-amber-400/20 text-amber-300 border border-blue-400/40 text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full">
                   {currentLab.department}
                 </span>
                 <span className="text-[11px] text-slate-400 font-semibold flex items-center gap-1">

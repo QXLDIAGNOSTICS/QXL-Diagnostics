@@ -20,8 +20,8 @@ export default function Freedom80FullWidthBanner() {
           THIS INDEPENDENCE DAY, CHOOSE THE FREEDOM TO KNOW YOUR HEALTH.
         </h2>
         
-        <div className="inline-flex items-center gap-3 bg-white border border-amber-300 px-6 py-2 rounded-full mb-8 shadow-sm">
-          <span className="text-amber-600 font-black text-sm sm:text-base">QXL FREEDOM 80</span>
+        <div className="inline-flex items-center gap-3 bg-white border border-sky-300 px-6 py-2 rounded-full mb-8 shadow-sm">
+          <span className="text-[#2563EB] font-black text-sm sm:text-base">QXL FREEDOM 80</span>
           <span className="text-slate-300">•</span>
           <span className="text-slate-700 text-xs sm:text-sm font-bold">80 Parameters | 8 Health Areas | ₹800</span>
         </div>
@@ -29,7 +29,7 @@ export default function Freedom80FullWidthBanner() {
         <div>
           <Link
             href="/book?package=QXL%20Freedom%2080%20Health%20Check"
-            className="inline-block bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-black px-9 py-4 rounded-full text-base shadow-2xl active:scale-95 transition-all uppercase tracking-wider"
+            className="inline-block bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-9 py-4 rounded-full text-base shadow-xl active:scale-95 transition-all uppercase tracking-wider"
           >
             Book Now @ ₹800 →
           </Link>

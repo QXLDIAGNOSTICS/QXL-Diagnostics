@@ -61,7 +61,7 @@ export default function BookingModal({
             <X className="w-5 h-5" />
           </button>
           
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-300/30 text-amber-200 text-xs font-semibold mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-300/30 text-sky-200 text-xs font-semibold mb-2">
             <HeartHandshake className="w-3.5 h-3.5" />
             <span>SPECIAL OFFER • ₹800 ONLY</span>
           </div>

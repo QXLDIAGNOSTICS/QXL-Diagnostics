@@ -130,7 +130,7 @@ export default function FeaturedTestsSlider() {
         {/* Section Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
-            <span className="inline-block bg-[#D69A18] text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-2xs mb-2">
+            <span className="inline-block bg-[#2563EB] text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-2xs mb-2">
               FEATURED DIAGNOSTICS &amp; PACKAGES
             </span>
             <h2 className="text-[#0f2d5e] text-2xl sm:text-3xl font-black tracking-tight">
@@ -149,14 +149,14 @@ export default function FeaturedTestsSlider() {
             <button
               onClick={handlePrev}
               aria-label="Previous slide"
-              className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-[#D69A18] shadow-2xs flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-[#2563EB] shadow-2xs flex items-center justify-center transition-all cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               aria-label="Next slide"
-              className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-[#D69A18] shadow-2xs flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-[#2563EB] shadow-2xs flex items-center justify-center transition-all cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -174,33 +174,28 @@ export default function FeaturedTestsSlider() {
                   key={idx}
                   className="w-[85%] sm:w-[320px] md:w-full shrink-0 snap-center bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200/90 flex flex-col justify-between hover:shadow-md transition-all group text-left"
                 >
-                  {/* Card Header — Compact 115px height for clean card alignment */}
-                  <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-3.5 sm:p-4 text-white relative min-h-[115px] flex flex-col justify-between">
-                    <span 
-                      className="absolute top-3.5 right-3.5 bg-[#D69A18] !text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-2xs"
-                      style={{ color: '#ffffff' }}
-                    >
-                      {item.badge}
-                    </span>
+                  {/* Card Header — Light Sky-Blue Header */}
+                  <div className="bg-gradient-to-b from-[#eaf3fe] via-[#f4f8fe] to-white p-3.5 sm:p-4 border-b border-blue-100/60 relative min-h-[115px] flex flex-col justify-between">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="bg-[#2563EB] text-white text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">
+                        {item.badge}
+                      </span>
+                      <span className="bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0] text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase">
+                        {item.discount}
+                      </span>
+                    </div>
                     <h3 
-                      className="font-extrabold text-sm sm:text-[15px] !text-white leading-tight truncate my-1 pr-16"
-                      style={{ color: '#ffffff' }}
+                      className="font-black text-sm sm:text-[15px] text-[#0B2545] leading-tight truncate my-1"
                       title={item.name}
                     >
                       {item.name}
                     </h3>
                     <div className="flex items-baseline gap-2 mt-auto shrink-0">
-                      <span className="text-[11px] text-blue-200/80 line-through font-semibold">
-                        {item.oldPrice}
-                      </span>
-                      <span 
-                        className="text-xl sm:text-2xl font-black !text-white"
-                        style={{ color: '#ffffff' }}
-                      >
+                      <span className="text-xl sm:text-2xl font-black text-[#0B2545]">
                         {item.price}
                       </span>
-                      <span className="bg-amber-400 text-slate-950 text-[9.5px] font-black px-2 py-0.5 rounded-md uppercase ml-auto">
-                        {item.discount}
+                      <span className="text-[11px] text-slate-400 line-through font-semibold">
+                        {item.oldPrice}
                       </span>
                     </div>
                   </div>
@@ -209,8 +204,8 @@ export default function FeaturedTestsSlider() {
                   <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 gap-4">
                     <div className="grid grid-cols-2 gap-3 text-xs text-slate-700 font-bold border-b border-slate-100 pb-3 sm:pb-4">
                       <div className="flex items-center gap-2">
-                        <Dna className="w-4 h-4 text-[#D69A18] shrink-0" />
-                        <span className="text-[11px] leading-tight font-extrabold text-[#0f2d5e]">{item.params} included</span>
+                        <Dna className="w-4 h-4 text-[#2563EB] shrink-0" />
+                        <span className="text-[11px] leading-tight font-extrabold text-[#0B2545]">{item.params} included</span>
                       </div>
                       <div className="flex items-center gap-2">
                         <FileText className="w-4 h-4 text-slate-400 shrink-0" />
@@ -222,13 +217,13 @@ export default function FeaturedTestsSlider() {
                     <div className="grid grid-cols-2 gap-3 mt-1">
                       <Link
                         href={`/book?package=${encodeURIComponent(item.name)}`}
-                        className="w-full text-center border-2 border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e] hover:text-white font-black py-2.5 px-3 rounded-2xl text-xs transition-colors block uppercase tracking-wider"
+                        className="w-full text-center border border-slate-200 hover:border-[#2563EB] bg-white text-slate-800 hover:text-[#2563EB] font-black py-2.5 px-3 rounded-full text-xs transition-colors block uppercase tracking-wider"
                       >
-                        Add to Cart
+                        Details
                       </Link>
                       <Link
                         href={`/book?package=${encodeURIComponent(item.name)}`}
-                        className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2.5 px-3 rounded-2xl text-xs shadow-xs hover:shadow-md transition-all uppercase tracking-wider block"
+                        className="w-full text-center bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black py-2.5 px-3 rounded-full text-xs shadow-xs hover:shadow-md transition-all uppercase tracking-wider block"
                       >
                         Book Now
                       </Link>
@@ -244,41 +239,40 @@ export default function FeaturedTestsSlider() {
             <div className="w-full bg-slate-50 border border-slate-200/80 rounded-3xl p-6 sm:p-8 flex flex-col lg:flex-row items-center gap-8 shadow-xs">
               {/* Left Test Card */}
               <div className="w-full lg:w-1/3 bg-white rounded-3xl overflow-hidden shadow-md border border-slate-200">
-                <div className="bg-gradient-to-r from-[#0f2d5e] via-[#1b3a6b] to-[#1e40af] p-5 text-white relative">
-                  <span className="absolute top-4 right-4 bg-[#D69A18] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
-                    {current.testCard.badge}
-                  </span>
-                  <h3 
-                    className="font-extrabold text-lg !text-white text-white mb-2 pr-12"
-                    style={{ color: '#ffffff' }}
-                  >
+                <div className="bg-gradient-to-b from-[#eaf3fe] via-[#f4f8fe] to-white p-5 border-b border-blue-100/60 relative">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="bg-[#2563EB] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
+                      {current.testCard.badge}
+                    </span>
+                    <span className="bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0] text-[10px] font-black px-2.5 py-0.5 rounded-full">
+                      {current.testCard.discount}
+                    </span>
+                  </div>
+                  <h3 className="font-extrabold text-lg text-[#0B2545] mb-2 pr-2">
                     {current.testCard.name}
                   </h3>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-xs text-slate-300 line-through">{current.testCard.oldPrice}</span>
-                    <span className="text-2xl font-black text-white">{current.testCard.price}</span>
-                    <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-md ml-auto">
-                      {current.testCard.discount}
-                    </span>
+                    <span className="text-2xl font-black text-[#0B2545]">{current.testCard.price}</span>
+                    <span className="text-xs text-slate-400 line-through">{current.testCard.oldPrice}</span>
                   </div>
                 </div>
                 <div className="p-5 space-y-4">
                   <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700">
                     <div className="flex items-center gap-1.5">
-                      <FileText className="w-4 h-4 text-[#D69A18]" />
+                      <FileText className="w-4 h-4 text-[#2563EB]" />
                       <span>{current.testCard.tat}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Dna className="w-4 h-4 text-[#D69A18]" />
+                      <Dna className="w-4 h-4 text-[#2563EB]" />
                       <span>{current.testCard.params}</span>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-3 pt-2">
-                    <Link href={`/book?package=${encodeURIComponent(current.testCard.name)}`} className="text-center border-2 border-[#0f2d5e] text-[#0f2d5e] font-black py-2 rounded-xl text-xs">
-                      View Details
+                    <Link href={`/book?package=${encodeURIComponent(current.testCard.name)}`} className="text-center border border-slate-200 hover:border-[#2563EB] bg-white text-slate-800 hover:text-[#2563EB] font-black py-2.5 rounded-full text-xs">
+                      Details
                     </Link>
-                    <Link href={`/book?package=${encodeURIComponent(current.testCard.name)}`} className="text-center bg-[#D69A18] text-white font-black py-2 rounded-xl text-xs uppercase tracking-wider shadow-xs">
-                      Add to Cart
+                    <Link href={`/book?package=${encodeURIComponent(current.testCard.name)}`} className="text-center bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black py-2.5 rounded-full text-xs uppercase tracking-wider shadow-xs">
+                      Book Now
                     </Link>
                   </div>
                 </div>
@@ -286,22 +280,22 @@ export default function FeaturedTestsSlider() {
 
               {/* Right Banner Content */}
               <div className="flex-1 space-y-4 text-left">
-                <span className="inline-flex items-center gap-1.5 bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#D69A18]" />
+                <span className="inline-flex items-center gap-1.5 bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB]" />
                   NABL ACCREDITED PATHOLOGY
                 </span>
-                <h3 className="text-3xl sm:text-4xl font-black text-[#0f2d5e] leading-tight">
+                <h3 className="text-3xl sm:text-4xl font-black text-[#0B2545] leading-tight">
                   {current.title}
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base font-semibold max-w-xl leading-relaxed">
                   {current.subtitle}
                 </p>
                 <div className="flex items-center gap-3 pt-2">
-                  <div className="w-10 h-10 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-700 font-black">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-700 font-black">
                     🏆
                   </div>
                   <div>
-                    <p className="text-xs font-black text-[#0f2d5e]">Trusted Diagnostic Leader</p>
+                    <p className="text-xs font-black text-[#0B2545]">Trusted Diagnostic Leader</p>
                     <p className="text-xs font-semibold text-slate-500">{current.trustedCount}</p>
                   </div>
                 </div>
@@ -311,27 +305,27 @@ export default function FeaturedTestsSlider() {
 
           {/* ── Slide Type 4: Own a Clinic / Partner Banner ── */}
           {current.type === "banner-clinic" && (
-            <div className="w-full rounded-3xl overflow-hidden border border-slate-200 bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] !text-white p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-md">
+            <div className="w-full rounded-3xl overflow-hidden border border-blue-200 bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] text-slate-800 p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-8 shadow-md">
               <div className="space-y-4 flex-1 text-left">
-                <span className="inline-flex items-center gap-1.5 bg-amber-400 text-slate-950 text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider">
+                <span className="inline-flex items-center gap-1.5 bg-white text-[#2563eb] border border-blue-200 text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
                   DOCTOR &amp; CLINIC B2B PARTNERSHIP
                 </span>
-                <h3 className="text-3xl sm:text-4xl font-black !text-white leading-tight" style={{ color: '#ffffff' }}>
+                <h3 className="text-3xl sm:text-4xl font-black text-[#0B2545] leading-tight">
                   {current.title}
                 </h3>
-                <p className="!text-slate-100 text-sm sm:text-base font-medium max-w-xl leading-relaxed" style={{ color: '#f1f5f9' }}>
+                <p className="text-slate-600 text-sm sm:text-base font-medium max-w-xl leading-relaxed">
                   {current.subtitle}
                 </p>
                 <div className="pt-2 flex flex-wrap items-center gap-4">
                   <Link
                     href={current.ctaLink || "/partner-with-us"}
-                    className="bg-[#D69A18] hover:bg-[#C58B12] text-white font-black px-7 py-3 rounded-full text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all"
+                    className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-7 py-3 rounded-full text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all"
                   >
                     {current.cta || "Partner With Us"} &rarr;
                   </Link>
                   <a
                     href="tel:+919964639639"
-                    className="bg-white/10 hover:bg-white/20 text-white font-bold px-5 py-3 rounded-full text-xs uppercase tracking-wider border border-white/20 transition-all"
+                    className="bg-white hover:bg-slate-50 text-[#0B2545] font-bold px-5 py-3 rounded-full text-xs uppercase tracking-wider border border-slate-200 shadow-xs transition-all"
                   >
                     Call Partner Desk
                   </a>
@@ -339,7 +333,7 @@ export default function FeaturedTestsSlider() {
               </div>
 
               {/* Right Accent Image */}
-              <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-amber-400/40 shadow-xl shrink-0 bg-slate-800">
+              <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-white shadow-xl shrink-0 bg-blue-100">
                 <Image
                   src={current.image || "/images/dr_shantakumar_new.jpg"}
                   alt="Doctor Partnership"
@@ -361,7 +355,7 @@ export default function FeaturedTestsSlider() {
               onClick={() => setActiveSlide(idx)}
               aria-label={`Go to slide ${idx + 1}`}
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                idx === activeSlide ? "w-8 bg-[#D69A18]" : "w-2 bg-slate-300 hover:bg-slate-400"
+                idx === activeSlide ? "w-8 bg-[#2563EB]" : "w-2 bg-slate-300 hover:bg-slate-400"
               }`}
             />
           ))}

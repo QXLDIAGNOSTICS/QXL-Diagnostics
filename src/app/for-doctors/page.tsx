@@ -46,7 +46,7 @@ export default function ForDoctorsPage() {
       <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-14 border-b border-sky-900">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="inline-block bg-[#D69A18] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">
+            <span className="inline-block bg-[#2563EB] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">
               Physician &amp; Reference Laboratory Hub
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight text-white" style={{ color: '#ffffff' }}>
@@ -158,19 +158,19 @@ export default function ForDoctorsPage() {
           </div>
 
           {/* Critical Values Policy */}
-          <div className="bg-amber-50 border border-amber-200 rounded-3xl p-6 sm:p-8 space-y-4">
+          <div className="bg-gradient-to-br from-[#0B2545] to-[#16386b] text-white border border-blue-400/30 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
             <div className="flex items-center gap-3">
-              <AlertTriangle className="w-6 h-6 text-amber-600 shrink-0" />
-              <h2 className="text-xl font-extrabold text-amber-900">QXL Critical Laboratory Values Notification Policy</h2>
+              <AlertTriangle className="w-6 h-6 text-sky-400 shrink-0" />
+              <h2 className="text-xl font-extrabold text-white">QXL Critical Laboratory Values Notification Policy</h2>
             </div>
-            <p className="text-amber-900 text-sm leading-relaxed font-medium">
+            <p className="text-slate-200 text-sm leading-relaxed font-medium">
               Whenever a laboratory result crosses a predefined life-threatening threshold (e.g., Potassium &gt;5.5 mEq/L, Platelets &lt;50,000/µL, Hemoglobin &lt;6.0 g/dL, or Troponin-I elevation), QXL Diagnostics activates an immediate direct verbal call to the referring doctor or hospital duty officer before releasing the written PDF report.
             </p>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2 text-xs font-extrabold text-amber-900">
-              <div className="bg-white/80 p-3 rounded-2xl border border-amber-200">Potassium &gt;5.5 or &lt;2.8 mEq/L</div>
-              <div className="bg-white/80 p-3 rounded-2xl border border-amber-200">Platelets &lt;50,000 /µL</div>
-              <div className="bg-white/80 p-3 rounded-2xl border border-amber-200">Serum Creatinine &gt;4.0 mg/dL</div>
-              <div className="bg-white/80 p-3 rounded-2xl border border-amber-200">Positive Malarial Parasite / Blasts</div>
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2 text-xs font-extrabold text-white">
+              <div className="bg-white/10 p-3 rounded-2xl border border-white/15">Potassium &gt;5.5 or &lt;2.8 mEq/L</div>
+              <div className="bg-white/10 p-3 rounded-2xl border border-white/15">Platelets &lt;50,000 /µL</div>
+              <div className="bg-white/10 p-3 rounded-2xl border border-white/15">Serum Creatinine &gt;4.0 mg/dL</div>
+              <div className="bg-white/10 p-3 rounded-2xl border border-white/15">Positive Malarial Parasite / Blasts</div>
             </div>
           </div>
 
@@ -194,10 +194,10 @@ export default function ForDoctorsPage() {
           </div>
 
           {/* Contact & Consultation CTA */}
-          <div className="bg-[#0f2d5e] text-white rounded-3xl p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 text-slate-800 rounded-3xl p-8 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
-              <h2 className="text-2xl font-extrabold text-white">Connect with a QXL Laboratory Consultant</h2>
-              <p className="text-sky-200 text-sm font-medium">Discuss complex cases, request custom panel pricing, or arrange hospital sample pickup.</p>
+              <h2 className="text-2xl font-black text-[#0B2545]">Connect with a QXL Laboratory Consultant</h2>
+              <p className="text-slate-600 text-sm font-medium">Discuss complex cases, request custom panel pricing, or arrange hospital sample pickup.</p>
             </div>
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               <a

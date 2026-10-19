@@ -283,7 +283,7 @@ export default function BlogPage() {
                       </span>
                       <span className="flex items-center gap-1">
                         <Calendar className="w-3.5 h-3.5 text-blue-300" />
-                        {featuredBlog.date || "October 16, 2026"}
+                        {featuredBlog.date || "October 19, 2026"}
                       </span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-3.5 h-3.5 text-blue-300" />

@@ -178,9 +178,9 @@ export default function BloatingFoodSensitivityArticle() {
       />
 
       {/* Top Breadcrumb & Metadata Header */}
-      <header className="bg-[#0B2545] text-white pt-8 pb-12 px-4 sm:px-6 border-b border-amber-400/20">
+      <header className="bg-gradient-to-b from-[#eaf3fe] via-[#f0f7ff] to-white text-[#0B2545] pt-8 pb-12 px-4 sm:px-6 border-b border-blue-200">
         <div className="max-w-4xl mx-auto space-y-4">
-          <nav className="flex items-center gap-2 text-xs text-slate-300 font-medium overflow-x-auto whitespace-nowrap">
+          <nav className="flex items-center gap-2 text-xs text-slate-500 font-medium overflow-x-auto whitespace-nowrap">
             <Link href="/" className="hover:text-amber-400 transition-colors">
               Home
             </Link>
@@ -315,12 +315,12 @@ export default function BloatingFoodSensitivityArticle() {
         </section>
 
         {/* Section 3: Primary & Secondary CTAs */}
-        <section className="bg-[#0B2545] text-white rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-xl">
+        <section className="bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 text-slate-800 rounded-3xl p-6 sm:p-8 text-center space-y-5 shadow-md">
           <div className="max-w-xl mx-auto space-y-2">
-            <h2 className="text-xl sm:text-2xl font-black tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-black text-[#0B2545] tracking-tight">
               Get Tested at Home Across Bengaluru
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 font-medium">
+            <p className="text-xs sm:text-sm text-slate-600 font-medium">
               Phlebotomists collect blood samples at your doorstep with cold-chain transport to our Doctor-Led NABL accredited central lab.
             </p>
           </div>
@@ -356,7 +356,7 @@ export default function BloatingFoodSensitivityArticle() {
 
         {/* Doctor Review Attribution Card */}
         <div className="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col sm:flex-row items-center gap-4 shadow-sm">
-          <div className="w-14 h-14 rounded-2xl bg-[#0B2545] text-amber-400 font-black flex items-center justify-center text-xl shrink-0">
+          <div className="w-14 h-14 rounded-2xl bg-[#2563EB] text-white font-black flex items-center justify-center text-xl shrink-0 shadow-xs">
             DSM
           </div>
           <div className="text-center sm:text-left space-y-1">

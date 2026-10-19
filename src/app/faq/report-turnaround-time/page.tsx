@@ -39,7 +39,7 @@ export default function ReportTurnaroundTimePage() {
 
       <section className="bg-gradient-to-br from-[#0d2e42] to-[#0f2d5e] text-white py-12">
         <div className="max-w-[1000px] mx-auto px-4">
-          <span className="inline-block bg-[#D69A18] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider mb-3">
+          <span className="inline-block bg-[#2563EB] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider mb-3">
             Service Timelines
           </span>
           <h1 className="text-3xl sm:text-4xl font-extrabold mb-3 text-white" style={{ color: '#ffffff' }}>
@@ -78,12 +78,12 @@ export default function ReportTurnaroundTimePage() {
             </div>
           </div>
 
-          <div className="bg-[#0f2d5e] text-white rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 text-slate-800 rounded-3xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
             <div>
-              <p className="font-extrabold text-sm">Track your existing booking report status online</p>
-              <p className="text-xs text-sky-200">Login with your registered phone number or call {PHONE_DISPLAY}</p>
+              <p className="font-black text-sm text-[#0B2545]">Track your existing booking report status online</p>
+              <p className="text-xs text-slate-600 font-medium">Login with your registered phone number or call {PHONE_DISPLAY}</p>
             </div>
-            <Link href="/report" className="bg-[#2563eb] text-white font-extrabold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider hover:bg-blue-600 shrink-0">
+            <Link href="/report" className="bg-[#2563eb] text-white font-extrabold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider hover:bg-[#1D4ED8] shadow-xs shrink-0">
               Download Report →
             </Link>
           </div>

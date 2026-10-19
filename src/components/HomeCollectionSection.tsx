@@ -7,37 +7,37 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
   const Heading = decorativeHeading ? 'p' : 'h2';
   const steps = [
     {
-      icon: <CalendarCheck className="w-5 h-5 text-[#D69A18]" />,
+      icon: <CalendarCheck className="w-5 h-5 text-[#2563EB]" />,
       title: "Book Online",
       desc: "Select your tests and choose a convenient time slot for home collection."
     },
     {
-      icon: <MapPin className="w-5 h-5 text-[#D69A18]" />,
+      icon: <MapPin className="w-5 h-5 text-[#2563EB]" />,
       title: "We Come to You",
       desc: "Our highly trained phlebotomist will visit your home at the scheduled time."
     },
     {
-      icon: <Syringe className="w-5 h-5 text-[#D69A18]" />,
+      icon: <Syringe className="w-5 h-5 text-[#2563EB]" />,
       title: "Safe Collection",
       desc: "Samples are collected safely using sterile, single-use equipment."
     },
     {
-      icon: <FileText className="w-5 h-5 text-[#D69A18]" />,
+      icon: <FileText className="w-5 h-5 text-[#2563EB]" />,
       title: "Digital Reports",
       desc: "Receive accurate, expert-reviewed reports via email or WhatsApp."
     },
     {
-      icon: <FlaskConical className="w-5 h-5 text-[#D69A18]" />,
+      icon: <FlaskConical className="w-5 h-5 text-[#2563EB]" />,
       title: "NABL Accredited Labs",
       desc: "All samples are analyzed in our fully accredited, state-of-the-art laboratory."
     },
     {
-      icon: <ThermometerSnowflake className="w-5 h-5 text-[#D69A18]" />,
+      icon: <ThermometerSnowflake className="w-5 h-5 text-[#2563EB]" />,
       title: "Cold Chain Transport",
       desc: "Samples are sealed and carried in temperature-controlled boxes to ensure stability."
     },
     {
-      icon: <HeartPulse className="w-5 h-5 text-[#D69A18]" />,
+      icon: <HeartPulse className="w-5 h-5 text-[#2563EB]" />,
       title: "Clinical Support",
       desc: "Get optional post-report guidance from our panel of clinical biochemists."
     }
@@ -46,7 +46,7 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
   return (
     <section className="py-6 sm:py-10 bg-white border-t border-slate-100 overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-3 sm:px-6 w-full">
-        <div className="bg-[#FFFBF0] border border-[#F3DBA7] p-5 sm:p-8 text-center rounded-3xl relative shadow-sm">
+        <div className="bg-[#F0F7FF] border border-[#BFDBFE] p-5 sm:p-8 text-center rounded-3xl relative shadow-sm">
           
           <style dangerouslySetInnerHTML={{ __html: `
             @keyframes marquee-scroll {
@@ -64,7 +64,7 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
             }
           `}} />
 
-          <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-2 shadow-2xs">
+          <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-2 shadow-2xs">
             Convenience at your Doorstep
           </span>
           <Heading className="text-[#0f2d5e] text-xl sm:text-2xl md:text-3xl font-black tracking-tight mb-2">
@@ -80,9 +80,9 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
               {steps.map((step, idx) => (
                 <div 
                   key={idx} 
-                  className="bg-white border border-[#F3DBA7] p-4 rounded-2xl flex flex-col items-center text-center w-[200px] sm:w-[220px] shrink-0 snap-start hover:border-[#D69A18] shadow-2xs transition-all duration-300"
+                  className="bg-white border border-[#BFDBFE] p-4 rounded-2xl flex flex-col items-center text-center w-[200px] sm:w-[220px] shrink-0 snap-start hover:border-[#2563EB] shadow-2xs transition-all duration-300"
                 >
-                  <div className="w-11 h-11 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mb-3 shrink-0">
+                  <div className="w-11 h-11 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center mb-3 shrink-0">
                     {step.icon}
                   </div>
                   <h3 className="font-extrabold text-[#0f2d5e] text-xs sm:text-[13px] mb-1 leading-snug">{step.title}</h3>
@@ -95,7 +95,7 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
 
           <Link
             href="/book"
-            className="inline-flex items-center gap-2 bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold px-7 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-md hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold px-7 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider shadow-md hover:scale-[1.02] active:scale-95 transition-all cursor-pointer"
           >
             Book Home Collection Now →
           </Link>

@@ -150,8 +150,8 @@ export default function MediaCoveragePage() {
     "@type": "NewsArticle",
     headline: "QXL Diagnostics Targets 60 Hospital Laboratory Partnerships by 2028",
     description: "Media coverage of QXL Diagnostics' Hospital Laboratory Management expansion strategy and target of 60 hospital laboratory partnerships by 2028.",
-    datePublished: "2026-10-01",
-    dateModified: "2026-10-01",
+    datePublished: "2026-10-19",
+    dateModified: "2026-10-19",
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": ARTICLE_URL,
@@ -208,7 +208,7 @@ export default function MediaCoveragePage() {
           </nav>
 
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className="bg-[#D69A18] text-white text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-widest shadow-sm">
+            <span className="bg-[#2563EB] text-white text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-widest shadow-sm">
               NATIONAL MEDIA COVERAGE
             </span>
             <span className="bg-white/10 text-sky-200 border border-white/20 text-[10px] font-bold px-3 py-1 rounded-full">
@@ -226,8 +226,8 @@ export default function MediaCoveragePage() {
 
           <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-sky-200 pt-4 border-t border-white/15">
             <div className="flex items-center gap-1.5">
-              <FileText className="w-4 h-4 text-[#D69A18]" />
-              <span>Published: 16 September 2026</span>
+              <FileText className="w-4 h-4 text-[#2563EB]" />
+              <span>Published: 19 October 2026</span>
             </div>
             <span>•</span>
             <div className="flex items-center gap-1.5">
@@ -236,7 +236,7 @@ export default function MediaCoveragePage() {
             </div>
             <span>•</span>
             <div className="flex items-center gap-1.5">
-              <Building2 className="w-4 h-4 text-amber-300" />
+              <Building2 className="w-4 h-4 text-sky-300" />
               <span>QXL Super Speciality Lab, Bengaluru</span>
             </div>
           </div>
@@ -250,7 +250,7 @@ export default function MediaCoveragePage() {
           
           {/* Section 1: About the Announcement */}
           <div>
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest block mb-1">PRESS RELEASE SUMMARY</span>
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest block mb-1">PRESS RELEASE SUMMARY</span>
             <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mb-4">About the Announcement</h2>
             <div className="space-y-4 text-slate-700 text-base leading-relaxed">
               <p>
@@ -263,16 +263,16 @@ export default function MediaCoveragePage() {
           </div>
 
           {/* 177 Online Postings Stat Callout Banner */}
-          <aside className="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border-l-4 border-[#D69A18] rounded-2xl p-6 sm:p-8 shadow-xs border border-amber-200">
+          <aside className="bg-gradient-to-r from-sky-50 via-blue-50/60 to-sky-50 border-l-4 border-[#2563EB] rounded-2xl p-6 sm:p-8 shadow-xs border border-sky-200">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center shrink-0 shadow-2xs">
-                  <Newspaper className="w-7 h-7 text-[#D69A18]" />
+                <div className="w-14 h-14 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center shrink-0 shadow-2xs">
+                  <Newspaper className="w-7 h-7 text-[#2563EB]" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-2xl sm:text-3xl font-black text-[#0f2d5e]">177 Online Postings</span>
-                    <span className="bg-[#D69A18] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">VERIFIED REPORT</span>
+                    <span className="bg-[#2563EB] text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">VERIFIED REPORT</span>
                   </div>
                   <p className="text-slate-700 text-sm font-semibold leading-relaxed m-0">
                     The release was distributed across 177 online publications and news platforms through Business Wire India, including major Google News and Yahoo News listings.
@@ -284,13 +284,13 @@ export default function MediaCoveragePage() {
 
           {/* Section 2: Four Pillars of QXL HLM */}
           <div>
-            <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest block mb-1">CORE ARCHITECTURE</span>
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest block mb-1">CORE ARCHITECTURE</span>
             <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mb-6">The QXL Hospital Laboratory Management Model</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {hlmPillars.map((pillar, idx) => (
-                <div key={idx} className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 hover:border-[#D69A18] hover:bg-white hover:shadow-md transition-all duration-300">
-                  <div className="w-10 h-10 rounded-xl bg-amber-100 text-[#D69A18] border border-amber-300 flex items-center justify-center mb-3">
+                <div key={idx} className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 hover:border-[#2563EB] hover:bg-white hover:shadow-md transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-amber-100 text-[#2563EB] border border-amber-300 flex items-center justify-center mb-3">
                     <pillar.icon className="w-5 h-5" />
                   </div>
                   <h3 className="font-extrabold text-[#0f2d5e] text-base mb-2">{pillar.title}</h3>
@@ -304,7 +304,7 @@ export default function MediaCoveragePage() {
           <div className="pt-4 border-t border-slate-200">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
               <div>
-                <span className="text-[#D69A18] font-black text-xs uppercase tracking-widest block mb-1">EDITORIAL CITATIONS</span>
+                <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest block mb-1">EDITORIAL CITATIONS</span>
                 <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e]">Featured Media Coverage</h2>
               </div>
               <span className="text-xs font-extrabold text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full w-fit">
@@ -337,7 +337,7 @@ export default function MediaCoveragePage() {
                       />
                     </div>
 
-                    <h3 className="text-lg font-black text-[#0f2d5e] group-hover:text-[#D69A18] transition-colors">
+                    <h3 className="text-lg font-black text-[#0f2d5e] group-hover:text-[#2563EB] transition-colors">
                       {pub.name}
                     </h3>
                     
@@ -351,7 +351,7 @@ export default function MediaCoveragePage() {
                       href={pub.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full text-center bg-white hover:bg-[#0f2d5e] text-[#0f2d5e] hover:text-white border border-slate-300 hover:border-[#0f2d5e] font-extrabold py-2.5 px-4 rounded-xl text-xs inline-flex items-center justify-center gap-2 transition-all shadow-2xs"
+                      className="w-full text-center bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#0284c7] border border-[#BFDBFE] hover:border-[#0284c7] font-extrabold py-2.5 px-4 rounded-xl text-xs inline-flex items-center justify-center gap-2 transition-all shadow-2xs"
                     >
                       <span>{pub.cta}</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -366,19 +366,19 @@ export default function MediaCoveragePage() {
           <div className="bg-slate-50/80 rounded-2xl p-6 border border-slate-200 space-y-3">
             <h3 className="text-sm font-extrabold text-[#0f2d5e] uppercase tracking-wider">Explore Related QXL Services &amp; Information</h3>
             <div className="flex flex-wrap gap-2.5 text-xs font-bold">
-              <Link href="/about" className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-xl hover:border-[#D69A18] hover:text-[#0f2d5e] transition-colors">
+              <Link href="/about" className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-xl hover:border-[#2563EB] hover:text-[#0f2d5e] transition-colors">
                 About Us →
               </Link>
-              <Link href="/hospital-laboratory-management" className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-xl hover:border-[#D69A18] hover:text-[#0f2d5e] transition-colors">
+              <Link href="/hospital-laboratory-management" className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-xl hover:border-[#2563EB] hover:text-[#0f2d5e] transition-colors">
                 Hospital Laboratory Management →
               </Link>
-              <Link href="/contact" className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-xl hover:border-[#D69A18] hover:text-[#0f2d5e] transition-colors">
+              <Link href="/contact" className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-xl hover:border-[#2563EB] hover:text-[#0f2d5e] transition-colors">
                 Contact Us →
               </Link>
-              <Link href="/locations" className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-xl hover:border-[#D69A18] hover:text-[#0f2d5e] transition-colors">
+              <Link href="/locations" className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-xl hover:border-[#2563EB] hover:text-[#0f2d5e] transition-colors">
                 Locations →
               </Link>
-              <Link href="/test-directory" className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-xl hover:border-[#D69A18] hover:text-[#0f2d5e] transition-colors">
+              <Link href="/test-directory" className="bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded-xl hover:border-[#2563EB] hover:text-[#0f2d5e] transition-colors">
                 Test Directory →
               </Link>
             </div>
@@ -386,7 +386,7 @@ export default function MediaCoveragePage() {
 
           {/* Section 5: HLM Page Call to Action */}
           <section className="bg-gradient-to-br from-[#0B2545] via-[#0f2d5e] to-[#164263] rounded-3xl p-8 md:p-10 text-white text-center space-y-6 shadow-xl relative overflow-hidden">
-            <div className="w-14 h-14 rounded-2xl bg-[#D69A18] text-white flex items-center justify-center mx-auto shadow-lg">
+            <div className="w-14 h-14 rounded-2xl bg-[#2563EB] text-white flex items-center justify-center mx-auto shadow-lg">
               <Building2 className="w-7 h-7" />
             </div>
             
@@ -402,7 +402,7 @@ export default function MediaCoveragePage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/hospital-laboratory-management/"
-                className="bg-[#D69A18] hover:bg-[#b88313] text-white font-black px-7 py-4 rounded-2xl text-xs uppercase tracking-wider shadow-lg inline-flex items-center gap-2 transition-all active:scale-95"
+                className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-7 py-4 rounded-2xl text-xs uppercase tracking-wider shadow-lg inline-flex items-center gap-2 transition-all active:scale-95"
               >
                 <span>Explore Hospital Laboratory Management</span>
                 <ArrowRight className="w-4 h-4" />
@@ -411,7 +411,7 @@ export default function MediaCoveragePage() {
                 href={`tel:${PHONE_E164}`}
                 className="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-black px-7 py-4 rounded-2xl text-xs uppercase tracking-wider inline-flex items-center gap-2 transition-all"
               >
-                <Phone className="w-4 h-4 text-[#D69A18]" />
+                <Phone className="w-4 h-4 text-[#2563EB]" />
                 <span>Hospital Partnerships: {PHONE_DISPLAY}</span>
               </a>
             </div>

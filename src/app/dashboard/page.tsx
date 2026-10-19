@@ -142,7 +142,7 @@ export default function DashboardPage() {
                               console.error(err);
                             }
                           }}
-                          className="inline-flex items-center gap-1.5 bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] font-bold px-3 py-1 rounded-full text-[11px] hover:bg-[#FDF0D5] transition-colors"
+                          className="inline-flex items-center gap-1.5 bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] font-bold px-3 py-1 rounded-full text-[11px] hover:bg-[#E0EFFE] transition-colors"
                         >
                           <RotateCcw className="w-3 h-3" />
                           Rebook

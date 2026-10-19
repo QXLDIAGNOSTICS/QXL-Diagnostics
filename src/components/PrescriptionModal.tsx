@@ -102,9 +102,9 @@ export default function PrescriptionModal({ isOpen, onClose }: PrescriptionModal
           )}
 
           {!authLoading && !user ? (
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-6 flex flex-col items-center text-center gap-3">
-              <AlertCircle className="w-8 h-8 text-amber-600" />
-              <p className="text-sm text-amber-800 font-semibold">
+            <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-xl p-6 flex flex-col items-center text-center gap-3">
+              <AlertCircle className="w-8 h-8 text-[#2563EB]" />
+              <p className="text-sm text-[#0F2D5E] font-semibold">
                 Please log in to upload and get an AI analysis of your prescription.
               </p>
               <Link

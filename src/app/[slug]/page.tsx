@@ -332,7 +332,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
 
               {/* Fasting & Preparation */}
               <h2 className="text-xl font-extrabold text-[#0f2d5e] mb-3">Preparation &amp; Fasting Guidelines</h2>
-              <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-amber-900 text-sm font-semibold leading-relaxed mb-6">
+              <div className="bg-sky-50 border border-sky-200 p-4 rounded-2xl text-slate-800 text-sm font-semibold leading-relaxed mb-6">
                 💡 <strong>Instructions:</strong> {data.fastingRequired}
               </div>
 
@@ -489,40 +489,40 @@ export default async function DynamicSlugTestPage({ params }: Props) {
             )}
 
             {/* NABL Quality Card */}
-            <div className="bg-[#0f2d5e] text-white rounded-3xl p-6 shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-28 h-28 bg-[#2563eb]/20 rounded-full blur-2xl" />
-              <h3 className="text-base font-extrabold !text-white text-white mb-4 border-b border-white/10 pb-3 relative z-10" style={{ color: '#ffffff' }}>NABL Quality Guarantees</h3>
+            <div className="bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 text-slate-800 rounded-3xl p-6 shadow-md relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-28 h-28 bg-[#2563eb]/10 rounded-full blur-2xl" />
+              <h3 className="text-base font-black text-[#0B2545] mb-4 border-b border-blue-200/80 pb-3 relative z-10">NABL Quality Guarantees</h3>
               
               <div className="space-y-4 text-xs font-semibold relative z-10">
                 <div className="flex items-start gap-3">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
                   <div>
-                    <p className="font-extrabold text-white text-sm">NABL Accredited ({NABL_CERTIFICATE})</p>
-                    <p className="text-sky-200 mt-0.5">{ISO_STANDARD} quality compliance</p>
+                    <p className="font-extrabold text-[#0B2545] text-sm">NABL Accredited ({NABL_CERTIFICATE})</p>
+                    <p className="text-slate-600 mt-0.5">{ISO_STANDARD} quality compliance</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <Clock className="w-5 h-5 text-blue-600 shrink-0" />
                   <div>
-                    <p className="font-extrabold text-white text-sm">Same-Day Digital Reports</p>
-                    <p className="text-sky-200 mt-0.5">Delivered straight to WhatsApp &amp; Email</p>
+                    <p className="font-extrabold text-[#0B2545] text-sm">Same-Day Digital Reports</p>
+                    <p className="text-slate-600 mt-0.5">Delivered straight to WhatsApp &amp; Email</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Activity className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <Activity className="w-5 h-5 text-blue-600 shrink-0" />
                   <div>
-                    <p className="font-extrabold text-white text-sm">Free Doorstep Collection</p>
-                    <p className="text-sky-200 mt-0.5">Sterile vacuum containers &amp; cold-chain kits</p>
+                    <p className="font-extrabold text-[#0B2545] text-sm">Free Doorstep Collection</p>
+                    <p className="text-slate-600 mt-0.5">Sterile vacuum containers &amp; cold-chain kits</p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-white/10 relative z-10">
+              <div className="mt-6 pt-5 border-t border-blue-200/80 relative z-10">
                 <Link
                   href={`/book?package=${encodeURIComponent(data.h1Title)}`}
-                  className="w-full bg-[#2563eb] hover:bg-blue-600 text-white font-extrabold py-3 rounded-xl text-center block text-xs uppercase tracking-wider shadow-md"
+                  className="w-full bg-[#2563eb] hover:bg-[#1D4ED8] text-white font-extrabold py-3 rounded-xl text-center block text-xs uppercase tracking-wider shadow-md"
                 >
                   Schedule Home Collection
                 </Link>

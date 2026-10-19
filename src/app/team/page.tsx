@@ -98,7 +98,7 @@ export default function TeamPage() {
       {/* Consult with our Experts CTA */}
       <section className="py-12 bg-white border-t border-slate-100">
         <div className="max-w-[1260px] mx-auto px-4">
-          <div className="bg-[#FFFBF0] p-8 md:p-12 rounded-3xl border border-[#F3DBA7] shadow-sm text-center max-w-3xl mx-auto space-y-6">
+          <div className="bg-[#F0F7FF] p-8 md:p-12 rounded-3xl border border-[#BFDBFE] shadow-sm text-center max-w-3xl mx-auto space-y-6">
             <h2 className="text-2xl sm:text-3xl font-black text-[#0f2d5e] tracking-tight">Consult with our Experts</h2>
             <p className="text-slate-600 text-xs sm:text-sm font-semibold max-w-2xl mx-auto leading-relaxed">
               Every test performed at QXL Diagnostics is reviewed by our panel of specialists to ensure you receive clinically meaningful answers.
@@ -106,7 +106,7 @@ export default function TeamPage() {
             <div className="flex gap-4 justify-center flex-wrap pt-2">
               <a
                 href="tel:+919964639639"
-                className="inline-flex items-center gap-2 bg-[#D69A18] hover:bg-[#b88313] !text-white font-black px-6 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer"
+                className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] !text-white font-black px-6 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md active:scale-95 cursor-pointer"
                 style={{ color: '#ffffff' }}
               >
                 <Phone className="w-4 h-4 text-white" /> Call Support

@@ -51,7 +51,7 @@ export default function QualityHubPage() {
       <section className="bg-gradient-to-r from-[#0f2d5e] via-[#164263] to-[#1e40af] text-white py-16">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-amber-200 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-sky-200 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
               <Award className="w-4 h-4 text-amber-300" />
               NABL Accreditation Certificate MC-6849
             </div>

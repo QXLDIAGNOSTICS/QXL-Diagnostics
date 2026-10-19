@@ -914,8 +914,8 @@ export default function AiChat() {
       {/* Chat Window — Deep Blue Top Header + Clean White Body Canvas */}
       {isOpen && (
         <div className="fixed left-2 right-2 bottom-[68px] top-14 sm:top-auto sm:left-auto sm:right-6 sm:bottom-22 sm:w-[420px] sm:h-[620px] sm:max-h-[85vh] z-[100002] rounded-[28px] bg-white border border-slate-200 shadow-[0_25px_60px_rgba(0,0,0,0.25)] flex flex-col overflow-hidden animate-in slide-in-from-bottom duration-300">
-          {/* Chat Header — Solid Deep Navy/Blue Header */}
-          <div className="bg-[#0B2545] border-b border-[#134074] px-4 pt-3 pb-3 flex flex-col shrink-0 rounded-t-[28px]">
+          {/* Chat Header — Vibrant Sky Blue Header */}
+          <div className="bg-gradient-to-r from-[#0284c7] via-[#0369a1] to-[#2563eb] border-b border-blue-400/30 px-4 pt-3 pb-3 flex flex-col shrink-0 rounded-t-[28px]">
             {/* Mobile Drag Pill Handle */}
             <div className="w-10 h-1 bg-white/30 rounded-full mx-auto mb-2 sm:hidden shrink-0 cursor-pointer hover:bg-white/50" onClick={() => setIsOpen(false)} />
 
@@ -953,12 +953,12 @@ export default function AiChat() {
                   </button>
                   
                   {showLanguageDropdown && (
-                    <div className="absolute top-full right-0 mt-2 bg-[#0B2545] border border-blue-400/30 rounded-xl shadow-2xl w-40 z-[1003] overflow-hidden py-1">
+                    <div className="absolute top-full right-0 mt-2 bg-white border border-blue-200 rounded-xl shadow-2xl w-40 z-[1003] overflow-hidden py-1">
                       {languages.map(lang => (
                         <div 
                           key={lang}
                           onClick={() => { setSelectedLanguage(lang); setShowLanguageDropdown(false); }}
-                          className={`px-3.5 py-2 text-xs cursor-pointer border-b border-blue-900/50 last:border-b-0 ${selectedLanguage === lang ? 'bg-blue-600 text-white font-bold' : 'text-slate-100 hover:bg-blue-800'}`}
+                          className={`px-3.5 py-2 text-xs cursor-pointer border-b border-slate-100 last:border-b-0 ${selectedLanguage === lang ? 'bg-[#2563EB] text-white font-bold' : 'text-slate-700 hover:bg-blue-50'}`}
                         >
                           {lang}
                         </div>
@@ -999,7 +999,7 @@ export default function AiChat() {
           <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-3 bg-white">
             {messages.map((msg, idx) => (
               <div key={msg.type === 'payment' && msg.paymentOrder ? `pay-${msg.paymentOrder.order_id}` : `msg-${idx}`} className={`
-                ${msg.role === 'user' ? 'self-end bg-[#0B2545] text-white font-medium rounded-2xl rounded-tr-xs' : msg.type === 'payment' ? 'self-start bg-transparent' : 'self-start bg-[#f8fafc] text-[#0B2545] border border-slate-200 rounded-2xl rounded-tl-xs'}
+                ${msg.role === 'user' ? 'self-end bg-[#2563EB] text-white font-medium rounded-2xl rounded-tr-xs' : msg.type === 'payment' ? 'self-start bg-transparent' : 'self-start bg-[#f8fafc] text-[#0B2545] border border-slate-200 rounded-2xl rounded-tl-xs'}
                 ${msg.type === 'payment' ? 'p-0 max-w-full' : 'px-4 py-3 max-w-[88%]'}
                 text-[13.5px] leading-relaxed shadow-2xs
               `}>
@@ -1342,7 +1342,7 @@ export default function AiChat() {
               <button
                 onClick={() => handleSend()}
                 disabled={isLoading || (!input.trim() && !selectedFile)}
-                className="w-9 h-9 rounded-full bg-[#0B2545] disabled:opacity-40 text-white flex items-center justify-center hover:bg-[#1e3a8a] transition-colors cursor-pointer shrink-0 shadow-xs"
+                className="w-9 h-9 rounded-full bg-[#2563EB] disabled:opacity-40 text-white flex items-center justify-center hover:bg-[#1D4ED8] transition-colors cursor-pointer shrink-0 shadow-xs"
                 aria-label="Send message"
               >
                 <Send className="w-4 h-4 text-white" />

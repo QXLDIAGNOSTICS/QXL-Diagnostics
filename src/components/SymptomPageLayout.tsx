@@ -112,7 +112,7 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
             <span className="text-white">{data.h1}</span>
           </nav>
 
-          <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">
+          <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 shadow-sm">
             Health Information · Clinically Reviewed
           </span>
 
@@ -207,7 +207,7 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
                 <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="bg-[#0f2d5e] text-white">
+                      <tr className="bg-gradient-to-r from-[#eaf3fe] to-[#f4f8fe] text-[#0B2545] border-b border-blue-200">
                         <th className="text-left px-5 py-3.5 font-black text-xs w-2/5">Test</th>
                         <th className="text-left px-5 py-3.5 font-black text-xs">Why a Doctor May Consider It</th>
                       </tr>
@@ -325,7 +325,7 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
                   href={`tel:${PHONE_E164}`}
                   className="w-full bg-white/10 hover:bg-white/20 border border-white/30 text-white font-black px-4 py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
                 >
-                  <Phone className="w-4 h-4 text-[#D69A18]" />
+                  <Phone className="w-4 h-4 text-[#2563EB]" />
                   <span>{PHONE_DISPLAY}</span>
                 </a>
                 <Link
@@ -364,7 +364,7 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
               </p>
               <Link
                 href="/upload-prescription"
-                className="text-xs font-black text-[#D69A18] hover:text-amber-700 flex items-center gap-1.5 transition-colors"
+                className="text-xs font-black text-[#2563EB] hover:text-amber-700 flex items-center gap-1.5 transition-colors"
               >
                 <span>Upload Prescription →</span>
               </Link>

@@ -29,8 +29,8 @@ export default function HomeBloodCollectionPage() {
 
         <div className="max-w-md mx-auto p-4 flex flex-col gap-4">
           {/* Phlebotomist Banner Illustration Card */}
-          <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 rounded-3xl p-5 border border-[#F3DBA7] shadow-sm flex flex-col items-center text-center relative overflow-hidden">
-            <div className="w-24 h-24 bg-[#FFF8EB] border-2 border-[#E9C47A] rounded-full flex items-center justify-center shadow-sm mb-3">
+          <div className="bg-gradient-to-br from-[#eaf3fe] via-white to-[#f0f7ff] rounded-3xl p-5 border border-[#BFDBFE] shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+            <div className="w-24 h-24 bg-[#EFF6FF] border-2 border-[#BAE0FD] rounded-full flex items-center justify-center shadow-sm mb-3">
               <span className="text-5xl">🛵</span>
             </div>
 
@@ -42,19 +42,19 @@ export default function HomeBloodCollectionPage() {
             {/* Feature Checklist */}
             <div className="w-full bg-white rounded-2xl p-3.5 border border-gray-150 shadow-xs space-y-2.5 text-left mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#2563EB] shrink-0">
                   <UserCheck className="w-4.5 h-4.5" />
                 </div>
                 <span className="text-xs font-extrabold text-slate-800">Trained phlebotomists</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#2563EB] shrink-0">
                   <ShieldCheck className="w-4.5 h-4.5" />
                 </div>
                 <span className="text-xs font-extrabold text-slate-800">Tamper-proof sample collection</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center text-[#D69A18] shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center text-[#2563EB] shrink-0">
                   <Clock className="w-4.5 h-4.5" />
                 </div>
                 <span className="text-xs font-extrabold text-slate-800">Reports delivered on time</span>
@@ -64,7 +64,7 @@ export default function HomeBloodCollectionPage() {
             {/* Schedule Button */}
             <a
               href="#mobile-booking-form"
-              className="w-full bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md uppercase text-xs tracking-wider transition-all text-center"
+              className="w-full bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md uppercase text-xs tracking-wider transition-all text-center"
             >
               Schedule Home Collection
             </a>
@@ -85,7 +85,7 @@ export default function HomeBloodCollectionPage() {
         <section className="relative bg-gradient-to-br from-[#0f2d5e] via-[#1b3d7a] to-[#2563eb] text-white py-14 overflow-hidden">
           <div className="max-w-[1200px] mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-amber-200 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-sky-200 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
                 <Award className="w-4 h-4 text-amber-300" />
                 NABL Accredited Medical Laboratory (MC-6849)
               </div>

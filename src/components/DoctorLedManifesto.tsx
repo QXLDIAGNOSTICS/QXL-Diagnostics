@@ -50,8 +50,8 @@ export default function DoctorLedManifesto() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3 relative overflow-hidden group hover:border-amber-300 transition-all">
-            <div className="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center font-extrabold text-lg">04</div>
+          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3 relative overflow-hidden group hover:border-sky-300 transition-all">
+            <div className="w-12 h-12 bg-sky-50 text-[#2563EB] rounded-xl flex items-center justify-center font-extrabold text-lg">04</div>
             <h3 className="font-extrabold text-slate-900 text-lg">Medically Reviewed Content</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Patient and clinician education is developed strictly around accepted principles of laboratory medicine—not generic health marketing.
@@ -125,9 +125,9 @@ export default function DoctorLedManifesto() {
         </div>
 
         {/* Structured Diagnostic Pathway */}
-        <div className="bg-[#FFFBF0] text-slate-900 p-8 md:p-12 rounded-3xl space-y-6 border border-[#F3DBA7] shadow-sm">
+        <div className="bg-[#F0F7FF] text-slate-900 p-8 md:p-12 rounded-3xl space-y-6 border border-[#BFDBFE] shadow-sm">
           <div className="text-center max-w-2xl mx-auto space-y-1.5">
-            <span className="text-xs font-black uppercase tracking-widest text-[#D69A18] block">End-to-End Quality Pathway</span>
+            <span className="text-xs font-black uppercase tracking-widest text-[#2563EB] block">End-to-End Quality Pathway</span>
             <h3 className="text-2xl sm:text-3xl font-black text-[#0f2d5e] leading-tight">From Sample to Clinical Clarity</h3>
             <p className="text-slate-600 text-xs sm:text-sm font-semibold pt-1">Every QXL laboratory result travels through 9 standardized clinical quality steps.</p>
           </div>
@@ -144,8 +144,8 @@ export default function DoctorLedManifesto() {
               { step: "8", title: "Digital Report" },
               { step: "9", title: "Clinician Action" },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white border border-[#F3DBA7] p-3 rounded-xl shadow-2xs">
-                <span className="w-6 h-6 bg-[#D69A18] text-white font-black rounded-full text-xs flex items-center justify-center mx-auto mb-1.5 shadow-xs">{item.step}</span>
+              <div key={idx} className="bg-white border border-[#BFDBFE] p-3 rounded-xl shadow-2xs">
+                <span className="w-6 h-6 bg-[#2563EB] text-white font-black rounded-full text-xs flex items-center justify-center mx-auto mb-1.5 shadow-xs">{item.step}</span>
                 <span className="text-[11px] font-bold text-[#0f2d5e] leading-tight block">{item.title}</span>
               </div>
             ))}

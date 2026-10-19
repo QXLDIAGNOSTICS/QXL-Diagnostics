@@ -18,24 +18,24 @@ export default function ReferenceLaboratoryPage() {
   return (
     <main className="bg-slate-50 min-h-screen text-slate-900">
       {/* Hero */}
-      <section className="bg-gradient-to-r from-[#0f2d5e] via-[#1e3a8a] to-[#2563eb] text-white py-14">
+      <section className="bg-gradient-to-b from-[#eaf3fe] via-[#f4f8fe] to-white text-[#0B2545] py-14 border-b border-blue-100">
         <div className="max-w-[1200px] mx-auto px-4">
-          <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-amber-200 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
-            <Building2 className="w-4 h-4 text-amber-300" />
+          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 text-[#0284c7] px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+            <Building2 className="w-4 h-4 text-[#0284c7]" />
             Institutional & Referral Laboratory Partner
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0B2545] tracking-tight leading-tight">
             A Reference Laboratory Built for Doctors, Hospitals & Partner Labs
           </h1>
-          <p className="text-blue-100 text-base sm:text-lg max-w-3xl mt-4 leading-relaxed">
+          <p className="text-slate-600 text-base sm:text-lg max-w-3xl mt-4 leading-relaxed">
             QXL Diagnostics serves as an extension of the clinician&apos;s diagnostic decision-making process. We support hospitals, specialist clinics, polyclinics, and independent laboratories with super-speciality referral testing and doctor-reviewed reports.
           </p>
 
           <div className="flex flex-wrap gap-4 pt-6">
-            <a href="tel:+919964639639" className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg flex items-center gap-2 text-sm uppercase tracking-wider transition-all">
+            <a href="tel:+919964639639" className="bg-[#2563EB] hover:bg-[#1d4ed8] text-white font-bold px-6 py-3.5 rounded-xl shadow-md flex items-center gap-2 text-sm uppercase tracking-wider transition-all">
               <Phone className="w-4 h-4" /> Partner Desk: +91 9964 639 639
             </a>
-            <a href="mailto:info@qxldiagnostics.com" className="bg-white/10 border border-white/20 hover:bg-white/20 text-white font-bold px-6 py-3.5 rounded-xl flex items-center gap-2 text-sm uppercase tracking-wider transition-all">
+            <a href="mailto:info@qxldiagnostics.com" className="bg-white border border-blue-200 hover:bg-blue-50 text-[#0284c7] font-bold px-6 py-3.5 rounded-xl flex items-center gap-2 text-sm uppercase tracking-wider transition-all shadow-sm">
               <Mail className="w-4 h-4" /> Email Reference Team
             </a>
           </div>

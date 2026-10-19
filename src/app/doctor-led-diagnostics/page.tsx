@@ -21,15 +21,15 @@ export default function DoctorLedDiagnosticsPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-[#0f2d5e] via-[#1b3d7a] to-[#2563eb] text-white py-16">
         <div className="max-w-[1200px] mx-auto px-4 space-y-6">
-          <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-amber-200 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-            <UserCheck className="w-4 h-4 text-amber-300" />
+          <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/40 text-sky-200 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+            <UserCheck className="w-4 h-4 text-sky-300" />
             Doctor-Led Laboratory Medicine
           </div>
           
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
             Doctor-Led Diagnostics. <br />
             Reference-Lab Expertise. <br />
-            <span className="text-amber-300">Quality You Can Verify.</span>
+            <span className="text-sky-300">Quality You Can Verify.</span>
           </h1>
 
           <p className="text-blue-100 text-base sm:text-lg max-w-3xl leading-relaxed">
@@ -94,7 +94,7 @@ export default function DoctorLedDiagnosticsPage() {
           </div>
 
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-            <div className="w-10 h-10 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center font-black text-sm">04</div>
+            <div className="w-10 h-10 bg-sky-50 text-[#2563EB] rounded-xl flex items-center justify-center font-black text-sm">04</div>
             <h3 className="font-extrabold text-slate-900 text-base">Medically Reviewed Information</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
               Patient and clinician education is developed strictly around accepted principles of laboratory medicine—not generic health marketing.
@@ -174,7 +174,7 @@ export default function DoctorLedDiagnosticsPage() {
         {/* 9-Step Diagnostic Pathway */}
         <div className="bg-gradient-to-br from-[#0f2d5e] to-[#1e3a8a] text-white p-8 md:p-12 rounded-3xl space-y-6">
           <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs font-bold uppercase tracking-widest text-amber-300">From Sample to Clinical Clarity</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-sky-300">From Sample to Clinical Clarity</span>
             <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">Our 9-Step Quality Pathway</h2>
           </div>
 

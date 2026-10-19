@@ -28,13 +28,13 @@ export default function FloatingActions() {
       <div className={`${isBookPage ? 'hidden lg:block' : ''} fixed bottom-20 lg:bottom-8 right-4 lg:right-8 z-[9990] transition-all duration-300 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90 pointer-events-none'}`}>
         <button
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2 bg-[#0f2d5e] text-white px-4 py-3 rounded-full shadow-xl hover:bg-[#1a3d75] active:scale-95 transition-all cursor-pointer border border-white/20"
+          className="flex items-center gap-2 bg-white text-[#0B2545] px-4 py-3 rounded-full shadow-xl hover:bg-sky-50 active:scale-95 transition-all cursor-pointer border border-sky-200"
           aria-label="Need Help?"
         >
-          <div className="w-6 h-6 rounded-full bg-[#D69A18] flex items-center justify-center text-white shrink-0">
+          <div className="w-6 h-6 rounded-full bg-[#2563EB] flex items-center justify-center text-white shrink-0">
             <HelpCircle className="w-4 h-4 text-white" strokeWidth={2.5} />
           </div>
-          <span className="text-xs font-extrabold uppercase tracking-wider pr-1">Help</span>
+          <span className="text-xs font-black uppercase tracking-wider pr-1">Help</span>
         </button>
       </div>
 
@@ -48,9 +48,9 @@ export default function FloatingActions() {
 
           <div className="relative w-full max-w-md bg-white rounded-t-3xl lg:rounded-3xl shadow-2xl overflow-hidden z-10 animate-in slide-in-from-bottom duration-200">
             {/* Header */}
-            <div className="bg-[#FFF8EB] border-b border-[#F3DBA7] p-5 flex items-center justify-between">
+            <div className="bg-[#EFF6FF] border-b border-[#BFDBFE] p-5 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-full bg-[#D69A18] flex items-center justify-center text-white">
+                <div className="w-9 h-9 rounded-full bg-[#2563EB] flex items-center justify-center text-white">
                   <HelpCircle className="w-5 h-5" />
                 </div>
                 <div>
@@ -113,7 +113,7 @@ export default function FloatingActions() {
                 className="w-full flex items-center justify-between p-3.5 rounded-2xl border border-amber-200 bg-amber-50/50 hover:bg-amber-50 transition-colors text-left group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#D69A18] to-[#f59e0b] text-white flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#2563EB] to-[#f59e0b] text-white flex items-center justify-center shrink-0">
                     <Bot className="w-5 h-5" />
                   </div>
                   <div>
@@ -121,7 +121,7 @@ export default function FloatingActions() {
                     <p className="text-slate-600 text-[11px] font-medium">Explain tests, fasting & symptom guidance</p>
                   </div>
                 </div>
-                <ChevronRight className="w-4 h-4 text-[#D69A18] group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-4 h-4 text-[#2563EB] group-hover:translate-x-1 transition-transform" />
               </button>
 
               <Link
@@ -130,7 +130,7 @@ export default function FloatingActions() {
                 className="flex items-center justify-between p-3.5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-slate-100 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#0f2d5e] text-white flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-[#2563EB] text-white flex items-center justify-center shrink-0">
                     <Calendar className="w-5 h-5" />
                   </div>
                   <div>

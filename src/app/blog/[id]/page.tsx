@@ -134,7 +134,7 @@ export default async function SingleBlogPage({ params }: Props) {
         month: "long",
         day: "numeric",
       })
-    : "October 16, 2026";
+    : "October 19, 2026";
 
   const reviewer = (blog as any).reviewer || "Dr. Shantakumar Muruda, MD (Biochemistry)";
 
@@ -196,8 +196,8 @@ export default async function SingleBlogPage({ params }: Props) {
             url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150212/Assets-QXL/legacy-assets/image/qxl_logo.png",
           },
         },
-        datePublished: (blog as any).created_at || "2026-10-16T12:00:00+05:30",
-        dateModified: (blog as any).created_at || "2026-10-16T12:00:00+05:30",
+        datePublished: (blog as any).created_at || "2026-10-19T12:00:00+05:30",
+        dateModified: (blog as any).created_at || "2026-10-19T12:00:00+05:30",
       },
       {
         "@type": "BreadcrumbList",

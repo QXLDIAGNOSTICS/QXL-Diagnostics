@@ -102,13 +102,13 @@ export default function LocalityCheckWidget({
   return (
     <div
       ref={containerRef}
-      className={`w-full bg-white rounded-3xl border border-amber-200/90 shadow-[0_8px_30px_rgba(214,154,24,0.12)] p-3.5 sm:p-5 relative transition-all ${className}`}
+      className={`w-full bg-white rounded-3xl border border-amber-200/90 shadow-[0_8px_30px_rgba(37, 99, 235,0.12)] p-3.5 sm:p-5 relative transition-all ${className}`}
     >
       {/* Header Badge & Title */}
       <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center shrink-0">
-            <MapPin className="w-4 h-4 text-[#D69A18]" />
+          <div className="w-8 h-8 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center shrink-0">
+            <MapPin className="w-4 h-4 text-[#2563EB]" />
           </div>
           <div>
             <h3 className="text-xs sm:text-sm font-black text-[#0B2545] tracking-tight leading-tight">
@@ -128,8 +128,8 @@ export default function LocalityCheckWidget({
 
       {/* Input Search Box */}
       <div className="relative mb-3">
-        <div className="relative flex items-center bg-[#FDFBF7] border border-[#F3DBA7] focus-within:border-[#D69A18] focus-within:ring-2 focus-within:ring-[#D69A18]/20 rounded-2xl px-3.5 py-2.5 transition-all shadow-2xs">
-          <Search className="w-4 h-4 text-[#D69A18] mr-2 shrink-0" />
+        <div className="relative flex items-center bg-[#F8FAFC] border border-[#BFDBFE] focus-within:border-[#2563EB] focus-within:ring-2 focus-within:ring-[#2563EB]/20 rounded-2xl px-3.5 py-2.5 transition-all shadow-2xs">
+          <Search className="w-4 h-4 text-[#2563EB] mr-2 shrink-0" />
           <input
             type="text"
             value={query}
@@ -157,13 +157,13 @@ export default function LocalityCheckWidget({
 
         {/* Dropdown Suggestions */}
         {isOpen && filteredAreas.length > 0 && (
-          <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#F3DBA7] rounded-2xl shadow-xl z-50 overflow-hidden max-h-60 overflow-y-auto">
+          <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[#BFDBFE] rounded-2xl shadow-xl z-50 overflow-hidden max-h-60 overflow-y-auto">
             {filteredAreas.map((area) => (
               <button
                 key={area.id}
                 type="button"
                 onClick={() => handleSelectArea(area, area.pincodes[0])}
-                className="w-full px-4 py-2.5 text-left hover:bg-[#FFF8EB] flex items-center justify-between border-b border-slate-100 last:border-0 transition-colors"
+                className="w-full px-4 py-2.5 text-left hover:bg-[#EFF6FF] flex items-center justify-between border-b border-slate-100 last:border-0 transition-colors"
               >
                 <div>
                   <span className="text-xs font-black text-[#0B2545] block">
@@ -174,7 +174,7 @@ export default function LocalityCheckWidget({
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] font-extrabold bg-amber-50 text-[#D69A18] border border-[#F3DBA7] px-2 py-0.5 rounded-md">
+                  <span className="text-[10px] font-extrabold bg-amber-50 text-[#2563EB] border border-[#BFDBFE] px-2 py-0.5 rounded-md">
                     Pin: {area.pincodes.join(", ")}
                   </span>
                   <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
@@ -202,8 +202,8 @@ export default function LocalityCheckWidget({
               }}
               className={`text-[10.5px] font-extrabold px-2.5 py-1 rounded-full whitespace-nowrap transition-all cursor-pointer ${
                 isSelected
-                  ? "bg-[#D69A18] text-white shadow-xs"
-                  : "bg-[#FFF8EB] border border-[#F3DBA7] text-[#0B2545] hover:bg-[#FDE6C2]"
+                  ? "bg-[#2563EB] text-white shadow-xs"
+                  : "bg-[#EFF6FF] border border-[#BFDBFE] text-[#0B2545] hover:bg-[#BFDBFE]"
               }`}
             >
               {loc.name}
@@ -254,7 +254,7 @@ export default function LocalityCheckWidget({
 
             <Link
               href={`/book?area=${encodeURIComponent(selectedArea.slug)}&pincode=${encodeURIComponent(matchedPincode || selectedArea.pincodes[0])}`}
-              className="bg-[#D69A18] hover:bg-[#b88313] text-white font-extrabold px-3 py-2 rounded-xl text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-xs active:scale-95 transition-all text-center"
+              className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold px-3 py-2 rounded-xl text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-xs active:scale-95 transition-all text-center"
               style={{ color: '#ffffff' }}
             >
               <span>Express Book</span>
@@ -263,7 +263,7 @@ export default function LocalityCheckWidget({
           </div>
         </div>
       ) : (
-        <div className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-2xl p-3 text-center">
+        <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-2xl p-3 text-center">
           <p className="text-[11px] font-bold text-[#0B2545]">
             💡 Select your area above to confirm instant morning slots &amp; 1-click booking.
           </p>

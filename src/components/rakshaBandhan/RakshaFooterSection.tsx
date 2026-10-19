@@ -60,7 +60,7 @@ export default function RakshaFooterSection() {
             <h4 className="text-sm font-bold text-white uppercase tracking-wider">Campaign Packages</h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/raksha-bandhan-health-checkup-bangalore#rakhi-offer-card" className="text-amber-400 hover:underline">
+                <Link href="/raksha-bandhan-health-checkup-bangalore#rakhi-offer-card" className="text-sky-300 hover:underline">
                   Full Body Checkup (₹800)
                 </Link>
               </li>
@@ -99,7 +99,7 @@ export default function RakshaFooterSection() {
               </li>
               <li>
                 <a href="mailto:info@qxldiagnostics.com" className="flex items-center gap-1.5 hover:text-white">
-                  <Mail className="w-3.5 h-3.5 text-[#D69A18]" />
+                  <Mail className="w-3.5 h-3.5 text-[#2563EB]" />
                   <span>info@qxldiagnostics.com</span>
                 </a>
               </li>

@@ -128,8 +128,8 @@ export default function Footer() {
               href="/book"
               className="inline-flex items-center gap-1.5 font-extrabold px-4 py-2 rounded-full text-xs uppercase tracking-wide text-white transition-all hover:scale-105"
               style={{
-                background: '#D69A18',
-                boxShadow: '0 4px 16px rgba(214,154,24,0.3)',
+                background: '#2563EB',
+                boxShadow: '0 4px 16px rgba(37, 99, 235,0.3)',
               }}
             >
               Book Now <ArrowRight className="w-3.5 h-3.5" />
@@ -193,7 +193,7 @@ export default function Footer() {
 
           {/* Quick Links Column (2-Column Grid on Mobile) */}
           <div className="text-left">
-            <p className="font-black text-[#D69A18] text-[11px] uppercase tracking-wider mb-3 pb-1 border-b border-amber-500/20">Quick Links</p>
+            <p className="font-black text-[#2563EB] text-[11px] uppercase tracking-wider mb-3 pb-1 border-b border-sky-500/20">Quick Links</p>
             <ul className="grid grid-cols-2 md:grid-cols-1 gap-x-3 gap-y-2">
               {(settings.navItems || []).filter((l: any) => l.visible !== false).map((l: any) => {
                 let label = l.label, href = l.href;
@@ -201,8 +201,8 @@ export default function Footer() {
                 if (String(l.label).toLowerCase() === "login") { label = user ? "Profile" : "Login"; href = user ? "/profile" : "/login"; }
                 return (
                   <li key={label}>
-                    <Link href={href} className="text-slate-200 hover:text-[#D69A18] text-xs font-semibold transition-all flex items-center gap-1.5 group">
-                      <span className="w-1 h-1 rounded-full bg-[#D69A18]/60 flex-shrink-0" />
+                    <Link href={href} className="text-slate-200 hover:text-[#2563EB] text-xs font-semibold transition-all flex items-center gap-1.5 group">
+                      <span className="w-1 h-1 rounded-full bg-[#2563EB]/60 flex-shrink-0" />
                       <span className="truncate">{label}</span>
                     </Link>
                   </li>
@@ -213,12 +213,12 @@ export default function Footer() {
 
           {/* Specialities Column (2-Column Grid on Mobile) */}
           <div className="text-left">
-            <p className="font-black text-[#D69A18] text-[11px] uppercase tracking-wider mb-3 pb-1 border-b border-amber-500/20">Specialities</p>
+            <p className="font-black text-[#2563EB] text-[11px] uppercase tracking-wider mb-3 pb-1 border-b border-sky-500/20">Specialities</p>
             <ul className="grid grid-cols-2 md:grid-cols-1 gap-x-3 gap-y-2">
               {specialities.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-slate-200 hover:text-[#D69A18] text-xs font-semibold transition-all flex items-center gap-1.5 group">
-                    <span className="w-1 h-1 rounded-full bg-[#D69A18]/60 flex-shrink-0" />
+                  <Link href={l.href} className="text-slate-200 hover:text-[#2563EB] text-xs font-semibold transition-all flex items-center gap-1.5 group">
+                    <span className="w-1 h-1 rounded-full bg-[#2563EB]/60 flex-shrink-0" />
                     <span className="truncate">{l.label}</span>
                   </Link>
                 </li>
@@ -228,11 +228,11 @@ export default function Footer() {
 
           {/* Contact Us Column */}
           <div className="text-left">
-            <p className="font-black text-[#D69A18] text-[11px] uppercase tracking-wider mb-3 pb-1 border-b border-amber-500/20">Contact Us</p>
+            <p className="font-black text-[#2563EB] text-[11px] uppercase tracking-wider mb-3 pb-1 border-b border-sky-500/20">Contact Us</p>
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5">
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-amber-500/10 border border-amber-500/20">
-                  <MapPin className="w-3.5 h-3.5 text-[#D69A18]" />
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-sky-500/10 border border-sky-500/20">
+                  <MapPin className="w-3.5 h-3.5 text-[#2563EB]" />
                 </div>
                 <div>
                   <p className="text-white text-xs font-bold mb-0.5">Main Lab (Kengeri)</p>
@@ -240,8 +240,8 @@ export default function Footer() {
                 </div>
               </li>
               <li className="flex items-start gap-2.5">
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-amber-500/10 border border-amber-500/20">
-                  <MapPin className="w-3.5 h-3.5 text-[#D69A18]" />
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 bg-sky-500/10 border border-sky-500/20">
+                  <MapPin className="w-3.5 h-3.5 text-[#2563EB]" />
                 </div>
                 <div>
                   <p className="text-white text-xs font-bold mb-0.5">North Hub (Yelahanka)</p>
@@ -249,21 +249,21 @@ export default function Footer() {
                 </div>
               </li>
               <li className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-amber-500/10 border border-amber-500/20">
-                  <Phone className="w-3.5 h-3.5 text-[#D69A18]" />
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-sky-500/10 border border-sky-500/20">
+                  <Phone className="w-3.5 h-3.5 text-[#2563EB]" />
                 </div>
                 <div>
-                  <a href={`tel:${(settings.phone_e164 || settings.contactPhone || '+919964639639').replace(/\s+/g, '')}`} className="text-white text-xs font-extrabold hover:text-[#D69A18] transition-colors">
+                  <a href={`tel:${(settings.phone_e164 || settings.contactPhone || '+919964639639').replace(/\s+/g, '')}`} className="text-white text-xs font-extrabold hover:text-[#2563EB] transition-colors">
                     {settings.phone_display || settings.contactPhone || '+91 9964 639 639'}
                   </a>
                   <span className="text-slate-300 text-[10px] font-semibold block">{settings.workingHours}</span>
                 </div>
               </li>
               <li className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-amber-500/10 border border-amber-500/20">
-                  <Mail className="w-3.5 h-3.5 text-[#D69A18]" />
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 bg-sky-500/10 border border-sky-500/20">
+                  <Mail className="w-3.5 h-3.5 text-[#2563EB]" />
                 </div>
-                <a href={`mailto:${settings.supportEmail}`} className="text-slate-200 text-xs font-medium hover:text-[#D69A18] transition-colors truncate">
+                <a href={`mailto:${settings.supportEmail}`} className="text-slate-200 text-xs font-medium hover:text-[#2563EB] transition-colors truncate">
                   {settings.supportEmail}
                 </a>
               </li>
@@ -313,7 +313,7 @@ export default function Footer() {
             </div>
             <div className="w-px h-4 mx-1 bg-white/10 hidden sm:block shrink-0" />
             <div className="flex items-center gap-2.5 shrink-0 text-xs font-semibold whitespace-nowrap">
-              <Link href="/careers" className="text-slate-200 hover:text-[#D69A18] transition-colors">Careers</Link>
+              <Link href="/careers" className="text-slate-200 hover:text-[#2563EB] transition-colors">Careers</Link>
               <span className="text-white/30 text-[10px]">•</span>
               <Link href="/privacy-policy" className="text-slate-200 hover:text-white transition-colors">Privacy Policy</Link>
               <span className="text-white/30 text-[10px]">•</span>

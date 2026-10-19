@@ -25,7 +25,7 @@ export default function DoctorLedLabSection() {
               <span className="inline-flex items-center gap-1.5 bg-emerald-100 text-emerald-800 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest border border-emerald-300 shadow-xs">
                 <Stethoscope className="w-4 h-4 text-emerald-700" /> DOCTOR-LED SUPER SPECIALITY LAB
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-amber-50 text-slate-800 text-xs font-extrabold px-3.5 py-1.5 rounded-full border border-amber-200 shadow-2xs">
+              <span className="inline-flex items-center gap-1.5 bg-white text-slate-800 text-xs font-extrabold px-3.5 py-1.5 rounded-full border border-slate-200 shadow-2xs">
                 <span className="text-amber-500 font-black">4.9 ★★★★★</span> (500+ Google Reviews)
               </span>
             </div>

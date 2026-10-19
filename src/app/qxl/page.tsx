@@ -14,7 +14,7 @@ export default function QXlIndexPage() {
     <div className="bg-slate-50 min-h-screen pb-20">
       <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-14 px-4">
         <div className="max-w-[1260px] mx-auto text-center space-y-4">
-          <span className="bg-[#D69A18] text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider">
+          <span className="bg-[#2563EB] text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider">
             NABL ACCREDITED ({NABL_CERTIFICATE})
           </span>
           <h1 className="text-3xl sm:text-5xl font-black !text-white" style={{ color: '#ffffff' }}>
@@ -70,7 +70,7 @@ export default function QXlIndexPage() {
           <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-2xs flex flex-col justify-between hover:border-blue-300 transition-all">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <span className="bg-amber-50 text-[#D69A18] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
+                <span className="bg-amber-50 text-[#2563EB] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
                   CENTRAL REFERENCE LAB
                 </span>
                 <span className="bg-emerald-50 text-emerald-700 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">

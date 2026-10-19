@@ -12,18 +12,25 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
 
   const fallbackBlogs: BlogPost[] = [
     {
+      id: 'blog-new-23',
+      title: 'Arthritis and Exercise: How to Stay Active Safely, Understand Joint Pain and Know Which Blood Tests You Need',
+      slug: 'arthritis-exercise-joint-pain-blood-tests-guide',
+      excerpt: 'A patient-friendly guide to arthritis, joint pain, rheumatoid arthritis, gout, safe exercise guidelines, and modern laboratory blood testing in Bengaluru.',
+      created_at: '2026-10-19T12:00:00.000Z'
+    },
+    {
       id: 'blog-new-22',
       title: 'Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care',
       slug: 'personalised-pregnancy-testing-bengaluru',
       excerpt: 'Explore pregnancy blood tests by trimester, double marker, NIPT and gestational diabetes screening. Personalised prenatal testing with QXL Bengaluru.',
-      created_at: '2026-10-16T12:00:00.000Z'
+      created_at: '2026-10-19T11:00:00.000Z'
     },
     {
       id: 'blog-new-21',
       title: 'ApoB vs LDL-C: Why Apolipoprotein B is the Superior Cardiovascular Biomarker in 2026',
       slug: 'apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide',
       excerpt: 'A comprehensive medical guide on why Apolipoprotein B provides superior predictive value for atherogenic risk compared to conventional LDL cholesterol.',
-      created_at: '2026-10-15T09:00:00.000Z'
+      created_at: '2026-10-19T10:00:00.000Z'
     },
     {
       id: 'blog-new-20',
@@ -165,7 +172,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
         {/* Heading */}
         <div className="flex justify-between items-end mb-7">
           <div>
-            <span className="inline-block bg-[#D69A18] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-2 shadow-sm">
+            <span className="inline-block bg-[#2563EB] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-2 shadow-sm">
               Health Insights
             </span>
             <Heading className="text-[#0f2d5e] text-2xl font-extrabold mt-0.5">Latest From Our Blog</Heading>
@@ -175,7 +182,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
           </div>
           <Link
             href="/blog"
-            className="hidden sm:inline-flex border border-[#D69A18] text-[#D69A18] hover:bg-[#FFF8EB] font-extrabold px-6 py-2 rounded-xl text-xs transition-colors"
+            className="hidden sm:inline-flex border border-[#2563EB] text-[#2563EB] hover:bg-[#EFF6FF] font-extrabold px-6 py-2 rounded-xl text-xs transition-colors"
           >
             View all blog articles
           </Link>
@@ -191,7 +198,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-center gap-3 text-[10px] text-slate-500 font-bold mb-2">
                   <span className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3 text-[#D69A18]" />{" "}
+                    <Calendar className="w-3 h-3 text-[#2563EB]" />{" "}
                     {new Date(blog.created_at).toLocaleDateString(undefined, {
                       year: "numeric",
                       month: "short",
@@ -199,7 +206,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
                     })}
                   </span>
                 </div>
-                <h3 className="text-[15px] font-bold text-[#0d2e42] mb-2 line-clamp-2 leading-snug group-hover:text-[#D69A18] transition-colors">
+                <h3 className="text-[15px] font-bold text-[#0d2e42] mb-2 line-clamp-2 leading-snug group-hover:text-[#2563EB] transition-colors">
                   {blog.title}
                 </h3>
                 <p className="text-xs text-slate-500 mb-4 line-clamp-3 leading-relaxed flex-1">
@@ -208,7 +215,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
                 <div className="mt-auto pt-2">
                   <Link
                     href={`/blog/${blog.slug}`}
-                    className="inline-flex items-center justify-center gap-1 text-xs font-bold text-white bg-[#D69A18] hover:bg-amber-600 transition-colors px-4 py-2.5 rounded-xl w-full shadow-xs"
+                    className="inline-flex items-center justify-center gap-1 text-xs font-bold text-white bg-[#2563EB] hover:bg-blue-600 transition-colors px-4 py-2.5 rounded-xl w-full shadow-xs"
                   >
                     Read: {blog.title.length > 42 ? `${blog.title.slice(0, 42)}…` : blog.title}
                     <ChevronRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1" />
@@ -223,7 +230,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
         <div className="mt-2 text-center sm:hidden">
           <Link
             href="/blog"
-            className="inline-block border-2 border-[#D69A18] text-[#D69A18] bg-white hover:bg-[#FFF8EB] font-extrabold px-6 py-2.5 rounded-xl text-xs transition-colors shadow-xs"
+            className="inline-block border-2 border-[#2563EB] text-[#2563EB] bg-white hover:bg-[#EFF6FF] font-extrabold px-6 py-2.5 rounded-xl text-xs transition-colors shadow-xs"
           >
             View all blog articles
           </Link>

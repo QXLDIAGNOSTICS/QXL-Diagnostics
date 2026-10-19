@@ -62,14 +62,14 @@ export default function ReportPage() {
 
         {loading || fetchingBookings ? (
           <div className="p-12 text-center flex flex-col items-center justify-center">
-            <Loader2 className="w-8 h-8 text-[#D69A18] animate-spin mb-2" />
+            <Loader2 className="w-8 h-8 text-[#2563EB] animate-spin mb-2" />
             <span className="text-xs font-bold text-slate-400">Loading your diagnostic reports...</span>
           </div>
         ) : !user ? (
           /* ── LOGIN REQUIRED FOR REPORTS (NO FAKE DATA) ── */
           <div className="p-4 max-w-md mx-auto w-full">
             <div className="bg-white rounded-3xl p-6 border border-gray-150 shadow-xs text-center space-y-4">
-              <div className="w-14 h-14 bg-amber-50 border border-amber-200 rounded-2xl flex items-center justify-center text-[#D69A18] mx-auto">
+              <div className="w-14 h-14 bg-amber-50 border border-amber-200 rounded-2xl flex items-center justify-center text-[#2563EB] mx-auto">
                 <Lock className="w-7 h-7" />
               </div>
               <div>
@@ -85,7 +85,7 @@ export default function ReportPage() {
                   onComplete={async () => {
                     await refresh();
                   }}
-                  primaryButtonClassName="w-full bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-xs shadow-md text-center transition-all cursor-pointer"
+                  primaryButtonClassName="w-full bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3.5 rounded-xl uppercase tracking-wider text-xs shadow-md text-center transition-all cursor-pointer"
                 />
               </div>
             </div>
@@ -99,34 +99,34 @@ export default function ReportPage() {
                 <button
                   onClick={() => setActiveTab("all")}
                   className={`py-3 px-2 transition-colors relative ${
-                    activeTab === "all" ? "text-[#D69A18]" : "text-slate-500"
+                    activeTab === "all" ? "text-[#2563EB]" : "text-slate-500"
                   }`}
                 >
                   All Reports
                   {activeTab === "all" && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D69A18] rounded-full" />
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2563EB] rounded-full" />
                   )}
                 </button>
                 <button
                   onClick={() => setActiveTab("lab")}
                   className={`py-3 px-2 transition-colors relative ${
-                    activeTab === "lab" ? "text-[#D69A18]" : "text-slate-500"
+                    activeTab === "lab" ? "text-[#2563EB]" : "text-slate-500"
                   }`}
                 >
                   Lab Reports
                   {activeTab === "lab" && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D69A18] rounded-full" />
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2563EB] rounded-full" />
                   )}
                 </button>
                 <button
                   onClick={() => setActiveTab("radiology")}
                   className={`py-3 px-2 transition-colors relative ${
-                    activeTab === "radiology" ? "text-[#D69A18]" : "text-slate-500"
+                    activeTab === "radiology" ? "text-[#2563EB]" : "text-slate-500"
                   }`}
                 >
                   Radiology
                   {activeTab === "radiology" && (
-                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D69A18] rounded-full" />
+                    <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2563EB] rounded-full" />
                   )}
                 </button>
               </div>
@@ -162,7 +162,7 @@ export default function ReportPage() {
                           href={booking.pdf_report_url}
                           target="_blank"
                           rel="noreferrer"
-                          className="bg-[#D69A18] text-white font-black px-4 py-1.5 rounded-xl text-xs flex items-center gap-1 active:scale-95 transition-all shadow-xs"
+                          className="bg-[#2563EB] text-white font-black px-4 py-1.5 rounded-xl text-xs flex items-center gap-1 active:scale-95 transition-all shadow-xs"
                         >
                           <Download className="w-3.5 h-3.5" />
                           <span>Download Report</span>
@@ -170,10 +170,10 @@ export default function ReportPage() {
                       ) : (
                         <button
                           onClick={() => alert(`Report for booking #${booking.id} is currently under pathology review.`)}
-                          className="border border-[#D69A18] text-[#D69A18] hover:bg-[#FFF8EB] font-black px-4 py-1.5 rounded-xl text-xs flex items-center gap-1 active:scale-95 transition-all"
+                          className="border border-[#2563EB] text-[#2563EB] hover:bg-[#EFF6FF] font-black px-4 py-1.5 rounded-xl text-xs flex items-center gap-1 active:scale-95 transition-all"
                         >
                           <span>Check Status</span>
-                          <ChevronRight className="w-3.5 h-3.5 text-[#D69A18]" />
+                          <ChevronRight className="w-3.5 h-3.5 text-[#2563EB]" />
                         </button>
                       )}
                     </div>
@@ -192,7 +192,7 @@ export default function ReportPage() {
                   <div className="pt-2 flex flex-col gap-2">
                     <Link
                       href="/tests"
-                      className="bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold py-3 rounded-2xl text-xs uppercase tracking-wider block text-center shadow-xs"
+                      className="bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3 rounded-2xl text-xs uppercase tracking-wider block text-center shadow-xs"
                     >
                       Book a Diagnostic Test
                     </Link>
@@ -205,9 +205,9 @@ export default function ReportPage() {
             <div className="px-4 mt-2">
               <button
                 onClick={() => setIsPrescriptionModalOpen(true)}
-                className="w-full border-2 border-[#D69A18] text-[#D69A18] bg-white hover:bg-[#FFF8EB] font-extrabold py-3 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-95 transition-all shadow-xs cursor-pointer"
+                className="w-full border-2 border-[#2563EB] text-[#2563EB] bg-white hover:bg-[#EFF6FF] font-extrabold py-3 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-95 transition-all shadow-xs cursor-pointer"
               >
-                <Upload className="w-4 h-4 text-[#D69A18]" />
+                <Upload className="w-4 h-4 text-[#2563EB]" />
                 <span>Upload Prescription</span>
               </button>
             </div>

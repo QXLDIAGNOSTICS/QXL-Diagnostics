@@ -44,7 +44,7 @@ const whySlides = [
     highlight: "Calcium · Phosphorus · Vitamin D · ALP",
     sub: "Detect osteoporosis, fracture risk, and bone density issues early with a targeted bone health assessment.",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150389/Assets-QXL/legacy-assets/image/spec_bone.png",
-    imgBg: "#FFF8EB",
+    imgBg: "#EFF6FF",
   },
   {
     specialty: "CARDIOLOGY",
@@ -53,7 +53,7 @@ const whySlides = [
     highlight: "Lipids · hs-CRP · NT-proBNP · Homocysteine",
     sub: "Comprehensive cardiac risk profiling — covering lipid disorders, inflammation markers, and heart stress indicators.",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png",
-    imgBg: "#FFF8EB",
+    imgBg: "#EFF6FF",
   },
   {
     specialty: "ENDOCRINOLOGY",
@@ -62,7 +62,7 @@ const whySlides = [
     highlight: "TSH · T3 · T4 · Cortisol · Insulin",
     sub: "Full hormonal mapping including thyroid, adrenal, and metabolic hormones — essential for energy and wellness.",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png",
-    imgBg: "#FFF8EB",
+    imgBg: "#EFF6FF",
   },
   {
     specialty: "GASTROENTEROLOGY",
@@ -71,7 +71,7 @@ const whySlides = [
     highlight: "H.pylori · Liver Function · Calprotectin",
     sub: "Identify digestive disorders, liver disease, gut infections, and inflammation from a single comprehensive profile.",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png",
-    imgBg: "#FFF8EB",
+    imgBg: "#EFF6FF",
   },
   {
     specialty: "HEMATOLOGY",
@@ -80,7 +80,7 @@ const whySlides = [
     highlight: "CBC · ESR · Iron Studies · Peripheral Smear",
     sub: "Detect anaemia, blood cell disorders, clotting abnormalities, and infection through a detailed blood workup.",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150417/Assets-QXL/legacy-assets/image/spec_hematology.png",
-    imgBg: "#FFF8EB",
+    imgBg: "#EFF6FF",
   },
   {
     specialty: "INFECTIOUS DISEASES",
@@ -89,7 +89,7 @@ const whySlides = [
     highlight: "Fever Panel · Dengue · Typhoid · Covid · HIV",
     sub: "From common viral fever to complex infections — early identification for fast, targeted treatment.",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150422/Assets-QXL/legacy-assets/image/spec_infectious.png",
-    imgBg: "#FFF8EB",
+    imgBg: "#EFF6FF",
   },
   {
     specialty: "ONCOLOGY",
@@ -98,7 +98,7 @@ const whySlides = [
     highlight: "AFP · CEA · PSA · CA-125 · CA-19.9",
     sub: "Early cancer marker screening across multiple organs — giving you the best chance for timely intervention.",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150430/Assets-QXL/legacy-assets/image/spec_oncology.png",
-    imgBg: "#FFF8EB",
+    imgBg: "#EFF6FF",
   },
   {
     specialty: "NEUROLOGY",
@@ -107,7 +107,7 @@ const whySlides = [
     highlight: "Homocysteine · B12 · Thyroid · Vitamin D",
     sub: "Nutritional and metabolic factors that drive neurological disorders — identified and addressed proactively.",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png",
-    imgBg: "#FFF8EB",
+    imgBg: "#EFF6FF",
   },
   {
     specialty: "UROLOGY",
@@ -116,7 +116,7 @@ const whySlides = [
     highlight: "Creatinine · Urea · BUN · Urine Microscopy",
     sub: "Monitor kidney function, detect urinary tract infections, and assess renal health through precise biomarkers.",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png",
-    imgBg: "#FFF8EB",
+    imgBg: "#EFF6FF",
   },
   {
     specialty: "WOMEN'S HEALTH",
@@ -125,7 +125,7 @@ const whySlides = [
     highlight: "FSH · LH · AMH · Thyroid · CBC · Vit D",
     sub: "From fertility and hormonal health to thyroid and nutrition — a dedicated panel designed for every woman's body.",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png",
-    imgBg: "#FFF8EB",
+    imgBg: "#EFF6FF",
   },
 ];
 
@@ -150,7 +150,7 @@ function WhyChooseSlider() {
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-3 sm:mb-6">
-          <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[9.5px] sm:text-[10.5px] font-black px-3 py-0.5 rounded-full uppercase tracking-wider mb-1.5 shadow-2xs">
+          <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[9.5px] sm:text-[10.5px] font-black px-3 py-0.5 rounded-full uppercase tracking-wider mb-1.5 shadow-2xs">
             Our Specialities
           </span>
           <h2 className="text-xl sm:text-3xl font-black text-[#0f2d5e] mb-1">
@@ -159,14 +159,14 @@ function WhyChooseSlider() {
           <p className="text-slate-500 text-xs sm:text-sm font-medium">
             Excellence in every test, care in every result.
           </p>
-          <div className="w-12 h-1 bg-[#D69A18] mx-auto mt-2 rounded-full" />
+          <div className="w-12 h-1 bg-[#2563EB] mx-auto mt-2 rounded-full" />
         </div>
 
         {/* Slide Card Container (Compact Stacked Mobile / Desktop Split) */}
-        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-[#F3DBA7] shadow-md flex flex-col md:flex-row transition-all duration-300">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-[#BFDBFE] shadow-md flex flex-col md:flex-row transition-all duration-300">
           
           {/* Left / Top Image Panel */}
-          <div className="w-full md:w-[40%] h-[120px] sm:h-[180px] md:h-auto flex-shrink-0 relative overflow-hidden bg-[#FFF8EB] border-b md:border-b-0 md:border-r border-[#F3DBA7]">
+          <div className="w-full md:w-[40%] h-[120px] sm:h-[180px] md:h-auto flex-shrink-0 relative overflow-hidden bg-[#EFF6FF] border-b md:border-b-0 md:border-r border-[#BFDBFE]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -196,19 +196,19 @@ function WhyChooseSlider() {
                 transition={{ duration: 0.3 }}
                 className="space-y-1.5"
               >
-                <span className="inline-block bg-[#D69A18] text-white text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">
+                <span className="inline-block bg-[#2563EB] text-white text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-2xs">
                   {slide.specialty}
                 </span>
                 <h3 className="text-lg sm:text-2xl font-black text-[#0f2d5e] leading-tight">
-                  {slide.titlePlain}{" "}<span className="text-[#D69A18]">{slide.titleAccent}</span>
+                  {slide.titlePlain}{" "}<span className="text-[#2563EB]">{slide.titleAccent}</span>
                 </h3>
-                <p className="text-[#D69A18] font-black text-xs">{slide.highlight}</p>
+                <p className="text-[#2563EB] font-black text-xs">{slide.highlight}</p>
                 <p className="text-slate-600 text-[11.5px] sm:text-xs font-medium leading-relaxed max-w-lg">{slide.sub}</p>
                 
                 <div className="pt-2">
                   <Link
                     href="/book"
-                    className="inline-flex items-center gap-1.5 bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold px-4 py-2 rounded-xl text-[11px] uppercase tracking-wider shadow-sm active:scale-95 transition-all cursor-pointer"
+                    className="inline-flex items-center gap-1.5 bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold px-4 py-2 rounded-xl text-[11px] uppercase tracking-wider shadow-sm active:scale-95 transition-all cursor-pointer"
                   >
                     <span>Book Now</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -225,7 +225,7 @@ function WhyChooseSlider() {
                     key={i}
                     onClick={() => setActive(i)}
                     className={`h-1.5 rounded-full transition-all cursor-pointer ${
-                      active === i ? "w-5 bg-[#D69A18]" : "w-1.5 bg-amber-200 hover:bg-amber-300"
+                      active === i ? "w-5 bg-[#2563EB]" : "w-1.5 bg-amber-200 hover:bg-amber-300"
                     }`}
                     aria-label={`Go to slide ${i + 1}`}
                   />
@@ -236,14 +236,14 @@ function WhyChooseSlider() {
                 <button
                   onClick={prev}
                   aria-label="Previous"
-                  className="w-7 h-7 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] hover:bg-[#D69A18] hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-2xs"
+                  className="w-7 h-7 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-2xs"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={next}
                   aria-label="Next"
-                  className="w-7 h-7 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] hover:bg-[#D69A18] hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-2xs"
+                  className="w-7 h-7 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-2xs"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
@@ -896,7 +896,7 @@ export default function Home() {
       ctaSecondaryLink: "/home-collection",
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
       imageFit: "cover",
-      bgFrom: "#ffffff", bgTo: "#fff8eb",
+      bgFrom: "#ffffff", bgTo: "#eff6ff",
       features: ["★ 5.0 Google Rating", "Consultant Doctor Sign-off", "Free Doorstep Pickup", "Same-Day Reports"],
     },
     {
@@ -966,7 +966,7 @@ export default function Home() {
           
           {/* 2. Search & Upload Prescription Bar */}
           <div className="relative flex items-center w-full">
-            <div className="relative flex-1 flex items-center bg-white border border-slate-200/90 rounded-full px-4 py-2.5 shadow-xs focus-within:border-[#D69A18] focus-within:ring-2 focus-within:ring-[#D69A18]/20">
+            <div className="relative flex-1 flex items-center bg-white border border-slate-200/90 rounded-full px-4 py-2.5 shadow-xs focus-within:border-[#2563EB] focus-within:ring-2 focus-within:ring-[#2563EB]/20">
               <Search className="w-5 h-5 text-slate-400 mr-2 shrink-0" />
               <input
                 type="text"
@@ -980,10 +980,10 @@ export default function Home() {
               {/* Attached Upload Prescription Icon Button on the right */}
               <Link
                 href="/upload-prescription"
-                className="w-9 h-9 rounded-xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center relative active:scale-95 transition-transform shrink-0 ml-2 shadow-2xs"
+                className="w-9 h-9 rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center relative active:scale-95 transition-transform shrink-0 ml-2 shadow-2xs"
                 title="Upload Prescription"
               >
-                <FileText className="w-5 h-5 text-[#D69A18]" />
+                <FileText className="w-5 h-5 text-[#2563EB]" />
                 <span className="absolute -top-1 -right-1 bg-red-500 text-white font-black text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
                   +
                 </span>
@@ -996,9 +996,9 @@ export default function Home() {
             {/* Card 1: Book a Test */}
             <Link
               href="/tests"
-              className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
+              className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
             >
-              <div className="w-11 h-11 rounded-full bg-[#D69A18] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
+              <div className="w-11 h-11 rounded-full bg-[#2563EB] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
                 <Microscope className="w-5.5 h-5.5 text-white" />
               </div>
               <span className="text-[11px] font-extrabold text-[#0B2545] leading-tight">
@@ -1009,9 +1009,9 @@ export default function Home() {
             {/* Card 2: Upload Prescription */}
             <Link
               href="/upload-prescription"
-              className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
+              className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
             >
-              <div className="w-11 h-11 rounded-full bg-[#D69A18] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
+              <div className="w-11 h-11 rounded-full bg-[#2563EB] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
                 <FileText className="w-5.5 h-5.5 text-white" />
               </div>
               <span className="text-[11px] font-extrabold text-[#0B2545] leading-tight">
@@ -1022,9 +1022,9 @@ export default function Home() {
             {/* Card 3: Home Sample */}
             <Link
               href="/home-collection"
-              className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
+              className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
             >
-              <div className="w-11 h-11 rounded-full bg-[#D69A18] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
+              <div className="w-11 h-11 rounded-full bg-[#2563EB] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
                 <HomeIcon className="w-5.5 h-5.5 text-white" />
               </div>
               <span className="text-[11px] font-extrabold text-[#0B2545] leading-tight">
@@ -1035,9 +1035,9 @@ export default function Home() {
             {/* Card 4: Packages */}
             <Link
               href="/packages"
-              className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
+              className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-3xl p-3 flex flex-col items-center justify-center text-center shadow-2xs active:scale-95 transition-transform group"
             >
-              <div className="w-11 h-11 rounded-full bg-[#D69A18] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
+              <div className="w-11 h-11 rounded-full bg-[#2563EB] text-white flex items-center justify-center mb-2 shadow-xs group-hover:scale-105 transition-transform">
                 <Briefcase className="w-5.5 h-5.5 text-white" />
               </div>
               <span className="text-[11px] font-extrabold text-[#0B2545] leading-tight">
@@ -1058,14 +1058,14 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => scrollPackages('left')}
-                    className="w-6.5 h-6.5 rounded-full border border-[#F3DBA7] text-[#D69A18] flex items-center justify-center hover:bg-[#FFF8EB] text-sm font-black"
+                    className="w-6.5 h-6.5 rounded-full border border-[#BFDBFE] text-[#2563EB] flex items-center justify-center hover:bg-[#EFF6FF] text-sm font-black"
                   >
                     ‹
                   </button>
                   <button
                     type="button"
                     onClick={() => scrollPackages('right')}
-                    className="w-6.5 h-6.5 rounded-full border border-[#F3DBA7] text-[#D69A18] flex items-center justify-center hover:bg-[#FFF8EB] text-sm font-black"
+                    className="w-6.5 h-6.5 rounded-full border border-[#BFDBFE] text-[#2563EB] flex items-center justify-center hover:bg-[#EFF6FF] text-sm font-black"
                   >
                     ›
                   </button>
@@ -1074,7 +1074,7 @@ export default function Home() {
 
               <Link
                 href="/tests"
-                className="text-[12px] font-extrabold text-[#0B2545] hover:text-[#D69A18] flex items-center gap-0.5"
+                className="text-[12px] font-extrabold text-[#0B2545] hover:text-[#2563EB] flex items-center gap-0.5"
               >
                 View All 300+ Tests ›
               </Link>
@@ -1124,7 +1124,7 @@ export default function Home() {
                 return (
                   <div
                     key={test.id}
-                    className="bg-white border border-slate-200/90 rounded-3xl p-3.5 flex flex-col justify-between shadow-xs hover:border-[#D69A18] transition-all relative"
+                    className="bg-white border border-slate-200/90 rounded-3xl p-3.5 flex flex-col justify-between shadow-xs hover:border-[#2563EB] transition-all relative"
                   >
                     {/* Top row: Test title & Fasting Badge */}
                     <div>
@@ -1132,7 +1132,7 @@ export default function Home() {
                         <h3 className="font-extrabold text-[15px] text-[#0B2545] leading-tight">
                           {test.name}
                         </h3>
-                        <span className="bg-[#FFF5E5] text-[#D69A18] font-bold text-[9px] px-2 py-0.5 rounded-full shrink-0 border border-[#FDE6C2]">
+                        <span className="bg-[#EFF6FF] text-[#2563EB] font-bold text-[9px] px-2 py-0.5 rounded-full shrink-0 border border-[#BFDBFE]">
                           {test.fasting}
                         </span>
                       </div>
@@ -1143,7 +1143,7 @@ export default function Home() {
 
                       {/* Turnaround Time */}
                       <div className="flex items-center gap-1 text-[10.5px] font-extrabold text-sky-600 mb-3">
-                        <span className="text-amber-500">⚡</span>
+                        <span className="text-[#2563EB]">⚡</span>
                         <span>{test.tat}</span>
                       </div>
                     </div>
@@ -1171,7 +1171,7 @@ export default function Home() {
                           });
                           window.location.href = `/book?test=${encodeURIComponent(test.id || test.name)}`;
                         }}
-                        className="bg-[#D69A18] hover:bg-[#b88313] text-white px-4 py-1.5 rounded-2xl font-black text-xs transition-all shadow-xs flex items-center gap-1 active:scale-95 cursor-pointer"
+                        className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-4 py-1.5 rounded-2xl font-black text-xs transition-all shadow-xs flex items-center gap-1 active:scale-95 cursor-pointer"
                         style={{ color: '#ffffff' }}
                       >
                         <span>Book</span>
@@ -1231,7 +1231,7 @@ export default function Home() {
                       >
                         {/* Tagline / Badge */}
                         <div className="flex flex-wrap items-center gap-2 mb-2">
-                          <span className="inline-flex items-center gap-1.5 bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
+                          <span className="inline-flex items-center gap-1.5 bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
                             {activeSlide.badge}
                           </span>
                           <span className="inline-flex items-center gap-1 bg-emerald-50 border border-emerald-300 text-emerald-800 text-[9.5px] font-black px-2.5 py-0.5 rounded-full shadow-2xs">
@@ -1241,7 +1241,7 @@ export default function Home() {
 
                         {/* Title */}
                         <h1 className="text-[24px] sm:text-[32px] md:text-[36px] leading-[1.1] font-black text-[#0f2d5e] mb-2 pr-2">
-                          {activeSlide.title} <span className="text-[#D69A18]">{activeSlide.titleAccent}</span>
+                          {activeSlide.title} <span className="text-[#2563EB]">{activeSlide.titleAccent}</span>
                         </h1>
 
                         {/* Subtitle */}
@@ -1254,7 +1254,7 @@ export default function Home() {
                           {activeSlide.features.slice(0, 4).map((f: string, i: number) => (
                             <div
                               key={f}
-                              className="bg-[#FFF8EB] border border-[#F3DBA7] rounded-xl p-2 flex items-center gap-1.5 shadow-2xs"
+                              className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-xl p-2 flex items-center gap-1.5 shadow-2xs"
                             >
                               <span className="text-sm shrink-0">
                                 {i === 0 ? "🩺" : i === 1 ? "🔒" : i === 2 ? "🛡️" : "⚡"}
@@ -1270,14 +1270,14 @@ export default function Home() {
                         <div className="flex flex-wrap items-center gap-3">
                           <Link
                             href={activeSlide.ctaLink}
-                            className="bg-[#D69A18] hover:bg-[#C58B12] text-white font-black px-6 py-2.5 rounded-full text-xs shadow-md hover:shadow-lg active:scale-95 transition-all uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                            className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-6 py-2.5 rounded-full text-xs shadow-md hover:shadow-lg active:scale-95 transition-all uppercase tracking-wider flex items-center gap-2 cursor-pointer"
                           >
                             <span>{activeSlide.cta}</span>
                             <span className="text-sm">→</span>
                           </Link>
                           <a
                             href={activeSlide.ctaSecondaryLink}
-                            className="bg-white hover:bg-slate-50 text-[#0f2d5e] font-black px-4 py-2.5 rounded-full text-xs uppercase tracking-wider border border-[#F3DBA7] shadow-2xs transition-all"
+                            className="bg-white hover:bg-slate-50 text-[#0f2d5e] font-black px-4 py-2.5 rounded-full text-xs uppercase tracking-wider border border-[#BFDBFE] shadow-2xs transition-all"
                           >
                             {activeSlide.ctaSecondary}
                           </a>
@@ -1330,26 +1330,26 @@ export default function Home() {
               
               {/* Card 1: Upload Prescription */}
               <Link href="/upload-prescription"
-                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#F3DBA7]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#D69A18] hover:scale-[1.015] transition-all duration-300">
+                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#BFDBFE]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#2563EB] hover:scale-[1.015] transition-all duration-300">
                 <div className="flex items-center">
-                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mr-3.5 flex-shrink-0 shadow-2xs">
-                    <FileText className="w-5.5 h-5.5 text-[#D69A18]" />
+                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center mr-3.5 flex-shrink-0 shadow-2xs">
+                    <FileText className="w-5.5 h-5.5 text-[#2563EB]" />
                   </div>
                   <div className="text-left">
                     <h3 className="font-extrabold text-[#0f2d5e] text-[14px]">Upload Prescription</h3>
                     <p className="text-[11px] text-slate-500 font-medium">Quick order lookup</p>
                   </div>
                 </div>
-                <div className="w-8.5 h-8.5 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center flex-shrink-0 group-hover:bg-[#D69A18] group-hover:border-[#D69A18] transition-all shadow-2xs">
-                  <ChevronRight className="w-4.5 h-4.5 text-[#D69A18] group-hover:text-white transition-colors" />
+                <div className="w-8.5 h-8.5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563EB] group-hover:border-[#2563EB] transition-all shadow-2xs">
+                  <ChevronRight className="w-4.5 h-4.5 text-[#2563EB] group-hover:text-white transition-colors" />
                 </div>
               </Link>
 
               {/* Card 2: Home Sample Collection with Scooter Icon */}
               <Link href="/home-collection"
-                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#F3DBA7]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#D69A18] hover:scale-[1.015] transition-all duration-300">
+                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#BFDBFE]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#2563EB] hover:scale-[1.015] transition-all duration-300">
                 <div className="flex items-center">
-                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mr-3.5 flex-shrink-0 p-0.5 shadow-2xs">
+                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center mr-3.5 flex-shrink-0 p-0.5 shadow-2xs">
                     <ScooterPhlebotomistSvg className="w-9 h-9 object-contain" />
                   </div>
                   <div className="text-left">
@@ -1357,42 +1357,42 @@ export default function Home() {
                     <p className="text-[11px] text-slate-500 font-medium">Free sample pickup</p>
                   </div>
                 </div>
-                <div className="w-8.5 h-8.5 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center flex-shrink-0 group-hover:bg-[#D69A18] group-hover:border-[#D69A18] transition-all shadow-2xs">
-                  <ChevronRight className="w-4.5 h-4.5 text-[#D69A18] group-hover:text-white transition-colors" />
+                <div className="w-8.5 h-8.5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563EB] group-hover:border-[#2563EB] transition-all shadow-2xs">
+                  <ChevronRight className="w-4.5 h-4.5 text-[#2563EB] group-hover:text-white transition-colors" />
                 </div>
               </Link>
 
               {/* Card 3: Doctor Enquiry */}
               <a href="https://api.whatsapp.com/send?phone=919964639639" target="_blank" rel="noreferrer"
-                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#F3DBA7]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#D69A18] hover:scale-[1.015] transition-all duration-300">
+                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#BFDBFE]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#2563EB] hover:scale-[1.015] transition-all duration-300">
                 <div className="flex items-center">
-                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mr-3.5 flex-shrink-0 shadow-2xs">
-                    <MessageCircle className="w-5.5 h-5.5 text-[#D69A18]" />
+                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center mr-3.5 flex-shrink-0 shadow-2xs">
+                    <MessageCircle className="w-5.5 h-5.5 text-[#2563EB]" />
                   </div>
                   <div className="text-left">
                     <h3 className="font-extrabold text-[#0f2d5e] text-[14px]">Doctor Enquiry</h3>
                     <p className="text-[11px] text-slate-500 font-medium">Chat on WhatsApp</p>
                   </div>
                 </div>
-                <div className="w-8.5 h-8.5 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center flex-shrink-0 group-hover:bg-[#D69A18] group-hover:border-[#D69A18] transition-all shadow-2xs">
-                  <ChevronRight className="w-4.5 h-4.5 text-[#D69A18] group-hover:text-white transition-colors" />
+                <div className="w-8.5 h-8.5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563EB] group-hover:border-[#2563EB] transition-all shadow-2xs">
+                  <ChevronRight className="w-4.5 h-4.5 text-[#2563EB] group-hover:text-white transition-colors" />
                 </div>
               </a>
 
               {/* Card 4: Partner with us */}
               <Link href="/franchise"
-                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#F3DBA7]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#D69A18] hover:scale-[1.015] transition-all duration-300">
+                className="bg-white rounded-2xl p-4 sm:p-4.5 border border-[#BFDBFE]/80 shadow-xs flex items-center justify-between group hover:shadow-md hover:border-[#2563EB] hover:scale-[1.015] transition-all duration-300">
                 <div className="flex items-center">
-                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center mr-3.5 flex-shrink-0 shadow-2xs">
-                    <Building2 className="w-5.5 h-5.5 text-[#D69A18]" />
+                  <div className="w-11.5 h-11.5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center mr-3.5 flex-shrink-0 shadow-2xs">
+                    <Building2 className="w-5.5 h-5.5 text-[#2563EB]" />
                   </div>
                   <div className="text-left">
                     <h3 className="font-extrabold text-[#0f2d5e] text-[14px]">Partner with us</h3>
                     <p className="text-[11px] text-slate-500 font-medium">Lab or franchise</p>
                   </div>
                 </div>
-                <div className="w-8.5 h-8.5 rounded-full bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center flex-shrink-0 group-hover:bg-[#D69A18] group-hover:border-[#D69A18] transition-all shadow-2xs">
-                  <ChevronRight className="w-4.5 h-4.5 text-[#D69A18] group-hover:text-white transition-colors" />
+                <div className="w-8.5 h-8.5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center flex-shrink-0 group-hover:bg-[#2563EB] group-hover:border-[#2563EB] transition-all shadow-2xs">
+                  <ChevronRight className="w-4.5 h-4.5 text-[#2563EB] group-hover:text-white transition-colors" />
                 </div>
               </Link>
             </div>
@@ -1412,7 +1412,7 @@ export default function Home() {
                 <div className="bg-white border border-slate-200/80 rounded-3xl p-4 sm:p-5 shadow-sm h-full flex flex-col justify-between">
                   <div className="flex justify-between items-center mb-3 sm:mb-4">
                     <div>
-                      <span className="text-[10px] font-black text-[#D69A18] uppercase tracking-widest">Health Packages</span>
+                      <span className="text-[10px] font-black text-[#2563EB] uppercase tracking-widest">Health Packages</span>
                       <h2 className="text-[#0f2d5e] text-lg sm:text-xl font-black mt-0.5">Recommended Packages</h2>
                       <p className="text-slate-500 text-xs font-semibold mt-0.5">Popular general health panels — trusted by thousands</p>
                     </div>
@@ -1420,124 +1420,108 @@ export default function Home() {
                     <button
                       type="button"
                       onClick={() => setShowAllPackages(!showAllPackages)}
-                      className="border-2 border-[#D69A18] text-[#D69A18] font-black px-3.5 py-1 rounded-full text-xs hover:bg-[#FFF8EB] transition-all shadow-2xs cursor-pointer flex items-center gap-1.5 shrink-0"
+                      className="border-2 border-[#2563EB] text-[#2563EB] font-black px-3.5 py-1 rounded-full text-xs hover:bg-[#EFF6FF] transition-all shadow-2xs cursor-pointer flex items-center gap-1.5 shrink-0"
                     >
                       <span>{showAllPackages ? "Show Less" : "View All Packages"}</span>
                       <span className="text-xs">{showAllPackages ? "▲" : "▼"}</span>
                     </button>
                   </div>
 
-                  {/* Open 2-Column Responsive Grid matching Image 3 layout */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 flex-grow">
-                    {(showAllPackages ? recommendedPackages : recommendedPackages.slice(0, 4)).map((pkg, idx) => (
-                      <div
-                        key={pkg.id || pkg.name || idx}
-                        className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:border-[#D69A18] transition-all flex flex-col justify-between text-left group"
-                      >
-                        {/* Top Header Box — Compact 95px height for crisp card-to-card alignment */}
-                        <div className="bg-gradient-to-r from-[#0f2d5e] via-[#16386b] to-[#1d4ed8] p-3 sm:p-3.5 text-white relative min-h-[95px] flex flex-col justify-between">
-                          {/* Top Row: Tag left, Discount right */}
-                          <div className="flex items-center justify-between gap-2 mb-0.5 w-full shrink-0">
-                            <span 
-                              className="bg-[#D69A18] !text-white px-2 py-0.5 rounded-full text-[8.5px] font-black uppercase tracking-wider shadow-2xs shrink-0"
-                              style={{ color: '#ffffff' }}
-                            >
-                              {idx === 0 ? "✨ SPECIAL OFFER" : (pkg.tag || "CHECKUP")}
+                  {/* Open 2-Column Responsive Grid matching Sky Blue Theme */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 flex-grow">
+                    {(showAllPackages ? recommendedPackages : recommendedPackages.slice(0, 4)).map((pkg, idx) => {
+                      const oldPrice = Number(pkg.old_price || pkg.original_price || pkg.mrp || 4696);
+                      const currentPrice = Number(pkg.price || 1770);
+                      const discountPercent = oldPrice > currentPrice ? Math.round(((oldPrice - currentPrice) / oldPrice) * 100) : 62;
+                      const tagLabel = (pkg.name || '').toLowerCase().includes('quick') ? 'QUICK' : (pkg.tag || 'PREVENTIVE');
+                      return (
+                        <div
+                          key={pkg.id || pkg.name || idx}
+                          className="bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-xl rounded-3xl overflow-hidden shadow-xs transition-all duration-300 flex flex-col justify-between text-left group"
+                        >
+                          {/* Top Header matching screenshot */}
+                          <div className="bg-gradient-to-b from-[#eaf3fe] via-[#f4f8fe] to-white p-4 pb-3 border-b border-blue-100/50 flex items-center justify-between gap-2">
+                            <span className="bg-[#2563eb] text-white font-extrabold text-[11px] px-3.5 py-1 rounded-full uppercase tracking-wider shadow-xs shrink-0">
+                              {tagLabel}
                             </span>
-
-                            <span className="bg-amber-400 text-slate-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">
-                              {Math.round((1 - Number(pkg.price) / Number(pkg.old_price || pkg.original_price || 5800)) * 100)}% OFF
-                            </span>
-                          </div>
-
-                          {/* Title — Clean 1-line truncation */}
-                          <h3 
-                            className="font-extrabold !text-white text-xs sm:text-sm leading-tight truncate my-0.5 drop-shadow-xs"
-                            style={{ color: '#ffffff' }}
-                            title={pkg.name}
-                          >
-                            {pkg.name}
-                          </h3>
-
-                          {/* Price Row — Compact & crisp */}
-                          <div className="flex items-baseline gap-1.5 mt-auto shrink-0">
-                            <span className="text-[10px] text-blue-200/80 line-through font-bold">
-                              ₹{pkg.old_price || pkg.original_price || "5800"}
-                            </span>
-                            <span 
-                              className="text-lg sm:text-xl font-black !text-white"
-                              style={{ color: '#ffffff' }}
-                            >
-                              ₹{pkg.price}
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Card Body */}
-                        <div className="p-3 sm:p-3.5 flex flex-col justify-between flex-1 gap-2.5 bg-white">
-                          {/* Parameters & TAT Stats Row */}
-                          <div className="grid grid-cols-2 gap-1.5 text-[10.5px] font-bold text-slate-700 border-b border-slate-100 pb-2">
-                            <div className="flex items-center gap-1">
-                              <Dna className="w-3.5 h-3.5 text-[#D69A18] shrink-0" />
-                              <span className="leading-tight font-extrabold text-[#0f2d5e] truncate">
-                                {pkg.param_count || (idx === 0 ? "80" : idx === 1 ? "92" : idx === 2 ? "117" : "80")} parameters
+                            {discountPercent > 0 && (
+                              <span className="bg-[#f0fdf4] text-emerald-700 border border-emerald-200 font-extrabold text-[11px] px-3 py-0.5 rounded-full shadow-2xs shrink-0">
+                                {discountPercent}% OFF
                               </span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <FileText className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                              <span className="leading-tight text-slate-600 font-bold truncate">
-                                Reports 12h
-                              </span>
-                            </div>
+                            )}
                           </div>
 
-                          {/* Description / Includes */}
-                          <div className="min-h-[30px] flex items-center">
-                            <p className="text-[10.5px] text-slate-500 font-medium line-clamp-1 leading-normal m-0">
+                          {/* Card Body */}
+                          <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 gap-3 bg-white">
+                            <h3 
+                              className="font-black text-slate-900 text-base sm:text-lg leading-tight group-hover:text-[#2563eb] transition-colors truncate"
+                              title={pkg.name}
+                            >
+                              {pkg.name}
+                            </h3>
+
+                            {/* Blue Parameter / Inclusions Box matching screenshot */}
+                            <div className="bg-[#eaf2ff] text-[#2563eb] border border-blue-100/60 p-3 rounded-2xl text-[11.5px] font-bold leading-relaxed line-clamp-2">
                               {typeof pkg.includes === 'string'
                                 ? pkg.includes.replace(/([a-zA-Z\)])([A-Z])/g, '$1, $2')
                                 : Array.isArray(pkg.includes)
                                   ? pkg.includes.join(', ')
-                                  : "CBC, Diabetes, Lipid, Liver & Kidney Function Tests, Thyroid."}
-                            </p>
-                          </div>
+                                  : "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests, TSH, Vitamin D, CBC, ESR, Urine Routine."}
+                            </div>
 
-                          {/* TWO BUTTONS Row: ADD TO CART & BOOK NOW */}
-                          <div className="grid grid-cols-2 gap-2 pt-0.5 mt-auto">
-                            <button
-                              type="button"
-                              onClick={() => {
-                                handleToggleCart(pkg);
-                              }}
-                              className={`w-full text-center border-2 font-black py-2 px-2 rounded-xl text-[10.5px] sm:text-[11px] transition-all cursor-pointer uppercase tracking-wider active:scale-95 ${
-                                cartItems.includes((pkg.name || '').toLowerCase()) || cartItems.includes((pkg.id || '').toLowerCase())
-                                  ? 'border-emerald-600 bg-emerald-50 text-emerald-700'
-                                  : 'border-[#0f2d5e] text-[#0f2d5e] hover:bg-[#0f2d5e] hover:text-white'
-                              }`}
-                            >
-                              {cartItems.includes((pkg.name || '').toLowerCase()) || cartItems.includes((pkg.id || '').toLowerCase()) ? "✓ ADDED" : "ADD TO CART"}
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => {
-                                addItemToCart({
-                                  id: pkg.id || pkg.slug,
-                                  name: pkg.name,
-                                  price: Number(pkg.price),
-                                  fasting: "8-10 Hours Fasting",
-                                  tat: "Reports within 12 hours"
-                                });
-                                window.location.href = `/book?package=${encodeURIComponent(pkg.id || pkg.slug || 'q-full-body-80')}`;
-                              }}
-                              className="w-full text-center bg-[#D69A18] hover:bg-[#C58B12] text-white font-black py-2 px-2 rounded-xl text-[10.5px] sm:text-[11px] shadow-xs hover:shadow-md transition-all uppercase tracking-wider active:scale-95 block cursor-pointer"
-                              style={{ color: '#ffffff' }}
-                            >
-                              BOOK NOW
-                            </button>
+                            {/* Home collection line matching screenshot */}
+                            <div className="flex items-center gap-1.5 text-slate-600 font-semibold text-xs">
+                              <span>🏠</span>
+                              <span>Free Home Collection Available</span>
+                            </div>
+
+                            {/* Price Row */}
+                            <div className="flex items-baseline gap-2.5 mt-auto pt-2 border-t border-slate-100">
+                              <span className="text-2xl sm:text-3xl font-black text-[#0B2545]">
+                                ₹{pkg.price}
+                              </span>
+                              {oldPrice > currentPrice && (
+                                <span className="text-xs sm:text-sm text-slate-400 line-through font-bold">
+                                  ₹{oldPrice}
+                                </span>
+                              )}
+                              {discountPercent > 0 && (
+                                <span className="text-xs sm:text-sm font-black text-emerald-600">
+                                  {discountPercent}% OFF
+                                </span>
+                              )}
+                            </div>
+
+                            {/* Action Buttons matching screenshot */}
+                            <div className="grid grid-cols-2 gap-2.5 pt-1">
+                              <button
+                                type="button"
+                                onClick={() => setSelectedPackage(pkg)}
+                                className="w-full py-2.5 rounded-full text-xs font-black uppercase tracking-wider text-slate-800 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all text-center cursor-pointer shadow-2xs"
+                              >
+                                DETAILS
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  addItemToCart({
+                                    id: pkg.id || pkg.slug,
+                                    name: pkg.name,
+                                    price: Number(pkg.price),
+                                    fasting: "8-10 Hours Fasting",
+                                    tat: "Reports within 12 hours"
+                                  });
+                                  window.location.href = `/book?package=${encodeURIComponent(pkg.id || pkg.slug || 'q-full-body-80')}`;
+                                }}
+                                className="w-full py-2.5 rounded-full text-xs font-black uppercase tracking-wider text-white bg-[#2563eb] hover:bg-[#1d4ed8] shadow-md hover:shadow-lg active:scale-95 transition-all text-center flex items-center justify-center gap-1 cursor-pointer"
+                              >
+                                BOOK NOW
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
 
                   {/* Show All Packages Bottom Trigger */}
@@ -1546,7 +1530,7 @@ export default function Home() {
                       <button
                         type="button"
                         onClick={() => setShowAllPackages(true)}
-                        className="bg-[#0f2d5e] hover:bg-[#1e3a8a] text-white font-black px-8 py-3 rounded-full text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer inline-flex items-center gap-2"
+                        className="bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#0284c7] border border-[#BFDBFE] font-black px-8 py-3.5 rounded-full text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all active:scale-95 cursor-pointer inline-flex items-center gap-2"
                       >
                         <span>Show All {recommendedPackages.length} Packages</span>
                         <span className="text-sm">&rarr;</span>
@@ -1798,7 +1782,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
               {/* Left Column: Text & Features */}
               <div className="lg:col-span-7 lg:pr-6 text-left">
-                <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 shadow-2xs">
+                <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 shadow-2xs">
                   QUICK BOOKING
                 </span>
                 <h2 className="text-[#0f2d5e] text-3xl sm:text-4xl lg:text-5xl font-black mb-4 leading-tight">
@@ -1910,14 +1894,14 @@ export default function Home() {
               {/* Google Map Container (Mobile Optimized & Perfectly Aligned) */}
               <div className="flex flex-col">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="inline-block bg-[#FFF8EB] text-[#D69A18] border border-[#F3DBA7] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">
+                  <span className="inline-block bg-[#EFF6FF] text-[#2563EB] border border-[#BFDBFE] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest">
                     Our Location
                   </span>
                   <a
                     href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("QXL Diagnostics Kengeri Bengaluru")}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-[11px] font-black text-[#D69A18] hover:underline flex items-center gap-1 bg-[#FFF8EB] border border-[#F3DBA7] px-3 py-1 rounded-full shadow-2xs"
+                    className="text-[11px] font-black text-[#2563EB] hover:underline flex items-center gap-1 bg-[#EFF6FF] border border-[#BFDBFE] px-3 py-1 rounded-full shadow-2xs"
                   >
                     Open in Maps &rarr;
                   </a>
@@ -1972,7 +1956,7 @@ export default function Home() {
                     {selectedPackage.tag || "HEALTH PACKAGE"}
                   </span>
                   {selectedPackage.most_booked && (
-                    <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-3 py-0.5 rounded-full text-[10px] font-extrabold shadow-[0_0_12px_rgba(249,115,22,0.4)] border border-orange-400 tracking-wider">
+                    <span className="bg-gradient-to-r from-blue-600 to-sky-500 text-white px-3 py-0.5 rounded-full text-[10px] font-extrabold shadow-[0_0_12px_rgba(37,99,235,0.3)] border border-blue-400 tracking-wider">
                       ⭐ MOST BOOKED
                     </span>
                   )}

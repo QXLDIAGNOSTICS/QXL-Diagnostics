@@ -26,13 +26,13 @@ export default function ChatGPTAnalyticsPage() {
       <div className="max-w-4xl mx-auto space-y-8">
         
         {/* Header */}
-        <div className="bg-[#0f2d5e] text-white p-8 rounded-3xl shadow-lg relative overflow-hidden">
-          <div className="absolute right-4 top-4 bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+        <div className="bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 text-slate-800 p-8 rounded-3xl shadow-md relative overflow-hidden">
+          <div className="absolute right-4 top-4 bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-2xs">
             <Sparkles className="w-3.5 h-3.5" /> GA4 Tracking Active
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black mb-2">ChatGPT Traffic &amp; Conversion Analytics</h1>
-          <p className="text-slate-300 text-xs sm:text-sm max-w-2xl font-medium leading-relaxed">
-            Track and measure all traffic originating from ChatGPT recommendations (<code className="bg-blue-900/60 px-1.5 py-0.5 rounded text-amber-300">utm_source=chatgpt.com</code> or direct referrals).
+          <h1 className="text-2xl sm:text-3xl font-black text-[#0B2545] mb-2">ChatGPT Traffic &amp; Conversion Analytics</h1>
+          <p className="text-slate-600 text-xs sm:text-sm max-w-2xl font-medium leading-relaxed">
+            Track and measure all traffic originating from ChatGPT recommendations (<code className="bg-white border border-blue-200 px-1.5 py-0.5 rounded text-[#0284c7]">utm_source=chatgpt.com</code> or direct referrals).
           </p>
         </div>
 

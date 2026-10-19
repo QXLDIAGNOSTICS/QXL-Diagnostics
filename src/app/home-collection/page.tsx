@@ -31,10 +31,10 @@ export default function HomeCollectionPage() {
       {/* ── Mobile Screen 3 Mockup Hero & Feature Checklist ── */}
       <div className="max-w-md mx-auto p-4 flex flex-col gap-4">
         {/* Phlebotomist Scooter Banner Illustration Card */}
-        <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 rounded-3xl p-5 border border-[#F3DBA7] shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#eaf3fe] via-white to-[#f0f7ff] rounded-3xl p-5 border border-[#BFDBFE] shadow-sm flex flex-col items-center text-center relative overflow-hidden">
           {/* Scooter Visual Icon/Graphic */}
           <div className="w-32 h-28 relative mb-3 flex items-center justify-center">
-            <div className="w-24 h-24 bg-[#FFF8EB] border-2 border-[#E9C47A] rounded-full flex items-center justify-center shadow-sm">
+            <div className="w-24 h-24 bg-[#EFF6FF] border-2 border-[#BAE0FD] rounded-full flex items-center justify-center shadow-sm">
               <span className="text-5xl">🛵</span>
             </div>
           </div>
@@ -45,7 +45,7 @@ export default function HomeCollectionPage() {
           </p>
 
           {/* Serviceability PIN Code Check Card */}
-          <div className="w-full bg-white rounded-2xl p-4 border border-[#F3DBA7] shadow-2xs mb-4 space-y-3">
+          <div className="w-full bg-white rounded-2xl p-4 border border-[#BFDBFE] shadow-2xs mb-4 space-y-3">
             <label className="text-[11px] font-black text-[#0f2d5e] uppercase tracking-wider block text-left">
               Check Serviceability in Your Area
             </label>
@@ -54,14 +54,14 @@ export default function HomeCollectionPage() {
                 type="text"
                 maxLength={6}
                 placeholder="Enter 6-digit PIN code (e.g. 560060)"
-                className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-[#0f2d5e] focus:outline-none focus:border-[#D69A18]"
+                className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs font-bold text-[#0f2d5e] focus:outline-none focus:border-[#2563EB]"
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') e.preventDefault();
                 }}
               />
               <button
                 type="button"
-                className="bg-[#D69A18] hover:bg-amber-600 !text-white font-black px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-2xs transition-all cursor-pointer"
+                className="bg-[#2563EB] hover:bg-blue-600 !text-white font-black px-4 py-2.5 rounded-xl text-xs uppercase tracking-wider shadow-2xs transition-all cursor-pointer"
                 style={{ color: '#ffffff' }}
               >
                 <span className="!text-white font-black" style={{ color: '#ffffff' }}>Check</span>
@@ -73,17 +73,17 @@ export default function HomeCollectionPage() {
             </div>
           </div>
 
-          {/* Schedule Button in #D69A18 */}
+          {/* Schedule Button in #2563EB */}
           <a
             href="#booking-form"
-            className="w-full bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md uppercase text-xs tracking-wider transition-all text-center"
+            className="w-full bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md uppercase text-xs tracking-wider transition-all text-center"
           >
             Schedule Home Collection
           </a>
 
           {/* Badge: Strictly Hygienic & Temperature-Controlled */}
-          <div className="flex items-center gap-1.5 mt-3 text-[11px] font-extrabold text-amber-900 bg-amber-100/70 px-3 py-1 rounded-full border border-amber-200">
-            <ShieldCheck className="w-4 h-4 text-[#D69A18]" />
+          <div className="flex items-center gap-1.5 mt-3 text-[11px] font-extrabold text-[#2563EB] bg-[#EFF6FF] px-3 py-1 rounded-full border border-[#BFDBFE]">
+            <ShieldCheck className="w-4 h-4 text-[#2563EB]" />
             <span>Strictly Hygienic & Temperature-Controlled</span>
           </div>
         </div>
@@ -101,7 +101,7 @@ export default function HomeCollectionPage() {
               </p>
               <button
                 onClick={() => { setSubmitted(false); setFormData({ name: '', phone: '', address: '', date: '', tests: '' }); }}
-                className="bg-[#D69A18] text-white font-extrabold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider"
+                className="bg-[#2563EB] text-white font-extrabold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider"
               >
                 Book Another
               </button>
@@ -122,7 +122,7 @@ export default function HomeCollectionPage() {
                   placeholder="Enter full name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value.replace(/[^a-zA-Z\s]/g, '') })}
-                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50"
+                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#2563EB] bg-gray-50/50"
                 />
               </div>
 
@@ -136,7 +136,7 @@ export default function HomeCollectionPage() {
                   placeholder="+91 Contact number"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '') })}
-                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50"
+                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#2563EB] bg-gray-50/50"
                 />
               </div>
 
@@ -149,7 +149,7 @@ export default function HomeCollectionPage() {
                   placeholder="e.g. CBC, Thyroid, Lipid Profile"
                   value={formData.tests}
                   onChange={(e) => setFormData({ ...formData, tests: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50"
+                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#2563EB] bg-gray-50/50"
                 />
               </div>
 
@@ -163,13 +163,13 @@ export default function HomeCollectionPage() {
                   placeholder="House No, Street, Area, Pincode"
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50 resize-none"
+                  className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#2563EB] bg-gray-50/50 resize-none"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-widest shadow-md transition-all mt-2"
+                className="w-full bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-widest shadow-md transition-all mt-2"
               >
                 Confirm Home Collection
               </button>

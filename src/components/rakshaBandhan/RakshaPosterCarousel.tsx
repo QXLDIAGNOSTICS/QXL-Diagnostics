@@ -92,8 +92,8 @@ export default function RakshaPosterCarousel({ onOpenBooking }: RakshaPosterCaro
         {/* Carousel Header & 7-Day Badge */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8 text-left">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-300 text-amber-900 text-xs font-extrabold uppercase tracking-wider mb-2">
-              <Clock className="w-4 h-4 text-amber-700 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-xs font-extrabold uppercase tracking-wider mb-2">
+              <Clock className="w-4 h-4 text-[#2563EB] animate-pulse" />
               <span>7-DAY EXCLUSIVE PREVENTIVE HEALTH OFFER</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
@@ -161,7 +161,7 @@ export default function RakshaPosterCarousel({ onOpenBooking }: RakshaPosterCaro
               </button>
 
               {/* Price Tag Overlay */}
-              <div className="absolute bottom-4 left-4 bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 px-3.5 py-1.5 rounded-xl font-black text-xs uppercase shadow-lg border border-white/20">
+              <div className="absolute bottom-4 left-4 bg-[#2563EB] text-white px-3.5 py-1.5 rounded-xl font-black text-xs uppercase shadow-lg border border-white/20">
                 {slide.price}
               </div>
             </div>
@@ -170,7 +170,7 @@ export default function RakshaPosterCarousel({ onOpenBooking }: RakshaPosterCaro
             <div className="lg:col-span-4 p-6 sm:p-8 text-left space-y-5 bg-gradient-to-b from-white to-[#F5F9FC]">
               
               <div className="space-y-2">
-                <span className="px-2.5 py-1 rounded-md bg-cyan-50 border border-cyan-200 text-[#0A5DAA] text-[11px] font-extrabold uppercase tracking-wider">
+                <span className="px-2.5 py-1 rounded-md bg-sky-50 border border-sky-200 text-[#0284C7] text-[11px] font-extrabold uppercase tracking-wider">
                   POSTER {currentSlide + 1} OF {posterSlides.length}
                 </span>
                 <h3 className="text-xl font-extrabold text-slate-900 leading-snug">
@@ -182,22 +182,22 @@ export default function RakshaPosterCarousel({ onOpenBooking }: RakshaPosterCaro
               </div>
 
               {/* Highlight Box */}
-              <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200/80 space-y-2 text-xs">
-                <div className="font-extrabold text-amber-900 flex items-center gap-1.5">
-                  <Sparkles className="w-4 h-4 text-amber-600" />
+              <div className="p-3.5 rounded-2xl bg-[#EFF6FF] border border-[#BFDBFE] space-y-2 text-xs">
+                <div className="font-extrabold text-[#0f2d5e] flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-[#2563EB]" />
                   <span>7-Day Festive Highlights</span>
                 </div>
-                <div className="space-y-1 text-amber-800 font-medium text-[11px]">
+                <div className="space-y-1 text-slate-700 font-medium text-[11px]">
                   <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
                     <span>80 Health Parameters Covered</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
                     <span>Free Home Collection across Bengaluru</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
                     <span>NABL Accredited Lab (MC-6849)</span>
                   </div>
                 </div>

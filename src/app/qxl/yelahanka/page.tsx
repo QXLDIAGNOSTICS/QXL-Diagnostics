@@ -157,7 +157,7 @@ export default function QXlYelahankaPage() {
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="max-w-3xl w-full">
               <div className="flex flex-wrap items-center gap-2 mb-3.5">
-                <span className="bg-[#D69A18] text-white text-[9.5px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-xs flex items-center gap-1">
+                <span className="bg-[#2563EB] text-white text-[9.5px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-xs flex items-center gap-1">
                   <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> NABL ACCREDITED ({NABL_CERTIFICATE})
                 </span>
                 <span className="bg-emerald-500 text-white text-[9.5px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
@@ -300,7 +300,7 @@ export default function QXlYelahankaPage() {
           <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-200 shadow-2xs space-y-5 sm:space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3.5">
               <div>
-                <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[9.5px] sm:text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                <span className="bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[9.5px] sm:text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                   YELAHANKA SPECIAL OFFERS
                 </span>
                 <h2 className="text-xl sm:text-2xl font-black text-[#0f2d5e] mt-1">
@@ -366,22 +366,22 @@ export default function QXlYelahankaPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-4 bg-[#0f2d5e] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-xl flex flex-col justify-between">
+            <div className="lg:col-span-4 bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 text-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-md flex flex-col justify-between">
               <div>
-                <span className="text-[9.5px] sm:text-[10px] text-amber-400 uppercase font-black tracking-wider block mb-1.5">
+                <span className="text-[9.5px] sm:text-[10px] text-[#0284c7] uppercase font-black tracking-wider block mb-1.5">
                   COVERAGE &amp; PINCODES
                 </span>
-                <h3 className="text-lg sm:text-xl font-black mb-3.5 border-b border-white/10 pb-2.5">
+                <h3 className="text-lg sm:text-xl font-black text-[#0B2545] mb-3.5 border-b border-blue-200/80 pb-2.5">
                   Pincodes Covered in Yelahanka
                 </h3>
                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-5">
                   {pincodes.map((pin) => (
-                    <span key={pin} className="bg-white/15 border border-white/20 px-2.5 py-1 rounded-xl text-xs font-black">
+                    <span key={pin} className="bg-white border border-blue-200 text-[#0284c7] px-2.5 py-1 rounded-xl text-xs font-black shadow-2xs">
                       {pin}
                     </span>
                   ))}
                 </div>
-                <div className="space-y-2.5 text-xs text-sky-100">
+                <div className="space-y-2.5 text-xs text-slate-700 font-semibold">
                   <p>✓ Yelahanka New Town (Sectors A-B, 4th-5th Phase)</p>
                   <p>✓ Yelahanka Old Town &amp; Kogilu Cross</p>
                   <p>✓ RMZ Galleria Mall &amp; L Square Area</p>

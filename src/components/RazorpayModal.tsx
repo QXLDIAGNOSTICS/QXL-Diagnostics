@@ -60,7 +60,7 @@ export default function RazorpayModal({
       <div className="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-100 overflow-hidden relative flex flex-col my-auto animate-in zoom-in-95 duration-200">
         
         {/* Razorpay Brand Header */}
-        <div className="bg-[#0B2545] text-white p-5 relative">
+        <div className="bg-gradient-to-r from-[#0284c7] via-[#0369a1] to-[#2563eb] text-white p-5 relative">
           <button
             type="button"
             onClick={onClose}
@@ -87,8 +87,8 @@ export default function RazorpayModal({
               <p className="text-xs text-slate-200 font-medium truncate max-w-[200px]">{orderDescription}</p>
             </div>
             <div className="text-right">
-              <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Amount Due</p>
-              <p className="text-2xl font-black text-amber-300">₹{amount}</p>
+              <p className="text-[10px] text-sky-200 font-bold uppercase tracking-wider">Amount Due</p>
+              <p className="text-2xl font-black text-white">₹{amount}</p>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function RazorpayModal({
                   type="button"
                   onClick={() => setActiveTab("upi")}
                   className={`py-2 px-1 rounded-xl text-[11px] font-extrabold flex flex-col items-center gap-1 transition-all ${
-                    activeTab === "upi" ? "bg-[#0B2545] text-white shadow-xs" : "hover:bg-slate-200"
+                    activeTab === "upi" ? "bg-[#2563EB] text-white shadow-xs" : "hover:bg-slate-200"
                   }`}
                 >
                   <QrCode className="w-4 h-4" />
@@ -141,7 +141,7 @@ export default function RazorpayModal({
                   type="button"
                   onClick={() => setActiveTab("card")}
                   className={`py-2 px-1 rounded-xl text-[11px] font-extrabold flex flex-col items-center gap-1 transition-all ${
-                    activeTab === "card" ? "bg-[#0B2545] text-white shadow-xs" : "hover:bg-slate-200"
+                    activeTab === "card" ? "bg-[#2563EB] text-white shadow-xs" : "hover:bg-slate-200"
                   }`}
                 >
                   <CreditCard className="w-4 h-4" />
@@ -152,7 +152,7 @@ export default function RazorpayModal({
                   type="button"
                   onClick={() => setActiveTab("netbanking")}
                   className={`py-2 px-1 rounded-xl text-[11px] font-extrabold flex flex-col items-center gap-1 transition-all ${
-                    activeTab === "netbanking" ? "bg-[#0B2545] text-white shadow-xs" : "hover:bg-slate-200"
+                    activeTab === "netbanking" ? "bg-[#2563EB] text-white shadow-xs" : "hover:bg-slate-200"
                   }`}
                 >
                   <Building2 className="w-4 h-4" />
@@ -163,7 +163,7 @@ export default function RazorpayModal({
                   type="button"
                   onClick={() => setActiveTab("wallet")}
                   className={`py-2 px-1 rounded-xl text-[11px] font-extrabold flex flex-col items-center gap-1 transition-all ${
-                    activeTab === "wallet" ? "bg-[#0B2545] text-white shadow-xs" : "hover:bg-slate-200"
+                    activeTab === "wallet" ? "bg-[#2563EB] text-white shadow-xs" : "hover:bg-slate-200"
                   }`}
                 >
                   <Wallet className="w-4 h-4" />

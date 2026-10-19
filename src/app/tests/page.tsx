@@ -212,7 +212,7 @@ export default function TestsPage() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3 py-1 rounded-full text-xs font-extrabold whitespace-nowrap transition-all cursor-pointer ${
                     active
-                      ? "bg-[#0f2d5e] text-white shadow-2xs scale-105"
+                      ? "bg-[#2563EB] text-white shadow-2xs scale-105"
                       : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                   }`}
                 >
@@ -257,7 +257,7 @@ export default function TestsPage() {
               href={WHATSAPP_LINK}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 bg-[#0f2d5e] text-white font-extrabold px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider"
+              className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold px-6 py-2.5 rounded-xl text-xs uppercase tracking-wider transition-all shadow-xs"
             >
               Ask Lab Desk on WhatsApp
             </a>
@@ -353,7 +353,7 @@ export default function TestsPage() {
       {/* ── CRAWLABLE HTML DISCOVERY HUB FOR SEARCH ENGINES & USERS ── */}
       <section className="max-w-[1260px] mx-auto px-4 mt-12 pt-8 border-t border-slate-200">
         <div className="mb-6">
-          <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-2">
+          <span className="bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest inline-block mb-2">
             CRAWLABLE DIAGNOSTIC INDEX
           </span>
           <h2 className="text-xl sm:text-2xl font-black text-[#0f2d5e]">
@@ -382,7 +382,7 @@ export default function TestsPage() {
                       <li key={t.id}>
                         <Link
                           href={testHref}
-                          className="text-slate-700 hover:text-[#D69A18] font-semibold transition-colors flex items-center justify-between group"
+                          className="text-slate-700 hover:text-[#2563EB] font-semibold transition-colors flex items-center justify-between group"
                         >
                           <span className="group-hover:underline truncate">{t.name}</span>
                           <span className="text-[11px] font-black text-slate-500 ml-2">₹{t.price}</span>

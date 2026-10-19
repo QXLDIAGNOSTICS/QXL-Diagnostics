@@ -29,16 +29,16 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
           <div className="lg:col-span-7 space-y-6 text-left">
             
             {/* Campaign Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-300/60 shadow-sm">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-gradient-to-r from-sky-50 to-blue-50 border border-sky-300/60 shadow-sm">
               <span className="flex h-2.5 w-2.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
               </span>
-              <Sparkles className="w-4 h-4 text-amber-600" />
-              <span className="text-xs font-extrabold text-amber-900 uppercase tracking-wider">
+              <Sparkles className="w-4 h-4 text-[#2563EB]" />
+              <span className="text-xs font-extrabold text-blue-900 uppercase tracking-wider">
                 7-DAY EXCLUSIVE OFFER
               </span>
-              <span className="text-xs font-bold text-amber-700 bg-amber-200/60 px-2 py-0.5 rounded-full">
+              <span className="text-xs font-bold text-blue-700 bg-blue-200/60 px-2 py-0.5 rounded-full">
                 ₹800 ONLY (WORTH ₹5,800)
               </span>
             </div>
@@ -46,7 +46,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
               Gift Your Family, <br />
-              <span className="text-[#D69A18]">
+              <span className="text-[#2563EB]">
                 The Gift of Health.
               </span>
             </h1>
@@ -59,8 +59,8 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
             {/* Key Trust Signals Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div className="p-2 rounded-xl bg-[#FFF8EB] text-[#D69A18]">
-                  <ShieldCheck className="w-4 h-4 text-[#D69A18]" />
+                <div className="p-2 rounded-xl bg-[#EFF6FF] text-[#2563EB]">
+                  <ShieldCheck className="w-4 h-4 text-[#2563EB]" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900">NABL Accredited</div>
@@ -69,8 +69,8 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
               </div>
 
               <div className="flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div className="p-2 rounded-xl bg-[#FFF8EB] text-[#D69A18]">
-                  <Heart className="w-4 h-4 text-[#D69A18]" />
+                <div className="p-2 rounded-xl bg-[#EFF6FF] text-[#2563EB]">
+                  <Heart className="w-4 h-4 text-[#2563EB]" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900">80 Health Tests</div>
@@ -79,8 +79,8 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
               </div>
 
               <div className="col-span-2 sm:col-span-1 flex items-center gap-2.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                <div className="p-2 rounded-xl bg-[#FFF8EB] text-[#D69A18]">
-                  <Clock className="w-4 h-4 text-[#D69A18]" />
+                <div className="p-2 rounded-xl bg-[#EFF6FF] text-[#2563EB]">
+                  <Clock className="w-4 h-4 text-[#2563EB]" />
                 </div>
                 <div>
                   <div className="text-xs font-bold text-slate-900">Free Home Collection</div>
@@ -93,7 +93,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
               <button
                 onClick={() => onOpenBooking()}
-                className="py-4 px-8 bg-[#D69A18] hover:bg-amber-600 text-white text-base font-extrabold rounded-2xl shadow-xl hover:scale-[1.02] transition-all flex items-center justify-center gap-2 uppercase tracking-wide group cursor-pointer"
+                className="py-4 px-8 bg-[#2563EB] hover:bg-blue-600 text-white text-base font-extrabold rounded-2xl shadow-xl hover:scale-[1.02] transition-all flex items-center justify-center gap-2 uppercase tracking-wide group cursor-pointer"
               >
                 <span>BOOK YOUR HEALTH CHECK</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -130,30 +130,30 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Offer Floating Badge */}
-              <div className="absolute -top-5 -left-5 z-20 bg-gradient-to-r from-amber-500 to-orange-500 text-white p-4 rounded-2xl shadow-xl border border-white/20 transform -rotate-3">
-                <div className="text-[10px] font-bold tracking-widest uppercase text-amber-100">Special Offer Price</div>
-                <div className="text-3xl font-black leading-none mt-0.5">₹800 <span className="text-xs font-normal line-through text-amber-200">₹5,800</span></div>
-                <div className="text-[11px] font-bold text-amber-100 mt-1">SAVE 86% TODAY</div>
+              <div className="absolute -top-5 -left-5 z-20 bg-gradient-to-r from-blue-600 to-sky-500 text-white p-4 rounded-2xl shadow-xl border border-white/20 transform -rotate-3">
+                <div className="text-[10px] font-bold tracking-widest uppercase text-sky-100">Special Offer Price</div>
+                <div className="text-3xl font-black leading-none mt-0.5">₹800 <span className="text-xs font-normal line-through text-sky-200">₹5,800</span></div>
+                <div className="text-[11px] font-bold text-sky-100 mt-1">SAVE 86% TODAY</div>
               </div>
 
               {/* Campaign Visual Card */}
-              <div className="relative rounded-3xl p-6 bg-gradient-to-br from-[#0A5DAA] via-[#084B8A] to-[#00A8A8] text-white shadow-2xl overflow-hidden border border-white/20 text-left">
+              <div className="relative rounded-3xl p-6 bg-gradient-to-br from-[#0A5DAA] via-[#084B8A] to-[#0284C7] text-white shadow-2xl overflow-hidden border border-white/20 text-left">
                 {/* Decorative Saffron Background Accent */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-amber-400/20 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute top-0 right-0 w-40 h-40 bg-sky-400/20 rounded-full blur-2xl pointer-events-none" />
                 
                 <div className="relative space-y-6">
                   {/* Top Header */}
                   <div className="flex items-center justify-between border-b border-white/10 pb-4">
                     <div className="flex items-center gap-2">
-                      <div className="w-9 h-9 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-amber-300">
-                        <Heart className="w-5 h-5 fill-amber-300" />
+                      <div className="w-9 h-9 rounded-xl bg-white/10 backdrop-blur-md flex items-center justify-center text-sky-300">
+                        <Heart className="w-5 h-5 fill-sky-300" />
                       </div>
                       <div>
-                        <div className="text-xs font-bold text-amber-300 uppercase tracking-widest">QXL Preventive Panel</div>
+                        <div className="text-xs font-bold text-sky-300 uppercase tracking-widest">QXL Preventive Panel</div>
                         <div className="text-sm font-black text-white">Full Body Special</div>
                       </div>
                     </div>
-                    <span className="px-2.5 py-1 rounded-full bg-amber-400 text-slate-950 font-extrabold text-[10px] uppercase">
+                    <span className="px-2.5 py-1 rounded-full bg-[#f0fdf4] text-[#16a34a] border border-[#bbf7d0] font-black text-[10px] uppercase">
                       86% OFF
                     </span>
                   </div>
@@ -162,7 +162,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
                   <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15 space-y-4">
                     <div className="flex items-center justify-between text-xs text-cyan-100">
                       <span className="font-semibold">Preventive Health Package</span>
-                      <span className="font-extrabold text-amber-300">80 Parameters</span>
+                      <span className="font-extrabold text-sky-300">80 Parameters</span>
                     </div>
 
                     <div className="space-y-2.5">
@@ -175,7 +175,7 @@ export default function RakshaHeroSection({ onOpenBooking }: RakshaHeroSectionPr
                         <span>Lipid Profile (8) • Liver Function (11)</span>
                       </div>
                       <div className="flex items-center gap-3 text-xs bg-white/10 p-2.5 rounded-xl">
-                        <Award className="w-4 h-4 text-amber-300 shrink-0" />
+                        <Award className="w-4 h-4 text-sky-300 shrink-0" />
                         <span>Kidney Panel (8) • Thyroid TSH/T3/T4 (3)</span>
                       </div>
                     </div>

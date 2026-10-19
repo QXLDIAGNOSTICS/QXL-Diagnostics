@@ -24,7 +24,7 @@ export default function StickyBookingForm() {
       <div className="bg-white p-5 sm:p-6 md:p-7 rounded-3xl border border-slate-200/80 shadow-sm relative z-10 h-full flex flex-col justify-between">
         <div>
           <div className="mb-4 md:mb-5">
-            <span className="text-[10px] font-black text-[#D69A18] uppercase tracking-widest block mb-1">
+            <span className="text-[10px] font-black text-[#2563EB] uppercase tracking-widest block mb-1">
               Quick Appointment
             </span>
             <h3 className="text-lg md:text-xl font-bold text-[#0f2d5e] mb-0.5">

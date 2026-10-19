@@ -69,7 +69,7 @@ export default function DrNaveenKumarPage() {
               </p>
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-sky-100 font-semibold pt-1">
                 <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
-                  <Award className="w-4 h-4 text-amber-400" /> 8+ Years Diagnostic Experience
+                  <Award className="w-4 h-4 text-sky-300" /> 8+ Years Diagnostic Experience
                 </span>
                 <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" /> NABL Quality Assurance Specialist

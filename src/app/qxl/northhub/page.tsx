@@ -159,7 +159,7 @@ export default function QXlNorthHubPage() {
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="max-w-3xl w-full">
               <div className="flex flex-wrap items-center gap-2 mb-3.5">
-                <span className="bg-[#D69A18] text-white text-[9.5px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-xs flex items-center gap-1">
+                <span className="bg-[#2563EB] text-white text-[9.5px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-xs flex items-center gap-1">
                   <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> NABL ACCREDITED ({NABL_CERTIFICATE})
                 </span>
                 <span className="bg-white/10 text-sky-200 border border-white/20 text-[9.5px] sm:text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
@@ -300,7 +300,7 @@ export default function QXlNorthHubPage() {
           <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-200 shadow-2xs space-y-5 sm:space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3.5">
               <div>
-                <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[9.5px] sm:text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                <span className="bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[9.5px] sm:text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                   HEALTH PACKAGES
                 </span>
                 <h2 className="text-xl sm:text-2xl font-black text-[#0f2d5e] mt-1">

@@ -181,27 +181,27 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
       />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-[#0b132b] via-[#0f2d5e] to-[#1c3a6e] text-white py-14 lg:py-20 relative overflow-hidden">
+      <section className="bg-gradient-to-b from-[#eaf3fe] via-[#f0f7ff] to-white text-[#0B2545] py-14 lg:py-20 relative overflow-hidden border-b border-blue-100">
         <div className="max-w-[1260px] mx-auto px-4 w-full relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="flex-1 space-y-5 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 px-4 py-1.5 rounded-full text-sky-300 text-xs font-black uppercase tracking-wider">
-                <Award className="w-4 h-4 text-amber-400" />
+              <div className="inline-flex items-center gap-2 bg-[#EFF6FF] border border-[#BFDBFE] px-4 py-1.5 rounded-full text-[#0284c7] text-xs font-black uppercase tracking-wider shadow-2xs">
+                <Award className="w-4 h-4 text-[#0284c7]" />
                 <span>{data.heroBadge}</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight">
-                {data.h1Lead} <span className="text-sky-400">{data.h1Highlight}</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight text-[#0B2545]">
+                {data.h1Lead} <span className="text-[#0284c7]">{data.h1Highlight}</span>
               </h1>
 
-              <p className="text-slate-300 text-base sm:text-lg font-medium max-w-2xl leading-relaxed">
+              <p className="text-slate-600 text-base sm:text-lg font-medium max-w-2xl leading-relaxed">
                 {data.heroIntro}
               </p>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
                 <Link
                   href="/book"
-                  className="bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-sky-500/50 transition-all text-xs uppercase tracking-wider"
+                  className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-md transition-all text-xs uppercase tracking-wider"
                 >
                   Book a Test Online
                 </Link>
@@ -216,7 +216,7 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
                 </a>
                 <a
                   href="tel:+919964639639"
-                  className="text-sky-300 hover:text-white font-bold text-sm flex items-center gap-2 underline underline-offset-4 decoration-sky-700"
+                  className="text-[#0284c7] hover:text-[#0369a1] font-bold text-sm flex items-center gap-2 underline underline-offset-4 decoration-sky-300"
                 >
                   <Phone className="w-4 h-4" />
                   +91 9964 639 639
@@ -225,12 +225,12 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
 
               {/* Above-The-Fold Structured Test Card */}
               {data.pageType === "test" && (data.price || data.reportTat || data.sampleType) && (
-                <div className="mt-6 p-4 rounded-2xl bg-white/10 border border-white/20 backdrop-blur-md grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
+                <div className="mt-6 p-4 rounded-2xl bg-white border border-blue-200/80 shadow-xs grid grid-cols-2 sm:grid-cols-4 gap-3 text-left">
                   {data.price && (
                     <div>
-                      <span className="text-[10px] text-sky-200 font-bold uppercase tracking-wider block">Test Price</span>
+                      <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Test Price</span>
                       <div className="flex items-baseline gap-1.5">
-                        <span className="text-xl font-black text-amber-400">₹{data.price}</span>
+                        <span className="text-xl font-black text-[#0B2545]">₹{data.price}</span>
                         {data.originalPrice && (
                           <span className="text-xs text-slate-400 line-through font-medium">₹{data.originalPrice}</span>
                         )}
@@ -239,20 +239,20 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
                   )}
                   {data.reportTat && (
                     <div>
-                      <span className="text-[10px] text-sky-200 font-bold uppercase tracking-wider block">Report TAT</span>
-                      <span className="text-sm font-extrabold text-white">{data.reportTat}</span>
+                      <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Report TAT</span>
+                      <span className="text-sm font-extrabold text-[#0B2545]">{data.reportTat}</span>
                     </div>
                   )}
                   {data.fastingRequired !== undefined && (
                     <div>
-                      <span className="text-[10px] text-sky-200 font-bold uppercase tracking-wider block">Fasting Rule</span>
-                      <span className="text-sm font-extrabold text-white">{data.fastingRequired ? (data.fastingDuration || "Required") : "No Fasting Required"}</span>
+                      <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Fasting Rule</span>
+                      <span className="text-sm font-extrabold text-[#0B2545]">{data.fastingRequired ? (data.fastingDuration || "Required") : "No Fasting Required"}</span>
                     </div>
                   )}
                   {data.sampleType && (
                     <div>
-                      <span className="text-[10px] text-sky-200 font-bold uppercase tracking-wider block">Sample Type</span>
-                      <span className="text-sm font-extrabold text-white">{data.sampleType}</span>
+                      <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">Sample Type</span>
+                      <span className="text-sm font-extrabold text-[#0B2545]">{data.sampleType}</span>
                     </div>
                   )}
                 </div>
@@ -260,35 +260,35 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
 
               {/* Medical Reviewer Attribution & E-E-A-T Block */}
               {data.reviewerName && (
-                <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-semibold text-sky-200">
-                  <UserCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
+                  <UserCheck className="w-4 h-4 text-emerald-500 shrink-0" />
                   <span>Medically Reviewed by</span>
-                  <Link href={`/${data.reviewerSlug || "dr-naveen-kumar-n"}`} className="font-extrabold text-white hover:underline">
+                  <Link href={`/${data.reviewerSlug || "dr-naveen-kumar-n"}`} className="font-extrabold text-[#0B2545] hover:underline">
                     {data.reviewerName}
                   </Link>
-                  {data.reviewerQuals && <span className="text-sky-300">({data.reviewerQuals})</span>}
-                  <span className="text-sky-400">•</span>
-                  <span className="text-slate-300">Last Reviewed: {data.lastReviewedDate || "October 2026"}</span>
+                  {data.reviewerQuals && <span className="text-slate-500">({data.reviewerQuals})</span>}
+                  <span className="text-slate-300">•</span>
+                  <span className="text-slate-500">Last Reviewed: {data.lastReviewedDate || "October 2026"}</span>
                 </div>
               )}
             </div>
 
             {/* AI / Search answer box */}
-            <div className="w-full lg:w-[420px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 shadow-2xl text-left">
-              <span className="bg-sky-500/30 text-sky-200 border border-sky-400/40 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-4">
+            <div className="w-full lg:w-[420px] bg-white border border-blue-200/80 rounded-3xl p-6 sm:p-8 shadow-md text-left">
+              <span className="bg-[#EFF6FF] text-[#0284c7] border border-[#BFDBFE] text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-4 shadow-2xs">
                 AI &amp; Search Overview
               </span>
-              <h2 className="text-lg font-extrabold text-white mb-3 flex items-center gap-2">
-                <UserCheck className="w-5 h-5 text-amber-400" />
+              <h2 className="text-lg font-black text-[#0B2545] mb-3 flex items-center gap-2">
+                <UserCheck className="w-5 h-5 text-[#0284c7]" />
                 {data.aiOverviewTitle}
               </h2>
-              <p className="text-slate-200 text-xs sm:text-sm font-medium leading-relaxed mb-6">
+              <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-6">
                 {data.aiOverview}
               </p>
-              <div className="space-y-2 border-t border-white/10 pt-4 text-xs font-semibold text-slate-300">
+              <div className="space-y-2 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
                 {data.aiOverviewPoints.map((point, i) => (
                   <div key={i} className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                     <span>{point}</span>
                   </div>
                 ))}
@@ -296,11 +296,11 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
 
               {/* Test Aliases / Synonyms */}
               {data.synonyms && data.synonyms.length > 0 && (
-                <div className="mt-4 pt-3 border-t border-white/15">
-                  <span className="text-[10px] text-sky-300 font-extrabold uppercase tracking-wider block mb-1.5">Also Known As (Aliases):</span>
+                <div className="mt-4 pt-3 border-t border-slate-100">
+                  <span className="text-[10px] text-slate-500 font-extrabold uppercase tracking-wider block mb-1.5">Also Known As (Aliases):</span>
                   <div className="flex flex-wrap gap-1">
                     {data.synonyms.map((syn, sIdx) => (
-                      <span key={sIdx} className="bg-white/15 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
+                      <span key={sIdx} className="bg-blue-50 text-[#0284c7] border border-blue-200 text-[10px] font-bold px-2 py-0.5 rounded-md">
                         {syn}
                       </span>
                     ))}

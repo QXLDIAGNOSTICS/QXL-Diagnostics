@@ -142,7 +142,7 @@ export default function InstallPrompt() {
                   }
                 }
               }}
-              className="w-full bg-[#D69A18] hover:bg-[#b88313] text-white font-black py-3.5 px-6 rounded-2xl shadow-md active:scale-95 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-3 cursor-pointer"
+              className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black py-3.5 px-6 rounded-2xl shadow-md active:scale-95 transition-all text-xs uppercase tracking-wider flex items-center justify-center gap-2 mb-3 cursor-pointer"
             >
               <Download className="w-4 h-4 text-white" />
               <span>INSTALL APP NOW</span>

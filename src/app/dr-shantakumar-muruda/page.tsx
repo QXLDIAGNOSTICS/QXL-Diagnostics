@@ -80,7 +80,7 @@ export default function DrShantakumarMurudaPage() {
               />
             </div>
             <div className="space-y-4 text-center md:text-left flex-1">
-              <span className="inline-block bg-[#D69A18] text-white text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">
+              <span className="inline-block bg-[#2563EB] text-white text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">
                 Founder &amp; Chief Clinical Biochemist
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight" style={{ color: '#ffffff' }}>

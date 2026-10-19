@@ -21,7 +21,7 @@ export default function Freedom80CampaignSection() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="inline-block bg-[#0f2d5e] text-amber-400 text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-3 shadow-sm">
+          <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#0284c7] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest mb-3 shadow-2xs">
             🇮🇳 80th INDEPENDENCE DAY CAMPAIGN
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-[#0f2d5e] mb-4">
@@ -41,9 +41,9 @@ export default function Freedom80CampaignSection() {
             <p className="text-slate-500 text-xs font-medium">Comprehensive blood, metabolic & urinary profile.</p>
           </div>
 
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 border border-amber-200/80 rounded-3xl p-8 text-center shadow-md relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-2 h-full bg-amber-500" />
-            <div className="text-6xl font-black text-amber-600 mb-2 group-hover:scale-105 transition-transform">8</div>
+          <div className="bg-gradient-to-br from-sky-50 to-cyan-50/60 border border-sky-200/80 rounded-3xl p-8 text-center shadow-md relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-2 h-full bg-[#0284C7]" />
+            <div className="text-6xl font-black text-[#0284C7] mb-2 group-hover:scale-105 transition-transform">8</div>
             <div className="text-lg font-black text-[#0f2d5e] uppercase tracking-wider mb-1">Major Health Areas</div>
             <p className="text-slate-500 text-xs font-medium">Covering every essential organ system.</p>
           </div>

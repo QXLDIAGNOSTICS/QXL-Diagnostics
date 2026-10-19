@@ -451,22 +451,22 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
   
   const features = [
     {
-      icon: <Cpu className="w-5 h-5 text-[#D69A18]" />,
+      icon: <Cpu className="w-5 h-5 text-[#2563EB]" />,
       title: "Automated Delta Checks",
       desc: "Automated comparison against patient historical baseline readings to flag rapid biomarker shifts prior to sign-off."
     },
     {
-      icon: <Activity className="w-5 h-5 text-[#D69A18]" />,
+      icon: <Activity className="w-5 h-5 text-[#2563EB]" />,
       title: "Westgard Multi-Rule IQC",
       desc: "Daily automated internal quality control (IQC) algorithms validating analyzer precision across every shift."
     },
     {
-      icon: <ShieldCheck className="w-5 h-5 text-[#D69A18]" />,
+      icon: <ShieldCheck className="w-5 h-5 text-[#2563EB]" />,
       title: "Smart Symptom Guidance",
       desc: "Intelligent screening tools helping patients identify relevant preventive tests based on age and symptoms."
     },
     {
-      icon: <Microscope className="w-5 h-5 text-[#D69A18]" />,
+      icon: <Microscope className="w-5 h-5 text-[#2563EB]" />,
       title: "Doctor-Led Interpretation",
       desc: "Every laboratory report is evaluated and signed off by senior consultant pathologists."
     }
@@ -609,7 +609,7 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
       <div className="max-w-[1260px] mx-auto px-4 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
           <div className="space-y-3 mb-2 lg:mb-0">
-            <span className="inline-block bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
+            <span className="inline-block bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
               Next-Gen Technology
             </span>
             <Heading className="text-[#0f2d5e] text-xl sm:text-3xl md:text-4xl font-black leading-tight">
@@ -621,7 +621,7 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
             <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5 pt-2">
               {features.map((feature, idx) => (
                 <div key={idx} className="flex flex-col sm:flex-row gap-2 items-start bg-slate-50/80 p-3 rounded-xl border border-slate-150/80 shadow-2xs">
-                  <div className="w-8 h-8 rounded-lg bg-[#FFF8EB] border border-[#F3DBA7] flex items-center justify-center shrink-0">
+                  <div className="w-8 h-8 rounded-lg bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center shrink-0">
                     {feature.icon}
                   </div>
                   <div>
@@ -693,7 +693,7 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
                           <button
                             key={cat.id}
                             onClick={() => handleSend(cat.label, cat.id)}
-                            className="bg-white hover:bg-[#D69A18] hover:text-white border border-[#F3DBA7] text-[#0f2d5e] p-2 rounded-xl text-xs font-extrabold transition-all text-left shadow-2xs flex items-center gap-1.5 group cursor-pointer"
+                            className="bg-white hover:bg-[#2563EB] hover:text-white border border-[#BFDBFE] text-[#0f2d5e] p-2 rounded-xl text-xs font-extrabold transition-all text-left shadow-2xs flex items-center gap-1.5 group cursor-pointer"
                           >
                             <span className="text-sm shrink-0">{cat.icon}</span>
                             <span className="truncate">{cat.label.replace(/🏥|💉|🏠|💰|📄|❤️|🚀/, '').trim()}</span>

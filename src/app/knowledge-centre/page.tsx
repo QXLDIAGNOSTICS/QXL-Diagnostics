@@ -30,13 +30,25 @@ const CATEGORIES = [
 
 const FEATURED_ARTICLES = [
   {
+    title: "Arthritis and Exercise: Joint Pain, RA & Blood Tests Guide",
+    category: "Autoimmune Diagnostics",
+    slug: "arthritis-exercise-joint-pain-blood-tests-guide",
+    reviewer: "Dr. Shantakumar Muruda",
+    quals: "MD Biochemistry, NABL Lead Assessor",
+    reviewerSlug: "dr-shantakumar-muruda",
+    published: "October 19, 2026",
+    lastReviewed: "October 2026",
+    summary: "How clinicians evaluate osteoarthritis, rheumatoid arthritis, and gout; safe exercise guidelines; and the role of RF, Anti-CCP, ESR, CRP, and uric acid testing.",
+    references: ["EULAR Recommendations for Physical Activity in Arthritis 2026", "ACR Guidelines for Rheumatoid Arthritis"]
+  },
+  {
     title: "Understanding Your Complete Blood Count (CBC) & Peripheral Smear Flags",
     category: "Understanding Your Tests",
     slug: "understanding-cbc-blood-test",
     reviewer: "Dr. Naveen Kumar N",
     quals: "DCP, DNB Pathology",
     reviewerSlug: "dr-naveen-kumar-n",
-    published: "August 10, 2026",
+    published: "October 19, 2026",
     lastReviewed: "October 2026",
     summary: "How consultant haematopathologists evaluate red cell indices (MCV, MCH, MCHC, RDW), differential white counts, and platelet trends to differentiate iron deficiency from thalassemia trait.",
     references: ["Dacie and Lewis Practical Haematology (13th Ed)", "ICMR Guidelines for Anaemia Management 2024"]
@@ -48,7 +60,7 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Shantakumar Muruda",
     quals: "MD Biochemistry, NABL Lead Assessor",
     reviewerSlug: "dr-shantakumar-muruda",
-    published: "August 12, 2026",
+    published: "October 19, 2026",
     lastReviewed: "October 2026",
     summary: "Why ion-exchange HPLC is the gold standard for HbA1c testing, how estimated Average Glucose (eAG) is derived, and addressing interference from South Indian hemoglobin variants.",
     references: ["ADA Standards of Medical Care in Diabetes 2026", "WHO HbA1c Diagnostic Criteria"]
@@ -60,7 +72,7 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Naveen Kumar N",
     quals: "DCP, DNB Pathology",
     reviewerSlug: "dr-naveen-kumar-n",
-    published: "August 15, 2026",
+    published: "October 19, 2026",
     lastReviewed: "October 2026",
     summary: "A practical clinical guide for rheumatologists and physicians on interpreting nuclear staining patterns (homogeneous, speckled, nucleolar, centromere) on HEp-2 substrate.",
     references: ["International Consensus on ANA Patterns (ICAP) 2025", "EULAR/ACR Classification Criteria"]
@@ -72,7 +84,7 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Shantakumar Muruda",
     quals: "MD Biochemistry, NABL Lead Assessor",
     reviewerSlug: "dr-shantakumar-muruda",
-    published: "August 18, 2026",
+    published: "October 19, 2026",
     lastReviewed: "October 2026",
     summary: "Evaluating TSH elevations above 4.5 mIU/L, the role of Anti-TPO autoantibodies in predicting progression to overt disease, and pregnancy trimester-specific TSH targets.",
     references: ["American Thyroid Association (ATA) Guidelines", "Endocrine Society Clinical Practice Guideline"]
@@ -84,7 +96,7 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Pritilata Rout",
     quals: "MD Pathology (NIMHANS)",
     reviewerSlug: "dr-pritilata-rout",
-    published: "August 20, 2026",
+    published: "October 19, 2026",
     lastReviewed: "October 2026",
     summary: "From formalin fixation to paraffin embedding, immunohistochemistry (IHC), and frozen sections — how surgical tissue samples are processed at QXL Diagnostics.",
     references: ["College of American Pathologists (CAP) Accreditation Protocols", "NIMHANS Neuropathology Manual"]
@@ -96,7 +108,7 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Ajitha Pillai",
     quals: "MD Microbiology",
     reviewerSlug: "dr-ajitha-pillai",
-    published: "August 22, 2026",
+    published: "October 19, 2026",
     lastReviewed: "October 2026",
     summary: "Understanding the diagnostic window of NS1 antigen (days 1–5) versus IgM/IgG antibodies, and establishing daily platelet monitoring protocols in Bengaluru monsoon fever cases.",
     references: ["NVBDCP Dengue Management Guidelines", "WHO Dengue Guidelines for Diagnosis 2025"]
@@ -108,7 +120,7 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Naveen Kumar N",
     quals: "DCP, DNB Pathology",
     reviewerSlug: "dr-naveen-kumar-n",
-    published: "August 24, 2026",
+    published: "October 19, 2026",
     lastReviewed: "October 2026",
     summary: "Evaluating low-titer (1:40/1:80) versus high-titer (≥1:160) ANA patterns, physiological positive ANAs in healthy adults, and when to order extended ENA 12-antigen antibody blots.",
     references: ["ACR Guidelines for Autoimmune Disease Screening 2025", "ICAP Pattern Classification"]
@@ -120,7 +132,7 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Pritilata Rout",
     quals: "MD Pathology (NIMHANS)",
     reviewerSlug: "dr-pritilata-rout",
-    published: "August 25, 2026",
+    published: "October 19, 2026",
     lastReviewed: "October 2026",
     summary: "How densitometric agarose gel electrophoresis quantifies albumin and globulin fractions, identifying monoclonal M-bands, and reflex immunofixation for Multiple Myeloma and MGUS.",
     references: ["International Myeloma Working Group (IMWG) Criteria 2025", "CAP Electrophoresis Manual"]
@@ -132,7 +144,7 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Shantakumar Muruda",
     quals: "MD Biochemistry, NABL Lead Assessor",
     reviewerSlug: "dr-shantakumar-muruda",
-    published: "August 26, 2026",
+    published: "October 19, 2026",
     lastReviewed: "October 2026",
     summary: "Ferritin as an acute-phase reactant vs iron overload indicator — differentiating non-alcoholic fatty liver disease (NAFLD), metabolic syndrome, and inflammatory states from hereditary hemochromatosis.",
     references: ["EASL Clinical Practice Guidelines on Hemochromatosis", "TIF Guidelines for Iron Assessment"]
@@ -144,7 +156,7 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Shantakumar Muruda",
     quals: "MD Biochemistry, NABL Lead Assessor",
     reviewerSlug: "dr-shantakumar-muruda",
-    published: "October 14, 2026",
+    published: "October 19, 2026",
     lastReviewed: "October 2026",
     summary: "Why measuring ApoB counts the actual number of circulating plaque-causing particles (LDL, VLDL, IDL) directly, providing superior cardiac risk assessment in patients with diabetes, metabolic syndrome, or discordance.",
     references: ["ESC/EAS Guidelines for Dyslipidaemia Management 2025", "ACC Expert Consensus Decision Pathway"]
@@ -173,7 +185,7 @@ export default function KnowledgeCentrePage() {
       <section className="bg-gradient-to-br from-[#0d2e42] via-[#164263] to-[#0f2d5e] text-white py-14 border-b border-sky-900">
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="max-w-3xl">
-            <span className="inline-block bg-[#D69A18] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">
+            <span className="inline-block bg-[#2563EB] text-white text-[10px] font-extrabold px-3 py-1.5 rounded-full uppercase tracking-widest mb-4">
               Clinical Medical Knowledge
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight text-white" style={{ color: '#ffffff' }}>
@@ -244,7 +256,7 @@ export default function KnowledgeCentrePage() {
                   {/* Doctor Reviewer Attribution */}
                   <div className="bg-slate-50 p-3 rounded-2xl border border-slate-150 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 rounded-full bg-[#0f2d5e] text-white flex items-center justify-center text-xs font-black">
+                      <div className="w-8 h-8 rounded-full bg-[#EFF6FF] text-[#0284c7] border border-[#BFDBFE] flex items-center justify-center text-xs font-black">
                         {art.reviewer.charAt(4)}
                       </div>
                       <div>

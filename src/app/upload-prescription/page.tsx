@@ -103,7 +103,7 @@ export default function UploadPrescriptionPage() {
               )}
 
               {/* Reassurance Copy */}
-              <div className="bg-amber-50 border border-[#F3DBA7] rounded-2xl p-4 text-[#0f2d5e] text-xs font-semibold leading-relaxed">
+              <div className="bg-amber-50 border border-[#BFDBFE] rounded-2xl p-4 text-[#0f2d5e] text-xs font-semibold leading-relaxed">
                 💡 <strong>Elderly &amp; Quick Booking Assistance:</strong> Upload your prescription image or PDF, or send it on WhatsApp. We'll identify the prescribed tests and confirm them with you before booking—no need to manually search investigation names!
               </div>
 
@@ -119,9 +119,9 @@ export default function UploadPrescriptionPage() {
                       inputRef.current.click();
                     }
                   }}
-                  className="flex flex-col items-center gap-2 p-4 bg-white border border-slate-200 rounded-2xl text-center hover:border-[#D69A18] hover:bg-amber-50/50 transition-all cursor-pointer shadow-2xs group"
+                  className="flex flex-col items-center gap-2 p-4 bg-white border border-slate-200 rounded-2xl text-center hover:border-[#2563EB] hover:bg-amber-50/50 transition-all cursor-pointer shadow-2xs group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#D69A18] flex items-center justify-center border border-[#F3DBA7] group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#2563EB] flex items-center justify-center border border-[#BFDBFE] group-hover:scale-110 transition-transform">
                     📸
                   </div>
                   <span className="text-xs font-black text-[#0f2d5e]">Take Photo</span>
@@ -137,9 +137,9 @@ export default function UploadPrescriptionPage() {
                       inputRef.current.click();
                     }
                   }}
-                  className="flex flex-col items-center gap-2 p-4 bg-white border border-slate-200 rounded-2xl text-center hover:border-[#D69A18] hover:bg-amber-50/50 transition-all cursor-pointer shadow-2xs group"
+                  className="flex flex-col items-center gap-2 p-4 bg-white border border-slate-200 rounded-2xl text-center hover:border-[#2563EB] hover:bg-amber-50/50 transition-all cursor-pointer shadow-2xs group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#D69A18] flex items-center justify-center border border-[#F3DBA7] group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#2563EB] flex items-center justify-center border border-[#BFDBFE] group-hover:scale-110 transition-transform">
                     🖼️
                   </div>
                   <span className="text-xs font-black text-[#0f2d5e]">Gallery</span>
@@ -155,9 +155,9 @@ export default function UploadPrescriptionPage() {
                       inputRef.current.click();
                     }
                   }}
-                  className="flex flex-col items-center gap-2 p-4 bg-white border border-slate-200 rounded-2xl text-center hover:border-[#D69A18] hover:bg-amber-50/50 transition-all cursor-pointer shadow-2xs group"
+                  className="flex flex-col items-center gap-2 p-4 bg-white border border-slate-200 rounded-2xl text-center hover:border-[#2563EB] hover:bg-amber-50/50 transition-all cursor-pointer shadow-2xs group"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#D69A18] flex items-center justify-center border border-[#F3DBA7] group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-amber-50 text-[#2563EB] flex items-center justify-center border border-[#BFDBFE] group-hover:scale-110 transition-transform">
                     📄
                   </div>
                   <span className="text-xs font-black text-[#0f2d5e]">Upload PDF</span>
@@ -192,10 +192,10 @@ export default function UploadPrescriptionPage() {
                 }}
                 className={`relative border-2 border-dashed rounded-3xl p-8 flex flex-col items-center justify-center text-center cursor-pointer transition-all min-h-[220px] ${
                   dragActive
-                    ? 'border-[#D69A18] bg-amber-50'
+                    ? 'border-[#2563EB] bg-amber-50'
                     : uploadedFile
                     ? 'border-emerald-400 bg-emerald-50'
-                    : 'border-slate-300 bg-white hover:border-[#D69A18] hover:bg-amber-50/40'
+                    : 'border-slate-300 bg-white hover:border-[#2563EB] hover:bg-amber-50/40'
                 }`}
               >
                 <input
@@ -226,12 +226,12 @@ export default function UploadPrescriptionPage() {
                   </>
                 ) : (
                   <>
-                    <div className="w-16 h-16 rounded-full bg-amber-50 border border-[#F3DBA7] flex items-center justify-center mb-3">
-                      <Upload className="w-7 h-7 text-[#D69A18]" />
+                    <div className="w-16 h-16 rounded-full bg-amber-50 border border-[#BFDBFE] flex items-center justify-center mb-3">
+                      <Upload className="w-7 h-7 text-[#2563EB]" />
                     </div>
                     <p className="font-extrabold text-[#0f2d5e] text-base mb-1">Drag &amp; drop prescription here</p>
                     <p className="text-slate-400 text-xs font-medium mb-3">or tap one of the options above</p>
-                    <span className="inline-block bg-[#D69A18] text-white text-xs font-extrabold px-5 py-2.5 rounded-full shadow-2xs">Choose File</span>
+                    <span className="inline-block bg-[#2563EB] text-white text-xs font-extrabold px-5 py-2.5 rounded-full shadow-2xs">Choose File</span>
                   </>
                 )}
               </div>
@@ -250,10 +250,10 @@ export default function UploadPrescriptionPage() {
 
               {/* Login required notice */}
               {uploadedFile && !authLoading && !user && (
-                <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                  <p className="text-xs text-amber-800 font-semibold leading-relaxed">
-                    Please <Link href="/login" className="underline font-extrabold">log in</Link> to upload and get an AI analysis of your prescription.
+                <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-2xl p-5 flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-[#2563EB] shrink-0 mt-0.5" />
+                  <p className="text-xs text-[#0F2D5E] font-semibold leading-relaxed">
+                    Please <Link href="/login" className="underline font-extrabold text-[#2563EB]">log in</Link> to upload and get an AI analysis of your prescription.
                   </p>
                 </div>
               )}

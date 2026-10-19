@@ -33,7 +33,7 @@ export default function HomeCollectionClientForm() {
           </p>
           <button
             onClick={() => { setSubmitted(false); setFormData({ name: '', phone: '', address: '', date: '', tests: '' }); }}
-            className="bg-[#D69A18] text-white font-extrabold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider shadow-xs"
+            className="bg-[#2563EB] text-white font-extrabold px-6 py-2.5 rounded-full text-xs uppercase tracking-wider shadow-xs"
           >
             Book Another
           </button>
@@ -54,7 +54,7 @@ export default function HomeCollectionClientForm() {
               placeholder="Enter full name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value.replace(/[^a-zA-Z\s]/g, '') })}
-              className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50"
+              className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#2563EB] bg-gray-50/50"
             />
           </div>
 
@@ -68,7 +68,7 @@ export default function HomeCollectionClientForm() {
               placeholder="+91 Contact number"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/\D/g, '') })}
-              className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50"
+              className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#2563EB] bg-gray-50/50"
             />
           </div>
 
@@ -81,7 +81,7 @@ export default function HomeCollectionClientForm() {
               placeholder="e.g. CBC, Thyroid, Lipid Profile"
               value={formData.tests}
               onChange={(e) => setFormData({ ...formData, tests: e.target.value })}
-              className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50"
+              className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#2563EB] bg-gray-50/50"
             />
           </div>
 
@@ -95,7 +95,7 @@ export default function HomeCollectionClientForm() {
               placeholder="House No, Street, Area, Pincode"
               value={formData.address}
               onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-              className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#D69A18] bg-gray-50/50 resize-none"
+              className="w-full border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs focus:outline-none focus:border-[#2563EB] bg-gray-50/50 resize-none"
             />
           </div>
 
@@ -104,7 +104,7 @@ export default function HomeCollectionClientForm() {
               type="checkbox"
               id="dpdp-consent-homecol"
               required
-              className="mt-0.5 h-3.5 w-3.5 rounded border-gray-300 text-[#D69A18] focus:ring-[#D69A18] cursor-pointer shrink-0"
+              className="mt-0.5 h-3.5 w-3.5 rounded border-gray-300 text-[#2563EB] focus:ring-[#2563EB] cursor-pointer shrink-0"
             />
             <label htmlFor="dpdp-consent-homecol" className="text-[10.5px] text-slate-500 font-medium leading-tight cursor-pointer">
               I consent to QXL Diagnostics contacting me &amp; processing address data per DPDP guidelines and <a href="/privacy-policy" target="_blank" className="text-blue-600 underline font-semibold">Privacy Policy</a>.
@@ -113,7 +113,7 @@ export default function HomeCollectionClientForm() {
 
           <button
             type="submit"
-            className="w-full bg-[#D69A18] hover:bg-amber-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-widest shadow-md active:scale-95 transition-all mt-2 cursor-pointer"
+            className="w-full bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3.5 rounded-xl text-xs uppercase tracking-widest shadow-md active:scale-95 transition-all mt-2 cursor-pointer"
           >
             Confirm Home Collection
           </button>

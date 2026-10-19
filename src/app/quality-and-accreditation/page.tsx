@@ -20,7 +20,7 @@ export default function QualityAccreditationPage() {
       {/* Hero */}
       <section className="bg-gradient-to-r from-[#0f2d5e] to-[#1e40af] text-white py-14">
         <div className="max-w-[1200px] mx-auto px-4">
-          <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-amber-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-sky-200 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
             <Award className="w-4 h-4 text-amber-300" />
             NABL Accreditation MC-6849
           </div>

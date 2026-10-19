@@ -47,10 +47,10 @@ const healthAreas = [
     subtitle: "Diabetes Screening",
     parametersCount: 3,
     icon: Droplet,
-    color: "from-amber-500 to-orange-600",
-    bgColor: "bg-amber-50",
-    borderColor: "border-amber-200",
-    textColor: "text-amber-600",
+    color: "from-sky-500 to-blue-600",
+    bgColor: "bg-sky-50",
+    borderColor: "border-sky-200",
+    textColor: "text-[#2563EB]",
     description: "Screening for prediabetes, early-stage type 2 diabetes, and estimated average blood glucose levels.",
     testsList: [
       "Fasting Blood Sugar (FBS)", 
@@ -238,7 +238,7 @@ export default function Freedom80Section() {
 
             {/* Price Box — LIGHT THEME */}
             <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 text-center min-w-[280px] sm:min-w-[320px] shadow-xl relative">
-              <span className="bg-gradient-to-r from-orange-500 to-amber-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
+              <span className="bg-gradient-to-r from-blue-600 to-sky-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-sm">
                 SPECIAL INDEPENDENCE OFFER
               </span>
               
@@ -247,7 +247,7 @@ export default function Freedom80Section() {
                   Regular Value: ₹5,800
                 </span>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-2xl font-black text-amber-500">₹</span>
+                  <span className="text-2xl font-black text-[#2563EB]">₹</span>
                   <span className="text-5xl sm:text-6xl font-black text-[#0f2d5e] tracking-tight">800</span>
                 </div>
                 <span className="text-xs text-emerald-600 font-extrabold block mt-1">
@@ -284,7 +284,7 @@ export default function Freedom80Section() {
 
         {/* 8 Major Health Areas Title */}
         <div className="text-center mb-8">
-          <span className="inline-block bg-orange-100 text-orange-700 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2 border border-orange-200">
+          <span className="inline-block bg-[#EFF6FF] text-[#2563EB] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-2 border border-[#BFDBFE]">
             80 Parameters Breakdown
           </span>
           <h3 className="text-2xl sm:text-3xl font-black text-[#0f2d5e]">

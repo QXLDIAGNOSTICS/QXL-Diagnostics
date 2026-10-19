@@ -68,7 +68,7 @@ export function MediaCoverageSection() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={item.ariaLabel}
-              className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs hover:shadow-xl hover:border-[#D69A18] transition-all duration-300 min-h-[90px] sm:min-h-[105px] flex items-center justify-center"
+              className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-xs hover:shadow-xl hover:border-[#2563EB] transition-all duration-300 min-h-[90px] sm:min-h-[105px] flex items-center justify-center"
             >
               <Image
                 src={item.logo}
@@ -84,7 +84,7 @@ export function MediaCoverageSection() {
 
         <article className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all duration-300 max-w-[800px] mx-auto text-left space-y-4">
           <div className="flex items-center gap-2">
-            <span className="bg-[#FFF8EB] border border-[#F3DBA7] text-[#D69A18] text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
+            <span className="bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">
               FEATURED RELEASE
             </span>
             <span className="text-xs text-slate-400 font-semibold">• 177 Postings</span>
@@ -100,7 +100,7 @@ export function MediaCoverageSection() {
 
           <div className="pt-2">
             <Link
-              className="qxl-media-button inline-flex items-center gap-2 bg-[#0f2d5e] hover:bg-[#1a3d75] text-white font-extrabold px-6 py-3 rounded-2xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer"
+              className="qxl-media-button inline-flex items-center gap-2 bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#0284c7] border border-[#BFDBFE] font-extrabold px-6 py-3 rounded-2xl text-xs sm:text-sm transition-all shadow-xs hover:shadow-md active:scale-95 cursor-pointer"
               href="/news/qxl-diagnostics-60-hospital-laboratory-partnerships-2028/"
             >
               <span>View Full Media Coverage</span>
