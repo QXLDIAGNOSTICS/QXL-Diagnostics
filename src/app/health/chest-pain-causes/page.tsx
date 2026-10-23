@@ -12,7 +12,7 @@ export default function ChestPainPage() {
       url: "/health/chest-pain-causes", seoTitle: "Chest Pain: Causes & Emergency Warning Signs | QXL Diagnostics",
       metaDescription: "Chest pain may arise from the heart, lungs, food pipe, muscles or anxiety. Learn patterns, emergency warning signs and tests doctors may use.",
       h1: "Chest Pain: Why Does My Chest Hurt? Causes, Tests and Emergency Warning Signs",
-      primaryKeyword: "chest pain", lastReviewed: "2026-09-11",
+      primaryKeyword: "chest pain", lastReviewed: "2026-10-23",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Chest pain is a symptom, not a diagnosis. It may arise from the heart, acid reflux, chest-wall muscles, lungs or anxiety. The first priority is to identify whether the pattern could represent an emergency — not to decide at home whether the pain is 'gas' or 'heart pain'.",

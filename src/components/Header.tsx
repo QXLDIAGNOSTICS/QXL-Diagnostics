@@ -367,26 +367,25 @@ export default function Header() {
               {/* Language Switcher */}
               <LanguageSwitcher />
               {/* Cart — spatial glass orb */}
+              {/* Cart — liquid glass orb */}
               <Link
                 href="/book"
-                className="hidden xl:flex items-center justify-center w-9 h-9 rounded-full relative transition-all duration-200 hover:scale-105"
-                style={{ background: 'rgba(239, 246, 255,0.75)', border: '1px solid rgba(191, 219, 254,0.6)', backdropFilter: 'blur(8px)', boxShadow: '0 2px 12px rgba(37, 99, 235,0.15), inset 0 1px 0 rgba(255,255,255,0.85)' }}
+                className="liquid-glass-icon-btn !w-9 !h-9 hidden xl:flex relative shadow-md"
                 title="Cart / Booked Tests"
               >
-                <ShoppingCart className="w-4 h-4 text-[#2563EB]" />
+                <ShoppingCart className="w-4 h-4 text-white" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold text-white" style={{ background: 'linear-gradient(135deg, #f87171 0%, #ef4444 100%)', boxShadow: '0 2px 6px rgba(239,68,68,0.4)' }}>
+                  <span className="absolute -top-1 -right-1 rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold text-white bg-red-500 shadow-md">
                     {cartCount}
                   </span>
                 )}
               </Link>
-              {/* Book a Test — clean pill button */}
+              {/* Book a Test — liquid glass button */}
               <Link
                 href="/book"
-                className="hidden xl:inline-flex items-center font-black px-6 py-2.5 rounded-full text-[11px] uppercase tracking-wider whitespace-nowrap active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:scale-105"
-                style={{ background: 'linear-gradient(135deg, #2563EB 0%, #0284C7 100%)', color: '#ffffff' }}
+                className="liquid-glass-btn-primary hidden xl:inline-flex !px-6 !py-2.5 !text-[11px] !tracking-wider whitespace-nowrap shadow-md"
               >
-                <span className="!text-white font-black flex items-center gap-1.5" style={{ color: '#ffffff' }}>
+                <span className="!text-white font-black flex items-center gap-1.5">
                   <span>BOOK A TEST</span>
                   <span>→</span>
                 </span>

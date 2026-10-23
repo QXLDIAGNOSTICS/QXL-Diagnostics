@@ -13,7 +13,7 @@ export default function FrequentUrinationPage() {
       seoTitle: "Frequent Urination & Excessive Thirst: Causes & Tests | QXL Diagnostics",
       metaDescription: "Frequent urination and excessive thirst may be caused by diabetes, UTI, kidney disease, overactive bladder, diabetes insipidus or medications. Learn tests.",
       h1: "Frequent Urination & Excessive Thirst: Why Am I Peeing So Often?",
-      primaryKeyword: "frequent urination", lastReviewed: "2026-09-11",
+      primaryKeyword: "frequent urination", lastReviewed: "2026-10-23",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Frequent urination (polyuria) and excessive thirst (polydipsia) together — particularly when urinating large volumes — is a classic presentation of diabetes mellitus and deserves prompt evaluation. However, many other causes exist.",

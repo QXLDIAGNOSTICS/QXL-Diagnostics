@@ -839,20 +839,20 @@ export default function AiChat() {
             </div>
           )}
 
-          {/* QXL AI assistant FAB button */}
+          {/* QXL AI assistant FAB button — Liquid Glass Orb */}
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="relative flex items-center justify-center w-14 h-14 rounded-full text-white shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0 border-2 border-blue-400/40 group"
+            className="liquid-glass-icon-btn !w-14 !h-14 !rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0 border-2 border-white/50 group relative"
             style={{ 
-              background: 'linear-gradient(135deg, #0b1b36 0%, #0f2d5e 50%, #1e3a8a 100%)',
-              boxShadow: '0 4px 25px rgba(15, 45, 94, 0.7)',
+              background: 'linear-gradient(135deg, rgba(11, 37, 69, 0.96) 0%, rgba(37, 99, 235, 0.94) 50%, rgba(2, 132, 199, 0.92) 100%)',
+              boxShadow: '0 8px 30px rgba(37, 99, 235, 0.55), 0 0 20px rgba(56, 189, 248, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.95)',
             }}
             aria-label={isOpen ? "Close QXL AI chat" : "Open QXL AI assistant"}
             title="QXL AI Assistant"
           >
             {isOpen ? (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true" className="relative z-10">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true" className="relative z-10 text-white">
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
@@ -1336,13 +1336,13 @@ export default function AiChat() {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleSend()}
                 placeholder={selectedFile ? "Add a message..." : "Ask a health question..."}
-                className="flex-1 bg-[#f8fafc] border border-slate-300 focus:border-[#0B2545] focus:bg-white text-[#0B2545] placeholder:text-slate-400 rounded-full px-4 py-2.5 text-xs outline-none font-medium transition-colors"
+                className="liquid-glass-input flex-1 text-[#0B2545] placeholder:text-slate-400 rounded-full px-4 py-2.5 text-xs outline-none font-medium transition-all"
               />
 
               <button
                 onClick={() => handleSend()}
                 disabled={isLoading || (!input.trim() && !selectedFile)}
-                className="w-9 h-9 rounded-full bg-[#2563EB] disabled:opacity-40 text-white flex items-center justify-center hover:bg-[#1D4ED8] transition-colors cursor-pointer shrink-0 shadow-xs"
+                className="liquid-glass-icon-btn !w-9 !h-9 disabled:opacity-40 text-white flex items-center justify-center cursor-pointer shrink-0 shadow-md"
                 aria-label="Send message"
               >
                 <Send className="w-4 h-4 text-white" />

@@ -150,8 +150,8 @@ export default function MediaCoveragePage() {
     "@type": "NewsArticle",
     headline: "QXL Diagnostics Targets 60 Hospital Laboratory Partnerships by 2028",
     description: "Media coverage of QXL Diagnostics' Hospital Laboratory Management expansion strategy and target of 60 hospital laboratory partnerships by 2028.",
-    datePublished: "2026-10-19",
-    dateModified: "2026-10-19",
+    datePublished: "2026-10-23",
+    dateModified: "2026-10-23",
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": ARTICLE_URL,
@@ -227,7 +227,7 @@ export default function MediaCoveragePage() {
           <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-sky-200 pt-4 border-t border-white/15">
             <div className="flex items-center gap-1.5">
               <FileText className="w-4 h-4 text-[#2563EB]" />
-              <span>Published: 19 October 2026</span>
+              <span>Published: 23 October 2026</span>
             </div>
             <span>•</span>
             <div className="flex items-center gap-1.5">

@@ -13,7 +13,7 @@ export default function SkinRashPage() {
       seoTitle: "Skin Rash & Itching: Causes & Warning Signs | QXL Diagnostics",
       metaDescription: "Skin rash and itching may be caused by allergies, eczema, infections, liver disease, kidney disease, thyroid conditions, autoimmune disease or medicines.",
       h1: "Skin Rash & Itching: Why Is My Skin Itchy or Breaking Out?",
-      primaryKeyword: "skin rash and itching", lastReviewed: "2026-09-11",
+      primaryKeyword: "skin rash and itching", lastReviewed: "2026-10-23",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Skin rashes and itching (pruritus) are very common. Most are caused by allergic reactions, contact irritants, dry skin or infections. However, persistent unexplained itching or rash — particularly without obvious skin change — may sometimes indicate an internal medical condition.",

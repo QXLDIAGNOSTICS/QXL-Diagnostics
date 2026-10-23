@@ -13,7 +13,7 @@ export default function SwellingPage() {
       seoTitle: "Swelling of Feet, Ankles & Face: Causes & Tests | QXL Diagnostics",
       metaDescription: "Swelling or oedema of the feet, ankles, legs or face may be caused by heart, kidney, liver or thyroid disease, venous insufficiency or medications.",
       h1: "Swelling of Feet, Ankles or Face: Why Am I Retaining Fluid?",
-      primaryKeyword: "swelling oedema", lastReviewed: "2026-09-11",
+      primaryKeyword: "swelling oedema", lastReviewed: "2026-10-23",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Swelling (oedema) occurs when fluid accumulates in body tissues. The location, distribution, timing and associated symptoms help identify the cause. Swelling of both legs, both ankles, the face or the abdomen is often a systemic sign that requires medical investigation.",

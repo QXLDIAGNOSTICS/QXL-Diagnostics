@@ -38,25 +38,26 @@ export default function StickyMobileCTA() {
       >
         <Link
           href="/book"
-          className="flex items-center justify-between bg-white text-slate-800 px-4 py-3 rounded-2xl shadow-xl border border-blue-200 active:scale-98 transition-all"
+          className="liquid-glass-dock flex items-center justify-between px-4 py-3 text-slate-800 transition-all active:scale-[0.985] group"
         >
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-[#2563EB] text-white flex items-center justify-center shrink-0 shadow-xs">
+            <div className="liquid-glass-icon-btn w-10 h-10 rounded-2xl shrink-0 shadow-md">
               <ShoppingCart className="w-4 h-4 text-white" />
             </div>
             <div>
-              <span className="font-black text-[#0B2545] text-xs block leading-tight">
+              <span className="font-black text-[#0B2545] text-xs block leading-tight tracking-tight">
                 {cartItems.length} {cartItems.length === 1 ? "Test" : "Tests"} · ₹{totalAmount}
               </span>
-              <span className="text-[10.5px] text-[#0284c7] font-bold leading-tight block">
-                Free Doorstep Home Collection
+              <span className="text-[10.5px] text-[#0284c7] font-bold leading-tight flex items-center gap-1.5 mt-0.5">
+                <span className="liquid-dot inline-block" />
+                <span>Free Doorstep Collection</span>
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5 bg-[#2563EB] hover:bg-blue-600 text-white px-3.5 py-1.5 rounded-xl font-black text-xs uppercase tracking-wider shadow-2xs">
+          <div className="liquid-glass-btn-primary !px-4 !py-2 !rounded-xl !text-[11.5px] !tracking-wider flex items-center gap-1.5 shadow-md">
             <span>Continue</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 text-white" />
           </div>
         </Link>
       </motion.div>

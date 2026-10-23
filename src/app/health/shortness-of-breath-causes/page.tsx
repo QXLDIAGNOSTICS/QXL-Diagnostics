@@ -13,7 +13,7 @@ export default function BreathlessnessPage() {
       seoTitle: "Shortness of Breath: Causes & Warning Signs | QXL Diagnostics",
       metaDescription: "Breathlessness may be caused by asthma, anaemia, heart disease, lung infection, COPD, pulmonary disease or anxiety. Learn tests and emergency warning signs.",
       h1: "Shortness of Breath: Why Am I Breathless? Causes, Tests and Warning Signs",
-      primaryKeyword: "shortness of breath", lastReviewed: "2026-09-11",
+      primaryKeyword: "shortness of breath", lastReviewed: "2026-10-23",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Shortness of breath (dyspnoea) is the uncomfortable awareness of breathing. It can range from mild exertional breathlessness to severe breathlessness at rest. Sudden or severe breathlessness, or breathlessness with chest pain, is a medical emergency.",

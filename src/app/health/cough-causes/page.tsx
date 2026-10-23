@@ -17,7 +17,7 @@ export default function CoughPage() {
         metaDescription: "Learn causes of dry, wet, persistent and chronic cough, warning signs and when chest imaging or selected laboratory tests may be considered.",
         h1: "Cough: Causes, Types, Tests and Warning Signs",
         primaryKeyword: "cough",
-        lastReviewed: "2026-09-11",
+        lastReviewed: "2026-10-23",
         reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
         parentHub: "/health/symptoms-causes",
         intro: "Cough is one of the most common reasons people seek medical attention. Most coughs are caused by viral upper respiratory infections and resolve within 1–2 weeks. However, a cough that persists for more than 3 weeks, produces blood, or is associated with breathlessness, fever or weight loss may need further evaluation.",

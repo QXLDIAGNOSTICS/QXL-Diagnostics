@@ -33,6 +33,7 @@ const FaqSection = dynamic(() => import("../components/FaqSection"));
 const ReviewsSection = dynamic(() => import("../components/ReviewsSection"));
 const SeoContent = dynamic(() => import("../components/SeoContent"));
 const AppDownloadBanner = dynamic(() => import("../components/AppDownloadBanner"));
+const LiquidGlassShowcase = dynamic(() => import("../components/LiquidGlassShowcase"));
 
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
@@ -208,10 +209,10 @@ function WhyChooseSlider() {
                 <div className="pt-2">
                   <Link
                     href="/book"
-                    className="inline-flex items-center gap-1.5 bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold px-4 py-2 rounded-xl text-[11px] uppercase tracking-wider shadow-sm active:scale-95 transition-all cursor-pointer"
+                    className="liquid-glass-btn-primary !px-4 !py-2 !rounded-xl !text-[11px] !tracking-wider shadow-sm"
                   >
                     <span>Book Now</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
+                    <ChevronRight className="w-3.5 h-3.5 text-white" />
                   </Link>
                 </div>
               </motion.div>
@@ -236,16 +237,16 @@ function WhyChooseSlider() {
                 <button
                   onClick={prev}
                   aria-label="Previous"
-                  className="w-7 h-7 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-2xs"
+                  className="liquid-glass-icon-btn !w-7 !h-7 shadow-xs"
                 >
-                  <ChevronLeft className="w-3.5 h-3.5" />
+                  <ChevronLeft className="w-3.5 h-3.5 text-white" />
                 </button>
                 <button
                   onClick={next}
                   aria-label="Next"
-                  className="w-7 h-7 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] hover:bg-[#2563EB] hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-2xs"
+                  className="liquid-glass-icon-btn !w-7 !h-7 shadow-xs"
                 >
-                  <ChevronRight className="w-3.5 h-3.5" />
+                  <ChevronRight className="w-3.5 h-3.5 text-white" />
                 </button>
               </div>
             </div>
@@ -482,9 +483,9 @@ function MobileWhyChooseSlider() {
         <p className="text-[10px] font-extrabold text-[#2563eb] uppercase tracking-widest">Our Specialities</p>
         <p className="text-[#0d2e42] font-extrabold text-base">The QXL Difference</p>
       </div>
-      <div className="mx-4 rounded-3xl overflow-hidden bg-gradient-to-r from-sky-50/90 via-white/85 to-blue-50/90 backdrop-blur-2xl border border-sky-200/60 shadow-[0_12px_36px_rgba(14,165,233,0.10)] flex flex-row min-h-[155px] relative">
+      <div className="mx-4 rounded-3xl overflow-hidden liquid-glass-card flex flex-row min-h-[155px] relative">
         {/* Arrows */}
-        <button onClick={prev} aria-label="Previous speciality" className="absolute left-2 top-1/2 -translate-y-1/2 z-40 w-8 h-8 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-md border border-white/30 shadow-md hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer">
+        <button onClick={prev} aria-label="Previous speciality" className="absolute left-2 top-1/2 -translate-y-1/2 z-40 liquid-glass-icon-btn !w-8 !h-8 shadow-md">
           <ChevronLeft className="w-4 h-4 text-white" />
         </button>
 
@@ -497,14 +498,14 @@ function MobileWhyChooseSlider() {
             transition={{ duration: 0.3 }}
             className="flex-1 flex flex-col justify-center pl-11 pr-3 py-4 bg-gradient-to-r from-sky-50/80 via-white/70 to-transparent backdrop-blur-md text-left z-10"
           >
-            <span className="inline-block bg-gradient-to-r from-sky-500 to-[#2563eb] text-white text-[9px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-widest mb-1.5 w-fit shadow-xs">{slide.specialty}</span>
+            <span className="liquid-glass-badge mb-1.5 w-fit shadow-xs">{slide.specialty}</span>
             <h3 className="text-[13px] font-black text-[#0f2d5e] leading-tight mb-0.5">
               {slide.titlePlain} <span className="text-[#2563eb]">{slide.titleAccent}</span>
             </h3>
             <p className="text-[#0284c7] font-extrabold text-[9px] mb-1">{slide.highlight}</p>
             <p className="text-[10px] text-slate-600 font-medium mb-3 leading-snug">{slide.sub}</p>
-            <Link href="/book" className="inline-block bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600 !text-white font-black px-3.5 py-1.5 rounded-full text-[10px] w-fit shadow-sm active:scale-95 transition-transform" style={{ color: '#ffffff' }}>
-              <span className="!text-white font-black" style={{ color: '#ffffff' }}>Book Now →</span>
+            <Link href="/book" className="liquid-glass-btn-primary !px-3.5 !py-1.5 !text-[10px] !rounded-full w-fit shadow-sm">
+              <span>Book Now →</span>
             </Link>
           </motion.div>
         </AnimatePresence>
@@ -533,7 +534,7 @@ function MobileWhyChooseSlider() {
             </motion.div>
           </AnimatePresence>
         </div>
-        <button onClick={next} aria-label="Next speciality" className="absolute right-2 top-1/2 -translate-y-1/2 z-40 w-8 h-8 rounded-full bg-[#2563eb] hover:bg-sky-500 backdrop-blur-md border border-white/30 shadow-md hover:scale-110 active:scale-95 transition-all flex items-center justify-center cursor-pointer">
+        <button onClick={next} aria-label="Next speciality" className="absolute right-2 top-1/2 -translate-y-1/2 z-40 liquid-glass-icon-btn !w-8 !h-8 shadow-md">
           <ChevronRight className="w-4 h-4 text-white" />
         </button>
       </div>
@@ -1928,10 +1929,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Reviews (What Our Patients Say), Blog & FAQ ── */}
+        {/* ── Reviews (What Our Patients Say), Blog, FAQ & Liquid Glass System ── */}
         <ReviewsSection />
         <BlogSlider />
         <FaqSection />
+        <LiquidGlassShowcase />
       </div>
 
 

@@ -154,7 +154,7 @@ const localBusinessSchema = {
   priceRange: "₹₹",
   currenciesAccepted: "INR",
   paymentAccepted: "Cash, UPI, Credit Card, Debit Card, Razorpay",
-  dateModified: "2026-10-01",
+  dateModified: "2026-10-23",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.8",

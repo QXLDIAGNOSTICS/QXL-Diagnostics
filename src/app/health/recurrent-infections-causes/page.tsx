@@ -13,7 +13,7 @@ export default function RecurrentInfectionsPage() {
       seoTitle: "Recurrent Infections: Why Do I Keep Getting Sick? | QXL Diagnostics",
       metaDescription: "Getting infections repeatedly may signal diabetes, immune deficiency, nutritional deficiency, chronic disease or structural problems. Learn tests and warning signs.",
       h1: "Recurrent Infections: Why Do I Keep Getting Sick?",
-      primaryKeyword: "recurrent infections", lastReviewed: "2026-09-11",
+      primaryKeyword: "recurrent infections", lastReviewed: "2026-10-23",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Getting repeated infections — frequent colds, UTIs, skin infections, chest infections, or other recurring illnesses — may have a specific identifiable cause, particularly if infections are unusually frequent, severe, prolonged or fail to respond to standard treatment.",

@@ -64,14 +64,26 @@ export default function BlogPage() {
       }
 
       const getTime = (item: any) => {
+        if (item.id === "blog-new-26" || item.slug === "hashimotos-thyroid-antibodies-anti-tpo-tsh-fatigue-guide") {
+          return new Date("2026-10-23T12:00:00.000Z").getTime();
+        }
+        if (item.id === "blog-new-25" || item.slug === "vitamin-d3-b12-deficiency-holotranscobalamin-optimal-levels-guide") {
+          return new Date("2026-10-23T11:00:00.000Z").getTime();
+        }
+        if (item.id === "blog-new-24" || item.slug === "hba1c-fasting-insulin-homa-ir-prediabetes-guide-bengaluru") {
+          return new Date("2026-10-23T10:00:00.000Z").getTime();
+        }
+        if (item.id === "blog-new-23" || item.slug === "arthritis-exercise-joint-pain-blood-tests-guide") {
+          return new Date("2026-10-23T09:00:00.000Z").getTime();
+        }
         if (item.id === "blog-new-22" || item.slug === "personalised-pregnancy-testing-bengaluru") {
-          return new Date("2026-10-16T12:00:00.000Z").getTime();
+          return new Date("2026-10-23T08:00:00.000Z").getTime();
         }
         if (item.id === "blog-new-21" || item.slug === "apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide") {
-          return new Date("2026-10-15T09:00:00.000Z").getTime();
+          return new Date("2026-10-23T07:00:00.000Z").getTime();
         }
         if (item.id === "blog-new-20" || item.slug === "your-liver-works-in-silence-simple-blood-test") {
-          return new Date("2026-10-10T10:00:00.000Z").getTime();
+          return new Date("2026-10-23T06:00:00.000Z").getTime();
         }
         const val = item.created_at || item.date;
         if (!val) return 0;
@@ -283,7 +295,7 @@ export default function BlogPage() {
                       </span>
                       <span className="flex items-center gap-1">
                         <Calendar className="w-3.5 h-3.5 text-blue-300" />
-                        {featuredBlog.date || "October 19, 2026"}
+                        {featuredBlog.date || "October 23, 2026"}
                       </span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-3.5 h-3.5 text-blue-300" />

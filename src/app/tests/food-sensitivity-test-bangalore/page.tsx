@@ -153,8 +153,8 @@ export default function FoodSensitivityTestPage() {
         description:
           "Complete information on 287 food-specific IgG blood testing, panel coverage, fasting requirements, transparent pricing, and home sample collection in Bengaluru.",
         inLanguage: "en-IN",
-        lastReviewed: "2026-09-22",
-        dateModified: "2026-09-22",
+        lastReviewed: "2026-10-23",
+        dateModified: "2026-10-23",
         reviewedBy: {
           "@type": "Person",
           "@id": `${SITE_URL}/#founder`,
@@ -281,16 +281,17 @@ export default function FoodSensitivityTestPage() {
               </div>
             </div>
 
-            {/* Price & Booking Card */}
+            {/* Price & Booking Card — Liquid Glass Container */}
             <div className="md:col-span-4">
-              <div className="bg-white rounded-3xl p-6 text-slate-800 shadow-xl border border-slate-200">
+              <div className="liquid-glass-card p-6 text-slate-800 shadow-2xl">
                 <div className="text-center pb-4 border-b border-slate-100">
                   <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Single Transparent Price</span>
                   <div className="flex items-baseline justify-center gap-2 mt-1">
                     <span className="text-3xl sm:text-4xl font-black text-[#0f2d5e]">₹{testData.price}</span>
                     <span className="text-base font-semibold text-slate-400 line-through">₹{testData.mrp}</span>
                   </div>
-                  <span className="inline-block bg-emerald-50 text-emerald-700 text-[11px] font-extrabold px-3 py-0.5 rounded-full mt-2 border border-emerald-200">
+                  <span className="liquid-glass-badge mt-2 !text-emerald-700 !border-emerald-300">
+                    <span className="liquid-dot !bg-emerald-500" />
                     Save ₹{testData.mrp - testData.price} (21% OFF)
                   </span>
                 </div>
@@ -314,20 +315,20 @@ export default function FoodSensitivityTestPage() {
                   </div>
                 </div>
 
-                <div className="space-y-2 pt-2">
+                <div className="space-y-2.5 pt-2">
                   <Link
                     href={`/book?test=${testData.id}`}
-                    className="w-full bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black py-3.5 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-95"
+                    className="liquid-glass-btn-primary w-full !py-3.5 !rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg"
                   >
                     <span>Book Home Collection</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 text-white" />
                   </Link>
 
                   <a
                     href="https://wa.me/919964639639?text=Hi%2C%20I%20want%20to%20book%20a%20Food%20Sensitivity%20Test%20(287%20Foods)%20in%20Bangalore"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all"
+                    className="liquid-glass-btn-emerald w-full !py-3 !rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md"
                   >
                     <span>WhatsApp Inquiry</span>
                   </a>

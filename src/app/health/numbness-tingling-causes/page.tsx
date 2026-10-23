@@ -13,7 +13,7 @@ export default function NumbnessTinglingPage() {
       seoTitle: "Numbness & Tingling: Causes & Warning Signs | QXL Diagnostics",
       metaDescription: "Pins and needles, numbness and tingling in hands or feet may be caused by Vitamin B12 deficiency, diabetes, nerve compression, thyroid disease or neurological conditions.",
       h1: "Numbness & Tingling: Why Do My Hands or Feet Feel Pins and Needles?",
-      primaryKeyword: "numbness and tingling", lastReviewed: "2026-09-11",
+      primaryKeyword: "numbness and tingling", lastReviewed: "2026-10-23",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Numbness, tingling or pins-and-needles sensation (paraesthesia) in the hands, feet or other parts of the body can arise from compression, metabolic causes, nutritional deficiencies or neurological conditions. Sudden new numbness or weakness on one side of the body is a medical emergency.",

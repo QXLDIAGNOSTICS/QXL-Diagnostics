@@ -61,12 +61,12 @@ export default function ClientBlogFallback({ slug }: { slug: string }) {
             {blog.title}
           </h1>
           <p className="text-sm font-semibold text-slate-400 mb-6 flex items-center gap-2">
-            Last Updated: {blog.date || "October 2026"} · {blog.reviewer ? `Reviewed by ${blog.reviewer}` : "Reviewed by QXL Medical Team"}
+            Last Updated: {blog.date || "October 23, 2026"} · {blog.reviewer ? `Reviewed by ${blog.reviewer}` : "Reviewed by QXL Medical Team"}
           </p>
           <div className="flex flex-wrap items-center gap-6 text-sm text-slate-500 font-semibold border-b border-gray-200 pb-6">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-[#2563eb]" />
-              {blog.date || "October 2026"}
+              {blog.date || "October 23, 2026"}
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 text-[#2563eb]" />

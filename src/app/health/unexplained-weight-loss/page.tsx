@@ -12,7 +12,7 @@ export default function WeightLossPage() {
       url: "/health/unexplained-weight-loss", seoTitle: "Unexplained Weight Loss: Causes & Tests | QXL Diagnostics",
       metaDescription: "Unintentional weight loss may be linked to diabetes, thyroid disease, infections, digestive disorders, poor nutrition or chronic disease. Learn warning signs.",
       h1: "Unexplained Weight Loss: Why Am I Losing Weight Without Trying?",
-      primaryKeyword: "unexplained weight loss", lastReviewed: "2026-09-11",
+      primaryKeyword: "unexplained weight loss", lastReviewed: "2026-10-23",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Unexplained or unintentional weight loss means losing body weight without deliberately dieting, exercising more or trying to reduce weight. A clinically significant threshold is an unintentional loss of more than about 5% of usual body weight over 6–12 months. Smaller amounts also matter when accompanied by fever, night sweats or other concerning symptoms.",
