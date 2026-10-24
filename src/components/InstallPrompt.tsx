@@ -15,11 +15,19 @@ export default function InstallPrompt() {
       return;
     }
 
-    // Register Service Worker
+    // Register Service Worker in production only; unregister in development to prevent stale chunk caching
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .catch((err) => console.error('SW registration failed', err));
+      if (process.env.NODE_ENV === 'production') {
+        navigator.serviceWorker
+          .register('/sw.js')
+          .catch((err) => console.error('SW registration failed', err));
+      } else {
+        navigator.serviceWorker.getRegistrations().then((registrations) => {
+          for (const registration of registrations) {
+            registration.unregister();
+          }
+        }).catch(() => {});
+      }
     }
 
     // Grab prompt if already captured by layout.tsx early script

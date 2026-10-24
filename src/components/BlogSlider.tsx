@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronRight, Calendar } from "lucide-react";
 import { api, type BlogPost } from "../lib/api";
 import { cmsStore } from "../lib/cmsStore";
+import { getAutoBlogDate } from "../lib/dateUtils";
 
 export default function BlogSlider({ decorativeHeading = false }: { decorativeHeading?: boolean }) {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
@@ -16,49 +17,49 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
       title: "Thyroid Antibodies (Anti-TPO & Anti-Tg) vs Routine TSH: Why Millions Suffer From Unexplained Fatigue Despite 'Normal' Thyroid Reports",
       slug: 'hashimotos-thyroid-antibodies-anti-tpo-tsh-fatigue-guide',
       excerpt: "Struggling with chronic fatigue, hair thinning, or brain fog despite a normal TSH? Learn why thyroid autoantibody testing unmasks hidden Hashimoto's thyroiditis.",
-      created_at: '2026-10-23T12:00:00.000Z'
+      created_at: '2026-10-24T12:00:00.000Z'
     },
     {
       id: 'blog-new-25',
       title: 'Vitamin D3 & B12 Deficiency Epidemic in Urban India: Symptoms, Toxic Dosages, Active B12 (Holotranscobalamin) & Optimal Levels',
       slug: 'vitamin-d3-b12-deficiency-holotranscobalamin-optimal-levels-guide',
       excerpt: 'Explore why 75%+ of urban Indians are deficient in Vitamin D3 and B12, how Active B12 testing prevents irreversible nerve damage, and optimal supplement protocols.',
-      created_at: '2026-10-23T11:00:00.000Z'
+      created_at: '2026-10-24T11:00:00.000Z'
     },
     {
       id: 'blog-new-24',
       title: 'HbA1c vs Fasting Insulin & HOMA-IR: The 2026 Complete Guide to Reversing Insulin Resistance & Prediabetes in Bengaluru',
       slug: 'hba1c-fasting-insulin-homa-ir-prediabetes-guide-bengaluru',
       excerpt: 'Discover why normal blood sugar can conceal dangerous insulin resistance. Learn how fasting insulin and HOMA-IR calculation catch prediabetes 5 to 10 years earlier.',
-      created_at: '2026-10-23T10:00:00.000Z'
+      created_at: '2026-10-24T10:00:00.000Z'
     },
     {
       id: 'blog-new-23',
       title: 'Arthritis and Exercise: How to Stay Active Safely, Understand Joint Pain and Know Which Blood Tests You Need',
       slug: 'arthritis-exercise-joint-pain-blood-tests-guide',
       excerpt: 'A patient-friendly guide to arthritis, joint pain, rheumatoid arthritis, gout, safe exercise guidelines, and modern laboratory blood testing in Bengaluru.',
-      created_at: '2026-10-23T09:00:00.000Z'
+      created_at: '2026-10-24T09:00:00.000Z'
     },
     {
       id: 'blog-new-22',
       title: 'Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care',
       slug: 'personalised-pregnancy-testing-bengaluru',
       excerpt: 'Explore pregnancy blood tests by trimester, double marker, NIPT and gestational diabetes screening. Personalised prenatal testing with QXL Bengaluru.',
-      created_at: '2026-10-23T08:00:00.000Z'
+      created_at: '2026-10-24T08:00:00.000Z'
     },
     {
       id: 'blog-new-21',
       title: 'ApoB vs LDL-C: Why Apolipoprotein B is the Superior Cardiovascular Biomarker in 2026',
       slug: 'apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide',
       excerpt: 'A comprehensive medical guide on why Apolipoprotein B provides superior predictive value for atherogenic risk compared to conventional LDL cholesterol.',
-      created_at: '2026-10-23T07:00:00.000Z'
+      created_at: '2026-10-24T07:00:00.000Z'
     },
     {
       id: 'blog-new-20',
       title: 'Your Liver Works in Silence — A Simple Blood Test Lets You Listen',
       slug: 'your-liver-works-in-silence-simple-blood-test',
       excerpt: 'Most of us know when our stomach is upset or our knees ache. The liver is different. It can lose a good part of its working strength before you feel anything at all. Learn how routine LFT and PT/INR tests let you listen to your liver.',
-      created_at: '2026-10-23T06:00:00.000Z'
+      created_at: '2026-10-24T06:00:00.000Z'
     },
     {
       id: 'b-new-14',
@@ -159,27 +160,6 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
       }
 
       const getTime = (item: any) => {
-        if (item.id === "blog-new-26" || item.slug === "hashimotos-thyroid-antibodies-anti-tpo-tsh-fatigue-guide") {
-          return new Date("2026-10-23T12:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-25" || item.slug === "vitamin-d3-b12-deficiency-holotranscobalamin-optimal-levels-guide") {
-          return new Date("2026-10-23T11:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-24" || item.slug === "hba1c-fasting-insulin-homa-ir-prediabetes-guide-bengaluru") {
-          return new Date("2026-10-23T10:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-23" || item.slug === "arthritis-exercise-joint-pain-blood-tests-guide") {
-          return new Date("2026-10-23T09:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-22" || item.slug === "personalised-pregnancy-testing-bengaluru") {
-          return new Date("2026-10-23T08:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-21" || item.slug === "apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide") {
-          return new Date("2026-10-23T07:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-20" || item.slug === "your-liver-works-in-silence-simple-blood-test") {
-          return new Date("2026-10-23T06:00:00.000Z").getTime();
-        }
         const val = item.created_at || item.date;
         if (!val) return 0;
         const parsed = new Date(val).getTime();
@@ -232,11 +212,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
                 <div className="flex items-center gap-3 text-[10px] text-slate-500 font-bold mb-2">
                   <span className="flex items-center gap-1">
                     <Calendar className="w-3 h-3 text-[#2563EB]" />{" "}
-                    {new Date(blog.created_at).toLocaleDateString(undefined, {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
+                    {getAutoBlogDate(blog)}
                   </span>
                 </div>
                 <h3 className="text-[15px] font-bold text-[#0d2e42] mb-2 line-clamp-2 leading-snug group-hover:text-[#2563EB] transition-colors">

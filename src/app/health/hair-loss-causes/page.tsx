@@ -12,7 +12,7 @@ export default function HairLossPage() {
       url: "/health/hair-loss-causes", seoTitle: "Hair Loss Causes & Blood Tests | QXL Diagnostics",
       metaDescription: "Learn common causes of hair loss including iron deficiency, thyroid disease, stress, PCOS, illness and patterned hair loss, plus tests that may be useful.",
       h1: "Hair Loss: Why Is My Hair Falling? Causes, Blood Tests and Warning Signs",
-      primaryKeyword: "hair loss", lastReviewed: "2026-10-23",
+      primaryKeyword: "hair loss", lastReviewed: "2026-10-24",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Hair loss can result from genetic patterned hair loss, iron deficiency, thyroid disease, recent fever or illness, pregnancy, PCOS, stress, medications, autoimmune disease, scalp disorders or nutritional problems. The pattern of hair loss matters as much as the amount.",

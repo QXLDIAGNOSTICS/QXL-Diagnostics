@@ -5,16 +5,25 @@ export async function POST(req: NextRequest) {
     const body = await req.json().catch(() => ({}));
     const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_live_TIoMgoerMx4pbE";
     const keySecret = process.env.RAZORPAY_KEY_SECRET || "Stp3feTSa3RL2hzk8CrHNTRL";
+    const currency = "INR";
 
-    let amountInPaise = 100; // minimum fallback 1 INR in paise if unspecified
-    if (typeof body.amount === "number" && body.amount > 0) {
-      amountInPaise = Math.round(body.amount * 100);
-    } else if (body.amount_paise && typeof body.amount_paise === "number") {
-      amountInPaise = body.amount_paise;
+    const bookingIds = body.booking_ids || body.bookingIds || [];
+    const rawAmount =
+      typeof body.amount === "number"
+        ? body.amount
+        : typeof body.amount_paise === "number"
+        ? body.amount_paise / 100
+        : 0;
+
+    // Strict validation: Reject empty cart or ₹0 payable amount
+    if ((!bookingIds.length && !body.items?.length && rawAmount <= 0) || rawAmount <= 0) {
+      return NextResponse.json(
+        { error: "Invalid payable amount. Cart cannot be empty and amount must be greater than zero." },
+        { status: 400 }
+      );
     }
 
-    const currency = body.currency || "INR";
-    const bookingIds = body.booking_ids || body.bookingIds || [];
+    const amountInPaise = Math.round(rawAmount * 100);
 
     // Call Razorpay REST API to create a genuine live order
     const authHeader = "Basic " + Buffer.from(`${keyId}:${keySecret}`).toString("base64");

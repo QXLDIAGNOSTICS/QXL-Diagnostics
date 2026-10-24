@@ -84,6 +84,40 @@ export default async function DynamicSlugTestPage({ params }: Props) {
     ? ["MedicalTest", "MedicalTestPanel", "DiagnosticProcedure"]
     : ["MedicalTest", "DiagnosticProcedure"];
 
+  const sampleLower = (data.sampleType || "").toLowerCase();
+  const slugLower = slug.toLowerCase();
+  const tatLower = (data.turnaroundTime || "").toLowerCase();
+
+  const isSpecialistProcedure =
+    sampleLower.includes("bone marrow") ||
+    sampleLower.includes("biopsy") ||
+    sampleLower.includes("fnac") ||
+    (sampleLower.includes("csf") && !sampleLower.includes("serum")) ||
+    sampleLower.includes("csf & serum paired") ||
+    sampleLower.includes("paired csf") ||
+    slugLower.includes("autoimmune-encephalitis") ||
+    slugLower.includes("oligoclonal-bands") ||
+    slugLower.includes("flow-cytometry");
+
+  const isSpecimenVarying =
+    !isSpecialistProcedure &&
+    (sampleLower.includes("serum / csf") ||
+     sampleLower.includes("serum or csf") ||
+     sampleLower.includes("csf / serum") ||
+     sampleLower.includes("csf or serum") ||
+     slugLower.includes("aquaporin") ||
+     slugLower.includes("aqp4") ||
+     slugLower.includes("nmda") ||
+     slugLower.includes("paraneoplastic"));
+
+  const isSameDayTat =
+    tatLower.includes("same day") ||
+    tatLower.includes("4 hour") ||
+    tatLower.includes("6 hour") ||
+    tatLower.includes("8 hour") ||
+    tatLower.includes("10 hour") ||
+    tatLower.includes("12 hour");
+
   const fullDescription = `${data.metaDescription} Specimen: ${data.sampleType}. Turnaround time: ${data.turnaroundTime}.`;
 
   const jsonLdSchema = {
@@ -155,9 +189,17 @@ export default async function DynamicSlugTestPage({ params }: Props) {
       {
         "@type": "Service",
         "@id": `${SITE_URL}/${slug}#service`,
-        "name": `${data.h1Title} with Home Sample Collection`,
+        "name": isSpecialistProcedure
+          ? `${data.h1Title} - Diagnostic Laboratory Testing`
+          : isSpecimenVarying
+          ? `${data.h1Title} - Laboratory & Specimen Diagnostic Testing`
+          : `${data.h1Title} with Home Sample Collection`,
         "serviceType": "Diagnostic Medical Testing",
-        "description": `Doorstep blood collection across Bengaluru with temperature-controlled cold chain and testing at NABL Accredited Central Lab (${NABL_CERTIFICATE}). ${data.turnaroundTime} digital report delivery.`,
+        "description": isSpecialistProcedure
+          ? `Clinical testing at NABL Accredited Central Lab (${NABL_CERTIFICATE}). Specialist clinical collection required. ${data.turnaroundTime} report delivery.`
+          : isSpecimenVarying
+          ? `Laboratory diagnostic testing at NABL Accredited Central Lab (${NABL_CERTIFICATE}). Home collection available for serum; clinical collection for CSF. ${data.turnaroundTime} digital report delivery.`
+          : `Doorstep blood collection across Bengaluru with temperature-controlled cold chain and testing at NABL Accredited Central Lab (${NABL_CERTIFICATE}). ${data.turnaroundTime} digital report delivery.`,
         "provider": { "@id": `${SITE_URL}/#kengeri-lab` },
         "areaServed": { "@type": "City", "name": "Bengaluru" },
         "offers": {
@@ -282,14 +324,24 @@ export default async function DynamicSlugTestPage({ params }: Props) {
           <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200">
             <ShieldCheck className="w-3.5 h-3.5" /> NABL Accredited ({NABL_CERTIFICATE})
           </span>
-          <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-sky-700 bg-sky-50 px-3 py-1.5 rounded-full border border-sky-200">
-            <Activity className="w-3.5 h-3.5" /> Free Home Sample Collection
-          </span>
+          {isSpecialistProcedure ? (
+            <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-rose-700 bg-rose-50 px-3 py-1.5 rounded-full border border-rose-200">
+              <AlertCircle className="w-3.5 h-3.5" /> Specialist Procedure Required
+            </span>
+          ) : isSpecimenVarying ? (
+            <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-amber-700 bg-amber-50 px-3 py-1.5 rounded-full border border-amber-200">
+              <Activity className="w-3.5 h-3.5" /> Collection Varies by Specimen
+            </span>
+          ) : (
+            <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-sky-700 bg-sky-50 px-3 py-1.5 rounded-full border border-sky-200">
+              <Activity className="w-3.5 h-3.5" /> Free Home Sample Collection
+            </span>
+          )}
           <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-purple-700 bg-purple-50 px-3 py-1.5 rounded-full border border-purple-200">
-            <Clock className="w-3.5 h-3.5" /> Same-Day Reports on WhatsApp
+            <Clock className="w-3.5 h-3.5" /> {isSameDayTat ? "Same-Day Reports on WhatsApp" : `Report Delivery: ${data.turnaroundTime}`}
           </span>
           <span className="flex items-center gap-1.5 text-[11px] font-extrabold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> Doctor-Reviewed Results
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" /> Authorized Specialist Sign-Off
           </span>
         </div>
       </div>
@@ -335,6 +387,18 @@ export default async function DynamicSlugTestPage({ params }: Props) {
               <div className="bg-sky-50 border border-sky-200 p-4 rounded-2xl text-slate-800 text-sm font-semibold leading-relaxed mb-6">
                 💡 <strong>Instructions:</strong> {data.fastingRequired}
               </div>
+
+              {/* Specimen-Specific Clinical Notice */}
+              {isSpecialistProcedure && (
+                <div className="bg-rose-50 border border-rose-200 p-4 rounded-2xl text-rose-900 text-sm font-semibold leading-relaxed mb-6">
+                  ⚠️ <strong>Specialist Procedural Specimen:</strong> This investigation requires procedural collection (e.g., Lumbar Puncture for CSF, Bone Marrow Aspiration, or surgical biopsy) performed under clinical supervision by qualified medical personnel. Routine doorstep collection is not applicable. Please contact QXL to coordinate specimen handover or centre processing.
+                </div>
+              )}
+              {isSpecimenVarying && (
+                <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-amber-900 text-sm font-semibold leading-relaxed mb-6">
+                  ℹ️ <strong>Collection Requirements Vary by Specimen:</strong> If ordered as a Serum investigation, doorstep phlebotomy collection is available across Bengaluru. If your treating specialist requested CSF analysis, procedural collection in a clinical setting is required.
+                </div>
+              )}
 
               {/* When to Get Tested */}
               {data.whenToTest && data.whenToTest.length > 0 && (
@@ -461,12 +525,18 @@ export default async function DynamicSlugTestPage({ params }: Props) {
                 <span className="text-sm text-slate-400 line-through">₹{data.oldPrice}</span>
                 <span className="text-xs bg-emerald-100 text-emerald-800 font-black px-2 py-0.5 rounded-full">{data.discountPercent}</span>
               </div>
-              <p className="text-xs text-slate-500 font-medium mb-4">Includes free doorstep home sample collection</p>
+              <p className="text-xs text-slate-500 font-medium mb-4">
+                {isSpecialistProcedure
+                  ? "Specialist procedure required (e.g. CSF / Bone Marrow)"
+                  : isSpecimenVarying
+                  ? "Home collection for serum; clinical procedure for CSF"
+                  : "Includes free doorstep home sample collection"}
+              </p>
               <Link
                 href={`/book?package=${encodeURIComponent(data.h1Title)}`}
                 className="w-full bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-extrabold py-3.5 rounded-2xl text-center block text-sm uppercase tracking-wider shadow-md transition-all"
               >
-                Book Home Collection →
+                {isSpecialistProcedure ? "Enquire / Book Test →" : "Book Home Collection →"}
               </Link>
               <a
                 href={`tel:${PHONE_DISPLAY}`}
@@ -505,16 +575,32 @@ export default async function DynamicSlugTestPage({ params }: Props) {
                 <div className="flex items-start gap-3">
                   <Clock className="w-5 h-5 text-blue-600 shrink-0" />
                   <div>
-                    <p className="font-extrabold text-[#0B2545] text-sm">Same-Day Digital Reports</p>
-                    <p className="text-slate-600 mt-0.5">Delivered straight to WhatsApp &amp; Email</p>
+                    <p className="font-extrabold text-[#0B2545] text-sm">
+                      {isSameDayTat ? "Same-Day Digital Reports" : `Report SLA: ${data.turnaroundTime}`}
+                    </p>
+                    <p className="text-slate-600 mt-0.5">
+                      {isSameDayTat ? "Delivered straight to WhatsApp & Email" : "Multi-stage analytical testing & verification"}
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Activity className="w-5 h-5 text-blue-600 shrink-0" />
                   <div>
-                    <p className="font-extrabold text-[#0B2545] text-sm">Free Doorstep Collection</p>
-                    <p className="text-slate-600 mt-0.5">Sterile vacuum containers &amp; cold-chain kits</p>
+                    <p className="font-extrabold text-[#0B2545] text-sm">
+                      {isSpecialistProcedure
+                        ? "Specialist Clinical Collection"
+                        : isSpecimenVarying
+                        ? "Specimen-Specific Collection"
+                        : "Free Doorstep Collection"}
+                    </p>
+                    <p className="text-slate-600 mt-0.5">
+                      {isSpecialistProcedure
+                        ? "Hospital procedure / specimen handover required"
+                        : isSpecimenVarying
+                        ? "Home collection for serum; procedural for CSF"
+                        : "Sterile vacuum containers & cold-chain kits"}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -524,7 +610,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
                   href={`/book?package=${encodeURIComponent(data.h1Title)}`}
                   className="w-full bg-[#2563eb] hover:bg-[#1D4ED8] text-white font-extrabold py-3 rounded-xl text-center block text-xs uppercase tracking-wider shadow-md"
                 >
-                  Schedule Home Collection
+                  {isSpecialistProcedure ? "Book / Coordinate Test" : "Schedule Home Collection"}
                 </Link>
                 <a href={`tel:${PHONE_DISPLAY}`} className="block text-center text-xs text-sky-200 font-bold mt-3 hover:underline">
                   Or Call Helpline: {PHONE_DISPLAY}

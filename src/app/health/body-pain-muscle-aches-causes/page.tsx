@@ -13,7 +13,7 @@ export default function BodyPainPage() {
       seoTitle: "Body Pain & Muscle Aches: Causes & Tests | QXL Diagnostics",
       metaDescription: "Generalised body pain and muscle aches may result from viral infection, thyroid disease, Vitamin D deficiency, fibromyalgia, autoimmune disease or medicines.",
       h1: "Body Pain & Muscle Aches: Why Does My Whole Body Hurt?",
-      primaryKeyword: "body pain and muscle aches", lastReviewed: "2026-10-23",
+      primaryKeyword: "body pain and muscle aches", lastReviewed: "2026-10-24",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Generalised body pain and muscle aches (myalgia) are extremely common symptoms. Most episodes are caused by viral infections and resolve within a week. Persistent, severe or unexplained body pain warrants investigation for underlying medical causes.",

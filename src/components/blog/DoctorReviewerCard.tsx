@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ShieldCheck, Stethoscope, Award, MessageCircle, Calendar } from "lucide-react";
+import { getAutoReviewDate } from "@/lib/dateUtils";
 
 interface DoctorReviewerCardProps {
   reviewer?: string;
@@ -9,8 +10,9 @@ interface DoctorReviewerCardProps {
 
 export default function DoctorReviewerCard({
   reviewer = "Dr. Shantakumar Muruda, MD (Biochemistry)",
-  date = "October 23, 2026",
+  date,
 }: DoctorReviewerCardProps) {
+  const displayDate = getAutoReviewDate(date);
   return (
     <section
       aria-label="Medical Reviewer & Editorial Policy"
@@ -37,7 +39,7 @@ export default function DoctorReviewerCard({
               <Award className="w-3 h-3 text-emerald-600" /> Medically Reviewed &amp; Fact-Checked
             </span>
             <span className="text-xs text-slate-500 flex items-center gap-1 font-medium">
-              <Calendar className="w-3 h-3 text-blue-500" /> Reviewed: {date}
+              <Calendar className="w-3 h-3 text-blue-500" /> Reviewed: {displayDate}
             </span>
           </div>
 

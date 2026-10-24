@@ -87,7 +87,7 @@ const articleLd = {
       "description":
         "Evidence-based explanation of post-meal bloating, food sensitivity, food intolerance, lactose intolerance, celiac disease, IBS, SIBO, IgG food testing and appropriate diagnostic pathways.",
       "datePublished": "2026-09-23T09:00:00+05:30",
-      "dateModified": "2026-10-23T09:00:00+05:30",
+      "dateModified": "2026-10-24T09:00:00+05:30",
       "inLanguage": "en-IN",
       "author": {
         "@id": "https://qxldiagnostics.com/dr-shantakumar-muruda#person"

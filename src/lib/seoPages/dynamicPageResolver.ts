@@ -251,7 +251,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
     whyImportant: [
       "Detects early metabolic, diabetic, and organ function changes before symptoms appear.",
       "Evaluates cardiovascular risk, liver enzymes, and kidney filtration markers.",
-      "All reports reviewed by consultant pathologists led by Dr. Shantakumar Muruda (MD)."
+      "All laboratory investigations are reviewed and authorised by qualified medical specialists across clinical biochemistry, haematology, and pathology.",
     ],
     faqs: [
       { question: "What tests are included in a full body checkup?", answer: "80 parameters covering CBC, Diabetes, Liver Function, Kidney & Electrolytes, Lipid Profile, Thyroid, Iron, and Complete Urine Examination." },

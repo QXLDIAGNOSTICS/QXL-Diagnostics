@@ -17,7 +17,7 @@ export default function FeverPage() {
         metaDescription: "Learn common causes of fever, associated symptoms, warning signs and when tests such as CBC, CRP or infection-specific investigations may be considered.",
         h1: "Fever: Causes, Warning Signs and When Tests May Be Needed",
         primaryKeyword: "fever",
-        lastReviewed: "2026-10-23",
+        lastReviewed: "2026-10-24",
         reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
         parentHub: "/health/symptoms-causes",
         intro: "Fever is one of the most common health symptoms and one of the body's natural responses to infection or inflammation. In many people, fever is caused by a short-lived viral infection and settles within a few days. However, persistent, recurrent or unexplained fever may sometimes be associated with bacterial infections, mosquito-borne illnesses, urinary or respiratory infections, inflammatory diseases, medicines or, less commonly, other medical conditions.",

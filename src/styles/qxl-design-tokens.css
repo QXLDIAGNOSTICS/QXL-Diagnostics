@@ -1,0 +1,81 @@
+/**
+ * QXL DIAGNOSTICS — CORE DESIGN TOKENS
+ * Single Source of Truth for Brand Colors, Typography, Spacing, and Accessibility
+ * Implementation Baseline: 24 October 2026
+ */
+
+:root {
+  /* Brand Palette */
+  --qxl-corporate-navy: #082C61;
+  --qxl-primary-blue: #1055AE;
+  --qxl-light-blue: #EAF6FF;
+  --qxl-logo-gold: #D69A18;
+  --qxl-medical-teal: #0B9B9A;
+  --qxl-white: #FFFFFF;
+
+  /* Typography Colors */
+  --qxl-neutral-text: #142A43;
+  --qxl-muted-text: #52677D;
+  --qxl-surface-border: #DCE8F5;
+
+  /* Spacing Tokens (8px Increments) */
+  --qxl-space-1: 8px;
+  --qxl-space-2: 16px;
+  --qxl-space-3: 24px;
+  --qxl-space-4: 32px;
+  --qxl-space-5: 40px;
+  --qxl-space-6: 48px;
+  --qxl-space-7: 56px;
+  --qxl-space-8: 64px;
+
+  /* Radii Tokens */
+  --qxl-radius-sm: 8px;
+  --qxl-radius-md: 14px;
+  --qxl-radius-lg: 18px;
+  --qxl-radius-xl: 20px;
+  --qxl-radius-full: 9999px;
+
+  /* Elevation Shadows */
+  --qxl-shadow-sm: 0 1px 3px rgba(8, 44, 97, 0.06);
+  --qxl-shadow-md: 0 4px 14px rgba(8, 44, 97, 0.08);
+  --qxl-shadow-lg: 0 10px 25px rgba(8, 44, 97, 0.12);
+
+  /* Touch Target Constraint */
+  --qxl-min-tap-size: 44px;
+}
+
+/* Accessibility & Interactive Guardrails */
+.qxl-tap-target {
+  min-width: var(--qxl-min-tap-size);
+  min-height: var(--qxl-min-tap-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Accessible Focus Indicators */
+:focus-visible {
+  outline: 2px solid var(--qxl-primary-blue);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--qxl-primary-blue);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(16, 85, 174, 0.18);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

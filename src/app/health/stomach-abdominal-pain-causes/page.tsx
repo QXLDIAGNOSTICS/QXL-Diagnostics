@@ -13,7 +13,7 @@ export default function StomachPainPage() {
       seoTitle: "Stomach Pain: Abdominal Pain Causes & Tests | QXL Diagnostics",
       metaDescription: "Stomach or abdominal pain may come from gastritis, ulcers, gallstones, pancreas, bowel, appendix, urinary or gynaecological causes. Learn warning signs.",
       h1: "Stomach Pain: Why Does My Abdomen Hurt? Causes, Tests and Warning Signs",
-      primaryKeyword: "stomach pain", lastReviewed: "2026-10-23",
+      primaryKeyword: "stomach pain", lastReviewed: "2026-10-24",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Abdominal pain is one of the most common reasons people seek medical attention. The location, character, timing and associated symptoms of the pain provide important clinical clues to its cause. Some causes of abdominal pain are emergencies requiring immediate attention.",

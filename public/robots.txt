@@ -3,6 +3,17 @@
 User-agent: *
 Allow: /
 
+# Disallow private user flows, checkout, payments, and internal backend APIs
+Disallow: /my-reports/
+Disallow: /my-bookings/
+Disallow: /profile/
+Disallow: /checkout/
+Disallow: /payment/
+Disallow: /admin/
+Disallow: /api/internal/
+Disallow: /api/payment/
+Disallow: /api/auth/
+
 # OpenAI ChatGPT Search Crawler
 User-agent: OAI-SearchBot
 Allow: /
@@ -29,10 +40,6 @@ Allow: /
 # Anthropic Claude Crawler
 User-agent: ClaudeBot
 Allow: /
-
-# Disallow admin & internal API routes
-Disallow: /admin/
-Disallow: /api/
 
 # Sitemap Location
 Sitemap: https://qxldiagnostics.com/sitemap.xml

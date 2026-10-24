@@ -464,3 +464,84 @@ export function buildLocationPageSchema(slug: string) {
     areaServed: { "@type": "City", name: "Bengaluru" },
   };
 }
+
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://qxldiagnostics.com/#organization",
+  name: "QXL Diagnostics",
+  legalName: "QXL Diagnostics Super Speciality Lab",
+  url: "https://qxldiagnostics.com",
+  telephone: "+91 9964 639 639"
+};
+
+export const kengeriSchema = {
+  "@context": "https://schema.org",
+  "@type": ["DiagnosticLab", "LocalBusiness"],
+  "@id": "https://qxldiagnostics.com/diagnostic-lab-kengeri/#location",
+  name: "QXL Diagnostics — Kengeri Main Laboratory",
+  parentOrganization: {
+    "@id": "https://qxldiagnostics.com/#organization"
+  },
+  telephone: "+91 9964 639 639",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri",
+    addressLocality: "Bengaluru",
+    addressRegion: "Karnataka",
+    postalCode: "560060",
+    addressCountry: "IN"
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      opens: "06:30",
+      closes: "20:00"
+    }
+  ]
+};
+
+export function buildMedicalPageSchema({
+  url,
+  headline,
+  description,
+  reviewedDate,
+  reviewer
+}: {
+  url: string;
+  headline: string;
+  description: string;
+  reviewedDate: string;
+  reviewer: {
+    name: string;
+    profileUrl: string;
+  };
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalWebPage",
+    "@id": `${url}#webpage`,
+    url,
+    headline,
+    description,
+    lastReviewed: reviewedDate,
+    reviewedBy: {
+      "@type": "Person",
+      name: reviewer.name,
+      url: reviewer.profileUrl
+    },
+    publisher: {
+      "@id": "https://qxldiagnostics.com/#organization"
+    }
+  };
+}
+

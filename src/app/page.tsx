@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone, Sparkles, Microscope, Dna, Search, Briefcase, Home as HomeIcon, Calendar } from "lucide-react";
+import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone, Sparkles, Microscope, Dna, Search, Briefcase, Home as HomeIcon, Calendar, Plus, Check } from "lucide-react";
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
 import { api } from '../lib/api';
@@ -33,7 +33,6 @@ const FaqSection = dynamic(() => import("../components/FaqSection"));
 const ReviewsSection = dynamic(() => import("../components/ReviewsSection"));
 const SeoContent = dynamic(() => import("../components/SeoContent"));
 const AppDownloadBanner = dynamic(() => import("../components/AppDownloadBanner"));
-const LiquidGlassShowcase = dynamic(() => import("../components/LiquidGlassShowcase"));
 
 
 // ── Why Choose QXL — 10 Specialty Slides ─────────────────────────────────────
@@ -738,7 +737,6 @@ export default function Home() {
   const [showAllPackages, setShowAllPackages] = useState(false);
   const [formState, setFormState] = useState({ name: '', phone: '', service: 'Home Collection', message: '' });
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [showContactServiceDropdown, setShowContactServiceDropdown] = useState(false);
   const [collapsedMobileDesc, setCollapsedMobileDesc] = useState<Record<string, boolean>>({});
   const [mobileOfferIndex, setMobileOfferIndex] = useState(0);
   const [greeting, setGreeting] = useState("Good Morning");
@@ -898,7 +896,7 @@ export default function Home() {
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
       imageFit: "cover",
       bgFrom: "#ffffff", bgTo: "#eff6ff",
-      features: ["★ 5.0 Google Rating", "Consultant Doctor Sign-off", "Free Doorstep Pickup", "Same-Day Reports"],
+      features: ["★ 4.9 Google Rating", "Consultant Doctor Sign-off", "Free Doorstep Pickup", "Same-Day Reports"],
     },
     {
       badge: "NABL ACCREDITED SUPER SPECIALITY LAB",
@@ -1434,91 +1432,121 @@ export default function Home() {
                       const oldPrice = Number(pkg.old_price || pkg.original_price || pkg.mrp || 4696);
                       const currentPrice = Number(pkg.price || 1770);
                       const discountPercent = oldPrice > currentPrice ? Math.round(((oldPrice - currentPrice) / oldPrice) * 100) : 62;
-                      const tagLabel = (pkg.name || '').toLowerCase().includes('quick') ? 'QUICK' : (pkg.tag || 'PREVENTIVE');
+                      const paramCount =
+                        pkg.parametersCount ||
+                        (typeof pkg.parameters === 'number' ? pkg.parameters : null) ||
+                        (typeof pkg.parameters === 'string' && parseInt(pkg.parameters) > 0 ? parseInt(pkg.parameters) : null) ||
+                        ((pkg.name || '').toLowerCase().includes('quick') ? 80 :
+                         (pkg.name || '').toLowerCase().includes('diabetes') ? 62 :
+                         (pkg.name || '').toLowerCase().includes('master') ? 92 :
+                         (pkg.name || '').toLowerCase().includes('senior') ? 92 :
+                         (pkg.name || '').toLowerCase().includes('essential') ? 90 :
+                         (pkg.name || '').toLowerCase().includes('complete') ? 115 :
+                         (pkg.name || '').toLowerCase().includes('ultra') ? 131 : 80);
+                      const tatDisplay = pkg.tat
+                        ? String(pkg.tat).replace(/Reports (within|in) /i, '')
+                        : ((pkg.name || '').toLowerCase().includes('ultra') ? '12 hours' : '6 hours');
+                      const pkgName = (pkg.name || '').toLowerCase();
+                      const pkgId = (pkg.id || pkg.slug || '').toLowerCase();
+                      const isAdded = cartItems.some(i => i.toLowerCase() === pkgName || i.toLowerCase() === pkgId);
+
                       return (
                         <div
                           key={pkg.id || pkg.name || idx}
-                          className="bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-xl rounded-3xl overflow-hidden shadow-xs transition-all duration-300 flex flex-col justify-between text-left group"
+                          onClick={() => setSelectedPackage(pkg)}
+                          className="bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-xl rounded-[26px] p-4 sm:p-5 transition-all duration-300 flex flex-col justify-between text-left group cursor-pointer"
                         >
-                          {/* Top Header matching screenshot */}
-                          <div className="bg-gradient-to-b from-[#eaf3fe] via-[#f4f8fe] to-white p-4 pb-3 border-b border-blue-100/50 flex items-center justify-between gap-2">
-                            <span className="bg-[#2563eb] text-white font-extrabold text-[11px] px-3.5 py-1 rounded-full uppercase tracking-wider shadow-xs shrink-0">
-                              {tagLabel}
-                            </span>
-                            {discountPercent > 0 && (
-                              <span className="bg-[#f0fdf4] text-emerald-700 border border-emerald-200 font-extrabold text-[11px] px-3 py-0.5 rounded-full shadow-2xs shrink-0">
-                                {discountPercent}% OFF
-                              </span>
-                            )}
-                          </div>
-
-                          {/* Card Body */}
-                          <div className="p-4 sm:p-5 flex flex-col justify-between flex-1 gap-3 bg-white">
-                            <h3 
-                              className="font-black text-slate-900 text-base sm:text-lg leading-tight group-hover:text-[#2563eb] transition-colors truncate"
+                          <div>
+                            {/* Card Title */}
+                            <h3
+                              className="font-extrabold text-slate-900 text-base sm:text-lg leading-snug group-hover:text-[#2563eb] transition-colors"
                               title={pkg.name}
                             >
                               {pkg.name}
                             </h3>
 
-                            {/* Blue Parameter / Inclusions Box matching screenshot */}
-                            <div className="bg-[#eaf2ff] text-[#2563eb] border border-blue-100/60 p-3 rounded-2xl text-[11.5px] font-bold leading-relaxed line-clamp-2">
-                              {typeof pkg.includes === 'string'
-                                ? pkg.includes.replace(/([a-zA-Z\)])([A-Z])/g, '$1, $2')
-                                : Array.isArray(pkg.includes)
-                                  ? pkg.includes.join(', ')
-                                  : "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests, TSH, Vitamin D, CBC, ESR, Urine Routine."}
+                            {/* Two Metadata Columns: Includes Parameters & Reports In */}
+                            <div className="grid grid-cols-2 gap-2 sm:gap-3 items-center my-3.5 sm:my-4">
+                              {/* Includes */}
+                              <div className="flex items-center gap-2">
+                                <Dna className="w-5 h-5 text-[#9A8068] shrink-0" />
+                                <div className="flex flex-col">
+                                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider leading-none">
+                                    INCLUDES
+                                  </span>
+                                  <span className="text-xs sm:text-[13px] font-extrabold text-slate-900 leading-tight mt-1">
+                                    {paramCount} Parameters
+                                  </span>
+                                </div>
+                              </div>
+
+                              {/* Reports In */}
+                              <div className="flex items-center gap-2">
+                                <FileText className="w-5 h-5 text-[#9A8068] shrink-0" />
+                                <div className="flex flex-col">
+                                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-400 uppercase tracking-wider leading-none">
+                                    REPORTS IN
+                                  </span>
+                                  <span className="text-xs sm:text-[13px] font-extrabold text-slate-900 leading-tight mt-1">
+                                    {tatDisplay}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Price Container (Horizontal Left to Right matching Image 1) */}
+                          <div className="bg-[#f4f7f9] rounded-2xl p-3 sm:px-4 sm:py-3.5 flex items-center justify-between gap-3 border border-slate-200/60 mt-auto">
+                            {/* Left: Price & Strikethrough Discount */}
+                            <div className="flex flex-col justify-center">
+                              <div className="flex items-center gap-1.5">
+                                {oldPrice > currentPrice && (
+                                  <span className="text-xs text-slate-400 font-semibold line-through">
+                                    ₹{oldPrice.toLocaleString('en-IN')}
+                                  </span>
+                                )}
+                                {discountPercent > 0 && (
+                                  <span className="text-[10px] sm:text-[11px] font-extrabold text-[#0d9488] bg-[#dcfce7] border border-[#bbf7d0] px-2 py-0.5 rounded-full">
+                                    {discountPercent}% Off
+                                  </span>
+                                )}
+                              </div>
+                              <div className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none mt-1">
+                                ₹{currentPrice.toLocaleString('en-IN')}
+                              </div>
                             </div>
 
-                            {/* Home collection line matching screenshot */}
-                            <div className="flex items-center gap-1.5 text-slate-600 font-semibold text-xs">
-                              <span>🏠</span>
-                              <span>Free Home Collection Available</span>
-                            </div>
-
-                            {/* Price Row */}
-                            <div className="flex items-baseline gap-2.5 mt-auto pt-2 border-t border-slate-100">
-                              <span className="text-2xl sm:text-3xl font-black text-[#0B2545]">
-                                ₹{pkg.price}
-                              </span>
-                              {oldPrice > currentPrice && (
-                                <span className="text-xs sm:text-sm text-slate-400 line-through font-bold">
-                                  ₹{oldPrice}
-                                </span>
+                            {/* Right: + Add Button */}
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleToggleCart({
+                                  id: pkg.id || pkg.slug,
+                                  name: pkg.name,
+                                  price: currentPrice,
+                                  fasting: pkg.fastingHours || "8-10 Hours Fasting",
+                                  tat: pkg.tat || "Reports within 6 hours"
+                                });
+                              }}
+                              className={
+                                isAdded
+                                  ? "bg-emerald-600 border-2 border-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 rounded-full flex items-center gap-1.5 transition-all shadow-xs shrink-0 cursor-pointer"
+                                  : "bg-white border-2 border-[#f97316] hover:bg-[#fff7ed] active:scale-95 text-[#f97316] font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 rounded-full flex items-center gap-1.5 transition-all shadow-2xs shrink-0 cursor-pointer"
+                              }
+                            >
+                              {isAdded ? (
+                                <>
+                                  <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                                  <span>Added</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
+                                  <span>Add</span>
+                                </>
                               )}
-                              {discountPercent > 0 && (
-                                <span className="text-xs sm:text-sm font-black text-emerald-600">
-                                  {discountPercent}% OFF
-                                </span>
-                              )}
-                            </div>
-
-                            {/* Action Buttons matching screenshot */}
-                            <div className="grid grid-cols-2 gap-2.5 pt-1">
-                              <button
-                                type="button"
-                                onClick={() => setSelectedPackage(pkg)}
-                                className="w-full py-2.5 rounded-full text-xs font-black uppercase tracking-wider text-slate-800 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all text-center cursor-pointer shadow-2xs"
-                              >
-                                DETAILS
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  addItemToCart({
-                                    id: pkg.id || pkg.slug,
-                                    name: pkg.name,
-                                    price: Number(pkg.price),
-                                    fasting: "8-10 Hours Fasting",
-                                    tat: "Reports within 12 hours"
-                                  });
-                                  window.location.href = `/book?package=${encodeURIComponent(pkg.id || pkg.slug || 'q-full-body-80')}`;
-                                }}
-                                className="w-full py-2.5 rounded-full text-xs font-black uppercase tracking-wider text-white bg-[#2563eb] hover:bg-[#1d4ed8] shadow-md hover:shadow-lg active:scale-95 transition-all text-center flex items-center justify-center gap-1 cursor-pointer"
-                              >
-                                BOOK NOW
-                              </button>
-                            </div>
+                            </button>
                           </div>
                         </div>
                       );
@@ -1827,69 +1855,66 @@ export default function Home() {
         <section className="py-16 bg-transparent border-t border-gray-150">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
-              {/* Contact Form */}
-              <div className="bg-[#f0f9ff] p-8 rounded-3xl border border-[#2563eb]/10 shadow-sm">
-                <span className="inline-block bg-white text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-sm">Get in Touch</span>
-                <h2 className="text-[#0f2d5e] text-3xl font-extrabold mb-2">Book a Test / Inquiry</h2>
-                <p className="text-slate-600 text-sm font-medium mb-6">Fill out the form below and our team will contact you shortly.</p>
-                
-                <form className="flex flex-col gap-4" onSubmit={handleContactSubmit}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
-                      <input type="text" required placeholder="John Doe" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value.replace(/[^a-zA-Z\s]/g, '')})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
-                      <input type="tel" required placeholder="+91 9964 639 639" value={formState.phone} onChange={e => setFormState({...formState, phone: e.target.value.replace(/\D/g, '')})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all" />
-                    </div>
-                  </div>
-                  <div className="relative">
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Select Service</label>
-                    <button
-                      type="button"
-                      onClick={() => setShowContactServiceDropdown(!showContactServiceDropdown)}
-                      className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all text-left flex justify-between items-center text-slate-700"
-                    >
-                      {formState.service}
-                      <svg className={`w-4 h-4 transition-transform ${showContactServiceDropdown ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                    </button>
-                    {showContactServiceDropdown && (
-                      <div className="absolute top-[68px] left-0 right-0 bg-white border border-gray-200 rounded-xl shadow-lg z-30 flex flex-col py-2 overflow-hidden">
-                        {['Home Collection', 'Lab Visit', 'General Inquiry'].map(opt => (
-                          <button
-                            key={opt}
-                            type="button"
-                            onClick={() => { setFormState({...formState, service: opt}); setShowContactServiceDropdown(false); }}
-                            className={`text-left px-4 py-3 text-sm hover:bg-blue-50 transition-colors ${formState.service === opt ? 'font-bold text-[#2563eb] bg-blue-50/50' : 'text-slate-600'}`}
-                          >
-                            {opt}
-                          </button>
-                        ))}
+              {/* Authoritative Lab Facility & Visit Details Card (Replaces Redundant Form) */}
+              <div className="bg-[#f0f9ff] p-8 rounded-3xl border border-[#2563eb]/10 shadow-sm flex flex-col justify-between">
+                <div>
+                  <span className="inline-block bg-white text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest mb-3 shadow-sm">
+                    Principal Reference Lab
+                  </span>
+                  <h2 className="text-[#0f2d5e] text-2xl sm:text-3xl font-extrabold mb-3">
+                    Visit Our Central Laboratory
+                  </h2>
+                  <p className="text-slate-600 text-xs sm:text-sm font-medium mb-6 leading-relaxed">
+                    Walk in for priority sample collection, doctor-guided test counseling, and same-day express pathology reporting at our NABL-accredited diagnostic facility in Bengaluru.
+                  </p>
+
+                  <div className="space-y-4 mb-6">
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-blue-100 text-[#2563eb] flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                        📍
                       </div>
-                    )}
+                      <div>
+                        <h3 className="text-xs font-extrabold text-[#0f2d5e]">Address &amp; Accessibility</h3>
+                        <p className="text-xs text-slate-600 font-medium">3rd Floor, SLN Complex, Mysuru Road, Kengeri, Bengaluru 560060 (Opp. Kengeri Bus Terminal)</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-blue-100 text-[#2563eb] flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                        🕒
+                      </div>
+                      <div>
+                        <h3 className="text-xs font-extrabold text-[#0f2d5e]">Operational Hours</h3>
+                        <p className="text-xs text-slate-600 font-medium">Walk-in Phlebotomy: 6:30 AM – 8:00 PM (All 7 Days) | Emergency Lab Testing: 24x7</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                        ✓
+                      </div>
+                      <div>
+                        <h3 className="text-xs font-extrabold text-[#0f2d5e]">Clinical Assurance</h3>
+                        <p className="text-xs text-slate-600 font-medium">NABL Accredited (MC-6849) · ISO 15189:2022 · Supervised by Dr. Shantakumar Muruda, MD</p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Message</label>
-                    <textarea rows={3} placeholder="How can we help you?" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#2563eb] focus:ring-1 focus:ring-[#2563eb] transition-all resize-none"></textarea>
-                  </div>
-                  <div className="flex items-start gap-2 pt-1">
-                    <input
-                      type="checkbox"
-                      id="dpdp-consent-contact"
-                      required
-                      className="mt-0.5 h-3.5 w-3.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer shrink-0"
-                    />
-                    <label htmlFor="dpdp-consent-contact" className="text-xs text-slate-500 font-medium leading-tight cursor-pointer">
-                      I consent to QXL Diagnostics contacting me &amp; processing data per DPDP guidelines and <a href="/privacy-policy" target="_blank" className="text-blue-600 underline font-semibold">Privacy Policy</a>.
-                    </label>
-                  </div>
-                  {formStatus === 'success' && <p className="text-green-600 text-xs font-bold">Your inquiry has been submitted successfully!</p>}
-                  {formStatus === 'error' && <p className="text-red-600 text-xs font-bold">There was an error submitting your inquiry. Please try again or contact us via WhatsApp.</p>}
-                  <button type="submit" disabled={formStatus === 'loading'} className="w-full bg-[#2563eb] text-white font-extrabold px-6 py-3.5 rounded-xl shadow-md hover:bg-[#1d4ed8] transition-all mt-2 text-sm uppercase tracking-wider disabled:opacity-70">
-                    {formStatus === 'loading' ? 'Submitting...' : 'Submit Inquiry'}
-                  </button>
-                </form>
+                </div>
+
+                <div className="pt-4 border-t border-[#2563eb]/15 flex flex-col sm:flex-row items-center gap-3">
+                  <Link
+                    href="/home-blood-collection-bangalore"
+                    className="w-full sm:w-auto flex-1 bg-[#2563eb] hover:bg-[#1d4ed8] text-white text-xs font-extrabold py-3.5 px-5 rounded-xl shadow-md text-center uppercase tracking-wider transition-all"
+                  >
+                    Book Home Collection
+                  </Link>
+                  <a
+                    href="tel:+919964639639"
+                    className="w-full sm:w-auto bg-white hover:bg-slate-50 text-[#0f2d5e] border border-gray-200 text-xs font-extrabold py-3.5 px-5 rounded-xl text-center uppercase tracking-wider transition-all flex items-center justify-center gap-1.5"
+                  >
+                    <span>Call: +91 9964 639 639</span>
+                  </a>
+                </div>
               </div>
 
               {/* Google Map Container (Mobile Optimized & Perfectly Aligned) */}
@@ -1929,11 +1954,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Reviews (What Our Patients Say), Blog, FAQ & Liquid Glass System ── */}
+        {/* ── Reviews (What Our Patients Say), Blog, FAQ ── */}
         <ReviewsSection />
         <BlogSlider />
         <FaqSection />
-        <LiquidGlassShowcase />
       </div>
 
 

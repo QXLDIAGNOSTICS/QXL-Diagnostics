@@ -13,7 +13,7 @@ export default function JointPainPage() {
       seoTitle: "Joint Pain: Causes, Tests & Warning Signs | QXL Diagnostics",
       metaDescription: "Joint pain may be caused by osteoarthritis, rheumatoid arthritis, gout, viral infections, dengue or chikungunya. Learn which tests may be appropriate.",
       h1: "Joint Pain: Why Do My Joints Hurt? Causes, Tests and Warning Signs",
-      primaryKeyword: "joint pain", lastReviewed: "2026-10-23",
+      primaryKeyword: "joint pain", lastReviewed: "2026-10-24",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Joint pain (arthralgia) is extremely common. It can affect one joint or many, be acute or chronic, and arise from infection, inflammation, degenerative disease, crystals, injury or autoimmune conditions. The pattern of joint involvement, timing and associated features provide important diagnostic clues.",

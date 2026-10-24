@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { UserCheck, ShieldCheck } from 'lucide-react';
+import { getAutoReviewDate } from '@/lib/dateUtils';
 
 interface Props {
   doctorName?: string;
@@ -13,8 +14,9 @@ export default function MedicalReviewerBadge({
   doctorName = "Dr. Shantakumar Muruda",
   doctorSlug = "dr-shantakumar-muruda",
   qualifications = "MD (Biochemistry)",
-  reviewDate = "October 23, 2026",
+  reviewDate,
 }: Props) {
+  const displayReviewDate = getAutoReviewDate(reviewDate);
   const profileHref = doctorSlug.startsWith("/") ? doctorSlug : `/${doctorSlug}`;
   return (
     <div className="inline-flex flex-wrap items-center gap-2 bg-emerald-950/40 border border-emerald-500/40 text-emerald-100 px-3.5 py-1.5 rounded-xl text-xs backdrop-blur-sm">
@@ -29,7 +31,7 @@ export default function MedicalReviewerBadge({
         </Link>
       </span>
       <span className="text-emerald-400/60 hidden sm:inline">•</span>
-      <span className="text-emerald-200/90 text-[11px]">Clinically Reviewed: {reviewDate}</span>
+      <span className="text-emerald-200/90 text-[11px]">Clinically Reviewed: {displayReviewDate}</span>
     </div>
   );
 }

@@ -22,6 +22,7 @@ export interface TestDirectoryItem {
   icon: string;
   popular?: boolean;
   aliases: string[];
+  homeCollectionAvailable?: boolean;
 }
 
 export const CATEGORIES = [
@@ -64,8 +65,50 @@ export const ALL_DIRECTORY_TESTS: TestDirectoryItem[] = MASTER_CATALOGUE.map((m)
   icon: m.icon,
   popular: m.popular,
   aliases: m.aliases,
+  homeCollectionAvailable: m.homeCollectionAvailable,
 }));
 
+function getCollectionBadge(test: TestDirectoryItem) {
+  const sampleLower = (test.sampleType || "").toLowerCase();
+  const idLower = (test.id || "").toLowerCase();
+  
+  const isProcedural =
+    (sampleLower.includes("csf") && !sampleLower.includes("serum")) ||
+    sampleLower.includes("bone marrow") ||
+    sampleLower.includes("biopsy") ||
+    sampleLower.includes("fnac") ||
+    idLower.includes("encephalitis") ||
+    idLower.includes("oligoclonal");
+
+  const isMixed =
+    (sampleLower.includes("csf") && sampleLower.includes("serum")) ||
+    (sampleLower.includes("bone marrow") && sampleLower.includes("blood")) ||
+    idLower.includes("aqp4") ||
+    idLower.includes("nmdar") ||
+    idLower.includes("paraneoplastic");
+
+  if (isProcedural) {
+    return (
+      <span className="text-[9.5px] font-extrabold text-rose-600 block">
+        Specialist Procedure Required
+      </span>
+    );
+  }
+
+  if (isMixed || test.homeCollectionAvailable === false) {
+    return (
+      <span className="text-[9.5px] font-extrabold text-amber-700 block">
+        Collection Varies by Specimen
+      </span>
+    );
+  }
+
+  return (
+    <span className="text-[9.5px] font-extrabold text-emerald-600 block">
+      Home Collection Available
+    </span>
+  );
+}
 
 import { addItemToCart } from "@/lib/cart";
 
@@ -320,7 +363,7 @@ export default function TestsPage() {
                       <span className="text-base font-black text-[#0f2d5e]">₹{test.price}</span>
                       <span className="text-[11px] text-slate-400 line-through font-semibold">₹{test.mrp}</span>
                     </div>
-                    <span className="text-[9.5px] font-extrabold text-emerald-600 block">Home Collection Included</span>
+                    {getCollectionBadge(test)}
                   </div>
 
                   <div className="flex items-center gap-2">

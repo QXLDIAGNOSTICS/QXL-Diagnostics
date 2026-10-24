@@ -12,7 +12,7 @@ export default function DizzinessPage() {
       url: "/health/dizziness-causes", seoTitle: "Dizziness & Vertigo: Causes & Warning Signs | QXL Diagnostics",
       metaDescription: "Learn common causes of dizziness including vertigo, dehydration, low blood pressure, anaemia, glucose problems and neurological warning signs.",
       h1: "Dizziness: Why Do I Feel Dizzy? Causes, Tests and Warning Signs",
-      primaryKeyword: "dizziness", lastReviewed: "2026-10-23",
+      primaryKeyword: "dizziness", lastReviewed: "2026-10-24",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Dizziness is a symptom, not a diagnosis. It may arise from an inner-ear balance disorder, dehydration, low blood pressure, anaemia, glucose abnormalities, medications, migraine, heart rhythm disturbances or neurological disease. The first useful question is not simply 'Why am I dizzy?' but rather 'What exactly do I mean by dizzy?'",

@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import { api, type BlogPost } from "../../lib/api";
 import { cmsStore } from "../../lib/cmsStore";
-import { defaultBlogs, getBlogCategory, getReadingTime } from "../../lib/blogsData";
+import { defaultBlogs, getBlogCategory, getReadingTime, getAutoBlogDate } from "../../lib/blogsData";
 
 const CATEGORIES = [
   "All",
@@ -65,25 +65,25 @@ export default function BlogPage() {
 
       const getTime = (item: any) => {
         if (item.id === "blog-new-26" || item.slug === "hashimotos-thyroid-antibodies-anti-tpo-tsh-fatigue-guide") {
-          return new Date("2026-10-23T12:00:00.000Z").getTime();
+          return new Date("2026-10-24T12:00:00.000Z").getTime();
         }
         if (item.id === "blog-new-25" || item.slug === "vitamin-d3-b12-deficiency-holotranscobalamin-optimal-levels-guide") {
-          return new Date("2026-10-23T11:00:00.000Z").getTime();
+          return new Date("2026-10-24T11:00:00.000Z").getTime();
         }
         if (item.id === "blog-new-24" || item.slug === "hba1c-fasting-insulin-homa-ir-prediabetes-guide-bengaluru") {
-          return new Date("2026-10-23T10:00:00.000Z").getTime();
+          return new Date("2026-10-24T10:00:00.000Z").getTime();
         }
         if (item.id === "blog-new-23" || item.slug === "arthritis-exercise-joint-pain-blood-tests-guide") {
-          return new Date("2026-10-23T09:00:00.000Z").getTime();
+          return new Date("2026-10-24T09:00:00.000Z").getTime();
         }
         if (item.id === "blog-new-22" || item.slug === "personalised-pregnancy-testing-bengaluru") {
-          return new Date("2026-10-23T08:00:00.000Z").getTime();
+          return new Date("2026-10-24T08:00:00.000Z").getTime();
         }
         if (item.id === "blog-new-21" || item.slug === "apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide") {
-          return new Date("2026-10-23T07:00:00.000Z").getTime();
+          return new Date("2026-10-24T07:00:00.000Z").getTime();
         }
         if (item.id === "blog-new-20" || item.slug === "your-liver-works-in-silence-simple-blood-test") {
-          return new Date("2026-10-23T06:00:00.000Z").getTime();
+          return new Date("2026-10-24T06:00:00.000Z").getTime();
         }
         const val = item.created_at || item.date;
         if (!val) return 0;
@@ -295,7 +295,7 @@ export default function BlogPage() {
                       </span>
                       <span className="flex items-center gap-1">
                         <Calendar className="w-3.5 h-3.5 text-blue-300" />
-                        {featuredBlog.date || "October 23, 2026"}
+                        {getAutoBlogDate(featuredBlog)}
                       </span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-3.5 h-3.5 text-blue-300" />
@@ -369,15 +369,7 @@ export default function BlogPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
             {gridBlogs.map((blog: any) => {
-              const displayDate = blog.date
-                ? blog.date
-                : blog.created_at
-                ? new Date(blog.created_at).toLocaleDateString("en-IN", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })
-                : "October 2026";
+              const displayDate = getAutoBlogDate(blog);
 
               const category = getBlogCategory(blog);
               const readTime = getReadingTime(blog.content);

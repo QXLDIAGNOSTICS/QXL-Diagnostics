@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { CheckCircle2, ArrowRight, Dna, Clock, ShieldCheck, FileText, Info, X, Search, Phone, MessageCircle, AlertCircle, UserCheck, Stethoscope } from 'lucide-react';
+import { CheckCircle2, ArrowRight, Dna, Clock, ShieldCheck, FileText, Info, X, Search, Phone, MessageCircle, AlertCircle, UserCheck, Stethoscope, Plus, Check } from 'lucide-react';
 import { CANONICAL_PACKAGES, type PackageItem } from '@/lib/packagesCatalogue';
 import { addItemToCart } from '@/lib/cart';
 
@@ -26,6 +26,7 @@ export const ALL_PACKAGES = CANONICAL_PACKAGES.map((pkg) => ({
 export default function PopularPackagesGrid() {
   const [selectedPkg, setSelectedPkg] = useState<PackageItem | null>(null);
   const [addedToast, setAddedToast] = useState<string | null>(null);
+  const [addedIds, setAddedIds] = useState<string[]>([]);
 
   // Search & Filter State
   const [searchQuery, setSearchQuery] = useState('');
@@ -92,9 +93,9 @@ export default function PopularPackagesGrid() {
       fasting: pkg.fastingHours || "8–10 Hours Fasting",
       tat: pkg.tat || "Reports within 6 hours",
     });
+    setAddedIds((prev) => [...prev, pkg.id]);
     setAddedToast(pkg.name);
     setTimeout(() => setAddedToast(null), 3500);
-    window.location.href = `/book?package=${encodeURIComponent(pkg.slug || pkg.id || pkg.name)}`;
   };
 
   const getGuidanceBadgeStyle = (level?: string) => {
@@ -268,70 +269,115 @@ export default function PopularPackagesGrid() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {standardPackages.map((pkg: PackageItem) => {
-                    const discountPercent = pkg.price && pkg.mrp ? Math.round(((pkg.mrp - pkg.price) / pkg.mrp) * 100) : 0;
-                    const tagLabel = pkg.name.toLowerCase().includes('quick') ? 'QUICK' : (pkg.tag || 'PREVENTIVE');
+                    const oldPrice = Number(pkg.mrp || 4696);
+                    const currentPrice = Number(pkg.price || 1770);
+                    const discountPercent = oldPrice > currentPrice ? Math.round(((oldPrice - currentPrice) / oldPrice) * 100) : 0;
+                    const paramCount =
+                      pkg.parametersCount ||
+                      (typeof pkg.parametersLabel === 'string' && parseInt(pkg.parametersLabel) > 0 ? parseInt(pkg.parametersLabel) : null) ||
+                      ((pkg.name || '').toLowerCase().includes('quick') ? 80 :
+                       (pkg.name || '').toLowerCase().includes('diabetes') ? 62 :
+                       (pkg.name || '').toLowerCase().includes('master') ? 92 :
+                       (pkg.name || '').toLowerCase().includes('senior') ? 92 :
+                       (pkg.name || '').toLowerCase().includes('essential') ? 90 :
+                       (pkg.name || '').toLowerCase().includes('complete') ? 115 :
+                       (pkg.name || '').toLowerCase().includes('ultra') ? 131 : 80);
+                    const tatDisplay = pkg.tat
+                      ? String(pkg.tat).replace(/Reports (within|in) /i, '')
+                      : ((pkg.name || '').toLowerCase().includes('ultra') ? '12 hours' : '6 hours');
+                    const isAdded = addedIds.includes(pkg.id);
+
                     return (
                       <div
                         key={pkg.id}
-                        className="bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-xl rounded-3xl overflow-hidden shadow-xs transition-all duration-300 flex flex-col justify-between h-full group text-left"
+                        onClick={() => setSelectedPkg(pkg)}
+                        className="bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-xl rounded-[26px] p-5 transition-all duration-300 flex flex-col justify-between text-left group cursor-pointer h-full"
                       >
-                        {/* Top Header matching screenshot */}
-                        <div className="bg-gradient-to-b from-[#eaf3fe] via-[#f4f8fe] to-white p-4 pb-3 border-b border-blue-100/50 flex items-center justify-between gap-2">
-                          <span className="bg-[#2563eb] text-white font-extrabold text-[11px] px-3.5 py-1 rounded-full uppercase tracking-wider shadow-xs">
-                            {tagLabel}
-                          </span>
-                          {discountPercent > 0 && (
-                            <span className="bg-[#f0fdf4] text-emerald-700 border border-emerald-200 font-extrabold text-[11px] px-3 py-0.5 rounded-full shadow-2xs">
-                              {discountPercent}% OFF
-                            </span>
-                          )}
-                        </div>
-
-                        <div className="p-5 flex flex-col justify-between flex-1 gap-3.5 bg-white">
-                          <h3 className="font-black text-slate-900 text-lg leading-tight group-hover:text-[#2563eb] transition-colors">
+                        <div>
+                          {/* Card Title */}
+                          <h3
+                            className="font-extrabold text-slate-900 text-lg leading-snug group-hover:text-[#2563eb] transition-colors"
+                            title={pkg.name}
+                          >
                             {pkg.name}
                           </h3>
 
-                          {/* Blue Parameter / Inclusions Box matching screenshot */}
-                          <div className="bg-[#eaf2ff] text-[#2563eb] border border-blue-100/60 p-3.5 rounded-2xl text-xs font-bold leading-relaxed line-clamp-2">
-                            {pkg.includes}
-                          </div>
+                          {/* Two Metadata Columns: Includes Parameters & Reports In */}
+                          <div className="grid grid-cols-2 gap-3 items-center my-4">
+                            {/* Includes */}
+                            <div className="flex items-center gap-2">
+                              <Dna className="w-5 h-5 text-[#9A8068] shrink-0" />
+                              <div className="flex flex-col">
+                                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider leading-none">
+                                  INCLUDES
+                                </span>
+                                <span className="text-sm font-extrabold text-slate-900 leading-tight mt-1">
+                                  {paramCount} Parameters
+                                </span>
+                              </div>
+                            </div>
 
-                          {/* Home collection line matching screenshot */}
-                          <div className="flex items-center gap-1.5 text-slate-600 font-semibold text-xs">
-                            <span>🏠</span>
-                            <span>Free Home Collection Available</span>
+                            {/* Reports In */}
+                            <div className="flex items-center gap-2">
+                              <FileText className="w-5 h-5 text-[#9A8068] shrink-0" />
+                              <div className="flex flex-col">
+                                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider leading-none">
+                                  REPORTS IN
+                                </span>
+                                <span className="text-sm font-extrabold text-slate-900 leading-tight mt-1">
+                                  {tatDisplay}
+                                </span>
+                              </div>
+                            </div>
                           </div>
+                        </div>
 
-                          {/* Pricing & Actions */}
-                          <div className="pt-3 mt-auto border-t border-slate-100 space-y-3">
-                            <div className="flex items-baseline gap-2.5">
-                              <span className="text-2xl sm:text-3xl font-black text-[#0B2545]">₹{pkg.price}</span>
-                              {pkg.mrp && pkg.price && pkg.mrp > pkg.price && (
-                                <span className="text-sm text-slate-400 line-through font-bold">₹{pkg.mrp}</span>
+                        {/* Price Container (Horizontal Left to Right matching Image 1) */}
+                        <div className="bg-[#f4f7f9] rounded-2xl p-3.5 sm:px-4 flex items-center justify-between gap-3 border border-slate-200/60 mt-auto">
+                          {/* Left: Price & Strikethrough Discount */}
+                          <div className="flex flex-col justify-center">
+                            <div className="flex items-center gap-1.5">
+                              {oldPrice > currentPrice && (
+                                <span className="text-xs text-slate-400 font-semibold line-through">
+                                  ₹{oldPrice.toLocaleString('en-IN')}
+                                </span>
                               )}
                               {discountPercent > 0 && (
-                                <span className="text-sm font-black text-emerald-600">{discountPercent}% OFF</span>
+                                <span className="text-[11px] font-extrabold text-[#0d9488] bg-[#dcfce7] border border-[#bbf7d0] px-2 py-0.5 rounded-full">
+                                  {discountPercent}% Off
+                                </span>
                               )}
                             </div>
-
-                            <div className="grid grid-cols-2 gap-2.5 pt-1">
-                              <button
-                                type="button"
-                                onClick={() => setSelectedPkg(pkg)}
-                                className="w-full py-2.5 rounded-full text-xs font-black uppercase tracking-wider text-slate-800 bg-white border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all text-center cursor-pointer shadow-2xs"
-                              >
-                                DETAILS
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() => handleAddToCart(pkg)}
-                                className="w-full py-2.5 rounded-full text-xs font-black uppercase tracking-wider text-white bg-[#2563eb] hover:bg-[#1d4ed8] shadow-md hover:shadow-lg active:scale-95 transition-all text-center flex items-center justify-center gap-1 cursor-pointer"
-                              >
-                                BOOK NOW
-                              </button>
+                            <div className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-none mt-1">
+                              ₹{currentPrice.toLocaleString('en-IN')}
                             </div>
                           </div>
+
+                          {/* Right: + Add Button */}
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleAddToCart(pkg);
+                            }}
+                            className={
+                              isAdded
+                                ? "bg-emerald-600 border-2 border-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 rounded-full flex items-center gap-1.5 transition-all shadow-xs shrink-0 cursor-pointer"
+                                : "bg-white border-2 border-[#f97316] hover:bg-[#fff7ed] active:scale-95 text-[#f97316] font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 rounded-full flex items-center gap-1.5 transition-all shadow-2xs shrink-0 cursor-pointer"
+                            }
+                          >
+                            {isAdded ? (
+                              <>
+                                <Check className="w-3.5 h-3.5 stroke-[2.5]" />
+                                <span>Added</span>
+                              </>
+                            ) : (
+                              <>
+                                <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
+                                <span>Add</span>
+                              </>
+                            )}
+                          </button>
                         </div>
                       </div>
                     );

@@ -79,8 +79,11 @@ export default function LocationsIndexPage() {
                   <h3 className="font-bold text-[#0f2d5e] text-sm group-hover:text-[#2563eb] transition-colors mb-1">
                     {area.name}
                   </h3>
-                  <p className="text-[#0284c7] text-[11px] font-semibold mb-2">
-                    Nearest: {area.nearestLab}
+                  <p className="text-emerald-700 text-[11px] font-bold mb-0.5">
+                    Home collection available in {area.name}
+                  </p>
+                  <p className="text-slate-500 text-[10px] font-medium leading-tight mb-2">
+                    Samples are routed to the appropriate QXL NABL laboratory facility by test and specimen requirement.
                   </p>
                   <div className="flex flex-wrap gap-1 mb-2">
                     {area.pincodes.slice(0, 3).map((pin) => (

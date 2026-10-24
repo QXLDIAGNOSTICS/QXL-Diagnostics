@@ -21,6 +21,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { SITE_URL, PHONE_DISPLAY, PHONE_E164, EMAIL, NABL_CERTIFICATE, ISO_STANDARD } from "@/lib/businessInfo";
+import HospitalQualificationForm from "@/components/HospitalQualificationForm";
 
 export const metadata: Metadata = {
   title: "Hospital Laboratory Management (HLM) for Hospitals in India | QXL Diagnostics",
@@ -882,6 +883,13 @@ export default function HospitalLabManagementPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── B2B HOSPITAL QUALIFICATION FORM (QXL-065) ── */}
+      <section className="py-16 bg-[#F8FAFD] border-t border-slate-200">
+        <div className="max-w-[1100px] mx-auto px-4">
+          <HospitalQualificationForm />
         </div>
       </section>
 

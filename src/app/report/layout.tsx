@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Download Diagnostic Reports | QXL Diagnostics",
+  title: "My Diagnostic Reports | QXL Diagnostics",
+  description: "Secure authenticated patient report retrieval portal.",
   robots: {
     index: false,
-    follow: true,
+    follow: false,
   },
 };
 
 export default function ReportLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return <>{children}</>;
 }

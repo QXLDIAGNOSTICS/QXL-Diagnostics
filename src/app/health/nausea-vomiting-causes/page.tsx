@@ -13,7 +13,7 @@ export default function NauseaVomitingPage() {
       seoTitle: "Nausea & Vomiting: Causes & Warning Signs | QXL Diagnostics",
       metaDescription: "Nausea and vomiting may be caused by infection, food poisoning, pregnancy, migraine, medicines, gallbladder disease, pancreatitis or metabolic disorders.",
       h1: "Nausea & Vomiting: Why Do I Feel Sick or Keep Vomiting?",
-      primaryKeyword: "nausea and vomiting", lastReviewed: "2026-10-23",
+      primaryKeyword: "nausea and vomiting", lastReviewed: "2026-10-24",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Nausea and vomiting are symptoms that can arise from many different causes — from the very common (viral gastroenteritis, food poisoning, pregnancy) to the serious (pancreatitis, bowel obstruction, metabolic emergencies). Duration, severity, associated symptoms and context are all important.",

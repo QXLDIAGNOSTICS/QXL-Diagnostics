@@ -17,7 +17,7 @@ export default function FatiguePage() {
         metaDescription: "Persistent tiredness can be linked to sleep, anaemia, iron deficiency, thyroid disease, diabetes and other conditions. Learn causes, tests and warning signs.",
         h1: "Fatigue & Tiredness: Why Am I Always Tired?",
         primaryKeyword: "fatigue",
-        lastReviewed: "2026-10-23",
+        lastReviewed: "2026-10-24",
         reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
         parentHub: "/health/symptoms-causes",
         intro: "Fatigue is deceptively simple. Sometimes the explanation is obvious: poor sleep, overwork, skipped meals, dehydration or a recent infection. Sometimes the first clue is a haemoglobin of 8 g/dL, an abnormal TSH, uncontrolled diabetes or severe Vitamin B12 deficiency. Fatigue is a symptom, not a diagnosis.",

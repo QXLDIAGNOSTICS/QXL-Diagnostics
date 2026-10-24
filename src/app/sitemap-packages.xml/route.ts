@@ -5,7 +5,6 @@ const BASE_URL = 'https://qxldiagnostics.com';
 const PACKAGE_PAGES = [
   '/packages',
   '/full-body-checkup-bangalore',
-  '/full-body-checkup',
   '/executive-health-checkup',
   '/annual-health-checkup',
   '/comprehensive-health-checkup',

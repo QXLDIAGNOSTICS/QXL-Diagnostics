@@ -98,6 +98,8 @@ const defaultPackages = CANONICAL_PACKAGES.map((pkg) => ({
   save_amount: pkg.price && pkg.mrp ? String(pkg.mrp - pkg.price) : "",
   includes: pkg.includes,
   parameters: pkg.parametersLabel,
+  parametersCount: pkg.parametersCount,
+  tat: pkg.tat,
   tag: pkg.tag || "PREVENTIVE",
   benefits: pkg.highlights,
   who_should_take: pkg.mayHelpWhen || "Consult with doctor or reception before booking.",

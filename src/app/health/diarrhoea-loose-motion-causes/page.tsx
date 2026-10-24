@@ -13,7 +13,7 @@ export default function DiarrhoeaPage() {
       seoTitle: "Diarrhoea & Loose Motions: Causes & Warning Signs | QXL Diagnostics",
       metaDescription: "Diarrhoea and loose motions may be caused by viral or bacterial infection, food poisoning, IBS, IBD, lactose intolerance or medications. Learn warning signs.",
       h1: "Diarrhoea: Why Do I Have Loose Motions? Causes, Tests and Warning Signs",
-      primaryKeyword: "diarrhoea", lastReviewed: "2026-10-23",
+      primaryKeyword: "diarrhoea", lastReviewed: "2026-10-24",
       reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
       parentHub: "/health/symptoms-causes",
       intro: "Diarrhoea — loose or watery stools occurring more than three times per day — is very common and most often self-limiting. However, persistent, severe or bloody diarrhoea with dehydration or fever requires medical evaluation.",

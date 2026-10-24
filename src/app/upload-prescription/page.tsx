@@ -29,10 +29,35 @@ export default function UploadPrescriptionPage() {
     if (file) processFile(file);
   };
 
+  const ALLOWED_MIME_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'];
+  const ALLOWED_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.pdf'];
+  const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10MB
+
   const processFile = (file: File) => {
-    setUploadedFile(file);
-    setPrescription(null);
     setError(null);
+    setPrescription(null);
+
+    // Validate file size
+    if (file.size > MAX_FILE_SIZE_BYTES) {
+      setError(`File size exceeds the 10MB limit (selected: ${(file.size / (1024 * 1024)).toFixed(1)}MB). Please upload a smaller image or compressed PDF.`);
+      setUploadedFile(null);
+      setUploadedImage(null);
+      return;
+    }
+
+    // Validate MIME type & extension
+    const ext = '.' + (file.name.split('.').pop() || '').toLowerCase();
+    const isAllowedExt = ALLOWED_EXTENSIONS.includes(ext);
+    const isAllowedMime = ALLOWED_MIME_TYPES.includes(file.type) || (file.type === '' && isAllowedExt);
+
+    if (!isAllowedMime || !isAllowedExt) {
+      setError('Invalid file format. Please upload a clear photo (.jpg, .png, .webp) or PDF (.pdf) of your medical prescription.');
+      setUploadedFile(null);
+      setUploadedImage(null);
+      return;
+    }
+
+    setUploadedFile(file);
     if (file.type.startsWith('image/')) {
       const reader = new FileReader();
       reader.onload = (ev) => setUploadedImage(ev.target?.result as string);

@@ -153,8 +153,8 @@ export default function FoodSensitivityTestPage() {
         description:
           "Complete information on 287 food-specific IgG blood testing, panel coverage, fasting requirements, transparent pricing, and home sample collection in Bengaluru.",
         inLanguage: "en-IN",
-        lastReviewed: "2026-10-23",
-        dateModified: "2026-10-23",
+        lastReviewed: "2026-10-24",
+        dateModified: "2026-10-24",
         reviewedBy: {
           "@type": "Person",
           "@id": `${SITE_URL}/#founder`,

@@ -34,6 +34,7 @@ import {
 } from "lucide-react";
 import type { IconName, SeoLandingData } from "@/lib/seoPages/types";
 import { SITE_URL, WHATSAPP_LINK } from "@/lib/businessInfo";
+import { getAutoReviewDate } from "@/lib/dateUtils";
 
 const ICONS: Record<IconName, React.ComponentType<{ className?: string }>> = {
   award: Award,
@@ -105,7 +106,7 @@ function buildJsonLd(data: SeoLandingData) {
       breadcrumb: { "@id": `${url}#breadcrumb` },
       provider: { "@id": `${SITE_URL}/#organization` },
       reviewedBy: reviewerNode,
-      lastReviewed: data.lastReviewedDate || "2026-10-23",
+      lastReviewed: getAutoReviewDate(data.lastReviewedDate, "iso"),
       areaServed: { "@type": "City", name: "Bengaluru" },
       inLanguage: "en-IN",
     },
@@ -268,7 +269,7 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
                   </Link>
                   {data.reviewerQuals && <span className="text-slate-500">({data.reviewerQuals})</span>}
                   <span className="text-slate-300">•</span>
-                  <span className="text-slate-500">Last Reviewed: {data.lastReviewedDate || "October 23, 2026"}</span>
+                  <span className="text-slate-500">Last Reviewed: {getAutoReviewDate(data.lastReviewedDate, "display")}</span>
                 </div>
               )}
             </div>

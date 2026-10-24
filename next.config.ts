@@ -5,15 +5,19 @@ const isDev = process.env.NODE_ENV !== "production";
 const backendUrl =
   process.env.BACKEND_INTERNAL_URL ||
   process.env.NEXT_PUBLIC_API_BASE_URL ||
-  (isDev ? "http://localhost:8000" : "https://qxl-diagnostics-production.up.railway.app");
+  (process.env.USE_LOCAL_BACKEND === "true"
+    ? "http://localhost:8000"
+    : "https://qxl-diagnostics-production.up.railway.app");
 
 const nextConfig: NextConfig = {
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
   reactStrictMode: true,
   productionBrowserSourceMaps: false,
   experimental: {
     optimizePackageImports: [
       "lucide-react",
-      "framer-motion",
       "recharts",
       "clsx",
       "tailwind-merge",
@@ -269,6 +273,8 @@ const nextConfig: NextConfig = {
       { source: "/complete-blood-count/", destination: "/cbc-test-bangalore", permanent: true },
       { source: "/hba1c-test", destination: "/hba1c-test-bangalore", permanent: true },
       { source: "/hba1c-test/", destination: "/hba1c-test-bangalore", permanent: true },
+      { source: "/hospital-services", destination: "/hospital-laboratory-management", permanent: true },
+      { source: "/hospital-services/", destination: "/hospital-laboratory-management", permanent: true },
 
       // ── Short Test Slugs → Canonical Test Landing Pages ──────────────────────
       { source: "/tests/cbc", destination: "/cbc-test-bangalore", permanent: true },
@@ -337,13 +343,20 @@ const nextConfig: NextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(self), geolocation=(self)" },
+          { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
           { key: "X-XSS-Protection", value: "1; mode=block" },
         ],
       },
       {
-        source: "/_next/static/:path*",
+        source: "/(my-reports|my-bookings|profile|checkout|payment)/:path*",
         headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
+        ],
+      },
+      {
+        source: "/(my-reports|my-bookings|profile|checkout|payment)",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive" },
         ],
       },
       {

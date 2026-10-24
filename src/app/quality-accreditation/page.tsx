@@ -2,10 +2,8 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { 
-  ShieldCheck, 
   Award, 
   CheckCircle2, 
-  FileCheck, 
   Thermometer, 
   BarChart3, 
   Lock, 
@@ -15,15 +13,10 @@ import {
   ChevronRight, 
   Microscope, 
   Cpu, 
-  UserCheck, 
-  AlertTriangle,
-  Download,
-  Building2
+  UserCheck
 } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import FaqSection from '@/components/FaqSection';
-import { SITE_URL, NABL_CERTIFICATE, ISO_STANDARD, PHONE_DISPLAY, PHONE_E164, EMAIL } from '@/lib/businessInfo';
+import { SITE_URL, NABL_CERTIFICATE, PHONE_DISPLAY, PHONE_E164, EMAIL } from '@/lib/businessInfo';
 import { ACCREDITATION_DETAILS, ACCREDITATION_SCOPE } from '@/config/accreditation';
 
 export const metadata: Metadata = {

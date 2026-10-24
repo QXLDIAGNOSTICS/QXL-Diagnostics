@@ -468,7 +468,7 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
     {
       icon: <Microscope className="w-5 h-5 text-[#2563EB]" />,
       title: "Doctor-Led Interpretation",
-      desc: "Every laboratory report is evaluated and signed off by senior consultant pathologists."
+      desc: "Laboratory results are reviewed and authorised by appropriately qualified laboratory specialists according to test discipline and signatory requirements."
     }
 
   ];
@@ -616,7 +616,7 @@ export default function AiDiagnostics({ decorativeHeading = false }: { decorativ
               AI-Assisted Laboratory Workflows
             </Heading>
             <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
-              At QXL Diagnostics, smart internal quality control algorithms, automated delta checks, and intelligent symptom guidance support our laboratory processes — while every single report is verified and signed off by consultant pathologists.
+              At QXL Diagnostics, smart internal quality control algorithms, automated delta checks, and intelligent symptom guidance support our laboratory processes — while laboratory reports are reviewed and authorised by qualified medical specialists across biochemistry, pathology, and microbiology.
             </p>
             <div className="grid grid-cols-2 gap-2.5 sm:gap-3.5 pt-2">
               {features.map((feature, idx) => (

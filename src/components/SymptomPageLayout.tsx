@@ -12,6 +12,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { SITE_URL, PHONE_DISPLAY, PHONE_E164, WHATSAPP_LINK } from "@/lib/businessInfo";
+import { getAutoReviewDate } from "@/lib/dateUtils";
 
 export interface SymptomSection {
   heading: string;
@@ -73,7 +74,7 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
         medicalSpecialty: "Medical Biochemistry & Pathology",
         worksFor: { "@id": `${SITE_URL}/#organization` },
       },
-      lastReviewed: data.lastReviewed,
+      lastReviewed: getAutoReviewDate(data.lastReviewed, "iso"),
       areaServed: { "@type": "City", name: "Bengaluru" },
       inLanguage: "en-IN",
     },
@@ -141,7 +142,7 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
             </div>
             <div className="flex items-center gap-2 text-xs text-slate-100 font-bold">
               <BookOpen className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Last reviewed: {data.lastReviewed}</span>
+              <span>Last reviewed: {getAutoReviewDate(data.lastReviewed, "display")}</span>
             </div>
           </div>
         </div>
@@ -288,7 +289,7 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
                 <strong>Medically reviewed by:</strong> {data.reviewedBy}
               </p>
               <p className="text-xs text-slate-600 font-semibold mt-1">
-                <strong>Last medically reviewed:</strong> {data.lastReviewed}
+                <strong>Last medically reviewed:</strong> {getAutoReviewDate(data.lastReviewed, "display")}
               </p>
               <p className="text-xs text-slate-600 font-semibold mt-1">
                 <strong>Clinical reference framework:</strong> Harrison&apos;s Principles of Internal Medicine; Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics; and relevant specialty guidance as clinically appropriate.

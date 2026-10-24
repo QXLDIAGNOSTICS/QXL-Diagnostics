@@ -17,7 +17,7 @@ export default function HeadachePage() {
         metaDescription: "Learn common headache causes including migraine, tension headache, dehydration and illness, plus warning signs and when selected tests may be useful.",
         h1: "Headache Causes: Why Do I Have a Headache?",
         primaryKeyword: "headache",
-        lastReviewed: "2026-10-23",
+        lastReviewed: "2026-10-24",
         reviewedBy: "Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru",
         parentHub: "/health/symptoms-causes",
         intro: "Headache is extremely common. Most headaches are not caused by a serious disease. However, a headache that is sudden, unusually severe, new, persistent or associated with other warning symptoms should be medically evaluated.",

@@ -404,7 +404,7 @@ export default function SymptomsCausesHubPage() {
             <strong>Medically reviewed by:</strong> Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder &amp; CEO, QXL Diagnostics Super Speciality Lab, Bengaluru
           </p>
           <p className="text-xs text-slate-600 font-semibold mt-2">
-            <strong>Last medically reviewed:</strong> 2026-10-23
+            <strong>Last medically reviewed:</strong> 2026-10-24
           </p>
           <p className="text-xs text-slate-500 font-semibold mt-3 leading-relaxed">
             <strong>Medical Disclaimer:</strong> This information is intended for general health education and does not replace consultation, diagnosis or treatment by a qualified healthcare professional. Seek urgent medical attention for severe, sudden or rapidly worsening symptoms or any emergency warning signs described on the individual symptom pages.

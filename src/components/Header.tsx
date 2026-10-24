@@ -366,30 +366,36 @@ export default function Header() {
               )}
               {/* Language Switcher */}
               <LanguageSwitcher />
-              {/* Cart — spatial glass orb */}
-              {/* Cart — liquid glass orb */}
-              <Link
-                href="/book"
-                className="liquid-glass-icon-btn !w-9 !h-9 hidden xl:flex relative shadow-md"
-                title="Cart / Booked Tests"
-              >
-                <ShoppingCart className="w-4 h-4 text-white" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-1 -right-1 rounded-full text-[9px] w-4 h-4 flex items-center justify-center font-bold text-white bg-red-500 shadow-md">
-                    {cartCount}
+              {/* Cart Orb + Book a Test CTA Group — Perfectly Aligned */}
+              <div className="hidden xl:flex items-center gap-3 shrink-0">
+                {/* Cart — liquid glass orb with unclipped badge */}
+                <div className="relative inline-flex items-center justify-center shrink-0">
+                  <Link
+                    href="/book"
+                    className="liquid-glass-icon-btn !w-10 !h-10 flex items-center justify-center shadow-md shrink-0 cursor-pointer"
+                    title="Cart / Booked Tests"
+                    aria-label="View Cart"
+                  >
+                    <ShoppingCart className="w-4.5 h-4.5 text-white" />
+                  </Link>
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1 -right-1 z-20 rounded-full text-[10px] min-w-[18px] h-[18px] px-1 flex items-center justify-center font-black text-white bg-red-500 border-2 border-white shadow-md pointer-events-none">
+                      {cartCount}
+                    </span>
+                  )}
+                </div>
+
+                {/* Book a Test — liquid glass button */}
+                <Link
+                  href="/book"
+                  className="liquid-glass-btn-primary !h-10 !px-5 !py-0 !text-[11.5px] !tracking-wider whitespace-nowrap shadow-md flex items-center justify-center shrink-0 cursor-pointer"
+                >
+                  <span className="!text-white font-black flex items-center gap-1.5 leading-none">
+                    <span>BOOK A TEST</span>
+                    <span className="text-xs font-black">→</span>
                   </span>
-                )}
-              </Link>
-              {/* Book a Test — liquid glass button */}
-              <Link
-                href="/book"
-                className="liquid-glass-btn-primary hidden xl:inline-flex !px-6 !py-2.5 !text-[11px] !tracking-wider whitespace-nowrap shadow-md"
-              >
-                <span className="!text-white font-black flex items-center gap-1.5">
-                  <span>BOOK A TEST</span>
-                  <span>→</span>
-                </span>
-              </Link>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

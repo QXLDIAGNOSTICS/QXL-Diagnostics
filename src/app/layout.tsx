@@ -4,9 +4,11 @@ import "./globals.css";
 import { Suspense } from "react";
 import InitializeApp from "@/components/InitializeApp";
 import ChatGPTTracker from "@/components/ChatGPTTracker";
+import WebVitalsReporter from "@/components/WebVitalsReporter";
 import AiChat from "@/components/AiChat";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { getCurrentDateIso } from "@/lib/dateUtils";
 
 const geistSans = { variable: "font-sans" };
 const geistMono = { variable: "font-mono" };
@@ -154,7 +156,7 @@ const localBusinessSchema = {
   priceRange: "₹₹",
   currenciesAccepted: "INR",
   paymentAccepted: "Cash, UPI, Credit Card, Debit Card, Razorpay",
-  dateModified: "2026-10-23",
+  dateModified: getCurrentDateIso(),
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "4.8",
@@ -677,6 +679,7 @@ export default function RootLayout({
           aria-hidden="true"
         />
         <InitializeApp />
+        <WebVitalsReporter />
         <Suspense fallback={null}>
           <ChatGPTTracker />
         </Suspense>

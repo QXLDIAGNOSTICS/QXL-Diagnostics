@@ -16,6 +16,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { defaultBlogs, getDefaultBlogBySlug, getBlogCategory, getReadingTime } from "@/lib/blogsData";
+import { getAutoBlogDate, getCurrentDateTimeIso } from "@/lib/dateUtils";
 import { extractHeadings, slugifyHeading, getNodeText } from "@/lib/blogUtils";
 import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
 import TableOfContents from "@/components/blog/TableOfContents";
@@ -126,15 +127,7 @@ export default async function SingleBlogPage({ params }: Props) {
   const category = getBlogCategory(blog);
   const readTime = getReadingTime(blog.content);
 
-  const displayDate = (blog as any).date
-    ? (blog as any).date
-    : (blog as any).created_at && !isNaN(new Date((blog as any).created_at).getTime())
-    ? new Date((blog as any).created_at).toLocaleDateString("en-IN", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    : "October 23, 2026";
+  const displayDate = getAutoBlogDate(blog);
 
   const reviewer = (blog as any).reviewer || "Dr. Shantakumar Muruda, MD (Biochemistry)";
 
@@ -196,8 +189,8 @@ export default async function SingleBlogPage({ params }: Props) {
             url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150212/Assets-QXL/legacy-assets/image/qxl_logo.png",
           },
         },
-        datePublished: (blog as any).created_at || "2026-10-23T12:00:00+05:30",
-        dateModified: (blog as any).created_at || "2026-10-23T12:00:00+05:30",
+        datePublished: (blog as any).created_at || (blog as any).datePublished || getCurrentDateTimeIso(0, 10, 0),
+        dateModified: (blog as any).updated_at || (blog as any).dateModified || getCurrentDateTimeIso(0, 12, 0),
       },
       {
         "@type": "BreadcrumbList",

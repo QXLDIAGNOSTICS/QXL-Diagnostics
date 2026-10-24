@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BookOpen, User, Calendar, ShieldCheck, ArrowRight, Activity, Stethoscope, HeartPulse, Dna, Microscope } from 'lucide-react';
 import { SITE_URL, NABL_CERTIFICATE } from '@/lib/businessInfo';
+import { getAutoReviewDate } from '@/lib/dateUtils';
 
 export const metadata: Metadata = {
   title: "QXL Knowledge Centre | Doctor-Reviewed Laboratory Medicine",
@@ -36,8 +37,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Shantakumar Muruda",
     quals: "MD Biochemistry, NABL Lead Assessor",
     reviewerSlug: "dr-shantakumar-muruda",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "How clinicians evaluate osteoarthritis, rheumatoid arthritis, and gout; safe exercise guidelines; and the role of RF, Anti-CCP, ESR, CRP, and uric acid testing.",
     references: ["EULAR Recommendations for Physical Activity in Arthritis 2026", "ACR Guidelines for Rheumatoid Arthritis"]
   },
@@ -48,8 +49,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Naveen Kumar N",
     quals: "DCP, DNB Pathology",
     reviewerSlug: "dr-naveen-kumar-n",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "How consultant haematopathologists evaluate red cell indices (MCV, MCH, MCHC, RDW), differential white counts, and platelet trends to differentiate iron deficiency from thalassemia trait.",
     references: ["Dacie and Lewis Practical Haematology (13th Ed)", "ICMR Guidelines for Anaemia Management 2024"]
   },
@@ -60,8 +61,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Shantakumar Muruda",
     quals: "MD Biochemistry, NABL Lead Assessor",
     reviewerSlug: "dr-shantakumar-muruda",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "Why ion-exchange HPLC is the gold standard for HbA1c testing, how estimated Average Glucose (eAG) is derived, and addressing interference from South Indian hemoglobin variants.",
     references: ["ADA Standards of Medical Care in Diabetes 2026", "WHO HbA1c Diagnostic Criteria"]
   },
@@ -72,8 +73,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Naveen Kumar N",
     quals: "DCP, DNB Pathology",
     reviewerSlug: "dr-naveen-kumar-n",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "A practical clinical guide for rheumatologists and physicians on interpreting nuclear staining patterns (homogeneous, speckled, nucleolar, centromere) on HEp-2 substrate.",
     references: ["International Consensus on ANA Patterns (ICAP) 2025", "EULAR/ACR Classification Criteria"]
   },
@@ -84,8 +85,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Shantakumar Muruda",
     quals: "MD Biochemistry, NABL Lead Assessor",
     reviewerSlug: "dr-shantakumar-muruda",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "Evaluating TSH elevations above 4.5 mIU/L, the role of Anti-TPO autoantibodies in predicting progression to overt disease, and pregnancy trimester-specific TSH targets.",
     references: ["American Thyroid Association (ATA) Guidelines", "Endocrine Society Clinical Practice Guideline"]
   },
@@ -96,8 +97,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Pritilata Rout",
     quals: "MD Pathology (NIMHANS)",
     reviewerSlug: "dr-pritilata-rout",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "From formalin fixation to paraffin embedding, immunohistochemistry (IHC), and frozen sections — how surgical tissue samples are processed at QXL Diagnostics.",
     references: ["College of American Pathologists (CAP) Accreditation Protocols", "NIMHANS Neuropathology Manual"]
   },
@@ -108,8 +109,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Ajitha Pillai",
     quals: "MD Microbiology",
     reviewerSlug: "dr-ajitha-pillai",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "Understanding the diagnostic window of NS1 antigen (days 1–5) versus IgM/IgG antibodies, and establishing daily platelet monitoring protocols in Bengaluru monsoon fever cases.",
     references: ["NVBDCP Dengue Management Guidelines", "WHO Dengue Guidelines for Diagnosis 2025"]
   },
@@ -120,8 +121,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Naveen Kumar N",
     quals: "DCP, DNB Pathology",
     reviewerSlug: "dr-naveen-kumar-n",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "Evaluating low-titer (1:40/1:80) versus high-titer (≥1:160) ANA patterns, physiological positive ANAs in healthy adults, and when to order extended ENA 12-antigen antibody blots.",
     references: ["ACR Guidelines for Autoimmune Disease Screening 2025", "ICAP Pattern Classification"]
   },
@@ -132,8 +133,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Pritilata Rout",
     quals: "MD Pathology (NIMHANS)",
     reviewerSlug: "dr-pritilata-rout",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "How densitometric agarose gel electrophoresis quantifies albumin and globulin fractions, identifying monoclonal M-bands, and reflex immunofixation for Multiple Myeloma and MGUS.",
     references: ["International Myeloma Working Group (IMWG) Criteria 2025", "CAP Electrophoresis Manual"]
   },
@@ -144,8 +145,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Shantakumar Muruda",
     quals: "MD Biochemistry, NABL Lead Assessor",
     reviewerSlug: "dr-shantakumar-muruda",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "Ferritin as an acute-phase reactant vs iron overload indicator — differentiating non-alcoholic fatty liver disease (NAFLD), metabolic syndrome, and inflammatory states from hereditary hemochromatosis.",
     references: ["EASL Clinical Practice Guidelines on Hemochromatosis", "TIF Guidelines for Iron Assessment"]
   },
@@ -156,8 +157,8 @@ const FEATURED_ARTICLES = [
     reviewer: "Dr. Shantakumar Muruda",
     quals: "MD Biochemistry, NABL Lead Assessor",
     reviewerSlug: "dr-shantakumar-muruda",
-    published: "October 23, 2026",
-    lastReviewed: "October 23, 2026",
+    published: "October 24, 2026",
+    lastReviewed: "October 24, 2026",
     summary: "Why measuring ApoB counts the actual number of circulating plaque-causing particles (LDL, VLDL, IDL) directly, providing superior cardiac risk assessment in patients with diabetes, metabolic syndrome, or discordance.",
     references: ["ESC/EAS Guidelines for Dyslipidaemia Management 2025", "ACC Expert Consensus Decision Pathway"]
   }
@@ -269,7 +270,7 @@ export default function KnowledgeCentrePage() {
                   </div>
 
                   <div className="flex items-center justify-between text-[10px] font-bold text-slate-400 px-1">
-                    <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-sky-500" /> Reviewed: {art.lastReviewed}</span>
+                    <span className="flex items-center gap-1"><Calendar className="w-3 h-3 text-sky-500" /> Reviewed: {getAutoReviewDate(art.lastReviewed)}</span>
                     <span className="text-[#2563eb] hover:underline flex items-center gap-0.5">Read Guide <ArrowRight className="w-3 h-3" /></span>
                   </div>
                 </div>

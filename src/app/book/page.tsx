@@ -96,7 +96,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     price: 1900,
     savings: 3060,
     doctorRecommended: true,
-    params: 72,
+    params: 62,
     fasting: true,
     tat: "Reports by next morning",
     icon: "drop",
@@ -119,7 +119,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     price: 4600,
     savings: 5000,
     doctorRecommended: true,
-    params: 98,
+    params: 92,
     fasting: true,
     tat: "Reports by next morning",
     icon: "body",
@@ -142,7 +142,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     price: 6900,
     savings: 5760,
     doctorRecommended: true,
-    params: 85,
+    params: 30,
     fasting: true,
     tat: "Reports in 24-48 hrs",
     icon: "body",
@@ -165,7 +165,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     price: 7900,
     savings: 5700,
     doctorRecommended: true,
-    params: 45,
+    params: 15,
     fasting: false,
     tat: "Reports in 24-48 hrs",
     icon: "vial",
@@ -188,7 +188,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     price: 9000,
     savings: 9900,
     doctorRecommended: true,
-    params: 90,
+    params: 26,
     fasting: true,
     tat: "Reports in 24 hrs",
     icon: "heart",
@@ -395,15 +395,24 @@ export default function BookPage() {
     "q-diabetes-screen": "q-screen-diabetes",
     "q-screen-diabetes": "q-screen-diabetes",
     "diabetes-screen": "q-screen-diabetes",
-    "q-master-pro": "q-master-pro",
-    "q-master-health-pro": "q-master-pro",
-    "master-pro": "q-master-pro",
-    "q-cardio-risk": "q-cardio-risk",
-    "cardio-risk": "q-cardio-risk",
-    "q-arthritis-autoimmune": "q-arthritis-autoimmune",
-    "arthritis-autoimmune": "q-arthritis-autoimmune",
-    "q-onco-screen": "q-onco-screen",
-    "onco-screen": "q-onco-screen",
+    "q-master-pro": "q-master-health-pro",
+    "q-master-health-pro": "q-master-health-pro",
+    "master-pro": "q-master-health-pro",
+    "pkg-master-pro": "q-master-health-pro",
+    "pkg-3": "q-master-health-pro",
+    "pkg-4600": "q-master-health-pro",
+    "q-cardio-risk": "q-hypertension-cardiac",
+    "cardio-risk": "q-hypertension-cardiac",
+    "q-hypertension-cardiac": "q-hypertension-cardiac",
+    "pkg-cardiac": "q-hypertension-cardiac",
+    "q-arthritis-autoimmune": "q-advanced-arthritis",
+    "arthritis-autoimmune": "q-advanced-arthritis",
+    "q-advanced-arthritis": "q-advanced-arthritis",
+    "pkg-arthritis": "q-advanced-arthritis",
+    "q-onco-screen": "q-oncoscreen",
+    "onco-screen": "q-oncoscreen",
+    "q-oncoscreen": "q-oncoscreen",
+    "pkg-oncoscreen": "q-oncoscreen",
     "cbc": "fv2",
     "cbc-test": "fv2",
     "complete-blood-count": "fv2",
@@ -522,12 +531,13 @@ export default function BookPage() {
   const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
   const collectFee = subtotal >= FREE_ABOVE || subtotal === 0 ? 0 : COLLECT_FEE;
   const grandTotal = subtotal + collectFee;
+  const canPay = cartItems.length > 0 && grandTotal > 0;
 
   const getSlotsForDate = (idx: number) => (idx === 0 ? [NOW_SLOT, ...SLOTS] : SLOTS);
 
   const handleBookSubmit = async () => {
-    if (cartItems.length === 0) {
-      showToast("Please add at least one test to proceed.");
+    if (!canPay) {
+      showToast("Please add at least one test or package with a valid price to proceed.");
       return;
     }
 
@@ -1717,14 +1727,15 @@ export default function BookPage() {
 
                 <button
                   type="button"
-                  disabled={isSubmitting || cartItems.length === 0}
+                  disabled={isSubmitting || !canPay}
+                  aria-disabled={isSubmitting || !canPay}
                   onClick={handleBookSubmit}
                   className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-2.5 px-3 rounded-xl text-[11px] uppercase tracking-wider shadow-sm transition-all text-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting
                     ? "Processing..."
-                    : cartItems.length === 0
-                    ? "Select Tests to Continue"
+                    : !canPay
+                    ? "Add a test or package to continue"
                     : paymentMethod === "online"
                     ? `Pay Now (₹${grandTotal}) →`
                     : `Confirm Collection (₹${grandTotal}) →`}
@@ -1978,14 +1989,15 @@ export default function BookPage() {
             <div className="p-3 border-t border-slate-100 bg-white shrink-0">
               <button
                 type="button"
-                disabled={isSubmitting || cartItems.length === 0}
+                disabled={isSubmitting || !canPay}
+                aria-disabled={isSubmitting || !canPay}
                 onClick={handleBookSubmit}
                 className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 rounded-2xl text-xs uppercase tracking-widest shadow-md transition-all text-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting
                   ? "Processing..."
-                  : cartItems.length === 0
-                  ? "Select Tests to Continue"
+                  : !canPay
+                  ? "Add a test or package to continue"
                   : paymentMethod === "online"
                   ? `Pay Now (₹${grandTotal}) →`
                   : `Confirm Home Collection (₹${grandTotal}) →`}

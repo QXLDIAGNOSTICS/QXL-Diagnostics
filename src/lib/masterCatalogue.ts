@@ -1863,7 +1863,7 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
     icon: "🧠",
     popular: false,
     aliases: ["aquaporin-4 igg antibody", "aqp4", "nmo antibody"],
-    homeCollectionAvailable: true,
+    homeCollectionAvailable: false,
     kind: "test"
   },
   {
@@ -1903,7 +1903,7 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
     icon: "🧠",
     popular: false,
     aliases: ["n-methyl-d-aspartate receptor antibody", "nmdar antibody", "anti nmda"],
-    homeCollectionAvailable: true,
+    homeCollectionAvailable: false,
     kind: "test"
   },
   {
@@ -1923,7 +1923,7 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
     icon: "🧠",
     popular: false,
     aliases: ["paraneoplastic neurologic antibody panel", "paraneoplastic panel"],
-    homeCollectionAvailable: true,
+    homeCollectionAvailable: false,
     kind: "test"
   },
   {
@@ -1943,7 +1943,7 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
     icon: "🧠",
     popular: true,
     aliases: ["autoimmune encephalitis antibody panel", "encephalitis panel"],
-    homeCollectionAvailable: true,
+    homeCollectionAvailable: false,
     kind: "test"
   },
   {
@@ -2043,7 +2043,7 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
     icon: "🔬",
     popular: false,
     aliases: ["flow cytometry immunophenotyping for suspected haematologic malignancy", "flow cytometry", "leukemia immunophenotyping"],
-    homeCollectionAvailable: true,
+    homeCollectionAvailable: false,
     kind: "test"
   },
 
