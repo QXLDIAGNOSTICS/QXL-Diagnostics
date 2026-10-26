@@ -376,9 +376,15 @@ export default function UploadPrescriptionPage() {
                 </a>
               </div>
 
-              <div className="bg-[#dbeafe] rounded-2xl p-5 border border-[#d0e9f5]">
-                <p className="text-[11px] text-slate-600 font-semibold leading-relaxed">
-                  🔒 <strong>Privacy Protected:</strong> Your prescription is only used to identify required tests. We do not store or share your medical documents.
+              <div className="bg-[#dbeafe] rounded-2xl p-5 border border-[#d0e9f5] space-y-2">
+                <p className="text-xs text-[#0f2d5e] font-bold flex items-center gap-1.5">
+                  🔒 <span>Prescription Data Privacy &amp; Handling Lifecycle</span>
+                </p>
+                <p className="text-[11px] text-slate-600 font-medium leading-relaxed">
+                  <strong>Transmission &amp; Access:</strong> Uploaded prescriptions and WhatsApp documents are encrypted in transit via TLS 1.3 and accessed exclusively by licensed clinical coordinators to transcribe prescribed tests and advise on fasting or medication precautions.
+                </p>
+                <p className="text-[11px] text-slate-600 font-medium leading-relaxed">
+                  <strong>Retention &amp; Control:</strong> For registered patients, records are archived securely in your patient profile for continuity of care. Guest bookings are retained temporarily to fulfill your sample collection and may be permanently removed upon request by emailing <a href="mailto:privacy@qxldiagnostics.com" className="text-[#2563eb] underline font-semibold">privacy@qxldiagnostics.com</a>. Medical documents are never sold, rented, or shared with commercial third parties.
                 </p>
               </div>
             </div>

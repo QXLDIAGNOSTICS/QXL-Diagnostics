@@ -71,7 +71,7 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
             Free Home Sample Collection
           </Heading>
           <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto font-medium mb-6 leading-relaxed">
-            Experience world-class diagnostic services without leaving the comfort of your home. Available across all major locations in Bengaluru.
+            NABL-accredited diagnostic services with qualified medical oversight, advanced testing and city-wide home collection across Bengaluru.
           </p>
 
           {/* 7 Home Collection Process Steps */}

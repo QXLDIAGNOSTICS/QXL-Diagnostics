@@ -161,7 +161,7 @@ export default function AboutPage() {
           <div className="bg-[#F0F7FF] text-[#0f2d5e] p-6 sm:p-8 rounded-2xl sm:rounded-3xl text-center relative overflow-hidden shadow-sm border border-[#BFDBFE]">
             <h2 className="text-lg sm:text-2xl font-black text-[#0f2d5e] mb-2">Experience the QXL Diagnostics Advantage</h2>
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-3xl mx-auto mb-4 font-medium">
-              Precision diagnostics in Bengaluru — advanced super speciality testing with home sample collection, same-day reports, and consultant-reviewed results.
+              Precision diagnostics in Bengaluru — advanced super speciality testing with home sample collection, same-day reports available for many routine investigations (test-specific turnaround times apply), and multidisciplinary verified results.
             </p>
             <p className="text-[#2563EB] font-black text-xs sm:text-sm uppercase tracking-wider">
               Explore our services today and discover the QXL difference — where innovation meets care.

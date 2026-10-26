@@ -161,7 +161,7 @@ export default function QualityAccreditationPage() {
             </span>
             <h2 className="text-2xl font-black text-[#0f2d5e]">NABL Certificate {NABL_CERTIFICATE}</h2>
             <p className="text-xs text-slate-600 max-w-2xl leading-relaxed font-medium">
-              QXL Diagnostics Super Speciality Laboratory (Qualitify Healthtech Pvt Ltd) maintains active NABL accreditation under Certificate Number <strong>{NABL_CERTIFICATE}</strong> adhering strictly to <strong>ISO 15189:2022</strong>. We encourage doctors, health systems, and patients to verify our official scope.
+              QXL Diagnostics Super Speciality Laboratory (legal entity: <strong>{ACCREDITATION_DETAILS.legalEntity}</strong>) operates under active NABL Accreditation (Certificate No. <strong>{NABL_CERTIFICATE}</strong>) adhering to <strong>ISO 15189:2022</strong>. Verification can be performed directly on the official Government of India QCI/NABL directory.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
@@ -171,10 +171,50 @@ export default function QualityAccreditationPage() {
               rel="noopener noreferrer"
               className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-extrabold text-xs px-6 py-3.5 rounded-full shadow-md transition-all flex items-center gap-2 uppercase tracking-wider"
             >
-              <span>Verify on NABL Portal</span>
+              <span>Verify on NABL Portal (QCI)</span>
               <ExternalLink className="w-4 h-4" />
             </a>
           </div>
+        </div>
+
+        {/* Official Governance & Scope Registry Details */}
+        <div className="mt-4 bg-sky-50/60 rounded-2xl p-5 border border-sky-100 text-xs text-slate-700 leading-relaxed">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pb-4 border-b border-sky-100">
+            <div>
+              <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Accrediting Body</span>
+              <span className="font-extrabold text-[#0f2d5e]">NABL (Quality Council of India)</span>
+            </div>
+            <div>
+              <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Certificate Number</span>
+              <span className="font-extrabold text-[#0f2d5e]">MC-6849 (ISO 15189:2022)</span>
+            </div>
+            <div>
+              <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Legal Entity</span>
+              <span className="font-extrabold text-[#0f2d5e]">Qualitify Healthtech Pvt Ltd</span>
+            </div>
+            <div>
+              <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Central Processing Facility</span>
+              <span className="font-extrabold text-[#0f2d5e]">Mysore Rd, Kengeri, Bengaluru</span>
+            </div>
+          </div>
+
+          <div className="mt-4 p-3.5 bg-white/80 rounded-xl border border-sky-200/80">
+            <p className="text-[11px] font-bold text-[#0f2d5e] mb-1.5 flex items-center gap-1.5">
+              <span>📋 How to Verify on the Official NABL QCI Portal:</span>
+            </p>
+            <ol className="list-decimal list-inside space-y-1 text-[11px] text-slate-600 font-medium">
+              <li>Visit the official portal at <a href="https://nablwp.qci.org.in/" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] underline font-semibold">nablwp.qci.org.in</a></li>
+              <li>Navigate to <strong>Accredited Facilities &rarr; Medical Testing Laboratories</strong></li>
+              <li>Search by Certificate Number: <strong>MC-6849</strong> or Lab Name: <strong>Qualitify Healthtech</strong></li>
+            </ol>
+            <p className="mt-2 text-[10.5px] text-slate-500 font-medium">
+              <strong>Validity &amp; Surveillance:</strong> Active accreditation maintained under continuous NABL surveillance audit cycles adhering to ISO 15189:2022 standard requirements.
+            </p>
+          </div>
+
+          <p className="mt-3 text-[11px] text-slate-500 font-medium leading-relaxed">
+            🔍 <strong>Test-Wise Scope Governance:</strong> Investigations included in the formal NABL Scope Schedule are validated under ISO 15189:2022 technical audits. For specialized or emerging investigations outside the specific NABL scope schedule, QXL applies identical clinical standards via daily two-level Westgard multi-rule Internal Quality Controls (IQC) and external proficiency testing (EQAS) to guarantee analytical reliability.
+          </p>
         </div>
       </section>
 

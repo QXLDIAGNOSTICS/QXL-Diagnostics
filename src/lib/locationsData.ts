@@ -76,7 +76,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "jayanagar",
     name: "Jayanagar",
     slug: "jayanagar",
-    nearestLab: "Kengeri Main Lab / Central Hub",
+    nearestLab: "Kengeri Main Laboratory (Mysore Road)",
     description: "Schedule home blood collection across Jayanagar 1st to 9th Blocks. From routine CBC to comprehensive wellness packages, enjoy home diagnostic service.",
     pincodes: ["560011", "560041", "560069"],
     popularTests: ["Senior Citizen Wellness", "Vitamin D3", "HbA1c & FBS", "Lipid Profile"]
@@ -85,7 +85,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "jp-nagar",
     name: "JP Nagar",
     slug: "jp-nagar",
-    nearestLab: "Kengeri Main Lab / Central Hub",
+    nearestLab: "Kengeri Main Laboratory (Mysore Road)",
     description: "Fast and professional sample collection at home in JP Nagar 1st to 8th Phases. NABL Accredited lab quality, cold-chain preservation, and fast digital reports.",
     pincodes: ["560078"],
     popularTests: ["Full Body Checkup", "Thyroid Panel", "Liver Function Test", "Complete Blood Count"]
@@ -112,7 +112,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "bannerghatta-road",
     name: "Bannerghatta Road",
     slug: "bannerghatta-road",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Book home sample collection along Bannerghatta Road, Hulimavu, Arekere, and Gottigere. Same-day report delivery via WhatsApp & Email.",
     pincodes: ["560076", "560083"],
     popularTests: ["Executive Health Check", "Thyroid Profile", "HbA1c", "CBC Test"]
@@ -121,7 +121,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "btm-layout",
     name: "BTM Layout",
     slug: "btm-layout",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Reliable home collection service in BTM Layout 1st & 2nd Stages. Fast blood drawing, painless procedure, and quality-controlled, high-precision lab reports.",
     pincodes: ["560068", "560076"],
     popularTests: ["Fever Profile", "Diabetes Checkup", "Liver Function Test", "Full Body Checkup"]
@@ -130,7 +130,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "bommanahalli",
     name: "Bommanahalli",
     slug: "bommanahalli",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "QXL Diagnostics offers doorstep blood collection in Bommanahalli, Begur Road, and Hongasandra. Affordable pricing and NABL Accredited quality.",
     pincodes: ["560068"],
     popularTests: ["Complete Blood Count (CBC)", "HbA1c", "Thyroid T3 T4 TSH", "Lipid Profile"]
@@ -139,7 +139,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "hsr-layout",
     name: "HSR Layout",
     slug: "hsr-layout",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Premium home sample collection across HSR Layout Sectors 1 to 7. Quick slot booking, painless blood draw, and instant WhatsApp report delivery.",
     pincodes: ["560102"],
     popularTests: ["Master Health Checkup", "Vitamin D & B12", "Thyroid Profile", "Cardiac Markers"]
@@ -148,7 +148,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "koramangala",
     name: "Koramangala",
     slug: "koramangala",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Doorstep diagnostic services in Koramangala 1st to 8th Blocks. NABL Accredited medical laboratory processing for all routine & specialty diagnostic tests.",
     pincodes: ["560034", "560095"],
     popularTests: ["Full Body Health Profile", "HbA1c Sugar Test", "CBC", "Lipid & Liver Panel"]
@@ -157,7 +157,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "electronic-city",
     name: "Electronic City",
     slug: "electronic-city",
-    nearestLab: "Kengeri Main Lab / Express Hub",
+    nearestLab: "Kengeri Main Laboratory (Mysore Road)",
     description: "Trusted home sample collection for residents of Electronic City Phase 1 & Phase 2, Neeladri Nagar, and Rayasandra. Fast bookings & NABL reports.",
     pincodes: ["560100"],
     popularTests: ["Full Body Package", "Thyroid Profile", "Vitamin B12", "Executive Wellness"]
@@ -166,7 +166,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "sarjapur-road",
     name: "Sarjapur Road",
     slug: "sarjapur-road",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Blood test at home service across Sarjapur Road, Carmelaram, Kaikondrahalli, and Kodathi. 100% hygienic collection & cold-chain transport.",
     pincodes: ["560035", "562125"],
     popularTests: ["Comprehensive Health Profile", "Thyroid & Diabetes", "CBC", "Kidney Function"]
@@ -175,7 +175,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "bellandur",
     name: "Bellandur",
     slug: "bellandur",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Free home sample collection in Bellandur, Green Glen Layout, and Devarabeesanahalli. Doctor-reviewed reports delivered straight to your smartphone.",
     pincodes: ["560103"],
     popularTests: ["Vitamin D3 & B12", "Full Body Checkup", "Lipid Profile", "HbA1c Test"]
@@ -184,7 +184,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "whitefield",
     name: "Whitefield",
     slug: "whitefield",
-    nearestLab: "Yelahanka North Hub / Express Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Get NABL Accredited diagnostic testing with our seamless home collection service across Whitefield, ITPL, Kadugodi, and Hope Farm. Same-day reports.",
     pincodes: ["560066"],
     popularTests: ["Executive Health Package", "Thyroid T3 T4 TSH", "Liver & Kidney Panel", "CBC Test"]
@@ -193,7 +193,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "marathahalli",
     name: "Marathahalli",
     slug: "marathahalli",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Prompt home blood sample collection in Marathahalli, Spice Garden, and Munnekollal. Affordable packages and verified digital lab reports.",
     pincodes: ["560037"],
     popularTests: ["Fever Profile", "Master Health Check", "Diabetes Profile", "Lipid Test"]
@@ -202,7 +202,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "mahadevapura",
     name: "Mahadevapura",
     slug: "mahadevapura",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Doorstep diagnostic blood collection in Mahadevapura, BKN Ambaram, and Outer Ring Road belt. Sterile procedure and cold-chain sample preservation.",
     pincodes: ["560048"],
     popularTests: ["CBC", "HbA1c", "Thyroid Profile", "Senior Citizen Wellness"]
@@ -211,7 +211,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "kr-puram",
     name: "KR Puram (Krishnarajapuram)",
     slug: "kr-puram",
-    nearestLab: "Yelahanka North Hub / Express Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Free home sample collection in KR Puram, TC Palya, Bhattarahalli, and ITI Layout. Reliable pathology & biochemistry testing.",
     pincodes: ["560036", "560049"],
     popularTests: ["Full Body Health Check", "Fever Profile", "Diabetes Check", "Vitamin Panel"]
@@ -220,7 +220,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "indiranagar",
     name: "Indiranagar",
     slug: "indiranagar",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "At-home blood collection service in Indiranagar 1st & 2nd Stages, 100ft Road, and Defense Colony. Fast booking & doctor-validated reports.",
     pincodes: ["560038"],
     popularTests: ["Master Wellness Check", "Thyroid Profile", "Vitamin D3", "HbA1c"]
@@ -229,7 +229,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "domlur",
     name: "Domlur",
     slug: "domlur",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Doorstep diagnostic services in Domlur Layout, EGL, and Amarjyoti Layout. Painless sample draw by trained phlebotomists.",
     pincodes: ["560071"],
     popularTests: ["Executive Health Package", "CBC", "Lipid Profile", "Liver Function"]
@@ -238,7 +238,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "ulsoor",
     name: "Ulsoor (Halasuru)",
     slug: "ulsoor",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Hygienic home sample collection in Ulsoor, Bazaar Street, and Someshwarpura. Accurate NABL lab testing with digital report delivery.",
     pincodes: ["560008"],
     popularTests: ["Thyroid Panel", "HbA1c & Fasting Sugar", "Full Body Checkup", "CBC"]
@@ -247,7 +247,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "ramamurthy-nagar",
     name: "Ramamurthy Nagar",
     slug: "ramamurthy-nagar",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Book blood test at home in Ramamurthy Nagar, Kowdenahalli, and Kasturi Nagar. Cold-chain transport ensures maximum sample accuracy.",
     pincodes: ["560016"],
     popularTests: ["Fever Profile", "Diabetes Profile", "CBC", "Thyroid Test"]
@@ -256,7 +256,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "banaswadi",
     name: "Banaswadi",
     slug: "banaswadi",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Doorstep lab collection in Banaswadi, HRBR Layout, and Subbaiahnapalya. NABL lab processing with same-day reports.",
     pincodes: ["560043"],
     popularTests: ["Full Body Checkup", "Thyroid Profile", "Vitamin B12", "Lipid Test"]
@@ -265,7 +265,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "kalyan-nagar",
     name: "Kalyan Nagar",
     slug: "kalyan-nagar",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Home sample collection in Kalyan Nagar, Chelekere, and Kammanahalli. Professional blood draw and doctor-verified reporting.",
     pincodes: ["560043"],
     popularTests: ["Senior Citizen Package", "HbA1c Test", "Kidney Profile", "CBC"]
@@ -274,7 +274,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "hennur",
     name: "Hennur",
     slug: "hennur",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Safe at-home blood collection along Hennur Main Road, Hennur Gardens, and Geddalahalli. Fast booking and digital reports.",
     pincodes: ["560043", "560077"],
     popularTests: ["Full Body Package", "Thyroid Profile", "Vitamin D", "Fever Panel"]
@@ -283,7 +283,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "thanisandra",
     name: "Thanisandra",
     slug: "thanisandra",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Doorstep diagnostic services in Thanisandra Main Road, Bhartiya City, and Rachenahalli. Same-day reports for routine blood tests.",
     pincodes: ["560077"],
     popularTests: ["Full Body Wellness", "Diabetes Profile", "CBC", "Liver Panel"]
@@ -292,7 +292,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "nagawara",
     name: "Nagawara",
     slug: "nagawara",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Free home sample collection in Nagawara, Manyata Tech Park area, and AC Post. NABL Accredited quality diagnostics.",
     pincodes: ["560045"],
     popularTests: ["Executive Health Check", "Thyroid Care", "HbA1c", "Lipid Profile"]
@@ -301,7 +301,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "hebbal",
     name: "Hebbal",
     slug: "hebbal",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "QXL Diagnostics offers premium home sample collection in Hebbal, Kempapura, and Anandnagar. Get routine & specialty tests done at home.",
     pincodes: ["560024", "560094"],
     popularTests: ["Master Health Package", "Vitamin B12 & D3", "CBC", "Thyroid T3 T4 TSH"]
@@ -310,7 +310,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "sahakara-nagar",
     name: "Sahakara Nagar",
     slug: "sahakara-nagar",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "At-home blood collection in Sahakara Nagar Blocks A-G and Kodigehalli. Expert phlebotomists and cold-chain sample preservation.",
     pincodes: ["560092"],
     popularTests: ["Senior Citizen Wellness", "HbA1c", "Thyroid Profile", "Kidney Function"]
@@ -319,8 +319,8 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "yelahanka",
     name: "Yelahanka",
     slug: "yelahanka",
-    nearestLab: "Yelahanka North Hub",
-    description: "Reliable home blood test collection across Yelahanka New Town, Old Town, and Kogilu. Supported by our advanced Yelahanka North Hub lab.",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
+    description: "Reliable home blood test collection across Yelahanka New Town, Old Town, and Kogilu. Supported by our QXL Yelahanka patient collection center and Kengeri laboratory.",
     pincodes: ["560064"],
     popularTests: ["Full Body Package", "Complete Blood Count", "Diabetes Screening", "Full Body Checkup"]
   },
@@ -328,7 +328,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "vidyaranyapura",
     name: "Vidyaranyapura",
     slug: "vidyaranyapura",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Prompt doorstep blood collection in Vidyaranyapura, BEL Layout, and NTI Layout. Painless blood draw by phlebotomy specialists.",
     pincodes: ["560097"],
     popularTests: ["Full Body Checkup", "Thyroid Profile", "HbA1c", "Lipid Test"]
@@ -337,7 +337,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "sanjaynagar",
     name: "Sanjaynagar",
     slug: "sanjaynagar",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Home sample collection in Sanjaynagar, RMV 2nd Stage, and New BEL Road. High accuracy NABL lab results delivered digitally.",
     pincodes: ["560094"],
     popularTests: ["Master Health Profile", "Vitamin D3", "CBC", "Liver Panel"]
@@ -346,7 +346,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "jalahalli",
     name: "Jalahalli",
     slug: "jalahalli",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Doorstep diagnostic sample collection in Jalahalli East & West, HMT Layout, and Gangamma Circle. Quick online booking.",
     pincodes: ["560013", "560015"],
     popularTests: ["Fever Profile", "Diabetes Checkup", "Thyroid Panel", "CBC"]
@@ -355,7 +355,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "peenya",
     name: "Peenya",
     slug: "peenya",
-    nearestLab: "Kengeri Main Lab / Express Hub",
+    nearestLab: "Kengeri Main Laboratory (Mysore Road)",
     description: "Diagnostic blood tests at home across Peenya Industrial Area 1st & 2nd Stages, Dasarahalli, and TVS Cross. Fast reporting.",
     pincodes: ["560058"],
     popularTests: ["Full Body Health Check", "HbA1c", "Liver Function", "Kidney Function"]
@@ -364,7 +364,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "yeshwanthpur",
     name: "Yeshwanthpur",
     slug: "yeshwanthpur",
-    nearestLab: "Kengeri Main Lab / Express Hub",
+    nearestLab: "Kengeri Main Laboratory (Mysore Road)",
     description: "Free home blood sample collection in Yeshwanthpur, APMC Yard, and Mathikere. NABL Accredited laboratory accuracy.",
     pincodes: ["560022"],
     popularTests: ["CBC", "Thyroid Profile", "Vitamin B12", "Lipid Profile"]
@@ -373,7 +373,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "malleshwaram",
     name: "Malleshwaram",
     slug: "malleshwaram",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Book home collection in Malleshwaram 1st to 18th Cross, Margosa Road, and Sampige Road. Trusted heritage locality diagnostic service.",
     pincodes: ["560003"],
     popularTests: ["Senior Citizen Package", "HbA1c & Fasting Sugar", "Thyroid T3 T4 TSH", "Full Body Checkup"]
@@ -418,7 +418,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "frazer-town",
     name: "Frazer Town (Pulikeshi Nagar)",
     slug: "frazer-town",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Home sample collection in Frazer Town, Coles Road, and Mosque Road. Quick appointment booking & digital reports.",
     pincodes: ["560005"],
     popularTests: ["Full Body Checkup", "HbA1c", "Thyroid Profile", "CBC"]
@@ -427,7 +427,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "shivajinagar",
     name: "Shivajinagar",
     slug: "shivajinagar",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Doorstep blood test collection in Shivajinagar, Commercial Street area, and Russell Market. NABL Accredited laboratory testing.",
     pincodes: ["560001", "560051"],
     popularTests: ["Fever Profile", "Diabetes Screening", "Lipid Panel", "CBC"]
@@ -436,7 +436,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "vasanth-nagar",
     name: "Vasanth Nagar",
     slug: "vasanth-nagar",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Home blood collection in Vasanth Nagar, High Grounds, and Palace Road. Precise NABL Accredited diagnostic testing.",
     pincodes: ["560052"],
     popularTests: ["Executive Wellness", "Thyroid Profile", "Vitamin D3", "HbA1c"]
@@ -445,7 +445,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "mg-road",
     name: "MG Road",
     slug: "mg-road",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Diagnostic sample collection at home near MG Road, Brigade Road, and Residency Road. Same-day digital lab reports.",
     pincodes: ["560001"],
     popularTests: ["Master Health Checkup", "Lipid Profile", "CBC", "Liver Panel"]
@@ -454,7 +454,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "richmond-town",
     name: "Richmond Town",
     slug: "richmond-town",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Free home collection in Richmond Town, Langford Town, and Victoria Layout. Hygienic blood draw by trained phlebotomists.",
     pincodes: ["560025"],
     popularTests: ["Senior Citizen Profile", "Thyroid Care", "HbA1c", "Vitamin B12"]
@@ -463,7 +463,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "shantinagar",
     name: "Shantinagar",
     slug: "shantinagar",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "Blood test at home service in Shantinagar, Double Road, and KKH Road. NABL quality assured test results.",
     pincodes: ["560027"],
     popularTests: ["Full Body Checkup", "Diabetes Profile", "CBC", "Thyroid Test"]
@@ -472,7 +472,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "wilson-garden",
     name: "Wilson Garden",
     slug: "wilson-garden",
-    nearestLab: "Central Processing Hub",
+    nearestLab: "QXL Kengeri Main Laboratory (Doorstep Sample Pickup)",
     description: "At-home sample collection in Wilson Garden 1st to 12th Cross and Lakkasandra. Doctor-reviewed electronic reports.",
     pincodes: ["560027"],
     popularTests: ["Master Wellness Check", "HbA1c", "Lipid Test", "Kidney Profile"]
@@ -481,7 +481,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "basavanagudi",
     name: "Basavanagudi",
     slug: "basavanagudi",
-    nearestLab: "Kengeri Main Lab / Central Hub",
+    nearestLab: "Kengeri Main Laboratory (Mysore Road)",
     description: "Doorstep diagnostic services in Basavanagudi, Gandhi Bazaar, and DVG Road. Trusted heritage Bengaluru medical lab service.",
     pincodes: ["560004"],
     popularTests: ["Senior Citizen Package", "Thyroid Profile", "HbA1c", "CBC"]
@@ -544,7 +544,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "devanahalli",
     name: "Devanahalli",
     slug: "devanahalli",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Reliable home sample collection in Devanahalli Town, KIADB IT Park, and Nandi Hills Road. Fast express processing.",
     pincodes: ["562110"],
     popularTests: ["Full Body Package", "Thyroid Profile", "Vitamin D3 & B12", "Fever Profile"]
@@ -553,7 +553,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     id: "bengaluru-airport",
     name: "Bengaluru Airport (KIADB Zone)",
     slug: "bengaluru-airport",
-    nearestLab: "Yelahanka North Hub",
+    nearestLab: "QXL Yelahanka Patient Collection Center",
     description: "Express sample collection & testing service around Kempegowda International Airport (BLR), Aerospace Park, and Trumpet Flyover.",
     pincodes: ["560300", "562157"],
     popularTests: ["Executive Health Check", "Thyroid Profile", "CBC", "HbA1c Test"]

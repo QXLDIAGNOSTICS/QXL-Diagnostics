@@ -187,7 +187,7 @@ export default function TestsPage() {
                 Diagnostic Tests at QXL Diagnostics Bengaluru
               </h1>
               <p className="text-sky-100 text-xs sm:text-sm font-medium leading-relaxed">
-                Explore our comprehensive laboratory test inventory—from routine blood counts and HbA1c to advanced immunofluorescence, SPEP, and fetal screening assays. All tests reviewed by consultant pathologists.
+                Explore our comprehensive laboratory test inventory—from routine blood counts and HbA1c to advanced immunofluorescence, SPEP, and fetal screening assays. Laboratory results are reviewed and authorised by appropriately qualified laboratory professionals according to the investigation, laboratory discipline and applicable signatory requirements.
               </p>
             </div>
 
@@ -197,7 +197,9 @@ export default function TestsPage() {
                 <ShieldCheck className="w-4 h-4 text-amber-400" />
                 <span>ISO 15189:2022 Quality Assured</span>
               </div>
-              <p className="text-slate-200 font-semibold">Same-Day Reports on WhatsApp &amp; Email</p>
+              <p className="text-slate-200 font-semibold text-[11px] leading-tight">
+                Same-day reports available for many routine investigations. Test-specific turnaround times apply.
+              </p>
               <a
                 href={WHATSAPP_LINK}
                 target="_blank"
@@ -449,9 +451,9 @@ export default function TestsPage() {
           <div className="grid sm:grid-cols-3 gap-6 text-xs text-slate-600 font-medium leading-relaxed">
             <div>
               <h3 className="font-extrabold text-slate-900 mb-1 flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> Pathologist-Led Validation
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> Multidisciplinary Signatory Validation
               </h3>
-              <p>Every test parameter is analyzed using automated analyzer platforms and verified by consultant pathologists and clinical biochemists under NABL MC-6849 quality controls.</p>
+              <p>Every test parameter is analyzed using automated analyzer platforms and verified by qualified medical signatories including consultant pathologists, clinical biochemists, and medical microbiologists under NABL MC-6849 quality controls.</p>
             </div>
             <div>
               <h3 className="font-extrabold text-slate-900 mb-1 flex items-center gap-1.5">
@@ -461,9 +463,9 @@ export default function TestsPage() {
             </div>
             <div>
               <h3 className="font-extrabold text-slate-900 mb-1 flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-blue-600 shrink-0" /> Same-Day Digital Delivery
+                <Clock className="w-4 h-4 text-blue-600 shrink-0" /> Fast Digital Report Delivery
               </h3>
-              <p>Receive clear, doctor-reviewed PDF reports directly on your WhatsApp and Email within 4 to 12 hours for routine diagnostics.</p>
+              <p>Same-day reports available for many routine investigations. Test-specific turnaround times apply. Reports delivered securely to WhatsApp and Email.</p>
             </div>
           </div>
         </div>

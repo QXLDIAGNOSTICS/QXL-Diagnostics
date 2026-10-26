@@ -130,7 +130,7 @@ export default function PopularPackagesGrid() {
             Complete Diagnostic Packages
           </h1>
           <p className="text-slate-600 text-xs mt-0.5 font-semibold">
-            Doctor-curated health checkups with free doorstep sample collection across Bengaluru &amp; same-day reports.
+            Doctor-curated health checkups with free doorstep sample collection across Bengaluru &amp; same-day reports available for many routine investigations (test-specific turnaround times apply).
           </p>
         </div>
 

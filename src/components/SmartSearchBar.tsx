@@ -226,7 +226,31 @@ const INTELLIGENT_CATALOG: TestMatch[] = [
     parameters: "80 Parameters",
     keywords: [
       "full body", "whole body", "full body checkup", "health package", "annual checkup",
-      "master checkup", "preventive health", "fullbody", "package", "checkup"
+      "master checkup", "preventive health", "fullbody", "package", "checkup", "quick fit"
+    ],
+  },
+  {
+    name: "Q-Screen Diabetes Package (62 Parameters)",
+    category: "Diabetes Profile",
+    price: 1900,
+    oldPrice: 4960,
+    fasting: "Fasting 8-10 hrs",
+    tat: "6 Hours",
+    parameters: "62 Parameters",
+    keywords: [
+      "diabetes", "q-screen", "sugar", "hba1c", "fbs", "c-peptide", "microalbumin", "q screen", "diabetes checkup"
+    ],
+  },
+  {
+    name: "Q-Master Health Pro Package (92 Parameters)",
+    category: "Executive Full Body",
+    price: 4600,
+    oldPrice: 9600,
+    fasting: "Fasting 10-12 hrs",
+    tat: "6 Hours",
+    parameters: "92 Parameters",
+    keywords: [
+      "master health", "q-master", "full body pro", "executive checkup", "vitamin d", "b12", "hs-crp", "q master"
     ],
   },
 ];

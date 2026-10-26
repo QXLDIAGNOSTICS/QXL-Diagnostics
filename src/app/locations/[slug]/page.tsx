@@ -458,8 +458,10 @@ export default async function CombinedLocationPage({ params }: Props) {
                   </div>
 
                   <div>
-                    <span className="text-[10px] text-[#0284c7] uppercase font-extrabold tracking-wider block mb-1">NABL Processing Hub</span>
-                    <span className="font-bold text-sm text-slate-700">{areaLoc.nearestLab}</span>
+                    <span className="text-[10px] text-[#0284c7] uppercase font-extrabold tracking-wider block mb-1">Laboratory Processing</span>
+                    <p className="font-semibold text-xs text-slate-700 leading-relaxed">
+                      Home collection available in {areaLoc.name}. Samples are processed at the appropriate QXL laboratory facility based on the investigation and specimen requirements.
+                    </p>
                   </div>
                 </div>
 

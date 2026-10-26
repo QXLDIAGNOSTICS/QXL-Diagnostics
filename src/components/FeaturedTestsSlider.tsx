@@ -45,7 +45,7 @@ export default function FeaturedTestsSlider() {
       id: "slide-2",
       type: "tests",
       title: "Most Booked Tests in Bangalore",
-      subtitle: "Fast, accurate NABL Accredited pathology and blood tests with same-day reports.",
+      subtitle: "Fast, accurate NABL Accredited pathology and blood tests with same-day reports available for many routine investigations. Test-specific turnaround times apply.",
       items: [
         {
           name: "Glycosylated Haemoglobin (HbA1c)",
@@ -85,7 +85,7 @@ export default function FeaturedTestsSlider() {
       id: "slide-3",
       type: "banner-thyroid",
       title: "Get your thyroid levels tested",
-      subtitle: "Keep your thyroid and overall health in check with regular monitoring by consultant pathologists.",
+      subtitle: "Keep your thyroid and overall health in check with regular monitoring by qualified laboratory professionals.",
       testCard: {
         name: "Thyroid Function Test (TFT)",
         badge: "Test",

@@ -88,7 +88,7 @@ export default function QXlNorthHubPage() {
       price: "₹1,770",
       mrp: "₹4,696",
       discount: "62% OFF",
-      params: "12+ Key Health Parameters",
+      params: "80 Parameters",
       desc: "Includes Fasting Sugar, HbA1c, Lipid Profile, LFT, KFT, Vitamin D & Complete Blood Count (CBC).",
     },
     {

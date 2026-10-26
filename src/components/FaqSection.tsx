@@ -4,64 +4,18 @@ import { ChevronDown } from 'lucide-react';
 import { api, type FAQItem } from '@/lib/api';
 import Link from 'next/link';
 
-function CallbackForm({ faqQuestion }: { faqQuestion: string }) {
-  const [showForm, setShowForm] = useState(false);
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name || !phone) return;
-    setSubmitted(true);
-  };
-
-  if (submitted) {
-    return (
-      <div className="mt-4 bg-emerald-50 text-emerald-700 px-4 py-3 rounded-xl border border-emerald-100 text-[13px] font-bold">
-        Thanks, {name}! We'll call you back shortly at {phone}.
-      </div>
-    );
-  }
-
-  if (!showForm) {
-    return (
-      <div className="mt-3">
-        <button 
-          onClick={() => setShowForm(true)}
-          className="inline-flex items-center text-xs font-bold text-white bg-[#2563EB] hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors shadow-2xs cursor-pointer"
-        >
-          Request Call Back
-        </button>
-      </div>
-    );
-  }
-
+function FaqAssistanceNotice() {
   return (
-    <form onSubmit={handleSubmit} className="mt-3 flex flex-col sm:flex-row gap-2 max-w-xl">
-      <input 
-        type="text" 
-        placeholder="Your Name" 
-        value={name}
-        onChange={(e) => setName(e.target.value.replace(/[^a-zA-Z\s]/g, ''))}
-        required
-        className="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#2563EB] bg-slate-50/50"
-      />
-      <input 
-        type="tel" 
-        placeholder="Phone Number" 
-        value={phone}
-        onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
-        required
-        className="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#2563EB] bg-slate-50/50"
-      />
-      <button 
-        type="submit" 
-        className="inline-flex items-center justify-center text-xs font-bold text-white bg-[#2563EB] hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors shadow-2xs shrink-0 whitespace-nowrap cursor-pointer"
-      >
-        Submit Request
-      </button>
-    </form>
+    <div className="mt-3 pt-2 border-t border-slate-100 flex flex-wrap items-center gap-3 text-[11px] text-slate-500 font-semibold">
+      <span>Need test clarification?</span>
+      <a href="tel:+919964639639" className="text-[#2563EB] hover:underline font-bold">
+        📞 +91 9964 639 639
+      </a>
+      <span className="text-slate-300">•</span>
+      <a href="https://wa.me/919964639639" target="_blank" rel="noreferrer" className="text-emerald-600 hover:underline font-bold">
+        💬 WhatsApp Clinical Desk
+      </a>
+    </div>
   );
 }
 
@@ -413,7 +367,7 @@ export default function FaqSection({ decorativeHeading = false }: { decorativeHe
                 <p className="text-slate-600 text-xs leading-relaxed border-t border-amber-100/60 pt-3 font-medium">
                   {faq.answer}
                 </p>
-                <CallbackForm faqQuestion={faq.question} />
+                <FaqAssistanceNotice />
               </div>
             </div>
           ))}

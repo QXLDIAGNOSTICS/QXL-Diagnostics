@@ -60,7 +60,7 @@ export default function BlogSidebar({ currentSlug, trendingBlogs }: BlogSidebarP
             <div className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0">
               <CheckCircle2 className="w-3.5 h-3.5 text-indigo-600" />
             </div>
-            <span>Same-Day WhatsApp &amp; Email Delivery</span>
+            <span>Same-Day Delivery for Routine Tests</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
@@ -175,12 +175,12 @@ export default function BlogSidebar({ currentSlug, trendingBlogs }: BlogSidebarP
           </div>
 
           <div className="border-l-2 border-emerald-600 pl-3">
-            <strong className="text-slate-900 block font-bold">Yelahanka Express Hub</strong>
+            <strong className="text-slate-900 block font-bold">Yelahanka Patient Collection Center</strong>
             <p className="text-[11px] text-slate-500 mt-0.5">
               Galleria Mall, Yelahanka, Bengaluru 560064
             </p>
             <span className="inline-block mt-1 text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">
-              Express Routine Processing
+              Patient Walk-in &amp; Collection
             </span>
           </div>
         </div>

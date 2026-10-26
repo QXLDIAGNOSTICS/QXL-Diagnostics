@@ -20,7 +20,7 @@ const testData = MASTER_CATALOGUE.find((t) => t.id === "food-sensitivity-287") |
   id: "food-sensitivity-287",
   name: "Comprehensive Food-Specific IgG Panel (287 Foods)",
   shortName: "Food Sensitivity Test (287 Foods)",
-  category: "Allergy & Sensitivity",
+  category: "Specialized Immunology",
   price: 14500,
   mrp: 18500,
   parametersCount: 287,
@@ -33,12 +33,11 @@ const testData = MASTER_CATALOGUE.find((t) => t.id === "food-sensitivity-287") |
   icon: "🥗",
   popular: true,
   aliases: [
-    "food sensitivity test",
-    "food intolerance test bangalore",
-    "287 food sensitivity test",
-    "food sensitivity blood test",
-    "food intolerance blood test",
-    "igg food sensitivity test",
+    "food specific igg panel",
+    "287 food igg test",
+    "dietary antigen igg test",
+    "food sensitivity microarray",
+    "food sensitivity test bangalore",
   ],
   homeCollectionAvailable: true,
   kind: "test",
@@ -275,9 +274,17 @@ export default function FoodSensitivityTestPage() {
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 text-sky-50 text-sm leading-relaxed font-medium">
                 <p className="font-bold text-white mb-1 flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-amber-300 shrink-0" />
-                  <span>Quick Diagnostic Overview</span>
+                  <span>Clinical Panel Scope &amp; Methodology</span>
                 </p>
-                A Food Sensitivity Test measures food-specific Immunoglobulin G (IgG) antibody levels in blood to evaluate delayed immune responses to 287 foods. Fasting is not required, and same-day doorstep blood collection is available across all Bengaluru pin codes through QXL Diagnostics.
+                A Food-Specific IgG Panel quantifies circulating Immunoglobulin G antibodies against 287 purified dietary proteins using microarray immunoassay. Fasting is not required, and specialized sample handling is performed through NABL Accredited QXL Diagnostics across Bengaluru.
+              </div>
+
+              {/* Clinical Advisory Banner per AAAAI / EAACI Medical Guidance */}
+              <div className="bg-amber-400/20 border border-amber-300/40 rounded-2xl p-4 text-xs text-amber-100 leading-relaxed font-medium">
+                <p className="font-extrabold text-amber-200 mb-1 flex items-center gap-1.5 uppercase tracking-wider text-[11px]">
+                  ⚠️ <span>Clinical Practice Advisory (AAAAI / EAACI Guidelines)</span>
+                </p>
+                Food-specific IgG antibodies indicate dietary exposure and immune tolerance rather than IgE-mediated food allergy or enzymatic intolerances (such as lactase deficiency or celiac disease). Professional immunology guidelines advise that IgG results should not be used as a standalone diagnostic to mandate severe food exclusions. Testing should be interpreted in conjunction with a gastroenterologist or clinical allergist.
               </div>
             </div>
 

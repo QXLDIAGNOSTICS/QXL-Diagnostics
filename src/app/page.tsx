@@ -23,10 +23,14 @@ import { MediaCoverageSection } from "../components/MediaCoverageSection";
 import SmartSearchBar from "../components/SmartSearchBar";
 import { isCampaignActive } from "../lib/rakshaBandhanConfig";
 import ScooterPhlebotomistSvg from "../components/ScooterPhlebotomistSvg";
-import StickyBookingForm from "../components/StickyBookingForm";
 import FeaturedTestsSlider from "../components/FeaturedTestsSlider";
 import LocalityCheckWidget from "../components/LocalityCheckWidget";
 import { parseCartItems, addItemToCart, removeItemFromCart } from "../lib/cart";
+import LifestyleHeroSlider from "../components/LifestyleHeroSlider";
+import PackagesCarousel from "../components/PackagesCarousel";
+import CategoriesAndConditions from "../components/CategoriesAndConditions";
+import MostBookedTestsCarousel from "../components/MostBookedTestsCarousel";
+import FeverSeasonSection from "../components/FeverSeasonSection";
 
 const BlogSlider = dynamic(() => import("../components/BlogSlider"));
 const FaqSection = dynamic(() => import("../components/FaqSection"));
@@ -280,10 +284,10 @@ const promoSlides = [
     tag: "DIABETES CARE",
     desc: "Advanced diabetes monitoring with kidney microalbumin, C-Peptide, and comprehensive metabolic markers.",
     includes: ["FBS, HbA1c, eAG, C-Peptide", "Urine Microalbumin, Protein/Creatinine", "Lipid Profile, Liver & Kidney Function", "TSH, CBC, ESR, Urine Routine"],
-    tests: "16+ Parameters",
+    tests: "62 Parameters",
     image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
     imgBg: "#E8F5E9",
-    ctaLink: "/book?package=q-diabetes-screen",
+    ctaLink: "/book?package=pkg-diabetes",
   },
   {
     name: "Q-Master Health Pro Package",
@@ -896,7 +900,7 @@ export default function Home() {
       image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150209/Assets-QXL/legacy-assets/image/medical_team_group.jpg",
       imageFit: "cover",
       bgFrom: "#ffffff", bgTo: "#eff6ff",
-      features: ["★ 4.9 Google Rating", "Consultant Doctor Sign-off", "Free Doorstep Pickup", "Same-Day Reports"],
+      features: ["★ 4.9 Google Rating", "Consultant Doctor Sign-off", "Free Doorstep Pickup", "Same-Day Reports for Routine Tests"],
     },
     {
       badge: "NABL ACCREDITED SUPER SPECIALITY LAB",
@@ -1044,287 +1048,22 @@ export default function Home() {
               </span>
             </Link>
           </div>
-
-          {/* 4. Popular Tests Section */}
-          <div className="pt-2">
-            {/* Section Header */}
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-2">
-                <h2 className="text-[18px] font-black text-[#0B2545] tracking-tight">
-                  Popular Tests
-                </h2>
-                <div className="flex items-center gap-1">
-                  <button
-                    type="button"
-                    onClick={() => scrollPackages('left')}
-                    className="w-6.5 h-6.5 rounded-full border border-[#BFDBFE] text-[#2563EB] flex items-center justify-center hover:bg-[#EFF6FF] text-sm font-black"
-                  >
-                    ‹
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => scrollPackages('right')}
-                    className="w-6.5 h-6.5 rounded-full border border-[#BFDBFE] text-[#2563EB] flex items-center justify-center hover:bg-[#EFF6FF] text-sm font-black"
-                  >
-                    ›
-                  </button>
-                </div>
-              </div>
-
-              <Link
-                href="/tests"
-                className="text-[12px] font-extrabold text-[#0B2545] hover:text-[#2563EB] flex items-center gap-0.5"
-              >
-                View All 300+ Tests ›
-              </Link>
-            </div>
-
-            {/* 2x2 Grid of Test Cards matching reference image */}
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                {
-                  id: "cbc-test",
-                  name: "CBC",
-                  sub: "26 Haematology Parameters",
-                  tat: "Report in 6 hours",
-                  fasting: "No Fasting",
-                  price: 250,
-                  originalPrice: 350
-                },
-                {
-                  id: "thyroid-tsh",
-                  name: "Thyroid Profile",
-                  sub: "Free T3, Free T4 & TSH",
-                  tat: "Report in 6 hours",
-                  fasting: "No Fasting",
-                  price: 350,
-                  originalPrice: 550
-                },
-                {
-                  id: "hba1c-test",
-                  name: "HbA1c",
-                  sub: "Glycated Hemoglobin · 3 Params",
-                  tat: "Report in 6 hours",
-                  fasting: "No Fasting",
-                  price: 380,
-                  originalPrice: 720
-                },
-                {
-                  id: "vitamin-d-total",
-                  name: "Vitamin D Total",
-                  sub: "25-OH Hydroxy Vit D3",
-                  tat: "Report in 6 hours",
-                  fasting: "No Fasting",
-                  price: 410,
-                  originalPrice: 1300
-                }
-              ].map((test) => {
-                const isAdded = cartItems.includes(test.name.toLowerCase()) || cartItems.includes(test.id);
-                return (
-                  <div
-                    key={test.id}
-                    className="bg-white border border-slate-200/90 rounded-3xl p-3.5 flex flex-col justify-between shadow-xs hover:border-[#2563EB] transition-all relative"
-                  >
-                    {/* Top row: Test title & Fasting Badge */}
-                    <div>
-                      <div className="flex items-start justify-between gap-1 mb-1">
-                        <h3 className="font-extrabold text-[15px] text-[#0B2545] leading-tight">
-                          {test.name}
-                        </h3>
-                        <span className="bg-[#EFF6FF] text-[#2563EB] font-bold text-[9px] px-2 py-0.5 rounded-full shrink-0 border border-[#BFDBFE]">
-                          {test.fasting}
-                        </span>
-                      </div>
-
-                      <p className="text-[11px] text-slate-500 font-semibold mb-2 leading-tight">
-                        {test.sub}
-                      </p>
-
-                      {/* Turnaround Time */}
-                      <div className="flex items-center gap-1 text-[10.5px] font-extrabold text-sky-600 mb-3">
-                        <span className="text-[#2563EB]">⚡</span>
-                        <span>{test.tat}</span>
-                      </div>
-                    </div>
-
-                    {/* Price & Add Button Row */}
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-100 mt-auto">
-                      <div className="flex items-baseline gap-1">
-                        <span className="text-[15px] font-black text-[#0B2545]">
-                          ₹{test.price}
-                        </span>
-                        <span className="text-[11px] text-slate-400 line-through font-semibold">
-                          ₹{test.originalPrice}
-                        </span>
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={() => {
-                          addItemToCart({
-                            id: test.id,
-                            name: test.name,
-                            price: test.price,
-                            fasting: test.fasting,
-                            tat: test.tat
-                          });
-                          window.location.href = `/book?test=${encodeURIComponent(test.id || test.name)}`;
-                        }}
-                        className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white px-4 py-1.5 rounded-2xl font-black text-xs transition-all shadow-xs flex items-center gap-1 active:scale-95 cursor-pointer"
-                        style={{ color: '#ffffff' }}
-                      >
-                        <span>Book</span>
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
         </div>
 
-        {/* ── DESKTOP ONLY Hero Slider Section (hidden lg:block) ── */}
-        <section className="hidden lg:block pt-3 sm:pt-6 pb-4 relative group overflow-hidden">
+        {/* ── 1. FIRST SLIDE: Lifestyle Health Story (With 6 Real-Data Slides) ── */}
+        <LifestyleHeroSlider
+          onSelectPackage={(pkg) =>
+            setSelectedPackage(
+              typeof pkg === "string"
+                ? { name: pkg, price: 1770, includes: "Quick Fit (80 Params)" }
+                : pkg
+            )
+          }
+        />
+
+        {/* ── 2. FOUR QUICK ACTION CARDS (DIRECTLY UNDER FIRST SLIDE) ── */}
+        <section className="py-3 sm:py-4 z-30 relative bg-[#FAF7F2]">
           <div className="max-w-[1260px] mx-auto px-4 w-full">
-            <div
-              className="relative rounded-[24px] sm:rounded-[28px] overflow-hidden flex flex-col md:flex-row min-h-[360px] md:h-[420px] shadow-sm border border-slate-200/90 bg-white"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentSlide}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="relative md:absolute inset-0 w-full h-full flex flex-col md:flex-row bg-white"
-                >
-                  {activeSlide?.imageOnly ? (
-                    <React.Fragment>
-                      {/* Full-width image-only slide — banner fills entire slide */}
-                      <motion.div
-                        initial={{ opacity: 0, scale: 1.02 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="absolute inset-0 w-full h-full bg-white"
-                      >
-                        <Image
-                          src={activeSlide.image}
-                          alt={activeSlide.title || 'QXL Diagnostics'}
-                          fill
-                          className="object-cover object-center"
-                          sizes="100vw"
-                          priority
-                        />
-                      </motion.div>
-                    </React.Fragment>
-                  ) : (
-                    <React.Fragment>
-                      {/* Content — left side */}
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="w-full md:w-[50%] px-5 sm:px-8 md:px-10 py-6 sm:py-8 h-full flex flex-col justify-center z-20 relative text-left overflow-hidden bg-white"
-                      >
-                        {/* Tagline / Badge */}
-                        <div className="flex flex-wrap items-center gap-2 mb-2">
-                          <span className="inline-flex items-center gap-1.5 bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[10.5px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-2xs">
-                            {activeSlide.badge}
-                          </span>
-                          <span className="inline-flex items-center gap-1 bg-emerald-50 border border-emerald-300 text-emerald-800 text-[9.5px] font-black px-2.5 py-0.5 rounded-full shadow-2xs">
-                            ✓ NABL MC-6849
-                          </span>
-                        </div>
-
-                        {/* Title */}
-                        <h1 className="text-[24px] sm:text-[32px] md:text-[36px] leading-[1.1] font-black text-[#0f2d5e] mb-2 pr-2">
-                          {activeSlide.title} <span className="text-[#2563EB]">{activeSlide.titleAccent}</span>
-                        </h1>
-
-                        {/* Subtitle */}
-                        <p className="text-[12.5px] sm:text-[14px] text-slate-600 font-semibold mb-4 max-w-lg leading-relaxed">
-                          {activeSlide.subtitle}
-                        </p>
-
-                        {/* Feature Pills */}
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
-                          {activeSlide.features.slice(0, 4).map((f: string, i: number) => (
-                            <div
-                              key={f}
-                              className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-xl p-2 flex items-center gap-1.5 shadow-2xs"
-                            >
-                              <span className="text-sm shrink-0">
-                                {i === 0 ? "🩺" : i === 1 ? "🔒" : i === 2 ? "🛡️" : "⚡"}
-                              </span>
-                              <span className="text-[9.5px] sm:text-[10px] font-extrabold text-[#0f2d5e] leading-tight">
-                                {f}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
-
-                        {/* CTA Buttons */}
-                        <div className="flex flex-wrap items-center gap-3">
-                          <Link
-                            href={activeSlide.ctaLink}
-                            className="bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-black px-6 py-2.5 rounded-full text-xs shadow-md hover:shadow-lg active:scale-95 transition-all uppercase tracking-wider flex items-center gap-2 cursor-pointer"
-                          >
-                            <span>{activeSlide.cta}</span>
-                            <span className="text-sm">→</span>
-                          </Link>
-                          <a
-                            href={activeSlide.ctaSecondaryLink}
-                            className="bg-white hover:bg-slate-50 text-[#0f2d5e] font-black px-4 py-2.5 rounded-full text-xs uppercase tracking-wider border border-[#BFDBFE] shadow-2xs transition-all"
-                          >
-                            {activeSlide.ctaSecondary}
-                          </a>
-                        </div>
-
-                      </motion.div>
-
-                      {/* Image — right side */}
-                      <motion.div
-                        initial={{ opacity: 0, x: 10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="relative md:absolute top-0 right-0 bottom-0 w-full md:w-[50%] h-[200px] sm:h-[240px] md:h-full z-10 flex items-center justify-center overflow-hidden rounded-b-3xl md:rounded-r-3xl md:rounded-bl-none p-2 sm:p-3 bg-white"
-                      >
-                        <img
-                          src={activeSlide.image}
-                          alt={activeSlide.title || "QXL Diagnostics"}
-                          className="w-full h-full object-cover object-center rounded-2xl shadow-sm"
-                        />
-                      </motion.div>
-                    </React.Fragment>
-                  )}
-                </motion.div>
-              </AnimatePresence>
-
-              {/* Slide Indicator Dots */}
-              {slides.length > 1 && (
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 bg-slate-900/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                  {slides.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setCurrentSlide(i)}
-                      aria-label={`Go to slide ${i + 1}`}
-                      className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                        i === currentSlide ? "w-6 bg-amber-400" : "w-2 bg-white/60 hover:bg-white"
-                      }`}
-                    />
-                  ))}
-                </div>
-              )}
-
-            </div>
-          </div>
-        </section>
-
-        {/* ── Action Cards — Warm Gold Amber Theme & Larger Buttons ── */}
-        <section className="pt-2 pb-5 z-30 relative -mt-3">
-          <div className="max-w-[1260px] mx-auto px-4 w-full space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
               
               {/* Card 1: Upload Prescription */}
@@ -1397,6 +1136,29 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ── 3. HEALTH CONDITIONS (Expanded Slider without CHECKUP Categories) ── */}
+        <CategoriesAndConditions />
+
+        {/* ── 4. POPULAR HEALTH PACKAGES (Full Body Checkup Packages) ── */}
+        <PackagesCarousel
+          cartItems={cartItems}
+          onToggleCart={handleToggleCart}
+          onSelectPackage={setSelectedPackage}
+        />
+
+        {/* ── 5. STAY AHEAD OF FEVER SEASON (Redesigned Slide Showcase) ── */}
+        <FeverSeasonSection
+          cartItems={cartItems}
+          onToggleCart={handleToggleCart}
+          onSelectPackage={setSelectedPackage}
+        />
+
+        {/* ── 6. MOST BOOKED TESTS CAROUSEL (Real Diagnostic Test Prices) ── */}
+        <MostBookedTestsCarousel
+          cartItems={cartItems}
+          onToggleCart={handleToggleCart}
+        />
 
 
 
@@ -1569,9 +1331,77 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Right 4 Columns: Sticky Booking Form */}
+              {/* Right 4 Columns: Package Recommendation & Selection Guide (Replaces Duplicate Callback Form) */}
               <div className="hidden lg:block lg:col-span-4 h-full">
-                <StickyBookingForm />
+                <div className="sticky top-[90px] z-30 w-full text-left">
+                  <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-sm flex flex-col justify-between">
+                    <div>
+                      <div className="mb-4">
+                        <span className="text-[10px] font-black text-[#2563EB] uppercase tracking-widest block mb-1">
+                          Doctor-Curated Guidance
+                        </span>
+                        <h3 className="text-lg font-extrabold text-[#0f2d5e] mb-1">
+                          How to Choose Your Package
+                        </h3>
+                        <p className="text-xs text-slate-500 font-medium leading-relaxed">
+                          Not sure which checkup fits your current health goals? Here is our pathologist guideline:
+                        </p>
+                      </div>
+
+                      <div className="space-y-3 my-4">
+                        <div className="p-3 rounded-2xl bg-sky-50/70 border border-sky-100">
+                          <p className="text-xs font-bold text-[#0f2d5e] flex items-center justify-between">
+                            <span>Young Adults (18–35)</span>
+                            <span className="text-[11px] font-black text-blue-600">Quick Fit (80 Params)</span>
+                          </p>
+                          <p className="text-[11px] text-slate-600 mt-1">
+                            Annual baseline check: Sugar, HbA1c, Liver, Kidney, Lipid, TSH, Vit D &amp; CBC.
+                          </p>
+                        </div>
+
+                        <div className="p-3 rounded-2xl bg-emerald-50/70 border border-emerald-100">
+                          <p className="text-xs font-bold text-[#0f2d5e] flex items-center justify-between">
+                            <span>Professionals (35–50)</span>
+                            <span className="text-[11px] font-black text-emerald-700">Q-Master Pro (92 Params)</span>
+                          </p>
+                          <p className="text-[11px] text-slate-600 mt-1">
+                            Cardiac markers (hs-CRP), Vitamin B12, Vitamin D, H. pylori, Electrolytes &amp; Organ profiles.
+                          </p>
+                        </div>
+
+                        <div className="p-3 rounded-2xl bg-amber-50/70 border border-amber-100">
+                          <p className="text-xs font-bold text-[#0f2d5e] flex items-center justify-between">
+                            <span>Diabetic Screening</span>
+                            <span className="text-[11px] font-black text-amber-800">Q-Screen (62 Params)</span>
+                          </p>
+                          <p className="text-[11px] text-slate-600 mt-1">
+                            HbA1c, Urine Microalbumin, C-Peptide, Renal filtration &amp; Glycemic ratios.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="pt-3 border-t border-slate-100 space-y-2">
+                      <Link
+                        href="/book"
+                        className="w-full bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3 px-4 rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-sm transition-all"
+                      >
+                        <span>Interactive Booking Wizard →</span>
+                      </Link>
+
+                      <div className="text-center pt-2">
+                        <p className="text-[11px] text-slate-500 font-semibold mb-1">Need personal assistance?</p>
+                        <a
+                          href="tel:+919964639639"
+                          className="text-xs font-black text-[#0f2d5e] hover:text-[#2563EB] inline-flex items-center gap-1"
+                        >
+                          <span>📞 Call Pathologist Desk:</span>
+                          <span className="underline">+91 9964 639 639</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -1865,7 +1695,7 @@ export default function Home() {
                     Visit Our Central Laboratory
                   </h2>
                   <p className="text-slate-600 text-xs sm:text-sm font-medium mb-6 leading-relaxed">
-                    Walk in for priority sample collection, doctor-guided test counseling, and same-day express pathology reporting at our NABL-accredited diagnostic facility in Bengaluru.
+                    Walk in for priority sample collection, doctor-guided test counseling, and prompt pathology reporting (same-day reports available for many routine investigations; test-specific turnaround times apply) at our NABL-accredited diagnostic facility in Bengaluru.
                   </p>
 
                   <div className="space-y-4 mb-6">

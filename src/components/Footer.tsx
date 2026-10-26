@@ -112,7 +112,7 @@ export default function Footer() {
         <div className="max-w-[1260px] mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div>
             <h3 className="!text-white font-black text-[#ffffff] text-lg sm:text-xl tracking-tight" style={{ color: '#ffffff' }}>Book a Test Today</h3>
-            <p className="!text-white/90 text-xs sm:text-sm font-semibold mt-0.5" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Free home sample collection · NABL Accredited · Same-day reports</p>
+            <p className="!text-white/90 text-xs sm:text-sm font-semibold mt-0.5" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>Free home sample collection · NABL Accredited · Same-day reports available for many routine investigations (test-specific turnaround times apply)</p>
           </div>
           <div className="flex gap-2.5 flex-wrap justify-center">
             <a

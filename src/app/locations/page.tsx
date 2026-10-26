@@ -24,14 +24,14 @@ export default function LocationsIndexPage() {
             Diagnostic Labs & Home Collection Areas in Bengaluru
           </h1>
           <p className="text-slate-600 text-sm md:text-base max-w-2xl mx-auto font-medium">
-            Find your nearest QXL Diagnostics laboratory hub or book free home blood sample collection in your locality across 60+ Bengaluru areas.
+            Find your nearest QXL Diagnostics laboratory or patient collection facility, or book free home blood sample collection in your locality across 60+ Bengaluru areas.
           </p>
         </div>
 
         {/* Physical Main Labs */}
         <section className="mb-14">
           <h2 className="text-2xl font-extrabold text-[#0f2d5e] mb-6 flex items-center gap-2">
-            <MapPin className="w-6 h-6 text-[#2563eb]" /> Main Laboratory Hubs
+            <MapPin className="w-6 h-6 text-[#2563eb]" /> Physical Laboratories & Patient Collection Centers
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {LOCATIONS.map((loc) => (

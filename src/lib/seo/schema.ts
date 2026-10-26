@@ -158,7 +158,7 @@ export const SEO_FAQS = [
   },
   {
     q: "How does QXL Diagnostics ensure sample quality during home collection in Bengaluru?",
-    a: "Blood samples collected during doorstep visits are immediately sealed and transported in certified cold-chain boxes with temperature monitoring directly to QXL's NABL Accredited central processing lab.",
+    a: "Blood samples collected during doorstep visits are immediately sealed and transported in certified cold-chain boxes with temperature monitoring directly to QXL's NABL Accredited laboratory facility.",
   },
 ];
 

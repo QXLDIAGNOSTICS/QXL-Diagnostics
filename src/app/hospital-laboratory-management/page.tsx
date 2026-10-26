@@ -232,6 +232,45 @@ const hospitalTypes = [
   },
 ];
 
+const caseStudies = [
+  {
+    facility: "85-Bed Multi-Specialty Hospital (West Bengaluru)",
+    model: "Full Onsite HLM + Central Lab Reference Routing",
+    challenge: "High capital expenditure on automated biochemistry analysers, recurring reagent expiry loss (averaging 28%), and emergency stat blood turnarounds averaging 140 minutes.",
+    solution: "Transitioned to managed onsite biochemistry & 5-part hematology operations with automated bidirectional LIS interfacing and cold-chain sample batching to QXL Kengeri Hub.",
+    metrics: [
+      { label: "Emergency Stat TAT", value: "38 Mins", prev: "140 Mins" },
+      { label: "Reagent Expiry Loss", value: "< 2%", prev: "28%" },
+      { label: "Laboratory Overheads", value: "-32%", prev: "Baseline" },
+      { label: "Accreditation Readiness", value: "NABL Ready", prev: "Unaccredited" }
+    ]
+  },
+  {
+    facility: "40-Bed Mother & Child Surgical Center (North Bengaluru)",
+    model: "Rapid-Response Stat Lab + Specialized Neonatal Reference",
+    challenge: "Difficulty staffing qualified round-the-clock senior pathology coverage for emergency night caesarean sections and neonatal bilirubin/sepsis panels, resulting in high sample re-collection rates.",
+    solution: "Installed dedicated micro-stat lab with automated blood gas, electrolytes, bilirubin, and high-sensitivity CRP, linked via tele-pathology review with QXL consultant specialists.",
+    metrics: [
+      { label: "24×7 Night Coverage Uptime", value: "100%", prev: "68%" },
+      { label: "Test Menu Offered", value: "180+ Tests", prev: "24 Tests" },
+      { label: "Pre-Analytical Errors", value: "0.2%", prev: "4.8%" },
+      { label: "Critical Notification", value: "< 15 Mins", prev: "Unregulated" }
+    ]
+  },
+  {
+    facility: "120-Bed Orthopedic & Trauma Care Institute (South Bengaluru)",
+    model: "Hybrid HLM & Histopathology Reference Partnership",
+    challenge: "Sub-optimal internal quality controls, lack of equipment redundancy during surgical peaks, and delayed joint biopsy / tissue histology reporting (7–10 days).",
+    solution: "Integrated hospital LIS directly into QXL's Central Processing Hub, deployed multi-rule Westgard IQC, and engaged NIMHANS-trained consultant histopathologists for priority surgical pathology.",
+    metrics: [
+      { label: "Biopsy & Histology TAT", value: "48–72 Hrs", prev: "7–10 Days" },
+      { label: "EQAS Proficiency Score", value: "100%", prev: "Inconsistent" },
+      { label: "Direct Pathologist Calls", value: "100% Cases", prev: "Call Center" },
+      { label: "Hospital Lab Margins", value: "+24%", prev: "Negative ROI" }
+    ]
+  }
+];
+
 export default function HospitalLabManagementPage() {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -844,6 +883,75 @@ export default function HospitalLabManagementPage() {
               <span>View All Media Coverage →</span>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ── ANONYMIZED PARTNERSHIP CASE STUDIES (QXL-066) ── */}
+      <section className="py-16 bg-[#f8faff] border-t border-slate-200">
+        <div className="max-w-[1260px] mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-[#2563EB] font-black text-xs uppercase tracking-widest">
+              MEASURABLE CLINICAL &amp; FINANCIAL OUTCOMES
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0f2d5e] mt-1">
+              Hospital Partnership Case Studies
+            </h2>
+            <p className="text-slate-600 text-sm font-semibold mt-3 leading-relaxed">
+              Approved, anonymized operating outcomes demonstrating how QXL HLM models optimize emergency turnarounds, eliminate reagent expiry losses, and prepare onsite laboratories for accreditation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {caseStudies.map((cs, i) => (
+              <div key={i} className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider border border-blue-100">
+                      {cs.model}
+                    </span>
+                    <span className="text-[10px] font-black text-slate-400">Case #0{i+1}</span>
+                  </div>
+
+                  <h3 className="text-base font-extrabold text-[#0f2d5e] mb-3 leading-snug">
+                    {cs.facility}
+                  </h3>
+
+                  <div className="space-y-3 mb-6">
+                    <div className="bg-red-50/60 border border-red-100 rounded-xl p-3 text-xs">
+                      <span className="text-[10px] font-black text-red-600 uppercase tracking-wider block mb-0.5">Initial Hospital Challenge</span>
+                      <p className="text-slate-700 font-semibold leading-relaxed">{cs.challenge}</p>
+                    </div>
+
+                    <div className="bg-blue-50/50 border border-blue-100 rounded-xl p-3 text-xs">
+                      <span className="text-[10px] font-black text-[#2563eb] uppercase tracking-wider block mb-0.5">QXL HLM Solution</span>
+                      <p className="text-slate-700 font-semibold leading-relaxed">{cs.solution}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <span className="text-[10.5px] font-extrabold text-slate-500 uppercase tracking-wider block mb-2">
+                    Verified Operating Impact
+                  </span>
+                  <div className="grid grid-cols-2 gap-2 bg-[#f8fafc] border border-slate-100 rounded-2xl p-3">
+                    {cs.metrics.map((m, mIdx) => (
+                      <div key={mIdx} className="p-1.5">
+                        <span className="text-[10px] text-slate-500 font-medium block truncate">{m.label}</span>
+                        <div className="flex items-baseline gap-1.5 mt-0.5">
+                          <span className="text-sm font-black text-emerald-600">{m.value}</span>
+                          <span className="text-[10px] text-slate-400 line-through truncate">{m.prev}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-[11px] text-slate-500 font-medium text-center mt-6">
+            * Operational and quality metrics derived from live hospital transitions across Bengaluru. Facility names anonymized under partner confidentiality agreements.
+          </p>
         </div>
       </section>
 

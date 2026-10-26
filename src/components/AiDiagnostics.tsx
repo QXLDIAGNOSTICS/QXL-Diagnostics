@@ -303,7 +303,7 @@ const findAnswer = (query: string): { text: string; relatedQuestions?: string[] 
   
   if (q.includes('nearest center') || q.includes('location') || q.includes('branch') || q.includes('where is')) {
     return {
-      text: "📍 **QXL Diagnostics Center Locations**\n\nOur main super-specialty laboratory is located at:\n**3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060**\n\nOur North Express Hub is at:\n**L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064**\n\nWe also provide 100% free home sample collection across all Bengaluru localities.\n\n🕒 **Walk-in Hours:** Kengeri 6:30 AM – 8:00 PM (24×7 Central Lab Processing) · Yelahanka 7:00 AM – 8:00 PM · Home Collection 7:00 AM – 9:00 PM\n📞 **24×7 Helpline / WhatsApp:** +91 9964 639 639",
+      text: "📍 **QXL Diagnostics Center Locations**\n\nOur main super-specialty laboratory is located at:\n**3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060**\n\nOur Yelahanka Patient Collection Center is at:\n**L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064**\n\nWe also provide 100% free home sample collection across all Bengaluru localities.\n\n🕒 **Walk-in Hours:** Kengeri 6:30 AM – 8:00 PM (24×7 Central Lab Processing) · Yelahanka 7:00 AM – 8:00 PM · Home Collection 7:00 AM – 9:00 PM\n📞 **24×7 Helpline / WhatsApp:** +91 9964 639 639",
       relatedQuestions: ["Book Home Collection", "Working Hours"]
     };
   }

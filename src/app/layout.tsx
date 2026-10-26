@@ -124,15 +124,9 @@ const localBusinessSchema = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "07:00",
-      closes: "21:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Sunday",
-      opens: "07:00",
-      closes: "14:00",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      opens: "06:30",
+      closes: "20:00",
     },
   ],
   address: {
@@ -277,7 +271,7 @@ const faqSchema = {
       name: "Which lab does allergy testing in Bangalore?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "QXL Diagnostics offers extensive allergy testing in Bangalore, including IgE panels, food allergy, and food intolerance testing.",
+        text: "QXL Diagnostics offers extensive allergy testing in Bangalore, including allergen-specific IgE panels, inhalant and dietary allergen panels, and clinical immunology serology.",
       },
     },
     {

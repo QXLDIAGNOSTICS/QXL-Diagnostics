@@ -4,9 +4,7 @@ const BASE_URL = 'https://qxldiagnostics.com';
 
 const B2B_PAGES = [
   '/super-speciality-reference-lab-bengaluru',
-  '/b2b-reference-lab',
   '/b2b-reference-laboratory-bengaluru',
-  '/hospital-services',
   '/hospital-laboratory-management',
   '/for-doctors',
   '/for-hospitals',

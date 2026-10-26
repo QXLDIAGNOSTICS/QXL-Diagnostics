@@ -24,7 +24,11 @@ export const ACCREDITATION_DETAILS = {
   parentOrganization: "Quality Council of India (QCI), Govt. of India",
   standard: "ISO 15189:2022 Medical Laboratories — Requirements for Quality and Competence",
   certificateNumber: "MC-6849",
-  verificationPortalUrl: "https://www.nabl-india.org",
+  legalEntity: "Qualitify Healthtech Private Limited (QXL Diagnostics)",
+  discipline: "Medical Testing Laboratory",
+  validityReference: "Continuous NABL cycle under ISO 15189:2022 standards (Certificate MC-6849, continuous surveillance audit cycle)",
+  verificationPortalUrl: "https://nablwp.qci.org.in/",
+  primaryLabAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060",
   governanceLead: "Dr. Shantakumar Muruda, MD (Biochemistry), Empaneled NABL Lead Assessor",
   pathologyLead: "Dr. Pritilata Rout, MD (Pathology), NIMHANS Alumna, Senior Consultant Histopathologist"
 };

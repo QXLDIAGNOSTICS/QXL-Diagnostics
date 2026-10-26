@@ -73,22 +73,30 @@ export default function HomeCollectionPage() {
             </div>
           </div>
 
-          {/* Schedule Button in #2563EB */}
-          <a
-            href="#booking-form"
-            className="w-full bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md uppercase text-xs tracking-wider transition-all text-center"
-          >
-            Schedule Home Collection
-          </a>
+          {/* Primary Action Choices: Online Self-Booking vs Quick Assisted Booking */}
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+            <Link
+              href="/book"
+              className="w-full bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3.5 px-4 rounded-2xl shadow-md uppercase text-xs tracking-wider transition-all text-center flex items-center justify-center gap-1.5"
+            >
+              <span>Select Tests Online &rarr;</span>
+            </Link>
+            <a
+              href="#booking-form"
+              className="w-full bg-[#EFF6FF] hover:bg-[#DBEAFE] text-[#0f2d5e] border border-[#BFDBFE] font-extrabold py-3.5 px-4 rounded-2xl shadow-xs uppercase text-xs tracking-wider transition-all text-center flex items-center justify-center"
+            >
+              <span>Assisted Callback Booking</span>
+            </a>
+          </div>
 
           {/* Badge: Strictly Hygienic & Temperature-Controlled */}
           <div className="flex items-center gap-1.5 mt-3 text-[11px] font-extrabold text-[#2563EB] bg-[#EFF6FF] px-3 py-1 rounded-full border border-[#BFDBFE]">
             <ShieldCheck className="w-4 h-4 text-[#2563EB]" />
-            <span>Strictly Hygienic & Temperature-Controlled</span>
+            <span>Strictly Hygienic &amp; Temperature-Controlled</span>
           </div>
         </div>
 
-        {/* ── Form Section ── */}
+        {/* ── Form Section: Assisted Doorstep Phlebotomy Booking ── */}
         <div id="booking-form" className="bg-white border border-gray-200 rounded-3xl p-5 shadow-sm mt-2">
           {submitted ? (
             <div className="text-center py-8 flex flex-col items-center">
@@ -108,9 +116,17 @@ export default function HomeCollectionPage() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              <h3 className="text-slate-900 text-base font-black border-b border-gray-100 pb-2">
-                Patient & Address Details
-              </h3>
+              <div>
+                <span className="text-[10px] font-black text-[#2563EB] uppercase tracking-widest block mb-1">
+                  Assisted Doorstep Booking
+                </span>
+                <h3 className="text-slate-900 text-base font-black border-b border-gray-100 pb-2">
+                  Patient &amp; Address Details
+                </h3>
+                <p className="text-[11px] text-slate-500 font-medium mt-1">
+                  Our dispatch coordinator will confirm test selection, fasting guidelines, and exact arrival time.
+                </p>
+              </div>
 
               <div>
                 <label className="text-[11px] font-extrabold text-slate-700 mb-1 block uppercase tracking-wider">

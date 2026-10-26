@@ -69,7 +69,7 @@ export default function Freedom80Breakdown() {
             What Does the Freedom 80 Health Check Include?
           </h2>
           <p className="text-slate-600 font-bold text-base md:text-lg">
-            Comprehensive organ system evaluation verified by consultant pathologists in Bengaluru.
+            Comprehensive organ system evaluation verified by qualified laboratory professionals in Bengaluru.
           </p>
         </div>
 

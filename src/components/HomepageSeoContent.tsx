@@ -21,7 +21,7 @@ export default function HomepageSeoContent() {
           id="seo-authority-heading"
           className="text-[#0f2d5e] text-2xl md:text-3xl font-extrabold mb-4"
         >
-          NABL Diagnostic Lab in Bengaluru — Home Collection, Speciality Tests &amp; Same-Day Reports
+          NABL Diagnostic Lab in Bengaluru — Home Collection, Speciality Tests &amp; Same-Day Reports for Routine Investigations
         </h2>
         <div className="prose prose-slate max-w-none text-[14px] leading-relaxed text-slate-700 space-y-4">
           <p>
