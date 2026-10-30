@@ -38,8 +38,12 @@ export async function GET() {
     const priority =
       b.slug === "personalised-pregnancy-testing-bengaluru"
         ? "0.95"
-        : b.slug === "apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide" ||
-          b.slug === "your-liver-works-in-silence-simple-blood-test"
+        : b.slug === "shingles-herpes-zoster-symptoms-pcr-test-vaccine-antibodies" ||
+          b.slug === "apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide" ||
+          b.slug === "your-liver-works-in-silence-simple-blood-test" ||
+          b.slug === "vitamin-b12-deficiency-memory-loss-brain-fog-nerve-damage" ||
+          b.slug === "can-emotional-stress-affect-thyroid-cortisol-hashimotos-connection" ||
+          b.slug === "high-uric-acid-kidney-damage-diabetes-2026-study"
         ? "0.90"
         : "0.85";
 

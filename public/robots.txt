@@ -3,16 +3,17 @@
 User-agent: *
 Allow: /
 
-# Disallow private user flows, checkout, payments, and internal backend APIs
+# Disallow private user flows, reports, patient records, checkout, and backend APIs
+Disallow: /reports/
+Disallow: /patient/
+Disallow: /account/
+Disallow: /checkout/
+Disallow: /api/
+Disallow: /admin/
 Disallow: /my-reports/
 Disallow: /my-bookings/
 Disallow: /profile/
-Disallow: /checkout/
-Disallow: /payment/
-Disallow: /admin/
-Disallow: /api/internal/
-Disallow: /api/payment/
-Disallow: /api/auth/
+Disallow: /login/
 
 # OpenAI ChatGPT Search Crawler
 User-agent: OAI-SearchBot

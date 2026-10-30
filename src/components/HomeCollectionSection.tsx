@@ -70,8 +70,8 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
           <Heading className="text-[#0f2d5e] text-xl sm:text-2xl md:text-3xl font-black tracking-tight mb-2">
             Free Home Sample Collection
           </Heading>
-          <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto font-medium mb-6 leading-relaxed">
-            NABL-accredited diagnostic services with qualified medical oversight, advanced testing and city-wide home collection across Bengaluru.
+          <p className="text-slate-600 text-xs sm:text-sm max-w-2xl mx-auto font-medium mb-6 leading-relaxed">
+            Home sample collection is available in eligible Bengaluru PIN codes, subject to slot confirmation. Samples are transported under strict cold chain according to test-specific pre-analytical requirements, with digital reports confirmed at booking.
           </p>
 
           {/* 7 Home Collection Process Steps */}

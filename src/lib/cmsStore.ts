@@ -196,38 +196,26 @@ export const cmsStore = {
 
     if (key === "doctors") return defaultDoctors;
 
+    // Always serve the latest blogs from defaultBlogs so updates show immediately
     if (key === "blogs") {
       try {
         const data = localStorage.getItem("qxl_cms_blogs");
         if (data) {
-          let parsed = JSON.parse(data);
+          const parsed = JSON.parse(data);
           if (Array.isArray(parsed)) {
-            // Update/heal default blog items in parsed cache with latest defaultBlogs properties
-            const map = new Map<string, any>();
-            parsed.forEach((b: any) => {
-              if (b.id) map.set(b.id, b);
-              if (b.slug) map.set(b.slug, b);
-            });
-            // Ensure defaultBlogs always override/update cached values for core blogs
-            defaultBlogs.forEach((def) => {
-              map.set(def.id, { ...(map.get(def.id) || map.get(def.slug) || {}), ...def });
-            });
-            let merged = Array.from(new Set(map.values()));
-            merged.sort((a: any, b: any) => {
-              const timeA = new Date(a.created_at || a.date || "2026-10-01").getTime();
-              const timeB = new Date(b.created_at || b.date || "2026-10-01").getTime();
-              return timeB - timeA;
-            });
-            localStorage.setItem("qxl_cms_blogs", JSON.stringify(merged));
-            return merged;
+            const defaultSlugs = new Set(defaultBlogs.map((b) => b.slug));
+            const defaultIds = new Set(defaultBlogs.map((b) => b.id));
+            const customBlogs = parsed.filter(
+              (b: any) => b && !defaultIds.has(b.id) && !defaultSlugs.has(b.slug)
+            );
+            if (customBlogs.length > 0) {
+              return [...defaultBlogs, ...customBlogs];
+            }
           }
         }
       } catch (e) {
         console.error("CMS blogs read error", e);
       }
-      try {
-        localStorage.setItem("qxl_cms_blogs", JSON.stringify(defaultBlogs));
-      } catch (e) {}
       return defaultBlogs;
     }
 

@@ -57,13 +57,28 @@ export default function BlogPage() {
         if (item.slug) map.set(item.slug, item);
       }
       for (const item of cmsBlogs) {
-        if (item.slug) map.set(item.slug, { ...(map.get(item.slug) || {}), ...item });
+        if (item.slug && !map.has(item.slug)) map.set(item.slug, item);
       }
       for (const item of apiItems) {
-        if (item.slug) map.set(item.slug, { ...(map.get(item.slug) || {}), ...item });
+        if (item.slug && !map.has(item.slug)) map.set(item.slug, item);
       }
 
       const getTime = (item: any) => {
+        if (item.id === "blog-new-31" || item.slug === "shingles-herpes-zoster-symptoms-pcr-test-vaccine-antibodies") {
+          return new Date("2026-10-30T12:00:00.000Z").getTime();
+        }
+        if (item.id === "blog-new-30" || item.slug === "high-uric-acid-kidney-disease-diabetes-clinical-spotlight") {
+          return new Date("2026-10-30T11:00:00.000Z").getTime();
+        }
+        if (item.id === "blog-new-29" || item.slug === "high-uric-acid-kidney-damage-diabetes-2026-study") {
+          return new Date("2026-10-30T10:00:00.000Z").getTime();
+        }
+        if (item.id === "blog-new-28" || item.slug === "can-emotional-stress-affect-thyroid-cortisol-hashimotos-connection") {
+          return new Date("2026-10-30T09:00:00.000Z").getTime();
+        }
+        if (item.id === "blog-new-27" || item.slug === "vitamin-b12-deficiency-memory-loss-brain-fog-nerve-damage") {
+          return new Date("2026-10-30T08:00:00.000Z").getTime();
+        }
         if (item.id === "blog-new-26" || item.slug === "hashimotos-thyroid-antibodies-anti-tpo-tsh-fatigue-guide") {
           return new Date("2026-10-24T12:00:00.000Z").getTime();
         }

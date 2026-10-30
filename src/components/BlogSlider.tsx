@@ -7,126 +7,11 @@ import { api, type BlogPost } from "../lib/api";
 import { cmsStore } from "../lib/cmsStore";
 import { getAutoBlogDate } from "../lib/dateUtils";
 
-export default function BlogSlider({ decorativeHeading = false }: { decorativeHeading?: boolean }) {
-  const [blogs, setBlogs] = useState<BlogPost[]>([]);
-  const Heading = decorativeHeading ? 'p' : 'h2';
+import { defaultBlogs } from "../lib/blogsData";
 
-  const fallbackBlogs: BlogPost[] = [
-    {
-      id: 'blog-new-26',
-      title: "Thyroid Antibodies (Anti-TPO & Anti-Tg) vs Routine TSH: Why Millions Suffer From Unexplained Fatigue Despite 'Normal' Thyroid Reports",
-      slug: 'hashimotos-thyroid-antibodies-anti-tpo-tsh-fatigue-guide',
-      excerpt: "Struggling with chronic fatigue, hair thinning, or brain fog despite a normal TSH? Learn why thyroid autoantibody testing unmasks hidden Hashimoto's thyroiditis.",
-      created_at: '2026-10-24T12:00:00.000Z'
-    },
-    {
-      id: 'blog-new-25',
-      title: 'Vitamin D3 & B12 Deficiency Epidemic in Urban India: Symptoms, Toxic Dosages, Active B12 (Holotranscobalamin) & Optimal Levels',
-      slug: 'vitamin-d3-b12-deficiency-holotranscobalamin-optimal-levels-guide',
-      excerpt: 'Explore why 75%+ of urban Indians are deficient in Vitamin D3 and B12, how Active B12 testing prevents irreversible nerve damage, and optimal supplement protocols.',
-      created_at: '2026-10-24T11:00:00.000Z'
-    },
-    {
-      id: 'blog-new-24',
-      title: 'HbA1c vs Fasting Insulin & HOMA-IR: The 2026 Complete Guide to Reversing Insulin Resistance & Prediabetes in Bengaluru',
-      slug: 'hba1c-fasting-insulin-homa-ir-prediabetes-guide-bengaluru',
-      excerpt: 'Discover why normal blood sugar can conceal dangerous insulin resistance. Learn how fasting insulin and HOMA-IR calculation catch prediabetes 5 to 10 years earlier.',
-      created_at: '2026-10-24T10:00:00.000Z'
-    },
-    {
-      id: 'blog-new-23',
-      title: 'Arthritis and Exercise: How to Stay Active Safely, Understand Joint Pain and Know Which Blood Tests You Need',
-      slug: 'arthritis-exercise-joint-pain-blood-tests-guide',
-      excerpt: 'A patient-friendly guide to arthritis, joint pain, rheumatoid arthritis, gout, safe exercise guidelines, and modern laboratory blood testing in Bengaluru.',
-      created_at: '2026-10-24T09:00:00.000Z'
-    },
-    {
-      id: 'blog-new-22',
-      title: 'Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care',
-      slug: 'personalised-pregnancy-testing-bengaluru',
-      excerpt: 'Explore pregnancy blood tests by trimester, double marker, NIPT and gestational diabetes screening. Personalised prenatal testing with QXL Bengaluru.',
-      created_at: '2026-10-24T08:00:00.000Z'
-    },
-    {
-      id: 'blog-new-21',
-      title: 'ApoB vs LDL-C: Why Apolipoprotein B is the Superior Cardiovascular Biomarker in 2026',
-      slug: 'apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide',
-      excerpt: 'A comprehensive medical guide on why Apolipoprotein B provides superior predictive value for atherogenic risk compared to conventional LDL cholesterol.',
-      created_at: '2026-10-24T07:00:00.000Z'
-    },
-    {
-      id: 'blog-new-20',
-      title: 'Your Liver Works in Silence — A Simple Blood Test Lets You Listen',
-      slug: 'your-liver-works-in-silence-simple-blood-test',
-      excerpt: 'Most of us know when our stomach is upset or our knees ache. The liver is different. It can lose a good part of its working strength before you feel anything at all. Learn how routine LFT and PT/INR tests let you listen to your liver.',
-      created_at: '2026-10-24T06:00:00.000Z'
-    },
-    {
-      id: 'b-new-14',
-      title: 'Comprehensive Food-Specific IgG Sensitivity Microarray (287 Foods): A Doctor-Led Guide for Chronic Symptoms',
-      slug: 'food-specific-igg-287-foods-sensitivity-elimination-guide',
-      excerpt: 'Struggling with chronic bloating, IBS, migraines, or unexplained fatigue? Discover how high-throughput microarray IgG testing identifies delayed food sensitivities across 287 antigens under medical guidance.',
-      created_at: '2026-10-07T09:30:00.000Z'
-    },
-    {
-      id: 'b-new-15',
-      title: 'Emergency Cardiac Biomarkers: Understanding High-Sensitivity Troponin I, hs-CRP & NT-proBNP in Bengaluru',
-      slug: 'cardiac-biomarkers-hs-troponin-hscrp-nt-probnp-guide',
-      excerpt: 'Learn why emergency departments and cardiologists rely on high-sensitivity Cardiac Troponin I and hs-CRP for early myocardial injury and heart failure evaluation.',
-      created_at: '2026-10-07T09:00:00.000Z'
-    },
-    {
-      id: 'b-new-16',
-      title: 'Speciality Kidney & Liver Function Testing: eGFR, Cystatin C, Microalbuminuria & Liver Enzyme Ratios',
-      slug: 'speciality-kidney-liver-function-egfr-cystatin-c-lft-guide',
-      excerpt: 'An in-depth guide to interpreting Liver Function Tests (LFT) and Kidney Function Tests (KFT), including AST/ALT ratios, eGFR filtration, and early microalbuminuria detection.',
-      created_at: '2026-10-07T08:30:00.000Z'
-    },
-    {
-      id: 'b-new-1',
-      title: 'Hospital Laboratory Management (HLM): Transforming Diagnostic Models in India',
-      slug: 'hospital-laboratory-management-transforming-models',
-      excerpt: 'Explore how hybrid onsite-reference laboratory management helps hospitals optimize operating costs while delivering rapid 24x7 emergency diagnostic testing.',
-      created_at: '2026-10-07T08:00:00.000Z'
-    },
-    {
-      id: 'b-new-2',
-      title: 'Understanding 19 Key Health Symptoms: When to Get Blood Biomarker Screening',
-      slug: 'understanding-19-key-health-symptoms-blood-screening',
-      excerpt: 'From chronic fatigue and dizziness to unexplained weight loss and joint pain, learn how targeted blood testing guides clinical diagnosis.',
-      created_at: '2026-10-07T08:00:00.000Z'
-    },
-    {
-      id: 'b-new-3',
-      title: 'NABL ISO 15189:2022 Accreditation: What It Means for Sample Precision',
-      slug: 'nabl-iso-15189-2022-accreditation-sample-precision',
-      excerpt: 'Learn about internal quality controls (IQC), EQAS proficiency testing, and medical laboratory standards that ensure accurate test reporting.',
-      created_at: '2026-10-07T08:00:00.000Z'
-    },
-    {
-      id: 'b-new-4',
-      title: 'Master Health Checkup Packages: Selecting the Right Full Body Profile',
-      slug: 'selecting-right-full-body-health-package',
-      excerpt: 'Comparing Quick Fit, Q-Screen Diabetes, and Q-Master Pro checkups to find the optimal screening for your age and risk profile.',
-      created_at: '2026-10-07T08:00:00.000Z'
-    },
-    {
-      id: 'b-new-5',
-      title: 'Free Doorstep Sample Collection Across Bengaluru: Safety & Sample Integrity',
-      slug: 'free-doorstep-home-sample-collection-bengaluru',
-      excerpt: 'How certified phlebotomists maintain cold chain storage and tube integrity from your home to our central reference laboratory.',
-      created_at: '2026-10-07T08:00:00.000Z'
-    }
-  ].map(b => ({
-    content: null,
-    author: null,
-    category: null,
-    image_url: null,
-    tags: null,
-    is_published: true,
-    sort_order: 0,
-    ...b
-  }));
+export default function BlogSlider({ decorativeHeading = false }: { decorativeHeading?: boolean }) {
+  const [blogs, setBlogs] = useState<any[]>(defaultBlogs.slice(0, 8));
+  const Heading = decorativeHeading ? 'p' : 'h2';
 
   useEffect(() => {
     let cancelled = false;
@@ -144,17 +29,17 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
       const cmsBlogs = cmsStore.getAll("blogs");
       const map = new Map<string, any>();
 
-      // 1. Add cmsBlogs first (contains blog-new-20 with newest 2026-10-10 timestamp)
-      for (const item of cmsBlogs) {
+      // 1. Add canonical defaultBlogs first
+      for (const item of defaultBlogs) {
         if (item.slug) map.set(item.slug, item);
       }
 
-      // 2. Add fallbackBlogs
-      for (const item of fallbackBlogs) {
+      // 2. Merge cmsBlogs (custom items only)
+      for (const item of cmsBlogs) {
         if (item.slug && !map.has(item.slug)) map.set(item.slug, item);
       }
 
-      // 3. Add apiItems
+      // 3. Add apiItems if any
       for (const item of apiItems) {
         if (item.slug && !map.has(item.slug)) map.set(item.slug, item);
       }

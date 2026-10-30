@@ -5,10 +5,13 @@
  * Do NOT hardcode "MC-6849" or "NABL Accredited" elsewhere in the codebase.
  */
 
-export const NABL_CERTIFICATE = "MC-6849";
-export const NABL_LEGACY_CERTIFICATE_DISCLAIMER = "MC-6849 (formerly MC-6849)";
-export const ISO_STANDARD = "ISO 15189:2022";
-export const NABL_ACCREDITATION_TEXT = "NABL Accredited medical laboratory (ISO 15189:2022) · Certificate No. MC-6849";
+import { accreditation, getAccreditationBadgeText, isAccreditationActive } from '@/lib/accreditation';
+
+export { accreditation, getAccreditationBadgeText, isAccreditationActive };
+export const NABL_CERTIFICATE = accreditation.certificateNumber;
+export const NABL_LEGACY_CERTIFICATE_DISCLAIMER = `${accreditation.certificateNumber} (ISO 15189:2022)`;
+export const ISO_STANDARD = accreditation.standard;
+export const NABL_ACCREDITATION_TEXT = getAccreditationBadgeText(accreditation);
 
 export const ACCREDITATION_SCOPE = [
   "Clinical Biochemistry & Immunoassay",
