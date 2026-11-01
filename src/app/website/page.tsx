@@ -39,7 +39,14 @@ export default function WebsiteManagementPage() {
   const [timelineEvent, setTimelineEvent] = useState("");
 
   useEffect(() => {
-    setSettings(cmsStore.getSettings());
+    const load = () => setSettings(cmsStore.getSettings());
+    load();
+    // The server copy loads in the background (see cmsStore) — pick it up.
+    const onUpdate = (e: Event) => {
+      if ((e as CustomEvent).detail?.key === "settings") load();
+    };
+    window.addEventListener("cms-update", onUpdate);
+    return () => window.removeEventListener("cms-update", onUpdate);
   }, []);
 
   const handleChange = (key: string, value: any) => {

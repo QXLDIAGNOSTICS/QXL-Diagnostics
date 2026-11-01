@@ -333,34 +333,99 @@ const defaultSettings = {
   siteName: "QXL Diagnostics",
   logoText: "QXL",
   logoImage: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto,w_302,h_95,c_fit/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
-    supportEmail: "qxldiagnostics@gmail.com",
+    supportEmail: "info@qxldiagnostics.com",
   hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
   northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
-  workingHours: "Open 24x7",
+  workingHours: "Walk-in: Kengeri 6:30 AM–8 PM (24×7 Lab Processing) · Yelahanka 7 AM–8 PM · Home Collection 7 AM–9 PM · 24×7 Support: +91 9964 639 639",
   copyrightText: "© 2026 QXL Diagnostics. All rights reserved.",
   footerDesc: "QXL Diagnostics is a super speciality diagnostic laboratory in Bengaluru offering advanced pathology, microbiology, immunology, molecular diagnostics, histopathology, cytology and precision diagnostic services for patients, clinicians and hospitals.",
   // Contact info — now comes from backend API via SiteSettings
-  phone_display: "+91 99646 39639",
+  phone_display: "+91 9964 639 639",
   phone_e164: "+919964639639",
   whatsapp_number: "919964639639",
   navItems: [
     { label: "Home", href: "/", visible: true },
     { label: "About Us", href: "/about", visible: true },
-    { label: "Founder & Consultants", href: "/founder", visible: true },
+    { label: "Founder & Consultants", href: "/team", visible: true },
     { label: "Our Specialities", href: "/specialities", visible: true },
     { label: "Packages", href: "/packages", visible: true },
-    { label: "Book a Test", href: "/book", visible: true },
     { label: "Find Nearest Centre", href: "/centers", visible: true },
-    { label: "Download Report", href: "/report", visible: true },
-    { label: "Collaborate with us", href: "/franchise", visible: true },
+    { label: "My Bookings", href: "/dashboard", visible: true },
+    { label: "My Reports", href: "/report", visible: true },
     { label: "Login", href: "/login", visible: true }
   ]
+};
+
+// Sections persisted server-side as backend "content blocks"
+// (GET/PUT /api/v1/content-blocks/{key}) so they're shared across admins and
+// devices — and, for "website", rendered by the public site. localStorage
+// stays as a synchronous read cache so pages can keep calling getAll().
+const SERVER_KEYS = new Set(["careers", "departments", "marketing", "seo", "logs"]);
+const WEBSITE_BLOCK = "website";
+const hydrated = new Set<string>();
+
+const storageKeyFor = (block: string) =>
+  block === WEBSITE_BLOCK ? "qxl_cms_settings" : `qxl_cms_${block}`;
+const eventKeyFor = (block: string) => (block === WEBSITE_BLOCK ? "settings" : block);
+
+async function pushBlock(block: string, data: unknown): Promise<void> {
+  try {
+    const res = await fetch(`/api/v1/content-blocks/${block}`, {
+      method: "PUT",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data }),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  } catch (e) {
+    console.error(`Failed to save "${block}" to the server — kept locally only`, e);
+  }
+}
+
+/** Loads the server copy of a block into the local cache once per page load.
+ * If the server has never stored this block, seeds it from the local copy. */
+function hydrateBlock(block: string): void {
+  if (!isClient || hydrated.has(block)) return;
+  hydrated.add(block);
+  if (block === WEBSITE_BLOCK) void cmsStore.syncSettingsFromAPI();
+  void (async () => {
+    try {
+      const res = await fetch(`/api/v1/content-blocks/${block}/admin`, { credentials: "include" });
+      const storageKey = storageKeyFor(block);
+      if (res.status === 404) {
+        // Never auto-publish "website": the public site would pick up
+        // whatever this browser had cached. It goes live on explicit Save.
+        const local = localStorage.getItem(storageKey);
+        if (local && block !== WEBSITE_BLOCK) await pushBlock(block, JSON.parse(local));
+        return;
+      }
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const body = await res.json();
+      const data = block === WEBSITE_BLOCK ? { ...body.data, __fromServer: true } : body.data;
+      const serialized = JSON.stringify(data);
+      if (localStorage.getItem(storageKey) !== serialized) {
+        localStorage.setItem(storageKey, serialized);
+        window.dispatchEvent(new CustomEvent("cms-update", { detail: { key: eventKeyFor(block) } }));
+      }
+    } catch (e) {
+      hydrated.delete(block);
+      console.warn(`Could not load "${block}" from the server — showing local copy`, e);
+    }
+  })();
+}
+
+const toE164 = (phone: string): string | null => {
+  const digits = phone.replace(/\D/g, "");
+  if (digits.length === 10) return `+91${digits}`;
+  if (digits.length === 12 && digits.startsWith("91")) return `+${digits}`;
+  return null;
 };
 
 export const cmsStore = {
   // Read operations
   getAll: (key: string): any[] => {
     if (!isClient) return [];
+    if (SERVER_KEYS.has(key)) hydrateBlock(key);
     
     // Always serve the latest packages from defaults so updates show immediately
     if (key === "packages") return defaultPackages;
@@ -460,10 +525,10 @@ export const cmsStore = {
 
   getSettings: (): any => {
     if (!isClient) return defaultSettings;
+    hydrateBlock(WEBSITE_BLOCK);
     try {
       const data = localStorage.getItem("qxl_cms_settings");
-      if (!data) return defaultSettings;
-      const parsed = JSON.parse(data);
+      const parsed = data ? JSON.parse(data) : { ...defaultSettings };
       
       // Auto-heal missing or empty critical settings
       let healed = false;
@@ -474,6 +539,28 @@ export const cmsStore = {
           parsed[k] = defVal;
           healed = true;
         }
+      }
+
+      // The Website screen requires both contact numbers; fill them from the
+      // SiteSettings contact fields (phone_display / whatsapp_number) so the
+      // form can be saved without retyping them.
+      if (!parsed.contactPhone && parsed.phone_display) {
+        parsed.contactPhone = parsed.phone_display;
+        healed = true;
+      }
+      if (!parsed.whatsappNumber && parsed.whatsapp_number) {
+        parsed.whatsappNumber = parsed.whatsapp_number;
+        healed = true;
+      }
+
+      // Cached copies of the retired menu (pre-/team, with "Book a Test" /
+      // "Download Report" / "Collaborate with us") are replaced by the current
+      // live menu — mirrors qxl-frontend's cmsStore.getSettings.
+      if (!parsed.__fromServer && Array.isArray(parsed.navItems) && parsed.navItems.some((item: any) =>
+        ["Book a Test", "Download Report", "Collaborate with us", "Franchise", "Collab with us"].includes(item.label)
+      )) {
+        parsed.navItems = defaultSettings.navItems;
+        healed = true;
       }
 
       // Force update navbar label to "Founder & Consultants" if it is still "Founder & Advisors"
@@ -524,6 +611,7 @@ export const cmsStore = {
     if (!isClient) return;
     localStorage.setItem(`qxl_cms_${key}`, JSON.stringify(data));
     window.dispatchEvent(new CustomEvent("cms-update", { detail: { key } }));
+    if (SERVER_KEYS.has(key)) void pushBlock(key, data);
   },
 
   // Add Item
@@ -563,8 +651,33 @@ export const cmsStore = {
   // Save settings specifically
   saveSettings: (settings: any) => {
     if (!isClient) return;
-    localStorage.setItem("qxl_cms_settings", JSON.stringify(settings));
+    const published = { ...settings };
+    delete published.__fromServer; // local cache marker, not content
+    localStorage.setItem("qxl_cms_settings", JSON.stringify({ ...published, __fromServer: true }));
     window.dispatchEvent(new CustomEvent("cms-update", { detail: { key: "settings" } }));
+    void pushBlock(WEBSITE_BLOCK, published);
+
+    // Contact numbers and the announcement are also first-class SiteSettings
+    // fields (used across the public site), so keep those in sync too.
+    const siteSettings: Record<string, string> = {};
+    const phoneE164 = settings.contactPhone ? toE164(settings.contactPhone) : null;
+    if (phoneE164) {
+      siteSettings.phone_display = settings.contactPhone.trim();
+      siteSettings.phone_e164 = phoneE164;
+    }
+    const whatsappDigits = (settings.whatsappNumber || "").replace(/\D/g, "");
+    if (whatsappDigits.length >= 10) {
+      siteSettings.whatsapp_number = whatsappDigits.length === 10 ? `91${whatsappDigits}` : whatsappDigits;
+    }
+    if (typeof settings.announcement === "string") siteSettings.announcement = settings.announcement;
+    if (Object.keys(siteSettings).length > 0) {
+      void fetch("/api/v1/settings", {
+        method: "PUT",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(siteSettings),
+      }).catch((e) => console.error("Failed to sync contact settings", e));
+    }
     cmsStore.logActivity("Updated general settings");
   },
 
@@ -579,14 +692,20 @@ export const cmsStore = {
       
       const apiSettings = await response.json();
       
-      // Merge API settings with existing settings
+      // Merge API settings with existing settings (local cache only — this
+      // must not write back to the server, see saveSettings).
       const currentSettings = cmsStore.getSettings();
       const mergedSettings = {
         ...currentSettings,
         ...apiSettings, // Backend values override local defaults
+        // The live contact numbers (also editable under Settings) win over
+        // whatever this browser had cached or defaulted.
+        contactPhone: apiSettings.phone_display || currentSettings.contactPhone,
+        whatsappNumber: apiSettings.whatsapp_number || currentSettings.whatsappNumber,
       };
-      
-      cmsStore.saveSettings(mergedSettings);
+
+      localStorage.setItem("qxl_cms_settings", JSON.stringify(mergedSettings));
+      window.dispatchEvent(new CustomEvent("cms-update", { detail: { key: "settings" } }));
     } catch (error) {
       // Silently fail — use cached settings if API is unavailable
       console.warn("Failed to sync settings from API:", error);

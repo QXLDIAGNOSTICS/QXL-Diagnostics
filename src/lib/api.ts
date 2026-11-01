@@ -1012,7 +1012,7 @@ export const api = {
       ),
     createUser: (data: AdminUserCreate) => post<AdminUser>('/admin/users', data),
     updateUserRole: (id: string, role: string) => patch<AdminUser>(`/admin/users/${id}/role`, { role }),
-    stats: () => get<AdminStats>('/stats'),
+    stats: () => get<AdminStats>('/admin/stats'),
   },
   roles: {
     list: () => get<RoleRecord[]>('/admin/roles'),
@@ -1027,7 +1027,7 @@ export const api = {
     upload: (file: File) => {
       const form = new FormData();
       form.append('file', file);
-      return post<KnowledgeDocument>('/knowledge-base', form);
+      return post<KnowledgeDocument>('/admin/knowledge-base', form);
     },
     remove: (id: string) => del<void>(`/admin/knowledge-base/${id}`),
   },
