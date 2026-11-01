@@ -29,6 +29,7 @@ import {
   ListTodo,
   Truck,
   BrainCircuit,
+  FlaskConical,
   type LucideIcon,
 } from "lucide-react";
 import { useAuth } from "@/lib/useAuth";
@@ -50,6 +51,7 @@ const sidebarLinks: NavLink[] = [
   { name: "Website Mgt", href: "/website", icon: Globe, access: "admin" },
   { name: "Banners", href: "/banners", icon: ImageIcon, access: "admin" },
   { name: "Doctors", href: "/doctors", icon: Stethoscope, access: "admin" },
+  { name: "Specialities", href: "/specialities", icon: FlaskConical, access: "admin" },
   { name: "Departments", href: "/departments", icon: Building2, access: "admin" },
   { name: "Tests", href: "/tests", icon: Activity, access: "admin" },
   { name: "Packages", href: "/packages", icon: Briefcase, access: "admin" },

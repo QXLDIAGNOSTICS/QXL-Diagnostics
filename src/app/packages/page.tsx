@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from "react";
 import { Briefcase, Plus, Search, Edit2, Trash2, X, Loader2, Home, Building2 } from "lucide-react";
-import { api, type HealthPackage } from "@/lib/api";
+import { api, type HealthPackage, type PackageDetails } from "@/lib/api";
 import ImageUploadField from "@/components/admin/ImageUploadField";
 
 export default function PackagesAdminPage() {
@@ -23,6 +23,33 @@ export default function PackagesAdminPage() {
   const [tag, setTag] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [homeCollectionAvailable, setHomeCollectionAvailable] = useState(true);
+  const [isActive, setIsActive] = useState(true);
+  const [category, setCategory] = useState("");
+  const [showOnHome, setShowOnHome] = useState(false);
+  const [mostBooked, setMostBooked] = useState(false);
+  const [contactForPrice, setContactForPrice] = useState(false);
+  const [sortOrder, setSortOrder] = useState("0");
+  const [benefits, setBenefits] = useState(""); // one per line
+  const [fastingHours, setFastingHours] = useState("");
+  const [tat, setTat] = useState("");
+  const [sampleType, setSampleType] = useState("");
+  const [guidanceLevel, setGuidanceLevel] = useState("");
+  const [mayHelpWhen, setMayHelpWhen] = useState("");
+  const [beforeBooking, setBeforeBooking] = useState("");
+  const [keyTests, setKeyTests] = useState(""); // one per line
+  const [guideNumber, setGuideNumber] = useState("");
+  // The rest of `details` (e.g. the per-category breakdown) is kept as it is when saving.
+  const [baseDetails, setBaseDetails] = useState<PackageDetails>({});
+
+  const parseBenefits = (raw: string | null): string[] => {
+    if (!raw) return [];
+    try {
+      const v = JSON.parse(raw);
+      return Array.isArray(v) ? v.map(String) : [];
+    } catch {
+      return raw.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+    }
+  };
 
   const refreshData = useCallback(async () => {
     setLoading(true);
@@ -50,38 +77,94 @@ export default function PackagesAdminPage() {
     setParameters("10+ Parameters");
     setTag("WELLNESS");
     setImageUrl("");
+    setHomeCollectionAvailable(true);
+    setIsActive(true);
+    setCategory("");
+    setShowOnHome(false);
+    setMostBooked(false);
+    setContactForPrice(false);
+    setSortOrder("0");
+    setBenefits("");
+    setFastingHours("");
+    setTat("");
+    setSampleType("");
+    setGuidanceLevel("");
+    setMayHelpWhen("");
+    setBeforeBooking("");
+    setKeyTests("");
+    setGuideNumber("");
+    setBaseDetails({});
     setIsModalOpen(true);
   };
 
   const openEditModal = (pkg: HealthPackage) => {
     setEditingId(pkg.id);
     setName(pkg.name);
-    setPrice(String(pkg.price ?? ""));
-    setOldPrice(String(pkg.old_price ?? ""));
+    setPrice(pkg.contact_for_price ? "" : String(pkg.price ?? ""));
+    setOldPrice(pkg.old_price ? String(pkg.old_price) : "");
     setIncludes(pkg.includes || "");
     setParameters(pkg.parameters || "");
     setTag(pkg.tag || "");
     setImageUrl(pkg.image_url || "");
     setHomeCollectionAvailable(pkg.home_collection_available !== false);
+    setIsActive(pkg.is_active);
+    setCategory(pkg.category || "");
+    setShowOnHome(pkg.show_on_home);
+    setMostBooked(pkg.most_booked);
+    setContactForPrice(pkg.contact_for_price);
+    setSortOrder(String(pkg.sort_order));
+    setBenefits(parseBenefits(pkg.benefits).join("\n"));
+    const d = pkg.details ?? {};
+    setFastingHours(d.fasting_hours || "");
+    setTat(d.tat || "");
+    setSampleType(d.sample_type || "");
+    setGuidanceLevel(d.guidance_level || "");
+    setMayHelpWhen(d.may_help_when || "");
+    setBeforeBooking(d.before_booking || "");
+    setKeyTests((d.key_tests || []).join("\n"));
+    setGuideNumber(d.guide_number || "");
+    setBaseDetails(d);
     setIsModalOpen(true);
   };
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !price || !oldPrice) return;
+    if (!name || (!contactForPrice && !price)) return;
 
     setSaving(true);
     setError(null);
     try {
+      const lines = (v: string) => v.split("\n").map((l) => l.trim()).filter(Boolean);
+      const details: PackageDetails = {
+        ...baseDetails,
+        fasting_hours: fastingHours.trim(),
+        tat: tat.trim(),
+        sample_type: sampleType.trim(),
+        guidance_level: guidanceLevel,
+        may_help_when: mayHelpWhen.trim(),
+        before_booking: beforeBooking.trim(),
+        key_tests: lines(keyTests),
+        guide_number: guideNumber.trim(),
+      };
+      const priceNum = contactForPrice ? 0 : Number(price);
       const payload = {
         name,
-        price: Number(price),
-        old_price: Number(oldPrice),
+        price: priceNum,
+        old_price: contactForPrice || !oldPrice ? null : Number(oldPrice),
+        save_amount: !contactForPrice && oldPrice ? Math.max(Number(oldPrice) - priceNum, 0) : null,
         includes,
         parameters,
         tag,
         image_url: imageUrl || null,
         home_collection_available: homeCollectionAvailable,
+        is_active: isActive,
+        category: category.trim(),
+        show_on_home: showOnHome,
+        most_booked: mostBooked,
+        contact_for_price: contactForPrice,
+        sort_order: Number.isNaN(Number(sortOrder)) ? 0 : Math.round(Number(sortOrder)),
+        benefits: JSON.stringify(lines(benefits)),
+        details,
       };
 
       if (editingId) {
@@ -190,6 +273,8 @@ export default function PackagesAdminPage() {
                 <div>
                   <div className="flex justify-between items-start gap-2 mb-3">
                     <h4 className="font-extrabold text-slate-800 dark:text-white text-sm line-clamp-1">{pkg.name}</h4>
+                    {!pkg.is_active && <span className="bg-gray-100 text-gray-500 px-2 py-0.5 rounded-md text-[9px] font-black uppercase tracking-wider">Hidden</span>}
+                    {pkg.show_on_home && <span className="bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-md text-[9px] font-black uppercase tracking-wider">Homepage</span>}
                     {pkg.tag && <span className="bg-sky-550/10 text-sky-600 dark:text-sky-400 px-2 py-0.5 rounded-md text-[9px] font-black uppercase tracking-wider">{pkg.tag}</span>}
                   </div>
                   <p className="text-xs text-[#2563eb] font-bold mb-2">📋 {pkg.parameters}</p>
@@ -211,8 +296,14 @@ export default function PackagesAdminPage() {
 
                 <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-base font-black text-slate-900 dark:text-white">₹{pkg.price}</span>
-                    <span className="text-xs text-slate-400 line-through">₹{pkg.old_price}</span>
+                    {pkg.contact_for_price ? (
+                      <span className="text-sm font-black text-slate-900 dark:text-white">Contact for price</span>
+                    ) : (
+                      <>
+                        <span className="text-base font-black text-slate-900 dark:text-white">₹{pkg.price}</span>
+                        {pkg.old_price ? <span className="text-xs text-slate-400 line-through">₹{pkg.old_price}</span> : null}
+                      </>
+                    )}
                   </div>
 
                   <div className="flex gap-2">
@@ -239,7 +330,7 @@ export default function PackagesAdminPage() {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/55 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in duration-200">
-          <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-lg w-full shadow-2xl border border-gray-150 dark:border-gray-800 overflow-hidden">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full shadow-2xl border border-gray-150 dark:border-gray-800 max-h-[92vh] overflow-y-auto">
             <div className="p-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
               <h3 className="text-base font-bold text-gray-900 dark:text-white">
                 {editingId ? "Edit Health Package" : "Add Health Package"}
@@ -273,7 +364,8 @@ export default function PackagesAdminPage() {
                   <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Offer Price (₹)</label>
                   <input 
                     type="number" 
-                    required
+                    required={!contactForPrice}
+                    disabled={contactForPrice}
                     value={price} 
                     onChange={(e) => setPrice(e.target.value)} 
                     placeholder="1900" 
@@ -281,10 +373,10 @@ export default function PackagesAdminPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Original Price (₹)</label>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Original Price / MRP (₹, optional)</label>
                   <input 
                     type="number" 
-                    required
+                    disabled={contactForPrice}
                     value={oldPrice} 
                     onChange={(e) => setOldPrice(e.target.value)} 
                     placeholder="4960" 
@@ -325,6 +417,87 @@ export default function PackagesAdminPage() {
                   placeholder="FBS, HbA1c, eAG, Lipid Profile..." 
                   className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500 resize-none"
                 ></textarea>
+              </div>
+
+              <div className="rounded-xl border border-gray-100 dark:border-gray-800 p-4 space-y-4">
+                <h4 className="text-sm font-bold text-gray-800 dark:text-gray-200">Website display</h4>
+                <label className="flex items-center gap-2.5 p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+                  <input type="checkbox" checked={isActive} onChange={(e) => setIsActive(e.target.checked)} className="w-4 h-4 accent-sky-600" />
+                  <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Show on the website</span>
+                </label>
+                <label className="flex items-center gap-2.5 p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+                  <input type="checkbox" checked={contactForPrice} onChange={(e) => setContactForPrice(e.target.checked)} className="w-4 h-4 accent-sky-600" />
+                  <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Price on request - shows &quot;Contact Us&quot; and can&apos;t be booked online</span>
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <label className="flex items-center gap-2.5 p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+                    <input type="checkbox" checked={showOnHome} onChange={(e) => setShowOnHome(e.target.checked)} className="w-4 h-4 accent-sky-600" />
+                    <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Feature on the homepage</span>
+                  </label>
+                  <label className="flex items-center gap-2.5 p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">
+                    <input type="checkbox" checked={mostBooked} onChange={(e) => setMostBooked(e.target.checked)} className="w-4 h-4 accent-sky-600" />
+                    <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Mark as &quot;Most booked&quot;</span>
+                  </label>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Category (filter on the Packages page)</label>
+                    <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Diabetes" className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Display order</label>
+                    <input type="number" value={sortOrder} onChange={(e) => setSortOrder(e.target.value)} className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Highlights (one per line)</label>
+                  <textarea rows={3} value={benefits} onChange={(e) => setBenefits(e.target.value)} className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-gray-100 dark:border-gray-800 p-4 space-y-4">
+                <h4 className="text-sm font-bold text-gray-800 dark:text-gray-200">Package details</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Fasting</label>
+                    <input type="text" value={fastingHours} onChange={(e) => setFastingHours(e.target.value)} placeholder="10-12 hours" className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Report time</label>
+                    <input type="text" value={tat} onChange={(e) => setTat(e.target.value)} placeholder="Reports within 24 hours" className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Sample type</label>
+                    <input type="text" value={sampleType} onChange={(e) => setSampleType(e.target.value)} placeholder="Blood + Urine" className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Guidance level</label>
+                    <select value={guidanceLevel} onChange={(e) => setGuidanceLevel(e.target.value)} className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                      <option value="">None</option>
+                      <option value="SELF-REQUEST POSSIBLE">Self-request possible</option>
+                      <option value="CONSULTATION RECOMMENDED">Consultation recommended</option>
+                      <option value="DOCTOR-DIRECTED">Doctor-directed</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Guide number</label>
+                    <input type="text" value={guideNumber} onChange={(e) => setGuideNumber(e.target.value)} placeholder="#07" className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">May help when</label>
+                  <textarea rows={2} value={mayHelpWhen} onChange={(e) => setMayHelpWhen(e.target.value)} className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Before booking</label>
+                  <textarea rows={2} value={beforeBooking} onChange={(e) => setBeforeBooking(e.target.value)} className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Key tests (one per line)</label>
+                  <textarea rows={3} value={keyTests} onChange={(e) => setKeyTests(e.target.value)} className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                </div>
               </div>
 
               <label className="flex items-center gap-2.5 p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer">

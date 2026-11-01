@@ -5,6 +5,86 @@ import { Stethoscope, Plus, Search, Edit2, Trash2, X, Loader2 } from "lucide-rea
 import { api, type Doctor } from "@/lib/api";
 import ImageUploadField from "@/components/admin/ImageUploadField";
 
+interface DoctorForm {
+  name: string;
+  qualification: string;
+  image_url: string;
+  is_active: boolean;
+  sort_order: string;
+  bio: string;
+  title: string;
+  is_founder: boolean;
+  experience: string;
+  expertise: string;
+  achievements: string;
+  contribution: string;
+  department: string;
+  registration_number: string;
+  profile_path: string;
+  image_position: string;
+  card_qualification: string;
+  card_image_url: string;
+  short_title: string;
+}
+
+const DEFAULT_PHOTO =
+  "https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png";
+
+const emptyDoctorForm = (): DoctorForm => ({
+  name: "", qualification: "", image_url: DEFAULT_PHOTO, is_active: true, sort_order: "0", bio: "", title: "",
+  is_founder: false, experience: "", expertise: "", achievements: "", contribution: "", department: "",
+  registration_number: "", profile_path: "", image_position: "", card_qualification: "", card_image_url: "", short_title: "",
+});
+
+const doctorToForm = (d: Doctor): DoctorForm => ({
+  name: d.name,
+  qualification: d.qualification || "",
+  image_url: d.image_url || "",
+  is_active: d.is_active,
+  sort_order: String(d.sort_order),
+  bio: d.bio || "",
+  title: d.title || "",
+  is_founder: d.is_founder,
+  experience: d.experience || "",
+  expertise: d.expertise || "",
+  achievements: d.achievements || "",
+  contribution: d.contribution || "",
+  department: d.department || "",
+  registration_number: d.registration_number || "",
+  profile_path: d.profile_path || "",
+  image_position: d.image_position || "",
+  card_qualification: d.card_qualification || "",
+  card_image_url: d.card_image_url || "",
+  short_title: d.short_title || "",
+});
+
+// Empty strings (not null) so a cleared field really clears it: the API keeps a field when it gets null.
+const doctorPayload = (f: DoctorForm) => ({
+  name: f.name.trim(),
+  qualification: f.qualification.trim(),
+  image_url: f.image_url.trim(),
+  is_active: f.is_active,
+  sort_order: Number.isNaN(Number(f.sort_order)) ? 0 : Math.round(Number(f.sort_order)),
+  bio: f.bio.trim(),
+  title: f.title.trim(),
+  is_founder: f.is_founder,
+  experience: f.experience.trim(),
+  expertise: f.expertise.trim(),
+  achievements: f.achievements.trim(),
+  contribution: f.contribution.trim(),
+  department: f.department.trim(),
+  registration_number: f.registration_number.trim(),
+  profile_path: f.profile_path.trim(),
+  image_position: f.image_position.trim(),
+  card_qualification: f.card_qualification.trim(),
+  card_image_url: f.card_image_url.trim(),
+  short_title: f.short_title.trim(),
+});
+
+const inputCls =
+  "w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500";
+const labelCls = "block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1";
+
 export default function DoctorsAdminPage() {
   const [doctors, setDoctors] = useState<Doctor[]>([]);
   const [loading, setLoading] = useState(true);
@@ -14,10 +94,9 @@ export default function DoctorsAdminPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
 
-  // Form states
-  const [name, setName] = useState("");
-  const [qual, setQual] = useState("");
-  const [image, setImage] = useState("");
+  // Form state
+  const [form, setForm] = useState<DoctorForm>(emptyDoctorForm());
+  const set = <K extends keyof DoctorForm>(key: K, value: DoctorForm[K]) => setForm((f) => ({ ...f, [key]: value }));
 
   const refreshData = useCallback(async () => {
     setLoading(true);
@@ -38,40 +117,28 @@ export default function DoctorsAdminPage() {
 
   const openAddModal = () => {
     setEditingId(null);
-    setName("");
-    setQual("");
-    setImage("https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png");
+    setForm(emptyDoctorForm());
     setIsModalOpen(true);
   };
 
   const openEditModal = (doc: Doctor) => {
     setEditingId(doc.id);
-    setName(doc.name);
-    setQual(doc.qualification || "");
-    setImage(doc.image_url || "");
+    setForm(doctorToForm(doc));
     setIsModalOpen(true);
   };
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !qual) return;
+    if (!form.name || !form.qualification) return;
 
     setSaving(true);
     setError(null);
     try {
+      const payload = doctorPayload(form);
       if (editingId) {
-        await api.doctors.update(editingId, {
-          name,
-          qualification: qual,
-          image_url: image,
-        });
+        await api.doctors.update(editingId, payload);
       } else {
-        await api.doctors.create({
-          name,
-          qualification: qual,
-          image_url: image,
-          is_active: true,
-        });
+        await api.doctors.create(payload);
       }
       setIsModalOpen(false);
       await refreshData();
@@ -166,6 +233,8 @@ export default function DoctorsAdminPage() {
                 </div>
                 <h4 className="font-extrabold text-slate-800 dark:text-white text-sm line-clamp-1">{doc.name}</h4>
                 <p className="text-xs text-sky-600 dark:text-sky-400 font-bold mt-1 uppercase tracking-wider">{doc.qualification}</p>
+                {doc.title && <p className="text-[11px] text-slate-500 mt-0.5">{doc.is_founder ? "★ " : ""}{doc.title}</p>}
+                {!doc.is_active && <p className="text-[10px] font-bold text-gray-400 mt-0.5">HIDDEN</p>}
                 <p className="text-[10px] text-gray-400 mt-0.5">ID: {doc.id}</p>
 
                 <div className="flex gap-2 mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 w-full justify-center opacity-100">
@@ -191,7 +260,7 @@ export default function DoctorsAdminPage() {
       {/* Editor Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/55 backdrop-blur-xs flex items-center justify-center p-4 z-50 animate-in fade-in duration-200">
-          <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-md w-full shadow-2xl border border-gray-150 dark:border-gray-800 overflow-hidden">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-2xl w-full shadow-2xl max-h-[92vh] overflow-y-auto border border-gray-150 dark:border-gray-800 overflow-hidden">
             <div className="p-6 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
               <h3 className="text-base font-bold text-gray-900 dark:text-white">
                 {editingId ? "Edit Doctor Profile" : "Add Doctor Profile"}
@@ -202,37 +271,103 @@ export default function DoctorsAdminPage() {
             </div>
 
             <form onSubmit={handleSave} className="p-6 space-y-4">
-              <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Doctor Name</label>
-                <input 
-                  type="text" 
-                  required
-                  value={name} 
-                  onChange={(e) => setName(e.target.value)} 
-                  placeholder="Dr. Pritilata Rout" 
-                  className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Qualifications / Specialty</label>
-                <input 
-                  type="text" 
-                  required
-                  value={qual} 
-                  onChange={(e) => setQual(e.target.value)} 
-                  placeholder="MD, PATHOLOGY" 
-                  className="w-full px-3.5 py-2.5 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-sky-500"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className={labelCls}>Doctor Name</label>
+                  <input type="text" required value={form.name} onChange={(e) => set("name", e.target.value)} placeholder="Dr. Pritilata Rout" className={inputCls} />
+                </div>
+                <div>
+                  <label className={labelCls}>Qualifications</label>
+                  <input type="text" required value={form.qualification} onChange={(e) => set("qualification", e.target.value)} placeholder="MD (PATHOLOGY), PDF (NEUROPATH)" className={inputCls} />
+                </div>
               </div>
 
               <ImageUploadField
                 label="Profile Image"
-                value={image}
-                onChange={setImage}
+                value={form.image_url}
+                onChange={(v) => set("image_url", v)}
                 required
-                placeholder="https://res.cloudinary.com/btjglif5/image/upload/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png"
+                placeholder={DEFAULT_PHOTO}
               />
+
+              <div className="rounded-xl border border-gray-100 dark:border-gray-800 p-4 space-y-4">
+                <div>
+                  <h4 className="text-sm font-bold text-gray-800 dark:text-gray-200">Founder &amp; Consultants page</h4>
+                  <p className="text-[11px] text-gray-400">A doctor is listed on the website&apos;s Founder &amp; Consultants page once a role is entered below.</p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className={labelCls}>Role</label>
+                    <input type="text" value={form.title} onChange={(e) => set("title", e.target.value)} placeholder="Senior Consultant Histopathologist" className={inputCls} />
+                  </div>
+                  <label className="flex items-center gap-2.5 p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg cursor-pointer self-end">
+                    <input type="checkbox" checked={form.is_founder} onChange={(e) => set("is_founder", e.target.checked)} className="w-4 h-4 accent-sky-600" />
+                    <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Founder (shown as the featured card)</span>
+                  </label>
+                  <div>
+                    <label className={labelCls}>Experience</label>
+                    <input type="text" value={form.experience} onChange={(e) => set("experience", e.target.value)} placeholder="Over 20 years" className={inputCls} />
+                  </div>
+                  <div>
+                    <label className={labelCls}>Department</label>
+                    <input type="text" value={form.department} onChange={(e) => set("department", e.target.value)} placeholder="Clinical Biochemistry" className={inputCls} />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className={labelCls}>Full qualifications (this page)</label>
+                    <input type="text" value={form.card_qualification} onChange={(e) => set("card_qualification", e.target.value)} placeholder="Leave empty to use the qualifications above" className={inputCls} />
+                  </div>
+                  <div>
+                    <label className={labelCls}>Short role (homepage)</label>
+                    <input type="text" value={form.short_title} onChange={(e) => set("short_title", e.target.value)} placeholder="Leave empty to use the role above" className={inputCls} />
+                  </div>
+                </div>
+                <ImageUploadField
+                  label="Large photo (this page)"
+                  value={form.card_image_url}
+                  onChange={(v) => set("card_image_url", v)}
+                  placeholder="Leave empty to use the profile image above"
+                />
+                <div>
+                  <label className={labelCls}>Expertise</label>
+                  <textarea rows={2} value={form.expertise} onChange={(e) => set("expertise", e.target.value)} className={inputCls} />
+                </div>
+                <div>
+                  <label className={labelCls}>Achievements</label>
+                  <textarea rows={2} value={form.achievements} onChange={(e) => set("achievements", e.target.value)} className={inputCls} />
+                </div>
+                <div>
+                  <label className={labelCls}>Contribution to QXL</label>
+                  <textarea rows={2} value={form.contribution} onChange={(e) => set("contribution", e.target.value)} className={inputCls} />
+                </div>
+                <div>
+                  <label className={labelCls}>Short biography</label>
+                  <textarea rows={3} value={form.bio} onChange={(e) => set("bio", e.target.value)} className={inputCls} />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className={labelCls}>Registration number</label>
+                    <input type="text" value={form.registration_number} onChange={(e) => set("registration_number", e.target.value)} placeholder="KMC-12345" className={inputCls} />
+                  </div>
+                  <div>
+                    <label className={labelCls}>Profile page address</label>
+                    <input type="text" value={form.profile_path} onChange={(e) => set("profile_path", e.target.value)} placeholder="/dr-ajitha-pillai" className={inputCls} />
+                  </div>
+                  <div>
+                    <label className={labelCls}>Photo focus (CSS position)</label>
+                    <input type="text" value={form.image_position} onChange={(e) => set("image_position", e.target.value)} placeholder="center 15%" className={inputCls} />
+                  </div>
+                  <div>
+                    <label className={labelCls}>Display order</label>
+                    <input type="number" value={form.sort_order} onChange={(e) => set("sort_order", e.target.value)} className={inputCls} />
+                  </div>
+                </div>
+                <label className="flex items-center gap-2.5 cursor-pointer">
+                  <input type="checkbox" checked={form.is_active} onChange={(e) => set("is_active", e.target.checked)} className="w-4 h-4 accent-sky-600" />
+                  <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Show on the website</span>
+                </label>
+              </div>
 
               <div className="pt-4 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-800">
                 <button 

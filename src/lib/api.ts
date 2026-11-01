@@ -99,6 +99,26 @@ export interface HealthPackage {
   home_collection_available: boolean;
   sort_order: number;
   image_url: string | null;
+  category: string | null;
+  show_on_home: boolean;
+  most_booked: boolean;
+  /** Shown as "Contact Us"; can't be booked online. */
+  contact_for_price: boolean;
+  details: PackageDetails | null;
+}
+
+export interface PackageDetails {
+  parameters_count?: number;
+  fasting_hours?: string;
+  tat?: string;
+  sample_type?: string;
+  guidance_level?: string;
+  may_help_when?: string;
+  before_booking?: string;
+  key_tests?: string[];
+  guide_number?: string;
+  price_display?: string;
+  detailed_breakdown?: { categoryName: string; testsCount: number; testsList: string[] }[];
 }
 
 export interface TestCatalogItem {
@@ -425,6 +445,11 @@ export interface HealthPackageCreate {
   home_collection_available?: boolean;
   sort_order?: number;
   image_url?: string | null;
+  category?: string | null;
+  show_on_home?: boolean;
+  most_booked?: boolean;
+  contact_for_price?: boolean;
+  details?: PackageDetails | null;
 }
 export type HealthPackageUpdate = Partial<Omit<HealthPackageCreate, 'slug'>>;
 
@@ -449,6 +474,19 @@ export interface DoctorCreate {
   specialization?: string | null;
   bio?: string | null;
   image_url?: string | null;
+  title?: string | null;
+  is_founder?: boolean;
+  experience?: string | null;
+  expertise?: string | null;
+  achievements?: string | null;
+  contribution?: string | null;
+  department?: string | null;
+  registration_number?: string | null;
+  profile_path?: string | null;
+  image_position?: string | null;
+  card_qualification?: string | null;
+  card_image_url?: string | null;
+  short_title?: string | null;
   is_active?: boolean;
   sort_order?: number;
 }
@@ -650,9 +688,69 @@ export interface Doctor {
   specialization: string | null;
   bio: string | null;
   image_url: string | null;
+  title: string | null;
+  is_founder: boolean;
+  experience: string | null;
+  expertise: string | null;
+  achievements: string | null;
+  contribution: string | null;
+  department: string | null;
+  registration_number: string | null;
+  profile_path: string | null;
+  image_position: string | null;
+  card_qualification: string | null;
+  card_image_url: string | null;
+  short_title: string | null;
   is_active: boolean;
   sort_order: number;
 }
+
+export interface SpecialityProfile {
+  name: string;
+  tests: string;
+  tat: string;
+  sample: string;
+  price?: number | null;
+  old_price?: number | null;
+}
+
+export interface SpecialityDirectory {
+  order: number | null;
+  color: string;
+  description: string;
+  who_should_take: string;
+  tests: string[];
+  benefits: string[];
+  packages: string[];
+}
+
+export interface Speciality {
+  id: string;
+  name: string;
+  slug: string;
+  card_image_url: string | null;
+  hero_image_url: string | null;
+  hero_title: string | null;
+  hero_description: string | null;
+  intro: string | null;
+  who_should_take: string[];
+  profiles: SpecialityProfile[];
+  clinician_notes: string[];
+  disclaimer: string | null;
+  callout: { badge: string; note: string; title: string; text: string; link: string; link_label: string } | null;
+  directory: SpecialityDirectory | null;
+  why_choose: { title: string; desc: string }[];
+  faqs: { q: string; a: string }[];
+  cta_title: string | null;
+  cta_text: string | null;
+  help_title: string | null;
+  help_text: string | null;
+  seo_title: string | null;
+  seo_description: string | null;
+  is_active: boolean;
+  sort_order: number;
+}
+export type SpecialityWrite = Omit<Speciality, 'id' | 'slug'> & { slug?: string | null };
 
 export interface Banner {
   id: string;
@@ -943,6 +1041,12 @@ export const api = {
     },
     mine: () => get<{ items: Prescription[]; count: number }>('/prescriptions'),
     get: (id: string) => get<Prescription>(`/prescriptions/${id}`),
+  },
+  specialities: {
+    adminList: (limit = 100, offset = 0) => get<Speciality[]>(`/specialities/admin?limit=${limit}&offset=${offset}`),
+    create: (data: SpecialityWrite) => post<Speciality>('/specialities', data),
+    update: (id: string, data: Partial<SpecialityWrite>) => patch<Speciality>(`/specialities/${id}`, data),
+    remove: (id: string) => del<void>(`/specialities/${id}`),
   },
   doctors: {
     list: () => get<Doctor[]>('/doctors'),
