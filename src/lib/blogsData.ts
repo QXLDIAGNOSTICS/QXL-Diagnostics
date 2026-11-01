@@ -27,7 +27,7 @@ export const defaultBlogs: BlogPost[] = [
   "author": "QXL Diagnostics Clinical Editorial Team",
   "date": "October 30, 2026",
   "created_at": "2026-10-30T12:00:00Z",
-  "image": "https://res.cloudinary.com/btjglif5/image/upload/v1784150422/Assets-QXL/legacy-assets/image/spec_infectious.png",
+  "image": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150422/Assets-QXL/legacy-assets/image/spec_infectious.png",
   "custom_schema": {
     "@context": "https://schema.org",
     "@graph": [
@@ -300,7 +300,7 @@ export const defaultBlogs: BlogPost[] = [
     author: "Dr. Naveen Kumar N",
     date: "October 30, 2026",
     created_at: "2026-10-30T11:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg",
     custom_schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -418,7 +418,7 @@ export const defaultBlogs: BlogPost[] = [
     author: "Dr. Shantakumar Muruda, MD (Biochemistry)",
     date: "October 30, 2026",
     created_at: "2026-10-30T10:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg",
     custom_schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -536,7 +536,7 @@ export const defaultBlogs: BlogPost[] = [
     author: "Dr. Shantakumar Muruda, MD (Biochemistry)",
     date: "October 30, 2026",
     created_at: "2026-10-30T09:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
     custom_schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -654,7 +654,7 @@ export const defaultBlogs: BlogPost[] = [
     author: "Dr. Shantakumar Muruda, MD (Biochemistry)",
     date: "October 30, 2026",
     created_at: "2026-10-30T08:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg",
     custom_schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -874,7 +874,7 @@ In modern NABL-accredited chemiluminescence assays, a normal Anti-TPO value is t
     author: "Dr. Ajitha Pillai, MD (Microbiology)",
     date: "October 24, 2026",
     created_at: "2026-10-24T12:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
     custom_schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -1066,7 +1066,7 @@ If you are taking a corrective course of 60,000 IU weekly for 8 to 12 weeks, re-
     author: "Dr. Pritilata Rout, MD (Pathology)",
     date: "October 24, 2026",
     created_at: "2026-10-24T11:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg",
     custom_schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -1261,7 +1261,7 @@ While many commercial laboratory reference ranges list fasting insulin up to 25 
     author: "Dr. Shantakumar Muruda, MD (Biochemistry)",
     date: "October 24, 2026",
     created_at: "2026-10-24T10:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg",
     custom_schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -1608,7 +1608,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "QXL Diagnostics Medical Editorial Team",
     date: "October 24, 2026",
     created_at: "2026-10-24T09:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg",
     custom_schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -1703,7 +1703,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "QXL Diagnostics Medical Editorial Team",
     date: "October 24, 2026",
     created_at: "2026-10-24T08:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
     custom_schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -1775,7 +1775,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
           },
           "datePublished": "2026-10-24T08:00:00+05:30",
           "dateModified": "2026-10-24T08:00:00+05:30",
-          "image": "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
+          "image": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
           "mentions": [
             { "@type": "MedicalTest", "name": "Double Marker Test", "url": "https://qxldiagnostics.com/double-marker-test-bangalore" },
             { "@type": "MedicalTest", "name": "Triple Marker Test", "url": "https://qxldiagnostics.com/triple-marker-test-bangalore" },
@@ -1875,7 +1875,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda, MD (Biochemistry)",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
   },
   {
     id: "blog-new-20",
@@ -1886,7 +1886,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda, MD (Biochemistry)",
     date: "October 24, 2026",
     created_at: "2026-10-24T06:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
   },
   {
     id: "blog-new-19",
@@ -1897,7 +1897,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg"
   },
   {
     id: "blog-new-14",
@@ -1908,7 +1908,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg"
   },
   {
     id: "blog-new-15",
@@ -1919,7 +1919,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Pritilata Rout",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
   },
   {
     id: "blog-new-16",
@@ -1930,7 +1930,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Naveen Kumar N",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
   },
   {
     id: "blog-new-17",
@@ -1941,7 +1941,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Ajitha Pillai",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
     id: "blog-new-18",
@@ -1952,7 +1952,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
     id: "blog-new-12",
@@ -1963,7 +1963,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
     id: "blog-new-13",
@@ -1974,7 +1974,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Pritilata Rout",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
   },
   {
     id: "blog-new-8",
@@ -1985,7 +1985,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
     id: "blog-new-9",
@@ -1996,7 +1996,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Pritilata Rout",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
   },
   {
     id: "blog-new-10",
@@ -2007,7 +2007,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Ajitha Pillai",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
     id: "blog-new-11",
@@ -2018,7 +2018,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Naveen Kumar N",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
   },
   {
     id: "blog-new-6",
@@ -2029,7 +2029,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
     id: "blog-new-7",
@@ -2040,7 +2040,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Pritilata Rout",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
     id: "blog-new-1",
@@ -2051,7 +2051,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "/image/slide_lab_facility.png"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150083/Assets-QXL/legacy-assets/image/about_lab.jpg"
   },
   {
     id: "blog-new-2",
@@ -2062,7 +2062,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Pritilata Rout",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
     id: "blog-new-3",
@@ -2073,7 +2073,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   },
   {
     id: "blog-new-4",
@@ -2084,7 +2084,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Ajitha Pillai",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150314/Assets-QXL/legacy-assets/image/slide_heart_health.jpg"
   },
   {
     id: "blog-new-5",
@@ -2095,7 +2095,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Naveen Kumar N",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg"
   },
   {
     id: "blog-1",
@@ -2106,7 +2106,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Shantakumar Muruda, MD (Biochemistry)",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "/image/slide_lab_facility.png"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150083/Assets-QXL/legacy-assets/image/about_lab.jpg"
   },
   {
     id: "blog-2",
@@ -2117,7 +2117,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Pritilata Rout",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"
   },
   {
     id: "blog-3",
@@ -2128,7 +2128,7 @@ You can book certified home collection or visit QXL Diagnostics (Kengeri Main La
     author: "Dr. Ajitha Pillai",
     date: "October 24, 2026",
     created_at: "2026-10-24T07:00:00Z",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150328/Assets-QXL/legacy-assets/image/slide_immunity_test_new.jpg"
   }
 ];
 

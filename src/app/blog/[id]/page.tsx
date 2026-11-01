@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonical = `https://qxldiagnostics.com/blog/${blog.slug}/`;
   const imageUrl =
     (blog as any).image ||
-    "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
+    "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
 
   const reviewer = (blog as any).reviewer || "Dr. Shantakumar Muruda, MD (Biochemistry)";
 
@@ -163,7 +163,7 @@ export default async function SingleBlogPage({ params }: Props) {
         description: blog.excerpt,
         image:
           (blog as any).image ||
-          "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
+          "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
         inLanguage: "en-IN",
         author: {
           "@type": "Organization",
@@ -186,7 +186,7 @@ export default async function SingleBlogPage({ params }: Props) {
           url: "https://qxldiagnostics.com/",
           logo: {
             "@type": "ImageObject",
-            url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150212/Assets-QXL/legacy-assets/image/qxl_logo.png",
+            url: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/qxl_logo.png",
           },
         },
         datePublished: (blog as any).created_at || (blog as any).datePublished || getCurrentDateTimeIso(0, 10, 0),
@@ -227,7 +227,7 @@ export default async function SingleBlogPage({ params }: Props) {
 
   const coverImage =
     (blog as any).image ||
-    "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
+    "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
 
   return (
     <div className="min-h-screen bg-[#f8faff] text-slate-800">
@@ -685,7 +685,7 @@ export default async function SingleBlogPage({ params }: Props) {
                   const relReadTime = getReadingTime(rel.content);
                   const relImage =
                     rel.image ||
-                    "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
+                    "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
 
                   return (
                     <Link

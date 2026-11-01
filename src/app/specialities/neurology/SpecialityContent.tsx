@@ -187,7 +187,7 @@ export default function NeurologyPage() {
             "provider": {
               "@type": "MedicalClinic",
               "name": "QXL Diagnostics",
-              "image": "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"
+              "image": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png"
             },
             "areaServed": {
               "@type": "City",

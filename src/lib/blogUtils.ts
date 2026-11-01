@@ -1,3 +1,4 @@
+import { optimizeCloudinaryUrl } from "./cloudinary";
 export interface HeadingItem {
   id: string;
   text: string;
@@ -64,4 +65,20 @@ export function extractHeadings(markdown: string): HeadingItem[] {
   }
 
   return headings;
+}
+
+
+/** Maps a blog post published from the admin panel (backend shape:
+ * `image_url`, `created_at`) onto the fields the site's blog cards and
+ * article view read (`image`, `date`). */
+export function normalizeApiBlogPost<T extends { image_url?: string | null; created_at?: string }>(
+  post: T
+): T & { image?: string; date?: string } {
+  return {
+    ...post,
+    image: post.image_url ? optimizeCloudinaryUrl(post.image_url, { w: 1200 }) : undefined,
+    date: post.created_at
+      ? new Date(post.created_at).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
+      : undefined,
+  };
 }

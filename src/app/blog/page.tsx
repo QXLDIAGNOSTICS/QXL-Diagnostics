@@ -20,6 +20,7 @@ import {
 import { api, type BlogPost } from "../../lib/api";
 import { cmsStore } from "../../lib/cmsStore";
 import { defaultBlogs, getBlogCategory, getReadingTime, getAutoBlogDate } from "../../lib/blogsData";
+import { normalizeApiBlogPost } from "../../lib/blogUtils";
 
 const CATEGORIES = [
   "All",
@@ -60,7 +61,7 @@ export default function BlogPage() {
         if (item.slug && !map.has(item.slug)) map.set(item.slug, item);
       }
       for (const item of apiItems) {
-        if (item.slug && !map.has(item.slug)) map.set(item.slug, item);
+        if (item.slug && !map.has(item.slug)) map.set(item.slug, normalizeApiBlogPost(item));
       }
 
       const getTime = (item: any) => {
@@ -286,7 +287,7 @@ export default function BlogPage() {
                 {/* Featured Image */}
                 <div className="lg:col-span-6 relative overflow-hidden min-h-[260px] sm:min-h-[340px]">
                   <img
-                    src={featuredBlog.image || "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"}
+                    src={featuredBlog.image || "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg"}
                     alt={featuredBlog.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -390,7 +391,7 @@ export default function BlogPage() {
               const readTime = getReadingTime(blog.content);
               const imageUrl =
                 blog.image ||
-                "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
+                "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
 
               return (
                 <article
@@ -534,7 +535,7 @@ export default function BlogPage() {
                   "url": "https://qxldiagnostics.com/",
                   "logo": {
                     "@type": "ImageObject",
-                    "url": "https://res.cloudinary.com/btjglif5/image/upload/v1784150212/Assets-QXL/legacy-assets/image/qxl_logo.png"
+                    "url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/qxl_logo.png"
                   }
                 }
               },

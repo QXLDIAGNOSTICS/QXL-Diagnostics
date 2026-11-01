@@ -287,6 +287,22 @@ export default function FaqSection({ decorativeHeading = false }: { decorativeHe
     }));
     
     setFaqs(newFaqs);
+
+    // FAQs added in the admin panel are shown first; the built-in list above
+    // stays as the base (and the fallback when the API is unreachable).
+    let cancelled = false;
+    api.faqs
+      .list()
+      .then((adminFaqs) => {
+        if (cancelled || !adminFaqs?.length) return;
+        const norm = (q: string) => q.trim().toLowerCase();
+        const adminQuestions = new Set(adminFaqs.map((f) => norm(f.question)));
+        setFaqs([...adminFaqs, ...newFaqs.filter((f) => !adminQuestions.has(norm(f.question)))]);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   if (faqs.length === 0) return null;

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ChevronRight, GraduationCap, Stethoscope, Phone, Award, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { serverApi } from "@/lib/serverApi";
-import { SITE_URL, PHONE_DISPLAY, PHONE_E164, NABL_CERTIFICATE, ISO_STANDARD } from "@/lib/businessInfo";
+import { SITE_URL, PHONE_DISPLAY, PHONE_E164, NABL_CERTIFICATE, ISO_STANDARD, absoluteImageUrl } from "@/lib/businessInfo";
 
 export const revalidate = 3600;
 
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${title} | QXL Diagnostics`,
       description,
       url: `${SITE_URL}/doctors/${slug}`,
-      images: doctorFromApi?.image_url ? [{ url: `${SITE_URL}${doctorFromApi.image_url}` }] : undefined,
+      images: doctorFromApi?.image_url ? [{ url: absoluteImageUrl(doctorFromApi.image_url) }] : undefined,
     },
   };
 }
@@ -105,7 +105,7 @@ export default async function DoctorDetailPage({ params }: Props) {
     "@id": `${SITE_URL}/doctors/${slug}#physician`,
     name: name,
     url: `${SITE_URL}/doctors/${slug}`,
-    image: doctorFromApi?.image_url ? `${SITE_URL}${doctorFromApi.image_url}` : undefined,
+    image: doctorFromApi?.image_url ? absoluteImageUrl(doctorFromApi.image_url) : undefined,
     jobTitle: specialtyTitle,
     medicalSpecialty: [specialtyTitle, "Diagnostic Pathology", "Laboratory Medicine"],
     description: bio,

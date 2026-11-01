@@ -347,7 +347,7 @@ export default function AppDownloadBanner() {
               {/* QXL App Logo Icon */}
               <div className="w-20 h-20 mx-auto mb-3 rounded-2xl bg-white p-2 border-2 border-emerald-100 shadow-md flex items-center justify-center">
                 <img
-                  src="https://res.cloudinary.com/btjglif5/image/upload/v1784150000/Assets-QXL/legacy-assets/image/qxl_logo_main.png"
+                  src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150000/Assets-QXL/legacy-assets/image/qxl_logo_main.png"
                   alt="QXL Diagnostics Logo"
                   className="w-full h-full object-contain"
                 />

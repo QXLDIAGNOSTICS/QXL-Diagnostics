@@ -36,7 +36,7 @@ export default function ChatPaymentCard({ order, patientName, patientPhone }: Ch
     setLoading(true);
 
     if (isMockRazorpayOrder(order)) {
-      setPaid(true);
+      setError("This payment link is no longer valid. Please ask the assistant to create a new one.");
       setLoading(false);
       return;
     }

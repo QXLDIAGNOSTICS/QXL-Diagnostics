@@ -8,7 +8,7 @@ export const DOCTORS: DoctorReviewer[] = [
     department: "Clinical Biochemistry & Molecular Diagnostics",
     registrationNumber: "KMC-68491",
     profileUrl: "/dr-shantakumar-muruda",
-    avatarUrl: "https://res.cloudinary.com/btjglif5/image/upload/v1784150133/Assets-QXL/legacy-assets/image/dr_shantakumar_latest.jpg"
+    avatarUrl: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150133/Assets-QXL/legacy-assets/image/dr_shantakumar_latest.jpg"
   },
   {
     id: "dr-naveen-kumar-n",
@@ -17,7 +17,7 @@ export const DOCTORS: DoctorReviewer[] = [
     department: "Haematopathology & Clinical Pathology",
     registrationNumber: "KMC-79214",
     profileUrl: "/dr-naveen-kumar-n",
-    avatarUrl: "https://res.cloudinary.com/btjglif5/image/upload/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg"
+    avatarUrl: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg"
   },
   {
     id: "dr-pritilata-rout",
@@ -26,7 +26,7 @@ export const DOCTORS: DoctorReviewer[] = [
     department: "Histopathology, Cytology & Neuropathology",
     registrationNumber: "KMC-54320",
     profileUrl: "/dr-pritilata-rout",
-    avatarUrl: "https://res.cloudinary.com/btjglif5/image/upload/v1784150135/Assets-QXL/legacy-assets/image/dr_pritilata_latest.jpg"
+    avatarUrl: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150135/Assets-QXL/legacy-assets/image/dr_pritilata_latest.jpg"
   }
 ];
 

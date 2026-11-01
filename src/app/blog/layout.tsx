@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
+        url: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
         width: 1200,
         height: 675,
         alt: "QXL Diagnostics Clinical Blog & Evidence-Based Health Guides Bengaluru",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     description:
       "Doctor-reviewed laboratory guides, prenatal screening timelines, cardiac markers, and diagnostic testing in Bengaluru from QXL Diagnostics.",
     images: [
-      "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
+      "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
     ],
   },
   robots: {

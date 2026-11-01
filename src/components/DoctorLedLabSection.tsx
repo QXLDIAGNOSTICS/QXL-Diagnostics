@@ -70,7 +70,7 @@ export default function DoctorLedLabSection() {
           <div className="lg:col-span-5 relative">
             <div className="rounded-3xl overflow-hidden shadow-2xl border-8 border-slate-100 relative bg-slate-100">
               <img
-                src="https://res.cloudinary.com/btjglif5/image/upload/v1784150239/Assets-QXL/legacy-assets/image/doctor_patient_consultation.jpg"
+                src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150239/Assets-QXL/legacy-assets/image/doctor_patient_consultation.jpg"
                 alt="Doctor-Led Diagnostic Lab Bengaluru"
                 className="w-full h-[460px] object-cover"
               />

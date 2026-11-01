@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, GraduationCap, Stethoscope } from "lucide-react";
 import { serverApi } from "@/lib/serverApi";
-import { SITE_URL } from "@/lib/businessInfo";
+import { SITE_URL, absoluteImageUrl } from "@/lib/businessInfo";
 
 export const revalidate = 3600;
 
@@ -33,7 +33,7 @@ export default async function DoctorsPage() {
       "@id": `${SITE_URL}/doctors/${doc.slug}#physician`,
       name: doc.name,
       url: `${SITE_URL}/doctors/${doc.slug}`,
-      image: doc.image_url ? `${SITE_URL}${doc.image_url}` : undefined,
+      image: doc.image_url ? absoluteImageUrl(doc.image_url) : undefined,
       medicalSpecialty: doc.specialization || undefined,
       description: doc.bio || undefined,
       worksFor: {

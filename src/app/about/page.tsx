@@ -26,16 +26,16 @@ export default function AboutPage() {
           <div className="bg-[#F0F7FF] p-2 sm:p-3 rounded-2xl sm:rounded-3xl border border-[#BFDBFE] shadow-sm relative overflow-hidden">
             <div ref={scrollRef} className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar rounded-xl sm:rounded-2xl">
               <div className="min-w-full flex-none snap-start flex items-center justify-center">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150040/Assets-QXL/legacy-assets/image/about_banner_final_1.png" alt="QXL Diagnostic Lab" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150040/Assets-QXL/legacy-assets/image/about_banner_final_1.png" alt="QXL Diagnostic Lab" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
               </div>
               <div className="min-w-full flex-none snap-start flex items-center justify-center">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150042/Assets-QXL/legacy-assets/image/about_banner_final_2.jpg" alt="Pathology Laboratory" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150042/Assets-QXL/legacy-assets/image/about_banner_final_2.jpg" alt="Pathology Laboratory" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
               </div>
               <div className="min-w-full flex-none snap-start flex items-center justify-center">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150045/Assets-QXL/legacy-assets/image/about_banner_final_3.png" alt="Doctor-Led Diagnostics" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150045/Assets-QXL/legacy-assets/image/about_banner_final_3.png" alt="Doctor-Led Diagnostics" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
               </div>
               <div className="min-w-full flex-none snap-start flex items-center justify-center">
-                <img src="https://res.cloudinary.com/btjglif5/image/upload/v1784150046/Assets-QXL/legacy-assets/image/about_banner_final_4.png" alt="State of the Art Equipment" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
+                <img src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150046/Assets-QXL/legacy-assets/image/about_banner_final_4.png" alt="State of the Art Equipment" className="w-full h-auto object-contain rounded-xl sm:rounded-2xl max-h-[500px]" />
               </div>
             </div>
             

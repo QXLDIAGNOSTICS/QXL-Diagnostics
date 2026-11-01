@@ -9,25 +9,25 @@ export default function EmotionalFamilySection() {
       role: "FATHER",
       title: "Always Postpones His Health Check",
       quote: "“I'm working non-stop, I'll get checked up next month when I have time.”",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg"
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150119/Assets-QXL/legacy-assets/image/doctor_patient_consult.jpg"
     },
     {
       role: "MOTHER",
       title: "Puts Everyone Else Before Herself",
       quote: "“As long as my children and family are healthy, I don't need any test.”",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg"
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg"
     },
     {
       role: "YOUNG ADULT",
       title: "Thinks Youth Means Immunity",
       quote: "“I feel active and fit every day, why do I need blood parameters checked?”",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg"
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg"
     },
     {
       role: "GRANDPARENT",
       title: "Ignores Early Warning Signs",
       quote: "“It's just age catching up, no need to trouble anyone for a doctor visit.”",
-      image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150236/Assets-QXL/legacy-assets/image/senior_bp_check.png"
+      image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150236/Assets-QXL/legacy-assets/image/senior_bp_check.png"
     }
   ];
 

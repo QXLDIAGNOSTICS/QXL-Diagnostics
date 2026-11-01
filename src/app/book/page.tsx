@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { MASTER_CATALOGUE, matchMasterItem } from "@/lib/masterCatalogue";
-import { api } from "@/lib/api";
-import { openRazorpayCheckout, isMockRazorpayOrder } from "@/lib/razorpay";
-import RazorpayModal from "@/components/RazorpayModal";
+import { api, ApiError, type CreateOrderResponse } from "@/lib/api";
+import { openRazorpayCheckout } from "@/lib/razorpay";
 
 import {
   Sparkles,
@@ -296,7 +295,7 @@ function CatIconSvg({ name, size = 18 }: { name: string; size?: number }) {
 interface OrderDetails {
   id: string;
   items: TestItem[];
-  date: { label: string; sub: string };
+  date: { label: string; sub: string; iso: string };
   slot: string;
   addr: string;
   total: number;
@@ -332,8 +331,6 @@ export default function BookPage() {
   const [order, setOrder] = useState<OrderDetails | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toastMsg, setToastMsg] = useState<string | null>(null);
-  const [showPayModal, setShowPayModal] = useState(false);
-  const [pendingOrder, setPendingOrder] = useState<OrderDetails | null>(null);
 
   // Advanced Filter & Sort State
   const [sortBy, setSortBy] = useState<"recommended" | "price-asc" | "price-desc" | "params-desc">("recommended");
@@ -343,7 +340,8 @@ export default function BookPage() {
   const [doctorRecOnly, setDoctorRecOnly] = useState(false);
   const [showFilterDrawer, setShowFilterDrawer] = useState(false);
 
-  const [dynamicDates, setDynamicDates] = useState<{ label: string; sub: string }[]>([]);
+  const [dynamicDates, setDynamicDates] = useState<{ label: string; sub: string; iso: string }[]>([]);
+  const savedBookingsRef = useRef<{ key: string; byItem: Record<string, string> }>({ key: "", byItem: {} });
 
   useEffect(() => {
     const dates = [];
@@ -356,7 +354,8 @@ export default function BookPage() {
       d.setDate(d.getDate() + i);
       const label = i === 0 ? "Today" : i === 1 ? "Tomorrow" : days[d.getDay()];
       const sub = `${d.getDate()} ${months[d.getMonth()]}`;
-      dates.push({ label, sub });
+      const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+      dates.push({ label, sub, iso });
     }
     setDynamicDates(dates);
   }, []);
@@ -382,6 +381,33 @@ export default function BookPage() {
       const fresh = masterItems.filter((i) => !existing.has(i.id));
       return [...prev, ...fresh];
     });
+
+    // Show what each item is actually charged at checkout: the backend
+    // prices bookings from its catalog (managed in the admin panel), which
+    // can differ from the prices bundled with the site.
+    let cancelled = false;
+    const names = Array.from(new Set([...INITIAL_TESTS, ...masterItems].map((t) => t.name)));
+    api.catalog
+      .resolve(names)
+      .then(({ results }) => {
+        if (cancelled) return;
+        const priceByName = new Map<string, number>();
+        results.forEach((match, i) => {
+          if (match?.price) priceByName.set(names[i], match.price);
+        });
+        setAllTests((prev) =>
+          prev.map((t) => {
+            const price = priceByName.get(t.name);
+            return price && price !== t.price ? { ...t, price, mrp: Math.max(t.mrp, price) } : t;
+          })
+        );
+      })
+      .catch(() => {
+        // Keep bundled prices; the order amount is always computed server-side.
+      });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   // Package & test slug alias normalization table
@@ -565,34 +591,49 @@ export default function BookPage() {
     const finalName = patientName.trim() || `Patient (${patientPhone.trim()})`;
 
     setIsSubmitting(true);
-    const selectedDate = dynamicDates[dateIndex] || { label: "Today", sub: "16 Sep" };
+    const selectedDate = dynamicDates[dateIndex] || dynamicDates[0];
+    if (!selectedDate) {
+      setIsSubmitting(false);
+      showToast("Please pick a collection date.");
+      return;
+    }
     const finalAddr = customAddress.trim() || ADDR_PRESETS[addrIndex] + ", Bengaluru";
 
-    const createdBookingIds: string[] = [];
-    try {
-      for (const item of cartItems) {
-        const res = await Promise.race([
-          api.bookings.create({
-            patient_name: finalName,
-            patient_phone: patientPhone.trim(),
-            test_name: item.name,
-            collection_type: "home",
-            collection_address: finalAddr,
-            preferred_date: selectedDate.sub,
-            preferred_time: slot
-          }),
-          new Promise((r) => setTimeout(() => r(null), 2500))
-        ]).catch(() => null);
-        if (res && (res as any).id) {
-          createdBookingIds.push((res as any).id);
-        }
+    // Save one booking per cart item. Items already saved by an earlier
+    // attempt with the same details are reused, so retrying after a failure
+    // (or after closing the payment window) never creates duplicates.
+    const attemptKey = [finalName, patientPhone.trim(), selectedDate.iso, slot, finalAddr].join("|");
+    if (savedBookingsRef.current.key !== attemptKey) savedBookingsRef.current = { key: attemptKey, byItem: {} };
+    const saved = savedBookingsRef.current.byItem;
+
+    const failures: string[] = [];
+    for (const item of cartItems) {
+      if (saved[item.id]) continue;
+      try {
+        const booking = await api.bookings.create({
+          patient_name: finalName,
+          patient_phone: patientPhone.trim(),
+          test_name: item.name,
+          collection_type: "home",
+          collection_address: finalAddr,
+          preferred_date: selectedDate.iso,
+          preferred_time: slot,
+          is_urgent: slot === NOW_SLOT,
+        });
+        saved[item.id] = booking.id;
+      } catch (err) {
+        failures.push(`${item.name}: ${err instanceof ApiError ? err.message : "could not be booked"}`);
       }
-    } catch {
-      // demo fallback
     }
+    if (failures.length > 0) {
+      setIsSubmitting(false);
+      showToast(failures.join(" "));
+      return;
+    }
+    const createdBookingIds = cartItems.map((item) => saved[item.id]);
 
     const newOrder: OrderDetails = {
-      id: "QXL-" + Math.floor(10000 + Math.random() * 90000),
+      id: "QXL-" + createdBookingIds[0].slice(0, 8).toUpperCase(),
       items: cartItems,
       date: selectedDate,
       slot,
@@ -605,6 +646,7 @@ export default function BookPage() {
     };
 
     if (paymentMethod === "cod") {
+      savedBookingsRef.current = { key: "", byItem: {} };
       setIsSubmitting(false);
       setMobileCheckoutOpen(false);
       setOrder(newOrder);
@@ -612,78 +654,65 @@ export default function BookPage() {
       return;
     }
 
-    if (paymentMethod === "online") {
-      try {
-        let razorpayOrder: any = null;
-        try {
-          razorpayOrder = await Promise.race([
-            api.payments.createOrder(createdBookingIds, grandTotal),
-            new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout")), 4000))
-          ]);
-        } catch {
-          // client fallback
-        }
+    let razorpayOrder: CreateOrderResponse;
+    try {
+      razorpayOrder = await api.payments.createOrder(createdBookingIds, { applyHomeCollectionFee: true });
+    } catch (err) {
+      setIsSubmitting(false);
+      showToast(
+        err instanceof ApiError
+          ? `Could not start payment: ${err.message}`
+          : "Could not start payment. Please try again or choose Pay on Collection."
+      );
+      return;
+    }
+    // The server-computed amount is what's actually charged.
+    const paidTotal = Math.round(razorpayOrder.amount / 100);
 
-        const rzpKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || razorpayOrder?.key_id || "rzp_live_TIoMgoerMx4pbE";
-
-        if (!razorpayOrder || !razorpayOrder.order_id) {
-          razorpayOrder = {
-            key_id: rzpKey,
-            order_id: "",
-            amount: Math.round(grandTotal * 100),
-            currency: "INR",
-            name: "QXL Diagnostics",
-            description: `${cartItems.length} Diagnostic Test(s) Booking`
-          };
-        }
-
-        await openRazorpayCheckout({
-          order: razorpayOrder,
-          prefill: {
-            name: finalName,
-            contact: patientPhone.trim()
-          },
-          onSuccess: async (payload) => {
-            try {
-              if (payload.razorpay_order_id && !payload.razorpay_order_id.startsWith("order_mock_")) {
-                await api.payments.verify(payload).catch(() => null);
-              }
-            } catch {
-              // fallback
-            }
-            setIsSubmitting(false);
-            setMobileCheckoutOpen(false);
-            setOrder({
-              ...newOrder,
-              paymentMethod: "online",
-              paymentStatus: `Paid Online via Razorpay (${payload.razorpay_payment_id || "Success"})`
-            });
-            setScreen("confirmed");
-            showToast("Payment Successful via Razorpay!");
-          },
-          onFailure: (msg) => {
-            setIsSubmitting(false);
-            showToast(msg || "Payment cancelled. You can try again or choose Cash on Collection.");
-          },
-          onDismiss: () => {
-            setIsSubmitting(false);
+    try {
+      await openRazorpayCheckout({
+        order: { ...razorpayOrder, description: `${cartItems.length} Diagnostic Test(s) Booking` },
+        prefill: {
+          name: finalName,
+          contact: patientPhone.trim()
+        },
+        onSuccess: async (payload) => {
+          let verified = false;
+          try {
+            await api.payments.verify(payload);
+            verified = true;
+          } catch {
+            // Payment was taken by Razorpay; the webhook confirms it server-side.
           }
-        });
-      } catch (checkoutErr) {
-        console.warn("Razorpay checkout error", checkoutErr);
-        setIsSubmitting(false);
-        if (!process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID) {
+          savedBookingsRef.current = { key: "", byItem: {} };
+          setIsSubmitting(false);
+          setMobileCheckoutOpen(false);
           setOrder({
             ...newOrder,
+            total: paidTotal,
             paymentMethod: "online",
-            paymentStatus: "Paid Online (Razorpay Key Pending in .env.local)"
+            paymentStatus: verified
+              ? `Paid Online via Razorpay (${payload.razorpay_payment_id})`
+              : `Payment received (${payload.razorpay_payment_id}) — confirmation in progress`
           });
           setScreen("confirmed");
-          showToast("Booking Confirmed! Please add NEXT_PUBLIC_RAZORPAY_KEY_ID in .env.local.");
-        } else {
-          showToast("Could not launch Razorpay. Please check your API Key.");
+          showToast(verified ? "Payment Successful via Razorpay!" : "Payment received — we're confirming it now.");
+        },
+        onFailure: (msg) => {
+          setIsSubmitting(false);
+          showToast(msg || "Payment cancelled. You can try again or choose Cash on Collection.");
+        },
+        onDismiss: () => {
+          setIsSubmitting(false);
         }
-      }
+      });
+    } catch (checkoutErr) {
+      setIsSubmitting(false);
+      showToast(
+        checkoutErr instanceof Error
+          ? checkoutErr.message
+          : "Could not open the payment window. Please try again or choose Pay on Collection."
+      );
     }
   };
 
@@ -790,31 +819,6 @@ export default function BookPage() {
           {toastMsg}
         </div>
       )}
-
-      {/* Interactive Razorpay Payment Modal */}
-      <RazorpayModal
-        isOpen={showPayModal}
-        onClose={() => {
-          setShowPayModal(false);
-          showToast("Payment cancelled. You can retry or choose Pay on Collection.");
-        }}
-        amount={pendingOrder?.total || grandTotal}
-        patientName={patientName}
-        patientPhone={patientPhone}
-        orderDescription={`${cartItems.length} Diagnostic Test(s) Booking`}
-        onSuccess={(payload) => {
-          setShowPayModal(false);
-          if (pendingOrder) {
-            setOrder({
-              ...pendingOrder,
-              paymentMethod: "online",
-              paymentStatus: `Paid Online via Razorpay (${payload.razorpay_payment_id})`,
-            });
-          }
-          setScreen("confirmed");
-          showToast("Payment Successful via Razorpay!");
-        }}
-      />
 
       {/* Prescription Upload Quick Modal */}
       {showRxModal && (

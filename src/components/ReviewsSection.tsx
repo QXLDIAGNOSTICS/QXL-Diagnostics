@@ -8,8 +8,9 @@ export default function ReviewsSection({ decorativeHeading = false }: { decorati
   const Heading = decorativeHeading ? 'p' : 'h2';
 
   useEffect(() => {
-    // If we wanted to load from API, we'd do it here, but for now we use static data
-    setReviews([
+    // Built-in reviews are the base (and the fallback when the API is
+    // unreachable); reviews published from the admin panel are shown first.
+    const builtIn: ReviewItem[] = [
       {
         id: 'r1',
         author_name: 'Afinand',
@@ -190,7 +191,22 @@ export default function ReviewsSection({ decorativeHeading = false }: { decorati
       is_published: true,
       sort_order: 0,
       ...r
-    })));
+    }));
+    setReviews(builtIn);
+
+    let cancelled = false;
+    api.reviews
+      .list(50, 0)
+      .then(({ items }) => {
+        if (cancelled || !items?.length) return;
+        const key = (r: ReviewItem) => `${r.author_name.trim().toLowerCase()}|${r.content.trim().toLowerCase()}`;
+        const adminKeys = new Set(items.map(key));
+        setReviews([...items, ...builtIn.filter((r) => !adminKeys.has(key(r)))]);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   if (reviews.length === 0) return null;

@@ -105,7 +105,7 @@ export default function Freedom80Hero() {
 
             <div className="relative rounded-[32px] overflow-hidden border-8 border-white shadow-2xl bg-white">
               <img
-                src="https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg"
+                src="https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg"
                 alt="Indian Family Health Checkup Freedom 80"
                 className="w-full h-[440px] sm:h-[480px] object-cover"
               />

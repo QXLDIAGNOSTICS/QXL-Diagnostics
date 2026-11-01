@@ -8,6 +8,7 @@ import { cmsStore } from "../lib/cmsStore";
 import { getAutoBlogDate } from "../lib/dateUtils";
 
 import { defaultBlogs } from "../lib/blogsData";
+import { normalizeApiBlogPost } from "../lib/blogUtils";
 
 export default function BlogSlider({ decorativeHeading = false }: { decorativeHeading?: boolean }) {
   const [blogs, setBlogs] = useState<any[]>(defaultBlogs.slice(0, 8));
@@ -41,7 +42,7 @@ export default function BlogSlider({ decorativeHeading = false }: { decorativeHe
 
       // 3. Add apiItems if any
       for (const item of apiItems) {
-        if (item.slug && !map.has(item.slug)) map.set(item.slug, item);
+        if (item.slug && !map.has(item.slug)) map.set(item.slug, normalizeApiBlogPost(item));
       }
 
       const getTime = (item: any) => {

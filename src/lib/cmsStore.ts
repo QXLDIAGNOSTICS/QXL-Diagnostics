@@ -9,7 +9,7 @@ const defaultBanners = [
   {
     id: "banner-1",
     imageOnly: true,
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg",
     bgFrom: "#06558f",
     bgTo: "#128bc7",
     title: "Food Intolerance",
@@ -28,7 +28,7 @@ const defaultBanners = [
   {
     id: "banner-2",
     imageOnly: true,
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150192/Assets-QXL/legacy-assets/image/franchise_banner.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150192/Assets-QXL/legacy-assets/image/franchise_banner.png",
     bgFrom: "#ffffff",
     bgTo: "#ffffff",
     title: "Collaborate with us",
@@ -56,7 +56,7 @@ const defaultBanners = [
     ctaLink: "/book",
     ctaSecondary: "Our Specialities",
     ctaSecondaryLink: "/speciality-tests",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg",
     imageFit: "cover",
     bgFrom: "#eff6ff",
     bgTo: "#dbeafe",
@@ -74,7 +74,7 @@ const defaultBanners = [
     ctaLink: "/book",
     ctaSecondary: "Learn More",
     ctaSecondaryLink: "/packages",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
     imageFit: "cover",
     bgFrom: "#f0f9ff",
     bgTo: "#e0f2fe",
@@ -83,7 +83,7 @@ const defaultBanners = [
 ];
 
 const defaultDoctors = [
-  { id: "doc-1", name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg" },
+  { id: "doc-1", name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150476/Assets-QXL/legacy-assets/image/user_female_microscope.jpg" },
   { id: "doc-2", name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", image: "https://images.unsplash.com/photo-1594824436998-d70d90db3c80?auto=format&fit=crop&q=80&w=400" },
   { id: "doc-3", name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400" },
   { id: "doc-4", name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", image: "https://images.unsplash.com/photo-1537368910025-7028500a2216?auto=format&fit=crop&q=80&w=400" }
@@ -226,9 +226,9 @@ export const cmsStore = {
           const parsed = JSON.parse(data);
           let healed = false;
           const healedBanners = parsed.map((b: any) => {
-            if (b.image === "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg" || b.id === "banner-1") {
-              if (b.image !== "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg" || b.bgFrom !== "#06558f" || b.bgTo !== "#128bc7") {
-                b.image = "https://res.cloudinary.com/btjglif5/image/upload/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg";
+            if (b.image === "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg" || b.id === "banner-1") {
+              if (b.image !== "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg" || b.bgFrom !== "#06558f" || b.bgTo !== "#128bc7") {
+                b.image = "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150187/Assets-QXL/legacy-assets/image/food_intolerance_banner.jpg";
                 b.bgFrom = "#06558f";
                 b.bgTo = "#128bc7";
                 healed = true;
@@ -281,8 +281,8 @@ export const cmsStore = {
         parsed.contactPhone = parsed.phone_display;
         healed = true;
       }
-      if (parsed.phone_display && parsed.whatsappNumber !== parsed.phone_display) {
-        parsed.whatsappNumber = parsed.phone_display;
+      if (parsed.whatsapp_number && parsed.whatsappNumber !== parsed.whatsapp_number) {
+        parsed.whatsappNumber = parsed.whatsapp_number;
         healed = true;
       }
       // Force-migrate any cached copy of the retired number.
@@ -294,7 +294,8 @@ export const cmsStore = {
         }
       }
 
-      if (parsed.navItems && Array.isArray(parsed.navItems)) {
+      // Menus published from the admin panel are used exactly as configured.
+      if (!parsed.__fromServer && parsed.navItems && Array.isArray(parsed.navItems)) {
         // Auto-migrate menu structure if old items exist
         const hasBook = parsed.navItems.some((item: any) => item.label === "Book a Test");
         const hasDownloadReport = parsed.navItems.some((item: any) => item.label === "Download Report");
@@ -398,23 +399,47 @@ export const cmsStore = {
     try {
       // Same-origin rewrite (next.config.ts) — avoids CORS / wrong-host failures
       // when NEXT_PUBLIC_API_URL is unset or points at a different origin.
-      const response = await fetch("/api/v1/settings", { credentials: "include" });
+      // The admin panel's "Website" screen (branding, navigation, footer
+      // copy, addresses) is published as the "website" content block; it is
+      // absent (404) until an admin first saves it.
+      const [response, websiteResponse] = await Promise.all([
+        fetch("/api/v1/settings", { credentials: "include" }),
+        fetch("/api/v1/content-blocks/website").catch(() => null),
+      ]);
       if (!response.ok) throw new Error(`API error: ${response.status}`);
-      
+
       const apiSettings = await response.json();
-      
+      let website: Record<string, any> = {};
+      if (websiteResponse?.ok) {
+        const block = await websiteResponse.json();
+        if (block?.data && typeof block.data === "object" && !Array.isArray(block.data)) {
+          // Drop blank values so the built-in defaults still fill any gaps.
+          website = Object.fromEntries(
+            Object.entries(block.data).filter(([, v]) => v !== "" && v !== null && v !== undefined)
+          );
+          if (Array.isArray(website.navItems) && website.navItems.length > 0) {
+            website.__fromServer = true;
+          } else {
+            delete website.navItems;
+          }
+        }
+      }
+
       // Merge API settings with existing settings. Also mirror the
       // phone_display / whatsapp_number fields onto the legacy
       // contactPhone / whatsappNumber keys that Header/Footer still read.
       const currentSettings = cmsStore.getSettings();
       const mergedSettings = {
         ...currentSettings,
+        ...website,
         ...apiSettings, // Backend values override local defaults
         contactPhone: apiSettings.phone_display || currentSettings.contactPhone,
-        whatsappNumber: apiSettings.phone_display || currentSettings.whatsappNumber,
+        whatsappNumber: apiSettings.whatsapp_number || currentSettings.whatsappNumber,
       };
-      
-      cmsStore.saveSettings(mergedSettings);
+
+      // Local cache only — the public site never writes CMS data.
+      localStorage.setItem("qxl_cms_settings", JSON.stringify(mergedSettings));
+      window.dispatchEvent(new CustomEvent("cms-update", { detail: { key: "settings" } }));
     } catch (error) {
       // Silently fail — use cached settings if API is unavailable
       console.warn("Failed to sync settings from API:", error);

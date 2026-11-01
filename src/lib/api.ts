@@ -342,9 +342,16 @@ export interface CreateOrderResponse {
   amount: number;
   currency: string;
   booking_ids: string[];
+  /** Home-collection fee in paise, already included in `amount`. */
+  collection_fee: number;
   name: string;
   description: string;
 }
+
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+/** True for ids of bookings that actually exist on the backend. */
+export const isBackendId = (id: unknown): id is string => typeof id === 'string' && UUID_RE.test(id);
 
 export interface VerifyPaymentRequest {
   razorpay_order_id: string;
@@ -361,6 +368,15 @@ export interface PaymentRead {
   amount: number;
   currency: string;
   status: string;
+}
+
+export interface CatalogResolveMatch {
+  query: string;
+  kind: 'test' | 'package';
+  id: string;
+  name: string;
+  price: number | null;
+  home_collection_available: boolean;
 }
 
 export interface UnsubscribeLookup {
@@ -624,12 +640,12 @@ export const api = {
   },
   tests: {
     list: (q?: string) => get<TestCatalogItem[]>(`/tests${q ? `?q=${encodeURIComponent(q)}` : ''}`),
-    get: (id: string) => get<TestCatalogItem>(`/${id}`),
+    get: (id: string) => get<TestCatalogItem>(`/tests/${id}`),
     adminList: (limit = 200, offset = 0) =>
       get<{ items: TestCatalogItem[]; count: number }>(`/tests/admin?limit=${limit}&offset=${offset}`),
     create: (data: TestCatalogCreate) => post<TestCatalogItem>('/tests', data),
-    update: (id: string, data: TestCatalogUpdate) => patch<TestCatalogItem>(`/${id}`, data),
-    remove: (id: string) => del<void>(`/${id}`),
+    update: (id: string, data: TestCatalogUpdate) => patch<TestCatalogItem>(`/tests/${id}`, data),
+    remove: (id: string) => del<void>(`/tests/${id}`),
   },
   bookings: {
     create: (data: BookingCreate) => post<Booking>('/bookings', data),
@@ -646,10 +662,22 @@ export const api = {
       ),
   },
   payments: {
-    createOrder: (bookingIds: string[], amount?: number) =>
-      post<CreateOrderResponse>('/payments/orders', { booking_ids: bookingIds, amount }),
+    /** Creates one Razorpay order for all `bookingIds`. The amount is always
+     * computed server-side from the bookings; `applyHomeCollectionFee` is set
+     * only by checkouts that show the home-collection fee (/book). */
+    createOrder: (bookingIds: string[], options: { applyHomeCollectionFee?: boolean } = {}) =>
+      post<CreateOrderResponse>('/payments/orders', {
+        booking_ids: bookingIds,
+        apply_home_collection_fee: Boolean(options.applyHomeCollectionFee),
+      }),
     verify: (data: VerifyPaymentRequest) => post<PaymentRead>('/payments/verify', data),
     reconcile: (paymentId: string) => post<PaymentRead>(`/payments/${paymentId}/reconcile`),
+  },
+  catalog: {
+    /** What each item name books, and its server-side price (the amount a
+     * booking for that name is charged). `null` = not bookable. */
+    resolve: (names: string[]) =>
+      post<{ results: (CatalogResolveMatch | null)[] }>('/catalog/resolve', { names }),
   },
   unsubscribe: {
     lookup: (token: string) =>

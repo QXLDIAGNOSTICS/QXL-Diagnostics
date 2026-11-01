@@ -6,6 +6,8 @@ import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { cmsStore } from "../lib/cmsStore";
+import { api } from "../lib/api";
+import { normalizeApiBlogPost } from "../lib/blogUtils";
 import { getAutoBlogDate } from "../lib/dateUtils";
 import ShareButton from "./ShareButton";
 
@@ -14,17 +16,32 @@ export default function ClientBlogFallback({ slug }: { slug: string }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    try {
-      const all = cmsStore.getAll("blogs");
-      const found = all.find((b: any) => b.slug === slug || b.id === slug);
-      if (found) {
-        setBlog(found);
+    let cancelled = false;
+    (async () => {
+      // Articles published from the admin panel live in the backend; the
+      // local CMS cache is only a fallback.
+      try {
+        const post = await api.blog.get(slug);
+        if (!cancelled && post) {
+          setBlog(normalizeApiBlogPost(post));
+          return;
+        }
+      } catch {
+        // Not a published backend post — try the local cache below.
       }
-    } catch (e) {
-      console.error("Failed to load client blog", e);
-    } finally {
-      setLoading(false);
-    }
+      try {
+        const all = cmsStore.getAll("blogs");
+        const found = all.find((b: any) => b.slug === slug || b.id === slug);
+        if (!cancelled && found) setBlog(found);
+      } catch (e) {
+        console.error("Failed to load client blog", e);
+      }
+    })().finally(() => {
+      if (!cancelled) setLoading(false);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [slug]);
 
   if (loading) {

@@ -9,7 +9,7 @@ const personas = [
     role: "Father",
     title: "Who never complains.",
     quote: "“I’m fine. I don't need tests.”",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150236/Assets-QXL/legacy-assets/image/senior_bp_check.png",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150236/Assets-QXL/legacy-assets/image/senior_bp_check.png",
     color: "from-blue-600 to-indigo-700",
     badgeBg: "bg-blue-100 text-blue-700"
   },
@@ -17,7 +17,7 @@ const personas = [
     role: "Mother",
     title: "Who always puts the family first.",
     quote: "“Take care of the children first, I’ll manage.”",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150185/Assets-QXL/legacy-assets/image/female_doctor_consult.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150185/Assets-QXL/legacy-assets/image/female_doctor_consult.jpg",
     color: "from-rose-500 to-pink-600",
     badgeBg: "bg-rose-100 text-rose-700"
   },
@@ -25,7 +25,7 @@ const personas = [
     role: "Youngster",
     title: "Too busy to think about health.",
     quote: "“I’m young and active, nothing will happen.”",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150205/Assets-QXL/legacy-assets/image/happy_couple_phone.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150205/Assets-QXL/legacy-assets/image/happy_couple_phone.jpg",
     color: "from-sky-500 to-blue-600",
     badgeBg: "bg-sky-100 text-[#0284C7]"
   },
@@ -33,7 +33,7 @@ const personas = [
     role: "Grandparent",
     title: "Who quietly ignores warning signs.",
     quote: "“It’s just old age, don't worry about it.”",
-    image: "https://res.cloudinary.com/btjglif5/image/upload/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
+    image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150179/Assets-QXL/legacy-assets/image/family_clinic_consult.jpg",
     color: "from-emerald-600 to-teal-700",
     badgeBg: "bg-emerald-100 text-emerald-700"
   }

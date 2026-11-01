@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { Loader2, CreditCard, CheckCircle2, AlertTriangle, X, ShieldCheck } from "lucide-react";
-import { api, ApiError } from "@/lib/api";
-import { openRazorpayCheckout, isMockRazorpayOrder } from "@/lib/razorpay";
+import { api, ApiError, isBackendId, type CreateOrderResponse } from "@/lib/api";
+import { openRazorpayCheckout } from "@/lib/razorpay";
 
 interface RazorpayCheckoutButtonProps {
   /** All booking ids to pay for together in a single combined order. */
@@ -35,75 +35,61 @@ export default function RazorpayCheckoutButton({
 
   const handlePay = async () => {
     setError(null);
-    setLoading(true);
     setShowConsent(false);
+
+    // Only bookings that were actually saved on the backend can be paid for.
+    const backendIds = (bookingIds || []).filter(isBackendId);
+    if (backendIds.length === 0) {
+      setError("Your booking could not be saved online, so payment can't start. Please try booking again or call us at +91 9964 639 639.");
+      return;
+    }
+
+    setLoading(true);
+    let order: CreateOrderResponse;
     try {
-      let order: any;
-      const validUuidIds = (bookingIds || []).filter(
-        (id) => typeof id === "string" && !id.startsWith("mock-bk-") && id.length >= 20
-      );
-
-      try {
-        order = await api.payments.createOrder(
-          validUuidIds.length > 0 ? validUuidIds : bookingIds,
-          amountRupees || undefined
-        );
-      } catch (orderErr) {
-        console.warn("Backend payment order creation failed, using client fallback order", orderErr);
-        order = {
-          key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_live_TIoMgoerMx4pbE",
-          order_id: "",
-          amount: Math.round((amountRupees || 250) * 100),
-          currency: "INR",
-          name: "QXL Diagnostics",
-          description: "Diagnostic test / package booking",
-        };
-      }
-
-      try {
-        await openRazorpayCheckout({
-          order,
-          prefill: { name: patientName, email: patientEmail, contact: patientPhone },
-          onSuccess: async (payload) => {
-            try {
-              if (payload.razorpay_order_id && !payload.razorpay_order_id.startsWith("order_mock_")) {
-                await api.payments.verify(payload);
-              }
-              setPaid(true);
-              onPaid?.();
-            } catch (err) {
-              if (payload && payload.razorpay_payment_id) {
-                setPaid(true);
-                onPaid?.();
-              } else {
-                setError(
-                  err instanceof ApiError
-                    ? err.message
-                    : "We could not verify your payment automatically. Please contact support with your payment ID."
-                );
-              }
-            } finally {
-              setLoading(false);
-            }
-          },
-          onFailure: (message) => {
-            setError(message || "Payment cancelled or failed. Please try again.");
-            setLoading(false);
-          },
-          onDismiss: () => setLoading(false),
-        });
-      } catch (checkoutErr) {
-        console.warn("Razorpay popup failed, enabling fallback payment verification", checkoutErr);
-        if (order && order.order_id && order.order_id.startsWith("order_mock_")) {
-          setPaid(true);
-          onPaid?.();
-        } else {
-          setError("Payment initialization issue. Our coordinator will assist you to pay on call or at delivery.");
-        }
-        setLoading(false);
-      }
+      order = await api.payments.createOrder(backendIds);
     } catch (err) {
-      setError("Could not start payment. Please try again or call us directly at +91 9964 639 639.");
+      setError(
+        err instanceof ApiError
+          ? err.message
+          : "Could not start payment. Please try again or call us directly at +91 9964 639 639."
+      );
+      setLoading(false);
+      return;
+    }
+
+    try {
+      await openRazorpayCheckout({
+        order,
+        prefill: { name: patientName, email: patientEmail, contact: patientPhone },
+        onSuccess: async (payload) => {
+          try {
+            await api.payments.verify(payload);
+            setPaid(true);
+            onPaid?.();
+          } catch {
+            // Razorpay took the payment but our signature check didn't
+            // confirm it (network blip, etc). The webhook will still mark
+            // it paid — tell the patient not to pay twice.
+            setError(
+              `We received your payment (ID: ${payload.razorpay_payment_id}) and are confirming it — this can take a few minutes. Please don't pay again.`
+            );
+          } finally {
+            setLoading(false);
+          }
+        },
+        onFailure: (message) => {
+          setError(message || "Payment cancelled or failed. Please try again.");
+          setLoading(false);
+        },
+        onDismiss: () => setLoading(false),
+      });
+    } catch (checkoutErr) {
+      setError(
+        checkoutErr instanceof Error
+          ? checkoutErr.message
+          : "Payment gateway could not be opened. Please try again."
+      );
       setLoading(false);
     }
   };

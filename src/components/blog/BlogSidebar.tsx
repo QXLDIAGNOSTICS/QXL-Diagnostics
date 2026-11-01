@@ -120,7 +120,7 @@ export default function BlogSidebar({ currentSlug, trendingBlogs }: BlogSidebarP
             const readTime = getReadingTime(b.content);
             const coverImage =
               b.image ||
-              "https://res.cloudinary.com/btjglif5/image/upload/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
+              "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
 
             return (
               <Link

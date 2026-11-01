@@ -94,7 +94,7 @@ const localBusinessSchema = {
   url: "https://qxldiagnostics.com",
   telephone: "+91-9964-639639",
   email: "info@qxldiagnostics.com",
-  logo: "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
+  logo: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   image: "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
   hasCredential: {
     "@type": "EducationalOccupationalCredential",
@@ -313,7 +313,7 @@ const organizationSchema = {
   "telephone": "+91-9964-639-639",
   "email": "info@qxldiagnostics.com",
   "slogan": "Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru",
-  "logo": "https://res.cloudinary.com/btjglif5/image/upload/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
+  "logo": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   "sameAs": [
     "https://www.facebook.com/qxldiagnostics",
     "https://www.linkedin.com/company/qxl-diagnostics",

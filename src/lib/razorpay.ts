@@ -69,7 +69,12 @@ export interface OpenRazorpayCheckoutOptions {
   onDismiss?: () => void;
 }
 
-/** Loads Checkout.js (if needed) and opens the Razorpay payment modal page. */
+/** Loads Checkout.js (if needed) and opens the Razorpay payment modal page.
+ *
+ * Requires a real order created by the backend (`POST /payments/orders`):
+ * the payment is tied to that order, so the backend can verify its
+ * signature and mark the right bookings as paid. Never opens checkout
+ * without one — an order-less payment can't be matched to any booking. */
 export async function openRazorpayCheckout({
   order,
   prefill,
@@ -77,19 +82,19 @@ export async function openRazorpayCheckout({
   onFailure,
   onDismiss,
 }: OpenRazorpayCheckoutOptions): Promise<void> {
+  if (isMockRazorpayOrder(order)) {
+    throw new Error("Payment could not be started. Please try again in a moment.");
+  }
   await loadRazorpayScript();
   if (!window.Razorpay) {
     throw new Error("Payment gateway could not be loaded. Please check your connection and try again.");
   }
 
-  const rawKey = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || order?.key_id;
-  const validKey =
-    rawKey && typeof rawKey === "string" && !rawKey.startsWith("rzp_test_mock") && rawKey !== "rzp_test_mock_qxl"
-      ? rawKey
-      : (process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "");
-
   const rzpOptions: Record<string, unknown> = {
-    key: validKey,
+    // The order was created with the backend's key — it must be opened with
+    // that same key, or Razorpay rejects the order id.
+    key: order.key_id,
+    order_id: order.order_id,
     amount: order.amount,
     currency: order.currency || "INR",
     name: order.name || "QXL Diagnostics",
@@ -107,10 +112,6 @@ export async function openRazorpayCheckout({
       ondismiss: () => onDismiss?.(),
     },
   };
-
-  if (order.order_id && typeof order.order_id === "string" && !order.order_id.startsWith("order_mock_")) {
-    rzpOptions.order_id = order.order_id;
-  }
 
   const rzp = new window.Razorpay(rzpOptions);
 

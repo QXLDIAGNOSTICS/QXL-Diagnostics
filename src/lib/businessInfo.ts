@@ -17,6 +17,12 @@ export const BUSINESS_PARENT_COMPANY = "Qualitify Healthtech Pvt Ltd";
 
 export const SITE_URL = "https://qxldiagnostics.com";
 
+/** Absolute URL for structured data / Open Graph: site-relative paths
+ * ("/images/x.jpg") get the site origin; full URLs (e.g. Cloudinary) are
+ * returned as-is. */
+export const absoluteImageUrl = (url: string): string =>
+  /^https?:\/\//i.test(url) ? url : `${SITE_URL}${url.startsWith("/") ? "" : "/"}${url}`;
+
 // Contact info — dynamically fetched from admin settings (SiteSettings API)
 export const getPhoneDisplay = (): string => {
   const settings = cmsStore.getSettings();

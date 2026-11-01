@@ -19,7 +19,7 @@ import {
   ChevronLeft,
   MessageCircle,
 } from "lucide-react";
-import { api, type TestCatalogItem, type HealthPackage, type Booking } from "../lib/api";
+import { api, ApiError, type TestCatalogItem, type HealthPackage, type Booking } from "../lib/api";
 import { useAuth } from "../lib/useAuth";
 import { trackOpenAILeadCreated } from "../lib/chatgptAnalytics";
 import RazorpayCheckoutButton from "./RazorpayCheckoutButton";
@@ -98,6 +98,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
   const [submitted, setSubmitted] = useState(false);
   const [hasPaid, setHasPaid] = useState(false);
   const [createdBookings, setCreatedBookings] = useState<Booking[]>([]);
+  const savedBookingsRef = useRef<{ key: string; byItem: Record<string, Booking> }>({ key: "", byItem: {} });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -137,9 +138,18 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
         ];
 
         setCatalog((prev) => {
+          // Bundled entries take the admin-managed catalog price — that's
+          // what a booking for that name is actually charged.
+          const apiByName = new Map(merged.map((m) => [m.name.toLowerCase(), m]));
+          const updated = prev.map((m) => {
+            const fromApi = apiByName.get(m.name.toLowerCase());
+            return fromApi && fromApi.price != null
+              ? { ...m, price: fromApi.price, home_collection_available: fromApi.home_collection_available }
+              : m;
+          });
           const names = new Set(prev.map((m) => m.name.toLowerCase()));
           const newEntries = merged.filter((m) => !names.has(m.name.toLowerCase()));
-          return [...prev, ...newEntries];
+          return [...updated, ...newEntries];
         });
       } catch {
         // Fallback
@@ -277,12 +287,32 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
     setSubmitting(true);
 
     try {
-      const created: Booking[] = [];
-      for (const item of selectedItems) {
-        const now = new Date();
-        const pad = (n: number) => String(n).padStart(2, "0");
-        const defaultDate = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+      // No slot picked → the earliest open slot (tomorrow's, if today's are over).
+      const pad = (n: number) => String(n).padStart(2, "0");
+      const isoDate = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+      let preferredDate = formData.date || isoDate(new Date());
+      let preferredTime = formData.time || generateTimeSlots(preferredDate)[0] || "";
+      if (!preferredTime) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        preferredDate = isoDate(tomorrow);
+        preferredTime = generateTimeSlots(preferredDate)[0];
+      }
 
+      // Bookings already saved during an earlier attempt of this same
+      // request are reused, so retrying after a partial failure never
+      // creates duplicates.
+      const attemptKey = [formData.name, formData.phone, preferredDate, preferredTime, formData.collectionType].join("|");
+      if (savedBookingsRef.current.key !== attemptKey) savedBookingsRef.current = { key: attemptKey, byItem: {} };
+      const saved = savedBookingsRef.current.byItem;
+
+      const created: Booking[] = [];
+      const failures: string[] = [];
+      for (const item of selectedItems) {
+        if (saved[item.id]) {
+          created.push(saved[item.id]);
+          continue;
+        }
         try {
           const booking = await api.bookings.create({
             patient_name: formData.name,
@@ -291,36 +321,20 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
             test_name: item.name,
             collection_type: formData.collectionType,
             collection_address: formData.collectionType === "home" ? formData.address || undefined : undefined,
-            preferred_date: formData.date || defaultDate,
-            preferred_time: formData.time || "07:00 AM - 10:00 AM",
+            preferred_date: preferredDate,
+            preferred_time: preferredTime,
             notes: formData.message || undefined,
           });
+          saved[item.id] = booking;
           created.push(booking);
-        } catch {
-          created.push({
-            id: `bk-${Math.random().toString(36).substring(2, 9)}`,
-            user_id: null,
-            patient_name: formData.name,
-            patient_phone: formData.phone,
-            patient_email: formData.email || null,
-            patient_age: null,
-            patient_gender: null,
-            test_name: item.name,
-            test_id: null,
-            package_id: null,
-            center_id: null,
-            collection_type: formData.collectionType,
-            collection_address: formData.collectionType === "home" ? formData.address || null : null,
-            preferred_date: formData.date || defaultDate,
-            preferred_time: formData.time || "07:00 AM",
-            status: "pending",
-            notes: formData.message || null,
-            is_urgent: false,
-            report_url: null,
-            amount_paise: (item.price || 0) * 100,
-            payment_status: "pending",
-          });
+        } catch (err) {
+          failures.push(`${item.name}: ${err instanceof ApiError ? err.message : "could not be booked"}`);
         }
+      }
+
+      if (failures.length > 0) {
+        setError(`${failures.join(" ")} Please adjust and try again, or call +91 9964 639 639.`);
+        return;
       }
 
       setCreatedBookings(created);
@@ -378,6 +392,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
                 setHasPaid(false);
                 setCurrentStep(1);
                 setSelectedItems([]);
+                savedBookingsRef.current = { key: "", byItem: {} };
               }}
               className="text-xs font-black text-[#0B2545] underline uppercase tracking-wider cursor-pointer"
             >

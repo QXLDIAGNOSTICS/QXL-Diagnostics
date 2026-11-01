@@ -3,6 +3,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Maximize2, X, Cpu, ShieldCheck, Activity, Award, CheckCircle } from 'lucide-react';
 import { NABL_CERTIFICATE } from '@/lib/businessInfo';
+import { api } from '@/lib/api';
+import { optimizeCloudinaryUrl } from '@/lib/cloudinary';
 
 interface LabImage {
   id: number;
@@ -142,19 +144,43 @@ export default function LabGallerySlider() {
   const [filterDepartment, setFilterDepartment] = useState('All');
   const [isPlaying, setIsPlaying] = useState(true);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const [labImages, setLabImages] = useState<LabImage[]>(LAB_IMAGES);
+
+  // Photos added under Admin → Gallery are shown before the built-in ones.
+  useEffect(() => {
+    let cancelled = false;
+    api.gallery
+      .list()
+      .then(({ items }) => {
+        if (cancelled || !items?.length) return;
+        const fromAdmin: LabImage[] = items.map((item, i) => ({
+          id: 1000 + i,
+          src: optimizeCloudinaryUrl(item.image_url, { w: 1600 }),
+          title: item.title,
+          department: item.category || 'QXL Laboratory',
+          techSpec: '',
+          description: '',
+        }));
+        setLabImages([...fromAdmin, ...LAB_IMAGES]);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const departments = ['All', 'Clinical Biochemistry', 'Haematology', 'Molecular Diagnostics', 'Histo-Cytopathology', 'Quality Governance'];
 
   const filteredImages = filterDepartment === 'All' 
-    ? LAB_IMAGES 
-    : LAB_IMAGES.filter(img => img.department.toLowerCase().includes(filterDepartment.toLowerCase()));
+    ? labImages
+    : labImages.filter(img => img.department.toLowerCase().includes(filterDepartment.toLowerCase()));
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % LAB_IMAGES.length);
+    setCurrentIndex((prev) => (prev + 1) % labImages.length);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + LAB_IMAGES.length) % LAB_IMAGES.length);
+    setCurrentIndex((prev) => (prev - 1 + labImages.length) % labImages.length);
   };
 
   useEffect(() => {
@@ -168,7 +194,7 @@ export default function LabGallerySlider() {
     };
   }, [isPlaying, currentIndex]);
 
-  const currentLab = LAB_IMAGES[currentIndex];
+  const currentLab = labImages[currentIndex] ?? labImages[0];
 
   return (
     <section className="py-12 bg-slate-900 text-white overflow-hidden relative">
@@ -296,7 +322,7 @@ export default function LabGallerySlider() {
                 <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Quick Select Photo</span>
               </div>
               <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 scrollbar-none">
-                {LAB_IMAGES.map((img, idx) => (
+                {labImages.map((img, idx) => (
                   <button
                     key={img.id}
                     onClick={() => setCurrentIndex(idx)}
