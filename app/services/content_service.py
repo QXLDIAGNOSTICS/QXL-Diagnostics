@@ -1,4 +1,4 @@
-"""CMS content service: doctors, banners, blog posts, FAQs."""
+"""CMS content service: doctors, specialities, banners, blog posts, FAQs."""
 from __future__ import annotations
 
 import json
@@ -16,6 +16,7 @@ from app.models.content import (
     GalleryItem,
     Review,
     SiteSettings,
+    Speciality,
 )
 from app.repositories.content_repository import (
     BannerRepository,
@@ -25,6 +26,7 @@ from app.repositories.content_repository import (
     GalleryItemRepository,
     ReviewRepository,
     SiteSettingsRepository,
+    SpecialityRepository,
 )
 from app.services.catalog_service import slugify
 
@@ -75,6 +77,59 @@ async def delete_doctor(db: AsyncSession, doctor_id: uuid.UUID) -> None:
     if doc is None:
         raise NotFoundError("Doctor not found")
     await repo.delete(doc)
+    await db.commit()
+
+
+# ── Specialities ──────────────────────────────────────────────────────────────
+
+async def list_active_specialities(db: AsyncSession) -> list[Speciality]:
+    return await SpecialityRepository(db).get_all_active()
+
+
+async def list_all_specialities(db: AsyncSession, limit: int, offset: int) -> tuple[list[Speciality], int]:
+    return await SpecialityRepository(db).list_all(limit=limit, offset=offset)
+
+
+async def get_speciality_by_slug(db: AsyncSession, slug: str) -> Speciality:
+    spec = await SpecialityRepository(db).get_by_slug(slug)
+    if spec is None:
+        raise NotFoundError("Speciality not found")
+    return spec
+
+
+async def create_speciality(db: AsyncSession, data: dict) -> Speciality:
+    repo = SpecialityRepository(db)
+    data["slug"] = slugify(data.get("slug") or data["name"])
+    if await repo.get_by_slug(data["slug"]) is not None:
+        raise ValidationError(f"A speciality with slug '{data['slug']}' already exists")
+    spec = await repo.create(**data)
+    await db.commit()
+    await db.refresh(spec)
+    return spec
+
+
+async def update_speciality(db: AsyncSession, spec_id: uuid.UUID, data: dict) -> Speciality:
+    repo = SpecialityRepository(db)
+    spec = await repo.get_by_id(spec_id)
+    if spec is None:
+        raise NotFoundError("Speciality not found")
+    if data.get("slug"):
+        data["slug"] = slugify(data["slug"])
+        clash = await repo.get_by_slug(data["slug"])
+        if clash is not None and clash.id != spec.id:
+            raise ValidationError(f"A speciality with slug '{data['slug']}' already exists")
+    spec = await repo.update(spec, **data)
+    await db.commit()
+    await db.refresh(spec)
+    return spec
+
+
+async def delete_speciality(db: AsyncSession, spec_id: uuid.UUID) -> None:
+    repo = SpecialityRepository(db)
+    spec = await repo.get_by_id(spec_id)
+    if spec is None:
+        raise NotFoundError("Speciality not found")
+    await repo.delete(spec)
     await db.commit()
 
 

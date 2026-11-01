@@ -321,7 +321,10 @@ async def execute_tool(
                 [
                     {
                         "name": p.name,
-                        "price": p.price,
+                        "price": None if p.contact_for_price else p.price,
+                        "price_note": "Priced on request - ask the patient to call or WhatsApp us"
+                        if p.contact_for_price
+                        else None,
                         "old_price": p.old_price,
                         "parameters": p.parameters,
                         "includes": p.includes,

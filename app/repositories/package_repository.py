@@ -13,12 +13,14 @@ class HealthPackageRepository:
     def __init__(self, db: AsyncSession) -> None:
         self.db = db
 
-    async def get_all_active(self) -> list[HealthPackage]:
+    async def get_all_active(self, home_only: bool = False) -> list[HealthPackage]:
         stmt = (
             select(HealthPackage)
             .where(HealthPackage.is_active == True)  # noqa: E712
             .order_by(HealthPackage.sort_order, HealthPackage.name)
         )
+        if home_only:
+            stmt = stmt.where(HealthPackage.show_on_home == True)  # noqa: E712
         return list((await self.db.execute(stmt)).scalars().all())
 
     async def get_by_id(self, pkg_id: uuid.UUID) -> HealthPackage | None:

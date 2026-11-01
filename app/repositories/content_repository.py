@@ -6,7 +6,7 @@ import uuid
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.content import FAQ, Banner, BlogPost, Doctor, GalleryItem, Review, SiteSettings
+from app.models.content import FAQ, Banner, BlogPost, Doctor, GalleryItem, Review, SiteSettings, Speciality
 
 
 class DoctorRepository:
@@ -309,3 +309,51 @@ class SiteSettingsRepository:
                 setattr(settings, k, v)
         await self.db.flush()
         return settings
+
+
+class SpecialityRepository:
+    def __init__(self, db: AsyncSession) -> None:
+        self.db = db
+
+    async def get_all_active(self) -> list[Speciality]:
+        stmt = (
+            select(Speciality)
+            .where(Speciality.is_active == True)  # noqa: E712
+            .order_by(Speciality.sort_order, Speciality.name)
+        )
+        return list((await self.db.execute(stmt)).scalars().all())
+
+    async def list_all(self, limit: int = 100, offset: int = 0) -> tuple[list[Speciality], int]:
+        count = (await self.db.execute(select(func.count()).select_from(Speciality))).scalar_one()
+        rows = list(
+            (
+                await self.db.execute(
+                    select(Speciality).order_by(Speciality.sort_order, Speciality.name).limit(limit).offset(offset)
+                )
+            ).scalars().all()
+        )
+        return rows, count
+
+    async def get_by_id(self, spec_id: uuid.UUID) -> Speciality | None:
+        return await self.db.get(Speciality, spec_id)
+
+    async def get_by_slug(self, slug: str) -> Speciality | None:
+        stmt = select(Speciality).where(Speciality.slug == slug)
+        return (await self.db.execute(stmt)).scalars().first()
+
+    async def create(self, **kwargs) -> Speciality:  # noqa: ANN003
+        spec = Speciality(**kwargs)
+        self.db.add(spec)
+        await self.db.flush()
+        return spec
+
+    async def update(self, spec: Speciality, **kwargs) -> Speciality:  # noqa: ANN003
+        for k, v in kwargs.items():
+            if v is not None:
+                setattr(spec, k, v)
+        await self.db.flush()
+        return spec
+
+    async def delete(self, spec: Speciality) -> None:
+        await self.db.delete(spec)
+        await self.db.flush()

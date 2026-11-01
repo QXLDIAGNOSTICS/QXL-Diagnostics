@@ -1,5 +1,6 @@
 """Pure-logic tests for booking slot parsing, catalog matching, the
 home-collection fee, SMS template limits and stale scheduled reminders."""
+
 from __future__ import annotations
 
 from datetime import date, time, timedelta
@@ -69,6 +70,7 @@ def _items(*names):
 
 def test_catalog_match_exact_then_contained():
     items = _items("COMPLETE BLOOD COUNT (CBC)", "Liver Function Test Panel", "Vitamin B12")
+
     def match(query, catalog=items):
         return bs._best_catalog_match(query, catalog, name_getter=lambda i: i.name)
 
@@ -129,3 +131,69 @@ def test_stale_scheduled_reminders_are_skipped():
     assert _stale_reason(SimpleNamespace(type="reminder"), _booking(status="completed"))
     confirmation = SimpleNamespace(type="confirmation")
     assert _stale_reason(confirmation, _booking(payment_status="paid")) is None
+
+
+# ── CMS: priced-on-request packages, speciality schemas ───────────────────────
+
+
+def test_packages_priced_on_request_are_not_bookable_online():
+    ok = SimpleNamespace(contact_for_price=False, price=1770)
+    quote = SimpleNamespace(contact_for_price=True, price=0)
+    zero = SimpleNamespace(contact_for_price=False, price=0)
+    assert bs.is_package_bookable_online(ok)
+    assert not bs.is_package_bookable_online(quote)
+    assert not bs.is_package_bookable_online(zero)
+
+
+def test_speciality_read_tolerates_null_lists_and_blank_callout():
+    from app.schemas.content import SpecialityRead
+
+    row = SimpleNamespace(
+        id="3f1c3a5e-0000-4000-8000-000000000001",
+        name="Cardiology",
+        slug="cardiology",
+        card_image_url=None,
+        hero_image_url=None,
+        hero_title=None,
+        hero_description=None,
+        intro=None,
+        who_should_take=None,
+        profiles=None,
+        clinician_notes=None,
+        disclaimer=None,
+        callout=None,
+        directory=None,
+        why_choose=None,
+        faqs=None,
+        cta_title=None,
+        cta_text=None,
+        help_title=None,
+        help_text=None,
+        seo_title=None,
+        seo_description=None,
+        is_active=True,
+        sort_order=0,
+    )
+    read = SpecialityRead.model_validate(row, from_attributes=True)
+    assert read.who_should_take == [] and read.profiles == [] and read.faqs == []
+    assert read.callout is None and read.directory is None
+
+
+def test_speciality_profile_prices_are_optional():
+    from app.schemas.content import SpecialityCreate
+
+    spec = SpecialityCreate(
+        name="Test",
+        profiles=[
+            {"name": "A", "tests": "x", "tat": "1d", "sample": "blood"},
+            {
+                "name": "B",
+                "tests": "y",
+                "tat": "2d",
+                "sample": "urine",
+                "price": 500,
+                "old_price": 800,
+            },
+        ],
+    )
+    assert spec.profiles[0].price is None and spec.profiles[1].old_price == 800

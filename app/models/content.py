@@ -1,4 +1,4 @@
-"""CMS content models: Doctor, Banner, BlogPost, FAQ, Review, Gallery, SiteSettings, ContentBlock."""
+"""CMS content models: Doctor, Banner, BlogPost, FAQ, Review, Gallery, Speciality, SiteSettings, ContentBlock."""
 from __future__ import annotations
 
 import uuid
@@ -24,6 +24,24 @@ class Doctor(Base, TimestampMixin):
     specialization: Mapped[str | None] = mapped_column(String, nullable=True)
     bio: Mapped[str | None] = mapped_column(Text, nullable=True)
     image_url: Mapped[str | None] = mapped_column(String, nullable=True)
+    # Team page: role line ("Founder & CEO"), founder flag and profile copy.
+    title: Mapped[str | None] = mapped_column(String, nullable=True)
+    is_founder: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    experience: Mapped[str | None] = mapped_column(String, nullable=True)
+    expertise: Mapped[str | None] = mapped_column(Text, nullable=True)
+    achievements: Mapped[str | None] = mapped_column(Text, nullable=True)
+    contribution: Mapped[str | None] = mapped_column(Text, nullable=True)
+    department: Mapped[str | None] = mapped_column(String, nullable=True)
+    registration_number: Mapped[str | None] = mapped_column(String, nullable=True)
+    # Variants for the Founder & Consultants page and the homepage cards; each
+    # falls back to the plain qualification / image_url / title when empty.
+    card_qualification: Mapped[str | None] = mapped_column(String, nullable=True)
+    card_image_url: Mapped[str | None] = mapped_column(String, nullable=True)
+    short_title: Mapped[str | None] = mapped_column(String, nullable=True)
+    # Site path of the doctor's hand-written profile page, e.g. "/dr-ajitha-pillai".
+    profile_path: Mapped[str | None] = mapped_column(String, nullable=True)
+    # CSS object-position for the card photo, e.g. "center 15%".
+    image_position: Mapped[str | None] = mapped_column(String(32), nullable=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
 
@@ -112,6 +130,47 @@ class GalleryItem(Base, TimestampMixin):
     title: Mapped[str] = mapped_column(String, nullable=False)
     image_url: Mapped[str] = mapped_column(String, nullable=False)
     category: Mapped[str | None] = mapped_column(String, nullable=True, index=True)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
+    sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
+
+
+class Speciality(Base, TimestampMixin):
+    """A clinical speciality landing page (/specialities/<slug>): hero copy,
+    test profiles, FAQs and SEO metadata. List-valued fields are JSON."""
+
+    __tablename__ = "specialities"
+
+    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=new_uuid)
+    name: Mapped[str] = mapped_column(String, nullable=False)
+    slug: Mapped[str] = mapped_column(String, unique=True, index=True, nullable=False)
+    card_image_url: Mapped[str | None] = mapped_column(String, nullable=True)
+    hero_image_url: Mapped[str | None] = mapped_column(String, nullable=True)
+    hero_title: Mapped[str | None] = mapped_column(String, nullable=True)
+    hero_description: Mapped[str | None] = mapped_column(Text, nullable=True)
+    intro: Mapped[str | None] = mapped_column(Text, nullable=True)
+    # list[str]
+    who_should_take: Mapped[Any] = mapped_column(JSON, nullable=True)
+    # list[{name, tests, tat, sample}]
+    profiles: Mapped[Any] = mapped_column(JSON, nullable=True)
+    # list[str] paragraphs for the "For Clinicians" box
+    clinician_notes: Mapped[Any] = mapped_column(JSON, nullable=True)
+    disclaimer: Mapped[str | None] = mapped_column(Text, nullable=True)
+    # Optional featured card: {badge, note, title, text, link, link_label}
+    callout: Mapped[Any] = mapped_column(JSON, nullable=True)
+    # list[{title, desc}]
+    why_choose: Mapped[Any] = mapped_column(JSON, nullable=True)
+    # list[{q, a}]
+    faqs: Mapped[Any] = mapped_column(JSON, nullable=True)
+    cta_title: Mapped[str | None] = mapped_column(String, nullable=True)
+    cta_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+    # Content for the tabbed /speciality-tests page: {order, color, description,
+    # who_should_take, tests[], benefits[], packages[]}.
+    directory: Mapped[Any] = mapped_column(JSON, nullable=True)
+    # Sidebar "need help?" box.
+    help_title: Mapped[str | None] = mapped_column(String, nullable=True)
+    help_text: Mapped[str | None] = mapped_column(Text, nullable=True)
+    seo_title: Mapped[str | None] = mapped_column(String, nullable=True)
+    seo_description: Mapped[str | None] = mapped_column(Text, nullable=True)
     is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False, index=True)
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
 

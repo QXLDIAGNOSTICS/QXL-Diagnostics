@@ -108,8 +108,8 @@ async def delete_center(db: AsyncSession, center_id: uuid.UUID) -> None:
 
 # ── Health Packages ───────────────────────────────────────────────────────────
 
-async def list_active_packages(db: AsyncSession) -> list[HealthPackage]:
-    return await HealthPackageRepository(db).get_all_active()
+async def list_active_packages(db: AsyncSession, home_only: bool = False) -> list[HealthPackage]:
+    return await HealthPackageRepository(db).get_all_active(home_only=home_only)
 
 
 async def list_all_packages(db: AsyncSession, limit: int, offset: int) -> tuple[list[HealthPackage], int]:

@@ -29,8 +29,9 @@ router = APIRouter(tags=["packages"])
 # ── Health Packages ───────────────────────────────────────────────────────────
 
 @router.get("/packages", response_model=list[HealthPackageRead])
-async def list_packages(db: DbSession) -> list[HealthPackageRead]:
-    packages = await catalog_service.list_active_packages(db)
+async def list_packages(db: DbSession, home: bool = False) -> list[HealthPackageRead]:
+    """Active packages. ``?home=true`` returns only those featured on the homepage."""
+    packages = await catalog_service.list_active_packages(db, home_only=home)
     return [HealthPackageRead.model_validate(p) for p in packages]
 
 

@@ -3,8 +3,9 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime
+from typing import Any
 
-from sqlalchemy import Boolean, Integer, Numeric, String, Text
+from sqlalchemy import JSON, Boolean, Integer, Numeric, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -59,6 +60,16 @@ class HealthPackage(Base, TimestampMixin):
     home_collection_available: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     sort_order: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     image_url: Mapped[str | None] = mapped_column(String, nullable=True)
+    category: Mapped[str | None] = mapped_column(String, nullable=True, index=True)
+    # Featured in the homepage "recommended packages" carousel.
+    show_on_home: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    most_booked: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    # Price is shown as "Contact Us" instead of ``price`` when set.
+    contact_for_price: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    # Rich package page content: fasting_hours, tat, sample_type, guidance_level,
+    # may_help_when, before_booking, key_tests, guide_number, parameters_count,
+    # detailed_breakdown [{categoryName, testsCount, testsList}].
+    details: Mapped[Any] = mapped_column(JSON, nullable=True)
 
     bookings: Mapped[list["Booking"]] = relationship(back_populates="package")  # noqa: F821
 

@@ -5,7 +5,7 @@ import uuid
 from datetime import datetime
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 # ── Doctor ────────────────────────────────────────────────────────────────────
@@ -19,6 +19,19 @@ class DoctorRead(BaseModel):
     specialization: str | None = None
     bio: str | None = None
     image_url: str | None = None
+    title: str | None = None
+    is_founder: bool = False
+    experience: str | None = None
+    expertise: str | None = None
+    achievements: str | None = None
+    contribution: str | None = None
+    department: str | None = None
+    registration_number: str | None = None
+    profile_path: str | None = None
+    image_position: str | None = None
+    card_qualification: str | None = None
+    card_image_url: str | None = None
+    short_title: str | None = None
     is_active: bool = True
     sort_order: int = 0
 
@@ -30,6 +43,19 @@ class DoctorCreate(BaseModel):
     specialization: str | None = None
     bio: str | None = None
     image_url: str | None = None
+    title: str | None = None
+    is_founder: bool = False
+    experience: str | None = None
+    expertise: str | None = None
+    achievements: str | None = None
+    contribution: str | None = None
+    department: str | None = None
+    registration_number: str | None = None
+    profile_path: str | None = None
+    image_position: str | None = None
+    card_qualification: str | None = None
+    card_image_url: str | None = None
+    short_title: str | None = None
     is_active: bool = True
     sort_order: int = 0
 
@@ -40,6 +66,127 @@ class DoctorUpdate(BaseModel):
     specialization: str | None = None
     bio: str | None = None
     image_url: str | None = None
+    title: str | None = None
+    is_founder: bool | None = None
+    experience: str | None = None
+    expertise: str | None = None
+    achievements: str | None = None
+    contribution: str | None = None
+    department: str | None = None
+    registration_number: str | None = None
+    profile_path: str | None = None
+    image_position: str | None = None
+    card_qualification: str | None = None
+    card_image_url: str | None = None
+    short_title: str | None = None
+    is_active: bool | None = None
+    sort_order: int | None = None
+
+
+# ── Speciality ────────────────────────────────────────────────────────────────
+
+class SpecialityProfile(BaseModel):
+    name: str
+    tests: str = ""
+    tat: str = ""
+    sample: str = ""
+    price: int | None = None
+    old_price: int | None = None
+
+
+class SpecialityCallout(BaseModel):
+    badge: str = ""
+    note: str = ""
+    title: str = ""
+    text: str = ""
+    link: str = ""
+    link_label: str = ""
+
+
+class SpecialityWhy(BaseModel):
+    title: str
+    desc: str = ""
+
+
+class SpecialityFaq(BaseModel):
+    q: str
+    a: str = ""
+
+
+class SpecialityDirectory(BaseModel):
+    """Content for the tabbed /speciality-tests page."""
+
+    order: int | None = None
+    color: str = "#2563eb"
+    description: str = ""
+    who_should_take: str = ""
+    tests: list[str] = []
+    benefits: list[str] = []
+    packages: list[str] = []
+
+
+class SpecialityBase(BaseModel):
+    name: str
+    card_image_url: str | None = None
+    hero_image_url: str | None = None
+    hero_title: str | None = None
+    hero_description: str | None = None
+    intro: str | None = None
+    who_should_take: list[str] = []
+    profiles: list[SpecialityProfile] = []
+    clinician_notes: list[str] = []
+    disclaimer: str | None = None
+    callout: SpecialityCallout | None = None
+    directory: SpecialityDirectory | None = None
+    why_choose: list[SpecialityWhy] = []
+    faqs: list[SpecialityFaq] = []
+    cta_title: str | None = None
+    cta_text: str | None = None
+    help_title: str | None = None
+    help_text: str | None = None
+    seo_title: str | None = None
+    seo_description: str | None = None
+    is_active: bool = True
+    sort_order: int = 0
+
+
+class SpecialityRead(SpecialityBase):
+    model_config = ConfigDict(from_attributes=True)
+    id: uuid.UUID
+    slug: str
+
+    @field_validator("who_should_take", "profiles", "clinician_notes", "why_choose", "faqs", mode="before")
+    @classmethod
+    def _none_to_list(cls, v: object) -> object:
+        return [] if v is None else v
+
+
+class SpecialityCreate(SpecialityBase):
+    slug: str | None = None  # auto-generated from name if omitted
+
+
+class SpecialityUpdate(BaseModel):
+    name: str | None = None
+    slug: str | None = None
+    card_image_url: str | None = None
+    hero_image_url: str | None = None
+    hero_title: str | None = None
+    hero_description: str | None = None
+    intro: str | None = None
+    who_should_take: list[str] | None = None
+    profiles: list[SpecialityProfile] | None = None
+    clinician_notes: list[str] | None = None
+    disclaimer: str | None = None
+    callout: SpecialityCallout | None = None
+    directory: SpecialityDirectory | None = None
+    why_choose: list[SpecialityWhy] | None = None
+    faqs: list[SpecialityFaq] | None = None
+    cta_title: str | None = None
+    cta_text: str | None = None
+    help_title: str | None = None
+    help_text: str | None = None
+    seo_title: str | None = None
+    seo_description: str | None = None
     is_active: bool | None = None
     sort_order: int | None = None
 

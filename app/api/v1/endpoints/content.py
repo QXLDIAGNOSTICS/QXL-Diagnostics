@@ -1,4 +1,4 @@
-"""CMS content endpoints: doctors, banners, blog, FAQs, reviews, gallery, settings,
+"""CMS content endpoints: doctors, specialities, banners, blog, FAQs, reviews, gallery, settings,
 content blocks. Public read, admin write."""
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import uuid
 from fastapi import APIRouter, Depends, Query
 
 from app.api.deps import DbSession, require_role
+from app.core.exceptions import NotFoundError
 from app.models.user import User
 from app.schemas.content import (
     BannerCreate,
@@ -34,6 +35,9 @@ from app.schemas.content import (
     ReviewUpdate,
     SiteSettingsRead,
     SiteSettingsUpdate,
+    SpecialityCreate,
+    SpecialityRead,
+    SpecialityUpdate,
 )
 from app.services import content_service
 
@@ -79,6 +83,51 @@ async def update_doctor(
 @router.delete("/doctors/{doctor_id}", status_code=204)
 async def delete_doctor(doctor_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))) -> None:
     await content_service.delete_doctor(db, doctor_id)
+
+
+# ── Specialities ──────────────────────────────────────────────────────────────
+
+@router.get("/specialities", response_model=list[SpecialityRead])
+async def list_specialities(db: DbSession) -> list[SpecialityRead]:
+    items = await content_service.list_active_specialities(db)
+    return [SpecialityRead.model_validate(i) for i in items]
+
+
+@router.get("/specialities/admin", response_model=list[SpecialityRead])
+async def admin_list_specialities(
+    db: DbSession, limit: int = 100, offset: int = 0, user: User = Depends(require_role("admin"))
+) -> list[SpecialityRead]:
+    items, _ = await content_service.list_all_specialities(db, limit=limit, offset=offset)
+    return [SpecialityRead.model_validate(i) for i in items]
+
+
+@router.get("/specialities/{slug}", response_model=SpecialityRead)
+async def get_speciality(slug: str, db: DbSession) -> SpecialityRead:
+    spec = await content_service.get_speciality_by_slug(db, slug)
+    if not spec.is_active:
+        raise NotFoundError("Speciality not found")
+    return SpecialityRead.model_validate(spec)
+
+
+@router.post("/specialities", response_model=SpecialityRead, status_code=201)
+async def create_speciality(
+    body: SpecialityCreate, db: DbSession, user: User = Depends(require_role("admin"))
+) -> SpecialityRead:
+    spec = await content_service.create_speciality(db, body.model_dump())
+    return SpecialityRead.model_validate(spec)
+
+
+@router.patch("/specialities/{spec_id}", response_model=SpecialityRead)
+async def update_speciality(
+    spec_id: uuid.UUID, body: SpecialityUpdate, db: DbSession, user: User = Depends(require_role("admin"))
+) -> SpecialityRead:
+    spec = await content_service.update_speciality(db, spec_id, body.model_dump(exclude_unset=True))
+    return SpecialityRead.model_validate(spec)
+
+
+@router.delete("/specialities/{spec_id}", status_code=204)
+async def delete_speciality(spec_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))) -> None:
+    await content_service.delete_speciality(db, spec_id)
 
 
 # ── Banners ───────────────────────────────────────────────────────────────────

@@ -264,6 +264,12 @@ def _best_catalog_match[T](query: str, items: list[T], *, name_getter) -> T | No
     return None
 
 
+def is_package_bookable_online(package: HealthPackage) -> bool:
+    """Packages flagged "contact for price" (or with no price) are enquiry-only:
+    they are shown on the site but cannot be priced, booked or paid online."""
+    return not package.contact_for_price and (package.price or 0) > 0
+
+
 async def resolve_catalog_name(
     db: AsyncSession,
     name: str,
@@ -285,6 +291,7 @@ async def resolve_catalog_name(
         tests = await TestCatalogRepository(db).get_all_active()
     if packages is None:
         packages = await HealthPackageRepository(db).get_all_active()
+    packages = [p for p in packages if is_package_bookable_online(p)]
     for stage in _MATCH_STAGES:
         test = _catalog_match_stage(name, tests, name_getter=lambda t: t.name, stage=stage)
         if test is not None:
@@ -316,11 +323,15 @@ async def _resolve_catalog_selection(db: AsyncSession, data: dict) -> dict:
             raise ValidationError(
                 f"'{package.name}' is only available as a center visit, not home collection."
             )
+        if not is_package_bookable_online(package):
+            raise ValidationError(
+                f"'{package.name}' is priced on request and can't be booked online. "
+                "Please call us or send a WhatsApp message to arrange it."
+            )
         data["package_id"] = package.id
         data["test_id"] = None
         data["test_name"] = package.name
-        if package.price is not None:
-            data["amount_paise"] = int(package.price) * 100
+        data["amount_paise"] = int(package.price) * 100
         return data
 
     test_repo = TestCatalogRepository(db)

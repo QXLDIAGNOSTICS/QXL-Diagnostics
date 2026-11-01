@@ -77,3 +77,34 @@ async def upload_image(data: bytes, filename: str, content_type: str) -> str:
     if not secure_url:
         raise AppError("Image upload failed: no URL returned")
     return secure_url
+
+
+async def upload_remote(source: str, *, public_id: str, folder: str | None = None) -> str:
+    """Have Cloudinary fetch ``source`` (an http(s) URL) and store it as
+    ``<folder>/<public_id>``. Idempotent: re-running with the same ids
+    returns the same asset instead of creating duplicates. Used by the CMS
+    seed scripts to move externally-hosted images onto Cloudinary."""
+    if not _is_configured():
+        raise AppError(
+            "Image hosting is not configured. Set CLOUDINARY_CLOUD_NAME, "
+            "CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET."
+        )
+    folder = folder or settings.CLOUDINARY_UPLOAD_FOLDER
+    timestamp = str(int(time.time()))
+    params_to_sign = {"folder": folder, "overwrite": "false", "public_id": public_id, "timestamp": timestamp}
+    form = {
+        **params_to_sign,
+        "file": source,
+        "api_key": settings.CLOUDINARY_API_KEY,
+        "signature": _sign(params_to_sign),
+    }
+    url = _UPLOAD_URL_TEMPLATE.format(cloud_name=settings.CLOUDINARY_CLOUD_NAME)
+    async with httpx.AsyncClient(timeout=60.0) as client:
+        resp = await client.post(url, data=form)
+        if resp.status_code >= 400:
+            raise AppError(f"Image upload failed: {resp.text}")
+        body = resp.json()
+    secure_url = body.get("secure_url")
+    if not secure_url:
+        raise AppError("Image upload failed: no URL returned")
+    return secure_url
