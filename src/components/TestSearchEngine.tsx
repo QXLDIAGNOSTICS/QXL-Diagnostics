@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { Search, Filter, CheckCircle2, Clock, Beaker, ArrowRight, Sparkles } from "lucide-react";
 import { ALL_DIRECTORY_TESTS, TestDirectoryItem, CATEGORIES } from "@/app/tests/page";
+import { useBackendCatalog } from "@/lib/useBackendCatalog";
 
 interface TestSearchEngineProps {
   title?: string;
@@ -21,9 +22,10 @@ export default function TestSearchEngine({
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("All Categories");
   const [fastingFilter, setFastingFilter] = useState<"all" | "no-fasting" | "fasting">("all");
+  const directory = useBackendCatalog(ALL_DIRECTORY_TESTS);
 
   const filteredTests = useMemo(() => {
-    return ALL_DIRECTORY_TESTS.filter((test) => {
+    return directory.filter((test) => {
       // Category filter
       const matchesCategory =
         selectedCategory === "All Categories"
@@ -52,7 +54,7 @@ export default function TestSearchEngine({
 
       return matchesCategory && matchesFasting && matchesSearch;
     });
-  }, [selectedCategory, fastingFilter, searchQuery]);
+  }, [directory, selectedCategory, fastingFilter, searchQuery]);
 
   const displayedTests = limitResults ? filteredTests.slice(0, limitResults) : filteredTests;
 
@@ -110,7 +112,7 @@ export default function TestSearchEngine({
             </button>
           </div>
           <span className="text-slate-500 font-semibold text-[11px]">
-            Showing <strong className="text-[#0f2d5e]">{displayedTests.length}</strong> of {ALL_DIRECTORY_TESTS.length} tests
+            Showing <strong className="text-[#0f2d5e]">{displayedTests.length}</strong> of {directory.length} tests
           </span>
         </div>
       </div>

@@ -99,6 +99,26 @@ export interface HealthPackage {
   home_collection_available: boolean;
   sort_order: number;
   image_url: string | null;
+  category: string | null;
+  show_on_home: boolean;
+  most_booked: boolean;
+  /** Price is shown as "Contact Us"; the package can't be booked online. */
+  contact_for_price: boolean;
+  details: PackageDetails | null;
+}
+
+export interface PackageDetails {
+  parameters_count?: number;
+  fasting_hours?: string;
+  tat?: string;
+  sample_type?: string;
+  guidance_level?: "SELF-REQUEST POSSIBLE" | "CONSULTATION RECOMMENDED" | "DOCTOR-DIRECTED";
+  may_help_when?: string;
+  before_booking?: string;
+  key_tests?: string[];
+  guide_number?: string;
+  price_display?: string;
+  detailed_breakdown?: { categoryName: string; testsCount: number; testsList: string[] }[];
 }
 
 export interface TestCatalogItem {
@@ -435,6 +455,69 @@ export interface Doctor {
   specialization: string | null;
   bio: string | null;
   image_url: string | null;
+  title: string | null;
+  is_founder: boolean;
+  experience: string | null;
+  expertise: string | null;
+  achievements: string | null;
+  contribution: string | null;
+  department: string | null;
+  registration_number: string | null;
+  /** Site path of the hand-written profile page, e.g. "/dr-ajitha-pillai". */
+  profile_path: string | null;
+  /** CSS object-position for the card photo. */
+  image_position: string | null;
+  /** Founder & Consultants page: full qualification / large photo; homepage: short role. Each falls back to the plain field. */
+  card_qualification: string | null;
+  card_image_url: string | null;
+  short_title: string | null;
+  is_active: boolean;
+  sort_order: number;
+}
+
+export interface SpecialityProfile {
+  name: string;
+  tests: string;
+  tat: string;
+  sample: string;
+  price?: number | null;
+  old_price?: number | null;
+}
+
+export interface SpecialityDirectory {
+  order: number | null;
+  color: string;
+  description: string;
+  who_should_take: string;
+  tests: string[];
+  benefits: string[];
+  packages: string[];
+}
+
+export interface Speciality {
+  id: string;
+  name: string;
+  slug: string;
+  card_image_url: string | null;
+  hero_image_url: string | null;
+  hero_title: string | null;
+  hero_description: string | null;
+  intro: string | null;
+  who_should_take: string[];
+  profiles: SpecialityProfile[];
+  clinician_notes: string[];
+  disclaimer: string | null;
+  callout: { badge: string; note: string; title: string; text: string; link: string; link_label: string } | null;
+  why_choose: { title: string; desc: string }[];
+  faqs: { q: string; a: string }[];
+  cta_title: string | null;
+  cta_text: string | null;
+  /** Content for the tabbed /speciality-tests page. */
+  directory: SpecialityDirectory | null;
+  help_title: string | null;
+  help_text: string | null;
+  seo_title: string | null;
+  seo_description: string | null;
   is_active: boolean;
   sort_order: number;
 }
@@ -630,7 +713,8 @@ export const api = {
     remove: (id: string) => del<void>(`/centers/${id}`),
   },
   packages: {
-    list: () => get<HealthPackage[]>('/packages'),
+    /** `home: true` returns only the packages featured on the homepage. */
+    list: (opts: { home?: boolean } = {}) => get<HealthPackage[]>(opts.home ? '/packages?home=true' : '/packages'),
     get: (id: string) => get<HealthPackage>(`/packages/${id}`),
     adminList: (limit = 100, offset = 0) =>
       get<{ items: HealthPackage[]; count: number }>(`/packages/admin?limit=${limit}&offset=${offset}`),
@@ -693,6 +777,10 @@ export const api = {
     },
     mine: () => get<{ items: Prescription[]; count: number }>('/prescriptions'),
     get: (id: string) => get<Prescription>(`/prescriptions/${id}`),
+  },
+  specialities: {
+    list: () => get<Speciality[]>('/specialities'),
+    get: (slug: string) => get<Speciality>(`/specialities/${encodeURIComponent(slug)}`),
   },
   doctors: {
     list: () => get<Doctor[]>('/doctors'),

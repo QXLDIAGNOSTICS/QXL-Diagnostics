@@ -23,7 +23,7 @@ export const ALL_PACKAGES = CANONICAL_PACKAGES.map((pkg) => ({
   guidanceLevel: pkg.guidanceLevel,
 }));
 
-export default function PopularPackagesGrid() {
+export default function PopularPackagesGrid({ packages = CANONICAL_PACKAGES }: { packages?: PackageItem[] }) {
   const [selectedPkg, setSelectedPkg] = useState<PackageItem | null>(null);
   const [addedToast, setAddedToast] = useState<string | null>(null);
   const [addedIds, setAddedIds] = useState<string[]>([]);
@@ -35,14 +35,14 @@ export default function PopularPackagesGrid() {
 
   const categories = useMemo(() => {
     const cats = new Set<string>();
-    CANONICAL_PACKAGES.forEach((p) => {
+    packages.forEach((p) => {
       if (p.category) cats.add(p.category);
     });
     return ['ALL', ...Array.from(cats)];
-  }, []);
+  }, [packages]);
 
   const filteredPackages = useMemo(() => {
-    const list = CANONICAL_PACKAGES.filter((pkg) => {
+    const list = packages.filter((pkg) => {
       // Search match
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase().trim();
@@ -71,7 +71,7 @@ export default function PopularPackagesGrid() {
       const priceB = typeof b.price === 'number' && b.price > 0 && !b.contactForPrice ? b.price : 999999;
       return priceA - priceB;
     });
-  }, [searchQuery, selectedCategory, selectedGuidance]);
+  }, [packages, searchQuery, selectedCategory, selectedGuidance]);
 
   const standardPackages = useMemo(() => {
     return filteredPackages.filter((pkg) => typeof pkg.price === 'number' && pkg.price > 0 && !pkg.contactForPrice);
@@ -208,7 +208,7 @@ export default function PopularPackagesGrid() {
         {/* Results Counter */}
         <div className="flex items-center justify-between mb-6 px-1">
           <p className="text-xs font-black text-slate-500 uppercase tracking-wider">
-            Showing {filteredPackages.length} of {CANONICAL_PACKAGES.length} Diagnostic Packages
+            Showing {filteredPackages.length} of {packages.length} Diagnostic Packages
           </p>
           {(searchQuery || selectedCategory !== 'ALL' || selectedGuidance !== 'ALL') && (
             <button

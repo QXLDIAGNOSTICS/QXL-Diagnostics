@@ -1,34 +1,19 @@
 import { NextResponse } from 'next/server';
+import { serverApi } from '@/lib/serverApi';
+import fallbackSpecialities from '@/data/specialitiesFallback.json';
 
 const BASE_URL = 'https://qxldiagnostics.com';
 
-const SPECIALITY_PAGES = [
-  '/specialities',
-  '/speciality-tests',
-  '/specialities/neurology',
-  '/specialities/hematology',
-  '/specialities/cardiology',
-  '/specialities/urology',
-  '/specialities/endocrinology',
-  '/specialities/oncology',
-  '/specialities/infectious-diseases',
-  '/specialities/womens-health',
-  '/specialities/gastroenterology',
-  '/specialities/bone-disorders',
-  '/specialities/autoimmune-testing-bengaluru',
-  '/specialities/allergy-testing-bengaluru',
-  '/specialities/histopathology-bengaluru',
-  '/specialities/molecular-diagnostics-bengaluru',
-  '/specialities/flow-cytometry-bengaluru',
-  '/specialities/genetic-testing-bengaluru',
-  '/specialities/therapeutic-drug-monitoring',
-  '/specialities/clinical-mass-spectrometry',
-];
+// Landing pages that always exist; the per-speciality pages come from the CMS.
+const STATIC_PAGES = ['/specialities', '/speciality-tests'];
 
 export async function GET() {
   const lastmod = new Date().toISOString();
+  const live = await serverApi.specialities.list();
+  const specialities = live.length > 0 ? live : fallbackSpecialities;
+  const pages = [...STATIC_PAGES, ...specialities.map((s) => `/specialities/${s.slug}`)];
 
-  const urlsXml = SPECIALITY_PAGES.map(
+  const urlsXml = pages.map(
     (path) => `  <url>
     <loc>${BASE_URL}${path}</loc>
     <lastmod>${lastmod}</lastmod>

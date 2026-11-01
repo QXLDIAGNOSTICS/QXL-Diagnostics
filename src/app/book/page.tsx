@@ -197,6 +197,8 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
   }
 ];
 
+const SPECIALITY_PACKAGE_IDS = new Set(SPECIALITY_PACKAGES.map((p) => p.id));
+
 const INITIAL_TESTS: TestItem[] = [
   ...SPECIALITY_PACKAGES,
   { id: "fb1", name: "Full Body Checkup – Essential", cat: "fullbody", params: 65, price: 1199, mrp: 2400, fasting: true, tat: "Reports by next morning", icon: "body", keys: "annual master health complete cbc sugar lipid liver kidney thyroid urine", popular: true },
@@ -382,28 +384,69 @@ export default function BookPage() {
       return [...prev, ...fresh];
     });
 
-    // Show what each item is actually charged at checkout: the backend
-    // prices bookings from its catalog (managed in the admin panel), which
-    // can differ from the prices bundled with the site.
+    // The backend catalog (managed in the admin panel) decides what can be
+    // booked and at what price: bundled items it doesn't know are hidden,
+    // prices follow it, and tests/packages the admin added appear too.
     let cancelled = false;
     const names = Array.from(new Set([...INITIAL_TESTS, ...masterItems].map((t) => t.name)));
-    api.catalog
-      .resolve(names)
-      .then(({ results }) => {
+    Promise.all([api.catalog.resolve(names), api.tests.list(), api.packages.list()])
+      .then(([{ results }, apiTests, apiPackages]) => {
         if (cancelled) return;
-        const priceByName = new Map<string, number>();
+        const byName = new Map<string, number>();
+        const matchedIds = new Set<string>();
         results.forEach((match, i) => {
-          if (match?.price) priceByName.set(names[i], match.price);
+          if (!match) return;
+          byName.set(names[i], match.price ?? 0);
+          matchedIds.add(match.id);
         });
-        setAllTests((prev) =>
-          prev.map((t) => {
-            const price = priceByName.get(t.name);
-            return price && price !== t.price ? { ...t, price, mrp: Math.max(t.mrp, price) } : t;
-          })
-        );
+        const tatLabel = (hours?: number | null) => (hours ? (hours >= 24 ? `${Math.round(hours / 24)} Day` : `${hours} hrs`) : "Same Day");
+        const extras: TestItem[] = [
+          ...apiTests
+            .filter((t) => t.price && t.price > 0 && !matchedIds.has(t.id))
+            .map((t) => ({
+              id: `api-${t.id}`,
+              name: t.name,
+              cat: (t.category || "fullbody").toLowerCase(),
+              params: 1,
+              price: t.price as number,
+              mrp: t.price as number,
+              fasting: /fast/i.test(t.preparation || "") && !/no fast/i.test(t.preparation || ""),
+              tat: tatLabel(t.turnaround_hours),
+              icon: "vial",
+              keys: `${t.name} ${t.category || ""}`.toLowerCase(),
+            })),
+          ...apiPackages
+            .filter((p) => !p.contact_for_price && p.price > 0 && !matchedIds.has(p.id))
+            .map((p) => ({
+              id: `api-${p.id}`,
+              name: p.name,
+              cat: (p.category || "fullbody").toLowerCase(),
+              params: Number(p.details?.parameters_count) || 2,
+              price: p.price,
+              mrp: Math.max(p.old_price ?? p.price, p.price),
+              fasting: /fast/i.test(p.details?.fasting_hours || ""),
+              tat: p.details?.tat || "Same Day",
+              icon: "vial",
+              keys: `${p.name} ${p.includes || ""}`.toLowerCase(),
+              includes: p.includes || undefined,
+            })),
+        ];
+        setAllTests((prev) => {
+          const kept = prev
+            .filter((t) => byName.has(t.name))
+            .map((t) => {
+              const price = byName.get(t.name);
+              return price && price !== t.price ? { ...t, price, mrp: Math.max(t.mrp, price) } : t;
+            });
+          // A package the admin renamed ("Q-Oncoscreen Package" for the site's
+          // "Q-Oncology Biomarker Panel") is the same offering when both its
+          // price and MRP match a bundled discounted item - don't list it twice.
+          const seen = new Set(kept.filter((t) => t.mrp > t.price).map((t) => `${t.price}/${t.mrp}`));
+          return [...kept, ...extras.filter((t) => !(t.mrp > t.price && seen.has(`${t.price}/${t.mrp}`)))];
+        });
       })
       .catch(() => {
-        // Keep bundled prices; the order amount is always computed server-side.
+        // Backend unreachable: keep the bundled list; orders are priced server-side.
       });
     return () => {
       cancelled = true;
@@ -1268,13 +1311,13 @@ export default function BookPage() {
                       </h2>
                     </div>
                     <span className="text-[10px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full shrink-0">
-                      6 Packages
+                      {allTests.filter((t) => SPECIALITY_PACKAGE_IDS.has(t.id)).length} Packages
                     </span>
                   </div>
 
                   {/* Vertical List of Speciality Packages */}
                   <div className="space-y-3">
-                    {SPECIALITY_PACKAGES.map((pkg) => {
+                    {allTests.filter((t) => SPECIALITY_PACKAGE_IDS.has(t.id)).map((pkg) => {
                       const isAdded = cartIds.includes(pkg.id);
                       const discountPercent = Math.round(((pkg.mrp - pkg.price) / pkg.mrp) * 100);
 

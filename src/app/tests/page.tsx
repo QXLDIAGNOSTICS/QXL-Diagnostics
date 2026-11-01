@@ -111,10 +111,12 @@ function getCollectionBadge(test: TestDirectoryItem) {
 }
 
 import { addItemToCart } from "@/lib/cart";
+import { useBackendCatalog } from "@/lib/useBackendCatalog";
 
 export default function TestsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All Categories");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const directory = useBackendCatalog(ALL_DIRECTORY_TESTS);
 
   const handleAddToCart = (test: any) => {
     addItemToCart({
@@ -127,7 +129,7 @@ export default function TestsPage() {
   };
 
   const filteredTests = useMemo(() => {
-    return ALL_DIRECTORY_TESTS.filter((test) => {
+    return directory.filter((test) => {
       // Category filter
       const matchesCategory =
         selectedCategory === "All Categories"
@@ -147,7 +149,7 @@ export default function TestsPage() {
 
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [directory, selectedCategory, searchQuery]);
 
   const itemListSchema = {
     "@context": "https://schema.org",

@@ -1,0 +1,1455 @@
+[
+ {
+  "name": "Bone Disorders",
+  "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150389/Assets-QXL/legacy-assets/image/spec_bone.png",
+  "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1784150524/Assets-QXL/legacy-assets/images/banners/bone_joint.jpg",
+  "hero_title": "Advanced Bone Health, Joint & Arthritis Diagnostics in Bengaluru",
+  "hero_description": "Comprehensive arthritis panels, parathyroid mapping, autoimmune profiles (Anti-CCP, HLA-B27), and advanced bone turnover markers for precision metabolic health.",
+  "intro": "Healthy bones and joints are essential for active living. QXL Diagnostics offers advanced bone health profiles and joint panels that measure essential minerals, endocrine controllers, bone metabolism indicators, and autoimmune markers to screen, diagnose, and monitor chronic osteoarticular conditions.",
+  "who_should_take": [
+   "Postmenopausal women at risk of progressive bone mineral loss",
+   "Elderly individuals experiencing chronic joint pain, swelling, or morning stiffness",
+   "Patients with suspected autoimmune arthropathies (Rheumatoid Arthritis, Ankylosing Spondylitis)",
+   "Individuals showing signs of calcium or vitamin D deficiency (muscle weakness, muscle cramps, bone pain)",
+   "Patients undergoing long-term corticosteroid therapy which accelerates osteoporosis risks",
+   "Individuals requiring diagnostic monitoring of parathyroid gland or metabolic bone diseases"
+  ],
+  "profiles": [
+   {
+    "name": "Bone Health (Osteoscreen) Panel",
+    "tests": "Serum Calcium (Total), Phosphorus, PTH-Intact (Parathyroid Hormone), Vitamin D 25-Hydroxy, Alkaline Phosphatase (ALP)",
+    "tat": "Same Day",
+    "sample": "Blood (fasting recommended)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Rheumatoid Arthritis Panel",
+    "tests": "Rheumatoid Factor (RA), Anti-CCP (Cyclic Citrullinated Peptide), Anti-Nuclear Antibody (ANA) ELISA, C-Reactive Protein (CRP), ESR, C3 & C4 Complement levels",
+    "tat": "Same Day",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Comprehensive Arthritis Profile",
+    "tests": "Complete Blood Count (CBC), ESR, CRP, Rheumatoid Factor, Uric Acid, HLA-B27 (by PCR), ANA IFA, ASLO, Serum Calcium, Vitamin D",
+    "tat": "1 Day",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Bone & Mineral Metabolism Profile",
+    "tests": "Total Calcium, Ionized Calcium, Phosphorus, Alkaline Phosphatase, Urine Calcium-to-Creatinine Ratio, 24-hr Urine Calcium",
+    "tat": "Same Day",
+    "sample": "Blood + Urine",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Bone Turnover Markers Profile",
+    "tests": "P1NP (Procollagen Type 1 N-Terminal Propeptide), Osteocalcin, Beta-CrossLaps (Beta-CTx / bone resorption marker)",
+    "tat": "2 Days",
+    "sample": "Fasting blood (morning sample)",
+    "price": null,
+    "old_price": null
+   }
+  ],
+  "clinician_notes": [
+   "Our bone and joint diagnostics combine metabolic markers with highly specific autoimmune assays (Anti-CCP, HLA-B27 by PCR, ANA Profile by IFA) and bone turnover markers (P1NP, Beta-CTx). This allows clinicians to differentiate between inflammatory arthropathies, crystalline arthropathy (gout), and metabolic bone diseases (osteomalacia, osteoporosis, hyperparathyroidism), optimizing treatment selection and post-treatment monitoring.",
+   "All reports utilize age- and gender-specific reference curves, including menopausal clinical stratifications. Doctor enquiries welcome at +91 9964 639 639."
+  ],
+  "disclaimer": null,
+  "callout": null,
+  "directory": {
+   "order": 9,
+   "color": "#795548",
+   "description": "Comprehensive musculoskeletal, bone metabolism, and rheumatology panels for osteoporosis, arthritis, autoimmune joint disease, and metabolic bone disorders. Includes bone turnover markers, vitamin D, PTH, calcium metabolism, rheumatoid factor, Anti-CCP, ANA, and HLA-B27.",
+   "who_should_take": "Patients with joint pain, swelling, morning stiffness, fractures, or suspected osteoporosis. Women post-menopause for bone density assessment. Doctors managing rheumatoid arthritis, ankylosing spondylitis, lupus, or metabolic bone disease.",
+   "tests": [
+    "Calcium (Total & Ionized)",
+    "Phosphorus",
+    "Vitamin D — 25-Hydroxy (D2 + D3)",
+    "PTH-Intact (Parathyroid Hormone)",
+    "Alkaline Phosphatase & Osteocalcin",
+    "P1NP (Bone Formation Marker)",
+    "Beta-CTX (Bone Resorption Marker)",
+    "Rheumatoid Factor (RA Factor)",
+    "Anti-CCP, ANA, ANA Profile (ENA)",
+    "HLA-B27 (Ankylosing Spondylitis Marker)"
+   ],
+   "benefits": [
+    "Osteoporosis risk and bone turnover assessment",
+    "Rheumatoid arthritis and Anti-CCP diagnosis",
+    "Vitamin D deficiency treatment monitoring",
+    "Ankylosing spondylitis screening (HLA-B27)"
+   ],
+   "packages": [
+    "Bone Health Panel ₹1,500",
+    "Arthritis & Autoimmune Profile ₹3,200"
+   ]
+  },
+  "why_choose": [
+   {
+    "title": "NABL Accredited Laboratory",
+    "desc": "Strict adherence to NABL quality assurance programs for metabolic assays."
+   },
+   {
+    "title": "Autoimmune Assay Experts",
+    "desc": "Advanced ANA IFA profiling and molecular PCR screening for joint disorders."
+   },
+   {
+    "title": "Expert-Reviewed Panels",
+    "desc": "Senior biochemists and pathologists review critical and autoimmune markers."
+   },
+   {
+    "title": "Comfortable Home Collection",
+    "desc": "Expert phlebotomists trained in senior care and gentle blood extraction."
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is the Anti-CCP test and why is it useful in arthritis?",
+    "a": "The Anti-CCP (anti-cyclic citrullinated peptide) test is a highly specific blood test for diagnosing Rheumatoid Arthritis (RA). Unlike the traditional RA Factor, which can sometimes be positive in other diseases or healthy individuals, Anti-CCP has a specificity of over 95% and can detect RA in its very early stages, even before joint damage occurs."
+   },
+   {
+    "q": "Why is PTH (Parathyroid Hormone) measured alongside Calcium and Phosphorus?",
+    "a": "PTH is secreted by the parathyroid glands to control calcium levels in the blood. Measuring Intact PTH alongside Calcium and Phosphorus is critical for identifying parathyroid disorders (like hyperparathyroidism), metabolic bone diseases, or secondary bone dysfunction caused by chronic kidney disease or severe Vitamin D deficiency."
+   },
+   {
+    "q": "What are Bone Turnover Markers (like P1NP and Beta-CTx) and when are they used?",
+    "a": "Bone turnover markers measure the rate of bone formation (P1NP) and bone resorption/breakdown (Beta-CTx). Clinicians use these tests to monitor bone remodeling activity and to verify the clinical efficacy of osteoporosis medications (like bisphosphonates) within 3-6 months, much faster than waiting for a yearly DEXA bone density scan."
+   },
+   {
+    "q": "What is the HLA-B27 test and when is it ordered?",
+    "a": "HLA-B27 is a genetic marker associated with autoimmune joint diseases known as spondyloarthropathies, most notably Ankylosing Spondylitis. It is ordered when a patient presents with chronic lower back pain, joint stiffness (especially in the morning), or inflammation of the eyes (uveitis) to support diagnosis."
+   }
+  ],
+  "cta_title": "Book Your Bone/Arthritis Profile",
+  "cta_text": "Same-day reports. Safe, NABL Accredited home sample collection available across Bengaluru.",
+  "help_title": "Need help choosing the right test?",
+  "help_text": "Our medical consultant team can guide you to the right diagnostic profile for your symptoms.",
+  "seo_title": "Bone Disorder Testing: Arthritis & Joint Diagnostics Bengaluru",
+  "seo_description": "Comprehensive arthritis panels, parathyroid mapping, autoimmune profiles (Anti-CCP, HLA-B27), and advanced bone turnover markers for precision metabolic health in Bengaluru.",
+  "is_active": true,
+  "sort_order": 0,
+  "id": "a39d1599-bc57-47ea-b4d2-d579bfa293d6",
+  "slug": "bone-disorders"
+ },
+ {
+  "name": "Cardiology",
+  "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150392/Assets-QXL/legacy-assets/image/spec_cardiology.png",
+  "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1784150537/Assets-QXL/legacy-assets/images/banners/heart_organ.jpg",
+  "hero_title": "Advanced Cardiac Risk & Heart Health Testing in Bengaluru",
+  "hero_description": "Comprehensive lipid panels, cardiac biomarkers, inflammation markers, and advanced cardiovascular risk profiling — with expert-reviewed reports and home sample collection.",
+  "intro": "At QXL Diagnostics, our cardiology testing goes beyond a routine lipid profile. We provide advanced cardiovascular risk profiling, cardiac emergency markers, hypertension workup, and inflammation-based atherosclerosis assessment — all with consultant-reviewed reports and AI-assisted diagnostic intelligence.",
+  "who_should_take": [
+   "Adults over 40 for annual cardiovascular risk assessment",
+   "Patients with hypertension, diabetes, or obesity",
+   "Individuals with a family history of heart attack or stroke",
+   "Smokers and those with sedentary lifestyles",
+   "Patients on statins requiring lipid monitoring",
+   "Anyone with chest pain, breathlessness, or palpitations (doctor-referred)",
+   "Post-angioplasty or cardiac event follow-up monitoring"
+  ],
+  "profiles": [
+   {
+    "name": "Lipid Profile — Advanced",
+    "tests": "Total Cholesterol, HDL, LDL, VLDL, Triglycerides, Apolipoprotein A1 & B, Lp(a), Apo B/A1 Ratio, Non-HDL Cholesterol",
+    "tat": "Same Day",
+    "sample": "Fasting blood (10–12 hrs)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Cardiac Biomarker Panel",
+    "tests": "High-Sensitivity Troponin-I, Troponin-T, CK-MB, NT-proBNP, Myoglobin, LDH",
+    "tat": "4–6 hrs",
+    "sample": "Blood (no fasting)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Cardiovascular Risk Screen",
+    "tests": "hs-CRP, Homocysteine, Lipoprotein (a), ApoB, ApoA1, Advanced Lipid Profile",
+    "tat": "Same Day",
+    "sample": "Fasting blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Hypertension Workup",
+    "tests": "Plasma Renin Activity, Aldosterone, Serum Electrolytes (Na, K, Cl), Creatinine, Urine Microalbumin, Urine Protein/Creatinine Ratio",
+    "tat": "1–2 Days",
+    "sample": "Blood + Urine",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Cardiac Risk Inflammation Markers",
+    "tests": "hs-CRP, IL-6, Fibrinogen, ESR, Ferritin",
+    "tat": "Same Day",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   }
+  ],
+  "clinician_notes": [
+   "Our cardiology panel supports accurate risk stratification for primary and secondary cardiovascular prevention. Advanced lipid sub-fractions (Lp(a), ApoB) help identify residual risk in patients on statin therapy. Cardiac biomarkers (hs-Troponin, NT-proBNP) support NSTEMI/STEMI evaluation, heart failure diagnosis, and treatment monitoring.",
+   "All reports are reviewed by our consultant biochemist and pathologist. Reports include clinical interpretation notes. Doctor enquiries welcome — call +91 9964 639 639."
+  ],
+  "disclaimer": null,
+  "callout": null,
+  "directory": {
+   "order": 2,
+   "color": "#e74c3c",
+   "description": "Advanced cardiac risk profiling and biomarker testing for detection and monitoring of heart disease, atherosclerosis, heart failure, and acute myocardial infarction. Our comprehensive cardiology panel goes beyond routine lipids to include inflammation markers, cardiac stress biomarkers, and advanced lipid sub-fractions.",
+   "who_should_take": "Patients with chest pain, hypertension, family history of heart disease, dyslipidemia, or diabetes. Doctors performing cardiac risk stratification, monitoring heart failure, or evaluating acute coronary syndrome.",
+   "tests": [
+    "Cardiac Troponin I & T (High Sensitivity)",
+    "BNP / NT-proBNP (Heart Failure Marker)",
+    "CK-MB",
+    "Lipid Profile — Extended (9 Parameters)",
+    "Lipoprotein (a) — Lp(a)",
+    "ApoA1 & ApoB / ApoB:ApoA1 Ratio",
+    "hs-CRP (High Sensitivity CRP)",
+    "Homocysteine",
+    "Fibrinogen",
+    "D-Dimer"
+   ],
+   "benefits": [
+    "Acute myocardial infarction detection",
+    "Heart failure risk stratification",
+    "Advanced atherosclerosis risk profiling",
+    "Inflammation and clotting marker assessment"
+   ],
+   "packages": [
+    "Basic Cardiac Panel ₹1,800",
+    "Advanced Cardiac Risk Panel ₹4,200"
+   ]
+  },
+  "why_choose": [
+   {
+    "title": "NABL Accredited Laboratory",
+    "desc": "Accredited testing with ISO 15189 quality standards ensuring every result is reliable."
+   },
+   {
+    "title": "Expert-Reviewed Reports",
+    "desc": "Consultant biochemists and pathologists review critical and super speciality panels."
+   },
+   {
+    "title": "AI-Assisted Diagnostics",
+    "desc": "AI-powered result flagging and pattern recognition for faster clinical decisions."
+   },
+   {
+    "title": "Free Home Collection",
+    "desc": "Trained phlebotomy specialists visit your home across Bengaluru at your preferred time."
+   }
+  ],
+  "faqs": [
+   {
+    "q": "How often should I get a lipid profile?",
+    "a": "Healthy adults should get a lipid profile at least once a year. Those with risk factors like hypertension, diabetes, obesity, smoking, or a family history of heart disease should test every 3–6 months as advised by their physician."
+   },
+   {
+    "q": "What is a cardiac biomarker test and when is it ordered?",
+    "a": "It measures specific proteins (Troponin I/T, CK-MB, NT-proBNP) released when heart muscle is damaged. It is ordered in emergency evaluation of chest pain, breathlessness, suspected heart attack, or to monitor heart failure."
+   },
+   {
+    "q": "Why are hs-CRP, Homocysteine, and Lp(a) important?",
+    "a": "These are advanced cardiovascular risk markers that predict risk of plaque buildup and atherosclerosis even when routine cholesterol appears normal. They are especially useful in patients with borderline lipid results."
+   },
+   {
+    "q": "What preparation is needed for cardiac blood tests?",
+    "a": "Most lipid tests require 10–12 hours of fasting. Cardiac enzyme tests (Troponin, CK-MB) do not require fasting. Please inform the phlebotomist of all medications you take."
+   }
+  ],
+  "cta_title": "Ready to Book Your Cardiac Profile?",
+  "cta_text": "Free home sample collection across Bengaluru. Reports via email and WhatsApp.",
+  "help_title": "Need help choosing the right test?",
+  "help_text": "Our consultant team can guide you to the right cardiac profile for your clinical need.",
+  "seo_title": "Cardiology Testing: Cardiac Risk & Heart Health Panels Bengaluru",
+  "seo_description": "Comprehensive lipid panels, cardiac biomarkers (Troponin, NT-proBNP), inflammation markers, and advanced cardiovascular risk profiling in Bengaluru — expert-reviewed, home sample collection.",
+  "is_active": true,
+  "sort_order": 1,
+  "id": "4795fbeb-5b0d-408b-9113-b49ade39b52a",
+  "slug": "cardiology"
+ },
+ {
+  "name": "Endocrinology",
+  "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150406/Assets-QXL/legacy-assets/image/spec_endocrinology.png",
+  "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1793559884/Assets-QXL/specialities/endocrinology-hero.jpg",
+  "hero_title": "Advanced Endocrine & Hormonal Testing in Bengaluru",
+  "hero_description": "Highly sensitive assays for thyroid function, diabetes monitoring, adrenal outputs, and reproductive health — featuring advanced immunoassays and expert biochemist reporting.",
+  "intro": "Hormones act as the body's chemical messengers, regulating metabolism, reproduction, growth, and mood. QXL Diagnostics provides a comprehensive endocrinology testing suite utilizing state-of-the-art chemiluminescent immunoassays (CLIA) to deliver highly precise, clinically actionable results.",
+  "who_should_take": [
+   "Individuals showing signs of thyroid disorders (sudden weight changes, fatigue, dry skin, temperature intolerance)",
+   "Patients requiring routine diabetes management or monitoring (glycemic tracking, HOMA-IR/insulin sensitivity)",
+   "Women experiencing PCOS symptoms, irregular periods, hirsutism, or fertility concerns",
+   "Men suffering from chronic fatigue, low libido, or muscle mass loss (testosterone monitoring)",
+   "Patients with suspected adrenal gland issues (diurnal cortisol shifts, BP fluctuations)",
+   "Children with suspected growth hormone delays or developmental concerns"
+  ],
+  "profiles": [
+   {
+    "name": "Thyroid Profile — Advanced",
+    "tests": "Free T3, Free T4, Ultrasensitive TSH, Anti-TPO Antibodies, Anti-TG (Thyroglobulin) Antibodies",
+    "tat": "Same Day",
+    "sample": "Blood (no fasting required)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Diabetes & Glycemic Care Panel",
+    "tests": "Fasting Blood Sugar, Post-Prandial Blood Sugar, HbA1c, Average Blood Glucose (eAG), Fasting Insulin, C-Peptide, HOMA-IR Index",
+    "tat": "Same Day",
+    "sample": "Fasting blood (10–12 hrs) + PP blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Reproductive Hormone Profile",
+    "tests": "FSH, LH, Prolactin, Estradiol, Progesterone, Free & Total Testosterone, Sex Hormone Binding Globulin (SHBG)",
+    "tat": "Same Day",
+    "sample": "Blood (morning sample recommended)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Adrenal Function Panel",
+    "tests": "Cortisol (AM & PM), ACTH, DHEA-Sulfate, Aldosterone, Renin Activity",
+    "tat": "1–2 Days",
+    "sample": "Blood (specific timing required)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Growth & Metabolic Regulation",
+    "tests": "Growth Hormone (GH), Insulin-like Growth Factor-1 (IGF-1), IGFBP-3",
+    "tat": "2 Days",
+    "sample": "Fasting blood",
+    "price": null,
+    "old_price": null
+   }
+  ],
+  "clinician_notes": [
+   "Our endocrine laboratory employs advanced immunoassay testing platforms featuring high specificity and sensitivity. Autoimmune panels such as Anti-TPO and Anti-Thyroglobulin support early diagnosis of Hashimoto's and Graves' disease. Diurnal Cortisol and ACTH mapping offer precise indicators for hypothalamic-pituitary-adrenal (HPA) axis disorders.",
+   "All hormone results are verified by senior pathologists and biochemists, integrating age- and gender-specific reference ranges. Clinician-to-lab consultation is available for case discussions — call +91 9964 639 639."
+  ],
+  "disclaimer": null,
+  "callout": null,
+  "directory": {
+   "order": 4,
+   "color": "#8e44ad",
+   "description": "Advanced hormonal and metabolic testing for thyroid, adrenal, pituitary, and reproductive endocrine disorders. Comprehensive panels for diabetes monitoring, PCOS evaluation, fertility hormone profiling, metabolic syndrome, and insulin resistance. Including AMH, FSH, LH, Prolactin, Estradiol, Testosterone, Cortisol and more.",
+   "who_should_take": "Patients with fatigue, weight changes, irregular periods, infertility, hair loss, or blood sugar issues. Doctors managing diabetes, thyroid disorders, PCOS, adrenal conditions, metabolic syndrome, or hormonal imbalances.",
+   "tests": [
+    "Thyroid Profile (T3, T4, TSH, Free T3, Free T4)",
+    "Anti-TPO & Anti-Thyroglobulin Antibodies",
+    "HbA1c (Glycated Hemoglobin)",
+    "Fasting & Post-Prandial Blood Glucose",
+    "Insulin & C-Peptide (HOMA-IR)",
+    "AMH (Anti-Müllerian Hormone)",
+    "FSH, LH, Estradiol, Progesterone, Prolactin",
+    "Testosterone (Total & Free), DHEA-S",
+    "Cortisol (Basal & Post-ACTH)",
+    "Growth Hormone, IGF-1"
+   ],
+   "benefits": [
+    "Thyroid disorder diagnosis and monitoring",
+    "Diabetes and insulin resistance workup",
+    "PCOS and fertility hormone profiling",
+    "Adrenal and cortisol assessment"
+   ],
+   "packages": [
+    "Thyroid Profile ₹640",
+    "Complete Hormonal Panel ₹5,200"
+   ]
+  },
+  "why_choose": [
+   {
+    "title": "NABL Accredited Laboratory",
+    "desc": "Equipped with state-of-the-art instruments meeting NABL/ISO 15189 standards."
+   },
+   {
+    "title": "Hormonal Assays Specialists",
+    "desc": "Expert-reviewed results utilizing chemiluminescence for premium specificity."
+   },
+   {
+    "title": "AI-Powered Diagnostics",
+    "desc": "Smart interpretation and result flagging systems for clinical correlation."
+   },
+   {
+    "title": "Trained Phlebotomy Specialists",
+    "desc": "Painless home sample collection at your convenience across Bengaluru."
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Why is it important to measure Free T3 and Free T4 instead of just TSH?",
+    "a": "TSH is a pituitary screening marker, but measuring Free T3 and Free T4 provides a direct picture of the active hormones circulating in the body. This is crucial for distinguishing subclinical thyroid conditions, monitoring thyroiditis, and tracking medication efficacy."
+   },
+   {
+    "q": "What are the fasting requirements for reproductive hormone tests?",
+    "a": "Generally, reproductive hormones (FSH, LH, Prolactin) do not strictly require fasting, but it is highly recommended to collect samples in the morning (between 8:00 AM and 10:00 AM) due to diurnal variation, particularly for prolactin. Fasting is necessary if insulin, HOMA-IR, or blood sugar is tested in the same panel."
+   },
+   {
+    "q": "How does the cortisol test work, and why does it specify AM or PM?",
+    "a": "Cortisol levels fluctuate naturally throughout the day, peaking in the morning (AM) and dropping to their lowest around midnight (PM). Diurnal testing (AM/PM samples) helps identify adrenal dysfunction, such as Cushing's Syndrome or Addison's Disease, by checking if this natural rhythm is disrupted."
+   },
+   {
+    "q": "What preparation is needed for growth hormone testing?",
+    "a": "Growth hormone secretion is highly pulsatile. A resting period of 30 minutes prior to blood collection is often recommended to minimize stress-induced spikes. Fasting of 10-12 hours is required for concurrent insulin/IGF-1 testing."
+   }
+  ],
+  "cta_title": "Book Your Endocrine/Hormone Test Today",
+  "cta_text": "Free home sample collection available across Bengaluru. Digitally verified reports via WhatsApp.",
+  "help_title": "Need help choosing the right test?",
+  "help_text": "Our medical consultant team can guide you to the right diagnostic profile for your symptoms.",
+  "seo_title": "Endocrinology Testing: Hormone & Thyroid Panels Bengaluru",
+  "seo_description": "Highly sensitive assays for thyroid function, diabetes monitoring, adrenal outputs, and reproductive health — advanced immunoassays with expert biochemist reporting in Bengaluru.",
+  "is_active": true,
+  "sort_order": 2,
+  "id": "ec8cbcf8-8e0a-4c6c-9d65-9374f91f081f",
+  "slug": "endocrinology"
+ },
+ {
+  "name": "Gastroenterology",
+  "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150407/Assets-QXL/legacy-assets/image/spec_gastro.png",
+  "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1793559885/Assets-QXL/specialities/gastroenterology-hero.jpg",
+  "hero_title": "Advanced Gastroenterology & Liver Disease Testing in Bengaluru",
+  "hero_description": "Liver function, IBD markers, celiac disease, H. pylori, malabsorption workup, viral hepatitis, autoimmune liver panels, and pancreatic assessment — with expert-reviewed reports and home sample collection.",
+  "intro": "QXL Diagnostics provides comprehensive gastroenterology and hepatology diagnostic testing. Our panels cover liver disease, inflammatory bowel disease, celiac disease, malabsorption, H. pylori infection, viral hepatitis, autoimmune liver conditions, and pancreatic health — all with clinically meaningful, consultant-reviewed reports.",
+  "who_should_take": [
+   "Patients with chronic abdominal pain, bloating, or altered bowel habits",
+   "Those with jaundice, elevated liver enzymes, or fatty liver on ultrasound",
+   "Patients with suspected celiac disease, gluten intolerance, or malabsorption",
+   "Individuals with chronic diarrhea, weight loss, or blood in stools",
+   "Those with suspected H. pylori, peptic ulcer, or chronic gastritis",
+   "Patients with viral hepatitis B or C requiring monitoring",
+   "Individuals with IBD (Crohn's or Ulcerative Colitis) requiring disease monitoring"
+  ],
+  "profiles": [
+   {
+    "name": "Liver Function Test (LFT) — Advanced",
+    "tests": "Bilirubin (Total, Direct, Indirect), SGOT (AST), SGPT (ALT), Alkaline Phosphatase (ALP), GGT, Total Protein, Albumin, Globulin, A/G Ratio, LDH",
+    "tat": "Same Day",
+    "sample": "Fasting blood (10–12 hrs)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Viral Hepatitis Panel",
+    "tests": "HBsAg (Hepatitis B Surface Antigen), Anti-HCV, HAV IgM, HCV RNA Quantitative PCR, HBV DNA Quantitative PCR, HBeAg, Anti-HBe",
+    "tat": "Same Day – 2 Days",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Autoimmune Liver Disease Panel",
+    "tests": "ANA, ASMA (Anti-Smooth Muscle), Anti-LKM1, AMA (Anti-Mitochondrial), ANCA (pANCA/cANCA), IgG, IgM, IgA levels",
+    "tat": "2–4 Days",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Celiac Disease Screening",
+    "tests": "Anti-tTG IgA, Total IgA, Anti-DGP IgG, Anti-Gliadin IgA/IgG",
+    "tat": "Same Day – 1 Day",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "IBD (Inflammatory Bowel Disease) Panel",
+    "tests": "Fecal Calprotectin, ASCA (Anti-Saccharomyces cerevisiae Ab), pANCA, CRP, ESR, CBC, Albumin",
+    "tat": "1–2 Days",
+    "sample": "Stool + Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "H. Pylori Detection",
+    "tests": "H. pylori Antigen in Stool (HpSA), H. pylori IgG/IgM Antibody, H. pylori Urea Breath Test (on request)",
+    "tat": "Same Day",
+    "sample": "Stool / Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Malabsorption Profile",
+    "tests": "Iron, TIBC, Ferritin, Vitamin B12, Folate, Vitamin D, Calcium, Magnesium, Zinc, Phosphorus, Albumin, Stool Elastase",
+    "tat": "1–2 Days",
+    "sample": "Blood + Stool",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Pancreatic Wellness Panel",
+    "tests": "Serum Amylase, Serum Lipase, Fasting Blood Sugar, HbA1c, CA 19-9 (if indicated)",
+    "tat": "Same Day",
+    "sample": "Blood (fasting for glucose)",
+    "price": null,
+    "old_price": null
+   }
+  ],
+  "clinician_notes": [
+   "Our gastroenterology panel supports accurate diagnosis and monitoring of liver disease, IBD, malabsorption syndromes, and H. pylori. Fecal calprotectin helps differentiate IBD from IBS non-invasively. Quantitative PCR for HBV/HCV DNA supports treatment decisions. Our autoimmune liver panel aids diagnosis of AIH, PBC, and PSC. All reports include interpretation notes. Doctor enquiries: +91 9964 639 639."
+  ],
+  "disclaimer": "Liver function parameters (SGOT, SGPT, Bilirubin, ALP), viral hepatitis markers, and stool biomarkers (such as Fecal Calprotectin and H. pylori antigen) serve as diagnostic adjuncts under medical supervision. Abnormal readings can occur across various transient or benign inflammatory conditions and do not constitute standalone diagnostic proof of structural liver or intestinal pathology. Clinical correlation by a qualified gastroenterologist is essential.",
+  "callout": null,
+  "directory": {
+   "order": 8,
+   "color": "#27ae60",
+   "description": "Advanced hepatology and gastroenterology panels for liver disease, inflammatory bowel disease, celiac disease, malabsorption, gastrointestinal infections, and GI cancer surveillance. Includes H. pylori testing, stool antigen, fecal calprotectin, bile acids, and comprehensive hepatitis screening.",
+   "who_should_take": "Patients with abdominal pain, chronic diarrhoea, unexplained weight loss, jaundice, abnormal liver enzymes, suspected IBD, celiac disease, or H. pylori infection. Clinicians requiring liver function monitoring, gastritis workup, or GI cancer surveillance.",
+   "tests": [
+    "Liver Function Test (LFT) — 11 Parameters",
+    "Hepatitis Panel (A, B, C, E)",
+    "H. pylori — Stool Antigen & IgG Antibody",
+    "Fecal Calprotectin (IBD Marker)",
+    "Celiac Disease Panel (Anti-tTG IgA / IgG, IgA)",
+    "ASCA / Anti-pANCA (IBD Differentiation)",
+    "Bile Acids — Serum",
+    "Amylase & Lipase",
+    "GI Cancer Markers (CEA, CA 19-9, AFP)",
+    "Stool Routine & Fecal Occult Blood Test (FOBT)"
+   ],
+   "benefits": [
+    "Hepatitis and liver cirrhosis diagnosis",
+    "Inflammatory bowel disease monitoring",
+    "Celiac disease and malabsorption screening",
+    "GI cancer and H. pylori workup"
+   ],
+   "packages": [
+    "Liver Health Panel ₹1,200",
+    "Complete GI Panel ₹4,800"
+   ]
+  },
+  "why_choose": [
+   {
+    "title": "NABL Accredited Laboratory",
+    "desc": "Quality-assured testing for all GI and hepatology markers."
+   },
+   {
+    "title": "Expert-Reviewed Reports",
+    "desc": "Consultant pathologists review all super speciality gastroenterology panels."
+   },
+   {
+    "title": "Stool & Molecular Testing",
+    "desc": "Fecal calprotectin, HpSA, and PCR-based quantitative hepatitis panels."
+   },
+   {
+    "title": "Home Sample Collection",
+    "desc": "Trained phlebotomy specialists collect blood and stool samples at your home across Bengaluru."
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What does an elevated ALT or AST level indicate?",
+    "a": "Elevated liver enzymes (SGOT/SGPT) suggest liver cell injury or inflammation, which can be caused by fatty liver disease, viral hepatitis, alcohol use, medication toxicity, or autoimmune liver disease. A full LFT with GGT and ALP helps narrow the cause."
+   },
+   {
+    "q": "Do I need to fast for a Liver Function Test?",
+    "a": "Yes, a fasting period of 10–12 hours is recommended before LFT, as food can affect bilirubin and triglyceride readings. Water is permitted. Inform us of any medications taken."
+   },
+   {
+    "q": "How is Celiac disease confirmed through blood tests?",
+    "a": "Anti-tissue Transglutaminase IgA (anti-tTG IgA) is the primary screening test. If IgA deficiency is suspected, anti-DGP IgG is tested in addition. Diagnosis is confirmed by duodenal biopsy after a positive antibody result."
+   },
+   {
+    "q": "What is Fecal Calprotectin and when is it useful?",
+    "a": "Fecal Calprotectin is a stool marker of intestinal inflammation. It helps differentiate inflammatory bowel disease (IBD) from irritable bowel syndrome (IBS). Elevated levels indicate active intestinal inflammation and guide the need for colonoscopy."
+   }
+  ],
+  "cta_title": "Book Your Gastroenterology Profile",
+  "cta_text": "Home collection available for blood and stool samples. Reports via email and WhatsApp.",
+  "help_title": "Need help choosing the right GI test?",
+  "help_text": "Our consultants guide you to the right gastroenterology profile.",
+  "seo_title": "Gastroenterology Testing: Liver Disease Panels Bengaluru",
+  "seo_description": "Liver function, IBD markers, celiac disease, H. pylori, malabsorption workup, viral hepatitis, autoimmune liver panels, and pancreatic assessment — expert-reviewed reports in Bengaluru.",
+  "is_active": true,
+  "sort_order": 3,
+  "id": "19e0d9a8-2153-4531-9780-02a80019c223",
+  "slug": "gastroenterology"
+ },
+ {
+  "name": "Hematology",
+  "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150417/Assets-QXL/legacy-assets/image/spec_hematology.png",
+  "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1793559887/Assets-QXL/specialities/hematology-hero.jpg",
+  "hero_title": "Advanced Blood & Coagulation Diagnostics in Bengaluru",
+  "hero_description": "Complete blood count profiling, hemoglobin variants screening via HPLC, clotting assays, and consultant-reviewed peripheral smears for precise hematology care.",
+  "intro": "Our hematology department specializes in assessing red blood cells, white blood cells, platelets, and the coagulation cascade. With advanced cell counters and a dedicated hematopathologist review system, we ensure accurate screening for anemias, hemoglobinopathies, and coagulation disorders.",
+  "who_should_take": [
+   "Individuals experiencing chronic weakness, severe fatigue, or unexplained paleness (anemia screening)",
+   "Patients experiencing frequent nosebleeds, gum bleeding, easy bruising, or heavy menstrual cycles",
+   "Couples planning a family wishing to screen for Thalassemia minor or Sickle Cell traits",
+   "Patients on anticoagulant therapy (such as Warfarin, Acitrom) requiring routine PT/INR monitoring",
+   "Patients with suspected deep vein thrombosis (DVT) or clotting risks requiring coagulation profiling",
+   "Individuals with unexplained fever, recurrent infections, or swollen lymph nodes"
+  ],
+  "profiles": [
+   {
+    "name": "Complete Blood Count (CBC) with Peripheral Smear",
+    "tests": "Hemoglobin, RBC Count, Hematocrit, MCV, MCH, MCHC, WBC Count (Total & Differential), Platelet Count, RDW, Pathologist Peripheral Smear Review",
+    "tat": "Same Day (4–6 hrs)",
+    "sample": "Whole blood (EDTA)",
+    "price": 350,
+    "old_price": 500
+   },
+   {
+    "name": "Anemia Evaluation Profile — Extended",
+    "tests": "CBC, Serum Iron, Total Iron Binding Capacity (TIBC), Transferrin Saturation, Ferritin, Vitamin B12, Folic Acid, Active B12",
+    "tat": "Same Day",
+    "sample": "Fasting blood (10-12 hrs)",
+    "price": 1850,
+    "old_price": 2800
+   },
+   {
+    "name": "Coagulation Profile",
+    "tests": "Prothrombin Time (PT) with INR, Activated Partial Thromboplastin Time (APTT), Plasma Fibrinogen, D-Dimer, Bleeding & Clotting Time",
+    "tat": "4–6 hrs",
+    "sample": "Citrate plasma blood",
+    "price": 1200,
+    "old_price": 1800
+   },
+   {
+    "name": "Thalassemia & Hemoglobinopathy Screen",
+    "tests": "Hb HPLC (High-Performance Liquid Chromatography), Hemoglobin Electrophoresis, CBC, Reticulocyte Count, Peripheral Smear",
+    "tat": "Same Day",
+    "sample": "Whole blood (EDTA)",
+    "price": 1500,
+    "old_price": 2200
+   },
+   {
+    "name": "Bleeding Disorders Workup",
+    "tests": "Platelet Aggregation Studies, Factor VIII Assay, Factor IX Assay, Von Willebrand Factor (vWF) Antigen",
+    "tat": "2 Days",
+    "sample": "Blood (pre-arranged)",
+    "price": 3200,
+    "old_price": 4800
+   }
+  ],
+  "clinician_notes": [
+   "Our hematology department combines automated flow-cytometric cell counting with mandatory pathologist-led slide review for all flag-raised cases. HPLC analysis provides highly resolution curves for hemoglobin variants (HbF, HbA2, HbS) for differential diagnosis of beta-thalassemia and structural hemoglobin mutations.",
+   "Critical results (such as platelets < 20,000/µL or presence of blasts) are immediately communicated to the referring clinician via our emergency alert pathway. Contact our pathology team at +91 9964 639 639."
+  ],
+  "disclaimer": null,
+  "callout": null,
+  "directory": {
+   "order": 1,
+   "color": "#c0392b",
+   "description": "Complete blood disorder diagnostics including advanced coagulation studies, bone marrow assessments, hemoglobin electrophoresis, and specialised hematological panels for accurate diagnosis and monitoring of anaemia, thrombosis, bleeding disorders, and haematological malignancies.",
+   "who_should_take": "Patients with anaemia, unexplained fatigue, bleeding tendencies, recurrent clotting, or suspected thalassemia. Doctors managing haematological malignancies, coagulation disorders, or requiring pre-surgical coagulation workup.",
+   "tests": [
+    "Complete Blood Count (CBC) — 26 Parameters",
+    "Peripheral Blood Smear with Morphology",
+    "Reticulocyte Count",
+    "Coagulation Profile (PT, APTT, INR, TT)",
+    "Factor Assays (Factor VIII, IX, XI, XII)",
+    "Fibrinogen",
+    "D-Dimer",
+    "Hemoglobin Electrophoresis (HPLC)",
+    "G6PD Deficiency Screen",
+    "Flow Cytometry (CD3, CD4, CD8, CD19)"
+   ],
+   "benefits": [
+    "Anaemia diagnosis and classification",
+    "Thalassemia and hemoglobinopathy screening",
+    "Bleeding and thrombophilia risk evaluation",
+    "Leukemia and lymphoma screening support"
+   ],
+   "packages": [
+    "Anemia Profile ₹1,200",
+    "Complete Coagulation Panel ₹3,500"
+   ]
+  },
+  "why_choose": [
+   {
+    "title": "NABL Accredited Excellence",
+    "desc": "Rigorous internal and external quality control programs ensuring reliable blood metrics."
+   },
+   {
+    "title": "Consultant Pathologist Verification",
+    "desc": "Every blood smear flag is manually reviewed under microscopy by our experts."
+   },
+   {
+    "title": "HPLC Gold Standard Testing",
+    "desc": "High-resolution liquid chromatography for accurate thalassemia trait mapping."
+   },
+   {
+    "title": "Safe & Painless Extraction",
+    "desc": "Trained phlebotomy specialists skilled in pediatric and geriatric blood draws at home."
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What does the HPLC test check for, and why is it preferred?",
+    "a": "HPLC (High-Performance Liquid Chromatography) is the gold standard for separating and quantifying hemoglobin fractions. It is highly preferred because it accurately detects abnormal hemoglobin variants like HbS (Sickle Cell), HbE, or elevated HbA2 levels, which are diagnostic markers for thalassemia traits."
+   },
+   {
+    "q": "Why is a peripheral blood smear examination done along with a CBC?",
+    "a": "While automated counters provide highly accurate cell counts, a peripheral smear involves a consultant pathologist physically reviewing the blood cells under a microscope. This is critical for identifying cell shape abnormalities (like target cells, tear-drop cells, or sickled cells) and detecting immature cells or parasites."
+   },
+   {
+    "q": "How often should a patient on blood thinners get their PT/INR checked?",
+    "a": "Patients on oral anticoagulants (like Warfarin) typically require frequent testing (weekly) when starting therapy. Once a stable therapeutic dose is achieved, the testing frequency can be adjusted to every 2 to 4 weeks or as advised by the clinician."
+   },
+   {
+    "q": "Do I need to fast for an anemia or iron profile?",
+    "a": "A standard CBC does not require fasting. However, if your test includes Iron Studies (Serum Iron, TIBC, Ferritin), a 10-12 hour fast is strongly recommended, as iron levels are highly affected by recent food intake and exhibit diurnal variation (highest in the morning)."
+   }
+  ],
+  "cta_title": "Book Your Hematology Test Today",
+  "cta_text": "Fast same-day digital reports. Safe home collection available across Bengaluru.",
+  "help_title": "Need help choosing the right test?",
+  "help_text": "Our medical consultant team can guide you to the right diagnostic profile for your symptoms.",
+  "seo_title": "Hematology Testing: Blood & Coagulation Diagnostics Bengaluru",
+  "seo_description": "Complete blood count profiling, hemoglobin variant screening via HPLC, clotting/PT-INR assays, and consultant-reviewed peripheral smears for precise hematology care in Bengaluru.",
+  "is_active": true,
+  "sort_order": 4,
+  "id": "f0e22642-a032-4e50-a5aa-892acef259d0",
+  "slug": "hematology"
+ },
+ {
+  "name": "Infectious Diseases",
+  "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150422/Assets-QXL/legacy-assets/image/spec_infectious.png",
+  "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1793559889/Assets-QXL/specialities/infectious-diseases-hero.jpg",
+  "hero_title": "Advanced Serology & Molecular PCR Testing in Bengaluru",
+  "hero_description": "Rapid multiplex PCR assays, automated culture systems, and sensitive serology panels for precise viral, bacterial, and parasitic identification.",
+  "intro": "Prompt detection of pathogens is critical to managing acute infections and preventing secondary complications. QXL Diagnostics provides NABL Accredited molecular (PCR) and serological testing, utilizing rapid assays to deliver fast, highly accurate results.",
+  "who_should_take": [
+   "Patients experiencing acute, unexplained fever lasting more than 3 days",
+   "Individuals requiring surgical or pre-pregnancy screenings for blood-borne pathogens (HIV, Hep B/C)",
+   "Patients with chronic respiratory symptoms requiring molecular pathogen differentiation",
+   "Individuals with a history of exposure to tuberculosis or presenting with chronic cough",
+   "Individuals seeking confidential screening for sexually transmitted infections (STIs)",
+   "Patients with suspected atypical or tropical infections (Typhoid, Leptospirosis, Scrub Typhus)"
+  ],
+  "profiles": [
+   {
+    "name": "Fever Panel — Extended",
+    "tests": "Dengue NS1 Antigen, Dengue IgG/IgM, Malaria Antigen (Pf/Pv), Typhoid TyphiDot IgM/IgG, Complete Blood Count (CBC) with ESR, Urine Routine & Microscopy",
+    "tat": "4–6 hrs",
+    "sample": "Blood + Urine",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Hepatitis Serology Profile",
+    "tests": "HBsAg (Hepatitis B Surface Antigen), Anti-HCV (Hepatitis C Antibody), Hepatitis A IgM, Hepatitis E IgM",
+    "tat": "Same Day",
+    "sample": "Blood (no fasting)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Tuberculosis (TB) Gold Panel",
+    "tests": "TB QuantiFERON Gold (IGRA), Mycobacterium Tuberculosis PCR, Acid-Fast Bacilli (AFB) Smear & Culture",
+    "tat": "Same Day (PCR) / culture up to 5 days",
+    "sample": "Blood / Sputum / CSF",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "STI/STD Comprehensive PCR Screen",
+    "tests": "Chlamydia trachomatis PCR, Neisseria gonorrhoeae PCR, Trichomonas vaginalis PCR, Syphilis VDRL/RPR, HIV 1 & 2 ELISA",
+    "tat": "1 Day",
+    "sample": "Urine / Swab / Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Respiratory Multiplex PCR Panel",
+    "tests": "Detection of 20+ viral and bacterial pathogens including Influenza A & B, RSV, Adenovirus, SARS-CoV-2, Mycoplasma pneumoniae",
+    "tat": "12–24 hrs",
+    "sample": "Nasopharyngeal swab",
+    "price": null,
+    "old_price": null
+   }
+  ],
+  "clinician_notes": [
+   "Our infectious disease division utilizes rapid syndromic molecular testing (FilmArray PCR panels) alongside standard bacterial culture systems. By identifying causative viral or bacterial agents within hours, we assist clinicians in implementing early targeted therapy, enhancing antimicrobial stewardship, and minimizing empirical over-prescribing.",
+   "All positive blood and sterile fluid cultures are immediately flagged for critical notification to ensure patient safety. Microbiologist consultations are available at +91 9964 639 639."
+  ],
+  "disclaimer": null,
+  "callout": null,
+  "directory": {
+   "order": 6,
+   "color": "#d35400",
+   "description": "Advanced molecular and serological testing for infectious diseases using FilmArray Multiplex PCR, CB-NAAT for TB, BACT/ALERT blood culture, VITEK antimicrobial susceptibility testing, and next-generation immunoassays. Rapid and accurate identification of bacterial, viral, fungal and parasitic pathogens.",
+   "who_should_take": "Patients with fever of unknown origin, respiratory symptoms, suspected sepsis, suspected TB, sexually transmitted infections, or immunocompromised states. Clinicians requiring antimicrobial stewardship support, blood culture, or multiplex pathogen identification.",
+   "tests": [
+    "FilmArray Respiratory Panel (22 pathogens)",
+    "FilmArray Blood Culture Identification Panel",
+    "CB-NAAT / GeneXpert (TB PCR with NTM)",
+    "BACT/ALERT Blood Culture System",
+    "VITEK Microbial ID & Susceptibility Testing",
+    "Dengue NS1 Ag + IgM / IgG",
+    "Malaria Antigen Rapid Test",
+    "HIV 1 & 2 Antibody (4th Generation)",
+    "Hepatitis B & C (HBsAg, Anti-HCV, HCV RNA)",
+    "TORCH Profile"
+   ],
+   "benefits": [
+    "Rapid multiplex pathogen identification",
+    "Antimicrobial resistance profiling",
+    "TB PCR with NTM differentiation",
+    "Sepsis and blood culture workup"
+   ],
+   "packages": [
+    "Fever Panel ₹1,800",
+    "Complete Infection Workup ₹6,500"
+   ]
+  },
+  "why_choose": [
+   {
+    "title": "NABL Accredited Quality",
+    "desc": "Rigorous quality controls and inter-laboratory testing ensuring highest accuracy."
+   },
+   {
+    "title": "Molecular PCR Capabilities",
+    "desc": "Equipped with state-of-the-art thermocyclers for fast diagnostic assays."
+   },
+   {
+    "title": "Antimicrobial Guidance",
+    "desc": "Susceptibility reports utilize current clinical standards for prescribing."
+   },
+   {
+    "title": "Free Home Collection",
+    "desc": "Professional phlebotomists trained in sterile sample collection protocols."
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is a multiplex PCR test, and why is it useful?",
+    "a": "A multiplex PCR test allows the laboratory to amplify and detect genetic material from multiple viruses, bacteria, or fungi simultaneously from a single sample. It is highly useful because it identifies the exact pathogen causing respiratory or gastrointestinal infections within hours, helping clinicians avoid unnecessary antibiotic use."
+   },
+   {
+    "q": "What is the difference between Dengue NS1 and IgG/IgM tests?",
+    "a": "Dengue NS1 antigen is a marker of active viral replication and is detectable in the blood from day 1 to day 5 of the fever. Dengue IgM antibodies typically appear after day 4–5, indicating acute response, while IgG antibodies develop later and represent past exposure or secondary infection."
+   },
+   {
+    "q": "How is the TB QuantiFERON Gold test different from a skin test?",
+    "a": "The QuantiFERON Gold is an interferon-gamma release assay (IGRA) blood test. Unlike the traditional Mantoux skin test, it requires only a single blood draw, is not affected by prior BCG vaccination, and has a much higher specificity, reducing false-positive results."
+   },
+   {
+    "q": "What is the turnaround time for blood cultures?",
+    "a": "While serology and PCR tests can be reported within a few hours, blood culture and sensitivity testing typically takes 24 to 48 hours for initial growth detection, and up to 5 days to confirm a negative result. This ensures we do not miss slow-growing bacteria."
+   }
+  ],
+  "cta_title": "Book Your Infectious Disease Panel",
+  "cta_text": "Same-day reports for routine serology and molecular tests. Home collection available across Bengaluru.",
+  "help_title": "Need help choosing the right test?",
+  "help_text": "Our medical consultant team can guide you to the right diagnostic profile for your symptoms.",
+  "seo_title": "Infectious Disease Testing: Serology & Molecular PCR Bengaluru",
+  "seo_description": "Rapid multiplex PCR assays, automated culture systems, and sensitive serology panels for precise viral, bacterial, and parasitic identification — NABL Accredited lab in Bengaluru.",
+  "is_active": true,
+  "sort_order": 5,
+  "id": "f916b8d0-5c8f-4b4c-8119-f5a92bf061c4",
+  "slug": "infectious-diseases"
+ },
+ {
+  "name": "Oncology",
+  "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150430/Assets-QXL/legacy-assets/image/spec_oncology.png",
+  "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1784150370/Assets-QXL/legacy-assets/image/slide_scientist_new.jpg",
+  "hero_title": "Advanced Tumor Marker & Cancer Risk Assays in Bengaluru",
+  "hero_description": "Tumor marker assays, risk evaluation indexes (ROMA), and post-therapy surveillance testing reviewed by consultant pathologists.",
+  "intro": "Early detection and rigorous surveillance are vital components of modern oncology care. QXL Diagnostics provides NABL Accredited tumor marker testing, employing advanced chemiluminescent immunoassay (CLIA) platforms to ensure highly reproducible quantitative results.",
+  "who_should_take": [
+   "Patients currently undergoing cancer therapy (chemotherapy, radiation, or surgical monitoring)",
+   "Individuals in post-treatment surveillance to monitor for potential disease recurrence",
+   "Men over the age of 50 (or 45 with a family history) undergoing routine prostate checks (PSA)",
+   "Women with pelvic masses or ovarian cysts requiring risk evaluation (CA-125 & HE4 ROMA index)",
+   "Individuals with a strong family history of hereditary cancers under clinical guidance",
+   "Patients presenting with unexplained symptoms requiring rule-out diagnostic investigations"
+  ],
+  "profiles": [
+   {
+    "name": "Male Tumor Marker Panel",
+    "tests": "PSA (Prostate), CEA (Colon/Lungs), AFP (Liver/Testes), CA 19-9 (Pancreas/Biliary)",
+    "tat": "Same Day",
+    "sample": "Blood (no fasting)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Female Tumor Marker Panel",
+    "tests": "CA 125 (Ovarian), CA 15-3 (Breast), CEA (Colon/Lungs), AFP (Liver/Germ Cell), CA 19-9",
+    "tat": "Same Day",
+    "sample": "Blood (no fasting)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Ovarian Malignancy Screen (ROMA Index)",
+    "tests": "Human Epididymis Protein 4 (HE4), Cancer Antigen 125 (CA 125), Risk of Ovarian Malignancy Algorithm calculation",
+    "tat": "Same Day",
+    "sample": "Blood (no fasting)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Prostate Health Profile",
+    "tests": "Total PSA, Free PSA, Free-to-Total PSA Ratio",
+    "tat": "Same Day",
+    "sample": "Blood (avoid testing immediately after physical examination)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Gastrointestinal Oncology Panel",
+    "tests": "CEA, CA 19-9, CA 72-4, AFP",
+    "tat": "1 Day",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   }
+  ],
+  "clinician_notes": [
+   "Our oncology testing suite is processed on high-throughput immunoassay analyzers with strict calibration verification. While tumor markers are primary tools for monitoring therapeutic efficacy and detecting residual disease, combining HE4 and CA-125 within the ROMA algorithm significantly improves preoperative triage of ovarian masses in postmenopausal patients.",
+   "Critical results are flagged and immediately routed to the referring oncologist. Case-related medical consultations are available via +91 9964 639 639."
+  ],
+  "disclaimer": "Tumor marker assays (such as CEA, CA 125, PSA, and CA 19-9) are diagnostic adjuncts used for screening guidance, treatment monitoring, and post-therapy surveillance under medical supervision. Elevated tumor marker levels can occur in benign inflammatory conditions and do not constitute standalone diagnostic proof of cancer. Definitive diagnosis requires comprehensive clinical examination, imaging, and histopathology (biopsy) evaluated by a qualified oncologist.",
+  "callout": null,
+  "directory": {
+   "order": 5,
+   "color": "#16a085",
+   "description": "Comprehensive cancer biomarker panels for early detection support, treatment monitoring, and surveillance. Includes histopathology, cytopathology, immunohistochemistry (IHC), and molecular oncology support. Note: Tumor markers assist clinical decisions — diagnosis requires correlation with imaging, biopsy, and clinical history.",
+   "who_should_take": "Patients with family history of cancer, unexplained weight loss, persistent lumps, or abnormal imaging. Patients undergoing cancer treatment for monitoring response. Clinicians ordering pre-treatment staging or post-treatment surveillance.",
+   "tests": [
+    "PSA (Prostate Specific Antigen) — Total & Free",
+    "CEA (Carcinoembryonic Antigen)",
+    "CA 125 (Ovarian Cancer Marker)",
+    "CA 19-9 (Pancreatic / GI Marker)",
+    "AFP (Alpha Fetoprotein)",
+    "Beta-HCG",
+    "CA 15-3 (Breast Cancer Marker)",
+    "HE4 (Ovarian Cancer Support)",
+    "Cyfra 21-1 (Lung Cancer Marker)",
+    "NSE (Neuro-Specific Enolase)"
+   ],
+   "benefits": [
+    "Multi-cancer marker screening panel",
+    "Treatment response and recurrence monitoring",
+    "Histopathology and IHC for tissue diagnosis",
+    "Prognostic and predictive marker assessment"
+   ],
+   "packages": [
+    "Basic Tumor Markers ₹2,200",
+    "Complete Oncology Panel ₹8,500"
+   ]
+  },
+  "why_choose": [
+   {
+    "title": "NABL Accredited Lab",
+    "desc": "Meets international standards for diagnostic testing and quality assurance."
+   },
+   {
+    "title": "High-Sensitivity Assays",
+    "desc": "Using advanced chemiluminescence platforms for precise result quantification."
+   },
+   {
+    "title": "Consultant-Reviewed Reports",
+    "desc": "Expert biochemists and pathologists verify every critical tumor marker profile."
+   },
+   {
+    "title": "Home Collection Service",
+    "desc": "Safe, sterile home collections across Bengaluru by trained phlebotomy specialists."
+   }
+  ],
+  "faqs": [
+   {
+    "q": "Can tumor markers be elevated in non-cancerous conditions?",
+    "a": "Yes, tumor markers can be elevated in benign inflammatory or infectious conditions. For example, PSA can be elevated in benign prostatic hyperplasia (BPH) or prostatitis, and CA-125 can rise during menstruation, pregnancy, or endometriosis. Therefore, results must be interpreted by a specialist clinician."
+   },
+   {
+    "q": "What is the ROMA Index and why is it preferred over CA-125 alone?",
+    "a": "The ROMA (Risk of Ovarian Malignancy Algorithm) combines HE4 (Human Epididymis Protein 4) and CA-125 along with menopausal status. Because HE4 is significantly less likely to be elevated in benign gynecological conditions than CA-125, the ROMA index offers higher specificity for distinguishing ovarian cancer from benign pelvic masses."
+   },
+   {
+    "q": "How are tumor markers used to monitor cancer treatment?",
+    "a": "Prior to starting treatment, a baseline level of the specific tumor marker is established. During or after therapy (surgery, chemotherapy, or radiation), the marker is measured at regular intervals. A declining trend suggests treatment efficacy, while rising levels may indicate disease recurrence."
+   },
+   {
+    "q": "Do I need to fast for tumor marker tests?",
+    "a": "Most tumor marker blood tests (PSA, CA-125, CEA, CA 19-9) do not require fasting. However, if they are ordered alongside other metabolic or lipid panels, fasting of 10–12 hours may be required."
+   }
+  ],
+  "cta_title": "Book Your Oncology Marker Panel",
+  "cta_text": "Accurate testing with fast, consultant-reviewed digital reports. Home collection available.",
+  "help_title": "Need help choosing the right test?",
+  "help_text": "Our medical consultant team can guide you to the right diagnostic profile for your symptoms.",
+  "seo_title": "Oncology Testing: Tumor Marker & Cancer Risk Assays Bengaluru",
+  "seo_description": "Highly sensitive tumor marker screening, ovarian malignancy risk index (ROMA), and post-therapy cancer surveillance testing reviewed by consultant pathologists in Bengaluru.",
+  "is_active": true,
+  "sort_order": 6,
+  "id": "14a51206-0866-4696-acd5-86104c69dd49",
+  "slug": "oncology"
+ },
+ {
+  "name": "Neurology",
+  "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png",
+  "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1793559890/Assets-QXL/specialities/neurology-hero.jpg",
+  "hero_title": "Advanced Neurology & Autoimmune Neurology Testing in Bengaluru",
+  "hero_description": "Neuropathy panels, autoimmune encephalitis workup, CSF analysis, myasthenia gravis testing, and paraneoplastic antibody profiling — with expert-reviewed reports and home sample collection.",
+  "intro": "QXL Diagnostics offers advanced neurology diagnostic testing for clinicians managing complex neurological disorders. Our panels cover autoimmune encephalitis, peripheral neuropathy, myasthenia gravis, multiple sclerosis support, NMO/MOG spectrum disease, and neuro-infectious conditions — all with consultant-reviewed reports.",
+  "who_should_take": [
+   "Patients with unexplained encephalopathy, seizures, or psychiatric symptoms",
+   "Those with subacute limb weakness, sensory loss, or gait disorder",
+   "Patients suspected of myasthenia gravis (ptosis, diplopia, fatiguable weakness)",
+   "Patients with suspected MS, NMO, or MOG antibody disease",
+   "Individuals with peripheral neuropathy (numbness, tingling, weakness in hands/feet)",
+   "Patients on chemotherapy requiring neuro-paraneoplastic workup",
+   "Referred by neurologist for autoimmune or CSF-based evaluation"
+  ],
+  "profiles": [
+   {
+    "name": "Neuropathy Evaluation Panel",
+    "tests": "Vitamin B12, Folate, HbA1c, ANA (IFA), ESR, Blood Sugar (Fasting), Serum Protein Electrophoresis, TSH",
+    "tat": "Same Day – 1 Day",
+    "sample": "Blood (8 hr fasting for glucose)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Autoimmune Encephalitis Panel",
+    "tests": "Anti-NMDA Receptor Ab, Anti-CASPR2, Anti-LGI1, Anti-AMPA, Anti-GABA-B, Anti-DPPX (Serum & CSF)",
+    "tat": "5–7 Days",
+    "sample": "Serum + CSF (neurologist referral)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Myasthenia Gravis Panel",
+    "tests": "AChR Binding Antibody, AChR Blocking Antibody, AChR Modulating Antibody, Anti-MuSK IgG",
+    "tat": "3–5 Days",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "NMO / MOG Spectrum Panel",
+    "tests": "Anti-AQP4 (NMO-IgG), Anti-MOG IgG (Serum & CSF)",
+    "tat": "5–7 Days",
+    "sample": "Serum ± CSF",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Paraneoplastic Neurological Panel",
+    "tests": "Anti-Hu, Anti-Yo, Anti-Ri, Anti-CV2, Anti-PNMA1/2, Anti-Amphiphysin",
+    "tat": "5–7 Days",
+    "sample": "Serum",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "CSF Analysis & Encephalitis PCR",
+    "tests": "CSF cell count, Protein, Glucose, Oligoclonal bands, HSV 1&2 PCR, CMV PCR, VZV PCR, Cryptococcal Antigen, CSF Culture",
+    "tat": "1–3 Days",
+    "sample": "CSF (neurologist/intensivist collected)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Encephalitis / Meningitis PCR Panel",
+    "tests": "FilmArray Meningitis/Encephalitis Panel — 14 targets (Bacterial, Viral, Fungal)",
+    "tat": "Same Day",
+    "sample": "CSF",
+    "price": null,
+    "old_price": null
+   }
+  ],
+  "clinician_notes": [
+   "Our autoimmune neurology panels support neurologists managing encephalopathy, demyelinating diseases, neuromuscular disorders, and paraneoplastic syndromes. Autoantibody testing is performed using validated cell-based assays (CBA) and ELISA platforms. CSF-based diagnostics including oligoclonal bands and encephalitis PCR panels (FilmArray) are available with urgent priority. Doctor enquiries: +91 9964 639 639."
+  ],
+  "disclaimer": null,
+  "callout": null,
+  "directory": {
+   "order": 0,
+   "color": "#2563eb",
+   "description": "Advanced neurology diagnostic panels covering brain, spinal cord, peripheral nerve, and autoimmune neurological conditions. Our tests support early detection of dementia, encephalitis, multiple sclerosis, myasthenia gravis, and paraneoplastic syndromes.",
+   "who_should_take": "Patients with unexplained seizures, memory loss, weakness, numbness, vision changes, or suspected autoimmune neurological conditions. Also useful for doctors managing MS, NMO, MG, and paraneoplastic syndrome workup.",
+   "tests": [
+    "CSF Analysis (Routine & Special)",
+    "Anti-NMDA Receptor Antibodies",
+    "Anti-AQP4 (NMO Antibody)",
+    "Anti-MOG Antibodies",
+    "Myelin Basic Protein",
+    "Anti-Ganglioside Panel (Anti-GQ1b, GM1)",
+    "ANA / ANA Profile (ENA)",
+    "Oligoclonal Bands (IgG Index)",
+    "Ceruloplasmin",
+    "Paraneoplastic Panel (Hu, Yo, Ri)"
+   ],
+   "benefits": [
+    "Early detection of autoimmune encephalitis",
+    "Multiple sclerosis and NMO differentiation",
+    "Myasthenia gravis antibody testing",
+    "Paraneoplastic neurological syndrome screening"
+   ],
+   "packages": [
+    "Neurology Basic Panel ₹2,500",
+    "Autoimmune Neuro Panel ₹6,800"
+   ]
+  },
+  "why_choose": [
+   {
+    "title": "NABL Accredited Laboratory",
+    "desc": "ISO 15189 accredited testing for super speciality panels."
+   },
+   {
+    "title": "Expert-Reviewed Reports",
+    "desc": "Consultant neurologist-supported reporting and interpretation notes."
+   },
+   {
+    "title": "Advanced Molecular Platforms",
+    "desc": "FilmArray PCR, CBA, ELISA for autoimmune and neuro-infectious testing."
+   },
+   {
+    "title": "Urgent Priority Processing",
+    "desc": "Emergency CSF/autoimmune panel processing available on doctor request."
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What neurological tests do you offer at QXL Diagnostics?",
+    "a": "We offer comprehensive neuropathy panels, autoimmune neurology workup (Anti-NMDA, Anti-AQP4, Anti-MOG), Myasthenia Gravis panel (AChR, MuSK antibodies), CSF analysis, meningitis/encephalitis PCR panels, paraneoplastic antibody screens, and nutritional neurology assessment (B12, Folate, Vitamin D)."
+   },
+   {
+    "q": "When should a doctor order autoimmune neurology tests?",
+    "a": "Autoimmune neurology panels are indicated in patients with subacute onset of encephalopathy, unexplained seizures, movement disorders, psychiatric symptoms, or peripheral neuropathy without a clear cause — especially when imaging is normal or inconclusive."
+   },
+   {
+    "q": "How should I prepare for a neuropathy blood test?",
+    "a": "Most antibody and molecular panels require no fasting. If the panel includes fasting glucose or metabolic markers, a fasting period of 8–12 hours is required. Inform the phlebotomist of all medications, particularly immunosuppressants."
+   },
+   {
+    "q": "What is the difference between ANA and specific neuro-antibody panels?",
+    "a": "ANA (Anti-Nuclear Antibody) is a broad screening test for autoimmune conditions. Specific neurology panels (Anti-NMDA, Anti-AQP4, Anti-MOG, AChR) target antibodies that directly attack the nervous system and are far more specific for autoimmune neurological diseases."
+   }
+  ],
+  "cta_title": "Book Your Neurology Profile Today",
+  "cta_text": "Home collection available. Doctor referral required for CSF-based tests. Reports reviewed by consultant pathologist.",
+  "help_title": "Need help with neurology testing?",
+  "help_text": "Our consultants are available for guidance on panel selection and result interpretation.",
+  "seo_title": "Neurology Testing: Autoimmune Neurology & Neuropathy Panels",
+  "seo_description": "Neuropathy panels, autoimmune encephalitis workup, CSF analysis, myasthenia gravis testing, and paraneoplastic antibody profiling in Bengaluru — expert-reviewed reports with home sample collection.",
+  "is_active": true,
+  "sort_order": 7,
+  "id": "aba34c1d-d519-46ec-adc9-4fd177dc0e21",
+  "slug": "neurology"
+ },
+ {
+  "name": "Urology",
+  "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150438/Assets-QXL/legacy-assets/image/spec_urology.png",
+  "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1784150333/Assets-QXL/legacy-assets/image/slide_liver_kidney.jpg",
+  "hero_title": "Advanced Renal Function & Prostate Screening in Bengaluru",
+  "hero_description": "Enzymatic kidney function profiles, diagnostic microalbuminuria screening, urinary stone risk evaluations, and high-precision Free/Total PSA ratios.",
+  "intro": "Urological wellness and renal health are essential for maintaining systemic equilibrium. QXL Diagnostics provides NABL Accredited assays for kidney function, bladder health, metabolic stone profiling, and prostate screening, ensuring clinical precision for targeted urological care.",
+  "who_should_take": [
+   "Men over 50 experiencing difficulty in urination, weak urine stream, or nocturia",
+   "Patients with chronic conditions (such as diabetes or hypertension) needing diabetic nephropathy monitoring",
+   "Individuals suffering from recurrent painful urination, lower back pain, or cloudy urine (UTI screens)",
+   "Patients with a personal or family history of kidney stones requiring mineral excretion risk profiles",
+   "Individuals currently taking nephrotoxic medications requiring routine filtration monitoring",
+   "Patients undergoing treatment surveillance for kidney, bladder, or prostate disorders"
+  ],
+  "profiles": [
+   {
+    "name": "Kidney Function Test (KFT/RFT) — Advanced",
+    "tests": "Serum Urea, Serum Creatinine, Uric Acid, Blood Urea Nitrogen (BUN), eGFR (CKD-EPI formula), Electrolytes (Sodium, Potassium, Chloride)",
+    "tat": "Same Day",
+    "sample": "Blood (no fasting)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Prostate Health Panel",
+    "tests": "Total Prostate-Specific Antigen (PSA), Free PSA, Free-to-Total PSA Ratio calculation",
+    "tat": "Same Day",
+    "sample": "Blood (avoid testing immediately after physical exam or urinary trauma)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Urinary Stone Risk Profile",
+    "tests": "24-Hour Urine Volume, Urine Calcium, Oxalate, Uric Acid, Citrate, Creatinine, Phosphorus, Urinary pH level",
+    "tat": "1 Day",
+    "sample": "24-hour urine collection",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Urinary Tract Infection (UTI) Screen",
+    "tests": "Urine Routine & Microscopy (pus cells, epithelial cells, crystals), Urine Culture & Sensitivity (aerobic incubation)",
+    "tat": "24–48 hrs",
+    "sample": "Mid-stream clean catch urine",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Microalbuminuria Screen",
+    "tests": "Random Urine Microalbumin, Urine Creatinine, Microalbumin-to-Creatinine Ratio (ACR)",
+    "tat": "Same Day",
+    "sample": "Spot urine sample (first morning preferred)",
+    "price": null,
+    "old_price": null
+   }
+  ],
+  "clinician_notes": [
+   "Our kidney profiles utilize standard enzymatic methods for serum creatinine to avoid chromogen interference. We calculate eGFR using the CKD-EPI equation for accurate chronic kidney disease staging. For prostate evaluations, providing simultaneous Free and Total PSA assists clinicians in distinguishing benign prostatic hyperplasia (BPH) from early malignant changes when evaluated alongside clinical findings.",
+   "UTI culture plates are read by consultant microbiologists using standardized antibiotic panels. Clinician consults are available at +91 9964 639 639."
+  ],
+  "disclaimer": "Total PSA and Free/Total PSA ratio determinations assist clinicians in evaluating prostate health, but are not standalone diagnostic tests for prostate cancer. PSA levels can fluctuate due to benign prostatic hyperplasia (BPH), prostatitis, recent physical examination, or urinary retention. All laboratory results must be evaluated alongside clinical history, physical examination, and diagnostic imaging by a qualified urologist.",
+  "callout": null,
+  "directory": {
+   "order": 3,
+   "color": "#2980b9",
+   "description": "Comprehensive urological diagnostics including kidney function assessment, prostate health markers, urinary tract infection panels, kidney stone analysis, and glomerulonephritis workup. Our urology panel supports early detection of chronic kidney disease, prostate disorders, and metabolic stone disease.",
+   "who_should_take": "Patients with recurrent UTI, kidney stones, high blood pressure, diabetes, swelling, or reduced urine output. Also men above 50 for prostate screening, and patients with suspected glomerulonephritis or nephrotic syndrome.",
+   "tests": [
+    "Kidney Function Test (KFT) — 11 Parameters",
+    "Urine Routine & Microscopy",
+    "24-Hour Urine Protein",
+    "Urine Culture & Sensitivity",
+    "PSA (Total & Free) with PSA Ratio",
+    "eGFR Calculation",
+    "Cystatin C",
+    "Beta-2 Microglobulin",
+    "Kidney Stone Analysis (FTIR Spectroscopy)",
+    "Microalbumin / Protein:Creatinine Ratio"
+   ],
+   "benefits": [
+    "Early chronic kidney disease detection",
+    "Prostate cancer screening (PSA)",
+    "UTI diagnosis and treatment monitoring",
+    "Kidney stone composition analysis for prevention"
+   ],
+   "packages": [
+    "Kidney Health Panel ₹1,500",
+    "Prostate Health Panel ₹2,800"
+   ]
+  },
+  "why_choose": [
+   {
+    "title": "NABL Accredited Laboratories",
+    "desc": "Rigorous diagnostic quality protocols ensuring standard-aligned results."
+   },
+   {
+    "title": "High-Sensitivity Chemistry",
+    "desc": "Advanced enzymatic assays minimizing biochemical background interference."
+   },
+   {
+    "title": "Clinician-Approved Formulations",
+    "desc": "eGFR and urine ratio calculations conforming to global kidney guidelines."
+   },
+   {
+    "title": "Painless Sample Collection",
+    "desc": "Sterile home collections across Bengaluru scheduled at your convenience."
+   }
+  ],
+  "faqs": [
+   {
+    "q": "What is the clinical significance of the Free-to-Total PSA ratio?",
+    "a": "Prostate-Specific Antigen (PSA) circulates in the blood in both bound (complexed) and unbound (free) forms. Men with prostate cancer tend to have a lower percentage of free PSA than men with benign prostate enlargement (BPH). Calculating this ratio helps clinicians determine if a biopsy is necessary when total PSA lies in the borderline zone (4.0 to 10.0 ng/mL)."
+   },
+   {
+    "q": "Why is eGFR reported alongside Serum Creatinine?",
+    "a": "Creatinine levels can be affected by factors like muscle mass, age, and gender. The estimated Glomerular Filtration Rate (eGFR) uses these variables to calculate how well the kidneys filter waste, providing a much more reliable assessment of chronic kidney disease (CKD) staging."
+   },
+   {
+    "q": "How do I collect a 24-hour urine sample for a stone risk profile?",
+    "a": "Start in the morning: discard the very first void of Day 1. Collect all subsequent urine voids for the next 24 hours, including the first morning void of Day 2, in the specialized container provided by QXL. Keep the container refrigerated or in a cool place throughout and submit it immediately."
+   },
+   {
+    "q": "Can a urinary tract infection (UTI) affect my kidney function tests?",
+    "a": "A localized lower urinary tract infection (bladder infection) typically does not affect kidney function test markers (Urea/Creatinine). However, if left untreated, it can ascend to the kidneys (pyelonephritis), which can cause acute kidney injury and temporary spikes in filtration markers."
+   }
+  ],
+  "cta_title": "Book Your Urology/Renal Profile Today",
+  "cta_text": "Fast same-day digital reports. Certified home collection across Bengaluru.",
+  "help_title": "Need help choosing the right test?",
+  "help_text": "Our medical consultant team can guide you to the right diagnostic profile for your symptoms.",
+  "seo_title": "Urology Testing: Renal Function & Prostate Screening Bengaluru",
+  "seo_description": "Enzymatic kidney function profiles, microalbuminuria screening, urinary stone risk evaluations, and high-precision Free/Total PSA ratios — NABL Accredited lab in Bengaluru.",
+  "is_active": true,
+  "sort_order": 8,
+  "id": "bdd1fa7f-830d-4099-91b5-7b5ff03f89e5",
+  "slug": "urology"
+ },
+ {
+  "name": "Women's Health",
+  "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150447/Assets-QXL/legacy-assets/image/spec_womens.png",
+  "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1793559892/Assets-QXL/specialities/womens-health-hero.jpg",
+  "hero_title": "Women's Health, Fertility, Pregnancy & Hormone Testing in Bengaluru",
+  "hero_description": "AMH, PCOS screening, antenatal panels, pregnancy markers, fertility hormones, thyroid, menopause testing, and cervical cancer screening — with expert-reviewed reports and home sample collection.",
+  "intro": "QXL Diagnostics offers a comprehensive range of women's health diagnostics — from PCOS and fertility profiling to antenatal screening, prenatal genetic markers, menopause evaluation, thyroid testing, and cervical cancer screening. All tests are performed with NABL Accredited quality and consultant-reviewed reports.",
+  "who_should_take": [
+   "Women with irregular menstrual cycles, PCOS, or hormonal imbalance",
+   "Women planning pregnancy or undergoing IVF/fertility treatment",
+   "Pregnant women for antenatal screening (ANC)",
+   "Women with infertility or recurrent pregnancy loss",
+   "Women approaching or experiencing menopause",
+   "Adolescent girls with delayed puberty or menstrual irregularity",
+   "Women with thyroid disorders, diabetes, or obesity",
+   "Women aged 25+ for cervical cancer screening (Pap smear / HPV PCR)"
+  ],
+  "profiles": [
+   {
+    "name": "PCOS / PCOD Screening Panel",
+    "tests": "LH, FSH, LH/FSH Ratio, Prolactin, Free Testosterone, Total Testosterone, DHEAS, SHBG, Fasting Insulin, Fasting Blood Sugar, HOMA-IR, AMH",
+    "tat": "1–2 Days",
+    "sample": "Blood — Day 2/3 of cycle (hormone tests)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Fertility Hormone Profile",
+    "tests": "FSH, LH, Estradiol (E2), Progesterone, AMH, Prolactin, TSH, Inhibin B",
+    "tat": "1–2 Days",
+    "sample": "Blood — Day 2/3 of cycle",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Antenatal Profile (ANC Basic)",
+    "tests": "Blood Group & Rh Factor, CBC, Blood Sugar (Fasting & PP), HIV, HBsAg, VDRL, Rubella IgG, Urine Culture, TSH",
+    "tat": "Same Day – 1 Day",
+    "sample": "Blood + Urine",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "First Trimester Screening (Double Marker)",
+    "tests": "Beta-hCG (Free), PAPP-A — with NT Ultrasound (Week 11–14)",
+    "tat": "Same Day",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Second Trimester Screening (Triple Marker)",
+    "tests": "AFP, Beta-hCG, Unconjugated Estriol (uE3) — Week 15–20",
+    "tat": "Same Day",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Menopause Health Panel",
+    "tests": "FSH, LH, Estradiol (E2), AMH, TSH, Vitamin D (25-OH), Calcium, Bone ALP, Lipid Profile, HbA1c",
+    "tat": "Same Day – 1 Day",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Cervical Cancer Screening",
+    "tests": "Liquid-Based Cytology (LBC / ThinPrep Pap), High-Risk HPV DNA PCR (14 genotypes), HPV Genotyping (16/18 + others)",
+    "tat": "2–3 Days",
+    "sample": "Cervical swab (gynecologist collected)",
+    "price": null,
+    "old_price": null
+   },
+   {
+    "name": "Ovarian Cancer Markers",
+    "tests": "CA 125, HE4, ROMA Index (CA 125 + HE4 + Menopausal status)",
+    "tat": "Same Day",
+    "sample": "Blood",
+    "price": null,
+    "old_price": null
+   }
+  ],
+  "clinician_notes": [
+   "Our women's health panels support gynaecologists, fertility specialists, and endocrinologists. AMH is available any day of cycle. Hormone panels (FSH, LH, E2) are time-sensitive — Day 2/3 collection recommended for baseline. ROMA index (CA 125 + HE4) supports malignancy risk stratification. Prenatal screening reports include risk calculation and are formatted for clinical use. Doctor enquiries: +91 9964 639 639."
+  ],
+  "disclaimer": null,
+  "callout": {
+   "badge": "Featured Clinical Guide",
+   "note": "2026 Evidence Review",
+   "title": "Personalised Pregnancy Testing in Bengaluru: A Smarter Guide to Prenatal Care",
+   "text": "Trimester-by-trimester antenatal screening timeline, Double Marker vs NIPT comparisons, and gestational diabetes protocols under consultant pathologist review.",
+   "link": "/blog/personalised-pregnancy-testing-bengaluru",
+   "link_label": "Read Clinical Guide"
+  },
+  "directory": {
+   "order": 7,
+   "color": "#e91e8c",
+   "description": "Specialised diagnostic panels addressing the unique health needs of women across all life stages — from fertility evaluation, PCOS workup, antenatal screening, and pregnancy monitoring, to menopause assessment, thyroid health, hormonal profiling, and cervical cancer prevention.",
+   "who_should_take": "Women of all ages with menstrual irregularities, fertility concerns, PCOS symptoms, or pregnancy planning. Pregnant women for antenatal screening. Post-menopausal women for hormonal monitoring. Doctors managing women's endocrinology, reproductive health, or gynaecological oncology.",
+   "tests": [
+    "Hormonal Profile (FSH, LH, Estradiol, Progesterone)",
+    "AMH (Anti-Müllerian Hormone) — Ovarian Reserve",
+    "Prolactin, Testosterone (Total & Free)",
+    "Thyroid Profile (TSH, T3, T4, Anti-TPO)",
+    "Beta-hCG (Pregnancy / Trophoblastic)",
+    "Double Marker / Triple Marker (Antenatal)",
+    "Pap Smear / Liquid Based Cytology (LBC)",
+    "CA 125 & HE4 (Ovarian Cancer Markers)",
+    "TORCH Profile",
+    "Vitamin D, B12, Iron Studies, CBC"
+   ],
+   "benefits": [
+    "Fertility assessment and ovarian reserve (AMH)",
+    "PCOS hormonal profiling",
+    "Antenatal and prenatal screening",
+    "Cervical cancer prevention (Pap smear / LBC)"
+   ],
+   "packages": [
+    "Women's Basic Panel ₹1,800",
+    "Complete Women's Health ₹5,500"
+   ]
+  },
+  "why_choose": [
+   {
+    "title": "NABL Accredited Laboratory",
+    "desc": "Accredited quality testing for all women's health and fertility panels."
+   },
+   {
+    "title": "Expert-Reviewed Reports",
+    "desc": "Consultant pathologists review and validate all super speciality results."
+   },
+   {
+    "title": "Comprehensive Fertility Testing",
+    "desc": "AMH, PCOS panel, Double/Triple Marker, and ovarian cancer markers under one roof."
+   },
+   {
+    "title": "Home Collection Available",
+    "desc": "Convenient home blood sample collection across Bengaluru by female phlebotomist (on request)."
+   }
+  ],
+  "faqs": [
+   {
+    "q": "When is the best time to take a PCOS/PCOD hormone test?",
+    "a": "Reproductive hormones (LH, FSH, Estradiol) are best tested on Day 2 or Day 3 of the menstrual cycle for the most accurate baseline. Testosterone, DHEAS, and Prolactin can be tested on any day. AMH can be tested on any day of the cycle."
+   },
+   {
+    "q": "What is AMH and why is it important?",
+    "a": "Anti-Müllerian Hormone (AMH) is produced by ovarian follicles and directly reflects the ovarian reserve — the remaining egg supply. It is essential for fertility assessment, IVF planning, PCOS evaluation, and monitoring the effect of chemotherapy on ovarian function."
+   },
+   {
+    "q": "What is the Double Marker (First Trimester Screening) test?",
+    "a": "The Double Marker test (Beta-hCG + PAPP-A) is performed between weeks 11–14 of pregnancy along with an NT (nuchal translucency) ultrasound. It screens for chromosomal abnormalities including Down syndrome (Trisomy 21) and Edwards syndrome (Trisomy 18) in the foetus."
+   },
+   {
+    "q": "Do I need to fast for women's health hormone tests?",
+    "a": "Most hormone tests (LH, FSH, AMH, Prolactin, Estradiol) do not require fasting. If your panel includes fasting blood sugar, insulin, or lipids, a fasting period of 10–12 hours is required. Please confirm with our team when booking."
+   }
+  ],
+  "cta_title": "Book Your Women's Health Profile",
+  "cta_text": "Home collection available across Bengaluru. Female phlebotomist on request.",
+  "help_title": "Fertility or Women's Health Query?",
+  "help_text": "Our team guides you to the right panel based on your clinical requirement.",
+  "seo_title": "Women's Health Testing: Fertility, Pregnancy & Hormones Bengaluru",
+  "seo_description": "AMH, PCOS screening, antenatal panels, pregnancy markers, fertility hormones, thyroid, menopause testing, and cervical cancer screening — expert-reviewed, home sample collection in Bengaluru.",
+  "is_active": true,
+  "sort_order": 9,
+  "id": "b874088d-c309-4530-9a54-c0f427fc7a24",
+  "slug": "womens-health"
+ }
+]

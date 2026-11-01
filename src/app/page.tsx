@@ -6,7 +6,8 @@ import Image from "next/image";
 import { ChevronRight, ChevronLeft, FileText, MessageCircle, CheckCircle, MapPin, Building2, Phone, Sparkles, Microscope, Dna, Search, Briefcase, Home as HomeIcon, Calendar, Plus, Check } from "lucide-react";
 import PrescriptionModal from "../components/PrescriptionModal";
 import { cmsStore } from '../lib/cmsStore';
-import { api } from '../lib/api';
+import { api, type Doctor } from '../lib/api';
+import teamFallback from '../data/teamFallback.json';
 import dynamic from "next/dynamic";
 import { WHATSAPP_LINK } from '../lib/businessInfo';
 import { optimizeCloudinaryUrl } from '../lib/cloudinary';
@@ -720,6 +721,27 @@ function useCountdown() {
 }
 
 
+interface HomeDoctor {
+  name: string;
+  qual: string;
+  role: string;
+  href: string;
+  image: string;
+  imagePosition?: string;
+}
+
+// "Meet Our Team" cards come from the CMS (admin → Doctors); the bundled
+// snapshot only renders until the API answers or when it is unreachable.
+const toHomeDoctor = (d: Doctor): HomeDoctor => ({
+  name: d.name,
+  qual: d.qualification || '',
+  role: d.short_title || d.title || '',
+  href: d.profile_path || `/doctors/${d.slug}`,
+  image: d.image_url || '',
+  imagePosition: d.image_position || undefined,
+});
+const FALLBACK_TEAM: HomeDoctor[] = (teamFallback as unknown as Doctor[]).filter((d) => d.title).map(toHomeDoctor);
+
 export default function Home() {
   const countdown = useCountdown();
   const packageScrollRef = useRef<HTMLDivElement>(null);
@@ -736,6 +758,7 @@ export default function Home() {
   const [isPrescriptionModalOpen, setIsPrescriptionModalOpen] = useState(false);
   const [locations, setLocations] = useState<any[]>([]);
   const [recommendedPackages, setRecommendedPackages] = useState<any[]>([]);
+  const [teamDocs, setTeamDocs] = useState<HomeDoctor[]>(FALLBACK_TEAM);
   const [cartItems, setCartItems] = useState<string[]>([]);
   const [selectedPackage, setSelectedPackage] = useState<any | null>(null);
   const [showAllPackages, setShowAllPackages] = useState(false);
@@ -833,7 +856,6 @@ export default function Home() {
         n.includes('spidy') || 
         n.includes('nothing') || 
         n.includes('swing') || 
-        n.includes('eat') || 
         n.includes('jump') || 
         n.includes('sleep') || 
         n.includes('100% off') || 
@@ -847,8 +869,17 @@ export default function Home() {
     const fallbackPackages = cmsStore.getAll("packages").filter(p => !isSpidyOffer(p.name, p.price) && p.id !== 'raksha-bandhan-800' && p.price !== '800').sort((a, b) => Number(a.price) - Number(b.price));
     setRecommendedPackages(fallbackPackages);
 
+    api.doctors.list()
+      .then((list) => {
+        const team = list.filter((d) => d.title && d.is_active);
+        if (team.length > 0) setTeamDocs(team.map(toHomeDoctor));
+      })
+      .catch(() => {
+        // Keep the bundled snapshot.
+      });
+
     if (api && api.packages) {
-      api.packages.list()
+      api.packages.list({ home: true })
         .then((data) => {
           if (data && data.length > 0) {
             const cleanData = data.filter((p: any) => !isSpidyOffer(p.name, p.price) && p.id !== 'raksha-bandhan-800' && p.price !== '800');
@@ -1588,14 +1619,9 @@ export default function Home() {
               <div className="w-16 h-1 bg-[#2563eb] mx-auto rounded-full mt-4" />
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
-              {[
-                { name: "Dr. Shantakumar Muruda", qual: "MD, BIOCHEMISTRY", role: "Founder & CEO", slug: "dr-shantakumar-muruda", image: "/images/dr_shantakumar_labcoat.jpg", imagePosition: "center 10%" },
-                { name: "Dr. Pritilata Rout", qual: "MD, PATHOLOGY", role: "Senior Consultant", slug: "dr-pritilata-rout", image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150144/Assets-QXL/legacy-assets/image/dr_pritilata_v4.png" },
-                { name: "Dr. Ajitha Pillai", qual: "MD, MICROBIOLOGY", role: "Senior Consultant", slug: "dr-ajitha-pillai", image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150130/Assets-QXL/legacy-assets/image/dr_ajitha_latest.jpg" },
-                { name: "Dr. Naveen Kumar N", qual: "DCP, DNB PATHOLOGY", role: "Consultant Pathologist", slug: "dr-naveen-kumar-n", image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150134/Assets-QXL/legacy-assets/image/dr_naveen_latest.jpg" },
-              ].map((doc: any) => (
+              {teamDocs.map((doc) => (
                 <Link
-                  href={`/${doc.slug}`}
+                  href={doc.href}
                   key={doc.name}
                   className="group rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col text-center transition-all duration-300 hover:-translate-y-1"
                   style={{
@@ -1609,7 +1635,6 @@ export default function Home() {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       style={{ 
                         objectPosition: doc.imagePosition || 'top',
-                        transform: doc.imageScale ? `scale(${doc.imageScale}) ${doc.imageTranslateY ? `translateY(${doc.imageTranslateY})` : ''}` : 'none'
                       }}
                       onError={(e) => { e.currentTarget.srcset = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=200&auto=format&fit=crop"; }} />
                     <div className="absolute inset-x-0 bottom-0 h-12 sm:h-16 bg-gradient-to-t from-white to-transparent" />
