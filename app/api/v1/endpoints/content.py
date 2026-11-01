@@ -1,4 +1,5 @@
-"""CMS content endpoints: doctors, banners, blog posts, FAQs. Public read, admin write."""
+"""CMS content endpoints: doctors, banners, blog, FAQs, reviews, gallery, settings,
+content blocks. Public read, admin write."""
 from __future__ import annotations
 
 import uuid
@@ -15,6 +16,8 @@ from app.schemas.content import (
     BlogPostList,
     BlogPostRead,
     BlogPostUpdate,
+    ContentBlockRead,
+    ContentBlockWrite,
     DoctorCreate,
     DoctorRead,
     DoctorUpdate,
@@ -281,3 +284,27 @@ async def update_site_settings(
 ) -> SiteSettingsRead:
     settings = await content_service.update_site_settings(db, body.model_dump(exclude_unset=True))
     return SiteSettingsRead.model_validate(settings)
+
+
+# ── Content Blocks ─────────────────────────────────────────────────────────
+
+@router.get("/content-blocks/{key}", response_model=ContentBlockRead)
+async def get_content_block(key: str, db: DbSession) -> ContentBlockRead:
+    block = await content_service.get_content_block(db, key)
+    return ContentBlockRead.model_validate(block)
+
+
+@router.get("/content-blocks/{key}/admin", response_model=ContentBlockRead)
+async def admin_get_content_block(
+    key: str, db: DbSession, user: User = Depends(require_role("admin"))
+) -> ContentBlockRead:
+    block = await content_service.get_content_block(db, key, admin=True)
+    return ContentBlockRead.model_validate(block)
+
+
+@router.put("/content-blocks/{key}", response_model=ContentBlockRead)
+async def put_content_block(
+    key: str, body: ContentBlockWrite, db: DbSession, user: User = Depends(require_role("admin"))
+) -> ContentBlockRead:
+    block = await content_service.put_content_block(db, key, body.data)
+    return ContentBlockRead.model_validate(block)

@@ -61,8 +61,24 @@ async def _amount_for_booking(db: AsyncSession, booking: Booking) -> int:
     return amount
 
 
+def home_collection_fee_paise(bookings: list[Booking], items_total_paise: int) -> int:
+    """Same rule the /book page displays: a flat fee for home collection
+    when the items total is below ``HOME_COLLECTION_FREE_ABOVE``."""
+    if settings.HOME_COLLECTION_FEE <= 0:
+        return 0
+    if not any(b.collection_type == "home" for b in bookings):
+        return 0
+    if items_total_paise >= settings.HOME_COLLECTION_FREE_ABOVE * 100:
+        return 0
+    return settings.HOME_COLLECTION_FEE * 100
+
+
 async def create_order(
-    db: AsyncSession, *, booking_ids: list[uuid.UUID], user: User | None
+    db: AsyncSession,
+    *,
+    booking_ids: list[uuid.UUID],
+    user: User | None,
+    apply_home_collection_fee: bool = False,
 ) -> tuple[Payment, list[Booking]]:
     """Create a single Razorpay order covering one or more bookings.
 
@@ -89,10 +105,16 @@ async def create_order(
         # booking id; bookings tied to an account may only be paid by that account.
         if booking.user_id is not None and (user is None or booking.user_id != user.id):
             raise PermissionDeniedError("You do not have access to this booking")
+        if booking.payment_status == "paid":
+            raise ValidationError("This booking has already been paid for")
+        if booking.status == "cancelled":
+            raise ValidationError("This booking has been cancelled and can no longer be paid for")
         bookings.append(booking)
 
     amounts = [await _amount_for_booking(db, booking) for booking in bookings]
     total_amount = sum(amounts)
+    if apply_home_collection_fee:
+        total_amount += home_collection_fee_paise(bookings, total_amount)
 
     async with httpx.AsyncClient(
         auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET), timeout=15.0
@@ -103,6 +125,9 @@ async def create_order(
                 "amount": total_amount,
                 "currency": "INR",
                 "receipt": str(bookings[0].id),
+                # Capture immediately on success — otherwise an "authorized"
+                # payment is auto-refunded by Razorpay if never captured.
+                "payment_capture": 1,
                 "notes": {"booking_ids": ",".join(str(b.id) for b in bookings)},
             },
         )
@@ -156,6 +181,11 @@ async def _mark_bookings_payment_status(
     for booking_id in _payment_booking_ids(payment):
         booking = await booking_repo.get_by_id(booking_id)
         if booking is not None:
+            # A booking can have several orders (the patient retried checkout).
+            # A late failure/pending event for an abandoned order must never
+            # undo a payment that succeeded on another one — only a refund can.
+            if booking.payment_status == "paid" and payment_status not in {"paid", "refunded"}:
+                continue
             await booking_repo.update_payment_status(booking, payment_status=payment_status)
             if not notify:
                 continue
@@ -261,10 +291,17 @@ async def handle_webhook_event(db: AsyncSession, event: dict) -> None:
         # only notify on the first time we record it as paid.
         await _mark_bookings_payment_status(db, payment, payment_status="paid", notify=not already_paid)
     elif event_type == "payment.failed":
-        already_failed = payment.status == "failed"
-        payment.status = "failed"
-        payment.failure_reason = payment_entity.get("error_description")
-        await _mark_bookings_payment_status(db, payment, payment_status="failed", notify=not already_failed)
+        # One order can see a failed attempt followed by a successful retry,
+        # and webhooks may arrive out of order — never downgrade a paid order.
+        if payment.status in {"paid", "refunded"}:
+            logger.info("Ignoring payment.failed for already-%s order=%s", payment.status, order_id)
+        else:
+            already_failed = payment.status == "failed"
+            payment.status = "failed"
+            payment.failure_reason = payment_entity.get("error_description")
+            await _mark_bookings_payment_status(
+                db, payment, payment_status="failed", notify=not already_failed
+            )
     elif event_type in {"refund.processed", "refund.created"}:
         already_refunded = payment.status == "refunded"
         payment.status = "refunded"
@@ -272,6 +309,23 @@ async def handle_webhook_event(db: AsyncSession, event: dict) -> None:
 
     await db.commit()
     logger.info("Razorpay webhook processed: event=%s order_id=%s", event_type, order_id)
+
+
+async def _capture_payment(attempt: dict, *, amount: int, currency: str) -> dict | None:
+    async with httpx.AsyncClient(
+        auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET), timeout=15.0
+    ) as client:
+        resp = await client.post(
+            f"{_RAZORPAY_BASE_URL}/payments/{attempt['id']}/capture",
+            json={"amount": amount, "currency": currency},
+        )
+    if resp.status_code >= 400:
+        logger.error(
+            "Razorpay capture failed for payment=%s: %s %s",
+            attempt.get("id"), resp.status_code, resp.text,
+        )
+        return None
+    return resp.json()
 
 
 async def reconcile_payment(db: AsyncSession, *, payment_id: uuid.UUID) -> Payment:
@@ -307,7 +361,12 @@ async def reconcile_payment(db: AsyncSession, *, payment_id: uuid.UUID) -> Payme
     # Prefer a captured attempt; otherwise take the most recent attempt to
     # reflect its (failed/authorized) state instead of leaving it ambiguous.
     captured = next((a for a in attempts if a.get("status") == "captured"), None)
-    latest = captured or (attempts[-1] if attempts else None)
+    authorized = next((a for a in attempts if a.get("status") == "authorized"), None)
+    if captured is None and authorized is not None:
+        # Money was authorized but never captured (e.g. auto-capture off on
+        # the account) — capture it now rather than letting it lapse.
+        captured = await _capture_payment(authorized, amount=payment.amount, currency=payment.currency)
+    latest = captured or (attempts[0] if attempts else None)
 
     if latest is None:
         # No payment attempts recorded at Razorpay at all — order was never paid.

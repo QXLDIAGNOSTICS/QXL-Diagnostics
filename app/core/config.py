@@ -104,6 +104,11 @@ class Settings(BaseSettings):
     RAZORPAY_KEY_ID: str = ""
     RAZORPAY_KEY_SECRET: str = ""
     RAZORPAY_WEBHOOK_SECRET: str = ""
+    # Home sample collection fee (rupees) added to an order when the checkout
+    # page requests it (the /book page shows this fee) and the order's item
+    # total is below the free-collection threshold. 0 disables the fee.
+    HOME_COLLECTION_FEE: int = 150
+    HOME_COLLECTION_FREE_ABOVE: int = 499
 
     # Prescriptions
     PRESCRIPTION_MONTHLY_UPLOAD_LIMIT: int = 5

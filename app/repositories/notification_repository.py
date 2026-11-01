@@ -96,6 +96,14 @@ class NotificationRepository:
         await self.db.flush()
         return notification
 
+    async def mark_skipped(self, notification: BookingNotification, *, reason: str) -> BookingNotification:
+        """A scheduled message that no longer applies (e.g. a payment
+        reminder for a booking that has since been paid) — never sent."""
+        notification.status = "skipped"
+        notification.error = reason
+        await self.db.flush()
+        return notification
+
     async def mark_failed(self, notification: BookingNotification, *, error: str) -> BookingNotification:
         notification.status = "failed"
         notification.error = error

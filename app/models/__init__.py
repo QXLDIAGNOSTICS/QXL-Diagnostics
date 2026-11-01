@@ -3,7 +3,7 @@ from app.db.base import Base
 from app.models.booking import Booking
 from app.models.catalog import Center, HealthPackage, TestCatalog
 from app.models.contact_optout import ContactOptOut
-from app.models.content import FAQ, Banner, BlogPost, Doctor
+from app.models.content import FAQ, Banner, BlogPost, ContentBlock, Doctor
 from app.models.conversation import Conversation, Message
 from app.models.doc_chunk import DocChunk
 from app.models.file import FileRecord
@@ -41,5 +41,6 @@ __all__ = [
     "Banner",
     "BlogPost",
     "FAQ",
+    "ContentBlock",
     "ContactOptOut",
 ]

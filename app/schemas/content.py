@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime
+from typing import Any
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -286,3 +287,16 @@ class SiteSettingsUpdate(BaseModel):
     phone_display: str | None = None
     phone_e164: str | None = None
     whatsapp_number: str | None = None
+
+# ── Content Blocks ────────────────────────────────────────────────────────────
+
+class ContentBlockRead(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    key: str
+    data: Any
+    updated_at: datetime
+
+
+class ContentBlockWrite(BaseModel):
+    # A JSON object (website settings) or array (careers, coupons, ...).
+    data: dict[str, Any] | list[Any]

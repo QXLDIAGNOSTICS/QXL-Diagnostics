@@ -7,7 +7,11 @@ from fastapi import APIRouter, Depends
 
 from app.api.deps import DbSession, require_role
 from app.models.user import User
+from app.repositories.package_repository import HealthPackageRepository, TestCatalogRepository
 from app.schemas.package import (
+    CatalogResolveMatch,
+    CatalogResolveRequest,
+    CatalogResolveResponse,
     HealthPackageCreate,
     HealthPackageList,
     HealthPackageRead,
@@ -17,7 +21,7 @@ from app.schemas.package import (
     TestCatalogRead,
     TestCatalogUpdate,
 )
-from app.services import catalog_service
+from app.services import booking_service, catalog_service
 
 router = APIRouter(tags=["packages"])
 
@@ -116,3 +120,34 @@ async def delete_test(
     test_id: uuid.UUID, db: DbSession, user: User = Depends(require_role("admin"))
 ) -> None:
     await catalog_service.delete_test(db, test_id)
+
+
+# ── Catalog resolution ─────────────────────────────────────────────────────
+
+@router.post("/catalog/resolve", response_model=CatalogResolveResponse)
+async def resolve_catalog_names(
+    body: CatalogResolveRequest, db: DbSession
+) -> CatalogResolveResponse:
+    """What each free-text item name would book, and at what price — the
+    same matching ``POST /bookings`` applies to ``test_name``. Checkout pages
+    use it to show the price that will actually be charged."""
+    tests = await TestCatalogRepository(db).get_all_active()
+    packages = await HealthPackageRepository(db).get_all_active()
+    results: list[CatalogResolveMatch | None] = []
+    for name in body.names:
+        match = await booking_service.resolve_catalog_name(db, name, tests=tests, packages=packages)
+        if match is None:
+            results.append(None)
+            continue
+        kind, item = match
+        results.append(
+            CatalogResolveMatch(
+                query=name,
+                kind=kind,
+                id=item.id,
+                name=item.name,
+                price=item.price,
+                home_collection_available=item.home_collection_available,
+            )
+        )
+    return CatalogResolveResponse(results=results)

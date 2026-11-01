@@ -212,6 +212,22 @@ async def _send_and_record(db: AsyncSession, notification: BookingNotification, 
             await repo.mark_failed(notification, error="; ".join(errors) or "Delivery failed")
 
 
+_CLOSED_BOOKING_STATUSES = {"cancelled", "no_show", "completed", "report_ready"}
+
+
+def _stale_reason(notification: BookingNotification, booking: Booking) -> str | None:
+    """Why a scheduled message should no longer go out, if it shouldn't.
+
+    Scheduled messages are queued hours ahead (e.g. the payment reminder
+    queued at booking time); by the time they're due the patient may have
+    paid, or the visit may be cancelled/done."""
+    if notification.type == "payment_reminder" and booking.payment_status in {"paid", "refunded"}:
+        return f"Skipped: booking is already {booking.payment_status}"
+    if notification.type in {"payment_reminder", "reminder"} and booking.status in _CLOSED_BOOKING_STATUSES:
+        return f"Skipped: booking is {booking.status.replace('_', ' ')}"
+    return None
+
+
 async def run_due_notifications(db: AsyncSession) -> int:
     """Sends everything whose scheduled time has arrived. Returns count processed."""
     notif_repo = NotificationRepository(db)
@@ -222,6 +238,11 @@ async def run_due_notifications(db: AsyncSession) -> int:
         booking = await booking_repo.get_by_id(notification.booking_id)
         if booking is None:
             await notif_repo.mark_failed(notification, error="Booking no longer exists")
+            processed += 1
+            continue
+        reason = _stale_reason(notification, booking)
+        if reason is not None:
+            await notif_repo.mark_skipped(notification, reason=reason)
             processed += 1
             continue
         await _send_and_record(db, notification, booking)

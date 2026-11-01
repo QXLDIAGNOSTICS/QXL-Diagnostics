@@ -1,12 +1,22 @@
 """CMS content service: doctors, banners, blog posts, FAQs."""
 from __future__ import annotations
 
+import json
 import uuid
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.exceptions import NotFoundError
-from app.models.content import FAQ, Banner, BlogPost, Doctor, GalleryItem, Review, SiteSettings
+from app.core.exceptions import NotFoundError, ValidationError
+from app.models.content import (
+    FAQ,
+    Banner,
+    BlogPost,
+    ContentBlock,
+    Doctor,
+    GalleryItem,
+    Review,
+    SiteSettings,
+)
 from app.repositories.content_repository import (
     BannerRepository,
     BlogPostRepository,
@@ -295,3 +305,39 @@ async def update_site_settings(db: AsyncSession, data: dict) -> SiteSettings:
     await db.commit()
     await db.refresh(settings)
     return settings
+
+
+# ── Content Blocks ────────────────────────────────────────────────────────────
+
+# Readable by anyone (the public site renders them).
+PUBLIC_CONTENT_KEYS = frozenset({"website", "careers", "departments", "seo"})
+# Admin-only: coupon codes and the admin activity log must not be public.
+ADMIN_CONTENT_KEYS = frozenset({"marketing", "logs"})
+CONTENT_KEYS = PUBLIC_CONTENT_KEYS | ADMIN_CONTENT_KEYS
+_MAX_CONTENT_BLOCK_BYTES = 512 * 1024
+
+
+async def get_content_block(db: AsyncSession, key: str, *, admin: bool = False) -> ContentBlock:
+    allowed = CONTENT_KEYS if admin else PUBLIC_CONTENT_KEYS
+    if key not in allowed:
+        raise NotFoundError("Content block not found")
+    block = await db.get(ContentBlock, key)
+    if block is None:
+        raise NotFoundError("Content block not found")
+    return block
+
+
+async def put_content_block(db: AsyncSession, key: str, data: dict | list) -> ContentBlock:
+    if key not in CONTENT_KEYS:
+        raise NotFoundError("Content block not found")
+    if len(json.dumps(data, default=str)) > _MAX_CONTENT_BLOCK_BYTES:
+        raise ValidationError("Content is too large")
+    block = await db.get(ContentBlock, key)
+    if block is None:
+        block = ContentBlock(key=key, data=data)
+        db.add(block)
+    else:
+        block.data = data
+    await db.commit()
+    await db.refresh(block)
+    return block

@@ -118,7 +118,6 @@ async def create_login_challenge(
     """Generate a fresh OTP challenge, persist hashes, and deliver OTP."""
     now = datetime.now(timezone.utc)
     raw_otp = generate_otp()
-    logger.info("Generated OTP: %s", raw_otp)
     # Keep link token fields populated for schema compatibility; login no longer
     # requires SMS-link verification.
     raw_link_token = generate_opaque_token()

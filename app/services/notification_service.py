@@ -38,6 +38,20 @@ def _smtp_configured() -> bool:
     return bool(settings.SMTP_HOST and settings.SMTP_FROM_EMAIL)
 
 
+# We send with Is_Unicode=False (GSM-7). Typographic characters that commonly
+# sneak in from test/package names or staff-typed text aren't in that charset,
+# and make the delivered text differ from the DLT-registered template.
+_GSM_REPLACEMENTS = str.maketrans({
+    "–": "-", "—": "-", "−": "-",
+    "‘": "'", "’": "'", "“": '"', "”": '"',
+    "…": "...", "₹": "Rs.", " ": " ",
+})
+
+
+def _gsm_safe(body: str) -> str:
+    return body.translate(_GSM_REPLACEMENTS)
+
+
 def _to_nettyfish_mobile(phone: str) -> str:
     """Nettyfish expects bare 10-digit Indian mobile numbers (no '+'/country code)."""
     digits = "".join(ch for ch in phone if ch.isdigit())
@@ -87,7 +101,7 @@ async def send_sms(to_phone: str, body: str, *, template_id: str | None = None) 
         "DataCoding": "0",
         "SchedTime": "",
         "GroupId": "",
-        "Message": body,
+        "Message": _gsm_safe(body),
         "MobileNumbers": mobile_numbers,
         "ServiceId": settings.NETTYFISH_SERVICE_ID,
         "CoRelator": "",

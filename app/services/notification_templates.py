@@ -12,6 +12,8 @@ cause Nettyfish/the carrier to reject the SMS at send time.
 """
 from __future__ import annotations
 
+from datetime import datetime
+
 from app.core.config import settings
 from app.models.booking import Booking
 
@@ -45,14 +47,35 @@ def get_template_id(notification_type: str) -> str:
     return getattr(settings, env_field, "") if env_field else ""
 
 
+# DLT caps each {#var#} at 30 characters; a longer value makes the carrier
+# reject the whole SMS as not matching the approved template.
+_DLT_VAR_MAX = 30
+
+
+def _var(value: str) -> str:
+    value = " ".join(value.split())
+    return value if len(value) <= _DLT_VAR_MAX else value[: _DLT_VAR_MAX - 3].rstrip() + "..."
+
+
 def _item(booking: Booking) -> str:
-    return booking.test_name or "your test"
+    return _var(booking.test_name or "your test")
+
+
+def _display_date(value: str) -> str:
+    """'2026-11-02' -> '02 Nov' (shorter, and keeps date + time slot within
+    one DLT variable); anything else is passed through unchanged."""
+    try:
+        return datetime.strptime(value, "%Y-%m-%d").strftime("%d %b")
+    except ValueError:
+        return value
 
 
 def _slot(booking: Booking) -> str:
     if booking.preferred_date and booking.preferred_time:
-        return f"{booking.preferred_date} at {booking.preferred_time}"
-    return booking.preferred_date or booking.preferred_time or "your scheduled slot"
+        return _var(f"{_display_date(booking.preferred_date)} at {booking.preferred_time}")
+    if booking.preferred_date:
+        return _var(_display_date(booking.preferred_date))
+    return _var(booking.preferred_time or "your scheduled slot")
 
 
 def build_default(notification_type: str, booking: Booking) -> tuple[str, str]:
@@ -63,7 +86,7 @@ def build_default(notification_type: str, booking: Booking) -> tuple[str, str]:
     ``NETTYFISH_DLT_TEMPLATES.md``. Do not tweak the sentence structure here
     without re-submitting the matching DLT template for approval.
     """
-    name = booking.patient_name.split(" ")[0] if booking.patient_name else "there"
+    name = _var(booking.patient_name.split(" ")[0]) if booking.patient_name else "there"
 
     if notification_type == "booking_received":
         subject = f"{_BRAND}: Booking request received"

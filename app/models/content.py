@@ -1,9 +1,11 @@
-"""CMS content models: Doctor, Banner, BlogPost, FAQ."""
+"""CMS content models: Doctor, Banner, BlogPost, FAQ, Review, Gallery, SiteSettings, ContentBlock."""
 from __future__ import annotations
 
 import uuid
+from datetime import datetime
+from typing import Any
 
-from sqlalchemy import Boolean, Integer, String, Text
+from sqlalchemy import JSON, Boolean, DateTime, Integer, String, Text, func
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -136,3 +138,20 @@ class SiteSettings(Base, TimestampMixin):
     phone_display: Mapped[str] = mapped_column(String(20), default="+91 9964 639639", nullable=False)
     phone_e164: Mapped[str] = mapped_column(String(20), default="+919964639639", nullable=False)
     whatsapp_number: Mapped[str] = mapped_column(String(20), default="919964639639", nullable=False)
+
+
+class ContentBlock(Base):
+    """Admin-managed JSON document keyed by name, for CMS sections that don't
+    warrant their own table: website branding/navigation/footer copy
+    ("website"), careers openings, departments, per-page SEO overrides,
+    marketing coupons and the admin activity log. Which keys exist, and which
+    are publicly readable, is defined in ``app.services.content_service``.
+    """
+
+    __tablename__ = "content_blocks"
+
+    key: Mapped[str] = mapped_column(String(64), primary_key=True)
+    data: Mapped[Any] = mapped_column(JSON, nullable=False)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False
+    )

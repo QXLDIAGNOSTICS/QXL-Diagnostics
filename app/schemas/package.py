@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import uuid
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class HealthPackageBase(BaseModel):
@@ -106,3 +106,22 @@ class TestCatalogRead(BaseModel):
 class TestCatalogList(BaseModel):
     items: list[TestCatalogRead]
     count: int
+
+
+class CatalogResolveRequest(BaseModel):
+    names: list[str] = Field(min_length=1, max_length=500)
+
+
+class CatalogResolveMatch(BaseModel):
+    query: str
+    kind: str  # "test" | "package"
+    id: uuid.UUID
+    name: str
+    price: int | None = None
+    home_collection_available: bool = True
+
+
+class CatalogResolveResponse(BaseModel):
+    # One entry per requested name, in order; null when nothing matches
+    # (booking that name would be rejected).
+    results: list[CatalogResolveMatch | None]

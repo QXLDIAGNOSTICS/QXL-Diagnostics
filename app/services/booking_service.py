@@ -2,8 +2,9 @@
 from __future__ import annotations
 
 import asyncio
+import re
 import uuid
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -12,6 +13,7 @@ from app.core.config import settings
 from app.core.exceptions import NotFoundError, ValidationError
 from app.core.logging import get_logger
 from app.models.booking import Booking
+from app.models.catalog import HealthPackage, TestCatalog
 from app.models.user import User
 from app.repositories.booking_repository import BookingRepository
 from app.repositories.package_repository import HealthPackageRepository, TestCatalogRepository
@@ -44,88 +46,253 @@ _IST = ZoneInfo("Asia/Kolkata")
 _PAYMENT_REMINDER_DELAY_HOURS = 3
 
 
-def _parse_slot_datetime(date_str: str, time_str: str) -> datetime | None:
-    """Best-effort parse of preferred_date ('YYYY-MM-DD') + preferred_time
-    ('6:30 AM' / '3:10 PM') into an IST-aware datetime. Returns None if either
-    value is missing/unparseable — callers should skip validation in that case
-    rather than reject an otherwise-valid booking."""
-    try:
-        d = datetime.strptime(date_str, "%Y-%m-%d").date()
-        t = datetime.strptime(time_str.strip().upper(), "%I:%M %p").time()
-        return datetime.combine(d, t, tzinfo=_IST)
-    except (ValueError, AttributeError):
+_DATE_FORMATS = (
+    "%Y-%m-%d",
+    "%d-%m-%Y",
+    "%d/%m/%Y",
+    "%d %b %Y",
+    "%d %B %Y",
+    "%b %d %Y",
+    "%B %d %Y",
+)
+# Formats without a year (e.g. the /book page's "16 Sep" date chips).
+_YEARLESS_DATE_FORMATS = ("%d %b", "%d %B", "%b %d", "%B %d")
+_URGENT_MARKERS = ("urgent", "asap", "next 60", "within 60", "immediate")
+# "6:30 AM" / "7 am" / "6.30 p.m." (groups 1-3), or a bare 24h "14:30" (groups 4-5).
+_TIME_TOKEN = re.compile(
+    r"(\d{1,2})(?:[:.](\d{2}))?\s*([ap])\.?\s*m\b\.?|(\d{1,2})[:.](\d{2})", re.I
+)
+
+
+def _normalize_date(raw: str) -> date | None:
+    """Parse the preferred date the various website forms send — ISO
+    ('2026-11-02', or an ISO datetime), 'DD-MM-YYYY', '16 Sep', 'Mon, 16 Sep',
+    'today', 'tomorrow' — into a date (IST). Year-less dates resolve to the
+    next occurrence of that day."""
+    s = (raw or "").strip()
+    if not s:
         return None
+    today = datetime.now(_IST).date()
+    lowered = s.lower()
+    if lowered.startswith("today"):
+        return today
+    if lowered.startswith("tomorrow"):
+        return today + timedelta(days=1)
+    if re.match(r"^\d{4}-\d{2}-\d{2}T", s):
+        s = s[:10]
+    # Drop a leading weekday ("Mon, 16 Sep" / "Monday 16 Sep") and ordinal suffixes ("16th").
+    s = re.sub(r"^[A-Za-z]{3,9},?\s+(?=\d)", "", s)
+    s = re.sub(r"(\d)(st|nd|rd|th)\b", r"\1", s, flags=re.I).replace(",", " ")
+    s = re.sub(r"\s+", " ", s).strip()
+    for fmt in _DATE_FORMATS:
+        try:
+            return datetime.strptime(s, fmt).date()
+        except ValueError:
+            continue
+    for fmt in _YEARLESS_DATE_FORMATS:
+        try:
+            parsed = datetime.strptime(f"{s} {today.year}", f"{fmt} %Y").date()
+        except ValueError:
+            continue
+        # "2 Jan" picked in late December means next January, not last.
+        if parsed < today - timedelta(days=180):
+            parsed = parsed.replace(year=today.year + 1)
+        return parsed
+    return None
+
+
+def _fmt_time(t: time) -> str:
+    hour = t.hour % 12 or 12
+    return f"{hour}:{t.minute:02d} {'AM' if t.hour < 12 else 'PM'}"
+
+
+def _normalize_time(raw: str) -> tuple[str, time | None, time | None, bool] | None:
+    """Parse a preferred time slot into ``(label, start, end, is_urgent)``.
+
+    Accepts a single time ('6:30 AM', '06:30 am', '14:30') or a window
+    ('6:00 – 8:00 AM', '07:00 AM - 10:00 AM', '10:00 AM – 12:00 PM'), plus
+    the /book page's 'Next 60 Minutes (Urgent)' option. The returned label is
+    canonical ASCII ('6:30 AM' / '6:00 AM - 8:00 AM' / 'Urgent (within 1 hr)')
+    so slot-capacity counts group identical slots and SMS bodies stay GSM-7
+    safe and inside DLT's 30-character variable limit."""
+    s = (raw or "").strip()
+    if not s:
+        return None
+    if any(marker in s.lower() for marker in _URGENT_MARKERS):
+        return "Urgent (within 1 hr)", None, None, True
+
+    tokens: list[tuple[int, int, str | None]] = []
+    for m in _TIME_TOKEN.finditer(s):
+        if m.group(1) is not None:
+            tokens.append((int(m.group(1)), int(m.group(2) or 0), m.group(3).lower()))
+        else:
+            tokens.append((int(m.group(4)), int(m.group(5)), None))
+    if not tokens:
+        return None
+
+    def _to_time(hour: int, minute: int, meridiem: str | None) -> time | None:
+        if minute > 59:
+            return None
+        if meridiem is None:
+            return time(hour, minute) if hour <= 23 else None
+        if not 1 <= hour <= 12:
+            return None
+        hour = hour % 12 + (12 if meridiem == "p" else 0)
+        return time(hour, minute)
+
+    first, last = tokens[0], tokens[-1]
+    end = _to_time(*last) if len(tokens) > 1 else None
+    if len(tokens) > 1 and first[2] is None and last[2] is not None:
+        # "6:00 – 8:00 AM": the start inherits the end's meridiem, unless that
+        # would put it after the end ("10:00 – 12:00 PM" starts at 10 AM).
+        start = _to_time(first[0], first[1], last[2])
+        if start is not None and end is not None and start > end:
+            start = _to_time(first[0], first[1], "a" if last[2] == "p" else "p")
+    else:
+        start = _to_time(*first)
+    if start is None or (len(tokens) > 1 and end is None):
+        return None
+
+    label = _fmt_time(start) if end is None else f"{_fmt_time(start)} - {_fmt_time(end)}"
+    return label, start, end, False
 
 
 async def _validate_slot(db: AsyncSession, data: dict) -> None:
-    """Reject bookings for a slot that has already passed, or that's already
-    at capacity (see ``MAX_BOOKINGS_PER_SLOT``) — prevents everyone piling
-    into the same popular 10-minute window.
+    """Normalize the preferred date/time, then reject bookings for a slot that
+    has already passed, or that's already at capacity (see
+    ``MAX_BOOKINGS_PER_SLOT``) — prevents everyone piling into the same
+    popular 10-minute window.
 
     A preferred date AND time are mandatory for every booking — this is the
     one choke point every creation path funnels through (the public API's
     ``BookingCreate`` schema, and the chat assistant's ``create_booking``
     tool, which calls this service directly with a raw dict and so never
-    goes through that schema's own validation)."""
-    date_str = (data.get("preferred_date") or "").strip()
-    time_str = (data.get("preferred_time") or "").strip()
-    if not date_str or not time_str:
+    goes through that schema's own validation). ``data`` is updated in place
+    with the ISO date and canonical time label so admin date filters, stats
+    and reminders all see one consistent format."""
+    date_raw = (data.get("preferred_date") or "").strip()
+    time_raw = (data.get("preferred_time") or "").strip()
+    if not date_raw or not time_raw:
         raise ValidationError("Please select a preferred date and time slot for your booking.")
 
-    slot_dt = _parse_slot_datetime(date_str, time_str)
-    if slot_dt is None:
+    slot_date = _normalize_date(date_raw)
+    parsed_time = _normalize_time(time_raw)
+    if slot_date is None or parsed_time is None:
         raise ValidationError(
             "Preferred date/time could not be understood. Please pick a date and time slot again."
         )
-    if slot_dt < datetime.now(_IST):
+    label, start, end, is_urgent = parsed_time
+    date_str = slot_date.isoformat()
+    data["preferred_date"] = date_str
+    data["preferred_time"] = label
+
+    now = datetime.now(_IST)
+    if is_urgent:
+        if slot_date < now.date():
+            raise ValidationError("That date has already passed. Please choose a later date.")
+        data["is_urgent"] = True
+        return
+
+    # A window ("6:00 AM - 8:00 AM") stays bookable until it ends.
+    cutoff = datetime.combine(slot_date, end or start, tzinfo=_IST)
+    if cutoff < now:
         raise ValidationError(
             "That time slot has already passed. Please choose a later slot."
         )
 
     counts = await BookingRepository(db).counts_by_time_for_date(date_str)
-    if counts.get(time_str, 0) >= settings.MAX_BOOKINGS_PER_SLOT:
+    if counts.get(label, 0) >= settings.MAX_BOOKINGS_PER_SLOT:
         raise ValidationError(
-            f"The {time_str} slot on {date_str} is fully booked. Please choose another time."
+            f"The {label} slot on {date_str} is fully booked. Please choose another time."
         )
 
 
 def _normalize_catalog_name(name: str) -> str:
     import re
 
-    return re.sub(r"[^a-z0-9]+", " ", (name or "").lower()).strip()
+    name = (name or "").lower().replace("&", " and ")
+    return re.sub(r"[^a-z0-9]+", " ", name).strip()
 
 
-def _best_catalog_match[T](query: str, items: list[T], *, name_getter) -> T | None:
-    """Exact → substring → token-overlap match, same rules as the /book page."""
+def _contains_words(haystack: list[str], needle: list[str]) -> bool:
+    n = len(needle)
+    if not 0 < n <= len(haystack):
+        return False
+    return any(haystack[i : i + n] == needle for i in range(len(haystack) - n + 1))
+
+
+def _catalog_match_stage[T](
+    query: str, items: list[T], *, name_getter, stage: str
+) -> T | None:
+    """One matching pass over ``items``:
+
+    - ``exact``: same normalized name ("Lipid Profile" == "LIPID PROFILE").
+    - ``contained``: one name is a whole-word run inside the other ("CBC" in
+      "Complete Blood Count (CBC)"); the closest-length candidate wins.
+
+    Deliberately no looser word-overlap matching — that conflated distinct
+    tests ("Kidney Function Test Panel" -> "Liver Function Test Panel",
+    "CA 19-9" -> "CA 125"), booking the wrong test at the wrong price.
+    """
     nq = _normalize_catalog_name(query)
     if not nq or not items:
         return None
+    if stage == "exact":
+        return next((i for i in items if _normalize_catalog_name(name_getter(i)) == nq), None)
 
-    for item in items:
-        if _normalize_catalog_name(name_getter(item)) == nq:
-            return item
-
-    for item in items:
-        nc = _normalize_catalog_name(name_getter(item))
-        if nq in nc or nc in nq:
-            return item
-
-    query_tokens = {t for t in nq.split() if len(t) > 2}
-    if not query_tokens:
-        return None
-
+    q_words = nq.split()
     best: T | None = None
-    best_overlap = 0
+    best_gap: int | None = None
     for item in items:
-        item_tokens = [t for t in _normalize_catalog_name(name_getter(item)).split() if len(t) > 2]
-        if not item_tokens:
-            continue
-        overlap = sum(1 for t in item_tokens if t in query_tokens)
-        threshold = min(len(query_tokens), len(item_tokens)) * 0.5
-        if overlap > best_overlap and overlap >= threshold:
-            best_overlap = overlap
-            best = item
+        words = _normalize_catalog_name(name_getter(item)).split()
+        if _contains_words(words, q_words) or _contains_words(q_words, words):
+            gap = abs(len(words) - len(q_words))
+            if best_gap is None or gap < best_gap:
+                best, best_gap = item, gap
     return best
+
+
+_MATCH_STAGES = ("exact", "contained")
+
+
+def _best_catalog_match[T](query: str, items: list[T], *, name_getter) -> T | None:
+    """Exact → whole-word containment match (see ``_catalog_match_stage``)."""
+    for stage in _MATCH_STAGES:
+        match = _catalog_match_stage(query, items, name_getter=name_getter, stage=stage)
+        if match is not None:
+            return match
+    return None
+
+
+async def resolve_catalog_name(
+    db: AsyncSession,
+    name: str,
+    *,
+    tests: list[TestCatalog] | None = None,
+    packages: list[HealthPackage] | None = None,
+) -> tuple[str, TestCatalog | HealthPackage] | None:
+    """The active test or package a free-text name books, as
+    ``("test" | "package", row)`` — the single rule used both when creating a
+    booking and when a checkout page asks what an item will cost.
+
+    The catalog is small (a few hundred rows), so this matches against all of
+    it rather than an SQL ILIKE on the full name, which missed spelling
+    variants. Each stage checks tests then packages before falling back to
+    the looser stage, so an exact package name is never shadowed by a
+    partial test-name match. Pass ``tests``/``packages`` to reuse one load
+    across many lookups."""
+    if tests is None:
+        tests = await TestCatalogRepository(db).get_all_active()
+    if packages is None:
+        packages = await HealthPackageRepository(db).get_all_active()
+    for stage in _MATCH_STAGES:
+        test = _catalog_match_stage(name, tests, name_getter=lambda t: t.name, stage=stage)
+        if test is not None:
+            return "test", test
+        package = _catalog_match_stage(name, packages, name_getter=lambda p: p.name, stage=stage)
+        if package is not None:
+            return "package", package
+    return None
 
 
 async def _resolve_catalog_selection(db: AsyncSession, data: dict) -> dict:
@@ -172,32 +339,18 @@ async def _resolve_catalog_selection(db: AsyncSession, data: dict) -> dict:
         return data
 
     if test_name:
-        test_matches = await test_repo.search(test_name, limit=20)
-        test_match = _best_catalog_match(test_name, test_matches, name_getter=lambda t: t.name)
-        if test_match is not None:
-            if collection_type == "home" and not test_match.home_collection_available:
+        match = await resolve_catalog_name(db, test_name)
+        if match is not None:
+            kind, item = match
+            if collection_type == "home" and not item.home_collection_available:
                 raise ValidationError(
-                    f"'{test_match.name}' is only available as a center visit, not home collection."
+                    f"'{item.name}' is only available as a center visit, not home collection."
                 )
-            data["test_id"] = test_match.id
-            data["test_name"] = test_match.name
-            if test_match.price is not None:
-                data["amount_paise"] = int(test_match.price) * 100
-            return data
-
-        pkg_repo = HealthPackageRepository(db)
-        pkg_matches = await pkg_repo.search(test_name, limit=20)
-        pkg_match = _best_catalog_match(test_name, pkg_matches, name_getter=lambda p: p.name)
-        if pkg_match is not None:
-            if collection_type == "home" and not pkg_match.home_collection_available:
-                raise ValidationError(
-                    f"'{pkg_match.name}' is only available as a center visit, not home collection."
-                )
-            data["package_id"] = pkg_match.id
-            data["test_id"] = None
-            data["test_name"] = pkg_match.name
-            if pkg_match.price is not None:
-                data["amount_paise"] = int(pkg_match.price) * 100
+            data["test_id"] = item.id if kind == "test" else None
+            data["package_id"] = item.id if kind == "package" else None
+            data["test_name"] = item.name
+            if item.price is not None:
+                data["amount_paise"] = int(item.price) * 100
             return data
 
         raise ValidationError(
@@ -461,10 +614,14 @@ async def reschedule(
 ) -> Booking:
     repo = BookingRepository(db)
     booking = await _get_or_404(repo, booking_id)
+    # Staff may move a booking to any slot (no past/capacity checks), but keep
+    # the stored format consistent with new bookings when it's parseable.
+    parsed_date = _normalize_date(preferred_date)
+    parsed_time = _normalize_time(preferred_time)
     booking = await repo.update(
         booking,
-        preferred_date=preferred_date,
-        preferred_time=preferred_time,
+        preferred_date=parsed_date.isoformat() if parsed_date else preferred_date,
+        preferred_time=parsed_time[0] if parsed_time else preferred_time,
         status="confirmed",
         was_rescheduled=True,
     )

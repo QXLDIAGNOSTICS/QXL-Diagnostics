@@ -11,6 +11,9 @@ class CreateOrderRequest(BaseModel):
     a single test/package booking is just a list of one."""
 
     booking_ids: list[uuid.UUID] = Field(min_length=1)
+    # Set by checkout pages that display the home-collection fee, so the
+    # amount charged matches the total the patient was shown.
+    apply_home_collection_fee: bool = False
 
 
 class CreateOrderResponse(BaseModel):
@@ -21,6 +24,7 @@ class CreateOrderResponse(BaseModel):
     amount: int
     currency: str
     booking_ids: list[uuid.UUID]
+    collection_fee: int = 0  # paise, included in ``amount``
     name: str = "QXL Diagnostics"
     description: str = "Diagnostic test / package booking"
 
