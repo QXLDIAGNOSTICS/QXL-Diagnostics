@@ -5,6 +5,14 @@ import { Truck, Plus, Search, X, Check, MapPin, Calendar, Ban, Loader2 } from "l
 import { api, type Booking, type HealthPackage, type TestCatalogItem } from "@/lib/api";
 import PaginationBar from "@/components/admin/PaginationBar";
 
+const PAYMENT_STYLES: Record<string, string> = {
+  paid: "bg-emerald-50 text-emerald-700",
+  unpaid: "bg-amber-50 text-amber-700",
+  pending: "bg-amber-50 text-amber-700",
+  failed: "bg-red-50 text-red-700",
+  refunded: "bg-gray-100 text-gray-600",
+};
+
 const STATUS_STYLES: Record<string, string> = {
   pending: "bg-orange-100 text-orange-700",
   confirmed: "bg-blue-100 text-blue-700",
@@ -192,6 +200,7 @@ export default function HomeCollectionPage() {
                   <th className="px-6 py-4">Patient & Phone</th>
                   <th className="px-6 py-4">Visit Address</th>
                   <th className="px-6 py-4">Required Test/Package</th>
+                  <th className="px-6 py-4">Payment</th>
                   <th className="px-6 py-4">Schedule Date</th>
                   <th className="px-6 py-4">Collection Status</th>
                   <th className="px-6 py-4 text-right">Actions</th>
@@ -210,7 +219,26 @@ export default function HomeCollectionPage() {
                         {hc.collection_address || "—"}
                       </div>
                     </td>
-                    <td className="px-6 py-4 font-bold text-sky-650 dark:text-sky-400">{hc.test_name || "—"}</td>
+                    <td className="px-6 py-4 font-bold text-sky-650 dark:text-sky-400">
+                      <div>{hc.test_name || "—"}</div>
+                      <div className="text-[9px] font-black uppercase tracking-wider text-gray-400 mt-0.5">
+                        {hc.package_id ? "Package" : "Test"}
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <span
+                        className={`px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase ${
+                          PAYMENT_STYLES[hc.payment_status] || "bg-gray-100 text-gray-700"
+                        }`}
+                      >
+                        {hc.payment_status || "unpaid"}
+                      </span>
+                      {hc.amount_paise ? (
+                        <div className="text-[11px] font-bold text-slate-700 dark:text-slate-300 mt-1">
+                          ₹{(hc.amount_paise / 100).toLocaleString("en-IN")}
+                        </div>
+                      ) : null}
+                    </td>
                     <td className="px-6 py-4 font-medium flex items-center gap-1.5 mt-2">
                       <Calendar className="w-3.5 h-3.5 text-gray-400" />
                       {hc.preferred_date || "—"}
