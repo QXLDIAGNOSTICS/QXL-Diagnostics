@@ -136,6 +136,10 @@ async def create_login_challenge(
     await db.commit()
     await db.refresh(challenge)
 
+    if not settings.is_production:
+        # Dev convenience only: never log OTPs in production.
+        logger.info("[DEV] Login OTP for %s: %s", user.phone, raw_otp)
+
     await notification_service.send_sms(
         user.phone,
         "Dear Customer, your verification code for QXL Diagnostics is "
