@@ -74,7 +74,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     doctorRecommended: true,
     params: 80,
     fasting: true,
-    tat: "Reports by next morning",
+    tat: "12 Hours (Same Day)",
     icon: "body",
     cat: "fullbody",
     keys: "quick fit basic checkup working professional organ immunity vitamin d hba1c lipid lft kft cbc tsh",
@@ -97,7 +97,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     doctorRecommended: true,
     params: 62,
     fasting: true,
-    tat: "Reports by next morning",
+    tat: "12 Hours (Same Day)",
     icon: "drop",
     cat: "diabetes",
     keys: "diabetes q-screen sugar fbs hba1c c-peptide microalbumin kidney impact lipid lft kft tsh cbc",
@@ -120,7 +120,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     doctorRecommended: true,
     params: 92,
     fasting: true,
-    tat: "Reports by next morning",
+    tat: "12 Hours (Same Day)",
     icon: "body",
     cat: "fullbody",
     keys: "master health pro annual full body screening apo a1 apo b homa ir gastritis h pylori hs-crp vitamin b12 d",
@@ -142,8 +142,8 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     savings: 5760,
     doctorRecommended: true,
     params: 30,
-    fasting: true,
-    tat: "Reports in 24-48 hrs",
+    fasting: false,
+    tat: "24 Hours",
     icon: "body",
     cat: "fullbody",
     keys: "arthritis autoimmune joint pain rf anti ccp ana dhea-s cortisol bone health calcium vitamin d b12",
@@ -166,7 +166,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     doctorRecommended: true,
     params: 15,
     fasting: false,
-    tat: "Reports in 24-48 hrs",
+    tat: "24–48 Hours",
     icon: "vial",
     cat: "fullbody",
     keys: "oncoscreen cancer tumor markers afp cea psa ca125 ca199 fobt calprotectin protein electrophoresis",
@@ -189,7 +189,7 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
     doctorRecommended: true,
     params: 26,
     fasting: true,
-    tat: "Reports in 24 hrs",
+    tat: "24 Hours",
     icon: "heart",
     cat: "heart",
     keys: "hypertension cardiac cardiovascular heart risk nt-probnp homocysteine lipoprotein a apo b fibrinogen cortisol",
@@ -199,25 +199,12 @@ export const SPECIALITY_PACKAGES: TestItem[] = [
 
 const INITIAL_TESTS: TestItem[] = [
   ...SPECIALITY_PACKAGES,
-  { id: "fb1", name: "Full Body Checkup – Essential", cat: "fullbody", params: 65, price: 1199, mrp: 2400, fasting: true, tat: "Reports by next morning", icon: "body", keys: "annual master health complete cbc sugar lipid liver kidney thyroid urine", popular: true },
-  { id: "fb2", name: "Full Body Checkup – Advanced", cat: "fullbody", params: 92, price: 2499, mrp: 4999, fasting: true, tat: "Reports by next morning", icon: "body", keys: "annual master health complete vitamin d b12 hba1c iron hs-crp", popular: true },
-  { id: "sr1", name: "Senior Citizen Health Check", cat: "fullbody", params: 78, price: 2199, mrp: 4200, fasting: true, tat: "Reports by next morning", icon: "body", keys: "elderly parents 60 plus" },
-  { id: "db1", name: "Diabetes Care Panel", cat: "diabetes", params: 9, price: 899, mrp: 1600, fasting: true, tat: "Reports same day", icon: "drop", keys: "sugar glucose hba1c fbs ppbs microalbumin", popular: true },
-  { id: "db2", name: "HbA1c (Glycated Haemoglobin)", cat: "diabetes", params: 3, price: 380, mrp: 720, fasting: false, tat: "Reports in 6 hrs", icon: "drop", keys: "sugar glucose a1c 3 month average", popular: true },
-  { id: "th1", name: "Thyroid Profile (T3, T4, TSH)", cat: "thyroid", params: 3, price: 350, mrp: 550, fasting: false, tat: "Reports same day", icon: "thyroid", keys: "tsh t3 t4 hypothyroid weight hair fall", popular: true },
-  { id: "ht1", name: "Heart Health Panel", cat: "heart", params: 15, price: 1299, mrp: 2500, fasting: true, tat: "Reports same day", icon: "heart", keys: "cardiac cholesterol lipid hs-crp lp(a) apo" },
-  { id: "ht2", name: "Lipid Profile", cat: "heart", params: 8, price: 336, mrp: 800, fasting: true, tat: "Reports same day", icon: "heart", keys: "cholesterol triglycerides ldl hdl" },
-  { id: "apob-test", name: "Apolipoprotein B (ApoB)", cat: "heart", params: 1, price: 550, mrp: 665, fasting: false, tat: "Reports in 12 hrs", icon: "heart", keys: "apob apolipoprotein b cardiac atherogenic ldl vldl plaque", popular: true },
-  { id: "wm1", name: "Women's Wellness Panel", cat: "women", params: 55, price: 1899, mrp: 3600, fasting: true, tat: "Reports by next morning", icon: "women", keys: "female cbc thyroid vitamin iron calcium", popular: true },
-  { id: "wm2", name: "PCOS Profile", cat: "women", params: 8, price: 1999, mrp: 3400, fasting: true, tat: "Reports in 24 hrs", icon: "women", keys: "pcod hormone lh fsh prolactin testosterone insulin" },
-  { id: "vt1", name: "Vitamin D (25-OH)", cat: "vitamins", params: 1, price: 410, mrp: 1300, fasting: false, tat: "Reports same day", icon: "sun", keys: "vit d3 bone fatigue", popular: true },
-  { id: "vt2", name: "Vitamin B12", cat: "vitamins", params: 1, price: 600, mrp: 1600, fasting: false, tat: "Reports same day", icon: "sun", keys: "cobalamin tingling numbness fatigue", popular: true },
-  { id: "vt3", name: "Iron Profile", cat: "vitamins", params: 4, price: 799, mrp: 1400, fasting: true, tat: "Reports same day", icon: "drop", keys: "ferritin tibc transferrin anaemia anemia" },
-  { id: "fv1", name: "Fever Panel", cat: "fever", params: 7, price: 1499, mrp: 2600, fasting: false, tat: "Reports in 6 hrs", icon: "thermo", keys: "dengue malaria typhoid crp viral" },
-  { id: "fv2", name: "Complete Blood Count (CBC)", cat: "fever", params: 26, price: 250, mrp: 350, fasting: false, tat: "Reports in 6 hrs", icon: "drop", keys: "haemoglobin hemoglobin platelets wbc infection", popular: true },
-  { id: "og1", name: "Liver Function Test (LFT)", cat: "organ", params: 11, price: 425, mrp: 780, fasting: true, tat: "Reports same day", icon: "vial", keys: "sgot sgpt bilirubin fatty liver alcohol" },
-  { id: "og2", name: "Kidney Function Test (KFT)", cat: "organ", params: 10, price: 425, mrp: 1150, fasting: false, tat: "Reports same day", icon: "vial", keys: "rft creatinine urea uric acid egfr" },
-  { id: "ss1", name: "GAD-65 Antibody (Type 1 Diabetes)", cat: "super", params: 1, price: 6400, mrp: 6400, fasting: false, tat: "Reports in 3–5 days", icon: "dna", keys: "autoantibody islet type 1 super speciality" }
+  { id: "fb1", name: "Full Body Checkup – Essential", cat: "fullbody", params: 65, price: 1199, mrp: 2400, fasting: true, tat: "12 Hours (Same Day)", icon: "body", keys: "annual master health complete cbc sugar lipid liver kidney thyroid urine", popular: true },
+  { id: "fb2", name: "Full Body Checkup – Advanced", cat: "fullbody", params: 92, price: 2499, mrp: 4999, fasting: true, tat: "12 Hours (Same Day)", icon: "body", keys: "annual master health complete vitamin d b12 hba1c iron hs-crp", popular: true },
+  { id: "sr1", name: "Senior Citizen Health Check", cat: "fullbody", params: 78, price: 2199, mrp: 4200, fasting: true, tat: "12 Hours (Same Day)", icon: "body", keys: "elderly parents 60 plus" },
+  { id: "wm1", name: "Women's Wellness Panel", cat: "women", params: 55, price: 1899, mrp: 3600, fasting: true, tat: "12 Hours (Same Day)", icon: "women", keys: "female cbc thyroid vitamin iron calcium", popular: true },
+  { id: "wm2", name: "PCOS Profile", cat: "women", params: 8, price: 1999, mrp: 3400, fasting: true, tat: "24 Hours", icon: "women", keys: "pcod hormone lh fsh prolactin testosterone insulin" },
+  { id: "ss1", name: "GAD-65 Antibody (Type 1 Diabetes)", cat: "super", params: 1, price: 6400, mrp: 6400, fasting: false, tat: "3–5 Days", icon: "dna", keys: "autoantibody islet type 1 super speciality" }
 ];
 
 const CATS = [
@@ -377,8 +364,11 @@ export default function BookPage() {
     }));
 
     setAllTests((prev) => {
-      const existing = new Set(prev.map((t) => t.id));
-      const fresh = masterItems.filter((i) => !existing.has(i.id));
+      const existingIds = new Set(prev.map((t) => t.id.toLowerCase()));
+      const existingNames = new Set(prev.map((t) => t.name.toLowerCase().trim()));
+      const fresh = masterItems.filter(
+        (i) => !existingIds.has(i.id.toLowerCase()) && !existingNames.has(i.name.toLowerCase().trim())
+      );
       return [...prev, ...fresh];
     });
 
@@ -443,24 +433,56 @@ export default function BookPage() {
     "onco-screen": "q-oncoscreen",
     "q-oncoscreen": "q-oncoscreen",
     "pkg-oncoscreen": "q-oncoscreen",
-    "cbc": "fv2",
-    "cbc-test": "fv2",
-    "complete-blood-count": "fv2",
-    "hba1c": "db2",
-    "hba1c-test": "db2",
-    "thyroid": "th1",
-    "thyroid-profile": "th1",
-    "thyroid-test": "th1",
-    "vitamin-d": "vt1",
-    "vitamin-d-test": "vt1",
-    "vitamin-b12": "vt2",
-    "vitamin-b12-test": "vt2",
-    "lipid-profile": "ht2",
-    "lft": "og1",
-    "kft": "og2",
-    "apob": "apob-test",
-    "apob-test": "apob-test",
-    "apolipoprotein-b": "apob-test"
+
+    // Canonical single test aliases
+    "cbc": "cbc",
+    "cbc-test": "cbc",
+    "complete-blood-count": "cbc",
+    "fv2": "cbc",
+
+    "hba1c": "hba1c",
+    "hba1c-test": "hba1c",
+    "db2": "hba1c",
+
+    "fbs": "fbs",
+    "fasting-blood-sugar": "fbs",
+    "fasting-plasma-glucose": "fbs",
+
+    "ppbs": "ppbs",
+    "postprandial-blood-glucose": "ppbs",
+
+    "thyroid": "thyroid-profile",
+    "thyroid-profile": "thyroid-profile",
+    "thyroid-test": "thyroid-profile",
+    "th1": "thyroid-profile",
+
+    "vitamin-d": "vitamin-d",
+    "vitamin-d-test": "vitamin-d",
+    "vt1": "vitamin-d",
+
+    "vitamin-b12": "vitamin-b12",
+    "vitamin-b12-test": "vitamin-b12",
+    "vt2": "vitamin-b12",
+
+    "lipid-profile": "lipid-profile",
+    "lipid-profile-test": "lipid-profile",
+    "ht2": "lipid-profile",
+
+    "lft": "lft",
+    "liver-function-test": "lft",
+    "og1": "lft",
+
+    "kft": "kft",
+    "kidney-function-test": "kft",
+    "og2": "kft",
+
+    "iron-profile": "iron-profile",
+    "iron-profile-test": "iron-profile",
+    "vt3": "iron-profile",
+
+    "apob": "apob",
+    "apob-test": "apob",
+    "apolipoprotein-b": "apob"
   };
 
   const resolveItemId = (queryStr: string): string | null => {

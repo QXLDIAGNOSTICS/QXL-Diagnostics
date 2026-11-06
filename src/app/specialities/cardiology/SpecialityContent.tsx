@@ -7,7 +7,7 @@ const SPECIALITIES = ["Neurology","Hematology","Cardiology","Urology","Endocrino
 
 const faqs = [
   { q: "How often should I get a lipid profile?", a: "Healthy adults should get a lipid profile at least once a year. Those with risk factors like hypertension, diabetes, obesity, smoking, or a family history of heart disease should test every 3–6 months as advised by their physician." },
-  { q: "What is a cardiac biomarker test and when is it ordered?", a: "It measures specific proteins (Troponin I/T, CK-MB, NT-proBNP) released when heart muscle is damaged. It is ordered in emergency evaluation of chest pain, breathlessness, suspected heart attack, or to monitor heart failure." },
+  { q: "What is a cardiac biomarker test and when is it ordered?", a: "Cardiac biomarkers measure specific proteins (Troponin I/T, CK-MB, NT-proBNP) released when heart muscle is injured or strained. In outpatient settings, they support cardiac risk stratification, secondary prevention, and heart failure monitoring under physician guidance. ⚠️ Emergency Note: New, severe or persistent chest pain—especially with breathlessness, sweating, fainting, nausea or pain spreading to the arm, back or jaw—requires urgent medical evaluation. Do not delay emergency hospital care to arrange routine outpatient laboratory testing or home blood collection. Call 112 or visit the nearest emergency department immediately." },
   { q: "Why are hs-CRP, Homocysteine, and Lp(a) important?", a: "These are advanced cardiovascular risk markers that predict risk of plaque buildup and atherosclerosis even when routine cholesterol appears normal. They are especially useful in patients with borderline lipid results." },
   { q: "What preparation is needed for cardiac blood tests?", a: "Most lipid tests require 10–12 hours of fasting. Cardiac enzyme tests (Troponin, CK-MB) do not require fasting. Please inform the phlebotomist of all medications you take." },
 ];
@@ -59,6 +59,23 @@ export default function CardiologyPage() {
                 At QXL Diagnostics, our cardiology testing goes beyond a routine lipid profile. We provide advanced cardiovascular risk profiling, cardiac emergency markers, hypertension workup, and inflammation-based atherosclerosis assessment — all with consultant-reviewed reports and AI-assisted diagnostic intelligence.
               </p>
             </section>
+
+            {/* Medical Emergency Warning Callout */}
+            <div className="bg-rose-50 border-2 border-rose-300 rounded-2xl p-5 shadow-sm">
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center shrink-0 font-black text-lg">
+                  ⚠️
+                </div>
+                <div>
+                  <h3 className="text-base font-extrabold text-rose-950 mb-1">
+                    Emergency Medical Notice: Acute Chest Pain Protocol
+                  </h3>
+                  <p className="text-xs sm:text-sm text-rose-900 leading-relaxed font-medium">
+                    New, severe or persistent chest pain—especially with breathlessness, sweating, fainting, nausea or pain spreading to the arm, back or jaw—requires <strong>urgent medical evaluation</strong>. Do not delay emergency hospital care to arrange routine outpatient laboratory testing or home blood collection. <strong>Call 112 or visit the nearest emergency department immediately.</strong>
+                  </p>
+                </div>
+              </div>
+            </div>
 
             {/* Who Should Take */}
             <section className="bg-sky-50 border border-sky-200 rounded-2xl p-6">
@@ -189,6 +206,29 @@ export default function CardiologyPage() {
                     </Link>
                   </li>
                 ))}
+              </ul>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-2xl p-5">
+              <h3 className="text-base font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">Cardiovascular Clinical Guides</h3>
+              <ul className="space-y-2.5">
+                <li>
+                  <Link href="/blog/mini-stroke-tia-warning-signs-blood-tests-cardiovascular-risk" className="text-gray-700 hover:text-sky-600 text-xs flex items-center justify-between group font-semibold">
+                    <span>Mini-Stroke (TIA) Signs & Risk Markers</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-sky-400 shrink-0" />
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/glp-1-advanced-blood-tests-monitoring-bangalore" className="text-gray-700 hover:text-sky-600 text-xs flex items-center justify-between group font-semibold">
+                    <span>GLP-1 Cardiac & Lipid Monitoring (ApoB, Lp(a))</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-sky-400 shrink-0" />
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide" className="text-gray-700 hover:text-sky-600 text-xs flex items-center justify-between group font-semibold">
+                    <span>ApoB vs LDL-C: Atherogenic Risk Guide</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-sky-400 shrink-0" />
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

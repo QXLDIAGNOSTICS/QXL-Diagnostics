@@ -179,6 +179,21 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/health/chronic-stress-fertility-blood-tests/",
+        destination: "/health/chronic-stress-fertility-blood-tests",
+        permanent: true,
+      },
+      {
+        source: "/blog/chronic-stress-fertility-blood-tests",
+        destination: "/health/chronic-stress-fertility-blood-tests",
+        permanent: true,
+      },
+      {
+        source: "/blog/chronic-stress-fertility-blood-tests/",
+        destination: "/health/chronic-stress-fertility-blood-tests",
+        permanent: true,
+      },
+      {
         source: "/home-blood-test-bangalore",
         destination: "/home-blood-collection-bangalore",
         permanent: true,

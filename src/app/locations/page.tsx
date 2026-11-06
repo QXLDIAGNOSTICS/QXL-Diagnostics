@@ -105,7 +105,7 @@ export default function LocationsIndexPage() {
         <div className="mt-16 bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 text-slate-800 rounded-3xl p-8 text-center shadow-md">
           <h2 className="text-2xl font-black text-[#0B2545] mb-3">Don't see your specific locality?</h2>
           <p className="text-slate-600 text-sm max-w-xl mx-auto mb-6">
-            We cover 100% of pin codes in Bengaluru urban & rural districts. Call or WhatsApp our helpline to schedule an immediate home collection sample pickup.
+            We provide temperature-controlled home sample collection across eligible Bengaluru PIN codes in 60+ localities. Call or WhatsApp our central helpline (+91 9964 639 639) to check your PIN code and schedule a sample pickup.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/book" className="bg-[#2563eb] hover:bg-blue-600 text-white font-extrabold px-8 py-3 rounded-full text-sm">

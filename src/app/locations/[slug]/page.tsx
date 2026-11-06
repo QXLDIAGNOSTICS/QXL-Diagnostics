@@ -313,7 +313,7 @@ export default async function CombinedLocationPage({ params }: Props) {
                     </div>
                     <div>
                       <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Accredited (MC-6849)</h3>
-                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Processed at our NABL Accredited ISO 15189:2022 laboratory with multi-level MD doctor verification.</p>
+                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Processed at our NABL Accredited ISO 15189:2022 laboratory under strict quality control and specialist review.</p>
                     </div>
                   </div>
                   
@@ -333,7 +333,7 @@ export default async function CombinedLocationPage({ params }: Props) {
                     </div>
                     <div>
                       <h3 className="font-extrabold text-slate-800 text-sm mb-1">Same-Day Digital Reports</h3>
-                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Get accurate PDF digital reports sent directly to your WhatsApp and Email within 6 to 12 hours.</p>
+                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Same-day reporting is available for many routine investigations. Specialised investigations have test-specific turnaround times shown at booking.</p>
                     </div>
                   </div>
 

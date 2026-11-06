@@ -36,9 +36,13 @@ export async function GET() {
     }
 
     const priority =
-      b.slug === "personalised-pregnancy-testing-bengaluru"
+      b.slug === "personalised-pregnancy-testing-bengaluru" ||
+      b.slug === "glp-1-advanced-blood-tests-monitoring-bangalore"
         ? "0.95"
-        : b.slug === "shingles-herpes-zoster-symptoms-pcr-test-vaccine-antibodies" ||
+        : b.slug === "getting-shorter-with-age-osteoporosis-warning-signs-bone-density-blood-tests" ||
+          b.slug === "can-chronic-stress-affect-fertility-hormones-blood-tests" ||
+          b.slug === "mini-stroke-tia-warning-signs-blood-tests-cardiovascular-risk" ||
+          b.slug === "shingles-herpes-zoster-symptoms-pcr-test-vaccine-antibodies" ||
           b.slug === "apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide" ||
           b.slug === "your-liver-works-in-silence-simple-blood-test" ||
           b.slug === "vitamin-b12-deficiency-memory-loss-brain-fog-nerve-damage" ||

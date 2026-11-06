@@ -15,6 +15,10 @@ const PACKAGE_PAGES = [
   '/mens-health-checkup',
   '/corporate-health-packages',
   '/raksha-bandhan-health-checkup-bangalore',
+  '/packages/triple-sti-pcr-screen',
+  '/packages/essential-sti-screening',
+  '/packages/vaginal-infection-profile',
+  '/packages/oral-rectal-sti-screening',
 ];
 
 export async function GET() {

@@ -26,7 +26,7 @@ const faqData = [
     "faqs": [
       {
         "q": "What tests check for heart problems causing chest pain or palpitations?",
-        "a": "A Cardiac Risk & Chest Pain Panel includes Lipid Profile, Troponin-I/T, CK-MB, NT-proBNP, hs-CRP, HbA1c, Electrolytes, and usually an ECG to evaluate heart disease and heart attacks."
+        "a": "Emergency Notice: New, severe or persistent chest pain—especially with breathlessness, sweating, fainting, nausea or pain spreading to the arm, back or jaw—requires urgent medical evaluation. Do not delay emergency hospital care to arrange routine laboratory testing. Call 112 or visit the nearest emergency department immediately. For stable outpatient risk assessment under medical guidance, a Cardiac Risk Panel includes Lipid Profile, hs-CRP, NT-proBNP, HbA1c, ApoB, and Electrolytes."
       },
       {
         "q": "Who should get a cardiac risk panel done?",

@@ -1,0 +1,108 @@
+<svg viewBox="0 0 540 390"
+     xmlns="http://www.w3.org/2000/svg"
+     role="img"
+     aria-labelledby="qxl-svg-title qxl-svg-desc"
+     width="100%" height="auto">
+
+    <title id="qxl-svg-title">
+      Shingles and varicella-zoster nerve reactivation
+    </title>
+
+    <desc id="qxl-svg-desc">
+      Conceptual illustration showing a human torso,
+      a band of unilateral skin lesions and the
+      nerve pathway associated with shingles.
+    </desc>
+
+    <rect x="12" y="12" width="516" height="366"
+          rx="20" fill="#F0F6FC"/>
+
+    <circle cx="257" cy="78" r="36"
+            fill="#E9C4AA" stroke="#C6A187" stroke-width="2"/>
+
+    <path d="M197 120
+             Q175 128 159 162
+             L121 268
+             Q113 287 126 294
+             Q141 301 152 278
+             L179 214
+             L188 338
+             Q257 364 326 338
+             L335 214
+             L362 278
+             Q373 301 388 294
+             Q401 287 393 268
+             L355 162
+             Q339 128 317 120
+             Z"
+          fill="#E9C4AA"
+          stroke="#C6A187"
+          stroke-width="2.5"/>
+
+    <path d="M258 127 L258 341"
+          stroke="#BC9C87"
+          stroke-width="2"
+          stroke-dasharray="4 6" opacity=".7"/>
+
+    <path d="M260 195
+             C291 173 316 184 334 207
+             L350 239
+             L338 261
+             C314 225 289 218 260 238"
+          fill="#E49B9B"
+          opacity=".75"/>
+
+    <path d="M260 215
+             C289 195 312 201 338 234"
+          stroke="#A95151"
+          stroke-width="4"
+          stroke-linecap="round"
+          fill="none"
+          stroke-dasharray="5 7"/>
+
+    <g fill="#C64F59" stroke="#FFF" stroke-width="2">
+      <circle cx="278" cy="210" r="8"/>
+      <circle cx="295" cy="203" r="6"/>
+      <circle cx="315" cy="213" r="9"/>
+      <circle cx="327" cy="229" r="6"/>
+      <circle cx="287" cy="226" r="7"/>
+      <circle cx="310" cy="237" r="7"/>
+      <circle cx="331" cy="249" r="5"/>
+    </g>
+
+    <g fill="#E79AA0">
+      <circle cx="278" cy="207" r="2"/>
+      <circle cx="315" cy="210" r="3"/>
+      <circle cx="287" cy="223" r="2"/>
+      <circle cx="310" cy="234" r="2"/>
+    </g>
+
+    <path d="M347 222 L390 193 L474 193"
+          stroke="#C64F59"
+          stroke-width="2.5" fill="none"/>
+
+    <circle cx="474" cy="193" r="4" fill="#C64F59"/>
+
+    <text x="391" y="177"
+          font-size="17" font-weight="700"
+          fill="#102B50">One-sided</text>
+
+    <text x="391" y="215"
+          font-size="16" fill="#102B50">rash pattern</text>
+
+    <path d="M180 261 L105 310 L57 310"
+          stroke="#D69A18"
+          stroke-width="2.5" fill="none"/>
+
+    <circle cx="57" cy="310" r="4" fill="#D69A18"/>
+
+    <text x="25" y="332"
+          font-size="15" font-weight="700"
+          fill="#102B50">Nerve pathway</text>
+
+    <text x="270" y="365"
+          font-size="13" text-anchor="middle"
+          fill="#526579">Conceptual illustration</text>
+
+</svg>
+

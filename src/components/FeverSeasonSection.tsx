@@ -160,7 +160,7 @@ export default function FeverSeasonSection({
                 Fever Season
               </h2>
               <p className="text-xs sm:text-[13px] text-slate-600 font-medium mt-2 leading-relaxed">
-                Early viral screening, Dengue NS1 & platelet monitoring with doorstep blood draw in 60 minutes across Bengaluru.
+                Early viral screening, Dengue NS1 &amp; platelet monitoring with doorstep blood collection across eligible Bengaluru service areas.
               </p>
 
               {/* Clinical Highlights Pills */}
@@ -191,7 +191,7 @@ export default function FeverSeasonSection({
               <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white text-[11px] font-bold bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/20">
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-amber-300" />
-                  Phlebotomist at home in 60 mins
+                  Fast-track doorstep collection
                 </span>
                 <span className="text-[10px] text-emerald-300 font-black">FASTEST TAT</span>
               </div>

@@ -19,6 +19,10 @@ Disallow: /login/
 User-agent: OAI-SearchBot
 Allow: /
 
+# OpenAI ChatGPT Ads Landing-Page Validation Crawler
+User-agent: OAI-AdsBot
+Allow: /
+
 # OpenAI GPTBot Training/Data
 User-agent: GPTBot
 Allow: /

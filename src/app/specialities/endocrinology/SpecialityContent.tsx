@@ -198,6 +198,29 @@ export default function EndocrinologyPage() {
                 ))}
               </ul>
             </div>
+            <div className="bg-white border border-gray-200 rounded-2xl p-5">
+              <h3 className="text-base font-bold text-gray-900 mb-3 border-b border-gray-100 pb-2">Clinical Guides & Evidence</h3>
+              <ul className="space-y-2.5">
+                <li>
+                  <Link href="/blog/glp-1-advanced-blood-tests-monitoring-bangalore" className="text-gray-700 hover:text-sky-600 text-xs flex items-center justify-between group font-semibold">
+                    <span>GLP-1 Monitoring (Ozempic & Mounjaro)</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-sky-400 shrink-0" />
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/can-emotional-stress-affect-thyroid-cortisol-hashimotos-connection" className="text-gray-700 hover:text-sky-600 text-xs flex items-center justify-between group font-semibold">
+                    <span>Stress, Cortisol & Hashimoto's Thyroid</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-sky-400 shrink-0" />
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog/high-uric-acid-kidney-damage-diabetes-2026-study" className="text-gray-700 hover:text-sky-600 text-xs flex items-center justify-between group font-semibold">
+                    <span>Uric Acid & Diabetic Kidney Disease (2026)</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-300 group-hover:text-sky-400 shrink-0" />
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
         </div>

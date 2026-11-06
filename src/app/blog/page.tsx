@@ -65,6 +65,18 @@ export default function BlogPage() {
       }
 
       const getTime = (item: any) => {
+        if (item.id === "blog-new-35" || item.slug === "glp-1-advanced-blood-tests-monitoring-bangalore") {
+          return new Date("2026-11-06T00:00:00+05:30").getTime();
+        }
+        if (item.id === "blog-new-34" || item.slug === "getting-shorter-with-age-osteoporosis-warning-signs-bone-density-blood-tests") {
+          return new Date("2026-11-04T12:00:00.000Z").getTime();
+        }
+        if (item.id === "blog-new-33" || item.slug === "can-chronic-stress-affect-fertility-hormones-blood-tests") {
+          return new Date("2026-11-04T11:00:00.000Z").getTime();
+        }
+        if (item.id === "blog-new-32" || item.slug === "mini-stroke-tia-warning-signs-blood-tests-cardiovascular-risk") {
+          return new Date("2026-11-04T10:00:00.000Z").getTime();
+        }
         if (item.id === "blog-new-31" || item.slug === "shingles-herpes-zoster-symptoms-pcr-test-vaccine-antibodies") {
           return new Date("2026-10-30T12:00:00.000Z").getTime();
         }

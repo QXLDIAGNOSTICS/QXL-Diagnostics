@@ -80,6 +80,38 @@ export default function InfectiousDiseasesPage() {
               </ul>
             </section>
 
+            {/* Sexual Health & STI Knowledge Hub Feature Banner */}
+            <section className="bg-gradient-to-r from-[#0c4a6e] via-[#0f2d5e] to-[#082142] text-white rounded-2xl p-6 sm:p-7 shadow-md space-y-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="space-y-1.5 max-w-xl">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#f59e0b] bg-white/10 px-2.5 py-0.5 rounded-full inline-block">
+                    Dedicated Specialized Hub
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-black text-white">
+                    Sexual Health &amp; Confidential STI Testing Hub
+                  </h3>
+                  <p className="text-xs sm:text-sm text-sky-100 leading-relaxed font-medium">
+                    Looking for confidential HIV 4th Gen Duo (₹945), Syphilis RPR/TPHA dual serology, urine PCR, emergency PEP guidance, or window period calculators? Access our dedicated testing hub.
+                  </p>
+                </div>
+                <div className="flex flex-wrap sm:flex-col gap-2 shrink-0 w-full sm:w-auto">
+                  <Link
+                    href="/sexual-health"
+                    className="inline-flex items-center justify-center gap-1.5 bg-[#2563eb] hover:bg-blue-600 text-white font-extrabold text-xs uppercase tracking-wider px-5 py-3 rounded-full transition-all shadow-sm text-center"
+                  >
+                    <span>Visit Sexual Health Hub</span>
+                    <span className="text-sm font-black">&rarr;</span>
+                  </Link>
+                  <Link
+                    href="/tests/hiv-test-bangalore"
+                    className="inline-flex items-center justify-center gap-1 text-[11px] text-sky-200 hover:text-white font-bold text-center underline underline-offset-2"
+                  >
+                    HIV 4th Gen Test Details
+                  </Link>
+                </div>
+              </div>
+            </section>
+
             {/* Test Profiles */}
             <section id="test-profiles">
               <h2 className="text-2xl font-bold text-gray-900 mb-5 flex items-center gap-2">

@@ -3,8 +3,6 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, CheckCircle2, ArrowRight, Activity, Heart, Users, Sparkles, FileText, Plus } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 
 interface CategoryData {
   slug: string;
@@ -249,8 +247,6 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-[#faf7f2] flex flex-col text-slate-900">
-      <Header />
-      
       <main className="flex-1 pb-16">
         {/* Hero Section */}
         <section className="bg-white border-b border-amber-100/60 py-10 sm:py-14">
@@ -394,8 +390,6 @@ export default async function CategoryPage({ params }: Props) {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

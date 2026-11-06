@@ -64,10 +64,27 @@ export default function HomeBloodCollectionPage() {
             {/* Schedule Button */}
             <a
               href="#mobile-booking-form"
-              className="w-full bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md uppercase text-xs tracking-wider transition-all text-center"
+              className="w-full bg-[#2563EB] hover:bg-blue-600 text-white font-extrabold py-3.5 px-6 rounded-2xl shadow-md uppercase text-xs tracking-wider transition-all text-center mb-3"
             >
               Schedule Home Collection
             </a>
+
+            {/* QXL Collect 8-Stage Portal Feature Link */}
+            <Link
+              href="/collect"
+              className="w-full bg-[#082142] text-white p-3.5 rounded-2xl border border-[#D69A18]/40 shadow-sm flex items-center justify-between group hover:border-[#D69A18] transition"
+            >
+              <div className="space-y-0.5 text-left">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-[#D69A18]">
+                  <span>QXL COLLECT™ 8-STAGE WORKFLOW</span>
+                  <span className="text-[9px] bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded">LIVE</span>
+                </div>
+                <p className="text-[11px] text-gray-300">
+                  Track live collector dispatch, bedside barcode verification &amp; secure OTP reports.
+                </p>
+              </div>
+              <ArrowRight className="w-4 h-4 text-[#D69A18] group-hover:translate-x-1 transition shrink-0" />
+            </Link>
           </div>
 
           {/* Interactive Client Booking Form */}
@@ -112,12 +129,12 @@ export default function HomeBloodCollectionPage() {
                 <div className="bg-white/10 backdrop-blur border border-white/15 p-3 rounded-xl">
                   <FileCheck className="w-5 h-5 text-emerald-300 mb-1" />
                   <span className="block text-xs text-blue-200">Report TAT</span>
-                  <span className="text-sm font-bold text-white">Same Day (6 Hrs)</span>
+                  <span className="text-sm font-bold text-white">Same Day (Test-Specific)</span>
                 </div>
                 <div className="bg-white/10 backdrop-blur border border-white/15 p-3 rounded-xl">
                   <UserCheck className="w-5 h-5 text-purple-300 mb-1" />
-                  <span className="block text-xs text-blue-200">Reviewer</span>
-                  <span className="text-sm font-bold text-white">MD Pathologist</span>
+                  <span className="block text-xs text-blue-200">Medical Oversight</span>
+                  <span className="text-sm font-bold text-white">Discipline Specialists</span>
                 </div>
               </div>
 
@@ -128,6 +145,9 @@ export default function HomeBloodCollectionPage() {
                 <a href="https://wa.me/919964639639?text=Hi%20QXL%2C%20I%20want%20to%20book%20home%20blood%20collection." target="_blank" rel="noopener noreferrer" className="bg-emerald-600/30 border border-emerald-400/50 hover:bg-emerald-600/50 text-white font-bold px-6 py-3.5 rounded-xl flex items-center gap-2 text-sm uppercase tracking-wider transition-all">
                   <MessageSquare className="w-4 h-4 text-emerald-400" /> WhatsApp Booking
                 </a>
+                <Link href="/collect" className="bg-[#D69A18] hover:bg-[#b8820f] text-[#082142] font-black px-6 py-3.5 rounded-xl shadow-lg flex items-center gap-2 text-sm uppercase tracking-wider transition-all">
+                  <Award className="w-4 h-4 text-[#082142]" /> Open QXL Collect 8-Stage Portal
+                </Link>
               </div>
             </div>
 

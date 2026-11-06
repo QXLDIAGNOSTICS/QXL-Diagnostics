@@ -18,6 +18,7 @@ const specialities = [
   { label: "Oncology Markers", href: "/specialities/oncology" },
   { label: "Women's Health", href: "/specialities/womens-health" },
   { label: "Infectious Diseases", href: "/specialities/infectious-diseases" },
+  { label: "Sexual Health & STIs", href: "/sexual-health" },
   { label: "Gastroenterology", href: "/specialities/gastroenterology" },
   { label: "Haematology", href: "/specialities/hematology" },
   { label: "Bone Disorders", href: "/specialities/bone-disorders" },
@@ -48,6 +49,7 @@ export default function Footer() {
     footerDesc: "QXL Diagnostics is a NABL Accredited super speciality diagnostic laboratory in Bengaluru offering advanced pathology, molecular diagnostics, histopathology, and AI-assisted precision diagnostics.",
     navItems: [
       {label: "Home", href: "/", visible: true},
+      {label: "QXL Collect Portal", href: "/collect", visible: true},
       {label: "About Us", href: "/about", visible: true},
       {label: "Symptoms & Causes", href: "/health/symptoms-causes", visible: true},
       {label: "Careers", href: "/careers", visible: true},

@@ -49,8 +49,8 @@ export const PREVENTIVE_PACKAGES: PackageItem[] = [
     tag: "FITNESS BASELINE",
     includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests, TSH, Vitamin D, CBC, ESR, Urine Routine.",
     highlights: ["Essential fitness screening", "Diabetes & lipid baseline", "Liver & kidney health"],
-    fastingHours: "8–10 Hours Fasting Required",
-    tat: "Reports within 6 hours",
+    fastingHours: "10–12 Hours Fasting Required",
+    tat: "12 Hours (Same Day)",
     sampleType: "Blood & Urine Sample",
     detailedBreakdown: [
       {
@@ -87,8 +87,8 @@ export const PREVENTIVE_PACKAGES: PackageItem[] = [
     tag: "DIABETES CARE",
     includes: "FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, Liver Function Test, Kidney Function Test, TSH, CBC, ESR, Urine Routine.",
     highlights: ["Early diabetes detection", "Monitor glycemic control", "Renal impact evaluation"],
-    fastingHours: "8–10 Hours Fasting Required",
-    tat: "Reports within 6 hours",
+    fastingHours: "10–12 Hours Fasting Required",
+    tat: "12 Hours (Same Day)",
     sampleType: "Blood & Urine Sample",
     detailedBreakdown: [
       {
@@ -121,7 +121,7 @@ export const PREVENTIVE_PACKAGES: PackageItem[] = [
     includes: "FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, LFT, KFT (Creatinine, Urea, BUN, Uric Acid, Na, K, Cl), Thyroid Profile (T3, T4, TSH), Vitamin D, Vitamin B12, CBC, ESR, Urine Routine, Gastritis Screen (H. pylori IgG), hs-CRP.",
     highlights: ["Complete systemic evaluation", "Cardiovascular risk markers", "Full vitamin & thyroid profile"],
     fastingHours: "10–12 Hours Fasting Required",
-    tat: "Reports within 6 hours",
+    tat: "12 Hours (Same Day)",
     sampleType: "Blood & Urine Sample",
     isPopular: true,
     detailedBreakdown: [
@@ -246,7 +246,7 @@ export const PREVENTIVE_PACKAGES: PackageItem[] = [
     includes: "All 92 Master Health Pro Parameters + Homocysteine + Lipoprotein(a) + Iron Profile (Iron, TIBC, Ferritin, % Saturation) + Electrolyte Profile.",
     highlights: ["117 comprehensive parameters", "Cardiac risk indicators (Homocysteine, Lp-a)", "Complete iron & vitamin panel"],
     fastingHours: "10–12 Hours Fasting Required",
-    tat: "Reports within 6 hours",
+    tat: "12 Hours (Same Day)",
     sampleType: "Blood & Urine Sample",
     detailedBreakdown: [
       {

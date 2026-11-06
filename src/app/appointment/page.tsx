@@ -455,7 +455,7 @@ export default function AppointmentPage() {
     >
       {/* Header */}
       <header
-        className="sticky top-0 z-50"
+        className="sticky top-[102px] lg:top-[125px] z-40"
         style={{
           background: "rgba(240,249,255,0.8)",
           backdropFilter: "blur(24px) saturate(180%)",

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Award, Star, Briefcase, Trophy, Target, Lightbulb, Phone, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { CANONICAL_REVIEWER_STATEMENT } from '@/lib/doctorMaster';
 
 export default function TeamPage() {
   const doctors = [
@@ -101,7 +102,7 @@ export default function TeamPage() {
           <div className="bg-[#F0F7FF] p-8 md:p-12 rounded-3xl border border-[#BFDBFE] shadow-sm text-center max-w-3xl mx-auto space-y-6">
             <h2 className="text-2xl sm:text-3xl font-black text-[#0f2d5e] tracking-tight">Consult with our Experts</h2>
             <p className="text-slate-600 text-xs sm:text-sm font-semibold max-w-2xl mx-auto leading-relaxed">
-              Every test performed at QXL Diagnostics is reviewed by our panel of specialists to ensure you receive clinically meaningful answers.
+              {CANONICAL_REVIEWER_STATEMENT}
             </p>
             <div className="flex gap-4 justify-center flex-wrap pt-2">
               <a

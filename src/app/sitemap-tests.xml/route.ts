@@ -22,6 +22,13 @@ const CORE_TEST_PAGES = [
   '/kidney-function-test-bangalore',
   '/kidney-function-test',
   '/fasting-blood-sugar-test-bangalore',
+  '/tests/hiv-test-bangalore',
+  '/tests/hiv-4th-generation-test',
+  '/tests/vdrl-rpr-test',
+  '/tests/std-sti-panel',
+  '/tests/chlamydia-gonorrhea-pcr',
+  '/tests/syphilis-test',
+  '/tests/hsv-herpes-test',
 ];
 
 const RETIRED_REDIRECTED_SLUGS = new Set([

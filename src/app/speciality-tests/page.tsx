@@ -67,7 +67,7 @@ const specialities = [
     color: "#e74c3c",
     description:
       "Advanced cardiac risk profiling and biomarker testing for detection and monitoring of heart disease, atherosclerosis, heart failure, and acute myocardial infarction. Our comprehensive cardiology panel goes beyond routine lipids to include inflammation markers, cardiac stress biomarkers, and advanced lipid sub-fractions.",
-    whoShouldTake: "Patients with chest pain, hypertension, family history of heart disease, dyslipidemia, or diabetes. Doctors performing cardiac risk stratification, monitoring heart failure, or evaluating acute coronary syndrome.",
+    whoShouldTake: "Doctor-referred cardiac risk stratification, hypertension, family history of heart disease, dyslipidemia, diabetes, or post-event monitoring. (Emergency Notice: Acute, severe, or radiating chest pain requires immediate emergency care via 112 or hospital casualty, not outpatient laboratory testing).",
     tests: [
       "Cardiac Troponin I & T (High Sensitivity)",
       "BNP / NT-proBNP (Heart Failure Marker)",

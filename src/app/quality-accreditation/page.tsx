@@ -112,7 +112,7 @@ export default function QualityAccreditationPage() {
     {
       icon: Thermometer,
       title: "Cold-Chain Temperature Monitoring",
-      desc: "From bedside home collection to central laboratory, all blood specimens are transported in insulated cooler boxes at strictly logged 2°C–8°C temperatures to protect specimen stability.",
+      desc: "From bedside home collection to central laboratory, samples are transported under validated test-specific temperature, time and stability requirements (including 2°C–8°C cold chain where indicated) to protect specimen stability.",
     },
     {
       icon: Lock,
@@ -287,7 +287,7 @@ export default function QualityAccreditationPage() {
                 </div>
                 <h3 className="text-xl font-extrabold text-[#0f2d5e]">Automated Platform Calibration</h3>
                 <p className="text-xs text-slate-600 leading-relaxed font-medium">
-                  QXL operates fully automated biochemistry, immunoassay, and haematology analyzers from industry leaders (Roche, Sysmex, Mindray). Daily 2-point calibration and routine preventative maintenance maintain daily internal quality control (IQC) and NABL-mandated calibration for consistent analytical performance.
+                  QXL operates fully automated biochemistry, immunoassay, and haematology analyzers from industry leaders (Roche, Sysmex, Mindray). Analysers are calibrated and maintained according to validated QXL procedures and manufacturer requirements to maintain internal quality control (IQC) and analytical precision across all test runs.
                 </p>
               </div>
               <div className="bg-white p-3 rounded-2xl border border-slate-200 text-xs font-bold text-slate-700">

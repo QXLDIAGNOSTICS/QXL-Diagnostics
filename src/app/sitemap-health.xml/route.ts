@@ -24,6 +24,11 @@ const HEALTH_PAGES = [
   '/health/skin-rash-itching-causes',
   '/health/recurrent-infections-causes',
   '/health/bloating-after-eating-food-sensitivity',
+  '/health/chronic-stress-fertility-blood-tests',
+  '/health-hub/hiv-test-window-period',
+  '/health-hub/after-unprotected-sex',
+  '/health-hub/genital-sores-causes',
+  '/health-hub/sti-testing-after-oral-sex',
 ];
 
 export async function GET() {

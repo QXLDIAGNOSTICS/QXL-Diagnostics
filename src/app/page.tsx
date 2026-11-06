@@ -1050,12 +1050,12 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── 1. FIRST SLIDE: Lifestyle Health Story (With 6 Real-Data Slides) ── */}
+        {/* ── 1. FIRST SLIDE: Lifestyle Health Story (With 10 Real-Data Slides) ── */}
         <LifestyleHeroSlider
           onSelectPackage={(pkg) =>
             setSelectedPackage(
               typeof pkg === "string"
-                ? { name: pkg, price: 1770, includes: "Quick Fit (80 Params)" }
+                ? { name: pkg, price: 1299, includes: "Quick Fit (80 Params)" }
                 : pkg
             )
           }
@@ -1207,7 +1207,7 @@ export default function Home() {
                          (pkg.name || '').toLowerCase().includes('ultra') ? 131 : 80);
                       const tatDisplay = pkg.tat
                         ? String(pkg.tat).replace(/Reports (within|in) /i, '')
-                        : ((pkg.name || '').toLowerCase().includes('ultra') ? '12 hours' : '6 hours');
+                        : ((pkg.name || '').toLowerCase().includes('ultra') ? '24 Hours' : '12 Hours (Same Day)');
                       const pkgName = (pkg.name || '').toLowerCase();
                       const pkgId = (pkg.id || pkg.slug || '').toLowerCase();
                       const isAdded = cartItems.some(i => i.toLowerCase() === pkgName || i.toLowerCase() === pkgId);
@@ -1287,8 +1287,8 @@ export default function Home() {
                                   id: pkg.id || pkg.slug,
                                   name: pkg.name,
                                   price: currentPrice,
-                                  fasting: pkg.fastingHours || "8-10 Hours Fasting",
-                                  tat: pkg.tat || "Reports within 6 hours"
+                                  fasting: pkg.fastingHours || "10-12 Hours Fasting",
+                                  tat: pkg.tat || "12 Hours (Same Day)"
                                 });
                               }}
                               className={
@@ -1415,7 +1415,7 @@ export default function Home() {
             {[1, 2].map((repeatKey) => (
               <React.Fragment key={repeatKey}>
                 <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  NABL Certificate lab
+                  NABL-Accredited Lab
                 </span>
                 <span className="text-sky-100 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">
@@ -1433,7 +1433,7 @@ export default function Home() {
                 <span className="text-sky-100 font-bold shrink-0">•</span>
 
                 <span className="bg-white/20 text-white border border-white/30 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shrink-0 shadow-xs">
-                  ⚡ NABL Certificate lab
+                  ⚡ NABL-Accredited Lab
                 </span>
                 <span className="text-sky-100 font-bold shrink-0">•</span>
                 <span className="font-extrabold text-white text-[12px] tracking-wide shrink-0">

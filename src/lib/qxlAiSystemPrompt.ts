@@ -202,7 +202,7 @@ export function getGroundedClinicalAiResponse(question: string): string {
 
   // Fever / Dengue / Infection
   if (q.includes('fever') || q.includes('dengue') || q.includes('malaria') || q.includes('typhoid') || q.includes('infection') || q.includes('cold') || q.includes('cough') || q.includes('flu')) {
-    return `🤒 **QXL Diagnostics — Acute Fever & Infection Panel**\n\nQXL Diagnostics (NABL Accredited MC-6849) provides fast-track infection screening and phlebotomist home visits.\n\n**Recommended QXL Diagnostic Tests & Packages:**\n• **CBC with Platelet Count:** **₹250** | **C-Reactive Protein (CRP):** **₹325**\n• **Acute Fever Panel (#36):** CBC, CRP, LFT, KFT, Dengue NS1/IgG/IgM, Malaria Smear, Urine Routine.\n• **Quick Fit Package (₹1,770):** 80 parameters baseline full body checkup.\n\n*100% Free Doorstep Home Collection across Bengaluru within 60 mins.* Call/WhatsApp **+91 9964 639 639**!`;
+    return `🤒 **QXL Diagnostics — Acute Fever & Infection Panel**\n\nQXL Diagnostics (NABL Accredited MC-6849) provides fast-track infection screening and phlebotomist home visits.\n\n**Recommended QXL Diagnostic Tests & Packages:**\n• **CBC with Platelet Count:** **₹250** | **C-Reactive Protein (CRP):** **₹325**\n• **Acute Fever Panel (#36):** CBC, CRP, LFT, KFT, Dengue NS1/IgG/IgM, Malaria Smear, Urine Routine.\n• **Quick Fit Package (₹1,770):** 80 parameters baseline full body checkup.\n\n*Free Doorstep Home Collection across eligible Bengaluru PIN codes.* Call/WhatsApp **+91 9964 639 639**!`;
   }
 
   // Fatigue / Energy / Vitamins

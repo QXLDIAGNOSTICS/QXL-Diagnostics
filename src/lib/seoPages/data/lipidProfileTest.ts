@@ -138,6 +138,7 @@ export const lipidProfileTest: SeoLandingData = {
     },
   ],
   relatedLinks: [
+    { label: "GLP-1 Monitoring Guide", href: "/blog/glp-1-advanced-blood-tests-monitoring-bangalore", desc: "ApoB & cardiovascular risk on GLP-1" },
     { label: "HbA1c Test", href: "/hba1c-test", desc: "Diabetes multiplies lipid risk" },
     { label: "Liver Function Test", href: "/liver-function-test", desc: "Baseline before starting statins" },
     { label: "Full Body Checkup", href: "/full-body-checkup-bangalore", desc: "Lipids included in annual screening" },
