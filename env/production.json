@@ -1,0 +1,5 @@
+{
+  "QXL_ENV": "production",
+  "QXL_API_BASE_URL": "https://qxl-diagnostics-production.up.railway.app/api/v1",
+  "QXL_WEBSITE_URL": "https://qxldiagnostics.com"
+}
