@@ -37,7 +37,9 @@ export async function GET() {
 
     const priority =
       b.slug === "personalised-pregnancy-testing-bengaluru" ||
-      b.slug === "glp-1-advanced-blood-tests-monitoring-bangalore"
+      b.slug === "glp-1-advanced-blood-tests-monitoring-bangalore" ||
+      b.slug === "complete-blood-count-cbc-26-parameters-guide-bangalore" ||
+      b.slug === "fatty-liver-masld-fib4-score-liver-fibrosis-tests-bangalore"
         ? "0.95"
         : b.slug === "getting-shorter-with-age-osteoporosis-warning-signs-bone-density-blood-tests" ||
           b.slug === "can-chronic-stress-affect-fertility-hormones-blood-tests" ||

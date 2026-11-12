@@ -49,6 +49,36 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/hospital-lab-management",
+        destination: "/hospital-laboratory-management",
+        permanent: true,
+      },
+      {
+        source: "/hospital-lab-management/",
+        destination: "/hospital-laboratory-management",
+        permanent: true,
+      },
+      {
+        source: "/diagnostic-partnerships",
+        destination: "/doctor-partnership",
+        permanent: true,
+      },
+      {
+        source: "/diagnostic-partnerships/",
+        destination: "/doctor-partnership",
+        permanent: true,
+      },
+      {
+        source: "/corporate-wellness",
+        destination: "/corporate-health-packages",
+        permanent: true,
+      },
+      {
+        source: "/corporate-wellness/",
+        destination: "/corporate-health-packages",
+        permanent: true,
+      },
+      {
         source: "/reference-lab",
         destination: "/for-hospitals",
         permanent: true,

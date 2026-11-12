@@ -19,6 +19,10 @@ const PACKAGE_PAGES = [
   '/packages/essential-sti-screening',
   '/packages/vaginal-infection-profile',
   '/packages/oral-rectal-sti-screening',
+  '/packages/diabetes-health-check',
+  '/packages/cardiac-risk-profile',
+  '/packages/vitamin-deficiency-profile',
+  '/packages/thyroid-health-check',
 ];
 
 export async function GET() {

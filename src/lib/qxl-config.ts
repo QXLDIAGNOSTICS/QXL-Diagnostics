@@ -47,3 +47,4 @@ export const qxl = {
 } as const;
 
 export default qxl;
+
