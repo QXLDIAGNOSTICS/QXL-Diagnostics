@@ -5,7 +5,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Headache Causes, Types & Warning Signs | QXL Diagnostics",
   description: "Learn common headache causes including migraine, tension headache, dehydration and illness, plus warning signs and when selected tests may be useful.",
-  alternates: { canonical: `${SITE_URL}/health/headache-causes` },
+    alternates: { canonical: `${SITE_URL}/health/headache-causes` },
+  openGraph: {
+    title: "Headache Causes, Types & Warning Signs | QXL Diagnostics",
+    description: "Learn common headache causes including migraine, tension headache, dehydration and illness, plus warning signs and when selected tests may be useful.",
+    url: `${SITE_URL}/health/headache-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Headache Causes, Types & Warning Signs | QXL Diagnostics",
+    description: "Learn common headache causes including migraine, tension headache, dehydration and illness, plus warning signs and when selected tests may be useful.",
+  },
 };
 
 export default function HeadachePage() {

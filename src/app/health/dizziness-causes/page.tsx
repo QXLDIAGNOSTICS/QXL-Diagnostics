@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Dizziness & Vertigo: Causes & Warning Signs | QXL Diagnostics",
   description: "Learn common causes of dizziness including vertigo, dehydration, low blood pressure, anaemia, glucose problems and neurological warning signs.",
-  alternates: { canonical: `${SITE_URL}/health/dizziness-causes` },
+    alternates: { canonical: `${SITE_URL}/health/dizziness-causes` },
+  openGraph: {
+    title: "Dizziness & Vertigo: Causes & Warning Signs | QXL Diagnostics",
+    description: "Learn common causes of dizziness including vertigo, dehydration, low blood pressure, anaemia, glucose problems and neurological warning signs.",
+    url: `${SITE_URL}/health/dizziness-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dizziness & Vertigo: Causes & Warning Signs | QXL Diagnostics",
+    description: "Learn common causes of dizziness including vertigo, dehydration, low blood pressure, anaemia, glucose problems and neurological warning signs.",
+  },
 };
 export default function DizzinessPage() {
   return (

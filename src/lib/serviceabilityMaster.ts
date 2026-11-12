@@ -116,3 +116,28 @@ export function getServiceablePincodes(): string[] {
   return Array.from(new Set(SERVICEABILITY_MASTER.filter((e) => e.eligible).map((e) => e.pincode)));
 }
 
+/**
+ * Calculates collection fee dynamically according to pincode and cart total.
+ * Replaces unconditional "free collection" claims.
+ */
+export function calculateCollectionFee(
+  pincodeOrRecord: string | ServiceabilityEntry,
+  cartTotal: number
+): number | null {
+  const record = typeof pincodeOrRecord === 'string'
+    ? getServiceabilityByPincode(pincodeOrRecord)
+    : pincodeOrRecord;
+
+  if (!record || !record.eligible) {
+    return null;
+  }
+
+  // Orders of ₹1,000 and above receive waived collection fee
+  const freeThreshold = 1000;
+  if (cartTotal >= freeThreshold) {
+    return 0;
+  }
+
+  return 150;
+}
+

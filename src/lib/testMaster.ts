@@ -575,9 +575,9 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
     methodology: "Particle-Enhanced Immunoturbidimetric Assay",
     analyser_platform: "Roche Cobas Pro / Beckman Coulter DxC 700 AU",
     tat: "6 Hours (Same Day)",
-    price: 450,
-    mrp: 750,
-    discount_percentage: 40,
+    price: 545,
+    mrp: 830,
+    discount_percentage: 34,
     home_collection_eligible: true,
     nabl_scope_status: "verified-in-scope",
     medical_reviewer: {

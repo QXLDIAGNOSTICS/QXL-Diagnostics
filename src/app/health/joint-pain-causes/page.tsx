@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Joint Pain: Causes, Tests & Warning Signs | QXL Diagnostics",
   description: "Joint pain may be caused by osteoarthritis, rheumatoid arthritis, gout, viral infections, dengue or chikungunya. Learn which tests may be appropriate.",
-  alternates: { canonical: `${SITE_URL}/health/joint-pain-causes` },
+    alternates: { canonical: `${SITE_URL}/health/joint-pain-causes` },
+  openGraph: {
+    title: "Joint Pain: Causes, Tests & Warning Signs | QXL Diagnostics",
+    description: "Joint pain may be caused by osteoarthritis, rheumatoid arthritis, gout, viral infections, dengue or chikungunya. Learn which tests may be appropriate.",
+    url: `${SITE_URL}/health/joint-pain-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Joint Pain: Causes, Tests & Warning Signs | QXL Diagnostics",
+    description: "Joint pain may be caused by osteoarthritis, rheumatoid arthritis, gout, viral infections, dengue or chikungunya. Learn which tests may be appropriate.",
+  },
 };
 export default function JointPainPage() {
   return (

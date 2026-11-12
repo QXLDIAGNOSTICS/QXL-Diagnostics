@@ -27,7 +27,7 @@ import MedicalReviewNotice from '@/components/sexual-health/MedicalReviewNotice'
 export const metadata: Metadata = {
   title: "HIV Test in Bangalore | 4th Gen Duo ₹945 | Same Day Report | QXL Diagnostics",
   description:
-    "Confidential 4th Generation HIV test in Bengaluru at ₹945. NABL Accredited laboratory testing for HIV-1/2 antibodies and p24 antigen. Doorstep blood collection, same-day report within 6 hours, 100% discrete.",
+    "Confidential 4th Generation HIV test in Bengaluru at ₹945. NABL Accredited laboratory testing for HIV-1/2 antibodies and p24 antigen. Doorstep blood collection, same-day report within 6 hours, confidential testing with privacy-conscious collection.",
   alternates: {
     canonical: `${SITE_URL}/tests/hiv-test-bangalore`,
   },

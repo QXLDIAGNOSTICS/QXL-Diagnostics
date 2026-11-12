@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Numbness & Tingling: Causes & Warning Signs | QXL Diagnostics",
   description: "Pins and needles, numbness and tingling in hands or feet may be caused by Vitamin B12 deficiency, diabetes, nerve compression, thyroid disease or neurological conditions.",
-  alternates: { canonical: `${SITE_URL}/health/numbness-tingling-causes` },
+    alternates: { canonical: `${SITE_URL}/health/numbness-tingling-causes` },
+  openGraph: {
+    title: "Numbness & Tingling: Causes & Warning Signs | QXL Diagnostics",
+    description: "Pins and needles, numbness and tingling in hands or feet may be caused by Vitamin B12 deficiency, diabetes, nerve compression, thyroid disease or neurological conditions.",
+    url: `${SITE_URL}/health/numbness-tingling-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Numbness & Tingling: Causes & Warning Signs | QXL Diagnostics",
+    description: "Pins and needles, numbness and tingling in hands or feet may be caused by Vitamin B12 deficiency, diabetes, nerve compression, thyroid disease or neurological conditions.",
+  },
 };
 export default function NumbnessTinglingPage() {
   return (

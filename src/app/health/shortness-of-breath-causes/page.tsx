@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Shortness of Breath: Causes & Warning Signs | QXL Diagnostics",
   description: "Breathlessness may be caused by asthma, anaemia, heart disease, lung infection, COPD, pulmonary disease or anxiety. Learn tests and emergency warning signs.",
-  alternates: { canonical: `${SITE_URL}/health/shortness-of-breath-causes` },
+    alternates: { canonical: `${SITE_URL}/health/shortness-of-breath-causes` },
+  openGraph: {
+    title: "Shortness of Breath: Causes & Warning Signs | QXL Diagnostics",
+    description: "Breathlessness may be caused by asthma, anaemia, heart disease, lung infection, COPD, pulmonary disease or anxiety. Learn tests and emergency warning signs.",
+    url: `${SITE_URL}/health/shortness-of-breath-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shortness of Breath: Causes & Warning Signs | QXL Diagnostics",
+    description: "Breathlessness may be caused by asthma, anaemia, heart disease, lung infection, COPD, pulmonary disease or anxiety. Learn tests and emergency warning signs.",
+  },
 };
 export default function BreathlessnessPage() {
   return (

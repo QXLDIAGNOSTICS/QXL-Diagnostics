@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Recurrent Infections: Why Do I Keep Getting Sick? | QXL Diagnostics",
   description: "Getting infections repeatedly may signal diabetes, immune deficiency, nutritional deficiency, chronic disease or structural problems. Learn tests and warning signs.",
-  alternates: { canonical: `${SITE_URL}/health/recurrent-infections-causes` },
+    alternates: { canonical: `${SITE_URL}/health/recurrent-infections-causes` },
+  openGraph: {
+    title: "Recurrent Infections: Why Do I Keep Getting Sick? | QXL Diagnostics",
+    description: "Getting infections repeatedly may signal diabetes, immune deficiency, nutritional deficiency, chronic disease or structural problems. Learn tests and warning signs.",
+    url: `${SITE_URL}/health/recurrent-infections-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Recurrent Infections: Why Do I Keep Getting Sick? | QXL Diagnostics",
+    description: "Getting infections repeatedly may signal diabetes, immune deficiency, nutritional deficiency, chronic disease or structural problems. Learn tests and warning signs.",
+  },
 };
 export default function RecurrentInfectionsPage() {
   return (

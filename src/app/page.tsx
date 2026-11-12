@@ -1055,7 +1055,7 @@ export default function Home() {
           onSelectPackage={(pkg) =>
             setSelectedPackage(
               typeof pkg === "string"
-                ? { name: pkg, price: 1299, includes: "Quick Fit (80 Params)" }
+                ? { name: pkg, price: 1770, includes: "Quick Fit (80 Params)" }
                 : pkg
             )
           }

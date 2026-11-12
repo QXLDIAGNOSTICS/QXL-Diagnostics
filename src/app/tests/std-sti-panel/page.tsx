@@ -22,7 +22,7 @@ import MedicalReviewNotice from '@/components/sexual-health/MedicalReviewNotice'
 export const metadata: Metadata = {
   title: "Full STD/STI Testing Panels in Bangalore | Complete Screening | QXL Diagnostics",
   description:
-    "Comprehensive STD & STI panels in Bengaluru. Blood & urine multiplex PCR screening for HIV, Syphilis, Chlamydia, Gonorrhea, Trichomonas, Hepatitis B/C & Herpes. 100% discrete home collection.",
+    "Comprehensive STD & STI panels in Bengaluru. Blood & urine multiplex PCR screening for HIV, Syphilis, Chlamydia, Gonorrhea, Trichomonas, Hepatitis B/C & Herpes. Confidential testing with privacy-conscious sample collection and report delivery.",
   alternates: {
     canonical: `${SITE_URL}/tests/std-sti-panel`,
   },

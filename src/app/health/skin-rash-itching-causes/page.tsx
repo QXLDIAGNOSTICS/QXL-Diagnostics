@@ -5,6 +5,18 @@ export const metadata: Metadata = {
   title: "Skin Rash & Itching: Causes & Warning Signs | QXL Diagnostics",
   description: "Skin rash and itching may be caused by allergies, eczema, infections, liver disease, kidney disease, thyroid conditions, autoimmune disease or medicines.",
   alternates: { canonical: `${SITE_URL}/health/skin-rash-itching-causes` },
+  openGraph: {
+    title: "Skin Rash & Itching: Causes & Warning Signs | QXL Diagnostics",
+    description: "Skin rash and itching may be caused by allergies, eczema, infections, liver disease, kidney disease, thyroid conditions, autoimmune disease or medicines.",
+    url: `${SITE_URL}/health/skin-rash-itching-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Skin Rash & Itching: Causes & Warning Signs | QXL Diagnostics",
+    description: "Skin rash and itching may be caused by allergies, eczema, infections, liver disease, kidney disease, thyroid conditions, autoimmune disease or medicines.",
+  },
 };
 export default function SkinRashPage() {
   return (

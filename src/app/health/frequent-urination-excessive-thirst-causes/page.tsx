@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Frequent Urination & Excessive Thirst: Causes & Tests | QXL Diagnostics",
   description: "Frequent urination and excessive thirst may be caused by diabetes, UTI, kidney disease, overactive bladder, diabetes insipidus or medications. Learn tests.",
-  alternates: { canonical: `${SITE_URL}/health/frequent-urination-excessive-thirst-causes` },
+    alternates: { canonical: `${SITE_URL}/health/frequent-urination-excessive-thirst-causes` },
+  openGraph: {
+    title: "Frequent Urination & Excessive Thirst: Causes & Tests | QXL Diagnostics",
+    description: "Frequent urination and excessive thirst may be caused by diabetes, UTI, kidney disease, overactive bladder, diabetes insipidus or medications. Learn tests.",
+    url: `${SITE_URL}/health/frequent-urination-excessive-thirst-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frequent Urination & Excessive Thirst: Causes & Tests | QXL Diagnostics",
+    description: "Frequent urination and excessive thirst may be caused by diabetes, UTI, kidney disease, overactive bladder, diabetes insipidus or medications. Learn tests.",
+  },
 };
 export default function FrequentUrinationPage() {
   return (

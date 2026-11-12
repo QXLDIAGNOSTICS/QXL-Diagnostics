@@ -5,7 +5,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Fatigue & Tiredness: Causes & Blood Tests | QXL Diagnostics",
   description: "Persistent tiredness can be linked to sleep, anaemia, iron deficiency, thyroid disease, diabetes and other conditions. Learn causes, tests and warning signs.",
-  alternates: { canonical: `${SITE_URL}/health/fatigue-tiredness` },
+    alternates: { canonical: `${SITE_URL}/health/fatigue-tiredness` },
+  openGraph: {
+    title: "Fatigue & Tiredness: Causes & Blood Tests | QXL Diagnostics",
+    description: "Persistent tiredness can be linked to sleep, anaemia, iron deficiency, thyroid disease, diabetes and other conditions. Learn causes, tests and warning signs.",
+    url: `${SITE_URL}/health/fatigue-tiredness`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fatigue & Tiredness: Causes & Blood Tests | QXL Diagnostics",
+    description: "Persistent tiredness can be linked to sleep, anaemia, iron deficiency, thyroid disease, diabetes and other conditions. Learn causes, tests and warning signs.",
+  },
 };
 
 export default function FatiguePage() {

@@ -28,8 +28,8 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
     },
     {
       icon: <FlaskConical className="w-5 h-5 text-[#2563EB]" />,
-      title: "NABL Accredited Labs",
-      desc: "All samples are analyzed in our fully accredited, state-of-the-art laboratory."
+      title: "Quality Controlled Lab",
+      desc: "Samples are processed at our NABL-accredited reference laboratory (MC-6849) within accredited scope, or via validated referral protocols."
     },
     {
       icon: <ThermometerSnowflake className="w-5 h-5 text-[#2563EB]" />,

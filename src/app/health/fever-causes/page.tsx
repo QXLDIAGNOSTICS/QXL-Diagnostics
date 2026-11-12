@@ -5,7 +5,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Fever Causes, Symptoms & Tests | QXL Diagnostics",
   description: "Learn common causes of fever, associated symptoms, warning signs and when tests such as CBC, CRP or infection-specific investigations may be considered.",
-  alternates: { canonical: `${SITE_URL}/health/fever-causes` },
+    alternates: { canonical: `${SITE_URL}/health/fever-causes` },
+  openGraph: {
+    title: "Fever Causes, Symptoms & Tests | QXL Diagnostics",
+    description: "Learn common causes of fever, associated symptoms, warning signs and when tests such as CBC, CRP or infection-specific investigations may be considered.",
+    url: `${SITE_URL}/health/fever-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fever Causes, Symptoms & Tests | QXL Diagnostics",
+    description: "Learn common causes of fever, associated symptoms, warning signs and when tests such as CBC, CRP or infection-specific investigations may be considered.",
+  },
 };
 
 export default function FeverPage() {
