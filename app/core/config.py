@@ -43,6 +43,12 @@ class Settings(BaseSettings):
     # Max concurrent bookings allowed for the same preferred_date + time slot
     # before it's considered full (spreads load, avoids over-promising the lab).
     MAX_BOOKINGS_PER_SLOT: int = 3
+    # Bookable time windows offered to patients, as a comma-separated list of
+    # labels (e.g. "6:00 AM - 8:00 AM,8:00 AM - 10:00 AM"). Each label is
+    # normalised with the same parser POST /bookings uses, and returned by
+    # GET /bookings/slot-availability so native clients don't hard-code them.
+    # Empty = no server-defined slots (clients should not offer slot picking).
+    BOOKING_SLOTS: Annotated[list[str], NoDecode] = Field(default_factory=list)
     SESSION_COOKIE_NAME: str = "qxl_session"
     SESSION_TTL_DAYS: int = 14
     # Idle/inactivity timeout: a session cookie is rejected (forcing re-login)
@@ -141,7 +147,11 @@ class Settings(BaseSettings):
     CHAT_HISTORY_LIMIT: int = 10
 
     @field_validator(
-        "CORS_ORIGINS", "ALLOWED_UPLOAD_TYPES", "ADMIN_SUPER_IDENTIFIERS", mode="before"
+        "CORS_ORIGINS",
+        "ALLOWED_UPLOAD_TYPES",
+        "ADMIN_SUPER_IDENTIFIERS",
+        "BOOKING_SLOTS",
+        mode="before",
     )
     @classmethod
     def _split_csv(cls, v: object) -> object:

@@ -44,11 +44,27 @@ async def create_booking(
 @router.get("/slot-availability")
 async def slot_availability(date: str, db: DbSession) -> dict:
     """Public endpoint the booking form polls when a date is picked, so it
-    can grey out slots that are already full or in the past."""
+    can grey out slots that are already full or in the past.
+
+    ``slots`` lists the server-defined bookable windows (``BOOKING_SLOTS``)
+    with their live availability for that date; it is empty when no slots are
+    configured or ``date`` is not a valid ISO date (YYYY-MM-DD)."""
+    from datetime import date as _date
+
     from app.core.config import settings
 
     counts = await BookingRepository(db).counts_by_time_for_date(date)
-    return {"date": date, "max_per_slot": settings.MAX_BOOKINGS_PER_SLOT, "booked": counts}
+    try:
+        slot_date = _date.fromisoformat(date)
+    except ValueError:
+        slot_date = None
+    slots = booking_service.slot_options(slot_date, counts) if slot_date else []
+    return {
+        "date": date,
+        "max_per_slot": settings.MAX_BOOKINGS_PER_SLOT,
+        "booked": counts,
+        "slots": slots,
+    }
 
 
 @router.get("/me", response_model=BookingList)

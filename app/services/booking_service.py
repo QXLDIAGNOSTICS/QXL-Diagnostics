@@ -157,6 +157,55 @@ def _normalize_time(raw: str) -> tuple[str, time | None, time | None, bool] | No
     return label, start, end, False
 
 
+def slot_options(
+    slot_date: date,
+    counts: dict[str, int],
+    *,
+    configured: list[str] | None = None,
+    max_per_slot: int | None = None,
+    now: datetime | None = None,
+) -> list[dict]:
+    """The server-defined bookable windows for ``slot_date`` with live state.
+
+    Each configured ``BOOKING_SLOTS`` label is normalised with the same parser
+    ``POST /bookings`` uses, so ``label`` is exactly the canonical string the
+    booking will be stored under (and that ``counts`` is keyed by). A slot is
+    unavailable when its window has ended (IST) or it has reached
+    ``MAX_BOOKINGS_PER_SLOT``. Unparseable or "urgent" labels are skipped."""
+    raw_slots = settings.BOOKING_SLOTS if configured is None else configured
+    limit = settings.MAX_BOOKINGS_PER_SLOT if max_per_slot is None else max_per_slot
+    current = now or datetime.now(_IST)
+    options: list[dict] = []
+    seen: set[str] = set()
+    for raw in raw_slots:
+        parsed = _normalize_time(raw)
+        if parsed is None or parsed[3] or parsed[1] is None:
+            logger.warning("Ignoring unusable BOOKING_SLOTS entry: %r", raw)
+            continue
+        label, start, end, _ = parsed
+        if label in seen:
+            continue
+        seen.add(label)
+        booked = counts.get(label, 0)
+        cutoff = datetime.combine(slot_date, end or start, tzinfo=_IST)
+        reason: str | None = None
+        if cutoff < current:
+            reason = "past"
+        elif booked >= limit:
+            reason = "full"
+        options.append(
+            {
+                "label": label,
+                "start": start.strftime("%H:%M"),
+                "end": end.strftime("%H:%M") if end else None,
+                "booked": booked,
+                "available": reason is None,
+                "unavailable_reason": reason,
+            }
+        )
+    return options
+
+
 async def _validate_slot(db: AsyncSession, data: dict) -> None:
     """Normalize the preferred date/time, then reject bookings for a slot that
     has already passed, or that's already at capacity (see

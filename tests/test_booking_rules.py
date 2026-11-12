@@ -197,3 +197,31 @@ def test_speciality_profile_prices_are_optional():
         ],
     )
     assert spec.profiles[0].price is None and spec.profiles[1].old_price == 800
+
+
+def test_slot_options_report_past_full_and_open_slots():
+    slot_day = date(2026, 11, 20)
+    now = bs.datetime.combine(slot_day, time(9, 0), tzinfo=bs._IST)
+    options = bs.slot_options(
+        slot_day,
+        {"10:00 AM - 12:00 PM": 3},
+        configured=["6:00 – 8:00 AM", "10:00 AM – 12:00 PM", "2:00 – 4:00 PM", "garbage", "ASAP"],
+        max_per_slot=3,
+        now=now,
+    )
+    assert [o["label"] for o in options] == [
+        "6:00 AM - 8:00 AM",
+        "10:00 AM - 12:00 PM",
+        "2:00 PM - 4:00 PM",
+    ]
+    by_label = {o["label"]: o for o in options}
+    assert by_label["6:00 AM - 8:00 AM"]["unavailable_reason"] == "past"
+    assert by_label["10:00 AM - 12:00 PM"]["unavailable_reason"] == "full"
+    assert by_label["10:00 AM - 12:00 PM"]["booked"] == 3
+    open_slot = by_label["2:00 PM - 4:00 PM"]
+    assert open_slot["available"] is True
+    assert (open_slot["start"], open_slot["end"]) == ("14:00", "16:00")
+
+
+def test_slot_options_empty_when_unconfigured():
+    assert bs.slot_options(date(2026, 11, 20), {}, configured=[]) == []
