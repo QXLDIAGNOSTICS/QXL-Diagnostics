@@ -151,7 +151,7 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
       originalPrice: 4696,
       parametersCount: 64,
       highlights: ["Complete Hemogram (Anaemia Screening)", "Thyroid Profile (TSH, T3, T4)", "Calcium & Vitamin Screening", "Diabetes & Kidney Wellness"],
-      testCategories: ["CBC 26 Tests", "HbA1c & Blood Sugar", "Thyroid Profile", "Kidney & Liver Panel", "Lipid Profile"],
+      testCategories: ["CBC (26 Parameters)", "HbA1c & Blood Sugar", "Thyroid Profile", "Kidney & Liver Panel", "Lipid Profile"],
     },
     {
       id: "mens-health-check",
@@ -162,7 +162,7 @@ export const RAKSHA_CAMPAIGN_CONFIG: RakshaCampaignConfig = {
       originalPrice: 4696,
       parametersCount: 64,
       highlights: ["Lipid Profile (Heart Care)", "Liver & Kidney Vitality", "Fasting Glucose & HbA1c", "Uric Acid & Electrolyte Balance"],
-      testCategories: ["CBC 26 Tests", "Heart Lipid Panel", "Liver Function", "Renal Function", "Glycemic Index"],
+      testCategories: ["CBC (26 Parameters)", "Heart Lipid Panel", "Liver Function", "Renal Function", "Glycemic Index"],
     },
   ],
 

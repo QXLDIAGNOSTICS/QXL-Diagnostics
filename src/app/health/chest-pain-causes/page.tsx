@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Chest Pain: Causes & Emergency Warning Signs | QXL Diagnostics",
   description: "Chest pain may arise from the heart, lungs, food pipe, muscles or anxiety. Learn patterns, emergency warning signs and tests doctors may use.",
-  alternates: { canonical: `${SITE_URL}/health/chest-pain-causes` },
+    alternates: { canonical: `${SITE_URL}/health/chest-pain-causes` },
+  openGraph: {
+    title: "Chest Pain: Causes & Emergency Warning Signs | QXL Diagnostics",
+    description: "Chest pain may arise from the heart, lungs, food pipe, muscles or anxiety. Learn patterns, emergency warning signs and tests doctors may use.",
+    url: `${SITE_URL}/health/chest-pain-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chest Pain: Causes & Emergency Warning Signs | QXL Diagnostics",
+    description: "Chest pain may arise from the heart, lungs, food pipe, muscles or anxiety. Learn patterns, emergency warning signs and tests doctors may use.",
+  },
 };
 export default function ChestPainPage() {
   return (

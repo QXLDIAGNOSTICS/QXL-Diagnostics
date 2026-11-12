@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Nausea & Vomiting: Causes & Warning Signs | QXL Diagnostics",
   description: "Nausea and vomiting may be caused by infection, food poisoning, pregnancy, migraine, medicines, gallbladder disease, pancreatitis or metabolic disorders.",
-  alternates: { canonical: `${SITE_URL}/health/nausea-vomiting-causes` },
+    alternates: { canonical: `${SITE_URL}/health/nausea-vomiting-causes` },
+  openGraph: {
+    title: "Nausea & Vomiting: Causes & Warning Signs | QXL Diagnostics",
+    description: "Nausea and vomiting may be caused by infection, food poisoning, pregnancy, migraine, medicines, gallbladder disease, pancreatitis or metabolic disorders.",
+    url: `${SITE_URL}/health/nausea-vomiting-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nausea & Vomiting: Causes & Warning Signs | QXL Diagnostics",
+    description: "Nausea and vomiting may be caused by infection, food poisoning, pregnancy, migraine, medicines, gallbladder disease, pancreatitis or metabolic disorders.",
+  },
 };
 export default function NauseaVomitingPage() {
   return (

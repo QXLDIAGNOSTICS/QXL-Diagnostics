@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Swelling of Feet, Ankles & Face: Causes & Tests | QXL Diagnostics",
   description: "Swelling or oedema of the feet, ankles, legs or face may be caused by heart, kidney, liver or thyroid disease, venous insufficiency or medications.",
-  alternates: { canonical: `${SITE_URL}/health/swelling-feet-ankles-face-causes` },
+    alternates: { canonical: `${SITE_URL}/health/swelling-feet-ankles-face-causes` },
+  openGraph: {
+    title: "Swelling of Feet, Ankles & Face: Causes & Tests | QXL Diagnostics",
+    description: "Swelling or oedema of the feet, ankles, legs or face may be caused by heart, kidney, liver or thyroid disease, venous insufficiency or medications.",
+    url: `${SITE_URL}/health/swelling-feet-ankles-face-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Swelling of Feet, Ankles & Face: Causes & Tests | QXL Diagnostics",
+    description: "Swelling or oedema of the feet, ankles, legs or face may be caused by heart, kidney, liver or thyroid disease, venous insufficiency or medications.",
+  },
 };
 export default function SwellingPage() {
   return (

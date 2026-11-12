@@ -43,11 +43,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const title = (blog as any).seo_title || `${blog.title} | QXL Diagnostics`;
-  const description = blog.excerpt;
-  const canonical = `https://qxldiagnostics.com/blog/${blog.slug}/`;
+  const description = (blog as any).meta_description || blog.excerpt;
+  const canonical = (blog as any).canonical_url || `https://qxldiagnostics.com/blog/${blog.slug}`;
   const imageUrl =
     (blog as any).image ||
     "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
+  const imageWidth = (blog as any).image_width || 1200;
+  const imageHeight = (blog as any).image_height || 675;
+  const imageAlt = (blog as any).image_alt || blog.title;
+  const ogTitle = (blog as any).og_title || title;
+  const ogDescription = (blog as any).og_description || description;
+  const twitterTitle = (blog as any).twitter_title || title;
+  const twitterDescription = (blog as any).twitter_description || description;
 
   const reviewer = (blog as any).reviewer || "Dr. Shantakumar Muruda, MD (Biochemistry)";
 
@@ -80,9 +87,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "dc.coverage": "Bengaluru, Karnataka, India",
     },
     openGraph: {
-      title,
-      description,
+      title: ogTitle,
+      description: ogDescription,
       url: canonical,
+      siteName: "QXL Diagnostics",
       locale: "en_IN",
       type: "article",
       publishedTime: (blog as any).created_at || "2026-10-16T12:00:00Z",
@@ -90,16 +98,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [
         {
           url: imageUrl,
-          width: 1200,
-          height: 675,
-          alt: blog.title,
+          width: imageWidth,
+          height: imageHeight,
+          alt: imageAlt,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: twitterTitle,
+      description: twitterDescription,
       images: [imageUrl],
     },
     robots: {

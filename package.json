@@ -9,7 +9,10 @@
     "lint": "eslint",
     "verify:delivery": "npx tsx scripts/verifyDeliveryControlCentre.ts",
     "test:gate": "npx tsx scripts/verifyQualityGate.ts",
-    "validate:all": "npx tsx scripts/validate-data-consistency.ts && npx tsx scripts/verifyQualityGate.ts"
+    "test:collect": "npx tsx scripts/verifyQxlCollectWorkflow.ts",
+    "test:drift": "npx tsx scripts/validate-data-drift.ts",
+    "validate:pages": "npx tsx scripts/validate-page-audit.ts",
+    "validate:all": "npx tsx scripts/validate-data-consistency.ts && npx tsx scripts/validate-data-drift.ts && npx tsx scripts/validate-page-audit.ts && npx tsx scripts/verifyQualityGate.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

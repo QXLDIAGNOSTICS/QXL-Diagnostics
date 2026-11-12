@@ -1,3 +1,5 @@
+import { matchMasterItem } from "./masterCatalogue";
+
 export interface CartItem {
   id: string;
   name: string;
@@ -5,6 +7,26 @@ export interface CartItem {
   fasting?: string;
   tat?: string;
   quantity?: number;
+}
+
+function resolveCartItemDefaults(rawNameOrId: string, fallbackName?: string) {
+  const master = matchMasterItem(rawNameOrId) || (fallbackName ? matchMasterItem(fallbackName) : undefined);
+  if (master) {
+    return {
+      id: master.id,
+      name: master.name,
+      price: master.price,
+      fasting: master.fastingInstruction,
+      tat: master.tat,
+    };
+  }
+  return {
+    id: rawNameOrId.toLowerCase().replace(/\s+/g, "-"),
+    name: fallbackName || rawNameOrId,
+    price: 299,
+    fasting: "Routine preparation (maintain hydration)",
+    tat: "Same-day or test-specific",
+  };
 }
 
 export function parseCartItems(rawCart: string | null): CartItem[] {
@@ -15,27 +37,30 @@ export function parseCartItems(rawCart: string | null): CartItem[] {
     
     const items: CartItem[] = [];
     parsed.forEach((item: any) => {
-      const normalized: CartItem =
-        typeof item === "string"
-          ? {
-              id: item.toLowerCase().replace(/\s+/g, "-"),
-              name: item,
-              price: 299,
-              fasting: "No fasting",
-              tat: "Report in 6 hours",
-              quantity: 1,
-            }
-          : {
-              id: item.id || (item.name ? item.name.toLowerCase().replace(/\s+/g, "-") : "test"),
-              name: item.name || item.title || "Diagnostic Test",
-              price: typeof item.price === "number" ? item.price : (parseFloat(String(item.price)) || 299),
-              fasting: item.fasting || "No fasting",
-              tat: item.tat || "Report in 6 hours",
-              quantity: typeof item.quantity === "number" && item.quantity > 0 ? item.quantity : 1,
-            };
+      const isString = typeof item === "string";
+      const lookupKey = isString ? item : (item.id || item.name || "");
+      const defaults = resolveCartItemDefaults(lookupKey, isString ? undefined : item.name);
+
+      const normalized: CartItem = isString
+        ? {
+            id: defaults.id,
+            name: defaults.name,
+            price: defaults.price,
+            fasting: defaults.fasting,
+            tat: defaults.tat,
+            quantity: 1,
+          }
+        : {
+            id: item.id || defaults.id,
+            name: item.name || item.title || defaults.name,
+            price: typeof item.price === "number" ? item.price : (parseFloat(String(item.price)) || defaults.price),
+            fasting: item.fasting || defaults.fasting,
+            tat: item.tat || defaults.tat,
+            quantity: typeof item.quantity === "number" && item.quantity > 0 ? item.quantity : 1,
+          };
 
       const existingIndex = items.findIndex(
-        (i) => i.name.trim().toLowerCase() === normalized.name.trim().toLowerCase()
+        (i) => i.name.trim().toLowerCase() === normalized.name.trim().toLowerCase() || i.id === normalized.id
       );
 
       if (existingIndex >= 0) {
@@ -58,33 +83,38 @@ export function addItemToCart(
   try {
     const raw = localStorage.getItem("qxl_cart");
     const current = parseCartItems(raw);
-    const name = typeof input === "string" ? input : input.name;
+    const isString = typeof input === "string";
+    const lookupKey = isString ? input : (input.id || input.name);
+    const defaults = resolveCartItemDefaults(lookupKey, isString ? undefined : input.name);
+
+    const name = isString ? defaults.name : input.name;
+    const id = isString ? defaults.id : (input.id || defaults.id);
+
     const existingIndex = current.findIndex(
-      (i) => i.name.toLowerCase() === name.toLowerCase() || (typeof input !== "string" && input.id && i.id.toLowerCase() === input.id.toLowerCase())
+      (i) => i.name.toLowerCase() === name.toLowerCase() || i.id.toLowerCase() === id.toLowerCase()
     );
 
     if (existingIndex >= 0) {
-      const addQty = typeof input !== "string" && input.quantity ? input.quantity : 1;
+      const addQty = !isString && input.quantity ? input.quantity : 1;
       current[existingIndex].quantity = (current[existingIndex].quantity || 1) + addQty;
     } else {
-      const newItem: CartItem =
-        typeof input === "string"
-          ? {
-              id: input.toLowerCase().replace(/\s+/g, "-"),
-              name: input,
-              price: 299,
-              fasting: "No fasting",
-              tat: "Report in 6 hours",
-              quantity: 1,
-            }
-          : {
-              id: input.id || input.name.toLowerCase().replace(/\s+/g, "-"),
-              name: input.name,
-              price: typeof input.price === "number" ? input.price : (parseFloat(String(input.price)) || 299),
-              fasting: input.fasting || "No fasting",
-              tat: input.tat || "Report in 6 hours",
-              quantity: input.quantity || 1,
-            };
+      const newItem: CartItem = isString
+        ? {
+            id: defaults.id,
+            name: defaults.name,
+            price: defaults.price,
+            fasting: defaults.fasting,
+            tat: defaults.tat,
+            quantity: 1,
+          }
+        : {
+            id: input.id || defaults.id,
+            name: input.name,
+            price: typeof input.price === "number" ? input.price : (parseFloat(String(input.price)) || defaults.price),
+            fasting: input.fasting || defaults.fasting,
+            tat: input.tat || defaults.tat,
+            quantity: input.quantity || 1,
+          };
       current.push(newItem);
     }
     localStorage.setItem("qxl_cart", JSON.stringify(current));

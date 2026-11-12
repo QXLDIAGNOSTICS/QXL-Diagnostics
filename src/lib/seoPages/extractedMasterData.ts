@@ -1027,7 +1027,7 @@ export const masterExtractedPagesData: Record<string, DynamicPageData> = {
     "metaDescription": "HbA1c normal range is below 5.7%. Learn what HbA1c measures, the prediabetes and diabetes cut-offs used in India, whether fasting is needed.",
     "badge": "NABL Accredited lab (MC-6849) \u00b7 FREE HOME COLLECTION",
     "h1Title": "HbA1c Test: Normal Range, Diabetes Cut-offs and What Your Number Means",
-    "subtitle": "HbA1c measures the percentage of your haemoglobin that has sugar attached to it, which reflects your average blood glucose over the previous 8\u201312 weeks. Below 5.7% is normal, 5.7\u20136.4% is prediabetes and 6.5% or above on two occasions confirms diabetes. No fasting is required.",
+    "subtitle": "HbA1c measures the percentage of your haemoglobin that has sugar attached to it, which reflects your average blood glucose over the previous 8–12 weeks. Below 5.7% is normal, 5.7–6.4% is prediabetes, and HbA1c \u22656.5% is within the diagnostic range for diabetes (confirmatory testing advised according to clinical guidelines). No fasting is required.",
     "price": "499",
     "oldPrice": "750",
     "discountPercent": "33% OFF",

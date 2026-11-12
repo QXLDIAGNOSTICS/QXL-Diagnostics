@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Body Pain & Muscle Aches: Causes & Tests | QXL Diagnostics",
   description: "Generalised body pain and muscle aches may result from viral infection, thyroid disease, Vitamin D deficiency, fibromyalgia, autoimmune disease or medicines.",
-  alternates: { canonical: `${SITE_URL}/health/body-pain-muscle-aches-causes` },
+    alternates: { canonical: `${SITE_URL}/health/body-pain-muscle-aches-causes` },
+  openGraph: {
+    title: "Body Pain & Muscle Aches: Causes & Tests | QXL Diagnostics",
+    description: "Generalised body pain and muscle aches may result from viral infection, thyroid disease, Vitamin D deficiency, fibromyalgia, autoimmune disease or medicines.",
+    url: `${SITE_URL}/health/body-pain-muscle-aches-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Body Pain & Muscle Aches: Causes & Tests | QXL Diagnostics",
+    description: "Generalised body pain and muscle aches may result from viral infection, thyroid disease, Vitamin D deficiency, fibromyalgia, autoimmune disease or medicines.",
+  },
 };
 export default function BodyPainPage() {
   return (

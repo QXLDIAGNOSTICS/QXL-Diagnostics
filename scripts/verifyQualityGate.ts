@@ -199,10 +199,19 @@ runCheck('COLL-01', 'Clinical Specimen Logic', 'Procedural investigations do NOT
 
 // 7. Booking & Payment Security
 runCheck('PAY-01', 'Checkout & CRO', 'Zero-price and empty cart payments strictly prohibited in API and UI', () => {
-  const orderApi = fs.readFileSync(path.join(ROOT, 'src/app/api/v1/payments/orders/route.ts'), 'utf8');
+  const collectPaymentPath = path.join(ROOT, 'src/app/api/v1/collect/payments/create-intent/route.ts');
+  const legacyPaymentPath = path.join(ROOT, 'src/app/api/v1/payments/orders/route.ts');
+  
+  let orderApi = '';
+  if (fs.existsSync(collectPaymentPath)) {
+    orderApi = fs.readFileSync(collectPaymentPath, 'utf8');
+  } else if (fs.existsSync(legacyPaymentPath)) {
+    orderApi = fs.readFileSync(legacyPaymentPath, 'utf8');
+  }
+
   const bookPage = fs.readFileSync(path.join(ROOT, 'src/app/book/page.tsx'), 'utf8');
 
-  const apiGuarded = orderApi.includes('rawAmount <= 0') && orderApi.includes('status: 400');
+  const apiGuarded = (orderApi.includes('rawAmount <= 0') || orderApi.includes('booking.netPayable <= 0')) && orderApi.includes('status: 400');
   const uiGuarded = bookPage.includes('canPay') && bookPage.includes('cartItems.length > 0 && grandTotal > 0');
 
   return {

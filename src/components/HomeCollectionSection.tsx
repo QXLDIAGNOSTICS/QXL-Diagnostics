@@ -28,8 +28,8 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
     },
     {
       icon: <FlaskConical className="w-5 h-5 text-[#2563EB]" />,
-      title: "NABL Accredited Labs",
-      desc: "All samples are analyzed in our fully accredited, state-of-the-art laboratory."
+      title: "Quality Controlled Lab",
+      desc: "Samples are processed at our NABL-accredited reference laboratory (MC-6849) within accredited scope, or via validated referral protocols."
     },
     {
       icon: <ThermometerSnowflake className="w-5 h-5 text-[#2563EB]" />,
@@ -47,8 +47,9 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
     <section className="py-6 sm:py-10 bg-white border-t border-slate-100 overflow-hidden">
       <div className="max-w-[1200px] mx-auto px-3 sm:px-6 w-full">
         <div className="bg-[#F0F7FF] border border-[#BFDBFE] p-5 sm:p-8 text-center rounded-3xl relative shadow-sm">
-          
-          <style dangerouslySetInnerHTML={{ __html: `
+
+          <style dangerouslySetInnerHTML={{
+            __html: `
             @keyframes marquee-scroll {
               0% { transform: translateX(0); }
               100% { transform: translateX(calc(-50% - 8px)); }
@@ -78,8 +79,8 @@ export default function HomeCollectionSection({ decorativeHeading = false }: { d
           <div className="relative w-full mb-6 py-1">
             <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-3 scrollbar-none justify-start lg:justify-center">
               {steps.map((step, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="bg-white border border-[#BFDBFE] p-4 rounded-2xl flex flex-col items-center text-center w-[200px] sm:w-[220px] shrink-0 snap-start hover:border-[#2563EB] shadow-2xs transition-all duration-300"
                 >
                   <div className="w-11 h-11 rounded-full bg-[#EFF6FF] border border-[#BFDBFE] flex items-center justify-center mb-3 shrink-0">

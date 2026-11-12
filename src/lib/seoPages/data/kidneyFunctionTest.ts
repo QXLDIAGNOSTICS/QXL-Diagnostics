@@ -136,6 +136,7 @@ export const kidneyFunctionTest: SeoLandingData = {
     },
   ],
   relatedLinks: [
+    { label: "GLP-1 Monitoring Guide", href: "/blog/glp-1-advanced-blood-tests-monitoring-bangalore", desc: "Kidney, eGFR & cystatin C on GLP-1 therapy" },
     { label: "Liver Function Test", href: "/liver-function-test", desc: "Complete organ-function screening" },
     { label: "HbA1c Test", href: "/hba1c-test", desc: "Sugar control protects kidneys" },
     { label: "Urine Analysis", href: "/blood-test-bangalore", desc: "Protein detection complements KFT" },

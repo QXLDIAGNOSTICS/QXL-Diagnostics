@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Unexplained Weight Loss: Causes & Tests | QXL Diagnostics",
   description: "Unintentional weight loss may be linked to diabetes, thyroid disease, infections, digestive disorders, poor nutrition or chronic disease. Learn warning signs.",
-  alternates: { canonical: `${SITE_URL}/health/unexplained-weight-loss` },
+    alternates: { canonical: `${SITE_URL}/health/unexplained-weight-loss` },
+  openGraph: {
+    title: "Unexplained Weight Loss: Causes & Tests | QXL Diagnostics",
+    description: "Unintentional weight loss may be linked to diabetes, thyroid disease, infections, digestive disorders, poor nutrition or chronic disease. Learn warning signs.",
+    url: `${SITE_URL}/health/unexplained-weight-loss`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Unexplained Weight Loss: Causes & Tests | QXL Diagnostics",
+    description: "Unintentional weight loss may be linked to diabetes, thyroid disease, infections, digestive disorders, poor nutrition or chronic disease. Learn warning signs.",
+  },
 };
 export default function WeightLossPage() {
   return (

@@ -152,6 +152,7 @@ export const hba1cTest: SeoLandingData = {
     },
   ],
   relatedLinks: [
+    { label: "GLP-1 Monitoring Guide", href: "/blog/glp-1-advanced-blood-tests-monitoring-bangalore", desc: "Advanced blood tests for Ozempic & Mounjaro" },
     { label: "Full Body Checkup", href: "/full-body-checkup-bangalore", desc: "HbA1c included in complete screening" },
     { label: "CBC Test", href: "/cbc-test", desc: "Screens anaemia that can affect HbA1c" },
     { label: "Lipid Profile Test", href: "/lipid-profile-test", desc: "Diabetes raises heart risk — check lipids" },

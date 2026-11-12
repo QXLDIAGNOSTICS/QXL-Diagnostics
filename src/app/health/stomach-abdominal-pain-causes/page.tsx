@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Stomach Pain: Abdominal Pain Causes & Tests | QXL Diagnostics",
   description: "Stomach or abdominal pain may come from gastritis, ulcers, gallstones, pancreas, bowel, appendix, urinary or gynaecological causes. Learn warning signs.",
-  alternates: { canonical: `${SITE_URL}/health/stomach-abdominal-pain-causes` },
+    alternates: { canonical: `${SITE_URL}/health/stomach-abdominal-pain-causes` },
+  openGraph: {
+    title: "Stomach Pain: Abdominal Pain Causes & Tests | QXL Diagnostics",
+    description: "Stomach or abdominal pain may come from gastritis, ulcers, gallstones, pancreas, bowel, appendix, urinary or gynaecological causes. Learn warning signs.",
+    url: `${SITE_URL}/health/stomach-abdominal-pain-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stomach Pain: Abdominal Pain Causes & Tests | QXL Diagnostics",
+    description: "Stomach or abdominal pain may come from gastritis, ulcers, gallstones, pancreas, bowel, appendix, urinary or gynaecological causes. Learn warning signs.",
+  },
 };
 export default function StomachPainPage() {
   return (

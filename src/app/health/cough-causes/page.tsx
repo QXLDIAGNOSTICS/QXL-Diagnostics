@@ -5,7 +5,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Cough Causes, Types & Warning Signs | QXL Diagnostics",
   description: "Learn causes of dry, wet, persistent and chronic cough, warning signs and when chest imaging or selected laboratory tests may be considered.",
-  alternates: { canonical: `${SITE_URL}/health/cough-causes` },
+    alternates: { canonical: `${SITE_URL}/health/cough-causes` },
+  openGraph: {
+    title: "Cough Causes, Types & Warning Signs | QXL Diagnostics",
+    description: "Learn causes of dry, wet, persistent and chronic cough, warning signs and when chest imaging or selected laboratory tests may be considered.",
+    url: `${SITE_URL}/health/cough-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cough Causes, Types & Warning Signs | QXL Diagnostics",
+    description: "Learn causes of dry, wet, persistent and chronic cough, warning signs and when chest imaging or selected laboratory tests may be considered.",
+  },
 };
 
 export default function CoughPage() {

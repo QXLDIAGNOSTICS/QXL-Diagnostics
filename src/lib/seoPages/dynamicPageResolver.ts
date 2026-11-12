@@ -333,7 +333,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
     faqs: [
       { question: "What does HbA1c measure?", answer: "It measures the percentage of haemoglobin in red blood cells coated with glucose, reflecting average blood sugar over the past 2 to 3 months." },
       { question: "Do I need fasting for HbA1c?", answer: "No, fasting is NOT required for an HbA1c test. You can have it drawn at any time of the day." },
-      { question: "What is a normal HbA1c level?", answer: "Below 5.7% is normal (non-diabetic). 5.7%–6.4% indicates prediabetes. 6.5% or above on two occasions confirms diabetes." },
+      { question: "What is a normal HbA1c level?", answer: "Below 5.7% is normal (non-diabetic). 5.7%–6.4% indicates prediabetes. HbA1c ≥6.5% is within the diagnostic range for diabetes. In the absence of unequivocal hyperglycaemia, diagnosis generally requires confirmatory abnormal testing according to clinical guidelines." },
       { question: "What is eAG and how does it relate to HbA1c?", answer: "eAG (estimated Average Glucose) is calculated from HbA1c. An HbA1c of 7% corresponds to an eAG of approximately 154 mg/dL." },
       { question: "Can I book an HbA1c test at home in Bangalore?", answer: "Yes. QXL Diagnostics provides free home collection for HbA1c across all Bengaluru areas. No fasting needed." }
     ],
@@ -504,7 +504,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
       "Processed using enzymatic clinical chemistry analyzers with strict NABL quality controls."
     ],
     faqs: [
-      { question: "Do I need to fast for a lipid profile?", answer: "Yes, 10 to 12 hours of strict fasting is required for accurate triglyceride measurement and the Friedewald LDL calculation. Only plain water is permitted." },
+      { question: "Do I need to fast for a lipid profile?", answer: "A lipid profile can often be performed without fasting for initial screening. A 10 to 12 hour fasting sample is recommended when precise triglyceride assessment is required, during ongoing treatment monitoring, or when specifically requested by your physician or laboratory protocol. Plain water is permitted during fasting." },
       { question: "What is LDL cholesterol?", answer: "LDL (Low-Density Lipoprotein) is often called 'bad' cholesterol. High LDL contributes to arterial plaque buildup, increasing the risk of heart attack and stroke." },
       { question: "What is HDL cholesterol?", answer: "HDL (High-Density Lipoprotein) is 'good' cholesterol that transports cholesterol from arteries back to the liver. Higher HDL is protective against cardiovascular disease." },
       { question: "What does a high triglycerides level mean?", answer: "High triglycerides (>150 mg/dL) are associated with metabolic syndrome, obesity, alcohol intake, uncontrolled diabetes, and increased cardiovascular risk." },

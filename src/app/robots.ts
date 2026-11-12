@@ -29,6 +29,7 @@ export default function robots(): MetadataRoute.Robots {
   const crawlerAgents = [
     '*',
     'OAI-SearchBot',
+    'OAI-AdsBot',
     'ChatGPT-User',
     'GPTBot',
     'Claude-SearchBot',

@@ -736,7 +736,7 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
     parametersCount: 1,
     paramText: "1 Parameter",
     fasting: false,
-    fastingInstruction: "Emergency Processing Available",
+    fastingInstruction: "Emergency Notice: In suspected acute coronary syndrome, seek emergency hospital care (call 112). Do not delay emergency care for outpatient home collection.",
     sampleType: "Serum",
     tat: "2–4 Hours",
     slug: "/high-sensitivity-cardiac-troponin",

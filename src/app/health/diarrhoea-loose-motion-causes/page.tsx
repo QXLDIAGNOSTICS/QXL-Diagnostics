@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Diarrhoea & Loose Motions: Causes & Warning Signs | QXL Diagnostics",
   description: "Diarrhoea and loose motions may be caused by viral or bacterial infection, food poisoning, IBS, IBD, lactose intolerance or medications. Learn warning signs.",
-  alternates: { canonical: `${SITE_URL}/health/diarrhoea-loose-motion-causes` },
+    alternates: { canonical: `${SITE_URL}/health/diarrhoea-loose-motion-causes` },
+  openGraph: {
+    title: "Diarrhoea & Loose Motions: Causes & Warning Signs | QXL Diagnostics",
+    description: "Diarrhoea and loose motions may be caused by viral or bacterial infection, food poisoning, IBS, IBD, lactose intolerance or medications. Learn warning signs.",
+    url: `${SITE_URL}/health/diarrhoea-loose-motion-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Diarrhoea & Loose Motions: Causes & Warning Signs | QXL Diagnostics",
+    description: "Diarrhoea and loose motions may be caused by viral or bacterial infection, food poisoning, IBS, IBD, lactose intolerance or medications. Learn warning signs.",
+  },
 };
 export default function DiarrhoeaPage() {
   return (

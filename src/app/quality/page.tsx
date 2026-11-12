@@ -128,7 +128,7 @@ export default function QualityHubPage() {
               </div>
               <h3 className="font-extrabold text-[#0f2d5e] text-lg">Cold-Chain Sample Transport</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Pre-analytical stability is maintained using calibrated insulated cooler boxes with gel packs (2°C–8°C for serum/plasma). Temperature logging ensures enzyme activity and cellular integrity are preserved during home-to-lab transport.
+                Pre-analytical stability is maintained using validated thermal transport systems. Samples are transported under validated test-specific temperature, time and stability requirements (including 2°C–8°C cold chain where indicated) with temperature logging to preserve analyte integrity during home-to-lab transit.
               </p>
             </div>
 

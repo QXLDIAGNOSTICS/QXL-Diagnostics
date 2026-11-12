@@ -36,6 +36,8 @@ type CatalogEntry = {
   parameters?: string | null;
   includes?: string | null;
   old_price?: number | null;
+  fasting?: string;
+  tat?: string;
 };
 
 function generateTimeSlots(selectedDate?: string): string[] {
@@ -88,6 +90,8 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
       home_collection_available: m.homeCollectionAvailable,
       parameters: m.paramText,
       includes: m.includes,
+      fasting: m.fastingInstruction,
+      tat: m.tat,
     }))
   );
   const [catalogLoading, setCatalogLoading] = useState(false);
@@ -218,8 +222,8 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
       id: item.id,
       name: item.name,
       price: item.price || 0,
-      fasting: "No fasting required",
-      tat: "Report in 6 hours",
+      fasting: item.fasting || (item.kind === "package" ? "Fasting required (10–12 hrs)" : "Routine preparation"),
+      tat: item.tat || "Same-day or test-specific",
     });
   };
 

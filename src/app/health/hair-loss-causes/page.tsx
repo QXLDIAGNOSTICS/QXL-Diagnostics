@@ -4,7 +4,19 @@ import SymptomPageLayout from "@/components/SymptomPageLayout";
 export const metadata: Metadata = {
   title: "Hair Loss Causes & Blood Tests | QXL Diagnostics",
   description: "Learn common causes of hair loss including iron deficiency, thyroid disease, stress, PCOS, illness and patterned hair loss, plus tests that may be useful.",
-  alternates: { canonical: `${SITE_URL}/health/hair-loss-causes` },
+    alternates: { canonical: `${SITE_URL}/health/hair-loss-causes` },
+  openGraph: {
+    title: "Hair Loss Causes & Blood Tests | QXL Diagnostics",
+    description: "Learn common causes of hair loss including iron deficiency, thyroid disease, stress, PCOS, illness and patterned hair loss, plus tests that may be useful.",
+    url: `${SITE_URL}/health/hair-loss-causes`,
+    siteName: "QXL Diagnostics",
+    type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hair Loss Causes & Blood Tests | QXL Diagnostics",
+    description: "Learn common causes of hair loss including iron deficiency, thyroid disease, stress, PCOS, illness and patterned hair loss, plus tests that may be useful.",
+  },
 };
 export default function HairLossPage() {
   return (

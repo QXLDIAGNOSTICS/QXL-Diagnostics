@@ -14,7 +14,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Bengaluru (All Localities)",
     slug: "bengaluru",
     nearestLab: "QXL Central NABL Processing Laboratory",
-    description: "QXL Diagnostics provides 100% free and hygienic home blood sample collection across all pin codes in Bengaluru. Book routine tests, diabetes profiles, thyroid panels, and full body health checkups with same-day digital reports.",
+    description: "QXL Diagnostics provides scheduled and hygienic home blood sample collection across eligible PIN codes in Bengaluru. Check your pincode during booking to confirm availability, applicable collection charge, and same-day digital reports.",
     pincodes: ["560001", "560002", "560004", "560011", "560024", "560037", "560060", "560064", "560066", "560100"],
     popularTests: ["Full Body Health Check", "Complete Blood Count (CBC)", "HbA1c & Fasting Sugar", "Lipid Profile", "Thyroid Profile (T3, T4, TSH)"]
   },

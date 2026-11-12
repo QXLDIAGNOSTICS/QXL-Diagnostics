@@ -81,6 +81,7 @@ export default function Header() {
       { label: "About Us", href: "/about", visible: true },
       { label: "Founder & Consultants", href: "/team", visible: true },
       { label: "Our Specialities", href: "/specialities", visible: true },
+      { label: "Sexual Health", href: "/sexual-health", visible: true },
       { label: "Packages", href: "/packages", visible: true },
       { label: "Blog", href: "/blog", visible: true },
       { label: "Find Nearest Centre", href: "/centers", visible: true },
@@ -178,8 +179,10 @@ export default function Header() {
     { label: "Tests", href: "/tests", visible: true },
     { label: "Health Packages", href: "/packages", visible: true },
     { label: "Specialities", href: "/specialities", visible: true },
+    { label: "Sexual Health", href: "/sexual-health", visible: true },
     { label: "Blog", href: "/blog", visible: true },
     { label: "Home Collection", href: "/home-blood-collection-bangalore", visible: true },
+    { label: "QXL Collect", href: "/collect", visible: true },
     { label: "For Hospitals", href: "/for-hospitals", visible: true },
     { label: "Locations", href: "/centers", visible: true },
     { label: "For Doctors", href: "/doctor-led-diagnostic-lab-bengaluru", visible: true },
@@ -235,7 +238,7 @@ export default function Header() {
     <>
       {/* Pure Solid White Header */}
       <header
-        className="w-full relative lg:sticky lg:top-0 z-50 bg-white border-b border-slate-200/80 shadow-xs"
+        className="w-full sticky top-0 z-50 bg-white border-b border-slate-200/80 shadow-xs"
         style={{
           background: '#ffffff',
           boxShadow: '0 4px 20px rgba(0, 0, 0, 0.03)'

@@ -4,6 +4,9 @@ const BASE_URL = 'https://qxldiagnostics.com';
 
 const STATIC_URLS = [
   { path: '', priority: '1.0', changefreq: 'daily' },
+  { path: '/collect', priority: '1.0', changefreq: 'daily' },
+  { path: '/sexual-health', priority: '1.0', changefreq: 'daily' },
+  { path: '/sexual-health/packages', priority: '0.95', changefreq: 'weekly' },
   { path: '/book', priority: '1.0', changefreq: 'daily' },
   { path: '/about', priority: '0.8', changefreq: 'monthly' },
   { path: '/contact', priority: '0.7', changefreq: 'monthly' },

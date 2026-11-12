@@ -18,6 +18,7 @@ const specialities = [
   { label: "Oncology Markers", href: "/specialities/oncology" },
   { label: "Women's Health", href: "/specialities/womens-health" },
   { label: "Infectious Diseases", href: "/specialities/infectious-diseases" },
+  { label: "Sexual Health & STIs", href: "/sexual-health" },
   { label: "Gastroenterology", href: "/specialities/gastroenterology" },
   { label: "Haematology", href: "/specialities/hematology" },
   { label: "Bone Disorders", href: "/specialities/bone-disorders" },
@@ -48,6 +49,7 @@ export default function Footer() {
     footerDesc: "QXL Diagnostics is a NABL Accredited super speciality diagnostic laboratory in Bengaluru offering advanced pathology, molecular diagnostics, histopathology, and AI-assisted precision diagnostics.",
     navItems: [
       {label: "Home", href: "/", visible: true},
+      {label: "QXL Collect Portal", href: "/collect", visible: true},
       {label: "About Us", href: "/about", visible: true},
       {label: "Symptoms & Causes", href: "/health/symptoms-causes", visible: true},
       {label: "Careers", href: "/careers", visible: true},
@@ -269,6 +271,18 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+
+      {/* Kannada + English Trust Identifier */}
+      <div className="relative z-10 border-t border-white/10 bg-black/25 py-3 px-4 text-center">
+        <div className="max-w-[1260px] mx-auto">
+          <p className="text-slate-200 text-xs sm:text-[13px] font-bold tracking-wide">
+            QXL Diagnostics — Doctor-Led Diagnostic Laboratory in Bengaluru · ಕ್ಯೂಎಕ್ಸ್ಎಲ್ ಡಯಾಗ್ನೋಸ್ಟಿಕ್ಸ್ - ಲ್ಯಾಬ್ ಸೇವಾ ಮಿತ್ರ
+          </p>
+          <p className="text-slate-400 text-[11px] sm:text-xs mt-0.5 font-medium">
+            ಬೆಂಗಳೂರಿನಲ್ಲಿ ವಿಶ್ವಾಸಾರ್ಹ ಲ್ಯಾಬ್ ಪರೀಕ್ಷೆಗಳು, ಪರಿಣಿತ ವೈದ್ಯಕೀಯ ಮೇಲ್ವಿಚಾರಣೆ ಮತ್ತು ಮನೆ ಮಾದರಿ ಸಂಗ್ರಹ ಸೇವೆ.
+          </p>
         </div>
       </div>
 
