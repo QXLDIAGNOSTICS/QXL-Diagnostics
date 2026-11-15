@@ -1,56 +1,18 @@
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.build/
-.buildlog/
-.history
-.svn/
-.swiftpm/
-migrate_working_dir/
-
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
-.idea/
-
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
-
-# Flutter/Dart/Pub related
-**/doc/api/
-**/ios/Flutter/.last_build_id
+# Workspace-level
 .dart_tool/
-.flutter-plugins-dependencies
-.pub-cache/
-.pub/
+.idea/
+*.iml
+/dist/
 /build/
-/coverage/
 
-# Symbolication related
-app.*.symbols
+# Per-developer environment files (may hold Firebase/staging values) — both apps.
+apps/*/env/local.json
+apps/*/env/*.local.json
+apps/*/env/staging.json
 
-# Obfuscation related
-app.*.map.json
-
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
-
-# Widget Preview related
-.widget_preview/
-
-# Release signing material — never commit
-/android/key.properties
+# Signing material and platform Firebase files — never commit.
+apps/*/android/key.properties
 *.jks
 *.keystore
-
-# Local environment overrides
-/env/*.local.json
+google-services.json
+GoogleService-Info.plist

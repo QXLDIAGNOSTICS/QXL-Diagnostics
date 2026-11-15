@@ -1,113 +1,140 @@
-# Handoff — QXL patient app v1
+# Handoff — QXL patient app, QXL Collector and home-collection ops (QXL Collect)
 
-Date: 2026-11-13 · Flutter 3.50.0 stable · Backend: `qxl-backend` (FastAPI, `/api/v1`)
+Date: 2026-11-15 · Flutter 3.50.0 stable · Backend `qxl-backend` (FastAPI, `/api/v1`) ·
+Ops portal `qxl-admin` (Next.js 16)
 
-## Decisions applied
+Nothing from this phase is committed, pushed or deployed yet.
 
-| Decision | Outcome |
-|---|---|
-| Scope | Patient/customer app only (no admin, staff, collection or control-centre screens) |
-| Location in workspace | `qxl-mobile/` |
-| Booking slots | Additive backend change approved: `slots` on `GET /bookings/slot-availability`, driven by `BOOKING_SLOTS` |
-| Auth | Existing phone + OTP flow; opaque `qxl_session` cookie stored in Keychain/Keystore |
-| Reports | Signed-in user's own bookings only (no public lookup) |
-| AI assistant | Included, with a "not a doctor" notice; never pays automatically |
-| Brand / legal | Logo from `qxl-frontend/app logo/`; Privacy, Terms and Payment terms opened live from qxldiagnostics.com |
-| Defaults (not asked) | English only; location optional and asked in context; no push notifications; family profiles, saved addresses, wallet and referrals deferred (no APIs) |
+## What was built
 
-## What works (against the real API contract)
-
-| Journey | Screens | API paths |
+| Piece | Where | Summary |
 |---|---|---|
-| Discover | Home (banners, quick actions, featured packages, specialities, doctors, reviews, help), search | `GET /banners`, `/packages?home=true`, `/specialities`, `/doctors`, `/reviews`, `/settings`, `/tests?q=` |
-| Tests & packages | Explore tabs with category filters, test/package detail, speciality detail with server-resolved profiles | `GET /tests`, `/tests/{id}`, `/packages`, `/packages/{id}`, `/specialities/{slug}`, `POST /catalog/resolve` |
-| Centres | List, optional "nearest first", detail with call/directions/book here | `GET /centers?lat=&lng=`, `GET /centers/{slug}` |
-| Cart & booking | Persisted cart re-priced from the live catalog; home or centre; 14-day date strip; live slots; patient details pre-filled from profile; guest booking allowed | `GET /bookings/slot-availability`, `POST /bookings` |
-| Payment | Server-confirmed amounts and fee → Razorpay → server verification; pay later; retry; pending-confirmation state | `POST /payments/orders`, `POST /payments/verify` |
-| Account | Phone OTP sign-in (account auto-created), session restore, profile completion/edit, sign out | `POST /auth/login/phone`, `/auth/login/otp`, `GET /auth/me`, `PATCH /users/me`, `POST /auth/logout` |
-| Bookings & reports | Paged list, status timeline, payment state, https-only report link, pay now | `GET /bookings/me`, `GET /bookings/{id}` |
-| Prescriptions | Camera/photo/PDF upload with progress and cancel, monthly quota, analysis polling, matched tests added to the cart only by the user, open original file via signed URL | `GET/POST /prescriptions`, `GET /prescriptions/quota`, `GET /prescriptions/{id}`, `GET /files/{id}` |
-| Assistant | Streaming replies, stop, interruption handling, daily limit, history (signed in), payment card routed to the normal payment screen | `POST /chat/stream`, `GET /chat/rate-limit`, `/chat/conversations`, `/chat/conversations/{id}` |
-| Help | FAQs, doctors, health articles, contact form, call/WhatsApp, legal pages, licences | `GET /faqs`, `/doctors/{slug}`, `/blog`, `/blog/{slug}`, `POST /leads/contact` |
+| Backend (additive) | `qxl-backend` | Migration `0025_qxl_collect` (17 new tables, new nullable columns on `bookings` and `test_catalog`, 5 seeded roles), services in `app/services/collect/`, endpoints in `collect_patient.py`, `collect_field.py`, `collect_ops.py`. Design and status machines: `docs/COLLECT.md` |
+| Patient app | `qxl-mobile/apps/patient` | Home sample collection on top of v1: service-area check, family profiles, saved addresses with a map pin, visit booking wizard (one visit for the whole cart), pay online or at the door, live tracking with collector card and visit code, cancel/reschedule until the collector leaves, reports, notifications inbox, push |
+| Collector app | `qxl-mobile/apps/collector` | New app for phlebotomists and couriers, offline-first (see its README) |
+| Shared core | `qxl-mobile/packages/qxl_core` | API client, config, navy/gold theme, widgets, OSM map, push wrapper |
+| Ops portal | `qxl-admin/src/app/collect/*` | Dispatch, Live map (Leaflet + OSM), Collectors & areas, Lab receiving, Lab reports (+ ITDOSE sync queue), Collect dashboard; each page is shown only to roles with its permission |
 
-Every screen has loading, empty, error-with-retry and success states. Nothing shown in the app
-is invented: prices, slots, statuses and content all come from the API, and items without a
-price show "Price on request" with a call option.
+## Owner decisions applied (2026-11-15)
 
-## Backend change made (not committed, not deployed)
+Flutter for both apps · ops screens in qxl-admin · OpenStreetMap · FCM plus existing
+SMS/email · ITDOSE through an adapter with manual entry until the API docs arrive ·
+pre-printed labels, scanned · pay at collection (cash/UPI) allowed · identity = full name +
+date of birth, optional 4-digit visit code the collector may ask for · courier role inside the
+Collector app · self-service cancel/reschedule until the collector is en route · admin-managed
+PIN codes · family profiles.
 
-In `qxl-backend` (branch `backend`, uncommitted):
+## End-to-end run (2026-11-15, local backend + Android emulator + admin in a browser)
 
-- `app/core/config.py` — new `BOOKING_SLOTS` setting (comma-separated labels).
-- `app/services/booking_service.py` — `slot_options()` normalises each configured label with
-  the same parser `POST /bookings` uses, and marks each slot `past` (IST) or `full`
-  (`MAX_BOOKINGS_PER_SLOT`).
-- `app/api/v1/endpoints/bookings.py` — `GET /bookings/slot-availability` also returns
-  `slots: [{label, start, end, booked, available, unavailable_reason}]`. Existing fields are
-  unchanged, so the website is unaffected.
-- `tests/test_booking_rules.py` — 2 new tests (pass). `.env.example` documents the variable.
+Against a fresh local database seeded with `scripts/seed_data.py` and
+`scripts/seed_collect_demo.py` (see DEVELOPMENT.md), never production:
 
-**To enable mobile booking:** deploy this change and set `BOOKING_SLOTS` in Railway, for
-example `6:00 AM - 8:00 AM,8:00 AM - 10:00 AM,10:00 AM - 12:00 PM,2:00 PM - 4:00 PM,4:00 PM - 6:00 PM`
-(these are the windows the website offers today — confirm them). Until then the app shows
-"Online slot booking isn't available right now" with a Call button, which is what production
-shows now.
+1. Patient signs in (dev OTP), adds CBC + Lipid Profile, chooses home collection, adds
+   "Myself" with DOB, adds an address (PIN 560040 confirmed serviceable), picks a slot, pays at
+   collection, gives consent → visit `QXL-HC-…` with visit code.
+2. Dispatcher (admin `/collect/dispatch`) sees the visit and the "unassigned" alert, opens the
+   drawer and assigns the collector. Live map, setup and dashboard pages load real data.
+3. Collector app: job appears → acknowledge → start journey → patient app shows "Collector on
+   the way", the collector's position, a 3.4 km / ~16 min estimate and the collector's ID card
+   → arrive → identity check → two labels scanned (typed) and linked to the right tests (EDTA,
+   SST) → checklist + cash → **Collected**.
+4. Collector hands both tubes to the courier by employee code; courier scans both to accept
+   custody, sets the destination lab.
+5. Lab user (`/collect/lab`) checks in the manifest (seal intact), sees the full chain of
+   custody, accepts both tubes; on `/collect/reports` sets a status + ITDOSE accession, uploads
+   a PDF with the authorizing pathologist and time, releases it.
+6. Patient app: visit shows **Report ready**, both tests "Report ready", samples "Accepted by
+   lab", and the report opens through a short-lived signed link.
 
-Pre-existing backend state, unrelated to this change: 3 failing tests
-(`test_require_role_*` ×2, `test_chat_stream_endpoint_emits_sse`) and 20 ruff findings in the
-touched files — identical before and after the change.
+### Bugs found by that run and fixed
 
-## Contract gaps and risks found
+| Where | Problem | Fix |
+|---|---|---|
+| Collector app + backend | App crashed after the identity check: `verify-identity` returned `{verified, method}` while every other job action returns the job | Endpoint now returns the job; the app only trusts a response that is that job, otherwise keeps its local change. Regression tests added (Flutter + backend e2e) |
+| Collector app | "0 done · 1 to go" stayed stale after closing a visit | Profile counters refresh after every job action |
+| Collector app | Destination-lab dropdown overflowed with long centre names | Dropdowns expand and ellipsize |
+| Collector app | Signing out left the collector "on duty" for dispatch | Sign-out ends the shift first |
+| Patient app | Tube types shown as "Edta"/"Sst" | Shown as recorded (EDTA, SST) |
+| Patient app | Screen readers announced the bell as just "6" | Announced as "Notifications, 6 unread" |
+| Patient app | GPS button covered the OpenStreetMap attribution on the address map | Button moved above it |
+| Patient app | "Add a patient" started empty and as "Myself" even when Myself existed | Prefills Myself from the account; otherwise defaults to a family relation |
+| Admin | Lab worklist had no visit reference; history showed empty "Reason:" | Worklist rows include `visit_reference` (additive); empty values hidden |
 
-1. **Report links are plain URLs.** `report_url` is free text set by staff, not a signed,
-   expiring URL. The app opens only `https` links in an in-app browser tab, but anyone with the
-   link can open it. Recommend serving reports through the private files bucket with signed
-   URLs (like `GET /files/{id}`).
-2. **Assistant can create bookings without a confirmation step.** The signed-in chat's
-   `create_booking` tool books on the model's decision. The app never pays automatically and
-   shows bookings for review, but a server-side "confirm before booking" step would be safer.
-3. **Guest bookings can't be viewed later.** `GET /bookings/{id}` requires the owning account,
-   so a guest only gets a reference on the result screen. The app nudges sign-in before
-   booking. A public lookup would need an approved backend contract.
-4. **Guest chat quota is fingerprinted by IP/user-agent**, so users behind the same mobile
-   carrier NAT may share the 50/day guest limit.
-5. **README drift:** `qxl-backend/README.md` still describes password + SMS-link 2FA; the code
-   is phone + OTP only for patients.
-6. **The live assistant endpoint returns an empty stream.** On 2026-11-13,
-   `POST /chat/stream` on production answered `200 text/event-stream` with **no body** after
-   about 2.5 s (guest request, reproduced with curl). The guest generator fails before its first
-   event, most likely in the OpenAI call (key, quota or model). The app now shows "The assistant
-   couldn't answer just now" instead of hanging, but the assistant won't work until the backend
-   is fixed. Check the Railway logs for `chat_service.stream_answer_guest`.
-7. **Slot capacity counts each cart item** as one booking against `MAX_BOOKINGS_PER_SLOT` (3).
-   The app disables slots that can't hold the whole cart; a large cart may find few slots.
-
-## Tests and builds run (Linux host, Android emulator API 36)
+### Checks
 
 | Check | Result |
 |---|---|
-| `flutter analyze` | No issues |
-| `flutter test` — unit, widget and accessibility (tap target, labels, contrast) | 53 passed |
-| `flutter test integration_test -d emulator-5554` — sign in → cart → checkout → pay → verified → bookings → report | Passed |
-| `flutter build apk --debug` + manual run against production (browse only) | Runs; live banners, packages, tests, cart and checkout render; no slots offered (backend change not deployed) |
-| `flutter build appbundle --release` / `apk --release` (R8 on, Razorpay keep rules) | Built (AAB 59 MB, APK 60 MB). Release APK installed and run on the emulator: home, catalog, package detail, centres, assistant, dark mode and 1.6× text checked. Signed with the debug key — no upload keystore yet |
-| Backend `pytest tests/test_booking_rules.py` | Passed (2 new tests) |
+| Patient `flutter analyze` / `flutter test` | No issues / 55 passed |
+| Collector `flutter analyze` / `flutter test` | No issues / 11 passed (offline queue, encryption, safety rules, response handling) |
+| Backend `tests/collect` (real DB, `QXL_COLLECT_DB_TESTS=1`) | 2 passed (incl. duplicate booking, wrong DOB, duplicate barcode, missing aftercare/payment, missing specimen in transport, rejection → recollection, unauthorized release, cross-account access) |
+| Backend `ruff` on changed files | Clean |
+| Admin `tsc`, `eslint`, `next build` | Clean; all six `/collect/*` routes build |
 
-Not run, and why:
+### Not verified, and why
 
-- **iOS build, simulator run and VoiceOver** — needs macOS/Xcode (this machine is Linux). The
-  iOS project is configured (bundle id, display name, permission strings, icons, splash).
-- **Real Razorpay checkout** — needs the merchant's test-mode keys on a staging backend. The
-  flow is covered with a fake gateway; run the RELEASE.md test-payment step before launch.
-- **Real OTP sign-in, real booking or payment against production** — deliberately not done;
-  they send real SMS and create real records.
-- **TalkBack pass** — automated guideline checks pass; a manual pass is in QA_CHECKLIST.md.
+- **iOS** (build, run, VoiceOver, background location) — needs a Mac.
+- **Camera scanning** — the emulator has no camera; labels were typed with the built-in
+  fallback. Scan real labels on a phone.
+- **Live GPS stream** — the headless emulator's GPS stayed at a fixed point, so the app sent
+  no positions. The upload endpoint and the patient's live map were checked by posting a
+  batch directly. Test on a real phone while driving.
+- **Push** — no Firebase project yet; the inbox fallback was used.
+- **Online payment for a visit** — needs Razorpay test keys on a staging backend.
+- **Offline replay on a device** — covered by unit tests, not by toggling airplane mode.
+- **Reject, missing-specimen and amendment paths in the UI** — covered by the backend e2e
+  tests, not clicked through. **Hold and revoke** are not tested anywhere yet.
+- **Report PDF viewing** — the signed link was issued and opened in the phone's browser; the
+  PDF itself was not viewed (local storage URLs point at the emulator host).
+
+## Deploying
+
+1. Review and commit the backend (branch `backend`) — leave `app/services/chat_service.py` out;
+   another session changed it. Deploy, then run `alembic upgrade head` (adds `0025_qxl_collect`;
+   additive only, the website keeps working).
+2. Set the new settings in Railway (all in `.env.example` under "QXL Collect"):
+   `VISITS_PER_COLLECTOR_PER_SLOT`, `HOME_VISIT_BOOKING_DAYS`, `CONSENT_VERSION`,
+   `FCM_SERVICE_ACCOUNT_JSON` (when Firebase is ready), and keep `LOCAL_STORAGE_*` empty so
+   report PDFs go to the private Supabase bucket. `BOOKING_SLOTS` drives home-visit slots too.
+3. Deploy qxl-admin (`npm install` adds `leaflet`).
+4. In the admin panel: add PIN codes (Collectors & areas), create collector/courier accounts
+   (Users) and their field profiles, create dispatcher / lab accounts.
+5. Fill `sample_type`, `container_type` and `fasting_required` on every home-collectable test
+   (currently empty in production). The collector app shows what to draw from these.
+6. Build both apps with production env files (RELEASE.md).
 
 ## Waiting on the owner
 
-- Confirm app name and IDs, Apple/Google developer accounts, release owner (RELEASE.md).
-- Android upload keystore and iOS signing team.
-- Store listing text/screenshots, Data safety / App Privacy answers.
-- Deploy the backend slot change and set `BOOKING_SLOTS`.
-- A staging backend with Razorpay test keys for payment QA.
-- A 1024 px master icon if the current logo-derived icon isn't final.
+- **Initial PIN code list** with zone names and any fee overrides.
+- **Collector and courier roster**: names, phones, employee codes, zones, shifts, working days.
+- **Container / sample type per test** (or confirmation to set them per test in the admin).
+- **Label format** of the pre-printed barcodes (the apps accept 6–40 letters, digits or
+  hyphens; tighten it once known).
+- **Firebase project** (2 Android + 2 iOS apps, APNs key, service account).
+- **Map tile provider** for production (OSM's public server isn't allowed for app traffic).
+- **ITDOSE API documentation** and credentials, to replace manual accession/status entry.
+- **Signing keys**, store accounts, and how the Collector app is distributed (RELEASE.md).
+- Legal review of the home-collection consent text (`CONSENT_VERSION` 2026-11) and the
+  cancellation/refund wording.
+- A cash/UPI reconciliation routine: the portal marks visit payments reconciled one by one.
+
+## Risks and gaps
+
+1. **One session per account.** The backend signs out other sessions on login, so a collector
+   who signs in on a second phone is signed out of the first (their unsynced actions stay
+   on that phone until they sign in there again).
+2. **Reports open in the phone's browser** through a 5-minute signed link. Safe against
+   sharing (it expires), but the link lands in browser history. An in-app PDF viewer would
+   keep it inside the app.
+3. **ETA is a straight-line estimate** (labelled "estimate") — no routing service.
+4. **Pre-existing:** `scripts/seed_data.py` fails on a fresh database (centre and doctor rows
+   lack the now-required `slug`); 3 failing backend tests (`test_require_role_*` ×2,
+   `test_chat_stream_endpoint_emits_sse`) are unchanged.
+
+## Still open from v1 (patient app, 2026-11-13)
+
+- Centre-booking `report_url` is free text, not a signed URL (home-visit reports are signed).
+- The assistant's `create_booking` tool books without a confirmation step.
+- Guest bookings can't be looked up later.
+- Production `POST /chat/stream` returned an empty stream on 2026-11-13 (being looked at in a
+  separate session).
+- `MAX_BOOKINGS_PER_SLOT` counts each cart item for centre bookings (home visits count visits).
