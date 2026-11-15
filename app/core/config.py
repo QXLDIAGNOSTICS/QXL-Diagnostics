@@ -116,6 +116,27 @@ class Settings(BaseSettings):
     HOME_COLLECTION_FEE: int = 150
     HOME_COLLECTION_FREE_ABOVE: int = 499
 
+    # QXL Collect — home visits, dispatch, field app, reports
+    # Visits one collector can serve in one slot window.
+    VISITS_PER_COLLECTOR_PER_SLOT: int = 3
+    # Capacity per slot for a zone that has no collector rosters yet (0 = none).
+    HOME_VISIT_DEFAULT_SLOT_CAPACITY: int = 0
+    HOME_VISIT_BOOKING_DAYS: int = 14
+    # Version of the consent/privacy text patients accept when booking.
+    CONSENT_VERSION: str = "2026-11"
+    # Live location older than this is not shown to patients.
+    LOCATION_FRESHNESS_SECONDS: int = 600
+    # Straight-line ETA estimate speed (no routing provider configured).
+    ETA_AVERAGE_SPEED_KMH: float = 18.0
+    UNACKNOWLEDGED_ALERT_MINUTES: int = 15
+    REPORT_LINK_TTL_SECONDS: int = 300
+    # Firebase Cloud Messaging (HTTP v1). Paste the service-account JSON.
+    FCM_SERVICE_ACCOUNT_JSON: str = ""
+    # Dev-only fallback for private files when Supabase is not configured.
+    LOCAL_STORAGE_DIR: str = ""
+    LOCAL_STORAGE_SIGNING_KEY: str = ""
+    LOCAL_STORAGE_PUBLIC_BASE: str = "http://localhost:8000"
+
     # Prescriptions
     PRESCRIPTION_MONTHLY_UPLOAD_LIMIT: int = 5
 

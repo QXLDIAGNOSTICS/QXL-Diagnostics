@@ -2,6 +2,25 @@
 from app.db.base import Base
 from app.models.booking import Booking
 from app.models.catalog import Center, HealthPackage, TestCatalog
+from app.models.collect import (
+    CollectEvent,
+    CollectionJob,
+    CollectorLocation,
+    CollectorProfile,
+    DeviceToken,
+    HomeVisit,
+    IdempotencyRecord,
+    InboxMessage,
+    LabReport,
+    LisSyncTask,
+    PatientAddress,
+    PatientProfile,
+    ReportAccessLog,
+    ServiceArea,
+    Specimen,
+    TransportManifest,
+    VisitPayment,
+)
 from app.models.contact_optout import ContactOptOut
 from app.models.content import FAQ, Banner, BlogPost, ContentBlock, Doctor, Speciality
 from app.models.conversation import Conversation, Message
@@ -44,4 +63,21 @@ __all__ = [
     "FAQ",
     "ContentBlock",
     "ContactOptOut",
+    "PatientProfile",
+    "PatientAddress",
+    "ServiceArea",
+    "CollectorProfile",
+    "HomeVisit",
+    "CollectionJob",
+    "CollectorLocation",
+    "Specimen",
+    "TransportManifest",
+    "VisitPayment",
+    "LabReport",
+    "ReportAccessLog",
+    "CollectEvent",
+    "IdempotencyRecord",
+    "DeviceToken",
+    "InboxMessage",
+    "LisSyncTask",
 ]

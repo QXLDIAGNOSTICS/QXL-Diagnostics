@@ -25,14 +25,24 @@ ROLE_ADMIN = "admin"
 
 # Platform owners — user provisioning, role changes, danger-zone actions.
 ROLE_SUPER_ADMIN = "super_admin"
+# QXL Collect field roles (Collector app) — not admin-panel staff.
+ROLE_COLLECTOR = "collector"
+ROLE_COURIER = "courier"
+# QXL Collect operations roles (admin portal, permission-gated).
+ROLE_DISPATCHER = "dispatcher"
+ROLE_LAB_RECEIVING = "lab_receiving"
+ROLE_LAB_REPORTING = "lab_reporting"
+
+FIELD_ROLES: frozenset[str] = frozenset({ROLE_COLLECTOR, ROLE_COURIER})
+OPS_ROLES: frozenset[str] = frozenset({ROLE_DISPATCHER, ROLE_LAB_RECEIVING, ROLE_LAB_REPORTING})
 
 # All front-desk/departmental staff roles (same permission tier as front_office).
 FRONT_DESK_ROLES: frozenset[str] = frozenset(
-    {ROLE_FRONT_OFFICE, ROLE_STAFF, ROLE_RECEPTION, ROLE_MARKETING, ROLE_SALES}
+    {ROLE_FRONT_OFFICE, ROLE_STAFF, ROLE_RECEPTION, ROLE_MARKETING, ROLE_SALES} | OPS_ROLES
 )
 
 ALL_ROLES: frozenset[str] = frozenset(
-    {ROLE_PATIENT, ROLE_ADMIN, ROLE_SUPER_ADMIN} | FRONT_DESK_ROLES
+    {ROLE_PATIENT, ROLE_ADMIN, ROLE_SUPER_ADMIN} | FRONT_DESK_ROLES | FIELD_ROLES
 )
 
 # Anyone who may log into the admin panel (admin.qxldiagnostics.com).
@@ -50,8 +60,8 @@ SECRET_GATED_ROLES: frozenset[str] = frozenset({ROLE_SUPER_ADMIN})
 # Roles an administrator may assign when creating / updating users.
 # super_admin may assign any non-patient staff role; admin may only mint
 # front-desk/departmental roles (not admin/super_admin).
-CREATABLE_BY_ADMIN: frozenset[str] = FRONT_DESK_ROLES
-CREATABLE_BY_SUPER_ADMIN: frozenset[str] = frozenset({ROLE_PATIENT, ROLE_ADMIN} | FRONT_DESK_ROLES)
+CREATABLE_BY_ADMIN: frozenset[str] = FRONT_DESK_ROLES | FIELD_ROLES
+CREATABLE_BY_SUPER_ADMIN: frozenset[str] = frozenset({ROLE_PATIENT, ROLE_ADMIN} | FRONT_DESK_ROLES | FIELD_ROLES)
 
 # Human-readable labels for the Users UI.
 ROLE_LABELS: dict[str, str] = {
@@ -63,6 +73,11 @@ ROLE_LABELS: dict[str, str] = {
     ROLE_SALES: "Sales",
     ROLE_ADMIN: "Administrator",
     ROLE_SUPER_ADMIN: "Super Admin",
+    ROLE_COLLECTOR: "Collector (Phlebotomist)",
+    ROLE_COURIER: "Courier",
+    ROLE_DISPATCHER: "Dispatcher",
+    ROLE_LAB_RECEIVING: "Lab Receiving",
+    ROLE_LAB_REPORTING: "Lab Reporting",
 }
 
 

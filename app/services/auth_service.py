@@ -100,6 +100,10 @@ async def authenticate_phone_otp_user(db: AsyncSession, *, phone: str) -> User:
     if user is not None:
         if user.role in {"admin", "super_admin"}:
             raise UnauthorizedError("Admin accounts must use admin login")
+        from app.core.roles import FIELD_ROLES
+
+        if user.role in FIELD_ROLES:
+            raise UnauthorizedError("Collector accounts sign in through the QXL Collector app")
         return user
 
     user = await repo.create(phone=phone, role="patient")

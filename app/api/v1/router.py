@@ -11,6 +11,9 @@ from app.api.v1.endpoints import (
     bookings,
     centers,
     chat,
+    collect_field,
+    collect_ops,
+    collect_patient,
     content,
     files,
     knowledge_base,
@@ -43,6 +46,9 @@ api_router.include_router(notification_rules.router)
 api_router.include_router(knowledge_base.router)
 api_router.include_router(uploads.router)
 api_router.include_router(unsubscribe.router)
+api_router.include_router(collect_patient.router)
+api_router.include_router(collect_field.router)
+api_router.include_router(collect_ops.router)
 
 
 @api_router.get("/health", tags=["system"])

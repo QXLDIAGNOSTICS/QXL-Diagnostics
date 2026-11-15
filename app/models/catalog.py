@@ -92,3 +92,8 @@ class TestCatalog(Base, TimestampMixin):
     # require lab-only equipment/processing and are center-visit only).
     home_collection_available: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
     image_url: Mapped[str | None] = mapped_column(String, nullable=True)
+    # Pre-analytical requirements shown to collectors (managed in the admin Tests form).
+    sample_type: Mapped[str | None] = mapped_column(String(60), nullable=True)
+    container_type: Mapped[str | None] = mapped_column(String(40), nullable=True)
+    specimen_instructions: Mapped[str | None] = mapped_column(Text, nullable=True)
+    fasting_required: Mapped[bool | None] = mapped_column(Boolean, nullable=True)

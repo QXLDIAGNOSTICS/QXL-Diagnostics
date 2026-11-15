@@ -81,6 +81,10 @@ class TestCatalogBase(BaseModel):
     is_active: bool = True
     home_collection_available: bool = True
     image_url: str | None = None
+    sample_type: str | None = None
+    container_type: str | None = None
+    specimen_instructions: str | None = None
+    fasting_required: bool | None = None
 
 
 class TestCatalogCreate(TestCatalogBase):
@@ -97,6 +101,10 @@ class TestCatalogUpdate(BaseModel):
     is_active: bool | None = None
     home_collection_available: bool | None = None
     image_url: str | None = None
+    sample_type: str | None = None
+    container_type: str | None = None
+    specimen_instructions: str | None = None
+    fasting_required: bool | None = None
 
 
 class TestCatalogRead(BaseModel):
@@ -112,6 +120,10 @@ class TestCatalogRead(BaseModel):
     is_active: bool = True
     home_collection_available: bool = True
     image_url: str | None = None
+    sample_type: str | None = None
+    container_type: str | None = None
+    specimen_instructions: str | None = None
+    fasting_required: bool | None = None
 
 
 class TestCatalogList(BaseModel):

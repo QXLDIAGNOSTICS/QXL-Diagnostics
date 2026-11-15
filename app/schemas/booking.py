@@ -166,6 +166,9 @@ class BookingRead(BaseModel):
     report_url: str | None = None
     amount_paise: int | None = None
     payment_status: str
+    visit_id: uuid.UUID | None = None
+    lab_status: str = "not_received"
+    lis_accession: str | None = None
     checked_in_at: datetime | None = None
     in_progress_at: datetime | None = None
     completed_at: datetime | None = None

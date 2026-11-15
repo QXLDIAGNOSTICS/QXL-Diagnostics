@@ -79,6 +79,7 @@ async def create_order(
     booking_ids: list[uuid.UUID],
     user: User | None,
     apply_home_collection_fee: bool = False,
+    collection_fee_override_paise: int | None = None,
 ) -> tuple[Payment, list[Booking]]:
     """Create a single Razorpay order covering one or more bookings.
 
@@ -113,7 +114,10 @@ async def create_order(
 
     amounts = [await _amount_for_booking(db, booking) for booking in bookings]
     total_amount = sum(amounts)
-    if apply_home_collection_fee:
+    if collection_fee_override_paise is not None:
+        # Home visits carry their own fee (per-PIN rule) shown at booking.
+        total_amount += max(collection_fee_override_paise, 0)
+    elif apply_home_collection_fee:
         total_amount += home_collection_fee_paise(bookings, total_amount)
 
     async with httpx.AsyncClient(
@@ -195,6 +199,14 @@ async def _mark_bookings_payment_status(
                 await _queue_payment_notification(db, booking, notification_type="payment_failed")
 
 
+async def _confirm_collect_visits(db: AsyncSession, payment: Payment) -> None:
+    """QXL Collect: a verified payment confirms the home visit and queues it
+    for dispatch. No-op for website bookings without a visit."""
+    from app.services.collect.visits import on_bookings_paid
+
+    await on_bookings_paid(db, _payment_booking_ids(payment))
+
+
 async def _queue_payment_notification(
     db: AsyncSession, booking: Booking, *, notification_type: str = "payment"
 ) -> None:
@@ -246,6 +258,7 @@ async def verify_payment(
         payment.paid_at = datetime.now(timezone.utc)
 
     await _mark_bookings_payment_status(db, payment, payment_status="paid", notify=not already_paid)
+    await _confirm_collect_visits(db, payment)
 
     await db.commit()
     await db.refresh(payment)
@@ -290,6 +303,7 @@ async def handle_webhook_event(db: AsyncSession, event: dict) -> None:
         # client-side /verify callback already confirmed the same payment —
         # only notify on the first time we record it as paid.
         await _mark_bookings_payment_status(db, payment, payment_status="paid", notify=not already_paid)
+        await _confirm_collect_visits(db, payment)
     elif event_type == "payment.failed":
         # One order can see a failed attempt followed by a successful retry,
         # and webhooks may arrive out of order — never downgrade a paid order.
@@ -381,6 +395,7 @@ async def reconcile_payment(db: AsyncSession, *, payment_id: uuid.UUID) -> Payme
             payment.status = "paid"
             payment.paid_at = datetime.now(timezone.utc)
         await _mark_bookings_payment_status(db, payment, payment_status="paid", notify=not already_paid)
+        await _confirm_collect_visits(db, payment)
     elif latest.get("status") in {"failed"}:
         if payment.status not in {"paid", "refunded", "failed"}:
             payment.status = "failed"

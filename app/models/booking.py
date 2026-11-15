@@ -111,6 +111,16 @@ class Booking(Base, TimestampMixin):
     # One-click unsubscribe link identity (see app.api.v1.endpoints.unsubscribe).
     # Generated once at creation; used to resolve the patient's contact
     # details from an email footer link without requiring them to log in.
+    # QXL Collect: grouping under a home visit, family profile and lab state.
+    visit_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("home_visits.id", ondelete="SET NULL"), nullable=True, index=True
+    )
+    profile_id: Mapped[uuid.UUID | None] = mapped_column(
+        UUID(as_uuid=True), ForeignKey("patient_profiles.id", ondelete="SET NULL"), nullable=True
+    )
+    lab_status: Mapped[str] = mapped_column(String(16), default="not_received", server_default="not_received", nullable=False)
+    lis_accession: Mapped[str | None] = mapped_column(String(60), nullable=True, index=True)
+    lis_sync_status: Mapped[str] = mapped_column(String(16), default="not_applicable", server_default="not_applicable", nullable=False)
     unsubscribe_token: Mapped[str] = mapped_column(
         String(40), nullable=False, unique=True, index=True, default=_new_unsubscribe_token
     )
@@ -118,6 +128,7 @@ class Booking(Base, TimestampMixin):
     user: Mapped["User | None"] = relationship(foreign_keys=[user_id], back_populates="bookings")  # noqa: F821
     assigned_staff: Mapped["User | None"] = relationship(foreign_keys=[assigned_to_id])  # noqa: F821
     test: Mapped["TestCatalog | None"] = relationship()  # noqa: F821
+    visit: Mapped["HomeVisit | None"] = relationship(back_populates="bookings")  # noqa: F821
     package: Mapped["HealthPackage | None"] = relationship(back_populates="bookings")  # noqa: F821
     center: Mapped["Center | None"] = relationship(back_populates="bookings")  # noqa: F821
     payments: Mapped[list["Payment"]] = relationship(  # noqa: F821
