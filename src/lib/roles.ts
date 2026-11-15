@@ -8,6 +8,16 @@ export const ROLE_MARKETING = "marketing";
 export const ROLE_SALES = "sales";
 export const ROLE_ADMIN = "admin";
 export const ROLE_SUPER_ADMIN = "super_admin";
+// QXL Collect roles.
+export const ROLE_COLLECTOR = "collector";
+export const ROLE_COURIER = "courier";
+export const ROLE_DISPATCHER = "dispatcher";
+export const ROLE_LAB_RECEIVING = "lab_receiving";
+export const ROLE_LAB_REPORTING = "lab_reporting";
+
+/** Field roles use the QXL Collector app only — they cannot open this panel. */
+export const FIELD_ROLES = new Set([ROLE_COLLECTOR, ROLE_COURIER]);
+export const OPS_ROLES = new Set([ROLE_DISPATCHER, ROLE_LAB_RECEIVING, ROLE_LAB_REPORTING]);
 
 /** Front-desk/departmental roles — same permissions as Front Office, distinct
  * labels only so admins can tag accounts by department. */
@@ -17,6 +27,7 @@ export const FRONT_DESK_ROLES = new Set([
   ROLE_RECEPTION,
   ROLE_MARKETING,
   ROLE_SALES,
+  ...OPS_ROLES,
 ]);
 
 export const STAFF_ROLES = new Set([...FRONT_DESK_ROLES, ROLE_ADMIN, ROLE_SUPER_ADMIN]);
@@ -31,6 +42,11 @@ export const ROLE_LABELS: Record<string, string> = {
   sales: "Sales",
   admin: "Administrator",
   super_admin: "Super Admin",
+  collector: "Collector (Phlebotomist)",
+  courier: "Courier",
+  dispatcher: "Dispatcher",
+  lab_receiving: "Lab Receiving",
+  lab_reporting: "Lab Reporting",
 };
 
 export type NavAccess = "staff" | "admin" | "super_admin";
@@ -100,10 +116,10 @@ export function canExportAppointments(input: RoleInput): boolean {
 /** Roles the current actor may assign when creating / updating staff. */
 export function creatableRolesFor(actorRole: string | null | undefined): string[] {
   if (actorRole === ROLE_SUPER_ADMIN) {
-    return [ROLE_FRONT_OFFICE, ROLE_STAFF, ROLE_RECEPTION, ROLE_MARKETING, ROLE_SALES, ROLE_ADMIN, ROLE_PATIENT];
+    return [...FRONT_DESK_ROLES, ...FIELD_ROLES, ROLE_ADMIN, ROLE_PATIENT];
   }
   if (actorRole === ROLE_ADMIN) {
-    return [ROLE_FRONT_OFFICE, ROLE_STAFF, ROLE_RECEPTION, ROLE_MARKETING, ROLE_SALES];
+    return [...FRONT_DESK_ROLES, ...FIELD_ROLES];
   }
   return [];
 }

@@ -23,7 +23,7 @@ export default function UsersPage() {
   const allowCreate =
     roleDefs.length > 0
       ? roleDefs
-          .filter((r) => r.key !== ROLE_SUPER_ADMIN && (isSuperAdmin(user) || r.tier === "staff"))
+          .filter((r) => r.key !== ROLE_SUPER_ADMIN && (isSuperAdmin(user) || r.tier === "staff" || r.tier === "field"))
           .map((r) => r.key)
       : staticAllow;
   const roleLabels: Record<string, string> = {

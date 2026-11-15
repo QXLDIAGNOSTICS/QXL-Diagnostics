@@ -30,22 +30,36 @@ import {
   Truck,
   BrainCircuit,
   FlaskConical,
+  Route,
+  Map,
+  UsersRound,
+  ScanBarcode,
+  FileCheck2,
+  Gauge,
   type LucideIcon,
 } from "lucide-react";
 import { useAuth } from "@/lib/useAuth";
-import { canAccessNav, type NavAccess, ROLE_LABELS } from "@/lib/roles";
+import { canAccessNav, hasPermission, type NavAccess, ROLE_LABELS } from "@/lib/roles";
 
 interface NavLink {
   name: string;
   href: string;
   icon: LucideIcon;
   access: NavAccess;
+  /** Optional fine-grained permission (QXL Collect ops pages). */
+  permission?: string;
 }
 
 const sidebarLinks: NavLink[] = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard, access: "admin" },
   { name: "Appointments", href: "/appointments", icon: CalendarDays, access: "staff" },
   { name: "Home Collection", href: "/home-collection", icon: Truck, access: "staff" },
+  { name: "Dispatch", href: "/collect/dispatch", icon: Route, access: "staff", permission: "dispatch.manage" },
+  { name: "Live Map", href: "/collect/live", icon: Map, access: "staff", permission: "dispatch.manage" },
+  { name: "Collectors & Areas", href: "/collect/setup", icon: UsersRound, access: "staff", permission: "dispatch.manage" },
+  { name: "Lab Receiving", href: "/collect/lab", icon: ScanBarcode, access: "staff", permission: "lab.receive" },
+  { name: "Lab Reports", href: "/collect/reports", icon: FileCheck2, access: "staff", permission: "lab.report" },
+  { name: "Collect Dashboard", href: "/collect/metrics", icon: Gauge, access: "staff", permission: "collect.metrics" },
   { name: "Patients", href: "/patients", icon: Users, access: "staff" },
   { name: "Reports", href: "/reports", icon: FileText, access: "staff" },
   { name: "Website Mgt", href: "/website", icon: Globe, access: "admin" },
@@ -78,7 +92,9 @@ export default function AdminSidebar() {
   const pathname = usePathname();
   const { user } = useAuth();
   const role = user?.role;
-  const visible = sidebarLinks.filter((link) => canAccessNav(user, link.access));
+  const visible = sidebarLinks.filter(
+    (link) => canAccessNav(user, link.access) && (!link.permission || hasPermission(user, link.permission)),
+  );
 
   return (
     <aside className="w-64 bg-white dark:bg-gray-900 border-r border-slate-200 dark:border-gray-800 hidden md:flex flex-col h-screen sticky top-0 overflow-hidden shrink-0">

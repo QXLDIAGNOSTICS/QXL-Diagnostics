@@ -15,7 +15,7 @@ export class ApiError extends Error {
   }
 }
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
+export async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`/api/v1${path}`, {
     credentials: 'include',
     headers: init?.body instanceof FormData ? undefined : { 'Content-Type': 'application/json', ...(init?.headers || {}) },
@@ -606,7 +606,8 @@ export interface RoleRecord {
   id: string;
   key: string;
   label: string;
-  tier: "staff" | "admin";
+  /** "field" = QXL Collector app roles (collector, courier). */
+  tier: "staff" | "admin" | "field";
   permissions: string[];
   is_system: boolean;
 }
