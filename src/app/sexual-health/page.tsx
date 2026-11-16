@@ -24,6 +24,7 @@ import PepUrgentBanner from '@/components/sexual-health/PepUrgentBanner';
 import StiPackageCard from '@/components/sexual-health/StiPackageCard';
 import SexualHealthNav from '@/components/sexual-health/SexualHealthNav';
 import MedicalReviewNotice from '@/components/sexual-health/MedicalReviewNotice';
+import { VerifiedSexualHealthLinks } from '@/components/qxl-seo/VerifiedSexualHealthLinks';
 
 export const metadata: Metadata = {
   title: "Confidential STD & HIV Testing in Bengaluru | Doctor-Led STI Clinic | QXL Diagnostics",
@@ -182,6 +183,9 @@ export default function SexualHealthHubPage() {
       <main className="container mx-auto px-4 max-w-7xl py-12 space-y-16">
         {/* 1. Emergency PEP Alert */}
         <PepUrgentBanner />
+
+        {/* Verified Clinical Guidance & Links */}
+        <VerifiedSexualHealthLinks />
 
         {/* 2. Window Period Calculator */}
         <section id="calculator" className="scroll-mt-24">

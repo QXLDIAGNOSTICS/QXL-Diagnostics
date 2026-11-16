@@ -52,18 +52,18 @@ export default function HivWindowCalculator() {
     } else if (daysElapsed >= 18 && daysElapsed < 45) {
       windowStatus = '4th Generation Ag/Ab Detection Window';
       statusColor = 'bg-blue-600 text-white';
-      recommendation = 'Optimal window for 4th Generation ECLIA Duo testing. At this stage, free p24 antigen peaks while IgM antibodies are developing. A negative 4th generation lab test at this stage provides very high reassurance.';
-      conclusiveness = 'Approximately 95%–98% conclusive. CDC guidelines advise final baseline confirmation at Day 45–90.';
+      recommendation = 'Optimal window for 4th Generation ECLIA/CLIA Duo testing. At this stage, free p24 antigen peaks while IgM antibodies develop. A negative 4th-generation venous test at this stage provides strong reassurance, though complete window evaluation ends at Day 45.';
+      conclusiveness = 'Informative early marker window. Full venous Ag/Ab detection window extends to Day 45 (or longer if PEP/PrEP was used).';
     } else if (daysElapsed >= 45 && daysElapsed < 90) {
-      windowStatus = 'CDC 45-Day Conclusive Milestone (Laboratory 4th Gen)';
+      windowStatus = 'CDC 18–45-Day Venous Ag/Ab Window Benchmark';
       statusColor = 'bg-emerald-600 text-white';
-      recommendation = 'Per CDC laboratory testing guidance, a 4th generation antigen/antibody combo test performed on blood from a vein is >99% conclusive at 45 days after exposure.';
-      conclusiveness = '>99% Conclusive for venous blood 4th Gen tests. Only individuals with confirmed immune compromise require 90-day retesting.';
+      recommendation = 'Per CDC laboratory testing guidance, the detection window for a 4th-generation antigen/antibody combo test performed on venous blood extends to 45 days (in the absence of antiretroviral PEP/PrEP interference).';
+      conclusiveness = 'Venous blood 4th Gen Ag/Ab window complete. If antiretroviral PEP/PrEP was used, clinician-guided follow-up is advised.';
     } else {
-      windowStatus = '100% Definitive Window Milestone (Day 90+)';
+      windowStatus = 'Comprehensive Testing Milestone (Day 90+)';
       statusColor = 'bg-emerald-700 text-white';
-      recommendation = 'At 90 days or more, all CDC, WHO, and NACO standard window periods are complete. A negative result from any 4th generation or 3rd generation antibody assay is 100% definitive and conclusive.';
-      conclusiveness = '100% Definitive across all certified laboratory assays.';
+      recommendation = 'At 90 days or more, standard laboratory window periods for antibody-based assays are complete. Follow-up timing depends on test modality, clinical scenario, and whether PEP/PrEP was taken.';
+      conclusiveness = 'Standard assay window milestone. Any reactive screening result requires supplemental differentiation testing.';
     }
 
     return { isPepActive, windowStatus, statusColor, recommendation, conclusiveness };
@@ -226,8 +226,8 @@ export default function HivWindowCalculator() {
               <span>Day 0 (Exposure)</span>
               <span>Day 10 (RNA NAT)</span>
               <span>Day 18–28 (p24 Peak)</span>
-              <span>Day 45 (CDC 99%)</span>
-              <span>Day 90 (100% Definitive)</span>
+              <span>Day 45 (Venous Ag/Ab)</span>
+              <span>Day 90 (Follow-Up Milestone)</span>
             </div>
             <div className="w-full h-3 bg-slate-800 rounded-full overflow-hidden relative">
               <div

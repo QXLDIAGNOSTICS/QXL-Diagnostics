@@ -71,8 +71,8 @@ export const QXL_STI_PACKAGES: StiPackage[] = [
   },
   {
     code: "QXL-STI-02",
-    name: "4th Generation HIV ECLIA/CLIA Confirmatory Screen",
-    shortName: "HIV 4th Gen ECLIA",
+    name: "4th Generation HIV-1/2 Ag/Ab Screening Test",
+    shortName: "HIV 4th Gen ECLIA/CLIA",
     searchIntent: "HIV fourth generation test, p24 antigen test Bangalore, HIV Duo test",
     tagline: "Chemiluminescent/electrochemiluminescent microparticle assay for early antigen-antibody resolution.",
     category: "Sexual Health & STI Testing",

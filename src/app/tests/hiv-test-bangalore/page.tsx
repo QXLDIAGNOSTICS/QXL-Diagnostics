@@ -254,15 +254,15 @@ export default function HivTestBangalorePage() {
                 <div className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-black shrink-0 mt-0.5">3</span>
                   <div>
-                    <strong>Day 45 — CDC 99% Conclusive Milestone:</strong>
-                    <p className="text-slate-600 mt-0.5">A 4th generation lab test from a blood draw is considered &gt;99% conclusive at 45 days per CDC guidelines.</p>
+                    <strong>Day 45 — CDC Venous Ag/Ab Detection Window:</strong>
+                    <p className="text-slate-600 mt-0.5">A 4th-generation lab test from a venous blood draw reaches the end of the standard 18–45-day CDC detection window (without antiretroviral interference).</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-emerald-700 text-white flex items-center justify-center text-xs font-black shrink-0 mt-0.5">4</span>
                   <div>
-                    <strong>Day 90 — 100% Definitive Window:</strong>
-                    <p className="text-slate-600 mt-0.5">Definitive exclusion for all test types, fulfilling all global clinical criteria.</p>
+                    <strong>Day 90 — Comprehensive Clinical Milestone:</strong>
+                    <p className="text-slate-600 mt-0.5">Follow-up benchmark across testing modalities. If PEP or PrEP was used, timing follows the physician-directed protocol.</p>
                   </div>
                 </div>
               </div>

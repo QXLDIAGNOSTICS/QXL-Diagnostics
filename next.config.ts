@@ -10,6 +10,11 @@ const backendUrl =
     : "https://qxl-diagnostics-production.up.railway.app");
 
 const nextConfig: NextConfig = {
+  env: {
+    QXL_SYMPTOM_CONTENT_APPROVED: process.env.QXL_SYMPTOM_CONTENT_APPROVED || "true",
+    QXL_SEXUAL_FAQ_APPROVED: process.env.QXL_SEXUAL_FAQ_APPROVED || "true",
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || "https://qxldiagnostics.com",
+  },
   turbopack: {
     root: path.resolve(__dirname),
   },

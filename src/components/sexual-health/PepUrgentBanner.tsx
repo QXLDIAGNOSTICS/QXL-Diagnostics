@@ -25,11 +25,12 @@ export default function PepUrgentBanner() {
         <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full sm:w-auto shrink-0">
           <a
             href={`tel:${PHONE_E164}`}
-            className="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-blue-50 font-black text-xs sm:text-[13px] uppercase tracking-wider px-6 py-3.5 rounded-full transition-all shadow-lg active:scale-95 border border-white"
+            className="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-blue-50 font-black text-xs sm:text-[13px] uppercase tracking-wider px-6 py-3.5 rounded-full transition-all shadow-lg active:scale-95 border border-white text-[#1d4ed8] !text-[#1d4ed8]"
             style={{ backgroundColor: '#ffffff', color: '#1d4ed8' }}
+            aria-label={`Call urgent helpline ${PHONE_DISPLAY}`}
           >
             <Phone className="w-4.5 h-4.5 text-rose-600 shrink-0" style={{ color: '#e11d48' }} />
-            <span className="font-extrabold tracking-wider" style={{ color: '#1d4ed8' }}>
+            <span className="font-extrabold tracking-wider text-[#1d4ed8] !text-[#1d4ed8]" style={{ color: '#1d4ed8' }}>
               CALL URGENT HELPLINE ({PHONE_DISPLAY})
             </span>
           </a>

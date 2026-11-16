@@ -1,0 +1,21 @@
+/** Curated internal links: relevant clinical follow-up only; avoid automated doorway pages. */
+export const relatedBySlug: Record<string,string[]> = {
+  'private-part-itching':['vaginal-discharge-odor','genital-rash-spots-marks','genital-boils-bumps'],
+  'burning-urination-after-sex':['urine-frequency-after-sex','penile-discharge','watery-discharge-after-sex'],
+  'watery-discharge-after-sex':['penile-discharge','vaginal-discharge-odor','burning-urination-after-sex'],
+  'penile-discharge':['burning-urination-after-sex','watery-discharge-after-sex','no-symptoms-after-unprotected-sex'],
+  'vaginal-discharge-odor':['private-part-itching','watery-discharge-after-sex','lower-abdominal-pelvic-pain'],
+  'genital-blisters':['genital-ulcers-sores','genital-boils-bumps','genital-rash-spots-marks'],
+  'genital-boils-bumps':['genital-blisters','genital-warts-skin-tags','genital-rash-spots-marks'],
+  'genital-ulcers-sores':['genital-blisters','genital-rash-spots-marks','no-symptoms-after-unprotected-sex'],
+  'genital-rash-spots-marks':['private-part-itching','genital-boils-bumps','genital-ulcers-sores'],
+  'pain-during-after-sex':['lower-abdominal-pelvic-pain','bleeding-after-sex','private-part-itching'],
+  'lower-abdominal-pelvic-pain':['bleeding-after-sex','pain-during-after-sex','vaginal-discharge-odor'],
+  'testicular-pain-swelling':['penile-discharge','burning-urination-after-sex'],
+  'mouth-throat-after-oral-sex':['genital-ulcers-sores','no-symptoms-after-unprotected-sex'],
+  'anal-itching-discharge-pain':['genital-ulcers-sores','no-symptoms-after-unprotected-sex'],
+  'bleeding-after-sex':['lower-abdominal-pelvic-pain','pain-during-after-sex','vaginal-discharge-odor'],
+  'urine-frequency-after-sex':['burning-urination-after-sex','penile-discharge'],
+  'genital-warts-skin-tags':['genital-boils-bumps','genital-rash-spots-marks'],
+  'no-symptoms-after-unprotected-sex':['watery-discharge-after-sex','genital-ulcers-sores','burning-urination-after-sex'],
+};

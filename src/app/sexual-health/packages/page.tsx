@@ -9,6 +9,7 @@ import StiPackageCard from '@/components/sexual-health/StiPackageCard';
 import PepUrgentBanner from '@/components/sexual-health/PepUrgentBanner';
 import SexualHealthNav from '@/components/sexual-health/SexualHealthNav';
 import MedicalReviewNotice from '@/components/sexual-health/MedicalReviewNotice';
+import { VerifiedSexualHealthLinks } from '@/components/qxl-seo/VerifiedSexualHealthLinks';
 
 export const metadata: Metadata = {
   title: "Sexual Health & STI Diagnostic Packages Bangalore | QXL Diagnostics",
@@ -90,6 +91,8 @@ export default function SexualHealthPackagesPage() {
 
       <main className="container mx-auto px-4 max-w-7xl py-12 space-y-14">
         <PepUrgentBanner />
+
+        <VerifiedSexualHealthLinks />
 
         {/* 10 Package Cards */}
         <section className="space-y-6">

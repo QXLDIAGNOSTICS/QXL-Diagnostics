@@ -82,25 +82,25 @@ export default function HivTestWindowPeriodGuidePage() {
     {
       period: "Day 18 to 28 (2 to 4 Weeks)",
       title: "4th Generation p24 Antigen Peak",
-      accuracy: "95%–98% Detection Rate",
-      details: "During this window, the viral capsid protein p24 reaches its peak concentration in the blood before host antibodies are fully formed. A 4th Generation lab test (ECLIA) conducted at 28 days provides strong reassurance.",
+      accuracy: "Early Marker Detection",
+      details: "During this window, the viral capsid protein p24 reaches its initial peak concentration in the blood before host antibodies are fully formed. A 4th Generation lab test (ECLIA/CLIA) conducted at 28 days provides valuable early information; testing is completed at the end of the full window period.",
       action: "4th Gen Lab Test (p24 Ag + Ab Duo) [₹945]",
       badgeColor: "bg-blue-600 text-white"
     },
     {
       period: "Day 45 (6 Weeks)",
-      title: "CDC 99% Conclusive Milestone for 4th Generation Lab Assays",
-      accuracy: ">99% Conclusive per CDC Guidelines",
-      details: "The US Centers for Disease Control and Prevention (CDC) guidelines state that a 4th generation antigen/antibody combo test conducted on a blood sample drawn from a vein is over 99% conclusive at 45 days. 99% of infected individuals will test positive by this milestone.",
-      action: "Conclusive Milestone Testing",
+      title: "End of CDC 18–45-Day Window for Venous Ag/Ab Assays",
+      accuracy: "Conclusive for Venous Ag/Ab (Without ARV/PEP)",
+      details: "Per CDC guidelines, in the absence of antiretroviral interference (such as PEP or PrEP), a 4th-generation antigen/antibody combo test conducted on a venous blood draw has an established detection window of 18–45 days. If PEP or PrEP was used, follow clinician-guided testing intervals.",
+      action: "Standard Venous Ag/Ab Milestone",
       badgeColor: "bg-emerald-600 text-white"
     },
     {
       period: "Day 90 (3 Months)",
-      title: "100% Definitive Global Window Milestone",
-      accuracy: "100% Definitive Across All Approved Assays",
-      details: "At 90 days, all antibody-based screening tests (including 3rd generation ELISA, rapid fingerstick tests, and 4th generation combo tests) have reached the definitive clinical window. A negative result at 90 days is considered 100% conclusive by CDC, WHO, and NACO.",
-      action: "Definitive Final Baseline Peace of Mind",
+      title: "Follow-Up & Extended Window Milestone",
+      accuracy: "Comprehensive Clinical Milestone Across Assays",
+      details: "At 90 days, standard antibody-based screening tests reach their established clinical baseline. If antiretrovirals (PEP or PrEP) were taken, timing may be extended per clinical guidelines. Note that any reactive screening test requires supplemental differentiation testing.",
+      action: "Clinical Follow-Up Milestone",
       badgeColor: "bg-emerald-700 text-white"
     }
   ];
