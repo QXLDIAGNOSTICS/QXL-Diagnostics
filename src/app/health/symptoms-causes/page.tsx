@@ -296,7 +296,7 @@ export default function SymptomsCausesHubPage() {
             </div>
             <div className="flex items-center gap-2 text-xs text-sky-200 font-bold">
               <BookOpen className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Last reviewed: October 2026</span>
+              <span>Last reviewed: November 2026</span>
             </div>
           </div>
         </div>

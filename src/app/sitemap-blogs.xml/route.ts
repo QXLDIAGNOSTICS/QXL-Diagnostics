@@ -36,6 +36,11 @@ export async function GET() {
     }
 
     const priority =
+      b.slug === "std-sti-testing-bangalore-window-period-pcr-confidential" ||
+      b.slug === "lipoprotein-a-lpa-genetic-heart-risk-test-bangalore" ||
+      b.slug === "allergen-specific-ige-vs-total-ige-bangalore-allergy-test" ||
+      b.slug === "typhoid-fever-testing-bangalore-widal-vs-typhidot-blood-culture" ||
+      b.slug === "autoimmune-encephalitis-paraneoplastic-antibody-panels-bangalore" ||
       b.slug === "personalised-pregnancy-testing-bengaluru" ||
       b.slug === "glp-1-advanced-blood-tests-monitoring-bangalore" ||
       b.slug === "complete-blood-count-cbc-26-parameters-guide-bangalore" ||

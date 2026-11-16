@@ -65,54 +65,6 @@ export default function BlogPage() {
       }
 
       const getTime = (item: any) => {
-        if (item.id === "blog-new-35" || item.slug === "glp-1-advanced-blood-tests-monitoring-bangalore") {
-          return new Date("2026-11-06T00:00:00+05:30").getTime();
-        }
-        if (item.id === "blog-new-34" || item.slug === "getting-shorter-with-age-osteoporosis-warning-signs-bone-density-blood-tests") {
-          return new Date("2026-11-04T12:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-33" || item.slug === "can-chronic-stress-affect-fertility-hormones-blood-tests") {
-          return new Date("2026-11-04T11:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-32" || item.slug === "mini-stroke-tia-warning-signs-blood-tests-cardiovascular-risk") {
-          return new Date("2026-11-04T10:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-31" || item.slug === "shingles-herpes-zoster-symptoms-pcr-test-vaccine-antibodies") {
-          return new Date("2026-10-30T12:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-30" || item.slug === "high-uric-acid-kidney-disease-diabetes-clinical-spotlight") {
-          return new Date("2026-10-30T11:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-29" || item.slug === "high-uric-acid-kidney-damage-diabetes-2026-study") {
-          return new Date("2026-10-30T10:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-28" || item.slug === "can-emotional-stress-affect-thyroid-cortisol-hashimotos-connection") {
-          return new Date("2026-10-30T09:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-27" || item.slug === "vitamin-b12-deficiency-memory-loss-brain-fog-nerve-damage") {
-          return new Date("2026-10-30T08:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-26" || item.slug === "hashimotos-thyroid-antibodies-anti-tpo-tsh-fatigue-guide") {
-          return new Date("2026-10-24T12:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-25" || item.slug === "vitamin-d3-b12-deficiency-holotranscobalamin-optimal-levels-guide") {
-          return new Date("2026-10-24T11:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-24" || item.slug === "hba1c-fasting-insulin-homa-ir-prediabetes-guide-bengaluru") {
-          return new Date("2026-10-24T10:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-23" || item.slug === "arthritis-exercise-joint-pain-blood-tests-guide") {
-          return new Date("2026-10-24T09:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-22" || item.slug === "personalised-pregnancy-testing-bengaluru") {
-          return new Date("2026-10-24T08:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-21" || item.slug === "apob-vs-ldl-c-atherogenic-cardiovascular-risk-guide") {
-          return new Date("2026-10-24T07:00:00.000Z").getTime();
-        }
-        if (item.id === "blog-new-20" || item.slug === "your-liver-works-in-silence-simple-blood-test") {
-          return new Date("2026-10-24T06:00:00.000Z").getTime();
-        }
         const val = item.created_at || item.date;
         if (!val) return 0;
         const parsed = new Date(val).getTime();

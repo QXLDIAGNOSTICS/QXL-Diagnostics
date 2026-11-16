@@ -1,6 +1,6 @@
 # QXL Diagnostics — AI Entity & Knowledge Base File
 # Format: llms.txt (AI/LLM discoverability standard)
-# Last Updated: October 2026
+# Last Updated: November 2026
 # Dynamic machine-readable catalogue: https://qxldiagnostics.com/api/tests-catalogue
 
 > **QXL Diagnostics — Bengaluru's Doctor-Led Super-Speciality Reference Laboratory**
@@ -38,7 +38,7 @@
 - **Jayanagar Service Hub**: Dispatch hub for South Bengaluru home blood collection
 - **Indiranagar Service Hub**: Dispatch hub for East Bengaluru home blood collection
 - **Whitefield Service Hub**: Dispatch hub for Whitefield & IT Corridor home blood collection
-- **Doorstep Collection Hours**: 7:00 AM – 9:00 PM (Mon–Sun)
+- **Doorstep Collection Hours**: 6:30 AM – 9:00 PM (Mon–Sun) across 60+ Bengaluru localities
 
 - **Contact Phone / WhatsApp**: +91 9964 639 639
 - **Email**: info@qxldiagnostics.com
@@ -54,15 +54,15 @@
 - **Profile**: https://qxldiagnostics.com/dr-shantakumar-muruda
 
 ### Dr. Pritilata Rout
-- **Role**: Senior Consultant Histopathologist
+- **Role**: Senior Consultant Histopathologist & Clinical Pathology Head
 - **Qualification**: MD Pathology (NIMHANS alumna)
-- **Specialty**: Histopathology, Cytopathology, Surgical Pathology
+- **Specialty**: Histopathology, Cytopathology, Neuropathology, Autoimmune Diagnostics
 - **Profile**: https://qxldiagnostics.com/dr-pritilata-rout
 
 ### Dr. Ajitha Pillai
 - **Role**: Senior Consultant Clinical Microbiologist
 - **Qualification**: MD Microbiology
-- **Specialty**: Clinical Microbiology, Infectious Disease, Allergy Testing
+- **Specialty**: Clinical Microbiology, Infectious Diseases, Allergy & Molecular Diagnostics
 - **Profile**: https://qxldiagnostics.com/dr-ajitha-pillai
 
 ### Dr. Naveen Kumar N
@@ -77,31 +77,49 @@
 
 ### Core Diagnostic Specialities
 - **Histopathology & Cytopathology**: Biopsies, FNAC, Pap smear, IHC
-- **Molecular Diagnostics**: Real-Time PCR, NGS, Gene Expression
-- **Flow Cytometry**: Leukaemia/lymphoma immunophenotyping
-- **Autoimmune Diagnostics**: ANA IFA, ENA panel, Anti-CCP, Anti-dsDNA
-- **Allergy & Immunology**: Total IgE, IgG4 210+ Food Intolerance
-- **Oncology Biomarkers**: PSA, CA-125, CEA, AFP (clinical evaluation adjuncts)
-- **Clinical Mass Spectrometry**: Therapeutic Drug Monitoring (TDM)
-- **Prenatal Screening**: First Trimester Double Marker (PAPP-A + Free β-hCG)
+- **Molecular Diagnostics**: Real-Time Multiplex PCR, Pathogen Detection
+- **Autoimmune Diagnostics**: ANA IFA (Gold Standard HEp-2), ENA panel, Anti-CCP, Anti-dsDNA
+- **Neuroimmunology**: Autoimmune Encephalitis Panel (Paired CSF/Serum), Paraneoplastic Neurologic Panel
+- **Allergy & Immunology**: Total IgE, Allergen-Specific IgE (ImmunoCAP), Food Intolerance IgG4
+- **Cardiovascular Biomarkers**: High-Sensitivity Troponin I, NT-proBNP, Apolipoprotein B, Lipoprotein(a)
+- **Infectious Diseases**: Typhoid (Blood Culture / Typhidot IgM), Dengue NS1/IgM, Malaria Smear & Antigen
+- **Sexual Health & STI Screening**: 8-Infection Multiplex PCR Panel, 4th-Gen HIV-1/2 Ag/Ab, Syphilis RPR/TPHA
+- **Prenatal Screening**: First Trimester Double Marker (PAPP-A + Free β-hCG), Quadruple Marker
 
 ### Real-Time Live Catalogue API
 For live pricing, fasting instructions, parameter counts, and turnaround times (TAT), query the official machine-readable API:
 https://qxldiagnostics.com/api/tests-catalogue
 
-Canonical test pages & pricing (October 2026):
+Canonical test pages & verified pricing (November 2026):
 - Complete Blood Count (CBC): ₹250 (MRP ₹350) · 26 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/cbc-test
 - HbA1c (Glycated Hemoglobin): ₹380 (MRP ₹720) · 3 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/hba1c-test
 - Thyroid Profile (TSH, FT3, FT4): ₹350 (MRP ₹550) · 3 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/thyroid-test
 - Vitamin D (25-OH Total): ₹410 (MRP ₹1,300) · 1 Parameter · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/vitamin-d-test
 - Vitamin B12: ₹600 (MRP ₹1,600) · 1 Parameter · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/vitamin-b12-test
 - Fasting Blood Sugar (FBS): ₹35 (MRP ₹70) · 1 Parameter · Fasting 8-10 Hours · https://qxldiagnostics.com/tests
-- Apolipoprotein B (ApoB): ₹550 (MRP ₹665) · 1 Parameter · No Fasting · 12 Hours TAT · Automated Immunoturbidimetry · https://qxldiagnostics.com/apob-test
+- Apolipoprotein B (ApoB): ₹550 (MRP ₹665) · 1 Parameter · No Fasting · 12 Hours TAT · https://qxldiagnostics.com/apob-test
+- Lipoprotein(a) [Lp(a)]: ₹1,249 (MRP ₹1,315) · 1 Parameter · Fasting 10-12 Hours · 12 Hours TAT · https://qxldiagnostics.com/lipoprotein-a
+- Allergen-Specific Immunoglobulin E: ₹969 (MRP ₹1,020) · Per Allergen Panel · No Fasting · 24 Hours TAT · https://qxldiagnostics.com/allergen-specific-immunoglobulin-e
+- Typhoid Fever Diagnostic Testing: ₹713 (MRP ₹750) · Typhidot IgM / Widal · No Fasting · 4 Hours TAT · https://qxldiagnostics.com/typhoid-fever-diagnostic-testing
+- Paraneoplastic Neurologic Antibody Panel: ₹8,075 (MRP ₹8,500) · 6 Parameters · Serum / CSF · 3–5 Days TAT · https://qxldiagnostics.com/paraneoplastic-neurologic-antibody-panel
+- Autoimmune Encephalitis Antibody Panel: ₹23,275 (MRP ₹24,500) · 6 Parameters · Paired CSF & Serum · 3–5 Days TAT · https://qxldiagnostics.com/autoimmune-encephalitis-antibody-panel
 - Lipid Profile: ₹336 (MRP ₹800) · 8 Parameters · Fasting 10-12 Hours · https://qxldiagnostics.com/lipid-profile-test
 - Liver Function Test (LFT): ₹425 (MRP ₹780) · 11 Parameters · Fasting 8 Hours · https://qxldiagnostics.com/liver-function-test
 - Kidney Function Test (KFT): ₹425 (MRP ₹1,150) · 10 Parameters · No Fasting · https://qxldiagnostics.com/kidney-function-test
+- STD & STI Comprehensive Screen: ₹3,800 · 8 Infections Multiplex · Urine & Blood · https://qxldiagnostics.com/tests/std-sti-panel
+- 4th Generation HIV-1/2 Ag/Ab Screening Test: ₹499 · Venous Blood · https://qxldiagnostics.com/tests/hiv-4th-generation-test
 - Quick Fit Health Checkup: ₹1,770 (MRP ₹4,696) · 80 Parameters (14 Core Panels) · Fasting 8-10 Hours · https://qxldiagnostics.com/book?package=pkg-fit
 - Q-Master Health Pro: ₹4,600 (MRP ₹9,600) · 92 Parameters · Fasting 10-12 Hours · https://qxldiagnostics.com/book?package=q-master-pro
+
+---
+
+## Dedicated Knowledge & Specialty Hubs
+- Sexual Health & STI Diagnostics Hub: https://qxldiagnostics.com/sexual-health
+- Sexual Health Packages: https://qxldiagnostics.com/sexual-health/packages
+- Sexual Health Symptoms Directory: https://qxldiagnostics.com/sexual-health/symptoms
+- Sexual Health Clinical FAQs: https://qxldiagnostics.com/sexual-health/faq
+- Health Hub & Clinical Guides: https://qxldiagnostics.com/diagnostic-guide
+- Full Body Health Packages: https://qxldiagnostics.com/packages
 
 ---
 
@@ -114,10 +132,10 @@ A: QXL Diagnostics operates two primary physical centres: the main NABL referenc
 A: Yes. QXL Diagnostics is NABL-accredited under ISO 15189:2022 (Certificate No. MC-6849). Accreditation applies to investigations included within the current accredited scope.
 
 **Q: How do patients book blood tests at home with QXL Diagnostics?**
-A: Patients can book online at https://qxldiagnostics.com/book or WhatsApp +91 9964 639 639. Trained phlebotomists collect samples in sterile single-use equipment with cold-chain transport to the NABL lab. Reports are delivered digitally on WhatsApp and email.
+A: Patients can book online at https://qxldiagnostics.com/book or WhatsApp +91 9964 639 639. Trained phlebotomists collect samples in sterile single-use equipment with temperature-controlled cold-chain transport to the NABL lab. Reports are delivered digitally on WhatsApp and email.
 
 **Q: Which doctors review test reports at QXL Diagnostics?**
-A: All reports undergo consultant verification by our medical team: Dr. Shantakumar Muruda (MD Biochemistry), Dr. Pritilata Rout (MD Pathology), Dr. Ajitha Pillai (MD Microbiology), and Dr. Naveen Kumar N (DNB Pathology).
+A: All reports undergo consultant verification by our medical team: Dr. Shantakumar Muruda (MD Biochemistry), Dr. Pritilata Rout (MD Pathology, NIMHANS alumna), Dr. Ajitha Pillai (MD Microbiology), and Dr. Naveen Kumar N (DNB Pathology).
 
 ---
 

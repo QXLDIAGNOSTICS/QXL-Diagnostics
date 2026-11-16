@@ -293,7 +293,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
               <MedicalReviewerBadge
                 doctorName={doctorName}
                 qualifications={doctorQuals}
-                reviewDate="October 2026"
+                reviewDate="November 2026"
               />
             </div>
 
@@ -554,7 +554,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
                 qualifications={doctorQuals}
                 specialty={data.category}
                 note={data.doctorNote}
-                reviewDate="October 2026"
+                reviewDate="November 2026"
               />
             )}
 
