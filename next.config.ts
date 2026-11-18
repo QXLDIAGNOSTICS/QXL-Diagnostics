@@ -432,9 +432,17 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/(favicon.ico|manifest.json|robots.txt|sitemap.xml)",
+        source: "/(favicon.ico|manifest.json|robots.txt|sitemap.xml|llms.txt|llms-full.txt)",
         headers: [
           { key: "Cache-Control", value: "public, max-age=86400, must-revalidate" },
+          { key: "Access-Control-Allow-Origin", value: "*" },
+        ],
+      },
+      {
+        source: "/(llms.txt|llms-full.txt)",
+        headers: [
+          { key: "Content-Type", value: "text/plain; charset=utf-8" },
+          { key: "X-Robots-Tag", value: "index, follow" },
         ],
       },
     ];

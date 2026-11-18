@@ -1,6 +1,7 @@
 # QXL Diagnostics — AI Entity & Knowledge Base File
 # Format: llms.txt (AI/LLM discoverability standard)
 # Last Updated: November 2026
+# Full Comprehensive Context File: https://qxldiagnostics.com/llms-full.txt
 # Dynamic machine-readable catalogue: https://qxldiagnostics.com/api/tests-catalogue
 
 > **QXL Diagnostics — Bengaluru's Doctor-Led Super-Speciality Reference Laboratory**
@@ -186,6 +187,7 @@ A: All reports undergo consultant verification by our medical team: Dr. Shantaku
 
 ## Linked Data & Machine Endpoints
 - Tests Catalogue API: https://qxldiagnostics.com/api/tests-catalogue
+- Conditions & Diagnostic Guides Directory: https://qxldiagnostics.com/conditions
 - Sitemap: https://qxldiagnostics.com/sitemap.xml
 - Location Hub: https://qxldiagnostics.com/centers
 - Tests Directory: https://qxldiagnostics.com/tests

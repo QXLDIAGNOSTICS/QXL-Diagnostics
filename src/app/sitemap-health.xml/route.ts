@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getAllSexualHealthSlugs } from '@/lib/sexual-health/landingPagesData';
+import { CONDITIONS_DATA } from '@/lib/conditionsData';
 
 const BASE_URL = 'https://qxldiagnostics.com';
 
@@ -57,9 +58,10 @@ const GENERAL_HEALTH_PAGES = [
 export async function GET() {
   const lastmod = new Date().toISOString();
 
-  // Deduplicate and combine general health pages with the 36 dedicated sexual health landing pages
+  // Deduplicate and combine general health pages, condition guides, and sexual health landing pages
   const dedicatedSlugs = getAllSexualHealthSlugs().map((slug) => `/sexual-health/${slug}`);
-  const allUniquePages = Array.from(new Set([...GENERAL_HEALTH_PAGES, ...dedicatedSlugs]));
+  const conditionPages = ['/conditions', ...Object.keys(CONDITIONS_DATA).map((slug) => `/conditions/${slug}`)];
+  const allUniquePages = Array.from(new Set([...GENERAL_HEALTH_PAGES, ...conditionPages, ...dedicatedSlugs]));
 
   const urlsXml = allUniquePages
     .map(
@@ -67,7 +69,7 @@ export async function GET() {
     <loc>${BASE_URL}${path}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>${path === '/sexual-health' || path === '/health/symptoms-causes' ? '0.95' : '0.9'}</priority>
+    <priority>${path === '/sexual-health' || path === '/conditions' || path === '/health/symptoms-causes' ? '0.95' : '0.9'}</priority>
   </url>`
     )
     .join('\n');

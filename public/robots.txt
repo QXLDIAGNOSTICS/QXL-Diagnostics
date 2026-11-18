@@ -2,48 +2,97 @@
 
 User-agent: *
 Allow: /
-
-# Disallow private user flows, reports, patient records, checkout, and backend APIs
 Disallow: /reports/
 Disallow: /patient/
 Disallow: /account/
 Disallow: /checkout/
 Disallow: /api/
 Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /dashboard
 Disallow: /my-reports/
 Disallow: /my-bookings/
 Disallow: /profile/
 Disallow: /login/
+Disallow: /payment-terms/
+Disallow: /unsubscribe/
 
-# OpenAI ChatGPT Search Crawler
+# OpenAI ChatGPT & Search Crawlers
 User-agent: OAI-SearchBot
 Allow: /
 
-# OpenAI ChatGPT Ads Landing-Page Validation Crawler
 User-agent: OAI-AdsBot
 Allow: /
 
-# OpenAI GPTBot Training/Data
 User-agent: GPTBot
 Allow: /
 
-# ChatGPT User Interactions
 User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude Crawlers
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-Web
 Allow: /
 
 # Perplexity AI Search Crawler
 User-agent: PerplexityBot
 Allow: /
 
-# Google AI & Search Crawlers
+# Google Search & Gemini AI Crawlers
 User-agent: Googlebot
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
-# Anthropic Claude Crawler
-User-agent: ClaudeBot
+# Microsoft Bing & Copilot Crawler
+User-agent: bingbot
+Allow: /
+
+# Apple Intelligence Crawlers
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI Crawlers
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# DeepSeek AI Crawler
+User-agent: DeepSeekBot
+Allow: /
+
+# xAI Grok Crawler
+User-agent: GrokBot
+Allow: /
+
+# Cohere AI Crawler
+User-agent: cohere-ai
+Allow: /
+
+# ByteDance Bytespider
+User-agent: Bytespider
+Allow: /
+
+# DuckDuckGo Crawlers
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: DuckAssistBot
 Allow: /
 
 # Sitemap Location
