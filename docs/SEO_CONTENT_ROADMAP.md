@@ -118,3 +118,4 @@ To capture Google AI Overviews, Perplexity citations, Gemini, and ChatGPT Search
    Verify NABL certificate number (MC-6849), trained phlebotomist terminology, exact pricing integrity, and zero layout/styling regression.
 5. **Step 5: Deployment, Sitemap Ping & IndexNow**  
    Commit to Git, deploy to production, verify HTTP 200, and submit URLs to Google Search Console and Bing IndexNow API.
+

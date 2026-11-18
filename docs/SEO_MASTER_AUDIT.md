@@ -92,3 +92,4 @@ All structured data across the platform adheres to Schema.org standards:
 - **Interaction to Next Paint (INP):** Zero heavy client-side hydration bottlenecks; interactive components (carousel, tab filters) leverage lightweight React 19 primitives. Target: < 150ms.
 - **Cumulative Layout Shift (CLS):** Explicit aspect-ratio containers on all slider slides and test cards prevent layout reflows during image loading. Target: 0.00.
 - **Field Telemetry:** Integrated real-user monitoring endpoint `/api/web-vitals` logging Web Vitals metrics directly to operational analytics.
+

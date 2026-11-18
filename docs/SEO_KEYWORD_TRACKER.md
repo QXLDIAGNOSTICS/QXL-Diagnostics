@@ -66,3 +66,4 @@ Tracked monthly across Gemini 2.5/Flash, ChatGPT Search, Perplexity Pro, and Cla
    - Verify NAP consistency across all third-party citations (+91 9964 639 639).
 3. **Core Web Vitals Ingestion:**
    - Check real-user field data weekly via `/api/web-vitals` to ensure LCP < 2.0s and INP < 150ms on mobile devices.
+
