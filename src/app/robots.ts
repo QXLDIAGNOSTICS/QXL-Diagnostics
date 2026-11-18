@@ -40,6 +40,7 @@ export default function robots(): MetadataRoute.Robots {
     'Googlebot',
     'bingbot',
     'DuckDuckBot',
+    'DuckAssistBot',
   ];
 
   return {

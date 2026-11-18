@@ -848,3 +848,126 @@ export function validateContentClaims(content: string): string[] {
   }
   return violations;
 }
+
+// ── SEARCH & AI DISCOVERY ONTOLOGY EXTENSION ──────────────────────────────────
+
+export type SearchIntent =
+  | "BOOKING"
+  | "PRICE"
+  | "PREPARATION"
+  | "FASTING"
+  | "SPECIMEN"
+  | "TAT"
+  | "METHOD"
+  | "INTERPRETATION"
+  | "CONDITION"
+  | "LOCAL"
+  | "HOME_COLLECTION"
+  | "DOCTOR_REFERRAL";
+
+export type TestSEOProfile = Readonly<{
+  primary_keyword: string;
+  secondary_keywords: readonly string[];
+  search_aliases: readonly string[];
+  discipline_slug: string;
+  specialty_slugs: readonly string[];
+  condition_slugs: readonly string[];
+  related_test_ids: readonly string[];
+  common_questions: readonly {
+    question: string;
+    answer: string;
+  }[];
+  intent_coverage: readonly SearchIntent[];
+  seo_title: string;
+  meta_description: string;
+  indexable: boolean;
+}>;
+
+export type SearchReadyTest = CanonicalTestMasterEntry &
+  Readonly<{
+    seo: TestSEOProfile;
+  }>;
+
+export const ANA_IFA_SEO: TestSEOProfile = {
+  primary_keyword: "ANA IFA test Bangalore",
+  secondary_keywords: [
+    "ANA test Bangalore",
+    "ANA HEp-2 test Bangalore",
+    "antinuclear antibody test Bangalore",
+    "autoimmune blood test Bangalore",
+    "ANA test home collection Bangalore"
+  ],
+  search_aliases: [
+    "ANA IFA",
+    "ANA IF",
+    "ANA HEp-2",
+    "antinuclear antibody immunofluorescence",
+    "ANA fluorescence test"
+  ],
+  discipline_slug: "/laboratory-disciplines/autoimmune-diagnostics",
+  specialty_slugs: ["/specialities/rheumatology"],
+  condition_slugs: ["/conditions/lupus", "/conditions/autoimmune-disease"],
+  related_test_ids: ["DSDNA001", "ENA001", "C3001", "C4001"],
+  common_questions: [
+    {
+      question: "What is an ANA IFA test?",
+      answer:
+        "ANA IFA is an indirect immunofluorescence test used to detect antinuclear antibodies. The result may include a titre and fluorescence pattern. A positive ANA does not by itself diagnose lupus or another autoimmune disease and must be interpreted with symptoms and other investigations."
+    },
+    {
+      question: "Does ANA IFA require fasting?",
+      answer:
+        "Fasting is generally not required for ANA IFA when ordered alone. Follow the preparation instructions displayed for your complete QXL order if other investigations are being collected at the same time."
+    }
+  ],
+  intent_coverage: [
+    "BOOKING",
+    "PRICE",
+    "PREPARATION",
+    "FASTING",
+    "TAT",
+    "METHOD",
+    "INTERPRETATION",
+    "HOME_COLLECTION",
+    "LOCAL"
+  ],
+  seo_title: "ANA IFA Test Bangalore | HEp-2 ANA Test & Home Collection | QXL",
+  meta_description:
+    "Book ANA IFA testing in Bengaluru with QXL Diagnostics. View price, sample requirement, preparation, reporting time and home collection availability.",
+  indexable: true
+};
+
+export type SEOQualityGateInput = {
+  canonical_name: boolean;
+  specimen: boolean;
+  preparation: boolean;
+  price: boolean;
+  tat: boolean;
+  medical_reviewer: boolean;
+  unique_clinical_copy: boolean;
+  canonical_url: boolean;
+  references: boolean;
+  internal_links: boolean;
+};
+
+export function isSEOPublishable(input: SEOQualityGateInput): boolean {
+  return Object.values(input).every(Boolean);
+}
+
+export function generateIntentQueries(
+  test: { canonical_name: string; aliases: readonly string[] }
+): string[] {
+  const names = [test.canonical_name, ...test.aliases];
+  const queries = new Set<string>();
+  for (const name of names) {
+    queries.add(`${name} Bangalore`);
+    queries.add(`${name} Bengaluru`);
+    queries.add(`${name} price Bangalore`);
+    queries.add(`${name} near me`);
+    queries.add(`${name} home collection Bangalore`);
+    queries.add(`${name} fasting`);
+    queries.add(`${name} sample`);
+    queries.add(`${name} report time`);
+  }
+  return [...queries];
+}

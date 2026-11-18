@@ -9,8 +9,8 @@ interface Props {
 }
 
 export default function MedicalReviewNotice({
-  reviewedBy = "Dr. Shantakumar Muruda, MD (Pathology)",
-  reviewerTitle = "Consultant Pathologist & Laboratory Director, QXL Diagnostics",
+  reviewedBy = "Dr. Shantakumar Muruda, MD (Biochemistry)",
+  reviewerTitle = "Consultant Clinical Biochemist, Founder & CEO – QXL Diagnostics, NABL Lead & Technical Assessor",
   lastUpdated = "November 2026",
 }: Props) {
   return (

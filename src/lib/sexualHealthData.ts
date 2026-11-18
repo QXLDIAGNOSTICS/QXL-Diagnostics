@@ -336,7 +336,7 @@ export const QXL_STI_PACKAGES: StiPackage[] = [
     homeCollectionAvailable: false,
     launchStatus: "Phase 3: Specialist Directed",
     verifiedInCatalogue: false,
-    slug: "/health-hub/sti-testing-after-oral-sex",
+    slug: "/packages/oral-rectal-sti-screening",
     bookingCta: "Book Extragenital Swab Assessment",
     targetPathogens: ["Pharyngeal Neisseria gonorrhoeae", "Pharyngeal Chlamydia trachomatis", "Rectal Neisseria gonorrhoeae", "Rectal Chlamydia trachomatis"],
     parametersCount: 4,

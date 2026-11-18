@@ -29,7 +29,7 @@ export default function SexualHealthNav({ currentPath }: Props) {
     { title: "HIV Test Window Period & Calculator", href: "/health-hub/hiv-test-window-period" },
     { title: "After Unprotected Sex & PEP Protocol", href: "/health-hub/after-unprotected-sex" },
     { title: "Genital Sores Differential (Herpes vs Syphilis)", href: "/health-hub/genital-sores-causes" },
-    { title: "STI Testing After Oral Sex", href: "/health-hub/sti-testing-after-oral-sex" },
+    { title: "STI Testing After Oral Sex", href: "/sexual-health/sti-testing-after-oral-sex" },
   ];
 
   return (

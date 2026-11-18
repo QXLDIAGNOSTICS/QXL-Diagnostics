@@ -84,6 +84,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/health-hub/sti-testing-after-oral-sex",
+        destination: "/sexual-health/sti-testing-after-oral-sex",
+        permanent: true,
+      },
+      {
+        source: "/health-hub/sti-testing-after-oral-sex/",
+        destination: "/sexual-health/sti-testing-after-oral-sex",
+        permanent: true,
+      },
+      {
         source: "/reference-lab",
         destination: "/for-hospitals",
         permanent: true,

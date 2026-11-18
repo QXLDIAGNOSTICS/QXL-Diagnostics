@@ -108,6 +108,65 @@ export default function SexualHealthPackagesPage() {
             </span>
           </div>
 
+          {/* Exposure-Specific Featured Profile */}
+          <section id="oral-sex-sti-testing" className="sexual-health-featured-profile bg-gradient-to-r from-blue-50 via-sky-50 to-indigo-50 border-2 border-blue-200 rounded-3xl p-6 sm:p-8 shadow-sm space-y-4">
+            <span className="inline-block bg-[#2563eb] text-white font-black px-3.5 py-1 rounded-full text-[11px] uppercase tracking-wider">
+              Exposure-Specific STI Screening
+            </span>
+            <div className="space-y-1">
+              <h2 className="text-2xl sm:text-3xl font-black text-[#0c4a6e]">
+                STI Screening After Oral Sex
+              </h2>
+              <h3 className="text-base sm:text-lg font-bold text-slate-700">
+                Throat Swab PCR &amp; Comprehensive Blood Testing
+              </h3>
+            </div>
+            <p className="text-sm text-slate-700 leading-relaxed">
+              Looking for oral gonorrhoea testing, chlamydia throat swab PCR, fourth-generation HIV screening, syphilis testing or the hepatitis B triple panel in Bangalore?
+            </p>
+            <p className="text-sm text-slate-700 leading-relaxed">
+              Explore targeted STI investigations based on anatomical exposure sites, symptoms and testing timeline.
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-semibold text-slate-800 pt-1">
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]"></span>
+                Pharyngeal Gonorrhoea NAAT
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]"></span>
+                Pharyngeal Chlamydia NAAT, where appropriate
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]"></span>
+                HIV 1/2 Fourth-Generation Ag/Ab
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]"></span>
+                Syphilis RPR + TPHA
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]"></span>
+                Hepatitis B Triple Panel
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb]"></span>
+                First-Catch Urine STI NAAT
+              </li>
+            </ul>
+            <p className="text-xs text-slate-500 italic pt-1">
+              Confirm test availability, assay validation, collection location and total pricing before booking.
+            </p>
+            <div className="pt-2">
+              <Link
+                href="/sexual-health/sti-testing-after-oral-sex"
+                className="inline-flex items-center gap-2 bg-[#2563eb] hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow transition-all active:scale-95"
+              >
+                <span>View Tests, Sample Types, Prices &amp; FAQs</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </section>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {QXL_STI_PACKAGES.map((pkg, idx) => (
               <StiPackageCard key={pkg.code} pkg={pkg} highlight={idx === 0} />

@@ -28,7 +28,7 @@ const HEALTH_PAGES = [
   '/health-hub/hiv-test-window-period',
   '/health-hub/after-unprotected-sex',
   '/health-hub/genital-sores-causes',
-  '/health-hub/sti-testing-after-oral-sex',
+  '/sexual-health/sti-testing-after-oral-sex',
   '/sexual-health',
   '/sexual-health/packages',
   '/sexual-health/faq',

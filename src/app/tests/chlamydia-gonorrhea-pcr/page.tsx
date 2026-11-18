@@ -157,7 +157,7 @@ export default function ChlamydiaGonorrheaPcrPage() {
           <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
           <div>
             <strong>Important Clinical Exposure Rule:</strong> If your potential exposure involved oral sex or receptive anal sex, a urine PCR test will NOT detect throat or rectal colonization.
-            <Link href="/health-hub/sti-testing-after-oral-sex" className="text-[#2563eb] font-bold underline ml-1 hover:text-blue-800">
+            <Link href="/sexual-health/sti-testing-after-oral-sex" className="text-[#2563eb] font-bold underline ml-1 hover:text-blue-800">
               Read about site-specific throat and rectal STI testing here &rarr;
             </Link>
           </div>

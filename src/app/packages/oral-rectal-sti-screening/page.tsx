@@ -105,6 +105,15 @@ export default function OralRectalStiPackagePage() {
           <p className="leading-relaxed">
             Clinical studies highlighted by the CDC confirm that over 70% of extragenital gonococcal and chlamydial infections occur in the absence of urogenital symptoms or positive urine tests. If exposure involved oral intimacy or receptive anal intimacy, providing a urine sample alone provides a false sense of security. Swabs taken directly from the throat or rectum are essential for accurate clinical evaluation.
           </p>
+          <div className="pt-2">
+            <Link
+              href="/sexual-health/sti-testing-after-oral-sex"
+              className="inline-flex items-center gap-2 text-xs font-bold text-[#2563eb] hover:text-blue-800 underline"
+            >
+              <span>Read complete clinical guide on STI testing after oral sex, throat PCR &amp; hepatitis B triple panel</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </section>
 
         <MedicalReviewNotice />
