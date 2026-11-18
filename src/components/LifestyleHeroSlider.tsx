@@ -7,6 +7,7 @@ import { ChevronRight, ChevronLeft, ArrowRight } from "lucide-react";
 interface HeroCard {
   id: string;
   image: string;
+  altImages?: string[];
   headline: string;
   badgeTitle: string;
   priceText: string;
@@ -18,7 +19,10 @@ interface HeroCard {
 const HERO_CARDS: HeroCard[] = [
   {
     id: "lifestyle",
-    image: "/images/home_sections/hero_lifestyle_modern.jpg",
+    image: "/images/home_sections/hero_lifestyle_modern_v2.jpg",
+    altImages: [
+      "/images/home_sections/hero_lifestyle_modern.jpg",
+    ],
     headline: "Your lifestyle impacts your health.",
     badgeTitle: "Track it with Quick Fit (80 Params)",
     priceText: "Starts at ₹1,770",
@@ -88,13 +92,23 @@ const HERO_CARDS: HeroCard[] = [
   },
   {
     id: "diabetes",
-    image: "/images/home_sections/card_diabetes_hero.jpg",
+    image: "/images/home_sections/hero_diabetes_modern.jpg",
     headline: "Track your 3-month sugar with clinical precision.",
     badgeTitle: "Diabetes Care & HbA1c Panel",
     priceText: "Starts at ₹380",
     link: "/tests/hba1c-test-bangalore",
     pkgName: "Haemoglobin A1c (HbA1c)",
     pkgPrice: 380,
+  },
+  {
+    id: "allergy-gut",
+    image: "/images/home_sections/hero_allergy_gut.jpg",
+    headline: "Unexplained bloating, fatigue or food reactions?",
+    badgeTitle: "Food Sensitivity Panel (287 Foods)",
+    priceText: "Starts at ₹14,500",
+    link: "/food-sensitivity-test-bangalore",
+    pkgName: "Comprehensive Food-Specific IgG Panel (287 Foods)",
+    pkgPrice: 14500,
   },
   {
     id: "senior",
@@ -107,8 +121,18 @@ const HERO_CARDS: HeroCard[] = [
     pkgPrice: 4600,
   },
   {
+    id: "cancer-screening",
+    image: "/images/home_sections/hero_cancer_screening.jpg",
+    headline: "Early detection saves lives. Know your biomarkers.",
+    badgeTitle: "Q-Oncology Biomarker Panel",
+    priceText: "Starts at ₹7,900",
+    link: "/book?package=q-onco-screen",
+    pkgName: "Q-Oncology Biomarker Panel",
+    pkgPrice: 7900,
+  },
+  {
     id: "fever",
-    image: "/images/home_sections/fever_season_hero.jpg",
+    image: "/images/home_sections/hero_fever_modern.jpg",
     headline: "High fever, chills or fatigue? Don't wait.",
     badgeTitle: "Dengue & Viral Fever Surveillance",
     priceText: "Starts at ₹250 (6-Hr Reports)",
@@ -117,6 +141,98 @@ const HERO_CARDS: HeroCard[] = [
     pkgPrice: 250,
   },
 ];
+
+function HeroCardSlide({
+  card,
+  onSelectPackage,
+}: {
+  card: HeroCard;
+  onSelectPackage?: (pkg: { name: string; price: number; includes: string } | string) => void;
+}) {
+  const allImages = card.altImages && card.altImages.length > 0 ? [card.image, ...card.altImages] : [card.image];
+  const [activeImgIdx, setActiveImgIdx] = React.useState(0);
+
+  React.useEffect(() => {
+    if (allImages.length <= 1) return;
+    const timer = setInterval(() => {
+      setActiveImgIdx((prev) => (prev + 1) % allImages.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [allImages.length]);
+
+  return (
+    <div
+      className="shrink-0 w-[270px] sm:w-[310px] md:w-[350px] aspect-[294/372] relative rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 snap-center group/card cursor-pointer border border-stone-200/70 bg-slate-900"
+      onClick={() => {
+        if (onSelectPackage && card.pkgName && card.pkgPrice) {
+          onSelectPackage({
+            name: card.pkgName,
+            price: card.pkgPrice,
+            includes: card.badgeTitle,
+          });
+        }
+      }}
+    >
+      <Link href={card.link} className="block w-full h-full relative">
+        {/* Photo Background (supports multiple images with smooth cross-fade) */}
+        {allImages.map((imgSrc, idx) => (
+          <Image
+            key={imgSrc}
+            src={imgSrc}
+            alt={card.headline}
+            fill
+            sizes="(max-width: 640px) 270px, (max-width: 768px) 310px, 350px"
+            className={`object-cover object-center group-hover/card:scale-[1.03] transition-all duration-700 ${
+              idx === activeImgIdx ? "opacity-100 scale-100" : "opacity-0 pointer-events-none scale-98"
+            }`}
+            priority={card.id === "lifestyle" && idx === 0}
+          />
+        ))}
+
+        {/* Carousel image indicator if multiple images */}
+        {allImages.length > 1 && (
+          <div className="absolute top-4 right-4 z-20 flex gap-1 pointer-events-none bg-black/30 backdrop-blur-xs px-2 py-1 rounded-full">
+            {allImages.map((_, dotIdx) => (
+              <span
+                key={dotIdx}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  dotIdx === activeImgIdx ? "w-3.5 bg-white" : "w-1.5 bg-white/40"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+
+        {/* Top Vignette for Typography Readability */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/95 via-white/60 to-transparent pointer-events-none" />
+
+        {/* Top Headline Typography */}
+        <div className="absolute top-4 sm:top-5 left-4 sm:left-5 right-4 z-10 pointer-events-none">
+          <h3 className="text-[17px] sm:text-[19px] md:text-[21px] font-black text-[#0f2d5e] leading-snug tracking-tight drop-shadow-2xs max-w-[90%]">
+            {card.headline}
+          </h3>
+        </div>
+
+        {/* Bottom Dark Capsule with Package Details & Real Price */}
+        <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10">
+          <div className="bg-[#2a241f]/90 hover:bg-[#1a1613] backdrop-blur-md text-white rounded-2xl p-3 sm:p-3.5 flex items-center justify-between transition-all duration-200 shadow-lg border border-white/10 group-hover/card:border-amber-400/40">
+            <div className="pr-2">
+              <p className="text-[11.5px] sm:text-[12.5px] font-extrabold text-white/95 leading-tight truncate">
+                {card.badgeTitle}
+              </p>
+              <p className="text-[12px] sm:text-[13px] font-black text-amber-300 mt-0.5 tracking-wide">
+                {card.priceText}
+              </p>
+            </div>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 group-hover/card:bg-amber-400 group-hover/card:text-slate-900 transition-colors">
+              <ArrowRight className="w-3.5 h-3.5 text-white group-hover/card:text-slate-900 transition-colors" />
+            </div>
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
+}
 
 export default function LifestyleHeroSlider({
   onSelectPackage,
@@ -143,58 +259,11 @@ export default function LifestyleHeroSlider({
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {HERO_CARDS.map((card) => (
-              <div
+              <HeroCardSlide
                 key={card.id}
-                className="shrink-0 w-[270px] sm:w-[310px] md:w-[350px] aspect-[294/372] relative rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 snap-center group/card cursor-pointer border border-stone-200/70 bg-slate-900"
-                onClick={() => {
-                  if (onSelectPackage && card.pkgName && card.pkgPrice) {
-                    onSelectPackage({
-                      name: card.pkgName,
-                      price: card.pkgPrice,
-                      includes: card.badgeTitle,
-                    });
-                  }
-                }}
-              >
-                <Link href={card.link} className="block w-full h-full relative">
-                  {/* Photo Background */}
-                  <Image
-                    src={card.image}
-                    alt={card.headline}
-                    fill
-                    sizes="(max-width: 640px) 270px, (max-width: 768px) 310px, 350px"
-                    className="object-cover object-center group-hover/card:scale-[1.03] transition-transform duration-500"
-                    priority={card.id === "lifestyle"}
-                  />
-
-                  {/* Top Vignette for Typography Readability */}
-                  <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white/95 via-white/60 to-transparent pointer-events-none" />
-
-                  {/* Top Headline Typography */}
-                  <div className="absolute top-4 sm:top-5 left-4 sm:left-5 right-4 z-10 pointer-events-none">
-                    <h3 className="text-[17px] sm:text-[19px] md:text-[21px] font-black text-[#0f2d5e] leading-snug tracking-tight drop-shadow-2xs max-w-[90%]">
-                      {card.headline}
-                    </h3>
-                  </div>
-
-                  {/* Bottom Dark Capsule with Package Details & Real Price */}
-                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 z-10">
-                    <div className="bg-[#2a241f]/90 hover:bg-[#1a1613] backdrop-blur-md text-white rounded-2xl p-3 sm:p-3.5 flex items-center justify-between transition-all duration-200 shadow-lg border border-white/10 group-hover/card:border-amber-400/40">
-                      <div className="pr-2">
-                        <p className="text-[11.5px] sm:text-[12.5px] font-extrabold text-white/95 leading-tight truncate">
-                          {card.badgeTitle}
-                        </p>
-                        <p className="text-[12px] sm:text-[13px] font-black text-amber-300 mt-0.5 tracking-wide">
-                          {card.priceText}
-                        </p>
-                      </div>
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center shrink-0 group-hover/card:bg-amber-400 group-hover/card:text-slate-900 transition-colors">
-                        <ArrowRight className="w-3.5 h-3.5 text-white group-hover/card:text-slate-900 transition-colors" />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
+                card={card}
+                onSelectPackage={onSelectPackage}
+              />
             ))}
           </div>
 
