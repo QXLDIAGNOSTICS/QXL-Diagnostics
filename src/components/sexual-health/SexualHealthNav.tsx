@@ -30,6 +30,7 @@ export default function SexualHealthNav({ currentPath }: Props) {
     { title: "After Unprotected Sex & PEP Protocol", href: "/health-hub/after-unprotected-sex" },
     { title: "Genital Sores Differential (Herpes vs Syphilis)", href: "/health-hub/genital-sores-causes" },
     { title: "STI Testing After Oral Sex", href: "/sexual-health/sti-testing-after-oral-sex" },
+    { title: "All 38 Dedicated STI Clinical Guides Index", href: "/sexual-health#sexual-health-guide" },
   ];
 
   return (
@@ -41,7 +42,7 @@ export default function SexualHealthNav({ currentPath }: Props) {
               Sexual Health &amp; Infectious Disease Knowledge Hub
             </span>
             <h3 className="text-xl sm:text-2xl font-black text-[#0c4a6e] mt-1">
-              Explore All 17 Confidential STI Testing, Package &amp; Guide Pages
+              Explore All Confidential STI Testing, Package &amp; Guide Resources
             </h3>
           </div>
           <div className="flex items-center gap-2.5 flex-wrap">

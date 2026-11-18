@@ -24,6 +24,7 @@ import PepUrgentBanner from '@/components/sexual-health/PepUrgentBanner';
 import StiPackageCard from '@/components/sexual-health/StiPackageCard';
 import SexualHealthNav from '@/components/sexual-health/SexualHealthNav';
 import MedicalReviewNotice from '@/components/sexual-health/MedicalReviewNotice';
+import SexualHealthGuidesDirectory from '@/components/sexual-health/SexualHealthGuidesDirectory';
 import { VerifiedSexualHealthLinks } from '@/components/qxl-seo/VerifiedSexualHealthLinks';
 
 export const metadata: Metadata = {
@@ -143,10 +144,16 @@ export default function SexualHealthHubPage() {
                 View 10 STI Diagnostic Packages
               </a>
               <a
+                href="#sexual-health-guide"
+                className="bg-sky-500/20 hover:bg-sky-500/30 text-sky-200 font-bold border border-sky-400/40 px-6 py-3.5 rounded-full text-xs uppercase tracking-wider transition-all"
+              >
+                38 STI Knowledge Guides
+              </a>
+              <a
                 href="#calculator"
                 className="bg-white/10 hover:bg-white/20 text-white font-bold border border-white/30 px-6 py-3.5 rounded-full text-xs uppercase tracking-wider transition-all"
               >
-                HIV Window Period Calculator
+                HIV Window Calculator
               </a>
               <a
                 href={`tel:${PHONE_E164}`}
@@ -313,7 +320,10 @@ export default function SexualHealthHubPage() {
           </div>
         </section>
 
-        {/* 6. FAQs */}
+        {/* 6. Comprehensive 38-Topic Sexual Health & STI Knowledge Directory */}
+        <SexualHealthGuidesDirectory />
+
+        {/* 7. FAQs */}
         <section className="space-y-6">
           <div className="text-center max-w-3xl mx-auto space-y-2">
             <span className="text-xs font-black uppercase tracking-widest text-[#2563eb]">

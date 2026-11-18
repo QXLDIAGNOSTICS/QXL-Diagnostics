@@ -418,8 +418,8 @@ export const HIV_WINDOW_MILESTONES = [
   {
     days: "18–45 Days",
     label: "4th Gen Lab Antigen/Antibody Combo",
-    description: "Detects both HIV-1 p24 antigen and IgM/IgG antibodies from a venous blood draw. Over 99% conclusive at 45 days.",
-    conclusiveness: "CDC primary recommendation. 99% of people have detectable infection by 45 days."
+    description: "Detects both HIV-1 p24 antigen and IgM/IgG antibodies from a venous blood draw.",
+    conclusiveness: "CDC primary recommendation. Venous blood assay detection window benchmark (18–45 days) in the absence of antiretrovirals."
   },
   {
     days: "23–90 Days",
@@ -429,9 +429,9 @@ export const HIV_WINDOW_MILESTONES = [
   },
   {
     days: "90 Days+",
-    label: "Definitive Window for All Assays",
-    description: "Standard milestone recognized globally by CDC, WHO, and NACO for total conclusive exclusion of HIV infection.",
-    conclusiveness: "100% conclusive for all standard antibody and antigen/antibody testing."
+    label: "Standard Follow-Up Milestone",
+    description: "Standard milestone recognized globally by CDC, WHO, and NACO for antibody-based assay follow-up.",
+    conclusiveness: "Standard assay window milestone. PEP/PrEP and subsequent exposures require individualized clinician evaluation."
   }
 ];
 

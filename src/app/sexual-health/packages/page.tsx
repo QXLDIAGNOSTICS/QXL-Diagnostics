@@ -156,13 +156,20 @@ export default function SexualHealthPackagesPage() {
             <p className="text-xs text-slate-500 italic pt-1">
               Confirm test availability, assay validation, collection location and total pricing before booking.
             </p>
-            <div className="pt-2">
+            <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
                 href="/sexual-health/sti-testing-after-oral-sex"
                 className="inline-flex items-center gap-2 bg-[#2563eb] hover:bg-blue-700 text-white font-black text-xs uppercase tracking-wider px-6 py-3.5 rounded-full shadow transition-all active:scale-95"
               >
-                <span>View Tests, Sample Types, Prices &amp; FAQs</span>
+                <span>View Targeted Post-Exposure Testing Guide</span>
                 <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/packages/oral-rectal-sti-screening"
+                className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#0c4a6e] font-extrabold text-xs uppercase tracking-wider px-5 py-3.5 rounded-full border border-slate-300 shadow-sm transition-all"
+              >
+                <span>See QXL-STI-10 Listing</span>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
               </Link>
             </div>
           </section>
