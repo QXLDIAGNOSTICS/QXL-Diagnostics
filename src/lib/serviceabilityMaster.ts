@@ -61,6 +61,7 @@ export const SERVICEABILITY_MASTER: ServiceabilityEntry[] = [
 
   // ── NORTH BENGALURU (SERVED BY YELAHANKA NORTH HUB) ───────────────────────
   { pincode: "560064", locality: "Yelahanka", slug: "yelahanka", zone: "North", eligible: true, collection_fee: 0, minimum_order: 0, first_slot: "06:30 AM", last_slot: "08:00 PM", processing_hub: "Yelahanka North Hub" },
+  { pincode: "560064", locality: "Yelahanka Old Town", slug: "yelahanka-old-town", zone: "North", eligible: true, collection_fee: 0, minimum_order: 0, first_slot: "06:30 AM", last_slot: "08:00 PM", processing_hub: "Yelahanka North Hub" },
   { pincode: "560092", locality: "Sahakara Nagar", slug: "sahakara-nagar", zone: "North", eligible: true, collection_fee: 0, minimum_order: 0, first_slot: "06:30 AM", last_slot: "08:00 PM", processing_hub: "Yelahanka North Hub" },
   { pincode: "560024", locality: "Hebbal", slug: "hebbal", zone: "North", eligible: true, collection_fee: 0, minimum_order: 0, first_slot: "06:30 AM", last_slot: "08:00 PM", processing_hub: "Yelahanka North Hub" },
   { pincode: "560097", locality: "Vidyaranyapura", slug: "vidyaranyapura", zone: "North", eligible: true, collection_fee: 0, minimum_order: 0, first_slot: "06:30 AM", last_slot: "08:00 PM", processing_hub: "Yelahanka North Hub" },

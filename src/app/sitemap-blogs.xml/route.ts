@@ -36,6 +36,13 @@ export async function GET() {
     }
 
     const priority =
+      b.slug === "15-important-blood-tests-everyone-should-know-bangalore" ||
+      b.slug === "hba1c-test-normal-range-meaning-importance-bangalore" ||
+      b.slug === "lipid-profile-test-cholesterol-hdl-ldl-triglycerides-bangalore" ||
+      b.slug === "thyroid-function-test-t3-t4-tsh-normal-range-bangalore" ||
+      b.slug === "kidney-function-test-creatinine-egfr-bun-normal-range-bangalore" ||
+      b.slug === "preventive-health-checkups-by-age-guide-bangalore" ||
+      b.slug === "what-is-nabl-accreditation-iso-15189-patient-guide" ||
       b.slug === "std-sti-testing-bangalore-window-period-pcr-confidential" ||
       b.slug === "lipoprotein-a-lpa-genetic-heart-risk-test-bangalore" ||
       b.slug === "allergen-specific-ige-vs-total-ige-bangalore-allergy-test" ||

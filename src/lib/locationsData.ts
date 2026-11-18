@@ -325,6 +325,15 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     popularTests: ["Full Body Package", "Complete Blood Count", "Diabetes Screening", "Full Body Checkup"]
   },
   {
+    id: "yelahanka-old-town",
+    name: "Yelahanka Old Town",
+    slug: "yelahanka-old-town",
+    nearestLab: "QXL Yelahanka Patient Collection Center (L Square)",
+    description: "Accredited doorstep blood sample collection in Yelahanka Old Town, Santhe Circle, and surrounding North Bengaluru catchments. Prompt phlebotomy visits with same-day digital reports.",
+    pincodes: ["560064"],
+    popularTests: ["Complete Blood Count (CBC)", "Diabetes HbA1c", "Thyroid Profile (T3, T4, TSH)", "Senior Citizen Health Package"]
+  },
+  {
     id: "vidyaranyapura",
     name: "Vidyaranyapura",
     slug: "vidyaranyapura",
