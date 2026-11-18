@@ -90,15 +90,15 @@ export default function AfterUnprotectedSexPage() {
     {
       hour: "Day 28 to 45 (4 to 6 Weeks)",
       title: "4th Generation HIV & Syphilis Serology",
-      description: "Viral p24 antigen peaks between weeks 3 and 4. A 4th Generation HIV test conducted at day 28 provides over 95% certainty, reaching >99% conclusiveness at day 45 per CDC guidelines. Quantitative Syphilis RPR/VDRL is also performed at this stage.",
+      description: "Viral p24 antigen peaks between weeks 3 and 4. Per CDC guidelines, in the absence of antiretroviral interference (such as PEP or PrEP), a laboratory 4th Generation venous blood Ag/Ab combo test has an established detection window of 18–45 days. Quantitative Syphilis RPR/VDRL is also performed at this stage.",
       badge: "Serology Screening",
       badgeColor: "bg-emerald-600 text-white"
     },
     {
       hour: "Day 90 (3 Months)",
-      title: "Definitive Conclusive Screening",
-      description: "A final blood panel covering HIV 4th Gen Duo, Syphilis RPR/TPHA, Hepatitis B (HBsAg), and Hepatitis C (Anti-HCV) provides 100% definitive clinical peace of mind across all CDC and WHO standards.",
-      badge: "Definitive Milestone",
+      title: "Follow-Up & Definitive Screening Milestone",
+      description: "A final blood panel covering HIV 4th Gen Duo, Syphilis RPR/TPHA, Hepatitis B (HBsAg), and Hepatitis C (Anti-HCV) provides comprehensive diagnostic follow-up across CDC and WHO clinical standards.",
+      badge: "Follow-Up Milestone",
       badgeColor: "bg-emerald-700 text-white"
     }
   ];

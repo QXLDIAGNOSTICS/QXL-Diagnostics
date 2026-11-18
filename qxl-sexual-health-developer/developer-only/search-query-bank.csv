@@ -1,0 +1,831 @@
+﻿intent cluster,target route,query,evidence status
+Immediate exposure,/health-hub/after-unprotected-sex,what to do after unprotected sex,Base example; not measured
+Immediate exposure,/health-hub/after-unprotected-sex,had sex without condom yesterday,Base example; not measured
+Immediate exposure,/health-hub/after-unprotected-sex,what blood tests after unsafe sex,Base example; not measured
+Immediate exposure,/health-hub/after-unprotected-sex,can I get STI from one encounter,Base example; not measured
+Immediate exposure,/health-hub/after-unprotected-sex,STI screening after hookup,Base example; not measured
+Immediate exposure,/health-hub/after-unprotected-sex,baseline STI test,Base example; not measured
+Immediate exposure,/health-hub/after-unprotected-sex,can washing after sex prevent HIV,Base example; not measured
+Immediate exposure,/health-hub/after-unprotected-sex,emergency STD testing,Base example; not measured
+Condom failure,/sexual-health/condom-break-sti-testing,condom broke during sex,Base example; not measured
+Condom failure,/sexual-health/condom-break-sti-testing,condom slipped off,Base example; not measured
+Condom failure,/sexual-health/condom-break-sti-testing,condom leaked,Base example; not measured
+Condom failure,/sexual-health/condom-break-sti-testing,condom broke no ejaculation,Base example; not measured
+Condom failure,/sexual-health/condom-break-sti-testing,condom removed midway,Base example; not measured
+Condom failure,/sexual-health/condom-break-sti-testing,condom break HIV test,Base example; not measured
+Condom failure,/sexual-health/condom-break-sti-testing,condom broke during anal sex,Base example; not measured
+Condom failure,/sexual-health/condom-break-sti-testing,condom failure pregnancy risk,Base example; not measured
+HIV risk,/sexual-health/hiv-symptoms-and-anxiety,HIV after one exposure,Base example; not measured
+HIV risk,/sexual-health/hiv-symptoms-and-anxiety,HIV risk without ejaculation,Base example; not measured
+HIV risk,/sexual-health/hiv-symptoms-and-anxiety,HIV from precum,Base example; not measured
+HIV risk,/sexual-health/hiv-symptoms-and-anxiety,HIV after sex unknown partner,Base example; not measured
+HIV risk,/sexual-health/hiv-symptoms-and-anxiety,HIV without symptoms,Base example; not measured
+HIV risk,/sexual-health/hiv-symptoms-and-anxiety,early HIV symptoms,Base example; not measured
+HIV risk,/sexual-health/hiv-symptoms-and-anxiety,can normal CBC rule out HIV,Base example; not measured
+HIV risk,/sexual-health/hiv-symptoms-and-anxiety,HIV fear after sex,Base example; not measured
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV p24 test window period,Base example; not measured
+HIV windows,/sexual-health/hiv-testing-after-exposure,fourth generation HIV test accuracy,Base example; not measured
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV ECLIA vs ELISA,Base example; not measured
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV CMIA vs rapid test,Base example; not measured
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV RNA PCR vs fourth generation,Base example; not measured
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test non reactive meaning,Base example; not measured
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after PEP,Base example; not measured
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test while taking PrEP,Base example; not measured
+PEP PrEP,/sexual-health/hiv-pep-prep-testing,PEP within 24 hours,Base example; not measured
+PEP PrEP,/sexual-health/hiv-pep-prep-testing,PEP within 48 hours,Base example; not measured
+PEP PrEP,/sexual-health/hiv-pep-prep-testing,PEP within 72 hours,Base example; not measured
+PEP PrEP,/sexual-health/hiv-pep-prep-testing,missed PEP window,Base example; not measured
+PEP PrEP,/sexual-health/hiv-pep-prep-testing,PEP clinic Bangalore,Base example; not measured
+PEP PrEP,/sexual-health/hiv-pep-prep-testing,baseline tests before PEP,Base example; not measured
+PEP PrEP,/sexual-health/hiv-pep-prep-testing,follow up tests after PEP,Base example; not measured
+PEP PrEP,/sexual-health/hiv-pep-prep-testing,PEP vs PrEP,Base example; not measured
+PEP PrEP,/sexual-health/hiv-pep-prep-testing,PrEP STI screening,Base example; not measured
+PEP PrEP,/sexual-health/hiv-pep-prep-testing,doxy PEP clinician guidance,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,STI after giving oral sex,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,STI after receiving oral sex,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral sex no condom,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral gonorrhoea test,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral chlamydia PCR,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,throat swab STI PCR,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,pharyngeal CT NG NAAT,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral sex with bleeding gums,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,swallowing semen STI risk,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral STI without symptoms,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,blood and throat PCR,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,validated pharyngeal assay,Base example; not measured
+Oral sex,/sexual-health/sti-testing-after-oral-sex,STI after giving oral sex Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,STI after giving oral sex Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,STI after giving oral sex near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,STI after receiving oral sex Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,STI after receiving oral sex Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,STI after receiving oral sex near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral sex no condom Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral sex no condom Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral sex no condom near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral gonorrhoea test Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral gonorrhoea test Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral gonorrhoea test near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral chlamydia PCR Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral chlamydia PCR Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral chlamydia PCR near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,throat swab STI PCR Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,throat swab STI PCR Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,throat swab STI PCR near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,pharyngeal CT NG NAAT Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,pharyngeal CT NG NAAT Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,pharyngeal CT NG NAAT near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral sex with bleeding gums Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral sex with bleeding gums Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral sex with bleeding gums near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,swallowing semen STI risk Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,swallowing semen STI risk Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,swallowing semen STI risk near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral STI without symptoms Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral STI without symptoms Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,oral STI without symptoms near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,blood and throat PCR Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,blood and throat PCR Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,blood and throat PCR near me,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,validated pharyngeal assay Bangalore,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,validated pharyngeal assay Bengaluru,Local variant; verify service coverage
+Oral sex,/sexual-health/sti-testing-after-oral-sex,validated pharyngeal assay near me,Local variant; verify service coverage
+Vaginal sex,/sexual-health/sti-testing-after-vaginal-sex,STI after vaginal intercourse,Base example; not measured
+Vaginal sex,/sexual-health/sti-testing-after-vaginal-sex,unprotected vaginal sex no ejaculation,Base example; not measured
+Vaginal sex,/sexual-health/sti-testing-after-vaginal-sex,infection after intercourse,Base example; not measured
+Vaginal sex,/sexual-health/sti-testing-after-vaginal-sex,vaginal swab PCR,Base example; not measured
+Vaginal sex,/sexual-health/sti-testing-after-vaginal-sex,first catch urine STI test,Base example; not measured
+Vaginal sex,/sexual-health/sti-testing-after-vaginal-sex,female STI screening,Base example; not measured
+Vaginal sex,/sexual-health/sti-testing-after-vaginal-sex,male STI screening,Base example; not measured
+Vaginal sex,/sexual-health/sti-testing-after-vaginal-sex,STI after new partner,Base example; not measured
+Anal sex,/sexual-health/sti-testing-after-anal-sex,STD after anal sex,Base example; not measured
+Anal sex,/sexual-health/sti-testing-after-anal-sex,receptive anal intercourse STI tests,Base example; not measured
+Anal sex,/sexual-health/sti-testing-after-anal-sex,insertive anal sex,Base example; not measured
+Anal sex,/sexual-health/sti-testing-after-anal-sex,rectal gonorrhoea PCR,Base example; not measured
+Anal sex,/sexual-health/sti-testing-after-anal-sex,rectal chlamydia NAAT,Base example; not measured
+Anal sex,/sexual-health/sti-testing-after-anal-sex,rectal discharge,Base example; not measured
+Anal sex,/sexual-health/sti-testing-after-anal-sex,anal pain and bleeding,Base example; not measured
+Anal sex,/sexual-health/sti-testing-after-anal-sex,proctitis after sex,Base example; not measured
+Anal sex,/sexual-health/sti-testing-after-anal-sex,three site STI testing,Base example; not measured
+Anal sex,/sexual-health/sti-testing-after-anal-sex,extragenital NAAT,Base example; not measured
+Other contact,/sexual-health/sti-risk-kissing-and-genital-contact,STD from kissing,Base example; not measured
+Other contact,/sexual-health/sti-risk-kissing-and-genital-contact,HIV from saliva,Base example; not measured
+Other contact,/sexual-health/sti-risk-kissing-and-genital-contact,genital rubbing STI,Base example; not measured
+Other contact,/sexual-health/sti-risk-kissing-and-genital-contact,HPV without penetration,Base example; not measured
+Other contact,/sexual-health/sti-risk-kissing-and-genital-contact,herpes skin contact,Base example; not measured
+Other contact,/sexual-health/sti-risk-kissing-and-genital-contact,touching semen,Base example; not measured
+Other contact,/sexual-health/sti-risk-kissing-and-genital-contact,fingering STI risk,Base example; not measured
+Other contact,/sexual-health/sti-risk-kissing-and-genital-contact,shared sex toys STI,Base example; not measured
+Other contact,/sexual-health/sti-risk-kissing-and-genital-contact,mutual masturbation risk,Base example; not measured
+Other contact,/sexual-health/sti-risk-kissing-and-genital-contact,STI without ejaculation,Base example; not measured
+Partners,/sexual-health/asymptomatic-sti-screening,STI after casual sex,Base example; not measured
+Partners,/sexual-health/asymptomatic-sti-screening,one night stand STD test,Base example; not measured
+Partners,/sexual-health/asymptomatic-sti-screening,dating app hookup,Base example; not measured
+Partners,/sexual-health/asymptomatic-sti-screening,sex worker STI test,Base example; not measured
+Partners,/sexual-health/asymptomatic-sti-screening,multiple partners screening,Base example; not measured
+Partners,/sexual-health/asymptomatic-sti-screening,partner HIV status unknown,Base example; not measured
+Partners,/sexual-health/asymptomatic-sti-screening,before a new relationship,Base example; not measured
+Partners,/sexual-health/asymptomatic-sti-screening,partner refuses STI test,Base example; not measured
+Private-part symptoms,/sexual-health/genital-itching-and-irritation,private part itching after sex,Base example; not measured
+Private-part symptoms,/sexual-health/genital-itching-and-irritation,private part burning,Base example; not measured
+Private-part symptoms,/sexual-health/genital-itching-and-irritation,private area swelling,Base example; not measured
+Private-part symptoms,/sexual-health/genital-itching-and-irritation,white marks on private part,Base example; not measured
+Private-part symptoms,/sexual-health/genital-itching-and-irritation,red marks on private part,Base example; not measured
+Private-part symptoms,/sexual-health/genital-itching-and-irritation,skin peeling private parts,Base example; not measured
+Private-part symptoms,/sexual-health/genital-itching-and-irritation,private part discomfort,Base example; not measured
+Private-part symptoms,/sexual-health/genital-itching-and-irritation,bad smell private part,Base example; not measured
+Private-part symptoms,/sexual-health/genital-itching-and-irritation,private part infection test,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,penis pain after sex,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,burning at tip of penis,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,white fluid penis,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,yellow discharge penis,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,green discharge,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,clear watery penile leakage,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,morning discharge,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,itching inside urethra,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,painful ejaculation,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,blood in semen,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,testicle swelling,Base example; not measured
+Male symptoms,/sexual-health/genital-discharge-and-burning,groin lymph nodes,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,vaginal itching after intercourse,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,white vaginal discharge,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,watery vaginal discharge,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,yellow green discharge,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,frothy discharge,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,curd like discharge,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,fishy smell after sex,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,swollen labia,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,vaginal sores,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,pelvic pain after sex,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,bleeding after intercourse,Base example; not measured
+Female symptoms,/sexual-health/vaginal-discharge-testing,pain during sex,Base example; not measured
+Urinary symptoms,/sexual-health/uti-vs-sti,burning urine after sex,Base example; not measured
+Urinary symptoms,/sexual-health/uti-vs-sti,frequent urination after intercourse,Base example; not measured
+Urinary symptoms,/sexual-health/uti-vs-sti,UTI after sex,Base example; not measured
+Urinary symptoms,/sexual-health/uti-vs-sti,blood in urine,Base example; not measured
+Urinary symptoms,/sexual-health/uti-vs-sti,urine culture negative burning urine,Base example; not measured
+Urinary symptoms,/sexual-health/uti-vs-sti,routine urine negative STI,Base example; not measured
+Urinary symptoms,/sexual-health/uti-vs-sti,UTI versus gonorrhoea,Base example; not measured
+Urinary symptoms,/sexual-health/uti-vs-sti,chlamydia vs UTI,Base example; not measured
+Urinary symptoms,/sexual-health/uti-vs-sti,midstream versus first catch urine,Base example; not measured
+Urinary symptoms,/sexual-health/uti-vs-sti,STI urine PCR,Base example; not measured
+Throat symptoms,/sexual-health/oral-throat-symptoms,sore throat after oral sex,Base example; not measured
+Throat symptoms,/sexual-health/oral-throat-symptoms,white tonsil spots,Base example; not measured
+Throat symptoms,/sexual-health/oral-throat-symptoms,throat pain after oral sex,Base example; not measured
+Throat symptoms,/sexual-health/oral-throat-symptoms,mouth ulcers,Base example; not measured
+Throat symptoms,/sexual-health/oral-throat-symptoms,tongue sores,Base example; not measured
+Throat symptoms,/sexual-health/oral-throat-symptoms,swollen neck glands,Base example; not measured
+Throat symptoms,/sexual-health/oral-throat-symptoms,painful swallowing,Base example; not measured
+Throat symptoms,/sexual-health/oral-throat-symptoms,gonorrhoea tonsillitis,Base example; not measured
+Throat symptoms,/sexual-health/oral-throat-symptoms,throat culture versus STI PCR,Base example; not measured
+Throat symptoms,/sexual-health/oral-throat-symptoms,oral herpes PCR,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,blisters on private part,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,water filled genital blisters,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,genital boils,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,penile pimples,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,genital wound not healing,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,painless genital sore,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,painful genital ulcer,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,genital scar,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,genital warts,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,red spots on penis,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,white patches on foreskin,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,syphilis rash on palms and soles,Base example; not measured
+Genital lesions,/sexual-health/genital-sores-blisters-ulcers,herpes vs pimple,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,fever after sex,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,body pain after exposure,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,night sweats after sex,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,fatigue,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,swollen glands,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,weight loss,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,diarrhoea after sex,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,jaundice after sex,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,HIV rash,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,flu like symptoms after unprotected sex,Base example; not measured
+General symptoms,/sexual-health/hiv-symptoms-and-anxiety,HIV symptoms or anxiety,Base example; not measured
+No symptoms,/sexual-health/asymptomatic-sti-screening,STD no symptoms,Base example; not measured
+No symptoms,/sexual-health/asymptomatic-sti-screening,HIV without symptoms,Base example; not measured
+No symptoms,/sexual-health/asymptomatic-sti-screening,silent chlamydia,Base example; not measured
+No symptoms,/sexual-health/asymptomatic-sti-screening,silent gonorrhoea,Base example; not measured
+No symptoms,/sexual-health/asymptomatic-sti-screening,asymptomatic syphilis,Base example; not measured
+No symptoms,/sexual-health/asymptomatic-sti-screening,HPV no warts,Base example; not measured
+No symptoms,/sexual-health/asymptomatic-sti-screening,hepatitis B no symptoms,Base example; not measured
+No symptoms,/sexual-health/asymptomatic-sti-screening,STI after 6 months no symptoms,Base example; not measured
+No symptoms,/sexual-health/asymptomatic-sti-screening,partner positive no symptoms,Base example; not measured
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea symptoms,Base example; not measured
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea urine PCR,Base example; not measured
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea throat swab,Base example; not measured
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea rectal NAAT,Base example; not measured
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea culture,Base example; not measured
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea antibiotic sensitivity,Base example; not measured
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea test of cure,Base example; not measured
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea reinfection,Base example; not measured
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,Neisseria gonorrhoeae DNA,Base example; not measured
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea symptoms Bangalore,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea symptoms Bengaluru,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea symptoms near me,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea urine PCR Bangalore,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea urine PCR Bengaluru,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea urine PCR near me,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea throat swab Bangalore,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea throat swab Bengaluru,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea throat swab near me,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea rectal NAAT Bangalore,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea rectal NAAT Bengaluru,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhea rectal NAAT near me,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea culture Bangalore,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea culture Bengaluru,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea culture near me,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea antibiotic sensitivity Bangalore,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea antibiotic sensitivity Bengaluru,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea antibiotic sensitivity near me,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea test of cure Bangalore,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea test of cure Bengaluru,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea test of cure near me,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea reinfection Bangalore,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea reinfection Bengaluru,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,gonorrhoea reinfection near me,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,Neisseria gonorrhoeae DNA Bangalore,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,Neisseria gonorrhoeae DNA Bengaluru,Local variant; verify service coverage
+Gonorrhoea,/sexual-health/gonorrhea-chlamydia-pcr,Neisseria gonorrhoeae DNA near me,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia symptoms,Base example; not measured
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia blood antibody vs NAAT,Base example; not measured
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,Chlamydia trachomatis DNA,Base example; not measured
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia urine PCR,Base example; not measured
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia throat swab,Base example; not measured
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia rectal PCR,Base example; not measured
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia after antibiotics,Base example; not measured
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia and infertility,Base example; not measured
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia symptoms Bangalore,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia symptoms Bengaluru,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia symptoms near me,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia blood antibody vs NAAT Bangalore,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia blood antibody vs NAAT Bengaluru,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia blood antibody vs NAAT near me,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,Chlamydia trachomatis DNA Bangalore,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,Chlamydia trachomatis DNA Bengaluru,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,Chlamydia trachomatis DNA near me,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia urine PCR Bangalore,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia urine PCR Bengaluru,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia urine PCR near me,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia throat swab Bangalore,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia throat swab Bengaluru,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia throat swab near me,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia rectal PCR Bangalore,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia rectal PCR Bengaluru,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia rectal PCR near me,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia after antibiotics Bangalore,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia after antibiotics Bengaluru,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia after antibiotics near me,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia and infertility Bangalore,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia and infertility Bengaluru,Local variant; verify service coverage
+Chlamydia,/sexual-health/gonorrhea-chlamydia-pcr,chlamydia and infertility near me,Local variant; verify service coverage
+Syphilis,/sexual-health/syphilis-rpr-tpha-testing,syphilis painless ulcer,Base example; not measured
+Syphilis,/sexual-health/syphilis-rpr-tpha-testing,RPR after sex,Base example; not measured
+Syphilis,/sexual-health/syphilis-rpr-tpha-testing,VDRL test,Base example; not measured
+Syphilis,/sexual-health/syphilis-rpr-tpha-testing,TPHA confirmation,Base example; not measured
+Syphilis,/sexual-health/syphilis-rpr-tpha-testing,RPR vs VDRL vs TPHA,Base example; not measured
+Syphilis,/sexual-health/syphilis-rpr-tpha-testing,RPR titre 1:4,Base example; not measured
+Syphilis,/sexual-health/syphilis-rpr-tpha-testing,TPHA positive RPR negative,Base example; not measured
+Syphilis,/sexual-health/syphilis-rpr-tpha-testing,syphilis serology after treatment,Base example; not measured
+Syphilis,/sexual-health/syphilis-rpr-tpha-testing,Treponema pallidum antibody,Base example; not measured
+Herpes,/sexual-health/genital-herpes-testing,HSV1 genital infection,Base example; not measured
+Herpes,/sexual-health/genital-herpes-testing,HSV2 symptoms,Base example; not measured
+Herpes,/sexual-health/genital-herpes-testing,herpes lesion PCR,Base example; not measured
+Herpes,/sexual-health/genital-herpes-testing,HSV IgG blood test,Base example; not measured
+Herpes,/sexual-health/genital-herpes-testing,HSV IgM vs IgG,Base example; not measured
+Herpes,/sexual-health/genital-herpes-testing,HSV borderline IgG,Base example; not measured
+Herpes,/sexual-health/genital-herpes-testing,HSV1 oral to genital,Base example; not measured
+Herpes,/sexual-health/genital-herpes-testing,herpes without blisters,Base example; not measured
+Herpes,/sexual-health/genital-herpes-testing,recurrent genital cuts,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,HPV symptoms in men,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,HPV in women,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,genital warts,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,HPV 16 18,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,HPV genotyping,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,HPV DNA PCR,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,Pap smear vs HPV,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,LBC HPV cotest,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,HPV blood test,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,male HPV screening,Base example; not measured
+HPV,/sexual-health/hpv-dna-testing,oral HPV,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV after unprotected sex,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBsAg test,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,anti HBs quantitative,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,total anti HBc,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,anti HBc IgM vs total,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,hepatitis B triple panel,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBsAg anti HBs anti HBc,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV immunity test,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV vaccine after exposure,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBIG after exposure,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV DNA PCR,Base example; not measured
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV after unprotected sex Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV after unprotected sex Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV after unprotected sex near me,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBsAg test Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBsAg test Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBsAg test near me,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,anti HBs quantitative Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,anti HBs quantitative Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,anti HBs quantitative near me,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,total anti HBc Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,total anti HBc Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,total anti HBc near me,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,anti HBc IgM vs total Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,anti HBc IgM vs total Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,anti HBc IgM vs total near me,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,hepatitis B triple panel Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,hepatitis B triple panel Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,hepatitis B triple panel near me,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBsAg anti HBs anti HBc Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBsAg anti HBs anti HBc Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBsAg anti HBs anti HBc near me,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV immunity test Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV immunity test Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV immunity test near me,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV vaccine after exposure Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV vaccine after exposure Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV vaccine after exposure near me,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBIG after exposure Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBIG after exposure Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBIG after exposure near me,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV DNA PCR Bangalore,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV DNA PCR Bengaluru,Local variant; verify service coverage
+Hepatitis B,/sexual-health/hepatitis-b-triple-panel,HBV DNA PCR near me,Local variant; verify service coverage
+Hepatitis C,/sexual-health/hepatitis-c-testing,HCV sexual transmission,Base example; not measured
+Hepatitis C,/sexual-health/hepatitis-c-testing,HCV antibody window,Base example; not measured
+Hepatitis C,/sexual-health/hepatitis-c-testing,anti HCV test,Base example; not measured
+Hepatitis C,/sexual-health/hepatitis-c-testing,HCV RNA PCR,Base example; not measured
+Hepatitis C,/sexual-health/hepatitis-c-testing,HCV RNA qualitative vs quantitative,Base example; not measured
+Hepatitis C,/sexual-health/hepatitis-c-testing,HCV antibody positive RNA negative,Base example; not measured
+Hepatitis C,/sexual-health/hepatitis-c-testing,HCV after anal sex,Base example; not measured
+Hepatitis C,/sexual-health/hepatitis-c-testing,HIV HBV HCV panel,Base example; not measured
+Trichomonas,/sexual-health/trichomonas-testing,trichomoniasis symptoms,Base example; not measured
+Trichomonas,/sexual-health/trichomonas-testing,frothy discharge trichomonas,Base example; not measured
+Trichomonas,/sexual-health/trichomonas-testing,Trichomonas vaginalis PCR,Base example; not measured
+Trichomonas,/sexual-health/trichomonas-testing,trichomonas urine NAAT,Base example; not measured
+Trichomonas,/sexual-health/trichomonas-testing,vaginal swab NAAT,Base example; not measured
+Trichomonas,/sexual-health/trichomonas-testing,wet mount versus PCR,Base example; not measured
+Trichomonas,/sexual-health/trichomonas-testing,CT NG TV multiplex,Base example; not measured
+Mycoplasma,/sexual-health/persistent-urethritis-testing,M genitalium PCR,Base example; not measured
+Mycoplasma,/sexual-health/persistent-urethritis-testing,persistent urethritis,Base example; not measured
+Mycoplasma,/sexual-health/persistent-urethritis-testing,burning after negative STD test,Base example; not measured
+Mycoplasma,/sexual-health/persistent-urethritis-testing,chlamydia negative discharge,Base example; not measured
+Mycoplasma,/sexual-health/persistent-urethritis-testing,gonorrhoea negative burning,Base example; not measured
+Mycoplasma,/sexual-health/persistent-urethritis-testing,M genitalium resistance,Base example; not measured
+Mycoplasma,/sexual-health/persistent-urethritis-testing,Mycoplasma hominis vs genitalium,Base example; not measured
+Mycoplasma,/sexual-health/persistent-urethritis-testing,Ureaplasma PCR positive,Base example; not measured
+Mycoplasma,/sexual-health/persistent-urethritis-testing,persistent cervicitis,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,bacterial vaginosis,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,Gardnerella vaginalis,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,Candida albicans,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,Candida glabrata,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,balanitis fungal infection,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,genital bacterial culture,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,chancroid,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,LGV,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,donovanosis,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,mpox genital rash,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,pubic lice,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,scabies,Base example; not measured
+Other infections,/sexual-health/other-genital-infections,genital dermatitis,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,complete STD test package,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,STI blood and urine panel,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,STI 5 panel,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,STD 7 panel,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,STI 10 panel,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,STD 12 panel,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,all STI tests,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,comprehensive STI multiplex,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,blood urine throat swab panel,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,targeted versus comprehensive STI screening,Base example; not measured
+Panels,/sexual-health/sti-test-cost-bangalore,complete STD test package Bangalore,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,complete STD test package Bengaluru,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,complete STD test package near me,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STI blood and urine panel Bangalore,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STI blood and urine panel Bengaluru,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STI blood and urine panel near me,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STI 5 panel Bangalore,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STI 5 panel Bengaluru,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STI 5 panel near me,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STD 7 panel Bangalore,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STD 7 panel Bengaluru,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STD 7 panel near me,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STI 10 panel Bangalore,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STI 10 panel Bengaluru,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STI 10 panel near me,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STD 12 panel Bangalore,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STD 12 panel Bengaluru,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,STD 12 panel near me,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,all STI tests Bangalore,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,all STI tests Bengaluru,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,all STI tests near me,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,comprehensive STI multiplex Bangalore,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,comprehensive STI multiplex Bengaluru,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,comprehensive STI multiplex near me,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,blood urine throat swab panel Bangalore,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,blood urine throat swab panel Bengaluru,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,blood urine throat swab panel near me,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,targeted versus comprehensive STI screening Bangalore,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,targeted versus comprehensive STI screening Bengaluru,Local variant; verify service coverage
+Panels,/sexual-health/sti-test-cost-bangalore,targeted versus comprehensive STI screening near me,Local variant; verify service coverage
+Timing,/sexual-health/sti-testing-window-periods,STD test immediately after sex,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,STD test after 24 hours,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,STI test after 3 days,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,STI test after 7 days,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,STI test after 14 days,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,test after 21 days,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,STI test after 30 days,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,test after 45 days,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,test after 60 days,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,test after 90 days,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,test after 6 months,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,test after 8 months,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,test after one year,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,test after 2 years,Base example; not measured
+Timing,/sexual-health/sti-testing-window-periods,incubation versus window period,Base example; not measured
+Methods,/sexual-health/gonorrhea-chlamydia-pcr,STI PCR vs culture,Base example; not measured
+Methods,/sexual-health/gonorrhea-chlamydia-pcr,NAAT vs ELISA,Base example; not measured
+Methods,/sexual-health/gonorrhea-chlamydia-pcr,antigen vs antibody,Base example; not measured
+Methods,/sexual-health/gonorrhea-chlamydia-pcr,real time PCR,Base example; not measured
+Methods,/sexual-health/gonorrhea-chlamydia-pcr,most accurate STD test,Base example; not measured
+Methods,/sexual-health/gonorrhea-chlamydia-pcr,blood vs urine versus swab,Base example; not measured
+Methods,/sexual-health/gonorrhea-chlamydia-pcr,validated rectal specimen,Base example; not measured
+Methods,/sexual-health/gonorrhea-chlamydia-pcr,validated throat sample,Base example; not measured
+Methods,/sexual-health/gonorrhea-chlamydia-pcr,NABL scope,Base example; not measured
+Methods,/sexual-health/gonorrhea-chlamydia-pcr,in house vs referral laboratory,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,fasting for STI blood test,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,first catch urine volume,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,hold urine before PCR,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,first morning vs first catch,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,throat swab collection,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,urethral swab pain,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,self collected vaginal swab,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,self collected rectal swab,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,STI test during period,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,mouthwash before throat swab,Base example; not measured
+Preparation,/sexual-health/sti-sample-collection,sample transport stability,Base example; not measured
+Treatment,/sexual-health/sti-testing-after-antibiotics,STD test after azithromycin,Base example; not measured
+Treatment,/sexual-health/sti-testing-after-antibiotics,STI test after doxycycline,Base example; not measured
+Treatment,/sexual-health/sti-testing-after-antibiotics,gonorrhea test after ceftriaxone,Base example; not measured
+Treatment,/sexual-health/sti-testing-after-antibiotics,antibiotic false negative PCR,Base example; not measured
+Treatment,/sexual-health/sti-testing-after-antibiotics,PCR positive after treatment,Base example; not measured
+Treatment,/sexual-health/sti-testing-after-antibiotics,test of cure vs retest,Base example; not measured
+Treatment,/sexual-health/sti-testing-after-antibiotics,STI reinfection,Base example; not measured
+Treatment,/sexual-health/sti-testing-after-antibiotics,both partners testing,Base example; not measured
+Treatment,/sexual-health/sti-testing-after-antibiotics,STI test taking antibiotics,Base example; not measured
+Persistent symptoms,/sexual-health/negative-sti-test-persistent-symptoms,STD tests negative but symptoms,Base example; not measured
+Persistent symptoms,/sexual-health/negative-sti-test-persistent-symptoms,HIV negative still symptomatic,Base example; not measured
+Persistent symptoms,/sexual-health/negative-sti-test-persistent-symptoms,CT NG negative urethral burning,Base example; not measured
+Persistent symptoms,/sexual-health/negative-sti-test-persistent-symptoms,urine PCR negative throat hurts,Base example; not measured
+Persistent symptoms,/sexual-health/negative-sti-test-persistent-symptoms,negative genital herpes test sores,Base example; not measured
+Persistent symptoms,/sexual-health/negative-sti-test-persistent-symptoms,vaginal discharge despite negative panel,Base example; not measured
+Persistent symptoms,/sexual-health/negative-sti-test-persistent-symptoms,wrong sample false negative,Base example; not measured
+Persistent symptoms,/sexual-health/negative-sti-test-persistent-symptoms,non infectious genital symptoms,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,HIV reactive vs nonreactive,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,HIV S CO index,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,HIV COI meaning,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,HIV value 0.01,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,HIV value 0.50,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,RPR reactive,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,TPHA positive,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,HBsAg reactive,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,anti HBs positive,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,anti HBc positive,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,HCV RNA not detected,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,HSV IgG borderline,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,HPV DNA detected,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,CT NG detected,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,PCR Ct value,Base example; not measured
+Reports,/sexual-health/understanding-sti-test-results,positive STD report confirmation,Base example; not measured
+Anxiety,/sexual-health/hiv-symptoms-and-anxiety,HIV fear after negative test,Base example; not measured
+Anxiety,/sexual-health/hiv-symptoms-and-anxiety,HIV tests negative still afraid,Base example; not measured
+Anxiety,/sexual-health/hiv-symptoms-and-anxiety,can HIV hide from tests,Base example; not measured
+Anxiety,/sexual-health/hiv-symptoms-and-anxiety,stress HIV symptoms,Base example; not measured
+Anxiety,/sexual-health/hiv-symptoms-and-anxiety,anxiety genital burning,Base example; not measured
+Anxiety,/sexual-health/hiv-symptoms-and-anxiety,HIV false positive causes,Base example; not measured
+Anxiety,/sexual-health/hiv-symptoms-and-anxiety,vaccination test interference,Base example; not measured
+Anxiety,/sexual-health/hiv-symptoms-and-anxiety,alcohol HIV test,Base example; not measured
+Anxiety,/sexual-health/hiv-symptoms-and-anxiety,how to stop worrying about HIV,Base example; not measured
+Anxiety,/sexual-health/hiv-symptoms-and-anxiety,confidential counselling,Base example; not measured
+Couples,/sexual-health/couples-sti-screening,STI tests before marriage,Base example; not measured
+Couples,/sexual-health/couples-sti-screening,premarital HIV test,Base example; not measured
+Couples,/sexual-health/couples-sti-screening,couples STI package,Base example; not measured
+Couples,/sexual-health/couples-sti-screening,both partners screening,Base example; not measured
+Couples,/sexual-health/couples-sti-screening,partner tested positive chlamydia,Base example; not measured
+Couples,/sexual-health/couples-sti-screening,partner herpes,Base example; not measured
+Couples,/sexual-health/couples-sti-screening,partner HPV,Base example; not measured
+Couples,/sexual-health/couples-sti-screening,partner hepatitis B,Base example; not measured
+Couples,/sexual-health/couples-sti-screening,one partner positive other negative,Base example; not measured
+Couples,/sexual-health/couples-sti-screening,STI screening before new relationship,Base example; not measured
+Pregnancy,/sexual-health/pregnancy-and-sti-testing,pregnancy after unprotected sex,Base example; not measured
+Pregnancy,/sexual-health/pregnancy-and-sti-testing,beta hCG blood test,Base example; not measured
+Pregnancy,/sexual-health/pregnancy-and-sti-testing,pregnancy test after 7 days,Base example; not measured
+Pregnancy,/sexual-health/pregnancy-and-sti-testing,pregnancy test after 14 days,Base example; not measured
+Pregnancy,/sexual-health/pregnancy-and-sti-testing,late period after sex,Base example; not measured
+Pregnancy,/sexual-health/pregnancy-and-sti-testing,emergency contraception,Base example; not measured
+Pregnancy,/sexual-health/pregnancy-and-sti-testing,HIV syphilis screening pregnancy,Base example; not measured
+Pregnancy,/sexual-health/pregnancy-and-sti-testing,HBsAg pregnancy,Base example; not measured
+Pregnancy,/sexual-health/pregnancy-and-sti-testing,CT NG pregnancy,Base example; not measured
+Pregnancy,/sexual-health/pregnancy-and-sti-testing,confidential pregnancy test,Base example; not measured
+Fertility,/sexual-health/sti-and-fertility,STI infertility,Base example; not measured
+Fertility,/sexual-health/sti-and-fertility,chlamydia blocked fallopian tubes,Base example; not measured
+Fertility,/sexual-health/sti-and-fertility,gonorrhoea PID,Base example; not measured
+Fertility,/sexual-health/sti-and-fertility,sperm infection,Base example; not measured
+Fertility,/sexual-health/sti-and-fertility,semen culture,Base example; not measured
+Fertility,/sexual-health/sti-and-fertility,STI screening IVF,Base example; not measured
+Fertility,/sexual-health/sti-and-fertility,chronic pelvic pain,Base example; not measured
+Fertility,/sexual-health/sti-and-fertility,chronic prostatitis,Base example; not measured
+Fertility,/sexual-health/sti-and-fertility,epididymitis,Base example; not measured
+Fertility,/sexual-health/sti-and-fertility,reproductive infection screening,Base example; not measured
+Inclusive,/sexual-health/inclusive-sexual-health-testing,LGBTQ friendly STI lab,Base example; not measured
+Inclusive,/sexual-health/inclusive-sexual-health-testing,private testing unmarried couples,Base example; not measured
+Inclusive,/sexual-health/inclusive-sexual-health-testing,confidential student STD test,Base example; not measured
+Inclusive,/sexual-health/inclusive-sexual-health-testing,MSM three site testing,Base example; not measured
+Inclusive,/sexual-health/inclusive-sexual-health-testing,transgender sexual health,Base example; not measured
+Inclusive,/sexual-health/inclusive-sexual-health-testing,women with female partners,Base example; not measured
+Inclusive,/sexual-health/inclusive-sexual-health-testing,non judgmental STD testing,Base example; not measured
+Inclusive,/sexual-health/inclusive-sexual-health-testing,discreet testing for men and women,Base example; not measured
+Assault,/sexual-health/urgent-medical-support,medical help after sexual assault,Base example; not measured
+Assault,/sexual-health/urgent-medical-support,PEP after assault,Base example; not measured
+Assault,/sexual-health/urgent-medical-support,non consensual exposure care,Base example; not measured
+Assault,/sexual-health/urgent-medical-support,pregnancy prevention after assault,Base example; not measured
+Assault,/sexual-health/urgent-medical-support,STI follow up after assault,Base example; not measured
+Assault,/sexual-health/urgent-medical-support,emergency medical examination,Base example; not measured
+Assault,/sexual-health/urgent-medical-support,urgent confidential care,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,confidential STD test,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,private HIV test,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,anonymous HIV test,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,discreet STI screening,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STI test without Aadhaar,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STD test without prescription,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,will family know test results,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,employer HIV report privacy,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,secure report delivery,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,private lab doctor,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STI test without insurance,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,confidential WhatsApp appointment,Base example; not measured
+Privacy,/sexual-health/confidential-sti-testing-bangalore,confidential STD test Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,confidential STD test Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,confidential STD test near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,private HIV test Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,private HIV test Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,private HIV test near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,anonymous HIV test Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,anonymous HIV test Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,anonymous HIV test near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,discreet STI screening Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,discreet STI screening Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,discreet STI screening near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STI test without Aadhaar Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STI test without Aadhaar Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STI test without Aadhaar near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STD test without prescription Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STD test without prescription Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STD test without prescription near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,will family know test results Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,will family know test results Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,will family know test results near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,employer HIV report privacy Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,employer HIV report privacy Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,employer HIV report privacy near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,secure report delivery Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,secure report delivery Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,secure report delivery near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,private lab doctor Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,private lab doctor Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,private lab doctor near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STI test without insurance Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STI test without insurance Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,STI test without insurance near me,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,confidential WhatsApp appointment Bangalore,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,confidential WhatsApp appointment Bengaluru,Local variant; verify service coverage
+Privacy,/sexual-health/confidential-sti-testing-bangalore,confidential WhatsApp appointment near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,STD test price,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,full STD panel cost,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,affordable STI package,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,HIV fourth gen price,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,HIV RNA PCR cost,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,RPR TPHA price,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,CT NG PCR cost,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,HSV PCR cost,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,HPV DNA price,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,HBV triple panel cost,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,throat swab PCR cost,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,couple STD package,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,STD test under 1000,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,STD test under 5000,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,collection charges,Base example; not measured
+Price,/sexual-health/sti-test-cost-bangalore,STD test price Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,STD test price Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,STD test price near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,full STD panel cost Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,full STD panel cost Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,full STD panel cost near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,affordable STI package Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,affordable STI package Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,affordable STI package near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HIV fourth gen price Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HIV fourth gen price Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HIV fourth gen price near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HIV RNA PCR cost Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HIV RNA PCR cost Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HIV RNA PCR cost near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,RPR TPHA price Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,RPR TPHA price Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,RPR TPHA price near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,CT NG PCR cost Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,CT NG PCR cost Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,CT NG PCR cost near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HSV PCR cost Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HSV PCR cost Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HSV PCR cost near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HPV DNA price Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HPV DNA price Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HPV DNA price near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HBV triple panel cost Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HBV triple panel cost Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,HBV triple panel cost near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,throat swab PCR cost Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,throat swab PCR cost Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,throat swab PCR cost near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,couple STD package Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,couple STD package Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,couple STD package near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,STD test under 1000 Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,STD test under 1000 Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,STD test under 1000 near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,STD test under 5000 Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,STD test under 5000 Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,STD test under 5000 near me,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,collection charges Bangalore,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,collection charges Bengaluru,Local variant; verify service coverage
+Price,/sexual-health/sti-test-cost-bangalore,collection charges near me,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,same day STD test,Base example; not measured
+TAT,/sexual-health/sti-test-cost-bangalore,six hour HIV report,Base example; not measured
+TAT,/sexual-health/sti-test-cost-bangalore,rapid HIV test,Base example; not measured
+TAT,/sexual-health/sti-test-cost-bangalore,STI PCR 24 hour report,Base example; not measured
+TAT,/sexual-health/sti-test-cost-bangalore,urgent gonorrhoea testing,Base example; not measured
+TAT,/sexual-health/sti-test-cost-bangalore,Sunday STI test,Base example; not measured
+TAT,/sexual-health/sti-test-cost-bangalore,evening STD lab,Base example; not measured
+TAT,/sexual-health/sti-test-cost-bangalore,walk in HIV test,Base example; not measured
+TAT,/sexual-health/sti-test-cost-bangalore,download report,Base example; not measured
+TAT,/sexual-health/sti-test-cost-bangalore,how long full STI panel takes,Base example; not measured
+TAT,/sexual-health/sti-test-cost-bangalore,same day STD test Bangalore,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,same day STD test Bengaluru,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,same day STD test near me,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,six hour HIV report Bangalore,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,six hour HIV report Bengaluru,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,six hour HIV report near me,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,rapid HIV test Bangalore,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,rapid HIV test Bengaluru,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,rapid HIV test near me,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,STI PCR 24 hour report Bangalore,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,STI PCR 24 hour report Bengaluru,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,STI PCR 24 hour report near me,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,urgent gonorrhoea testing Bangalore,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,urgent gonorrhoea testing Bengaluru,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,urgent gonorrhoea testing near me,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,Sunday STI test Bangalore,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,Sunday STI test Bengaluru,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,Sunday STI test near me,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,evening STD lab Bangalore,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,evening STD lab Bengaluru,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,evening STD lab near me,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,walk in HIV test Bangalore,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,walk in HIV test Bengaluru,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,walk in HIV test near me,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,download report Bangalore,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,download report Bengaluru,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,download report near me,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,how long full STI panel takes Bangalore,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,how long full STI panel takes Bengaluru,Local variant; verify service coverage
+TAT,/sexual-health/sti-test-cost-bangalore,how long full STI panel takes near me,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,STD test at home,Base example; not measured
+Home collection,/sexual-health/sti-home-sample-collection,HIV blood home collection,Base example; not measured
+Home collection,/sexual-health/sti-home-sample-collection,private urine sample home,Base example; not measured
+Home collection,/sexual-health/sti-home-sample-collection,online STI test booking,Base example; not measured
+Home collection,/sexual-health/sti-home-sample-collection,doorstep sexual health testing,Base example; not measured
+Home collection,/sexual-health/sti-home-sample-collection,WhatsApp booking,Base example; not measured
+Home collection,/sexual-health/sti-home-sample-collection,home collected throat swab,Base example; not measured
+Home collection,/sexual-health/sti-home-sample-collection,self collected genital swab,Base example; not measured
+Home collection,/sexual-health/sti-home-sample-collection,home blood collection for hepatitis B,Base example; not measured
+Home collection,/sexual-health/sti-home-sample-collection,STD test at home Bangalore,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,STD test at home Bengaluru,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,STD test at home near me,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,HIV blood home collection Bangalore,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,HIV blood home collection Bengaluru,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,HIV blood home collection near me,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,private urine sample home Bangalore,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,private urine sample home Bengaluru,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,private urine sample home near me,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,online STI test booking Bangalore,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,online STI test booking Bengaluru,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,online STI test booking near me,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,doorstep sexual health testing Bangalore,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,doorstep sexual health testing Bengaluru,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,doorstep sexual health testing near me,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,WhatsApp booking Bangalore,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,WhatsApp booking Bengaluru,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,WhatsApp booking near me,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,home collected throat swab Bangalore,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,home collected throat swab Bengaluru,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,home collected throat swab near me,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,self collected genital swab Bangalore,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,self collected genital swab Bengaluru,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,self collected genital swab near me,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,home blood collection for hepatitis B Bangalore,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,home blood collection for hepatitis B Bengaluru,Local variant; verify service coverage
+Home collection,/sexual-health/sti-home-sample-collection,home blood collection for hepatitis B near me,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,best STD testing laboratory,Base example; not measured
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,NABL accredited STI lab,Base example; not measured
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,ISO 15189 STD test,Base example; not measured
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,doctor led STI lab,Base example; not measured
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,reliable HIV test,Base example; not measured
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,validated pharyngeal NAAT lab,Base example; not measured
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,HBV triple panel laboratory,Base example; not measured
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,compare STI labs,Base example; not measured
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,QXL STI reviews,Base example; not measured
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,laboratory test scope,Base example; not measured
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,best STD testing laboratory Bangalore,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,best STD testing laboratory Bengaluru,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,best STD testing laboratory near me,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,NABL accredited STI lab Bangalore,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,NABL accredited STI lab Bengaluru,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,NABL accredited STI lab near me,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,ISO 15189 STD test Bangalore,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,ISO 15189 STD test Bengaluru,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,ISO 15189 STD test near me,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,doctor led STI lab Bangalore,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,doctor led STI lab Bengaluru,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,doctor led STI lab near me,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,reliable HIV test Bangalore,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,reliable HIV test Bengaluru,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,reliable HIV test near me,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,validated pharyngeal NAAT lab Bangalore,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,validated pharyngeal NAAT lab Bengaluru,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,validated pharyngeal NAAT lab near me,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,HBV triple panel laboratory Bangalore,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,HBV triple panel laboratory Bengaluru,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,HBV triple panel laboratory near me,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,compare STI labs Bangalore,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,compare STI labs Bengaluru,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,compare STI labs near me,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,QXL STI reviews Bangalore,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,QXL STI reviews Bengaluru,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,QXL STI reviews near me,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,laboratory test scope Bangalore,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,laboratory test scope Bengaluru,Local variant; verify service coverage
+Quality comparison,/sexual-health/confidential-sti-testing-bangalore,laboratory test scope near me,Local variant; verify service coverage
+Local,/sexual-health/confidential-sti-testing-bangalore,STD test near me,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,confidential STI testing Bengaluru,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,HIV testing Kengeri,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,sexual health testing Mysore Road,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,STD test Yelahanka,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,STI screening North Bangalore,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,STD test JP Nagar,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Jayanagar STI lab,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Banashankari,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,RR Nagar,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Nagarbhavi,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Vijayanagar,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Rajajinagar,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Electronic City,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Whitefield,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Marathahalli,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Koramangala,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,HSR Layout,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Indiranagar,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Hebbal,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Thanisandra,Base example; not measured
+Local,/sexual-health/confidential-sti-testing-bangalore,Kanakapura Road,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,बिना कंडोम सेक्स के बाद कौन सा टेस्ट करवाएं,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,गुप्त रोग की जांच कहां करवाएं,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,प्राइवेट पार्ट में जलन और खुजली,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,HIV test kitne din baad karaye,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,Bina condom sex kiya kya test karna chahiye,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,private part mein khujli aur jalan,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,Sex ke baad safed pani nikalna,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,ಸುರಕ್ಷಿತವಲ್ಲದ ಲೈಂಗಿಕ ಸಂಪರ್ಕದ ನಂತರ ಯಾವ ಪರೀಕ್ಷೆ ಮಾಡಿಸಬೇಕು,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,ಗುಪ್ತಾಂಗದಲ್ಲಿ ತುರಿಕೆ ಮತ್ತು ಉರಿ,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,ಬೆಂಗಳೂರಿನಲ್ಲಿ ಗೌಪ್ಯ ಲೈಂಗಿಕ ಆರೋಗ್ಯ ಪರೀಕ್ಷೆ,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,பாதுகாப்பற்ற உடலுறவுக்குப் பிறகு என்ன பரிசோதனை செய்ய வேண்டும்,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,అసురక్షిత లైంగిక సంబంధం తర్వాత ఏ పరీక్ష చేయించుకోవాలి,Base example; not measured
+Languages,/health-hub/after-unprotected-sex,സുരക്ഷിതമല്ലാത്ത ലൈംഗിക ബന്ധത്തിന് ശേഷം എന്ത് പരിശോധന ചെയ്യണം,Base example; not measured
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 24 hours,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 3 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 7 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 10 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 14 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 15 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 21 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 28 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 30 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 42 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 45 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 60 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 90 days,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 6 months,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after 8 months,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after one year,Timing variant
+HIV windows,/sexual-health/hiv-testing-after-exposure,HIV test after two years,Timing variant

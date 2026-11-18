@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
+import { getAllSexualHealthSlugs } from '@/lib/sexual-health/landingPagesData';
 
 const BASE_URL = 'https://qxldiagnostics.com';
 
-const HEALTH_PAGES = [
+const GENERAL_HEALTH_PAGES = [
   '/health/symptoms-causes',
   '/health/headache-causes',
   '/health/fever-causes',
@@ -28,11 +29,11 @@ const HEALTH_PAGES = [
   '/health-hub/hiv-test-window-period',
   '/health-hub/after-unprotected-sex',
   '/health-hub/genital-sores-causes',
-  '/sexual-health/sti-testing-after-oral-sex',
   '/sexual-health',
   '/sexual-health/packages',
   '/sexual-health/faq',
   '/sexual-health/symptoms',
+  '/sexual-health/sti-testing-after-oral-sex',
   '/sexual-health/symptoms/private-part-itching',
   '/sexual-health/symptoms/burning-urination-after-sex',
   '/sexual-health/symptoms/watery-discharge-after-sex',
@@ -56,14 +57,20 @@ const HEALTH_PAGES = [
 export async function GET() {
   const lastmod = new Date().toISOString();
 
-  const urlsXml = HEALTH_PAGES.map(
-    (path) => `  <url>
+  // Deduplicate and combine general health pages with the 36 dedicated sexual health landing pages
+  const dedicatedSlugs = getAllSexualHealthSlugs().map((slug) => `/sexual-health/${slug}`);
+  const allUniquePages = Array.from(new Set([...GENERAL_HEALTH_PAGES, ...dedicatedSlugs]));
+
+  const urlsXml = allUniquePages
+    .map(
+      (path) => `  <url>
     <loc>${BASE_URL}${path}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>${path === '/health/symptoms-causes' ? '0.95' : '0.9'}</priority>
+    <priority>${path === '/sexual-health' || path === '/health/symptoms-causes' ? '0.95' : '0.9'}</priority>
   </url>`
-  ).join('\n');
+    )
+    .join('\n');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

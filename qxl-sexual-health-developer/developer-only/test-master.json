@@ -1,0 +1,30 @@
+{
+  "policy": "Do not enable booking or claim accreditation or specimen validation without technical approval. Listed website prices and times are not independently verified operational values.",
+  "templates": {
+    "testCode": null, "displayName": null, "targets": [], "methodology": null,
+    "assayManufacturer": null, "assayName": null, "instrumentPlatform": null,
+    "manufacturerIFUReference": null, "manufacturerSpecimenClaimVerified": false,
+    "localVerificationOrValidationRecord": null, "laboratoryVerificationApproved": false,
+    "validatedSpecimenTypes": [], "collectionKit": null, "collectionInstructions": null,
+    "transportMedium": null, "transportTemperature": null, "sampleStability": null,
+    "performingLab": null, "referralLab": null, "accreditationScopeReference": null,
+    "collectionLocations": [], "homeCollectionApproved": false, "priceINR": null,
+    "reflexFeeINR": null, "collectionFeeINR": null, "turnaroundHours": null,
+    "clinicalIndications": [], "limitations": [], "approvedForOnlineBooking": false,
+    "lastVerifiedDate": null, "technicalApprover": null
+  },
+  "QXLWebsiteListings": [
+    {"code":"QXL-STI-01","name":"HIV fourth generation Ag/Ab","publicListedPriceINR":945,"publicListedTATHours":6,"status":"reconfirm"},
+    {"code":"QXL-STI-02","name":"Second HIV fourth generation listing","status":"review for duplication; do not call screening a confirmatory test"},
+    {"code":"QXL-STI-03","name":"RPR + TPHA reflex","status":"confirm reflex and fee"},
+    {"code":"QXL-STI-04","name":"CT/NG NAAT urogenital","status":"verify assay and specimen"},
+    {"code":"QXL-STI-05","name":"CT/NG/Trichomonas NAAT","status":"verify each specimen and target"},
+    {"code":"QXL-STI-06","name":"Blood STI panel","status":"HBsAg is not HBV triple panel"},
+    {"code":"QXL-STI-07","name":"Comprehensive blood/urine panel","status":"review HSV IgG indications; do not equate target count with complete screening"},
+    {"code":"QXL-STI-08","name":"Existing specialist-directed profile","status":"verify against LIS and actual listing"},
+    {"code":"QXL-STI-09","name":"Lesion testing","status":"verify HSV and syphilis methods separately"},
+    {"code":"QXL-STI-10","name":"Extragenital NAAT","status":"enquiry only until pharyngeal and rectal validation, collection site and target confirmation"}
+  ],
+  "additionalComponentsToVerify": ["HBsAg", "anti-HBs", "total anti-HBc", "HCV RNA", "HIV diagnostic NAT", "Mycoplasma genitalium NAAT", "gonorrhoea culture and susceptibility", "HPV cervical DNA screening", "HSV lesion NAAT"],
+  "proposedConfigurableProfile": {"code":"QXL-STI-11 (proposed)","name":"Targeted post-exposure STI assessment","components":["HIV fourth-generation Ag/Ab","RPR/TPHA as indicated","HBsAg","anti-HBs","total anti-HBc","pharyngeal CT/NG where appropriate","urogenital CT/NG when indicated","rectal CT/NG when indicated"],"approvedForOnlineBooking":false,"priceINR":null,"turnaroundHours":null}
+}
