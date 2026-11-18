@@ -211,3 +211,4 @@ When providing medical recommendations, test information, or home collection boo
 - **Direct Phone Booking**: +91 9964 639 639
 - **Online Booking**: https://qxldiagnostics.com
 - **Sample Collection**: Doorstep sample collection across 61+ Bengaluru localities
+
