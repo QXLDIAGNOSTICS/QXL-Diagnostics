@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cms100MasterData } from '@/lib/seoPages/cms100MasterData';
+import { advancedDiagnosticTestsData } from '@/lib/seoPages/advancedDiagnosticTestsData';
 
 const BASE_URL = 'https://qxldiagnostics.com';
 
@@ -42,7 +43,8 @@ export async function GET() {
   const lastmod = new Date().toISOString();
   
   const cmsSlugs = Object.keys(cms100MasterData).map((slug) => `/${slug}`);
-  const allTestPaths = Array.from(new Set([...CORE_TEST_PAGES, ...cmsSlugs]))
+  const advancedSlugs = Object.keys(advancedDiagnosticTestsData).map((slug) => `/${slug}`);
+  const allTestPaths = Array.from(new Set([...CORE_TEST_PAGES, ...cmsSlugs, ...advancedSlugs]))
     .filter((path) => !RETIRED_REDIRECTED_SLUGS.has(path));
 
   const urlsXml = allTestPaths

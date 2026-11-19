@@ -18,10 +18,10 @@ const CONDITIONS: ConditionCard[] = [
   { id: "jointpain", name: "Joint Pain", image: "/images/home_sections/cond_jointpain.png", link: "/conditions/joint-pain" },
   { id: "allergy", name: "Allergy", image: "/images/home_sections/cond_allergy.png", link: "/conditions/allergy" },
   { id: "diabetes", name: "Diabetes", image: "/images/home_sections/cond_diabetes.jpg", link: "/conditions/diabetes-testing", hasOverlayTitle: true },
-  { id: "heart", name: "Heart Health", image: "/images/home_sections/cond_heart.jpg", link: "/conditions/heart-health", hasOverlayTitle: true },
+  { id: "heart", name: "Heart Health", image: "/images/home_sections/cond_heart.jpg", link: "/conditions/cardiac-risk-heart-health", hasOverlayTitle: true },
   { id: "fatigue", name: "Fatigue & Energy", image: "/images/home_sections/cond_fatigue.jpg", link: "/conditions/anaemia-testing", hasOverlayTitle: true },
   { id: "gut", name: "Gut & Digestion", image: "/images/home_sections/cond_gut.jpg", link: "/conditions/food-intolerance-digestive", hasOverlayTitle: true },
-  { id: "pcos", name: "Women's Health", image: "/images/home_sections/cond_pcos.jpg", link: "/conditions/womens-health", hasOverlayTitle: true },
+  { id: "pcos", name: "Women's Health", image: "/images/home_sections/cond_pcos.jpg", link: "/conditions/pcos-pcod-hormone-testing", hasOverlayTitle: true },
 ];
 
 export default function CategoriesAndConditions() {

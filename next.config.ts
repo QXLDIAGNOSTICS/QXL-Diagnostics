@@ -53,6 +53,87 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // ── Condition URLs Canonical 301 Redirects ──────────────────────────────
+      {
+        source: "/conditions/food-sensitivity",
+        destination: "/conditions/food-intolerance-digestive",
+        permanent: true,
+      },
+      {
+        source: "/conditions/food-sensitivity/",
+        destination: "/conditions/food-intolerance-digestive",
+        permanent: true,
+      },
+      {
+        source: "/conditions/hair-fall-investigation",
+        destination: "/conditions/hair-fall",
+        permanent: true,
+      },
+      {
+        source: "/conditions/hair-fall-investigation/",
+        destination: "/conditions/hair-fall",
+        permanent: true,
+      },
+      {
+        source: "/conditions/joint-pain-arthritis",
+        destination: "/conditions/joint-pain",
+        permanent: true,
+      },
+      {
+        source: "/conditions/joint-pain-arthritis/",
+        destination: "/conditions/joint-pain",
+        permanent: true,
+      },
+      {
+        source: "/conditions/allergy-testing",
+        destination: "/conditions/allergy",
+        permanent: true,
+      },
+      {
+        source: "/conditions/allergy-testing/",
+        destination: "/conditions/allergy",
+        permanent: true,
+      },
+      {
+        source: "/conditions/fever-infections",
+        destination: "/conditions/fever-season",
+        permanent: true,
+      },
+      {
+        source: "/conditions/fever-infections/",
+        destination: "/conditions/fever-season",
+        permanent: true,
+      },
+      {
+        source: "/conditions/thyroid-health",
+        destination: "/conditions/thyroid",
+        permanent: true,
+      },
+      {
+        source: "/conditions/thyroid-health/",
+        destination: "/conditions/thyroid",
+        permanent: true,
+      },
+      {
+        source: "/conditions/heart-health",
+        destination: "/conditions/cardiac-risk-heart-health",
+        permanent: true,
+      },
+      {
+        source: "/conditions/heart-health/",
+        destination: "/conditions/cardiac-risk-heart-health",
+        permanent: true,
+      },
+      {
+        source: "/conditions/womens-health",
+        destination: "/conditions/pcos-pcod-hormone-testing",
+        permanent: true,
+      },
+      {
+        source: "/conditions/womens-health/",
+        destination: "/conditions/pcos-pcod-hormone-testing",
+        permanent: true,
+      },
       {
         source: "/hospital-lab-management",
         destination: "/hospital-laboratory-management",

@@ -481,6 +481,49 @@ export default async function DynamicSlugTestPage({ params }: Props) {
               </div>
             </div>
 
+            {/* When Should a Patient Seek Urgent Medical Care? */}
+            {data.urgentCareWarning && (
+              <div className="bg-rose-50 border-2 border-rose-300 rounded-3xl p-6 sm:p-7 shadow-xs text-rose-950">
+                <div className="flex items-center gap-2 mb-2">
+                  <AlertCircle className="w-5 h-5 text-rose-600 shrink-0" />
+                  <h2 className="text-base font-extrabold text-rose-900">
+                    When Should a Patient Seek Urgent Medical Care?
+                  </h2>
+                </div>
+                <p className="text-sm text-rose-900 leading-relaxed font-medium">
+                  {data.urgentCareWarning}
+                </p>
+                <p className="text-xs text-rose-700 mt-2 font-semibold">
+                  ⚠️ Urgent care is determined by symptoms, not by waiting for a laboratory report. A laboratory test page must never delay emergency care.
+                </p>
+              </div>
+            )}
+
+            {/* Evidence Base & Clinical Guidelines */}
+            {data.textbookReferences && data.textbookReferences.length > 0 && (
+              <div className="bg-white border border-slate-200 rounded-3xl p-6 shadow-xs">
+                <h2 className="text-sm font-extrabold text-[#0f2d5e] uppercase tracking-wider mb-3">
+                  Evidence Base &amp; Clinical Guidelines
+                </h2>
+                <ul className="space-y-2 text-xs text-slate-600">
+                  {data.textbookReferences.map((ref, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-[#2563eb] font-bold mt-0.5">•</span>
+                      <span>{ref}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Global Medical Disclaimer */}
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 text-slate-600 text-xs leading-relaxed">
+              <h3 className="font-extrabold text-slate-800 text-xs mb-1.5 uppercase tracking-wider">Global Medical Disclaimer</h3>
+              <p>
+                This page is for patient education and search/AI information retrieval. It does not diagnose disease, replace a clinical examination, or override the reference interval and interpretive comment on the patient&apos;s own laboratory report. Reference intervals, decision limits, specimen requirements and assay interferences can differ by method, age, sex, pregnancy status, clinical setting and laboratory platform. Results must be interpreted with symptoms, examination, medicines, imaging and other investigations.
+              </p>
+            </div>
+
             {/* Featured Clinical Guide */}
             {data.relatedGuide && (
               <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-sky-50 border border-blue-200 rounded-3xl p-6 shadow-xs">

@@ -1,3 +1,5 @@
+import { tenDiscoverabilityBlogs } from "./seoBlogsData";
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -21,9 +23,11 @@ export interface BlogPost {
   twitter_title?: string;
   twitter_description?: string;
   custom_schema?: any;
+  faqs?: { question: string; answer: string }[];
 }
 
 export const defaultBlogs: BlogPost[] = [
+  ...tenDiscoverabilityBlogs,
   {
   "id": "blog-new-43",
   "title": "15 Important Blood Tests Everyone Should Know: Clinical Guide, Normal Ranges & When to Test in Bangalore",

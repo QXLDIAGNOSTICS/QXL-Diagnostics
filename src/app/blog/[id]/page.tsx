@@ -230,6 +230,22 @@ export default async function SingleBlogPage({ params }: Props) {
           },
         ],
       },
+      ...((blog as any).faqs && (blog as any).faqs.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              "@id": `https://qxldiagnostics.com/blog/${blog.slug}/#faq`,
+              mainEntity: (blog as any).faqs.map((faq: { question: string; answer: string }) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 
@@ -648,11 +664,7 @@ export default async function SingleBlogPage({ params }: Props) {
                   </span>
                 </h4>
                 <p className="text-amber-900/90 text-xs sm:text-sm font-medium leading-relaxed">
-                  This clinical article is published solely for patient education and informational
-                  purposes. It does not replace personal medical advice, clinical diagnosis, prenatal
-                  genetic counselling, or obstetric supervision. Appropriate laboratory investigations
-                  must be determined by your treating physician based on your personal health
-                  history.
+                  <strong>Medical information notice:</strong> This article is for general educational purposes and does not diagnose disease or replace consultation with a qualified healthcare professional. Test selection, preparation and interpretation should be based on individual clinical circumstances.
                 </p>
               </div>
 

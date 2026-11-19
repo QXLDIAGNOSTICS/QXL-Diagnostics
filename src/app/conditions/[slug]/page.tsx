@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import {
   ShieldCheck,
   CheckCircle2,
@@ -30,6 +30,17 @@ import {
   ISO_STANDARD
 } from '@/lib/businessInfo';
 
+export const CONDITION_REDIRECT_MAP: Record<string, string> = {
+  "food-sensitivity": "food-intolerance-digestive",
+  "hair-fall-investigation": "hair-fall",
+  "joint-pain-arthritis": "joint-pain",
+  "allergy-testing": "allergy",
+  "fever-infections": "fever-season",
+  "thyroid-health": "thyroid",
+  "heart-health": "cardiac-risk-heart-health",
+  "womens-health": "pcos-pcod-hormone-testing",
+};
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -40,6 +51,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  if (CONDITION_REDIRECT_MAP[slug]) {
+    redirect(`/conditions/${CONDITION_REDIRECT_MAP[slug]}`);
+  }
   const condition = CONDITIONS_DATA[slug];
   if (!condition) return { title: "Condition Diagnostics | QXL Diagnostics" };
 
@@ -69,6 +83,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ConditionPage({ params }: Props) {
   const { slug } = await params;
+  if (CONDITION_REDIRECT_MAP[slug]) {
+    redirect(`/conditions/${CONDITION_REDIRECT_MAP[slug]}`);
+  }
   const condition = CONDITIONS_DATA[slug];
   if (!condition) notFound();
 

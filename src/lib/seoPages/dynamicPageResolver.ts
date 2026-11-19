@@ -3,6 +3,7 @@ import { prenatalScreeningPagesWithAliases } from './prenatalScreeningData';
 import { masterExtractedPagesData } from './extractedMasterData';
 import { excel100TestsData } from './excel100TestsData';
 import { cms100MasterData } from './cms100MasterData';
+import { advancedDiagnosticTestsData } from './advancedDiagnosticTestsData';
 import { MASTER_CATALOGUE } from '../masterCatalogue';
 
 export interface ReferenceRange {
@@ -73,6 +74,8 @@ export interface DynamicPageData {
   geoPhrases?: string[];
   aieoEntities?: string[];
   textbookReferences?: string[];
+  urgentCareWarning?: string;
+  globalDisclaimer?: string;
   preanalyticalNotes?: string;
   interpretiveNotes?: string;
   validationNotes?: string;
@@ -1485,8 +1488,10 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
   
   let rawData: DynamicPageData | null = null;
 
-  // ── Phase 0: Check CMS 100 Bulk Template Master Records ──────────────────
-  if (cms100MasterData[cleanSlug]) {
+  // ── Phase 0: Check Advanced Diagnostic Tests (Tietz + 2026 Guidelines) ───
+  if (advancedDiagnosticTestsData[cleanSlug]) {
+    rawData = advancedDiagnosticTestsData[cleanSlug];
+  } else if (cms100MasterData[cleanSlug]) {
     rawData = cms100MasterData[cleanSlug];
   } else if (excel100TestsData[cleanSlug]) {
     rawData = excel100TestsData[cleanSlug];
