@@ -1,3 +1,4 @@
+import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
 
 const BASE_URL = 'https://qxldiagnostics.com';
@@ -15,7 +16,7 @@ const B2B_PAGES = [
 ];
 
 export async function GET() {
-  const lastmod = new Date().toISOString();
+  const lastmod = new Date(SITE_CONTENT_DATETIME).toISOString();
 
   const urlsXml = B2B_PAGES.map(
     (path) => `  <url>

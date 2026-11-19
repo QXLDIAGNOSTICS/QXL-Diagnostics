@@ -1,3 +1,4 @@
+import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from "next/server";
 import { defaultBlogs, getBlogCategory } from "@/lib/blogsData";
 
@@ -14,7 +15,7 @@ function escapeXml(unsafe: string): string {
 }
 
 export async function GET() {
-  const now = new Date().toUTCString();
+  const now = new Date(SITE_CONTENT_DATETIME).toUTCString();
 
   const itemsXml = defaultBlogs
     .map((b) => {

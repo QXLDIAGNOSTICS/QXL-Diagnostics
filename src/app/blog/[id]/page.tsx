@@ -16,7 +16,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { defaultBlogs, getDefaultBlogBySlug, getBlogCategory, getReadingTime } from "@/lib/blogsData";
-import { getAutoBlogDate, getCurrentDateTimeIso, getCurrentDateFormatted } from "@/lib/dateUtils";
+import { getAutoBlogDate, getCurrentDateFormatted, getCurrentDateIso, SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { extractHeadings, slugifyHeading, getNodeText } from "@/lib/blogUtils";
 import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
 import TableOfContents from "@/components/blog/TableOfContents";
@@ -26,6 +26,11 @@ import BlogSidebar from "@/components/blog/BlogSidebar";
 import ClientBlogFallback from "@/components/ClientBlogFallback";
 
 type Props = { params: Promise<{ id: string }> };
+
+const pickDates = (o: { datePublished: string; dateModified: string }) => ({
+  datePublished: o.datePublished,
+  dateModified: o.dateModified,
+});
 
 export function generateStaticParams() {
   return defaultBlogs.map((b: any) => ({ id: b.slug }));
@@ -79,8 +84,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "geo.placename": "Bengaluru",
       "geo.position": "12.9177;77.4835",
       "ICBM": "12.9177, 77.4835",
-      "medical-reviewed-by": reviewer,
-      "medical-review-date": (blog as any).date || getCurrentDateFormatted(),
+      ...((blog as any).review_pending
+        ? {}
+        : {
+          "medical-reviewed-by": reviewer,
+          "medical-review-date": (blog as any).date || getCurrentDateFormatted(),
+        }),
       "nabl-accreditation": "MC-6849",
       "dc.coverage": "Bengaluru, Karnataka, India",
     },
@@ -91,7 +100,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "QXL Diagnostics",
       locale: "en_IN",
       type: "article",
-      publishedTime: (blog as any).created_at || "2026-10-16T12:00:00Z",
+      publishedTime: (blog as any).created_at || SITE_CONTENT_DATETIME,
+      modifiedTime: (blog as any).updated_at || (blog as any).created_at || SITE_CONTENT_DATETIME,
+      section: category,
+      tags: (blog as any).keywords,
       authors: [blog.author],
       images: [
         {
@@ -155,84 +167,93 @@ export default async function SingleBlogPage({ params }: Props) {
     })
     .slice(0, 4);
 
-  const jsonLd = (blog as any).custom_schema || {
+  const SITE = "https://qxldiagnostics.com";
+  const pageUrl = `${SITE}/blog/${blog.slug}`;
+  const reviewPending = Boolean((blog as any).review_pending);
+  const publishedIso = (blog as any).created_at || SITE_CONTENT_DATETIME;
+  const modifiedIso = (blog as any).updated_at || publishedIso;
+  const articleImage =
+    (blog as any).image ||
+    "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg";
+  const reviewerName = reviewer.split(",")[0].trim();
+  const reviewerPerson = {
+    "@type": "Person",
+    name: reviewerName,
+    ...((blog as any).reviewer_title ? { jobTitle: (blog as any).reviewer_title } : {}),
+    worksFor: { "@id": `${SITE}/#organization`, "@type": "DiagnosticLab", name: "QXL Diagnostics" },
+  };
+  // Freshness, image and AEO (speakable) signals shared by every article graph.
+  const articleSignals = {
+    datePublished: publishedIso,
+    dateModified: modifiedIso,
+    image: { "@type": "ImageObject", url: articleImage, width: (blog as any).image_width || 1200, height: (blog as any).image_height || 675 },
+    inLanguage: "en-IN",
+    isAccessibleForFree: true,
+    articleSection: category,
+    ...((blog as any).keywords ? { keywords: (blog as any).keywords.join(", ") } : {}),
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".markdown-content h2", ".markdown-content h2 + p"] },
+    spatialCoverage: { "@type": "Place", name: "Bengaluru, Karnataka, India" },
+  };
+
+  const enrichGraph = (schema: any) => {
+    const graph = (schema["@graph"] || []).map((node: any) => {
+      const types: string[] = ([] as string[]).concat(node["@type"] || []);
+      if (types.includes("BlogPosting") || types.includes("Article")) {
+        return { ...articleSignals, ...node, ...pickDates(articleSignals) };
+      }
+      if (types.includes("MedicalWebPage")) {
+        return {
+          ...node,
+          datePublished: publishedIso,
+          dateModified: modifiedIso,
+          ...(reviewPending ? {} : { lastReviewed: getCurrentDateIso() }),
+          speakable: articleSignals.speakable,
+        };
+      }
+      return node;
+    });
+    return { ...schema, "@graph": graph };
+  };
+
+  const jsonLd = (blog as any).custom_schema ? enrichGraph((blog as any).custom_schema) : {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": ["BlogPosting", "MedicalWebPage"],
-        "@id": `https://qxldiagnostics.com/blog/${blog.slug}/#article`,
-        mainEntityOfPage: {
-          "@type": "WebPage",
-          "@id": `https://qxldiagnostics.com/blog/${blog.slug}/`,
-        },
+        "@id": `${pageUrl}#article`,
+        url: pageUrl,
+        mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
         headline: blog.title,
         description: blog.excerpt,
-        image:
-          (blog as any).image ||
-          "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150388/Assets-QXL/legacy-assets/image/slide_womens_wellness.jpg",
-        inLanguage: "en-IN",
-        author: {
-          "@type": "Organization",
-          name: blog.author,
-          url: "https://qxldiagnostics.com/",
-        },
-        reviewedBy: {
-          "@type": "Person",
-          name: "Dr. Shantakumar Muruda",
-          jobTitle: "MD Biochemistry, NABL Lead Assessor",
-          worksFor: {
-            "@type": "DiagnosticLab",
-            name: "QXL Diagnostics",
-          },
-        },
+        ...articleSignals,
+        author: { "@type": "Person", name: blog.author, url: SITE },
+        ...(reviewPending ? {} : { reviewedBy: reviewerPerson, lastReviewed: getCurrentDateIso() }),
+        about: { "@type": "MedicalEntity", name: category },
         publisher: {
           "@type": ["DiagnosticLab", "MedicalOrganization"],
-          "@id": "https://qxldiagnostics.com/#kengeri-lab",
+          "@id": `${SITE}/#organization`,
           name: "QXL Diagnostics",
-          url: "https://qxldiagnostics.com/",
+          url: SITE,
           logo: {
             "@type": "ImageObject",
             url: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150212/Assets-QXL/legacy-assets/image/qxl_logo.png",
           },
         },
-        datePublished: (blog as any).created_at || (blog as any).datePublished || getCurrentDateTimeIso(0, 10, 0),
-        dateModified: (blog as any).updated_at || (blog as any).dateModified || getCurrentDateTimeIso(0, 12, 0),
       },
       {
         "@type": "BreadcrumbList",
-        "@id": `https://qxldiagnostics.com/blog/${blog.slug}/#breadcrumb`,
+        "@id": `${pageUrl}#breadcrumb`,
         itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://qxldiagnostics.com/",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Blog",
-            item: "https://qxldiagnostics.com/blog",
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: category,
-            item: "https://qxldiagnostics.com/blog",
-          },
-          {
-            "@type": "ListItem",
-            position: 4,
-            name: blog.title,
-            item: `https://qxldiagnostics.com/blog/${blog.slug}/`,
-          },
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+          { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog` },
+          { "@type": "ListItem", position: 3, name: blog.title, item: pageUrl },
         ],
       },
       ...((blog as any).faqs && (blog as any).faqs.length > 0
         ? [
           {
             "@type": "FAQPage",
-            "@id": `https://qxldiagnostics.com/blog/${blog.slug}/#faq`,
+            "@id": `${pageUrl}#faq`,
             mainEntity: (blog as any).faqs.map((faq: { question: string; answer: string }) => ({
               "@type": "Question",
               name: faq.question,
@@ -315,10 +336,11 @@ export default async function SingleBlogPage({ params }: Props) {
                 </div>
                 <div>
                   <span>
-                    Clinically Reviewed by <strong className="text-slate-900">{reviewer}</strong>
+                    {(blog as any).review_pending ? "Assigned medical reviewer:" : "Clinically Reviewed by"}{" "}
+                    <strong className="text-slate-900">{reviewer}</strong>
                   </span>
                   <span className="block text-[11px] text-slate-500 font-normal">
-                    Head of Biochemistry · QXL Diagnostics (NABL Lab MC-6849)
+                    {(blog as any).reviewer_title || "Head of Biochemistry · QXL Diagnostics (NABL Lab MC-6849)"}
                   </span>
                 </div>
               </div>
@@ -667,7 +689,12 @@ export default async function SingleBlogPage({ params }: Props) {
               </div>
 
               {/* Doctor Reviewer Bio Box */}
-              <DoctorReviewerCard reviewer={reviewer} date={displayDate} />
+              <DoctorReviewerCard
+                reviewer={reviewer}
+                date={displayDate}
+                title={(blog as any).reviewer_title}
+                pending={(blog as any).review_pending}
+              />
 
               {/* Bottom Article Share Bar */}
               <div className="mt-8 pt-6 border-t border-slate-150">

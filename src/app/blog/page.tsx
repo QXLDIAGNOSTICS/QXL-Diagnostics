@@ -29,6 +29,11 @@ const CATEGORIES = [
   "Liver & Kidney",
   "Diabetes & Thyroid",
   "Allergy & Immunology",
+  "Hormones & Endocrinology",
+  "Neurology",
+  "Oncology & Pathology",
+  "Haematology",
+  "Infectious Diseases",
   "Lab Science & NABL",
   "Preventive Health",
 ];
@@ -309,7 +314,7 @@ export default function BlogPage() {
                   <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                     <div className="flex items-center gap-2 text-xs text-blue-200">
                       <Stethoscope className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <span>Reviewed by <strong>{featuredBlog.reviewer || featuredBlog.author}</strong></span>
+                      <span>{featuredBlog.review_pending ? "Reviewer" : "Reviewed by"} <strong>{featuredBlog.reviewer || featuredBlog.author}</strong></span>
                     </div>
 
                     <Link
@@ -408,7 +413,7 @@ export default function BlogPage() {
                     {/* Card Footer */}
                     <div className="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
                       <span className="text-[11px] font-bold text-slate-600 truncate max-w-[170px]" title={blog.reviewer || blog.author}>
-                        {blog.reviewer ? `Reviewed by ${blog.reviewer.split(",")[0]}` : (blog.author || "QXL Editorial Team")}
+                        {blog.reviewer ? `${blog.review_pending ? "Reviewer" : "Reviewed by"} ${blog.reviewer.split(",")[0]}` : (blog.author || "QXL Editorial Team")}
                       </span>
 
                       <Link

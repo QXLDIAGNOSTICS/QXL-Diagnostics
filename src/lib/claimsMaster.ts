@@ -34,7 +34,7 @@ export const CLAIMS_MASTER: Record<string, GovernedClaim> = {
     evidenceSource: "Official NABL Certificate MC-6849 under ISO 15189:2022 standard; Quality Management System Manual.",
     approvingPerson: "Dr. Shantakumar Muruda",
     approvalRole: "NABL Lead Assessor / CEO & Clinical Biochemist",
-    lastReviewDate: "2026-11-01",
+    lastReviewDate: "2026-10-20",
     category: "ACCREDITATION",
   },
 
@@ -49,7 +49,7 @@ export const CLAIMS_MASTER: Record<string, GovernedClaim> = {
     evidenceSource: "QXL Logistics Network covering 60+ mapped Bengaluru localities with operational dispatch hubs at Kengeri and Yelahanka.",
     approvingPerson: "Operations & Logistics Directorate",
     approvalRole: "Head of Field Phlebotomy",
-    lastReviewDate: "2026-11-01",
+    lastReviewDate: "2026-10-20",
     category: "HOME_COLLECTION",
   },
 
@@ -64,7 +64,7 @@ export const CLAIMS_MASTER: Record<string, GovernedClaim> = {
     evidenceSource: "Laboratory Information Management System (LIMS) analytical run validation metrics.",
     approvingPerson: "Dr. Shantakumar Muruda",
     approvalRole: "CEO & Clinical Biochemist",
-    lastReviewDate: "2026-11-01",
+    lastReviewDate: "2026-10-20",
     category: "TAT",
   },
 
@@ -79,7 +79,7 @@ export const CLAIMS_MASTER: Record<string, GovernedClaim> = {
     evidenceSource: "QXL Clinical Governance Policy & Standard Operating Procedure on Result Authorization & Delta Checks.",
     approvingPerson: "Medical Advisory Committee",
     approvalRole: "Consultant Pathologist & Clinical Biochemist Panel",
-    lastReviewDate: "2026-11-01",
+    lastReviewDate: "2026-10-20",
     category: "CLINICAL_INTERPRETATION",
   },
 
@@ -94,7 +94,7 @@ export const CLAIMS_MASTER: Record<string, GovernedClaim> = {
     evidenceSource: "American Heart Association (AHA) & ESC Acute Coronary Syndrome Emergency Clinical Guidelines.",
     approvingPerson: "Dr. Shantakumar Muruda",
     approvalRole: "CEO & Clinical Biochemist",
-    lastReviewDate: "2026-11-01",
+    lastReviewDate: "2026-10-20",
     category: "MEDICAL_SAFETY",
   },
 
@@ -108,7 +108,7 @@ export const CLAIMS_MASTER: Record<string, GovernedClaim> = {
     evidenceSource: "AHA/ACC Multisociety Guideline on the Management of Blood Cholesterol & European Atherosclerosis Society Guidelines.",
     approvingPerson: "Dr. Shantakumar Muruda",
     approvalRole: "CEO & Clinical Biochemist",
-    lastReviewDate: "2026-11-01",
+    lastReviewDate: "2026-10-20",
     category: "CLINICAL_INTERPRETATION",
   },
 
@@ -123,7 +123,7 @@ export const CLAIMS_MASTER: Record<string, GovernedClaim> = {
     evidenceSource: "American Diabetes Association (ADA) Standards of Care in Diabetes 2026; WHO Clinical Criteria.",
     approvingPerson: "Dr. Shantakumar Muruda",
     approvalRole: "PHFI Diabetologist / CEO",
-    lastReviewDate: "2026-11-01",
+    lastReviewDate: "2026-10-20",
     category: "CLINICAL_INTERPRETATION",
   },
 
@@ -138,7 +138,7 @@ export const CLAIMS_MASTER: Record<string, GovernedClaim> = {
     evidenceSource: "ISO 15189:2022 Pre-analytical specimen handling SOPs; CLSI GP44-A4 procedures.",
     approvingPerson: "Dr. Shantakumar Muruda",
     approvalRole: "NABL Lead Assessor / CEO",
-    lastReviewDate: "2026-11-01",
+    lastReviewDate: "2026-10-20",
     category: "HOME_COLLECTION",
   },
 };

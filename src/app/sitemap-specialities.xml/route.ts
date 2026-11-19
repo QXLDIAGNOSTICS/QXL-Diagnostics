@@ -1,3 +1,4 @@
+import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
 import { serverApi } from '@/lib/serverApi';
 import fallbackSpecialities from '@/data/specialitiesFallback.json';
@@ -8,7 +9,7 @@ const BASE_URL = 'https://qxldiagnostics.com';
 const STATIC_PAGES = ['/specialities', '/speciality-tests'];
 
 export async function GET() {
-  const lastmod = new Date().toISOString();
+  const lastmod = new Date(SITE_CONTENT_DATETIME).toISOString();
   const live = await serverApi.specialities.list();
   const specialities = live.length > 0 ? live : fallbackSpecialities;
   const pages = [...STATIC_PAGES, ...specialities.map((s) => `/specialities/${s.slug}`)];

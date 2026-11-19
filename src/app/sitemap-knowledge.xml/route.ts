@@ -1,9 +1,10 @@
+import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
 import { SITE_URL } from '@/lib/businessInfo';
 import { defaultBlogs } from '@/lib/blogsData';
 
 export async function GET() {
-  const lastmod = new Date().toISOString();
+  const lastmod = new Date(SITE_CONTENT_DATETIME).toISOString();
 
   const blogUrls = defaultBlogs.map(
     (b) => `  <url>

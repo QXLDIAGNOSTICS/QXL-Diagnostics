@@ -2,6 +2,7 @@
  * Central SEO / AEO / GEO structured-data graph for QXL Diagnostics.
  * Keep NAP (name, address, phone) identical to businessInfo.ts and GBP.
  */
+import { SITE_CONTENT_DATE } from "@/lib/dateUtils";
 
 import {
   ACCREDITATION_MASTER,
@@ -290,7 +291,7 @@ export function buildRootSchemaGraph() {
         priceRange: "₹₹",
         currenciesAccepted: "INR",
         paymentAccepted: "Cash, UPI, Credit Card, Debit Card, Razorpay",
-        dateModified: new Date().toISOString().split("T")[0],
+        dateModified: SITE_CONTENT_DATE,
         areaServed: [
           { "@type": "City", name: "Bengaluru" },
           { "@type": "AdministrativeArea", name: "Karnataka" },

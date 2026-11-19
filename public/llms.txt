@@ -1,6 +1,6 @@
 # QXL Diagnostics — AI Entity & Knowledge Base File
 # Format: llms.txt (AI/LLM discoverability standard)
-# Last Updated: 19 November 2026
+# Last Updated: 20 October 2026
 # Full Comprehensive Context File: https://qxldiagnostics.com/llms-full.txt
 # Dynamic machine-readable catalogue: https://qxldiagnostics.com/api/tests-catalogue
 
@@ -219,10 +219,81 @@ A: All reports undergo consultant verification by our medical team: Dr. Shantaku
 
 ---
 
+## QXL Clinical Test Guide Library (60 doctor-authored articles · updated 20 October 2026)
+
+### 30-Part Medical Storytelling Series
+- HbA1c in Bengaluru: Understanding the Longer Sugar Story (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/hba1c-bengaluru
+- Fasting Insulin and HOMA-IR in Bengaluru: A Careful Look (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/fasting-insulin-homa-ir-bengaluru
+- Thyroid Profile in Bengaluru: Reading TSH, FT3 and FT4 (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/thyroid-profile-bengaluru
+- Vitamin D Testing in Bengaluru: Beyond Everyday Fatigue (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/vitamin-d-bengaluru
+- Vitamin B12 and Folate Testing in Bengaluru: Clearer Clues (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/vitamin-b12-folate-bengaluru
+- ApoB and Lipoprotein(a) Tests in Bengaluru: Clearer Risk (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/apob-lipoprotein-a-bengaluru
+- hs-CRP Test in Bengaluru: Inflammation in Context (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/hs-crp-bengaluru
+- SPEP and Immunofixation in Bengaluru: Understanding a Band (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/spep-immunofixation-bengaluru
+- Morning Cortisol in Bengaluru: Why Timing Matters (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/morning-cortisol-bengaluru
+- AMH and PCOS Tests in Bengaluru: Understanding the Clues (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/amh-pcos-bengaluru
+- Urine ACR in Bengaluru: Albumin, Creatinine and Kidney Clues (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/urine-acr-bengaluru
+- Heavy-Metal Tests in Bengaluru: Start with Exposure History (Dr. Shantakumar Muruda): https://qxldiagnostics.com/blog/heavy-metal-toxicology-bengaluru
+- CSF Analysis in Bengaluru: Understanding Spinal Fluid (Dr. Pritilata Rout): https://qxldiagnostics.com/blog/csf-analysis-bengaluru
+- Oligoclonal Bands in Bengaluru: The Paired-Sample Question (Dr. Pritilata Rout): https://qxldiagnostics.com/blog/oligoclonal-bands-bengaluru
+- Anti-NMDA Receptor Antibody in Bengaluru: A Careful Guide (Dr. Pritilata Rout): https://qxldiagnostics.com/blog/anti-nmda-receptor-antibody-bengaluru
+- AQP4 and MOG Tests in Bengaluru: Different Antibody Clues (Dr. Pritilata Rout): https://qxldiagnostics.com/blog/aqp4-mog-antibodies-bengaluru
+- Breast IHC in Bengaluru: ER, PR, HER2 and Ki-67 Explained (Dr. Pritilata Rout): https://qxldiagnostics.com/blog/breast-ihc-panel-bengaluru
+- FNAC and Pap Tests in Bengaluru: Different Cell Questions (Dr. Pritilata Rout): https://qxldiagnostics.com/blog/cytology-fnac-pap-bengaluru
+- Biopsy Histopathology in Bengaluru: Reading Tissue Findings (Dr. Naveen Kumar N): https://qxldiagnostics.com/blog/biopsy-histopathology-bengaluru
+- PSA Testing in Bengaluru: Understanding Total and Free (Dr. Pritilata Rout): https://qxldiagnostics.com/blog/psa-bengaluru
+- CA-125 Testing in Bengaluru: A Marker That Needs Context (Dr. Pritilata Rout): https://qxldiagnostics.com/blog/ca-125-bengaluru
+- Dengue Tests in Bengaluru: Reading NS1, IgM and IgG (Dr. Ajitha Pillai): https://qxldiagnostics.com/blog/dengue-tests-bengaluru
+- ANA by IFA in Bengaluru: A Positive Needs Clinical Context (Dr. Ajitha Pillai): https://qxldiagnostics.com/blog/ana-ifa-bengaluru
+- ENA Profile in Bengaluru: Understanding Antibody Findings (Dr. Ajitha Pillai): https://qxldiagnostics.com/blog/ena-profile-bengaluru
+- ANCA Tests in Bengaluru: Reading PR3 and MPO Carefully (Dr. Ajitha Pillai): https://qxldiagnostics.com/blog/anca-pr3-mpo-bengaluru
+- HIV and STI Tests in Bengaluru: Understanding Results (Dr. Ajitha Pillai): https://qxldiagnostics.com/blog/hiv-sti-testing-bengaluru
+- Respiratory Viral PCR in Bengaluru: Reading a Panel (Dr. Ajitha Pillai): https://qxldiagnostics.com/blog/respiratory-viral-panel-bengaluru
+- H. pylori Stool Antigen in Bengaluru: A Gut Infection Clue (Dr. Ajitha Pillai): https://qxldiagnostics.com/blog/h-pylori-stool-antigen-bengaluru
+- Thrombophilia Tests in Bengaluru: A Focused Clot Work-Up (Dr. Naveen Kumar N): https://qxldiagnostics.com/blog/thrombophilia-coagulation-bengaluru
+- CBC and Peripheral Smear in Bengaluru: Reading Blood Cells (Dr. Suhas): https://qxldiagnostics.com/blog/cbc-peripheral-smear-bengaluru
+
+### 30 Speciality Test Guides
+- AMH Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/amh-test-bengaluru-guide
+- Total & Free Testosterone Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/testosterone-test-bengaluru-guide
+- Total & Free PSA Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/psa-test-bengaluru-guide
+- Prolactin Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/prolactin-test-bengaluru-guide
+- Cortisol Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/cortisol-test-bengaluru-guide
+- D-Dimer Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/d-dimer-test-bengaluru-guide
+- ANA by IFA Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/ana-ifa-test-bengaluru-guide
+- Anti-TPO Antibody Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/anti-tpo-test-bengaluru-guide
+- CA-125 Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/ca-125-test-bengaluru-guide
+- Allergy & Specific IgE Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/allergy-specific-ige-test-bengaluru-guide
+- HIV 4th Generation Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/hiv-1-2-antigen-antibody-4th-generation-bengaluru-guide
+- HLA-B27 Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/hla-b27-bengaluru-guide
+- Anti-CCP Antibody Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/anti-ccp-antibody-bengaluru-guide
+- HPV DNA Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/high-risk-hpv-dna-bengaluru-guide
+- Pap Smear & LBC Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/pap-smear-liquid-based-cytology-bengaluru-guide
+- Double Marker Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/double-marker-first-trimester-screening-bengaluru-guide
+- NIPT Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/nipt-cell-free-dna-prenatal-screening-bengaluru-guide
+- H. pylori Stool Antigen Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/h-pylori-stool-antigen-bengaluru-guide
+- Intact PTH Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/intact-parathyroid-hormone-bengaluru-guide
+- High-Sensitivity Troponin Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/high-sensitivity-cardiac-troponin-bengaluru-guide
+- C-Peptide Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/c-peptide-test-bengaluru-guide
+- Fasting Insulin & HOMA-IR Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/fasting-insulin-homa-ir-test-bengaluru-guide
+- DHEA-S Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/dhea-s-test-bengaluru-guide
+- CA 19-9 Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/ca19-9-test-bengaluru-guide
+- CEA Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/cea-test-bengaluru-guide
+- AFP Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/afp-test-bengaluru-guide
+- NT-proBNP Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/nt-probnp-test-bengaluru-guide
+- Homocysteine Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/homocysteine-test-bengaluru-guide
+- TB PCR & CBNAAT Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru-guide
+- Haemoglobin HPLC Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/hemoglobin-electrophoresis-hplc-test-bengaluru-guide
+
+---
+
 ## Linked Data & Machine Endpoints
 - Tests Catalogue API: https://qxldiagnostics.com/api/tests-catalogue
 - Conditions & Diagnostic Guides Directory: https://qxldiagnostics.com/conditions
 - Sitemap: https://qxldiagnostics.com/sitemap.xml
+- Blog Sitemap: https://qxldiagnostics.com/sitemap-blogs.xml
+- Blog RSS Feed: https://qxldiagnostics.com/blog/feed.xml
+- Health Articles Index: https://qxldiagnostics.com/blog
 - Location Hub: https://qxldiagnostics.com/centers
 - Tests Directory: https://qxldiagnostics.com/tests
 - Book a Test: https://qxldiagnostics.com/book

@@ -72,7 +72,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Pathology",
       profile_url: "/dr-pritilata-rout"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/cbc-test-bangalore",
     active: true,
     parameter_count: 26,
@@ -128,7 +128,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/hba1c-test-bangalore",
     active: true,
     parameter_count: 3,
@@ -166,7 +166,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/fasting-plasma-glucose",
     active: true,
     parameter_count: 1,
@@ -200,7 +200,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/tests/postprandial-blood-glucose",
     active: true,
     parameter_count: 1,
@@ -234,7 +234,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/thyroid-test-bangalore",
     active: true,
     parameter_count: 3,
@@ -272,7 +272,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/tests/free-thyroid-profile",
     active: true,
     parameter_count: 3,
@@ -310,7 +310,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/lipid-profile-test-bangalore",
     active: true,
     parameter_count: 8,
@@ -353,7 +353,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-naveen-kumar-n"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/liver-function-test-bangalore",
     active: true,
     parameter_count: 11,
@@ -399,7 +399,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/kidney-function-test-bangalore",
     active: true,
     parameter_count: 10,
@@ -444,7 +444,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/iron-profile-test-bangalore",
     active: true,
     parameter_count: 4,
@@ -483,7 +483,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-naveen-kumar-n"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/vitamin-d-test-bangalore",
     active: true,
     parameter_count: 1,
@@ -517,7 +517,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/vitamin-b12-test-bangalore",
     active: true,
     parameter_count: 1,
@@ -551,7 +551,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/apob-test",
     active: true,
     parameter_count: 1,
@@ -585,7 +585,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-10-15",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/tests/hs-crp-test",
     active: true,
     parameter_count: 1,
@@ -619,7 +619,7 @@ export const TEST_MASTER: CanonicalTestMasterEntry[] = [
       qualification: "MD Biochemistry",
       profile_url: "/dr-shantakumar-muruda"
     },
-    review_date: "2026-11-01",
+    review_date: "2026-10-20",
     canonical_url: "https://qxldiagnostics.com/high-sensitivity-cardiac-troponin",
     active: true,
     parameter_count: 1,

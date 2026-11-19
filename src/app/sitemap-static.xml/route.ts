@@ -1,3 +1,4 @@
+import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
 
 const BASE_URL = 'https://qxldiagnostics.com';
@@ -58,7 +59,7 @@ const STATIC_URLS = [
 ];
 
 export async function GET() {
-  const lastmod = new Date().toISOString();
+  const lastmod = new Date(SITE_CONTENT_DATETIME).toISOString();
   const urlsXml = STATIC_URLS.map(
     (u) => `  <url>
     <loc>${BASE_URL}${u.path}</loc>

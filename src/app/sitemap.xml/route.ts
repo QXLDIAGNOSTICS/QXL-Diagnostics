@@ -1,3 +1,4 @@
+import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
 
 const BASE_URL = 'https://qxldiagnostics.com';
@@ -16,7 +17,7 @@ const CHILD_SITEMAPS = [
 ];
 
 export async function GET() {
-  const lastmod = new Date().toISOString();
+  const lastmod = new Date(SITE_CONTENT_DATETIME).toISOString();
   const sitemapsXml = CHILD_SITEMAPS.map(
     (name) => `  <sitemap>
     <loc>${BASE_URL}/${name}</loc>

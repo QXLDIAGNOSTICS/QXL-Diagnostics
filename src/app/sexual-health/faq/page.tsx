@@ -17,7 +17,7 @@ export default function Page(){
  { '@type':'ListItem',position:1,name:'Home',item:origin },
  { '@type':'ListItem',position:2,name:'Sexual Health',item:origin+'/sexual-health' },
  { '@type':'ListItem',position:3,name:'Questions and Answers',item:canonical } ] };
- const medical={ '@context':'https://schema.org','@type':'MedicalWebPage',name:'Sexual Health Questions & Answers',url:canonical,description:'Educational STI and HIV patient questions with references to CDC and WHO.',isPartOf:{'@type':'WebSite',name:'QXL Diagnostics',url:origin},dateModified:'2026-11-09'};
+ const medical={ '@context':'https://schema.org','@type':'MedicalWebPage',name:'Sexual Health Questions & Answers',url:canonical,description:'Educational STI and HIV patient questions with references to CDC and WHO.',isPartOf:{'@type':'WebSite',name:'QXL Diagnostics',url:origin},dateModified:'2026-10-20'};
  return <main style={{maxWidth:960,margin:'auto',padding:'22px 18px',lineHeight:1.65}}>
  <nav aria-label="Breadcrumb"><Link href="/">Home</Link> / <Link href="/sexual-health">Sexual Health</Link> / FAQ</nav>
  <h1>Sexual Health Questions: Symptoms, HIV, STIs and Testing in Bengaluru</h1>

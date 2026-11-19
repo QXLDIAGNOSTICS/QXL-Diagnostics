@@ -813,7 +813,7 @@ export default function StiTestingAfterOralSexPage() {
         <MedicalReviewNotice
           reviewedBy="Dr. Shantakumar Muruda, MD (Biochemistry)"
           reviewerTitle="Consultant Clinical Biochemist, Founder & CEO – QXL Diagnostics, NABL Lead & Technical Assessor"
-          lastUpdated="18 November 2026"
+          lastUpdated="20 October 2026"
         />
 
         {/* Section 15: Footer CTA */}

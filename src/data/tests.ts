@@ -54,7 +54,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 350,
     methodology: "Automated 6-part differential impedance & flow cytometry with reflex manual smear examination",
     reviewerId: "dr-naveen-kumar-n",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -79,7 +79,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 200,
     methodology: "Modified Westergren / Photometric infrared sedimentation",
     reviewerId: "dr-naveen-kumar-n",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
 
@@ -106,7 +106,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 150,
     methodology: "Hexokinase / GOD-PAP photometric",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -131,7 +131,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 600,
     methodology: "High-Performance Liquid Chromatography (HPLC) — NGSP/IFCC traceable",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -156,7 +156,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1100,
     methodology: "Chemiluminescent Microparticle Immunoassay (CMIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -181,7 +181,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1400,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -206,7 +206,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 750,
     methodology: "Immunoturbidimetry",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -231,7 +231,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 850,
     methodology: "Photometric pyrogallol red & enzymatic creatinine",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
 
@@ -264,7 +264,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 750,
     methodology: "Enzymatic colorimetric CHOD-PAP / GPO-PAP direct clearance",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
 
@@ -303,7 +303,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 850,
     methodology: "Photometric IFCC with pyridoxal phosphate / Biuret / Bromocresol green",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
 
@@ -341,7 +341,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 900,
     methodology: "Enzymatic IDMS-traceable creatinine / Urease-GLDH / Ion-Selective Electrode (ISE)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
 
@@ -368,7 +368,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 350,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -393,7 +393,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 650,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -418,7 +418,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1400,
     methodology: "Chemiluminescence Immunoassay (CLIA) — NIST traceable",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -443,7 +443,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1100,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
 
@@ -492,7 +492,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 220,
     methodology: "Reflectance photometry dry chemistry strip with high-power brightfield microscopy",
     reviewerId: "dr-naveen-kumar-n",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
 
@@ -519,7 +519,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1100,
     methodology: "Immunoturbidimetric assay",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -544,7 +544,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1100,
     methodology: "Immunoturbidimetric assay",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -569,7 +569,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 800,
     methodology: "Particle-enhanced immunoturbidimetry",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -594,7 +594,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1500,
     methodology: "Enzyme-Linked Immunosorbent Assay (ELISA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
 
@@ -621,7 +621,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 700,
     methodology: "Nephelometry / Immunoturbidimetry",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -646,7 +646,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 2200,
     methodology: "Chemiluminescent Microparticle Immunoassay (CMIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -671,7 +671,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1400,
     methodology: "Indirect Immunofluorescence Assay (IFA) on HEp-2 cells",
     reviewerId: "dr-naveen-kumar-n",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
 
@@ -704,7 +704,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 4935,
     methodology: "Cell-Based Assay (CBA) / Indirect Immunofluorescence (IFA)",
     reviewerId: "dr-pritilata-rout",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -735,7 +735,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 8360,
     methodology: "Transfected Cell-Based Assay (CBA)",
     reviewerId: "dr-pritilata-rout",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -775,7 +775,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 8500,
     methodology: "Line Blot / Immunoblot & IFA",
     reviewerId: "dr-pritilata-rout",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -808,7 +808,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 24500,
     methodology: "Multiplex Cell-Based Indirect Immunofluorescence",
     reviewerId: "dr-pritilata-rout",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -834,7 +834,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 6800,
     methodology: "Isoelectric Focusing (IEF) on agarose gel followed by immunofixation",
     reviewerId: "dr-pritilata-rout",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -882,7 +882,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 10200,
     methodology: "Multi-Color Laser Flow Cytometry (10-color panel) with expert haematopathologist gating",
     reviewerId: "dr-naveen-kumar-n",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   // ── ONCOLOGY & CARDIAC EXTENSIONS ──────────────────────────────────────────
@@ -903,7 +903,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 550,
     methodology: "Enzymatic IDMS / Urease",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -923,7 +923,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1200,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -943,7 +943,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1200,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -963,7 +963,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1100,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -983,7 +983,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1500,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -1003,7 +1003,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1800,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -1023,7 +1023,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 900,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -1043,7 +1043,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 3500,
     methodology: "Quantitative Enzyme Immunoassay (ELISA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -1063,7 +1063,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 450,
     methodology: "Immunochemical Faecal Occult Blood Test (iFOBT / FIT)",
     reviewerId: "dr-naveen-kumar-n",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -1091,7 +1091,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1400,
     methodology: "Capillary Electrophoresis with high-resolution scanning densitometry",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -1111,7 +1111,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1500,
     methodology: "Chemiluminescent Immunoassay (CLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -1131,7 +1131,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1315,
     methodology: "Particle-enhanced immunoturbidimetry (isoform-independent)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -1151,7 +1151,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 3500,
     methodology: "Electrochemiluminescence Immunoassay (ECLIA)",
     reviewerId: "dr-shantakumar-muruda",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   },
   {
@@ -1171,7 +1171,7 @@ export const TESTS: DiagnosticTest[] = [
     mrp: 1100,
     methodology: "Clauss clotting assay on automated coagulometer",
     reviewerId: "dr-naveen-kumar-n",
-    reviewedDate: "2026-10-15",
+    reviewedDate: "2026-10-20",
     active: true
   }
 ];

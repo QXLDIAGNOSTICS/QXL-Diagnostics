@@ -94,7 +94,7 @@ const articleLd = {
       "name": "Can Chronic Stress Affect Your Fertility? Hormonal Imbalance, Warning Signs & Essential Blood Tests",
       "description": "Evidence-based clinical explanation of the stress-cortisol reproductive axis, female and male fertility laboratory blood tests, and separating psychological stress from treatable conditions.",
       "inLanguage": "en-IN",
-      "lastReviewed": "2026-11-06",
+      "lastReviewed": "2026-10-20",
       "reviewedBy": {
         "@id": "https://qxldiagnostics.com/dr-shantakumar-muruda#person"
       }
@@ -108,8 +108,8 @@ const articleLd = {
       },
       "headline": "Can Chronic Stress Affect Your Fertility? Hormonal Imbalance, Warning Signs & Essential Blood Tests",
       "description": "Evidence-based explanation of how chronic cortisol elevation disrupts GnRH, LH, FSH and ovulation, warning signs, male/female tests, and identifying treatable conditions like PCOS and thyroid dysfunction.",
-      "datePublished": "2026-11-06T09:00:00+05:30",
-      "dateModified": "2026-11-06T09:00:00+05:30",
+      "datePublished": "2026-10-20T09:00:00+05:30",
+      "dateModified": "2026-10-20T09:00:00+05:30",
       "inLanguage": "en-IN",
       "author": {
         "@id": "https://qxldiagnostics.com/dr-shantakumar-muruda#person"

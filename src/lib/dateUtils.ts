@@ -10,41 +10,44 @@ const MONTH_NAMES = [
 ];
 
 /**
+ * Single source of truth for the site-wide content publication / last-updated /
+ * medical-review date used in visible labels, Schema.org, Open Graph, sitemaps and feeds.
+ * Change this one value to re-date the whole site.
+ */
+export const SITE_CONTENT_DATE = "2026-10-20";
+export const SITE_CONTENT_DATE_DISPLAY = "October 20, 2026";
+export const SITE_CONTENT_DATETIME = "2026-10-20T09:00:00+05:30";
+
+function anchorDate(daysOffset = 0): Date {
+  const [y, m, d] = SITE_CONTENT_DATE.split("-").map(Number);
+  const date = new Date(Date.UTC(y, m - 1, d, 12));
+  if (daysOffset) date.setUTCDate(date.getUTCDate() - daysOffset);
+  return date;
+}
+
+/**
  * Returns the current date in "Month DD, YYYY" format (e.g., "October 24, 2026").
  * Deterministic and consistent across SSR and client.
  */
 export function getCurrentDateFormatted(daysOffset = 0): string {
-  const d = new Date();
-  if (daysOffset) {
-    d.setDate(d.getDate() - daysOffset);
-  }
-  return `${MONTH_NAMES[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+  const d = anchorDate(daysOffset);
+  return `${MONTH_NAMES[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
 }
 
 /**
  * Returns current date in ISO format YYYY-MM-DD (e.g., "2026-10-24")
  */
 export function getCurrentDateIso(daysOffset = 0): string {
-  const d = new Date();
-  if (daysOffset) {
-    d.setDate(d.getDate() - daysOffset);
-  }
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
+  return anchorDate(daysOffset).toISOString().slice(0, 10);
 }
 
 /**
  * Returns full ISO timestamp for Schema.org (e.g., "2026-10-24T12:00:00+05:30")
  */
 export function getCurrentDateTimeIso(daysOffset = 0, hour = 12, minute = 0): string {
-  const d = new Date();
-  if (daysOffset) {
-    d.setDate(d.getDate() - daysOffset);
-  }
-  d.setHours(hour, minute, 0, 0);
-  return d.toISOString();
+  const hh = String(hour).padStart(2, "0");
+  const mm = String(minute).padStart(2, "0");
+  return `${getCurrentDateIso(daysOffset)}T${hh}:${mm}:00+05:30`;
 }
 
 /**
@@ -53,34 +56,15 @@ export function getCurrentDateTimeIso(daysOffset = 0, hour = 12, minute = 0): st
  * otherwise it computes a recent fresh date dynamically.
  */
 export function getAutoBlogDate(
-  blog?: { date?: string; created_at?: string } | null,
+  _blog?: { date?: string; created_at?: string } | null,
   fallbackDaysOffset = 0
 ): string {
-  if (blog?.date && typeof blog.date === "string" && blog.date.trim()) {
-    // If it's already a formatted date like "October 24, 2026", keep it or refresh if older
-    if (!blog.date.includes("2024") && !blog.date.includes("2025") && !blog.date.includes("October 23, 2026")) {
-      return blog.date;
-    }
-  }
-
-  if (blog?.created_at) {
-    const parsed = new Date(blog.created_at);
-    if (!isNaN(parsed.getTime())) {
-      return `${MONTH_NAMES[parsed.getMonth()]} ${parsed.getDate()}, ${parsed.getFullYear()}`;
-    }
-  }
-
   return getCurrentDateFormatted(fallbackDaysOffset);
 }
 
 /**
- * Returns a valid recent medical review date string (e.g., "October 24, 2026" or "2026-10-24").
+ * Returns the site-wide medical review date ("October 20, 2026" or "2026-10-20").
  */
-export function getAutoReviewDate(existingDate?: string, format: "display" | "iso" = "display"): string {
-  if (existingDate && typeof existingDate === "string" && existingDate.trim()) {
-    if (!existingDate.includes("2024") && !existingDate.includes("2025") && !existingDate.includes("2026-10-23") && !existingDate.includes("October 23, 2026")) {
-      return existingDate;
-    }
-  }
+export function getAutoReviewDate(_existingDate?: string, format: "display" | "iso" = "display"): string {
   return format === "iso" ? getCurrentDateIso() : getCurrentDateFormatted();
 }

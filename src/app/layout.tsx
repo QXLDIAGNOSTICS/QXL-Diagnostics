@@ -30,7 +30,11 @@ export const metadata: Metadata = {
     template: "%s",
   },
   alternates: {
-    canonical: "https://qxldiagnostics.com",
+    // "./" resolves to each page's own path, so pages without an explicit canonical
+    // self-canonicalise instead of all pointing at the homepage.
+    canonical: "./",
+    languages: { "en-IN": "./", "x-default": "./" },
+    types: { "application/rss+xml": [{ url: "/blog/feed.xml", title: "QXL Diagnostics Health Articles" }] },
   },
   description:
     "NABL Accredited diagnostic lab in Bengaluru (MC-6849). 300+ tests, free home collection, doctor-reviewed reports in 24 hrs.",

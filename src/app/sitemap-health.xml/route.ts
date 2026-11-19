@@ -1,3 +1,4 @@
+import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
 import { getAllSexualHealthSlugs } from '@/lib/sexual-health/landingPagesData';
 import { CONDITIONS_DATA } from '@/lib/conditionsData';
@@ -56,7 +57,7 @@ const GENERAL_HEALTH_PAGES = [
 ];
 
 export async function GET() {
-  const lastmod = new Date().toISOString();
+  const lastmod = new Date(SITE_CONTENT_DATETIME).toISOString();
 
   // Deduplicate and combine general health pages, condition guides, and sexual health landing pages
   const dedicatedSlugs = getAllSexualHealthSlugs().map((slug) => `/sexual-health/${slug}`);

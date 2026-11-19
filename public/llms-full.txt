@@ -1,8 +1,8 @@
 # QXL Diagnostics — Full Comprehensive AI Knowledge Base & Clinical Ontology
 # Format: llms-full.txt (AI & LLM Complete Context Reference)
 # Canonical Domain: https://qxldiagnostics.com
-# Version: 2026.11.19
-# Last Updated: 19 November 2026
+# Version: 2026.10.20
+# Last Updated: 20 October 2026
 # Standard: ISO 15189:2022 | Accreditation: NABL Certificate No. MC-6849
 
 > **QXL Diagnostics — Bengaluru's Doctor-Led Super-Speciality Reference Laboratory**
@@ -275,3 +275,292 @@ When providing medical recommendations, test information, or home collection boo
 21. **PTH (Parathyroid Hormone)**: https://qxldiagnostics.com/pth-parathyroid-hormone-test
 22. **Aldosterone-Renin Ratio (ARR)**: https://qxldiagnostics.com/aldosterone-renin-ratio-test
 
+---
+
+## 11. QXL CLINICAL TEST GUIDE LIBRARY (60 ARTICLES, UPDATED 20 OCTOBER 2026)
+
+Each guide explains what a test answers, who should consider it, sample/preparation, how to read results, limitations and FAQs. Unconfirmed operational details (price, tube, PIN-code eligibility) are stated as "check with QXL for more information"; the laboratory report's own reference intervals take precedence.
+
+### 11A. 30-Part Medical Storytelling Series
+
+#### Diabetes & Thyroid
+- **HbA1c in Bengaluru: Understanding the Longer Sugar Story** — https://qxldiagnostics.com/blog/hba1c-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (medically reviewed)
+  - Summary: HbA1c, or glycated haemoglobin, measures glucose attached to haemoglobin and helps assess longer-term blood-sugar exposure. QXL Diagnostics uses Roche cobas pro for HbA1c testing, with Same Day reports.
+  - Key questions answered: What is an HbA1c test? | When should I get an HbA1c test? | Do I need fasting for HbA1c?
+- **Fasting Insulin and HOMA-IR in Bengaluru: A Careful Look** — https://qxldiagnostics.com/blog/fasting-insulin-homa-ir-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (medically reviewed)
+  - Summary: Fasting insulin and HOMA-IR examine insulin alongside fasting glucose; HOMA-IR is calculated, not a standalone diagnosis. At QXL Diagnostics, insulin uses electrochemiluminescence immunoassay (ECLIA) on Roche cobas pro; glucose is measured on Roche cobas pro.
+  - Key questions answered: What are fasting insulin and HOMA-IR? | When should I consider HOMA-IR testing? | Do I need fasting for insulin and HOMA-IR?
+- **Thyroid Profile in Bengaluru: Reading TSH, FT3 and FT4** — https://qxldiagnostics.com/blog/thyroid-profile-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (medically reviewed)
+  - Summary: A thyroid profile measures thyroid-stimulating hormone (TSH), free triiodothyronine (FT3) and free thyroxine (FT4), often called a thyroid-function check. QXL Diagnostics measures these immunoassay markers by electrochemiluminescence immunoassay (ECLIA) on Roche cobas pro, with Same Day reports.
+  - Key questions answered: What does a thyroid profile measure? | When should I get thyroid testing in Bengaluru? | Do I need fasting for a thyroid profile?
+
+#### Preventive Health
+- **Vitamin D Testing in Bengaluru: Beyond Everyday Fatigue** — https://qxldiagnostics.com/blog/vitamin-d-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (medically reviewed)
+  - Summary: The Vitamin D (25-OH) test, also called total 25-hydroxyvitamin D or the sunshine-vitamin test, assesses the main circulating marker of vitamin D status. QXL Diagnostics uses electrochemiluminescence immunoassay (ECLIA) on Roche cobas pro, with Same Day reports.
+  - Key questions answered: What is the Vitamin D 25-OH test? | When should I get a vitamin D test in Bengaluru? | Do I need fasting for a vitamin D test?
+- **Vitamin B12 and Folate Testing in Bengaluru: Clearer Clues** — https://qxldiagnostics.com/blog/vitamin-b12-folate-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (medically reviewed)
+  - Summary: Vitamin B12 and folate tests assess related nutrients involved in blood-cell production and cellular metabolism. Vitamin B12 is also called cobalamin; folate is vitamin B9.
+  - Key questions answered: What is the vitamin B12 and folate blood test? | When should I get B12 checked for tingling or tiredness? | Do I need fasting for vitamin B12 and folate tests?
+- **Heavy-Metal Tests in Bengaluru: Start with Exposure History** — https://qxldiagnostics.com/blog/heavy-metal-toxicology-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Toxicology and heavy-metal testing investigates specified substances, such as lead, arsenic or mercury, when exposure history raises a clinical question. There is no single specimen or panel that excludes every toxic exposure.
+  - Key questions answered: What does a heavy-metal blood test actually check? | When should I discuss a heavy-metal test for tiredness? | Do I need fasting or a special container for toxicology?
+
+#### Cardiology & Heart
+- **ApoB and Lipoprotein(a) Tests in Bengaluru: Clearer Risk** — https://qxldiagnostics.com/blog/apob-lipoprotein-a-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (medically reviewed)
+  - Summary: Apolipoprotein B (ApoB) and lipoprotein(a), or Lp(a), are distinct blood measurements used to refine selected cardiovascular risk assessments. ApoB provides particle-related information; Lp(a) adds a largely inherited marker.
+  - Key questions answered: What are ApoB and lipoprotein(a) blood tests? | When should I ask about Lp(a) despite an ordinary lipid report? | Do I need fasting for ApoB and lipoprotein(a)?
+- **hs-CRP Test in Bengaluru: Inflammation in Context** — https://qxldiagnostics.com/blog/hs-crp-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (medically reviewed)
+  - Summary: High-sensitivity C-reactive protein (hs-CRP), sometimes called an inflammation-marker test, measures low concentrations of an inflammation-related blood protein. It may inform selected cardiovascular risk discussions but does not diagnose a heart attack.
+  - Key questions answered: What is a high-sensitivity CRP blood test? | When should I get hs-CRP checked for heart risk? | Do I need fasting before an hs-CRP test?
+
+#### Haematology
+- **SPEP and Immunofixation in Bengaluru: Understanding a Band** — https://qxldiagnostics.com/blog/spep-immunofixation-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (medically reviewed)
+  - Summary: Serum protein electrophoresis with immunofixation, also called SPEP with IFE or an “M-band test,” examines blood-protein patterns and identifies selected abnormal immunoglobulins. These are distinct from routine ECLIA immunochemistry.
+  - Key questions answered: What is SPEP with immunofixation? | When should I get an M-band test? | Do I need fasting for SPEP and immunofixation?
+- **Thrombophilia Tests in Bengaluru: A Focused Clot Work-Up** — https://qxldiagnostics.com/blog/thrombophilia-coagulation-bengaluru
+  - Author/assigned reviewer: Dr. Naveen Kumar N (review sign-off pending)
+  - Summary: Thrombophilia testing investigates selected inherited or acquired influences on clot risk; a coagulation work-up may ask different questions using tests such as PT or aPTT. Sometimes called a clotting-risk panel, it is not one universal screen or an emergency clot diagnosis.
+  - Key questions answered: What is a thrombophilia or clotting-risk work-up? | When should I discuss testing after a clot or family-history concern? | Do I need fasting or to stop anticoagulants before testing?
+- **CBC and Peripheral Smear in Bengaluru: Reading Blood Cells** — https://qxldiagnostics.com/blog/cbc-peripheral-smear-bengaluru
+  - Author/assigned reviewer: Dr. Suhas (review sign-off pending)
+  - Summary: A complete blood count (CBC), also called a full blood count, measures blood-cell numbers, haemoglobin and related indices. A peripheral smear examines cell appearance; it adds a different view rather than another wellness score.
+  - Key questions answered: What is the difference between a CBC and peripheral smear? | When should I ask about a smear with my blood count? | Do I need fasting or special preparation for this blood test?
+
+#### Hormones & Endocrinology
+- **Morning Cortisol in Bengaluru: Why Timing Matters** — https://qxldiagnostics.com/blog/morning-cortisol-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (medically reviewed)
+  - Summary: Morning cortisol, or an early-day serum cortisol test, measures an adrenal hormone involved in the response to physiological demands. It answers selected adrenal questions, rather than scoring everyday stress.
+  - Key questions answered: What does a morning cortisol test measure? | When should I consider morning cortisol testing? | Do I need fasting or a special collection time?
+
+#### Pregnancy & Women's Health
+- **AMH and PCOS Tests in Bengaluru: Understanding the Clues** — https://qxldiagnostics.com/blog/amh-pcos-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (medically reviewed)
+  - Summary: Anti-Müllerian hormone (AMH) is an ovarian-reserve blood marker; a PCOS hormone panel addresses several hormonal questions. QXL Diagnostics measures AMH and requested immunoassay markers by electrochemiluminescence immunoassay (ECLIA) on Roche cobas pro, with Same Day reports.
+  - Key questions answered: What is the AMH test, and does it diagnose PCOS? | When should I get a PCOS hormone panel in Bengaluru? | Do I need fasting or a particular cycle day?
+
+#### Liver & Kidney
+- **Urine ACR in Bengaluru: Albumin, Creatinine and Kidney Clues** — https://qxldiagnostics.com/blog/urine-acr-bengaluru
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Urine albumin-to-creatinine ratio (ACR), often called urine microalbumin testing, compares urine albumin with creatinine to help assess kidney damage. ACR is calculated from the two measurements; it is not a blood-creatinine result.
+  - Key questions answered: What is a urine microalbumin or ACR test? | When should I ask about ACR if blood creatinine looks reassuring? | Do I need fasting or a special urine collection time?
+
+#### Neurology
+- **CSF Analysis in Bengaluru: Understanding Spinal Fluid** — https://qxldiagnostics.com/blog/csf-analysis-bengaluru
+  - Author/assigned reviewer: Dr. Pritilata Rout (review sign-off pending)
+  - Summary: Cerebrospinal fluid analysis, or CSF analysis, examines spinal fluid for cellular, chemical and selected microbiological clues. It helps investigate specific neurological questions rather than providing one universal diagnosis.
+  - Key questions answered: What is a CSF analysis or spinal-fluid test? | When should I consider CSF testing for neurological symptoms? | Do I need fasting, and can CSF be collected at home?
+- **Oligoclonal Bands in Bengaluru: The Paired-Sample Question** — https://qxldiagnostics.com/blog/oligoclonal-bands-bengaluru
+  - Author/assigned reviewer: Dr. Pritilata Rout (review sign-off pending)
+  - Summary: Oligoclonal bands, or OCBs, are distinct immunoglobulin patterns assessed in cerebrospinal fluid and a paired serum sample. Sometimes described as a spinal-fluid immune test, the comparison helps assess antibody production within the central nervous system; it does not diagnose multiple sclerosis alone.
+  - Key questions answered: What are oligoclonal bands in CSF? | Does a positive oligoclonal-band result always mean multiple sclerosis? | Do I need fasting or paired blood and spinal-fluid samples?
+- **Anti-NMDA Receptor Antibody in Bengaluru: A Careful Guide** — https://qxldiagnostics.com/blog/anti-nmda-receptor-antibody-bengaluru
+  - Author/assigned reviewer: Dr. Pritilata Rout (review sign-off pending)
+  - Summary: Anti-NMDA receptor antibody testing, also called NMDAR antibody testing, supports specialist investigation of autoimmune encephalitis. It looks for antibodies against a neuronal receptor, rather than measuring stress or confirming a psychiatric diagnosis.
+  - Key questions answered: What is an anti-NMDA receptor antibody test? | When should I ask about anti-NMDA receptor testing? | Do I need fasting or a blood sample for this test?
+- **AQP4 and MOG Tests in Bengaluru: Different Antibody Clues** — https://qxldiagnostics.com/blog/aqp4-mog-antibodies-bengaluru
+  - Author/assigned reviewer: Dr. Pritilata Rout (review sign-off pending)
+  - Summary: Aquaporin-4 (AQP4) and myelin oligodendrocyte glycoprotein (MOG) antibody tests support specialist assessment of neuromyelitis optica spectrum disorder and MOG-antibody-associated disease, respectively. These demyelination antibody investigations address distinct questions; neither explains every cause of weakness or blurred vision.
+  - Key questions answered: What are AQP4 and MOG antibody tests? | When should I ask about AQP4 or MOG testing? | Do I need fasting, and is the specimen blood or CSF?
+
+#### Oncology & Pathology
+- **Breast IHC in Bengaluru: ER, PR, HER2 and Ki-67 Explained** — https://qxldiagnostics.com/blog/breast-ihc-panel-bengaluru
+  - Author/assigned reviewer: Dr. Pritilata Rout (review sign-off pending)
+  - Summary: Breast immunohistochemistry (IHC), sometimes called a breast receptor panel, evaluates tissue markers such as estrogen receptor (ER), progesterone receptor (PR), HER2 and Ki-67. These markers help characterise a diagnosed tumour; they are not a routine blood hormone panel or a population-screening test.
+  - Key questions answered: What is a breast IHC receptor panel? | When is ER, PR, HER2 and Ki-67 testing considered? | Do I need fasting or another biopsy for breast IHC?
+- **FNAC and Pap Tests in Bengaluru: Different Cell Questions** — https://qxldiagnostics.com/blog/cytology-fnac-pap-bengaluru
+  - Author/assigned reviewer: Dr. Pritilata Rout (review sign-off pending)
+  - Summary: Cytology examines individual cells. Fine-needle aspiration cytology (FNAC) samples a selected lesion, while a Papanicolaou (Pap) smear examines cervical cells for a different clinical question.
+  - Key questions answered: What is the difference between FNAC and a Pap smear? | When should I ask about cytology in Bengaluru? | Do I need fasting or special preparation for FNAC or Pap testing?
+- **Biopsy Histopathology in Bengaluru: Reading Tissue Findings** — https://qxldiagnostics.com/blog/biopsy-histopathology-bengaluru
+  - Author/assigned reviewer: Dr. Naveen Kumar N (review sign-off pending)
+  - Summary: Biopsy histopathology examines tissue taken from a defined body site, sometimes called a tissue-biopsy test. It helps identify the features present in the submitted material; it is not a blood tumour-marker panel.
+  - Key questions answered: What is a biopsy histopathology test? | Does being asked for a biopsy mean I have cancer? | Do I need fasting, and how should the tissue be sent?
+- **PSA Testing in Bengaluru: Understanding Total and Free** — https://qxldiagnostics.com/blog/psa-bengaluru
+  - Author/assigned reviewer: Dr. Pritilata Rout (review sign-off pending)
+  - Summary: Prostate-specific antigen (PSA), sometimes called a prostate blood test, measures a protein associated with the prostate. Total PSA and free PSA answer related questions; neither diagnoses cancer alone.
+  - Key questions answered: What is a PSA test, and does it diagnose prostate cancer? | When should I consider PSA testing without symptoms? | Do I need fasting or special preparation for a PSA test?
+- **CA-125 Testing in Bengaluru: A Marker That Needs Context** — https://qxldiagnostics.com/blog/ca-125-bengaluru
+  - Author/assigned reviewer: Dr. Pritilata Rout (review sign-off pending)
+  - Summary: Cancer antigen 125 (CA-125), sometimes called an ovarian tumour-marker test, measures a blood marker used in selected assessments and monitoring. It neither diagnoses ovarian cancer alone nor provides a routine screening answer for everyone.
+  - Key questions answered: What is a CA-125 blood test, and does it diagnose cancer? | When should I consider CA-125 testing for bloating? | Do I need fasting or special preparation for CA-125?
+
+#### Infectious Diseases
+- **Dengue Tests in Bengaluru: Reading NS1, IgM and IgG** — https://qxldiagnostics.com/blog/dengue-tests-bengaluru
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: Dengue NS1 antigen, IgM and IgG tests look for different evidence of infection: a viral protein or an antibody response. Sometimes called a dengue fever test, the appropriate request depends on illness timing and clinical assessment.
+  - Key questions answered: What is the difference between dengue NS1, IgM and IgG? | When should I test for dengue after fever begins? | Do I need fasting or special preparation for dengue tests?
+- **HIV and STI Tests in Bengaluru: Understanding Results** — https://qxldiagnostics.com/blog/hiv-sti-testing-bengaluru
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: A fourth-generation HIV antigen/antibody test looks for HIV p24 antigen and antibodies to HIV-1/2; it is not a universal STI screen. QXL Diagnostics uses ECLIA on Roche cobas pro for applicable HIV immunochemistry and states Same Day reports.
+  - Key questions answered: What is a fourth-generation HIV antigen/antibody test? | When should I get HIV or STI testing after an exposure? | Do I need fasting, and which specimens are required?
+- **Respiratory Viral PCR in Bengaluru: Reading a Panel** — https://qxldiagnostics.com/blog/respiratory-viral-panel-bengaluru
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: A respiratory viral RT-PCR panel looks for genetic material from specified viral targets; it does not examine every cause of cough or fever. Sometimes called a respiratory virus panel, its content and specimen requirements vary.
+  - Key questions answered: What is a respiratory viral RT-PCR panel? | When should I consider a respiratory panel for cough or fever? | Do I need fasting, and is this a blood test?
+- **H. pylori Stool Antigen in Bengaluru: A Gut Infection Clue** — https://qxldiagnostics.com/blog/h-pylori-stool-antigen-bengaluru
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: Helicobacter pylori stool antigen testing, also called H. pylori stool antigen or HpSA, looks for bacterial antigens in stool.
+  - Key questions answered: What is an H. pylori stool antigen test? | When might stool antigen testing help after an earlier antibody report? | Do I need fasting or changes to my medicines before the stool test?
+
+#### Allergy & Immunology
+- **ANA by IFA in Bengaluru: A Positive Needs Clinical Context** — https://qxldiagnostics.com/blog/ana-ifa-bengaluru
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: Antinuclear antibody testing by indirect immunofluorescence, or ANA by IFA, examines antibody reactivity to cellular targets. Sometimes called an autoimmune screening test, it supports selected clinical questions; a positive result alone does not diagnose lupus.
+  - Key questions answered: What is an ANA by IFA test? | When should I consider ANA testing for tiredness or joint symptoms? | Do I need fasting or special preparation for ANA by IFA?
+- **ENA Profile in Bengaluru: Understanding Antibody Findings** — https://qxldiagnostics.com/blog/ena-profile-bengaluru
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: An extractable nuclear antigen profile, or ENA profile, examines selected autoantibodies such as SS-A/Ro, SS-B/La or Sm when clinically indicated. It is a group of distinct antibody questions, not one autoimmune score.
+  - Key questions answered: What is an ENA profile blood test? | When should I get an ENA profile after an ANA result? | Do I need fasting or special preparation for an ENA profile?
+- **ANCA Tests in Bengaluru: Reading PR3 and MPO Carefully** — https://qxldiagnostics.com/blog/anca-pr3-mpo-bengaluru
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: Antineutrophil cytoplasmic antibody (ANCA) testing investigates selected immune-related questions; proteinase 3 (PR3) and myeloperoxidase (MPO) are distinct antibody targets. A fluorescence pattern is not the same as an antigen-specific result, and neither diagnoses vasculitis alone.
+  - Key questions answered: What are ANCA, PR3 and MPO tests? | When should I consider an ANCA investigation? | Do I need fasting or special preparation for PR3 and MPO?
+
+### 11B. 30 Speciality Test Guides
+
+#### Pregnancy & Women's Health
+- **AMH Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/amh-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Anti-Müllerian hormone (AMH) is a blood marker of ovarian follicle activity used in fertility assessment and treatment planning. It does not measure egg quality or predict an individual pregnancy.
+  - Key questions answered: Does low AMH mean I cannot become pregnant? | Can AMH diagnose PCOS? | Which day of my cycle is suitable?
+- **Total & Free Testosterone Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/testosterone-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Testosterone testing measures total hormone, its unbound fraction, or both to investigate androgen excess or deficiency. Collection timing and the free-testosterone method matter.
+  - Key questions answered: Should testosterone be tested in the morning? | Are total and free testosterone the same? | Can one low value diagnose deficiency?
+- **Prolactin Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/prolactin-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Prolactin is a pituitary hormone measured in blood when menstrual, fertility, lactation or selected pituitary symptoms need investigation. Stress, medicines and macroprolactin can affect interpretation.
+  - Key questions answered: Can stress raise prolactin? | Do I need to fast? | Do medicines affect prolactin?
+- **HPV DNA Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/high-risk-hpv-dna-bengaluru-guide
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: High-risk HPV DNA testing detects selected cancer-associated HPV types in a cervical screening or follow-up sample. A positive result does not itself diagnose cancer; genotype, cytology and previous history determine the next step.
+  - Key questions answered: Does a positive HPV DNA result mean cancer? | Is HPV DNA testing the same as a Pap test? | Will the test identify the HPV type?
+- **Pap Smear & LBC Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/pap-smear-liquid-based-cytology-bengaluru-guide
+  - Author/assigned reviewer: Dr. Pritilata Rout (review sign-off pending)
+  - Summary: Cervical cytology examines collected cells for precancerous and other abnormal changes. Conventional Pap smears and liquid-based cytology are preparation methods, while HPV DNA testing is a separate molecular investigation.
+  - Key questions answered: How do a conventional Pap smear and LBC differ? | Does an abnormal Pap result mean I have cancer? | What is an unsatisfactory result?
+- **Double Marker Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/double-marker-first-trimester-screening-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: The double marker test measures maternal serum PAPP-A and free beta-hCG to estimate risk for selected fetal chromosome conditions. Combined screening adds nuchal-translucency ultrasound and maternal information.
+  - Key questions answered: What are the two markers? | When is first-trimester screening performed? | Is the blood test alone the same as combined screening?
+- **NIPT Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/nipt-cell-free-dna-prenatal-screening-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: NIPT analyses cell-free DNA in maternal blood to screen for selected chromosome conditions, usually including trisomies 21, 18 and 13. It can produce high-risk, low-risk or non-reportable results and does not replace diagnostic testing or recommended ultrasound.
+  - Key questions answered: Is NIPT diagnostic? | When can it be done? | Does it test the baby’s cells directly?
+
+#### Oncology & Pathology
+- **Total & Free PSA Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/psa-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Prostate-specific antigen (PSA) is a blood marker used in selected prostate assessments and cancer follow-up. Total and free PSA are related measurements, not a cancer diagnosis.
+  - Key questions answered: Does high PSA mean cancer? | Can a normal PSA exclude cancer? | Why request free PSA?
+- **CA-125 Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/ca-125-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: CA-125 is a blood tumour marker used mainly in selected ovarian cancer management and assessment of a pelvic mass. It can rise in benign conditions and cannot reliably screen an average-risk person for ovarian cancer.
+  - Key questions answered: Can CA-125 detect every ovarian cancer? | Does a high value prove cancer? | Should healthy people use it for routine cancer screening?
+- **CA 19-9 Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/ca19-9-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: CA 19-9 is a blood tumour marker used mainly in the assessment and monitoring of selected pancreatic and biliary cancers. It is unsuitable for general cancer screening.
+  - Key questions answered: Can CA 19-9 screen me for pancreatic cancer? | Does a high result mean cancer? | Can a normal result exclude cancer?
+- **CEA Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/cea-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: CEA is a blood tumour marker most often used in the management of colorectal cancer and selected other cancers. Serial results can support treatment assessment or follow-up, but CEA cannot screen for or diagnose cancer by itself.
+  - Key questions answered: Is CEA a bowel cancer screening test? | Can smoking increase CEA? | Does elevated CEA prove a cancer has returned?
+- **AFP Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/afp-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: AFP is a protein measured in blood in selected liver cancer and germ-cell tumour pathways. It may support surveillance or monitoring together with imaging and other findings, but cannot diagnose cancer alone.
+  - Key questions answered: Does high AFP always indicate cancer? | Can AFP be normal despite liver cancer? | Is this the same as maternal AFP screening?
+
+#### Diabetes & Thyroid
+- **Cortisol Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/cortisol-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Cortisol testing investigates adrenal hormone production using a carefully timed specimen. Blood cortisol, late-night saliva and urinary free cortisol answer different questions and are not interchangeable.
+  - Key questions answered: Why does the collection time matter? | Is a random cortisol enough for Cushing syndrome? | Can steroid medicines affect cortisol?
+- **Anti-TPO Antibody Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/anti-tpo-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Anti-thyroid peroxidase antibody (anti-TPO) testing looks for evidence of thyroid autoimmunity in blood. It helps explain selected abnormal thyroid function findings but does not measure thyroid hormone production.
+  - Key questions answered: Does positive anti-TPO mean I need thyroxine? | Can anti-TPO be positive with normal TSH? | Is anti-TPO the same as TSH?
+- **C-Peptide Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/c-peptide-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: C-peptide is released when the pancreas makes insulin and can help assess the body’s own insulin production in selected clinical situations. It is not a routine diabetes screening test.
+  - Key questions answered: Does C-peptide measure the insulin I inject? | Can this diagnose diabetes by itself? | Should I fast for C-peptide?
+- **Fasting Insulin & HOMA-IR Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/fasting-insulin-homa-ir-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Fasting insulin measures circulating insulin, while HOMA-IR combines fasting insulin and glucose to estimate insulin resistance indirectly. This calculation is mainly a research or selected specialist tool, not a stand-alone diabetes diagnosis or routine population screen.
+  - Key questions answered: Is HOMA-IR a diabetes diagnostic test? | How is HOMA1-IR calculated? | Is HOMA2 the same calculation?
+
+#### Haematology
+- **D-Dimer Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/d-dimer-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Naveen Kumar N (review sign-off pending)
+  - Summary: D-dimer detects fragments released when cross-linked fibrin is broken down. Clinicians use it with a validated clinical probability assessment when investigating possible venous thrombosis, or within a broader coagulation work-up.
+  - Key questions answered: Does a positive D-dimer prove a blood clot? | Can a negative result rule out pulmonary embolism? | What are FEU and DDU?
+- **Haemoglobin HPLC Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/hemoglobin-electrophoresis-hplc-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Naveen Kumar N (review sign-off pending)
+  - Summary: Haemoglobin fractionation separates and estimates haemoglobin types to investigate selected inherited haemoglobin disorders, including thalassaemia and sickle variants. HPLC and electrophoresis are related investigative approaches with different separation principles.
+  - Key questions answered: Are HPLC and electrophoresis identical tests? | Does a normal result exclude all thalassaemia? | Why must I report recent transfusions?
+
+#### Allergy & Immunology
+- **ANA by IFA Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/ana-ifa-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: ANA by indirect immunofluorescence detects antinuclear antibodies and describes their titre and staining pattern. It can support a connective tissue disease evaluation when symptoms justify testing, but a positive result alone does not diagnose lupus.
+  - Key questions answered: Does positive ANA mean lupus? | What does the titre mean? | Why does the pattern matter?
+- **Allergy & Specific IgE Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/allergy-specific-ige-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: Allergen-specific IgE blood testing looks for sensitisation to selected allergens suggested by the history. A positive result does not by itself confirm clinical allergy or predict reaction severity.
+  - Key questions answered: Does positive specific IgE prove an allergy? | Does a higher IgE class mean a more severe reaction? | Should I request the biggest available panel?
+- **HLA-B27 Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/hla-b27-bengaluru-guide
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: HLA-B27 testing identifies an inherited immune-system marker that can support evaluation for spondyloarthritis when symptoms or imaging raise suspicion. A positive result is not a diagnosis, and a negative result does not exclude the disorder.
+  - Key questions answered: What does HLA-B27 positive mean? | Can I have spondyloarthritis with a negative result? | Is HLA-B27 the same as rheumatoid factor?
+- **Anti-CCP Antibody Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/anti-ccp-antibody-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Anti-CCP is an antibody blood test that helps a clinician assess suspected rheumatoid arthritis alongside joint symptoms, examination and other findings. A positive result supports the diagnosis in the right setting, while a negative result does not exclude disease.
+  - Key questions answered: What is anti-CCP? | Does a positive anti-CCP result prove rheumatoid arthritis? | Can rheumatoid arthritis occur if anti-CCP is negative?
+
+#### Infectious Diseases
+- **HIV 4th Generation Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/hiv-1-2-antigen-antibody-4th-generation-bengaluru-guide
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: This laboratory blood screen looks for HIV-1 p24 antigen and antibodies to HIV-1/2. The result must be interpreted against exposure timing, previous tests and any PrEP or PEP use.
+  - Key questions answered: What does fourth generation mean? | When can a venous laboratory test detect infection? | Does a reactive result mean I definitely have HIV?
+- **H. pylori Stool Antigen Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/h-pylori-stool-antigen-bengaluru-guide
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: H. pylori stool antigen testing can help identify active Helicobacter pylori infection and, with suitable timing, assess eradication after treatment.
+  - Key questions answered: Does this test detect active infection? | Can it check whether treatment worked? | Why do PPIs and antibiotics matter?
+- **TB PCR & CBNAAT Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Ajitha Pillai (review sign-off pending)
+  - Summary: TB molecular testing looks for genetic material from Mycobacterium tuberculosis complex in an appropriate specimen. Certain cartridge assays also assess rifampicin-resistance-associated targets; a generic PCR request does not guarantee this component.
+  - Key questions answered: Is CBNAAT the same as every TB PCR? | Does this test detect latent TB? | Does a negative result rule out TB?
+
+#### Hormones & Endocrinology
+- **Intact PTH Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/intact-parathyroid-hormone-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Intact PTH is a blood measurement used to assess calcium imbalance, parathyroid function and selected kidney or bone-mineral disorders. The result needs concurrent calcium and relevant clinical information; assay design affects the hormone fragments measured.
+  - Key questions answered: Why is PTH tested with calcium? | Does high PTH always mean a parathyroid tumour? | What does intact mean?
+- **DHEA-S Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/dhea-s-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: DHEA-S is an androgen precursor produced mainly by the adrenal glands. Measuring it can contribute to assessment of androgen excess, unusual pubertal development or selected adrenal disorders.
+  - Key questions answered: Is DHEA-S found only in men? | Is DHEA-S the same as DHEA? | Can this explain excess facial hair?
+
+#### Cardiology & Heart
+- **High-Sensitivity Troponin Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/high-sensitivity-cardiac-troponin-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: High-sensitivity cardiac troponin measures a marker of heart-muscle injury. Interpretation depends on symptom timing, ECG findings and, when indicated, serial measurements using the same validated assay.
+  - Key questions answered: What does high-sensitivity troponin measure? | Does an elevated result always mean a heart attack? | Can one normal result exclude a heart attack?
+- **NT-proBNP Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/nt-probnp-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: NT-proBNP is a blood marker released in association with cardiac wall stress. It helps clinicians evaluate suspected heart failure and assess selected patients with established disease.
+  - Key questions answered: Does high NT-proBNP prove heart failure? | Is NT-proBNP the same as BNP? | Can kidney disease change the result?
+
+#### Preventive Health
+- **Homocysteine Test in Bengaluru: Purpose, Preparation & Results** — https://qxldiagnostics.com/blog/homocysteine-test-bengaluru-guide
+  - Author/assigned reviewer: Dr. Shantakumar Muruda (review sign-off pending)
+  - Summary: Homocysteine is a blood marker influenced by vitamin B12, folate and other metabolic pathways. Testing may help assess selected nutritional or inherited metabolic questions, but is not a routine cardiovascular screen.
+  - Key questions answered: Is this a routine heart attack screening test? | Can high homocysteine show a vitamin deficiency? | Does high homocysteine prove B12 deficiency?

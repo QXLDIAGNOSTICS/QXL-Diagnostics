@@ -1087,7 +1087,7 @@ export default function SymptomGuideFaq() {
               Symptom & Test Guide FAQs
             </h1>
             <div className="text-sm font-semibold text-blue-600 mb-4 bg-white/50 inline-block px-3 py-1 rounded-full border border-blue-200">
-              Last updated: 29 July 2026 · Pending final clinical sign-off before publishing
+              Last updated: 20 October 2026 · Pending final clinical sign-off before publishing
             </div>
             <p className="text-blue-800/90 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
               Find direct answers on which diagnostic tests match common symptoms, organised by body system.

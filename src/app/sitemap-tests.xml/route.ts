@@ -1,3 +1,4 @@
+import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
 import { cms100MasterData } from '@/lib/seoPages/cms100MasterData';
 import { advancedDiagnosticTestsData } from '@/lib/seoPages/advancedDiagnosticTestsData';
@@ -40,7 +41,7 @@ const RETIRED_REDIRECTED_SLUGS = new Set([
 ]);
 
 export async function GET() {
-  const lastmod = new Date().toISOString();
+  const lastmod = new Date(SITE_CONTENT_DATETIME).toISOString();
   
   const cmsSlugs = Object.keys(cms100MasterData).map((slug) => `/${slug}`);
   const advancedSlugs = Object.keys(advancedDiagnosticTestsData).map((slug) => `/${slug}`);

@@ -1,3 +1,4 @@
+import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
 import { LOCATIONS } from '@/lib/businessInfo';
 import { homeCollectionAreas } from '@/lib/locationsData';
@@ -15,7 +16,7 @@ const STATIC_LOCATIONS = [
 ];
 
 export async function GET() {
-  const lastmod = new Date().toISOString();
+  const lastmod = new Date(SITE_CONTENT_DATETIME).toISOString();
 
   const dynamicLocPaths = [
     ...LOCATIONS.map((loc) => `/locations/${loc.slug}`),
