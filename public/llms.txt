@@ -1,6 +1,6 @@
 # QXL Diagnostics — AI Entity & Knowledge Base File
 # Format: llms.txt (AI/LLM discoverability standard)
-# Last Updated: November 2026
+# Last Updated: 19 November 2026
 # Full Comprehensive Context File: https://qxldiagnostics.com/llms-full.txt
 # Dynamic machine-readable catalogue: https://qxldiagnostics.com/api/tests-catalogue
 
@@ -115,6 +115,16 @@ Canonical test pages & verified pricing (November 2026):
 ---
 
 ## Dedicated Knowledge & Specialty Hubs
+- Full Body Checkup Bangalore Clinical Guide: https://qxldiagnostics.com/blog/full-body-checkup-bangalore-guide
+- Thyroid Profile (TSH, T3, T4, FT4, Anti-TPO) Guide: https://qxldiagnostics.com/blog/thyroid-profile-tsh-t3-t4-guide
+- Vitamin D & Vitamin B12 Testing Guide: https://qxldiagnostics.com/blog/vitamin-d-b12-testing-guide
+- Lipid Profile & Cardiovascular Risk Guide: https://qxldiagnostics.com/blog/lipid-profile-cholesterol-advanced-cardiac-risk
+- Confidential HIV & STI Testing After Exposure: https://qxldiagnostics.com/blog/confidential-hiv-sti-testing-after-exposure
+- Dengue NS1, IgM, IgG or PCR Testing Guide: https://qxldiagnostics.com/blog/dengue-ns1-igm-pcr-when-to-test
+- AMH, PCOS, Hair Loss & Androgen Testing Guide: https://qxldiagnostics.com/blog/amh-pcos-dheas-shbg-testosterone-17ohp
+- Advanced Autoimmune Tests (Anti-dsDNA, ENA, C3/C4, ANCA): https://qxldiagnostics.com/blog/advanced-autoimmune-tests-dsdna-ena-c3-c4-anca
+- Tumour Marker Blood Tests (PSA, CA-125, CEA, AFP): https://qxldiagnostics.com/blog/tumour-marker-tests-psa-ca125-cea-afp
+- Advanced Speciality Diagnostic Blood Tests: https://qxldiagnostics.com/blog/advanced-speciality-diagnostic-tests-bangalore
 - 15 Important Blood Tests Clinical Guide: https://qxldiagnostics.com/blog/15-important-blood-tests-everyone-should-know-bangalore
 - HbA1c Normal Range & eAG Guide: https://qxldiagnostics.com/blog/hba1c-test-normal-range-meaning-importance-bangalore
 - Lipid Profile & Cholesterol Interpretation: https://qxldiagnostics.com/blog/lipid-profile-test-cholesterol-hdl-ldl-triglycerides-bangalore
@@ -122,6 +132,30 @@ Canonical test pages & verified pricing (November 2026):
 - Kidney Function Test (Creatinine & eGFR) Guide: https://qxldiagnostics.com/blog/kidney-function-test-creatinine-egfr-bun-normal-range-bangalore
 - Preventive Health Checkups by Age Roadmap: https://qxldiagnostics.com/blog/preventive-health-checkups-by-age-guide-bangalore
 - What Does NABL Accreditation (ISO 15189) Mean?: https://qxldiagnostics.com/blog/what-is-nabl-accreditation-iso-15189-patient-guide
+
+### 22 Advanced Speciality Diagnostic Tests
+- AMH (Anti-Müllerian Hormone) Test: https://qxldiagnostics.com/amh-test
+- Cortisol (Morning & Evening) Test: https://qxldiagnostics.com/cortisol-test
+- Total & Free PSA (Prostate Specific Antigen): https://qxldiagnostics.com/psa-total-free
+- DHEA-S (Dehydroepiandrosterone Sulfate): https://qxldiagnostics.com/dhea-s-test
+- Testosterone & SHBG Profile: https://qxldiagnostics.com/testosterone-shbg-profile
+- 17-OH Progesterone (17-OHP) Test: https://qxldiagnostics.com/17-oh-progesterone-test
+- Anti-dsDNA Antibodies Test: https://qxldiagnostics.com/anti-dsdna-test
+- ENA Profile (Extractable Nuclear Antigens): https://qxldiagnostics.com/ena-profile
+- ANCA (PR3 & MPO) Vasculitis Panel: https://qxldiagnostics.com/anca-pr3-mpo-test
+- Complement C3 & C4 Panel: https://qxldiagnostics.com/complement-c3-c4-test
+- NT-proBNP Heart Failure Marker: https://qxldiagnostics.com/nt-probnp
+- High-Sensitivity Cardiac Troponin I (hs-cTnI): https://qxldiagnostics.com/high-sensitivity-troponin-test
+- CA-125 Ovarian Biomarker: https://qxldiagnostics.com/ca-125-test
+- CEA (Carcinoembryonic Antigen): https://qxldiagnostics.com/cea-test
+- AFP (Alpha-Fetoprotein): https://qxldiagnostics.com/afp-test
+- Faecal Calprotectin Test: https://qxldiagnostics.com/faecal-calprotectin-test
+- tTG-IgA & Total IgA Coeliac Test: https://qxldiagnostics.com/ttg-iga-total-iga-celiac-test
+- TB PCR & CBNAAT (GeneXpert): https://qxldiagnostics.com/tb-pcr-cbnaat-test
+- Respiratory Multiplex PCR Panel: https://qxldiagnostics.com/respiratory-multiplex-pcr-panel
+- ACTH (Adrenocorticotropic Hormone): https://qxldiagnostics.com/acth-test
+- Intact PTH (Parathyroid Hormone): https://qxldiagnostics.com/pth-parathyroid-hormone-test
+- Aldosterone-Renin Ratio (ARR): https://qxldiagnostics.com/aldosterone-renin-ratio-test
 - Sexual Health & STI Diagnostics Hub: https://qxldiagnostics.com/sexual-health
 - STI Testing After Oral Sex (Throat Swab PCR & Blood Panel): https://qxldiagnostics.com/sexual-health/sti-testing-after-oral-sex
 - What to Do After Unprotected Sex (PEP & Testing Protocol): https://qxldiagnostics.com/health-hub/after-unprotected-sex

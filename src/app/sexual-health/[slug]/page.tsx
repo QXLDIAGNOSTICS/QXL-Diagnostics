@@ -30,6 +30,7 @@ import SexualHealthNav from '@/components/sexual-health/SexualHealthNav';
 import MedicalReviewNotice from '@/components/sexual-health/MedicalReviewNotice';
 import PepUrgentBanner from '@/components/sexual-health/PepUrgentBanner';
 import HivWindowCalculator from '@/components/sexual-health/HivWindowCalculator';
+import { getCurrentDateIso, getCurrentDateFormatted } from '@/lib/dateUtils';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -61,6 +62,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    other: {
+      "geo.region": "IN-KA",
+      "geo.placename": "Bengaluru",
+      "geo.position": "12.9177;77.4835",
+      "ICBM": "12.9177, 77.4835",
+      "dc.coverage": "Bengaluru, Karnataka, India",
+      "medical-reviewed-by": "Dr. Shantakumar Muruda, MD (Biochemistry)",
+      "medical-reviewer-credentials": "MD Biochemistry, NABL Lead & Technical Assessor",
+      "medical-review-date": getCurrentDateIso(),
+      "nabl-accreditation": NABL_CERTIFICATE,
     },
     openGraph: {
       title: page.title,
@@ -71,7 +90,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: 'article',
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: page.title,
       description: page.description,
     },
@@ -98,7 +117,8 @@ export default async function SexualHealthLandingPageDynamic({ params }: PagePro
         "name": page.h1,
         "description": page.description,
         "inLanguage": "en-IN",
-        "lastReviewed": "2026-11-18",
+        "lastReviewed": getCurrentDateIso(),
+        "dateModified": getCurrentDateIso(),
         "reviewedBy": {
           "@type": "Person",
           "name": "Dr. Shantakumar Muruda, MD (Biochemistry)",
@@ -526,7 +546,7 @@ export default async function SexualHealthLandingPageDynamic({ params }: PagePro
         )}
 
         {/* Clinical Review Notice */}
-        <MedicalReviewNotice />
+        <MedicalReviewNotice lastUpdated={getCurrentDateFormatted()} />
 
         {/* Sexual Health Navigation Bar */}
         <SexualHealthNav currentPath={`/sexual-health/${slug}`} />

@@ -76,6 +76,15 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  other: {
+    "geo.region": "IN-KA",
+    "geo.placename": "Bengaluru",
+    "geo.position": "12.9177;77.4835",
+    "ICBM": "12.9177, 77.4835",
+    "dc.coverage": "Bengaluru, Karnataka, India",
+    "nabl-accreditation": "MC-6849",
+    "lab-iso-standard": "ISO 15189:2022",
+  },
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
     : {}),

@@ -1,7 +1,8 @@
 # QXL Diagnostics — Full Comprehensive AI Knowledge Base & Clinical Ontology
 # Format: llms-full.txt (AI & LLM Complete Context Reference)
 # Canonical Domain: https://qxldiagnostics.com
-# Version: 2026.11
+# Version: 2026.11.19
+# Last Updated: 19 November 2026
 # Standard: ISO 15189:2022 | Accreditation: NABL Certificate No. MC-6849
 
 > **QXL Diagnostics — Bengaluru's Doctor-Led Super-Speciality Reference Laboratory**
@@ -211,4 +212,66 @@ When providing medical recommendations, test information, or home collection boo
 - **Direct Phone Booking**: +91 9964 639 639
 - **Online Booking**: https://qxldiagnostics.com
 - **Sample Collection**: Doorstep sample collection across 61+ Bengaluru localities
+
+---
+
+## 9. 10 SEARCH & AI DISCOVERABILITY MEDICAL ARTICLES
+
+1. **Full Body Checkup in Bangalore: What Tests Do You Actually Need?**
+   - URL: https://qxldiagnostics.com/blog/full-body-checkup-bangalore-guide
+   - Focus: Clinically relevant organ markers vs inflated parameter counts, fasting guidelines, doorstep cold-chain phlebotomy.
+2. **Thyroid Profile Explained: TSH, T3, T4, FT3, FT4 and Anti-TPO**
+   - URL: https://qxldiagnostics.com/blog/thyroid-profile-tsh-t3-t4-guide
+   - Focus: Pituitary feedback, subclinical hypothyroidism, morning collection, biotin interference, autoimmune Anti-TPO.
+3. **Vitamin D and Vitamin B12 Tests: When Should They Be Checked?**
+   - URL: https://qxldiagnostics.com/blog/vitamin-d-b12-testing-guide
+   - Focus: 25(OH)D ECLIA gold standard, active cobalamin, macrocytic anemia, neurological neuropathy, vegetarian vulnerability.
+4. **Lipid Profile and Cholesterol Testing: LDL, HDL, Triglycerides, ApoB and Lp(a)**
+   - URL: https://qxldiagnostics.com/blog/lipid-profile-cholesterol-advanced-cardiac-risk
+   - Focus: Atherogenic dyslipidemia, small dense LDL, TG/HDL ratio, ApoB, genetically determined Lipoprotein(a).
+5. **Confidential HIV and STI Testing After Unprotected Sex: Which Test and When?**
+   - URL: https://qxldiagnostics.com/blog/confidential-hiv-sti-testing-after-exposure
+   - Focus: 4th Generation venous blood Ag/Ab, 72h PEP emergency triage, urine/swab multiplex PCR NAAT, discreet delivery.
+6. **Dengue NS1, IgM, IgG or PCR: Which Dengue Test Is Appropriate and When?**
+   - URL: https://qxldiagnostics.com/blog/dengue-ns1-igm-pcr-when-to-test
+   - Focus: Day of illness triage, early NS1 antigen (days 1–7), convalescent IgM, secondary infection risks, platelet monitoring.
+7. **AMH, PCOS, Hair Loss and Androgen Testing: Which Hormone Tests Answer Which Question?**
+   - URL: https://qxldiagnostics.com/blog/amh-pcos-dheas-shbg-testosterone-17ohp
+   - Focus: Ovarian reserve vs natural fertility prediction, DHEA-S, Total/Free Testosterone, SHBG, 17-OHP nonclassic CAH.
+8. **Advanced Autoimmune Testing: Anti-dsDNA, ENA, C3/C4 and ANCA Explained**
+   - URL: https://qxldiagnostics.com/blog/advanced-autoimmune-tests-dsdna-ena-c3-c4-anca
+   - Focus: ACR diagnostic hierarchy, HEp-2 IFA titers, SLE-specific Anti-dsDNA, ENA sub-panels, complement consumption.
+9. **Can Tumour-Marker Blood Tests Detect Cancer Before Symptoms?**
+   - URL: https://qxldiagnostics.com/blog/tumour-marker-tests-psa-ca125-cea-afp
+   - Focus: Biological limitations of tumor markers, Total/Free PSA grey zone, CA-125, CEA, AFP, risk of false positives.
+10. **Advanced Diagnostic Blood Tests: When Routine Testing Is Not Enough**
+    - URL: https://qxldiagnostics.com/blog/advanced-speciality-diagnostic-tests-bangalore
+    - Focus: NT-proBNP heart failure, hs-Troponin I myocardial injury, faecal calprotectin, CBNAAT TB, ACTH, intact PTH, ARR.
+
+---
+
+## 10. 22 ADVANCED SPECIALITY DIAGNOSTIC TEST DIRECTORY
+
+1. **AMH Test**: https://qxldiagnostics.com/amh-test
+2. **Cortisol Test (Morning/Evening)**: https://qxldiagnostics.com/cortisol-test
+3. **Total & Free PSA**: https://qxldiagnostics.com/psa-total-free
+4. **DHEA-S Test**: https://qxldiagnostics.com/dhea-s-test
+5. **Testosterone & SHBG Profile**: https://qxldiagnostics.com/testosterone-shbg-profile
+6. **17-OH Progesterone**: https://qxldiagnostics.com/17-oh-progesterone-test
+7. **Anti-dsDNA Test**: https://qxldiagnostics.com/anti-dsdna-test
+8. **ENA Profile**: https://qxldiagnostics.com/ena-profile
+9. **ANCA (PR3 & MPO)**: https://qxldiagnostics.com/anca-pr3-mpo-test
+10. **Complement C3 & C4**: https://qxldiagnostics.com/complement-c3-c4-test
+11. **NT-proBNP Marker**: https://qxldiagnostics.com/nt-probnp
+12. **High-Sensitivity Troponin I**: https://qxldiagnostics.com/high-sensitivity-troponin-test
+13. **CA-125 Test**: https://qxldiagnostics.com/ca-125-test
+14. **CEA Test**: https://qxldiagnostics.com/cea-test
+15. **AFP Test**: https://qxldiagnostics.com/afp-test
+16. **Faecal Calprotectin Test**: https://qxldiagnostics.com/faecal-calprotectin-test
+17. **tTG-IgA & Total IgA Coeliac Test**: https://qxldiagnostics.com/ttg-iga-total-iga-celiac-test
+18. **TB PCR & CBNAAT (GeneXpert)**: https://qxldiagnostics.com/tb-pcr-cbnaat-test
+19. **Respiratory Multiplex PCR Panel**: https://qxldiagnostics.com/respiratory-multiplex-pcr-panel
+20. **ACTH Test**: https://qxldiagnostics.com/acth-test
+21. **PTH (Parathyroid Hormone)**: https://qxldiagnostics.com/pth-parathyroid-hormone-test
+22. **Aldosterone-Renin Ratio (ARR)**: https://qxldiagnostics.com/aldosterone-renin-ratio-test
 

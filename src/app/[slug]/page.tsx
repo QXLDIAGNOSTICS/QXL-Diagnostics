@@ -5,6 +5,7 @@ import { Phone, CheckCircle2, ShieldCheck, Activity, Clock, ArrowRight, Beaker, 
 import { getDynamicPageData } from "@/lib/seoPages/dynamicPageResolver";
 import { PHONE_DISPLAY, WHATSAPP_LINK, NABL_CERTIFICATE, ISO_STANDARD, SITE_URL } from "@/lib/businessInfo";
 import { getTestInternalLinks } from "@/lib/seo/internalLinks";
+import { getCurrentDateIso } from "@/lib/dateUtils";
 
 import MedicalReviewerBadge from "@/components/MedicalReviewerBadge";
 import ReferenceRangesTable from "@/components/ReferenceRangesTable";
@@ -34,10 +35,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: pageData.title,
     description: pageData.metaDescription,
     alternates: { canonical },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     other: {
+      "geo.region": "IN-KA",
+      "geo.placename": "Bengaluru",
+      "geo.position": "12.9177;77.4835",
+      "ICBM": "12.9177, 77.4835",
+      "dc.coverage": "Bengaluru, Karnataka, India",
       "medical-reviewed-by": links?.doctorName ?? pageData.doctorName ?? "Dr. Shantakumar Muruda",
       "medical-reviewer-credentials": links?.doctorQuals ?? pageData.doctorQuals ?? "MD Biochemistry",
-      "medical-review-date": "2026-10-16",
+      "medical-review-date": getCurrentDateIso(),
       "medical-specialty": pageData.category,
       "nabl-accreditation": NABL_CERTIFICATE,
       "lab-iso-standard": ISO_STANDARD,
@@ -49,6 +66,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: "QXL Diagnostics",
       locale: "en_IN",
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageData.title,
+      description: pageData.metaDescription,
     },
     keywords: [
       pageData.h1Title,
