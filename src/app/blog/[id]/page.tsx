@@ -16,7 +16,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { defaultBlogs, getDefaultBlogBySlug, getBlogCategory, getReadingTime } from "@/lib/blogsData";
-import { getAutoBlogDate, getCurrentDateTimeIso } from "@/lib/dateUtils";
+import { getAutoBlogDate, getCurrentDateTimeIso, getCurrentDateFormatted } from "@/lib/dateUtils";
 import { extractHeadings, slugifyHeading, getNodeText } from "@/lib/blogUtils";
 import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
 import TableOfContents from "@/components/blog/TableOfContents";
