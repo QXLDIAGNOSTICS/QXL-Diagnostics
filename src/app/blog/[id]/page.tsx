@@ -42,6 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  const category = getBlogCategory(blog);
+
   const title = (blog as any).seo_title || `${blog.title} | QXL Diagnostics`;
   const description = (blog as any).meta_description || blog.excerpt;
   const canonical = (blog as any).canonical_url || `https://qxldiagnostics.com/blog/${blog.slug}`;
