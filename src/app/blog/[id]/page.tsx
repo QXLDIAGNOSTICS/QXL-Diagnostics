@@ -230,19 +230,19 @@ export default async function SingleBlogPage({ params }: Props) {
       },
       ...((blog as any).faqs && (blog as any).faqs.length > 0
         ? [
-            {
-              "@type": "FAQPage",
-              "@id": `https://qxldiagnostics.com/blog/${blog.slug}/#faq`,
-              mainEntity: (blog as any).faqs.map((faq: { question: string; answer: string }) => ({
-                "@type": "Question",
-                name: faq.question,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: faq.answer,
-                },
-              })),
-            },
-          ]
+          {
+            "@type": "FAQPage",
+            "@id": `https://qxldiagnostics.com/blog/${blog.slug}/#faq`,
+            mainEntity: (blog as any).faqs.map((faq: { question: string; answer: string }) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          },
+        ]
         : []),
     ],
   };
