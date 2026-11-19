@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { api, ApiError } from '@/lib/api';
 import { useAuth } from '@/lib/useAuth';
 import ChatPaymentCard, { type ChatPaymentOrder } from '@/components/ChatPaymentCard';
@@ -423,7 +424,7 @@ export default function AiChat() {
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
-      let assistantText = '';
+      let hasReceivedContent = false;
       let buffer = '';
 
       while (true) {
@@ -440,7 +441,7 @@ export default function AiChat() {
             const data = JSON.parse(jsonStr);
             const delta = data.candidates?.[0]?.content?.parts?.[0]?.text;
             if (delta) {
-              assistantText += delta;
+              hasReceivedContent = true;
               setMessages(prev => {
                 const next = [...prev];
                 let idx = -1;
@@ -451,9 +452,9 @@ export default function AiChat() {
                   }
                 }
                 if (idx >= 0) {
-                  next[idx] = { role: 'assistant', content: assistantText };
+                  next[idx] = { ...next[idx], content: (next[idx].content || '') + delta };
                 } else {
-                  next.push({ role: 'assistant', content: assistantText });
+                  next.push({ role: 'assistant', content: delta });
                 }
                 return next;
               });
@@ -463,7 +464,7 @@ export default function AiChat() {
           }
         }
       }
-      return assistantText.length > 0;
+      return hasReceivedContent;
     } catch {
       return false;
     }
@@ -592,7 +593,6 @@ export default function AiChat() {
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
-      let assistant = '';
       let buffer = '';
 
       while (true) {
@@ -615,7 +615,7 @@ export default function AiChat() {
               ]);
             }
             if (evt.delta) {
-              assistant = `${assistant}${evt.delta}`;
+              const deltaText = evt.delta;
               setMessages(prev => {
                 const next = [...prev];
                 let idx = -1;
@@ -626,9 +626,9 @@ export default function AiChat() {
                   }
                 }
                 if (idx >= 0) {
-                  next[idx] = { role: 'assistant', content: assistant };
+                  next[idx] = { ...next[idx], content: (next[idx].content || '') + deltaText };
                 } else {
-                  next.push({ role: 'assistant', content: assistant });
+                  next.push({ role: 'assistant', content: deltaText });
                 }
                 return next;
               });
@@ -753,7 +753,7 @@ export default function AiChat() {
   return (
     <>
       {/* Floating Horizontal Book Now Button (Desktop only / Hidden on mobile) */}
-      <a
+      <Link
         href="/book"
         className="hidden"
         style={{
@@ -779,7 +779,7 @@ export default function AiChat() {
       >
         <CalendarCheck className="w-5 h-5" />
         <span>Book Now</span>
-      </a>
+      </Link>
 
 
       {/* Floating Call Now Button (Hidden on mobile) */}
@@ -1359,9 +1359,9 @@ export default function AiChat() {
                   }
                 </span>
                 {chatQuota.kind === 'guest' && !user && (
-                  <a href="/login" className="text-blue-600 font-bold hover:underline whitespace-nowrap">
+                  <Link href="/login" className="text-blue-600 font-bold hover:underline whitespace-nowrap">
                     Log in for 2× limit →
-                  </a>
+                  </Link>
                 )}
               </div>
             )}

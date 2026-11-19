@@ -1,7 +1,7 @@
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 
-export default [
+const eslintConfig = [
   {
     ignores: [
       ".next/**",
@@ -9,8 +9,8 @@ export default [
       "build/**",
       "next-env.d.ts",
       "qxl-platform/**",
-      "*.js",
-      "public/main.js",
+      "**/*.js",
+      "**/*.mjs",
       "node_modules/**"
     ],
   },
@@ -24,3 +24,5 @@ export default [
     }
   }
 ];
+
+export default eslintConfig;

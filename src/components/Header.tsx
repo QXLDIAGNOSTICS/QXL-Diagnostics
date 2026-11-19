@@ -25,8 +25,10 @@ const FALLBACK_LOGO =
 import { getActiveCampaign } from '../lib/campaignScheduler';
 import { isCampaignActive } from '../lib/rakshaBandhanConfig';
 
+const CAMPAIGN_TARGET_MS = new Date('2026-08-31T23:59:59+05:30').getTime();
+
 function useHeaderCountdown() {
-  const target = useRef(new Date('2026-08-31T23:59:59+05:30').getTime()).current;
+  const target = CAMPAIGN_TARGET_MS;
   const [timeLeft, setTimeLeft] = useState({ d: 7, h: 0, m: 0, s: 0 });
 
   useEffect(() => {
@@ -154,7 +156,7 @@ export default function Header() {
   }, []);
 
   const getShortLocationName = (fullName: string) => {
-    let name = fullName
+    const name = fullName
       .replace("QXL Diagnostics ", "")
       .replace("QXL @ ", "")
       .replace("Qxl @ ", "")

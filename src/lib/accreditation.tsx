@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 /**
  * Dynamic Accreditation Governance Master
@@ -52,21 +53,21 @@ export const accreditation: AccreditationRecord = {
 export function AccreditationBadge() {
   if (accreditation.status === "verified-active" || accreditation.status === "active") {
     return (
-      <a
+      <Link
         href="/quality-accreditation"
         className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-sky-900 bg-sky-100 hover:bg-sky-200 border border-sky-300 transition-colors"
       >
         <span>NABL-accredited to ISO 15189:2022 · Certificate {accreditation.certificateNumber}</span>
-      </a>
+      </Link>
     );
   }
   return (
-    <a
+    <Link
       href="/quality-accreditation"
       className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition-colors"
     >
       <span>View Quality & Accreditation</span>
-    </a>
+    </Link>
   );
 }
 

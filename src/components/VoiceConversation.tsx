@@ -139,7 +139,6 @@ export default function VoiceConversation({ onClose, onTranscript }: VoiceConver
       const dc = pc.createDataChannel("oai-events");
       dcRef.current = dc;
 
-      let currentUserTranscript = "";
       let currentAiTranscript = "";
 
       dc.onopen = () => {

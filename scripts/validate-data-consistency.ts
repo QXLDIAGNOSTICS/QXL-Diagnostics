@@ -15,7 +15,7 @@ import { lipidProfileTest } from "../src/lib/seoPages/data/lipidProfileTest";
 
 console.log("🔍 Running QXL Diagnostics Data Consistency Guard...");
 
-let errors: string[] = [];
+const errors: string[] = [];
 
 // 1. Verify MASTER_CATALOGUE completeness
 if (!MASTER_CATALOGUE || MASTER_CATALOGUE.length < 100) {

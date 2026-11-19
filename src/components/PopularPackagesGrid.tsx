@@ -83,7 +83,7 @@ export default function PopularPackagesGrid({ packages = CANONICAL_PACKAGES }: {
 
   const handleAddToCart = (pkg: PackageItem) => {
     if (pkg.contactForPrice || !pkg.price) {
-      window.location.href = `https://wa.me/919964639639?text=${encodeURIComponent(`Hi QXL Diagnostics, I want to enquire about ${pkg.name}`)}`;
+      window.location.assign(`https://wa.me/919964639639?text=${encodeURIComponent(`Hi QXL Diagnostics, I want to enquire about ${pkg.name}`)}`);
       return;
     }
     addItemToCart({
