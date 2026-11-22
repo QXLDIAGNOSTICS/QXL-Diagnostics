@@ -231,11 +231,20 @@ async def test_full_home_collection_flow(world):
     lab = w["lab"]
     r = await lab.post(f"/api/v1/lab/manifests/{manifest_id}/receive", json={"barcodes": [b1, b2], "seal_intact": True})
     assert r.status_code == 200 and r.json()["missing"] == []
+    # Hold needs a standard reason, puts the tests on hold, and can then be accepted.
+    r = await lab.post(f"/api/v1/lab/specimens/{b1}/decision", json={"decision": "hold"})
+    assert r.status_code == 422
+    r = await lab.post(f"/api/v1/lab/specimens/{b1}/decision",
+                       json={"decision": "hold", "reason": "insufficient_volume", "notes": "check with pathologist"})
+    assert r.status_code == 200 and r.json()["status"] == "on_hold" and not r.json()["recollection_opened"]
+    held = (await lab.get(f"/api/v1/lab/specimens/{b1}")).json()
+    assert held["status"] == "on_hold" and {t["lab_status"] for t in held["tests"]} == {"on_hold"}
     for b in (b1, b2):
         r = await lab.post(f"/api/v1/lab/specimens/{b}/decision", json={"decision": "accept"})
         assert r.status_code == 200 and r.json()["status"] == "accepted"
     history = (await lab.get(f"/api/v1/lab/specimens/{b1}")).json()["history"]
     assert [h["event"] for h in history][:4] == ["collected", "manifested", "custody_accepted", "lab_received"]
+    assert (await lab.get(f"/api/v1/lab/specimens/{b1}")).json()["tests"][0]["lab_status"] == "in_progress"
 
     # Lab status + authorized report release + secure access.
     booking_ids = [t["booking_id"] for t in detail["tests"]]
@@ -283,6 +292,16 @@ async def test_full_home_collection_flow(world):
     assert (await lab.post(f"/api/v1/lab/reports/{amended['id']}/release")).status_code == 200
     assert (await p.post(f"/api/v1/me/reports/{report['id']}/access")).status_code == 409
     assert (await p.post(f"/api/v1/me/reports/{amended['id']}/access")).status_code == 200
+
+    # Revoke: needs a reason, only lab reporting can do it, and the patient loses access at once.
+    assert (await p.post(f"/api/v1/lab/reports/{amended['id']}/revoke", json={"reason": "x"})).status_code == 403
+    assert (await lab.post(f"/api/v1/lab/reports/{amended['id']}/revoke", json={})).status_code == 422
+    r = await lab.post(f"/api/v1/lab/reports/{amended['id']}/revoke", json={"reason": "Released to the wrong visit"})
+    assert r.status_code == 200 and r.json()["status"] == "revoked"
+    assert (await p.post(f"/api/v1/me/reports/{amended['id']}/access")).status_code in (404, 409)
+    assert all(x["id"] != amended["id"] for x in (await p.get("/api/v1/me/reports")).json())
+    # A revoked report can't be released again.
+    assert (await lab.post(f"/api/v1/lab/reports/{amended['id']}/release")).status_code == 409
 
     inbox = (await p.get("/api/v1/me/inbox")).json()
     kinds = {i["kind"] for i in inbox["items"]}
