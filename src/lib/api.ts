@@ -581,6 +581,8 @@ export interface AdminUser {
   role: string;
   is_email_verified: boolean;
   is_phone_verified: boolean;
+  is_active?: boolean;
+  must_change_password?: boolean;
   created_at: string;
 }
 
@@ -863,6 +865,8 @@ export interface AuthMeResponse {
   role: string;
   is_email_verified: boolean;
   is_phone_verified: boolean;
+  /** Signed in with a temporary password: must set their own before anything else works. */
+  must_change_password?: boolean;
   /** DB-aware role-tier flags — account for super-admin-created custom roles. */
   is_staff: boolean;
   is_admin: boolean;
@@ -910,6 +914,13 @@ export interface LoginStatusResponse {
   challenge_id: string;
   otp_verified: boolean;
   completed: boolean;
+  must_change_password?: boolean;
+}
+
+export interface PasswordForgotResponse {
+  reset_id: string;
+  expires_in: number;
+  message: string;
 }
 
 export type StaffRole = 'front_office' | 'staff' | 'reception' | 'marketing' | 'sales' | 'admin';
@@ -936,6 +947,11 @@ export const api = {
       get<LoginStatusResponse>(`/auth/login/status?challenge_id=${encodeURIComponent(challengeId)}`),
     logout: () => post<void>('/auth/logout'),
     me: () => get<AuthMeResponse | null>('/auth/me'),
+    passwordForgot: (identifier: string) => post<PasswordForgotResponse>('/auth/password/forgot', { identifier }),
+    passwordReset: (data: { reset_id: string; phone_code: string; email_code?: string; new_password: string }) =>
+      post<void>('/auth/password/reset', data),
+    passwordChange: (current_password: string, new_password: string) =>
+      post<void>('/auth/password/change', { current_password, new_password }),
   },
   users: {
     me: () => get<AuthMeResponse>('/users/me'),
@@ -1117,6 +1133,7 @@ export const api = {
       ),
     createUser: (data: AdminUserCreate) => post<AdminUser>('/admin/users', data),
     updateUserRole: (id: string, role: string) => patch<AdminUser>(`/admin/users/${id}/role`, { role }),
+    setUserActive: (id: string, active: boolean) => patch<AdminUser>(`/admin/users/${id}/status`, { active }),
     stats: () => get<AdminStats>('/admin/stats'),
   },
   roles: {

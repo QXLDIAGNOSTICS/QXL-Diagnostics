@@ -56,7 +56,7 @@ const sidebarLinks: NavLink[] = [
   { name: "Home Collection", href: "/home-collection", icon: Truck, access: "staff" },
   { name: "Dispatch", href: "/collect/dispatch", icon: Route, access: "staff", permission: "dispatch.manage" },
   { name: "Live Map", href: "/collect/live", icon: Map, access: "staff", permission: "dispatch.manage" },
-  { name: "Collectors & Areas", href: "/collect/setup", icon: UsersRound, access: "staff", permission: "dispatch.manage" },
+  { name: "Field Team & Areas", href: "/collect/setup", icon: UsersRound, access: "staff", permission: "dispatch.manage" },
   { name: "Lab Receiving", href: "/collect/lab", icon: ScanBarcode, access: "staff", permission: "lab.receive" },
   { name: "Lab Reports", href: "/collect/reports", icon: FileCheck2, access: "staff", permission: "lab.report" },
   { name: "Collect Dashboard", href: "/collect/metrics", icon: Gauge, access: "staff", permission: "collect.metrics" },

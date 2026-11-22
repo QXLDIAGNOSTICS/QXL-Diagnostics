@@ -2,8 +2,9 @@
 
 import { ShieldCheck } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import LoginFlow from "@/components/auth/LoginFlow";
+import { ForgotPasswordFlow } from "@/components/auth/PasswordForms";
 import { useAuth } from "@/lib/useAuth";
 import { isAdmin, isStaff } from "@/lib/roles";
 
@@ -15,6 +16,7 @@ const buttonClass =
 export default function AdminLogin() {
   const router = useRouter();
   const { user, loading } = useAuth();
+  const [forgot, setForgot] = useState(false);
 
   useEffect(() => {
     if (loading) return;
@@ -40,6 +42,8 @@ export default function AdminLogin() {
             <div className="text-sm text-gray-500 dark:text-gray-400 text-center space-y-3">
               <p>You&apos;re signed in. Continuing…</p>
             </div>
+          ) : forgot ? (
+            <ForgotPasswordFlow onDone={() => setForgot(false)} onCancel={() => setForgot(false)} />
           ) : (
             <>
               <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
@@ -53,6 +57,13 @@ export default function AdminLogin() {
                 inputClassName={inputClass}
                 primaryButtonClassName={buttonClass}
               />
+              <button
+                type="button"
+                onClick={() => setForgot(true)}
+                className="block mx-auto text-xs font-semibold text-sky-700 hover:underline"
+              >
+                Forgot password?
+              </button>
             </>
           )}
         </div>

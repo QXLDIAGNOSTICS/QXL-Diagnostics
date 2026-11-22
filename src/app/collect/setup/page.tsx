@@ -2,10 +2,13 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import { Loader2, Pencil, Plus, Save } from "lucide-react";
+import { KeyRound, Loader2, Pencil, Plus, Power, Save, UserPlus } from "lucide-react";
 import { api, type Center } from "@/lib/api";
 import { collectApi, human, rupees, type Collector, type FieldUser, type ServiceArea } from "@/lib/collectApi";
 import { btnCls, btnGhostCls, Drawer, ErrorNote, errorText, inputCls, Panel, Pill } from "@/components/collect/ui";
+import { CredentialsDialog, NewFieldStaffDrawer } from "@/components/collect/FieldStaff";
+import { useAuth } from "@/lib/useAuth";
+import { hasPermission } from "@/lib/roles";
 
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]; // index = Python weekday()
 
@@ -18,6 +21,11 @@ export default function CollectSetupPage() {
   const [error, setError] = useState<string | null>(null);
   const [editing, setEditing] = useState<{ userId: string; existing: Collector | null; name: string } | null>(null);
   const [areaForm, setAreaForm] = useState<Omit<ServiceArea, "id"> | null>(null);
+  const { user } = useAuth();
+  const canManageLogins = hasPermission(user, "field_team.manage");
+  const [creating, setCreating] = useState(false);
+  const [credentials, setCredentials] = useState<{ name: string; login: string; password: string } | null>(null);
+  const [busyId, setBusyId] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     setLoading(true);
@@ -45,12 +53,49 @@ export default function CollectSetupPage() {
   }, [load]);
 
   const withoutProfile = fieldUsers.filter((u) => !u.has_profile);
+
+  const resetPassword = async (c: Collector) => {
+    if (!window.confirm(`Issue a new temporary password for ${c.display_name}? They will be signed out on their phone.`)) return;
+    setBusyId(c.user_id);
+    setError(null);
+    try {
+      const r = await collectApi.resetFieldPassword(c.user_id);
+      setCredentials({ name: c.display_name, login: c.email || c.login_phone || "", password: r.temporary_password });
+      load();
+    } catch (e) {
+      setError(errorText(e));
+    } finally {
+      setBusyId(null);
+    }
+  };
+
+  const toggleActive = async (c: Collector) => {
+    const disabling = c.account_active !== false;
+    let reason: string | undefined;
+    if (disabling) {
+      const r = window.prompt(
+        `Disable ${c.display_name}'s login? They are signed out at once and their not-yet-started visits go back to the dispatch queue. Reason:`,
+      );
+      if (r === null) return;
+      reason = r || undefined;
+    }
+    setBusyId(c.user_id);
+    setError(null);
+    try {
+      await collectApi.setFieldStatus(c.user_id, !disabling, reason);
+      load();
+    } catch (e) {
+      setError(errorText(e));
+    } finally {
+      setBusyId(null);
+    }
+  };
   const centreName = (id: string | null) => centers.find((c) => c.id === id)?.name ?? "—";
 
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Collectors &amp; service areas</h1>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Field team &amp; service areas</h1>
         <p className="text-sm text-slate-500">
           Field profiles, shifts and the PIN codes where home collection can be booked. Slot capacity = collectors on
           shift in a zone × visits per collector per slot.
@@ -59,7 +104,16 @@ export default function CollectSetupPage() {
 
       <ErrorNote message={error} />
 
-      <Panel title="Field team">
+      <Panel
+        title="Field team"
+        actions={
+          canManageLogins ? (
+            <button className={btnCls} onClick={() => setCreating(true)}>
+              <UserPlus className="h-4 w-4" /> Add collector or courier
+            </button>
+          ) : undefined
+        }
+      >
         {loading ? (
           <Loader2 className="mx-auto h-5 w-5 animate-spin text-slate-400" />
         ) : (
@@ -81,11 +135,14 @@ export default function CollectSetupPage() {
               </div>
             )}
             <p className="mb-3 text-xs text-slate-500">
-              To add a person, first create their account with the Collector or Courier role on the{" "}
+              {canManageLogins
+                ? "Add a person here: their QXL Collector login is created with a one-time temporary password you hand over in person. They set their own password at first sign-in and can reset it later with codes sent to their phone and email."
+                : "Ask an administrator to create logins for new collectors and couriers."}{" "}
+              Other staff accounts are on the{" "}
               <Link href="/users" className="font-semibold text-sky-700 hover:underline">
                 Users
               </Link>{" "}
-              page. They sign in to the QXL Collector app with the same staff login.
+              page.
             </p>
             {collectors.length === 0 ? (
               <p className="text-sm text-slate-500">No field profiles yet.</p>
@@ -122,16 +179,54 @@ export default function CollectSetupPage() {
                         <td className="py-2 pr-3 text-xs">{c.working_days.map((d) => DAYS[d]).join(" ")}</td>
                         <td className="py-2 pr-3">{c.max_daily_jobs}</td>
                         <td className="py-2 pr-3">
-                          {!c.is_active ? <Pill tone="red">Inactive</Pill> : c.on_duty ? <Pill tone="green">On duty</Pill> : <Pill>Off duty</Pill>}
+                          <div className="flex flex-wrap gap-1">
+                            {c.account_active === false ? (
+                              <Pill tone="red">Login disabled</Pill>
+                            ) : !c.is_active ? (
+                              <Pill tone="red">Inactive</Pill>
+                            ) : c.on_duty ? (
+                              <Pill tone="green">On duty</Pill>
+                            ) : (
+                              <Pill>Off duty</Pill>
+                            )}
+                            {c.must_change_password && c.account_active !== false && <Pill tone="amber">Awaiting first sign-in</Pill>}
+                            {c.locked && <Pill tone="red">Locked (wrong passwords)</Pill>}
+                          </div>
+                          {c.email && <div className="mt-1 text-xs text-slate-500">{c.email}</div>}
                         </td>
                         <td className="py-2">
-                          <button
-                            className={btnGhostCls}
-                            onClick={() => setEditing({ userId: c.user_id, existing: c, name: c.display_name })}
-                            aria-label={`Edit ${c.display_name}`}
-                          >
-                            <Pencil className="h-4 w-4" />
-                          </button>
+                          <div className="flex justify-end gap-1.5">
+                            <button
+                              className={btnGhostCls}
+                              onClick={() => setEditing({ userId: c.user_id, existing: c, name: c.display_name })}
+                              aria-label={`Edit ${c.display_name}`}
+                              title="Edit profile and shift"
+                            >
+                              <Pencil className="h-4 w-4" />
+                            </button>
+                            {canManageLogins && (
+                              <>
+                                <button
+                                  className={btnGhostCls}
+                                  disabled={busyId !== null || c.account_active === false}
+                                  onClick={() => resetPassword(c)}
+                                  aria-label={`New temporary password for ${c.display_name}`}
+                                  title="New temporary password (also unlocks)"
+                                >
+                                  <KeyRound className="h-4 w-4" />
+                                </button>
+                                <button
+                                  className={btnGhostCls}
+                                  disabled={busyId !== null}
+                                  onClick={() => toggleActive(c)}
+                                  aria-label={`${c.account_active === false ? "Enable" : "Disable"} ${c.display_name}`}
+                                  title={c.account_active === false ? "Enable login" : "Disable login"}
+                                >
+                                  {busyId === c.user_id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Power className="h-4 w-4" />}
+                                </button>
+                              </>
+                            )}
+                          </div>
                         </td>
                       </tr>
                     ))}
@@ -204,6 +299,18 @@ export default function CollectSetupPage() {
           </div>
         )}
       </Panel>
+
+      {creating && (
+        <NewFieldStaffDrawer
+          onClose={() => setCreating(false)}
+          onCreated={(member, password) => {
+            setCreating(false);
+            setCredentials({ name: member.display_name, login: member.email || member.login_phone || "", password });
+            load();
+          }}
+        />
+      )}
+      {credentials && <CredentialsDialog {...credentials} onClose={() => setCredentials(null)} />}
 
       {editing && (
         <CollectorDrawer

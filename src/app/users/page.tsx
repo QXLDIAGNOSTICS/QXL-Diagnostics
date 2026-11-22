@@ -90,6 +90,22 @@ export default function UsersPage() {
     }
   };
 
+  const handleActiveChange = async (usr: AdminUser) => {
+    if (!canManage || usr.role === "super_admin" || usr.id === user?.id) return;
+    const disabling = usr.is_active !== false;
+    const who = usr.name || usr.email || usr.phone;
+    if (!confirm(disabling ? `Disable ${who}? They are signed out immediately and can't sign in.` : `Re-enable ${who}?`)) return;
+    setUpdatingId(usr.id);
+    try {
+      await api.admin.setUserActive(usr.id, !disabling);
+      await refreshData();
+    } catch {
+      setError("Failed to change the account status.");
+    } finally {
+      setUpdatingId(null);
+    }
+  };
+
   const handleCreateUser = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!canManage || !allowCreate.includes(newRole)) return;
@@ -192,7 +208,7 @@ export default function UsersPage() {
             <input
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              placeholder="Password (letters + numbers)"
+              placeholder="Temporary password (changed at first sign-in)"
               type="password"
               required
               minLength={8}
@@ -273,6 +289,12 @@ export default function UsersPage() {
                         <Shield className="w-3 h-3" />
                         {roleLabels[usr.role] || usr.role}
                       </span>
+                      {usr.is_active === false && (
+                        <span className="ml-1 inline-flex px-2 py-0.5 rounded-full text-[11px] font-bold bg-red-50 text-red-700">Disabled</span>
+                      )}
+                      {usr.must_change_password && usr.is_active !== false && (
+                        <span className="ml-1 inline-flex px-2 py-0.5 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800">Must set password</span>
+                      )}
                     </td>
                     <td className="px-4 py-3 text-right">
                       {usr.role === "super_admin" ? (
@@ -293,6 +315,16 @@ export default function UsersPage() {
                             </option>
                           ))}
                         </select>
+                      )}
+                      {usr.role !== "super_admin" && usr.id !== user?.id && canManage && (
+                        <button
+                          type="button"
+                          disabled={updatingId === usr.id}
+                          onClick={() => handleActiveChange(usr)}
+                          className="ml-2 text-xs font-semibold text-slate-600 hover:underline disabled:opacity-50 dark:text-slate-300"
+                        >
+                          {usr.is_active === false ? "Enable" : "Disable"}
+                        </button>
                       )}
                     </td>
                   </tr>

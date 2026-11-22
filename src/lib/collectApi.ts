@@ -96,6 +96,30 @@ export interface Collector {
   jobs_today: number;
   last_location: { lat: number; lng: number; at: string } | null;
   photo_url: string | null;
+  // Login account (from the user record).
+  email?: string | null;
+  login_phone?: string;
+  date_of_birth?: string | null;
+  account_active?: boolean;
+  must_change_password?: boolean;
+  password_changed_at?: string | null;
+  locked?: boolean;
+}
+
+export interface FieldStaffCreate {
+  role: "collector" | "courier";
+  name: string;
+  phone: string;
+  email: string;
+  date_of_birth?: string | null;
+  employee_code: string;
+  zone?: string;
+  shift_start?: string;
+  shift_end?: string;
+  working_days?: number[];
+  competencies?: string[];
+  qualification?: string | null;
+  max_daily_jobs?: number;
 }
 
 export interface FieldUser {
@@ -269,6 +293,12 @@ export const collectApi = {
   fieldUsers: () => get<FieldUser[]>(`/ops/field-users`),
   saveCollector: (userId: string, body: Partial<Collector> & { employee_code?: string; contact_phone?: string | null }) =>
     put<Collector>(`/ops/collectors/${userId}`, body),
+  createFieldStaff: (body: FieldStaffCreate) =>
+    post<{ member: Collector; temporary_password: string }>(`/ops/field-staff`, body),
+  resetFieldPassword: (userId: string) =>
+    post<{ temporary_password: string }>(`/ops/field-staff/${userId}/reset-password`),
+  setFieldStatus: (userId: string, active: boolean, reason?: string) =>
+    post<Collector>(`/ops/field-staff/${userId}/status`, { active, reason }),
   live: () => get<{ jobs: LiveJob[]; collectors: Collector[] }>(`/ops/live`),
   alerts: () => get<Alert[]>(`/ops/alerts`),
   serviceAreas: () => get<ServiceArea[]>(`/ops/service-areas`),

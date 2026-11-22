@@ -6,12 +6,14 @@ import AdminSidebar from "@/components/admin/Sidebar";
 import AdminHeader from "@/components/admin/Header";
 import { useAuth } from "@/lib/useAuth";
 import { isAdmin, isStaff } from "@/lib/roles";
+import { ChangePasswordGate } from "@/components/auth/PasswordForms";
+import { api } from "@/lib/api";
 
 export default function AdminShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const isLoginPage = pathname === "/login";
-  const { user, loading } = useAuth();
+  const { user, loading, refresh } = useAuth();
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
@@ -36,6 +38,20 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
       <div className="min-h-screen flex items-center justify-center bg-[#f4f8ff] dark:bg-gray-950">
         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-sky-600" />
       </div>
+    );
+  }
+
+  if (user?.must_change_password) {
+    return (
+      <ChangePasswordGate
+        name={user.name ?? ""}
+        onDone={() => refresh()}
+        onSignOut={async () => {
+          await api.auth.logout().catch(() => undefined);
+          await refresh();
+          router.push("/login");
+        }}
+      />
     );
   }
 

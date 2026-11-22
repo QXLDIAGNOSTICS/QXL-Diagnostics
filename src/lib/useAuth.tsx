@@ -12,6 +12,8 @@ export interface AuthUser {
   role: string;
   is_email_verified: boolean;
   is_phone_verified: boolean;
+  /** Signed in with a temporary password; the panel asks for a new one first. */
+  must_change_password?: boolean;
   /** Resolved server-side (DB-aware — includes super-admin-defined custom
    * roles), so the frontend never needs to re-derive access from a
    * hardcoded role list. Always prefer these over string-matching `role`. */
