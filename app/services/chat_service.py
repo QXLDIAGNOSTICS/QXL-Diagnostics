@@ -21,7 +21,7 @@ from app.core.logging import get_logger
 from app.models.conversation import Conversation, Message
 from app.models.user import User
 from app.services import retrieval_service
-from app.services.chat_tools import TOOL_SPECS, execute_tool
+from app.services.chat_tools import GUEST_TOOL_SPECS, TOOL_SPECS, execute_tool
 from app.services.embedding_service import get_openai_client
 
 logger = get_logger(__name__)
@@ -151,13 +151,42 @@ async def _persist_message(
     db.add(Message(conversation_id=conversation_id, role=role, content=content))
 
 
+def _sse(payload: dict | str) -> str:
+    """Format one Server-Sent Event ``data:`` frame."""
+    data = payload if isinstance(payload, str) else json.dumps(payload)
+    return f"data: {data}\n\n"
+
+
+SSE_DONE = _sse("[DONE]")
+
+
+async def _stream_deltas(
+    client, messages: list[dict], collected: list[str]
+) -> AsyncGenerator[str, None]:
+    """Stream the final answer as ``delta`` events, appending text to ``collected``."""
+    stream = await client.chat.completions.create(
+        model=settings.OPENAI_MODEL,
+        messages=messages,
+        stream=True,
+        temperature=0.2,
+    )
+    async for chunk in stream:
+        if not chunk.choices:
+            continue
+        delta = chunk.choices[0].delta.content or ""
+        if delta:
+            collected.append(delta)
+            yield _sse({"delta": delta})
+
+
 async def _run_tool_loop(
     client,
     db: AsyncSession,
-    user: User,
+    user: User | None,
     messages: list[dict],
     *,
     location: tuple[float, float] | None = None,
+    tools: list[dict] = TOOL_SPECS,
 ) -> tuple[list[dict], dict | None]:
     """Resolve backend tool calls in a bounded loop before the final streamed answer.
 
@@ -165,6 +194,7 @@ async def _run_tool_loop(
     Each requested tool is executed against the DB (scoped to ``user`` for
     anything personal) and its JSON result is appended as a ``tool`` message.
     Capped at ``MAX_TOOL_HOPS`` so a confused model can never loop forever.
+    ``user`` is ``None`` for guests, who get ``tools=GUEST_TOOL_SPECS``.
 
     Returns the updated messages plus, if a ``create_payment_order`` tool call
     succeeded, its parsed JSON result — the caller emits this as a dedicated
@@ -176,7 +206,7 @@ async def _run_tool_loop(
         response = await client.chat.completions.create(
             model=settings.OPENAI_MODEL,
             messages=messages,
-            tools=TOOL_SPECS,
+            tools=tools,
             tool_choice="auto",
             temperature=0.2,
         )
@@ -230,73 +260,80 @@ async def stream_answer(
     lat: float | None = None,
     lng: float | None = None,
 ) -> AsyncGenerator[str, None]:
-    """Yield Server-Sent Events streaming a grounded assistant response."""
+    """Yield Server-Sent Events streaming a grounded assistant response.
+
+    The stream always ends with ``data: [DONE]``. Any failure once the
+    response has started (OpenAI auth/quota/model errors, retrieval, the
+    final completion, persistence) is logged and sent as a single
+    ``{"error": ...}`` event — the HTTP status is already 200 by then, so
+    closing silently would leave the client with an empty body.
+    """
     location = (lat, lng) if lat is not None and lng is not None else None
-    conversation = await _get_or_create_conversation(db, user, conversation_id)
-    conv_id = conversation.id
-
-    # Emit the conversation id first so clients can continue the thread.
-    yield f"data: {json.dumps({'conversation_id': str(conv_id)})}\n\n"
-
-    context = await retrieval_service.retrieve_context(
-        db, owner_id=user.id, question=question
-    )
-    history = await _load_recent_history(db, conv_id)
-
-    messages = [
-        {
-            "role": "system",
-            "content": (
-                f"{SYSTEM_PROMPT}\n\nCurrent user: {user.name or 'Unknown'} "
-                f"({user.email or 'no email on file'}).\n\n"
-                f"Context from the user's uploaded documents:\n{context or '(no user documents found)'}"
-            ),
-        },
-        *history,
-        {"role": "user", "content": question},
-    ]
-
-    client = get_openai_client()
-
+    conv_id: uuid.UUID | None = None
     payment_order: dict | None = None
-    try:
-        messages, payment_order = await _run_tool_loop(client, db, user, messages, location=location)
-    except Exception:  # noqa: BLE001 - tool resolution must never break the chat turn
-        logger.exception("Tool resolution failed; answering without tool grounding")
-
     collected: list[str] = []
+
     try:
-        stream = await client.chat.completions.create(
-            model=settings.OPENAI_MODEL,
-            messages=messages,
-            stream=True,
-            temperature=0.2,
+        conversation = await _get_or_create_conversation(db, user, conversation_id)
+        conv_id = conversation.id
+
+        # Emit the conversation id first so clients can continue the thread.
+        yield _sse({"conversation_id": str(conv_id)})
+
+        context = await retrieval_service.retrieve_context(
+            db, owner_id=user.id, question=question
         )
-        async for chunk in stream:
-            if not chunk.choices:
-                continue
-            delta = chunk.choices[0].delta.content or ""
-            if delta:
-                collected.append(delta)
-                yield f"data: {json.dumps({'delta': delta})}\n\n"
-    except Exception as exc:  # noqa: BLE001 - surface a clean SSE error to the client
-        logger.exception("Chat streaming failed")
-        yield f"data: {json.dumps({'error': 'generation_failed'})}\n\n"
-        # Still persist the user turn below before returning.
-        _ = exc
+        history = await _load_recent_history(db, conv_id)
+
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    f"{SYSTEM_PROMPT}\n\nCurrent user: {user.name or 'Unknown'} "
+                    f"({user.email or 'no email on file'}).\n\n"
+                    "Context from the user's uploaded documents:\n"
+                    f"{context or '(no user documents found)'}"
+                ),
+            },
+            *history,
+            {"role": "user", "content": question},
+        ]
+
+        client = get_openai_client()
+
+        try:
+            messages, payment_order = await _run_tool_loop(
+                client, db, user, messages, location=location
+            )
+        except Exception:  # noqa: BLE001 - tool resolution must never break the chat turn
+            logger.exception("Tool resolution failed; answering without tool grounding")
+
+        async for event in _stream_deltas(client, messages, collected):
+            yield event
+    except NotFoundError:
+        yield _sse({"error": "conversation_not_found"})
+    except Exception:  # noqa: BLE001 - surface a clean SSE error to the client
+        logger.exception("Chat generation failed")
+        yield _sse({"error": "generation_failed"})
 
     if payment_order:
         # Emit *after* the streamed confirmation so the Pay button lands below
         # the text. The frontend must never overwrite this event with deltas.
-        yield f"data: {json.dumps({'payment_order': payment_order})}\n\n"
+        yield _sse({"payment_order": payment_order})
 
-    answer = "".join(collected)
-    await _persist_message(db, conv_id, "user", question)
-    if answer:
-        await _persist_message(db, conv_id, "assistant", answer)
-    await db.commit()
+    if conv_id is not None:
+        # Persist the user turn (and any partial answer) even when generation
+        # failed, so the conversation id already sent to the client stays valid.
+        try:
+            answer = "".join(collected)
+            await _persist_message(db, conv_id, "user", question)
+            if answer:
+                await _persist_message(db, conv_id, "assistant", answer)
+            await db.commit()
+        except Exception:  # noqa: BLE001 - the client must still get [DONE]
+            logger.exception("Failed to persist chat turn")
 
-    yield "data: [DONE]\n\n"
+    yield SSE_DONE
 
 
 async def list_conversations(db: AsyncSession, user: User) -> list[Conversation]:
@@ -331,9 +368,10 @@ async def stream_answer_guest(
     - No personal tool access (bookings, prescriptions, payment).
     - No conversation persistence (stateless — each call is independent).
     - Uses public knowledge retrieval only.
-    """
-    from app.services.chat_tools import GUEST_TOOL_SPECS, execute_tool
 
+    Like ``stream_answer``, it always ends with ``data: [DONE]`` and reports
+    failures as an ``{"error": "generation_failed"}`` event.
+    """
     GUEST_SYSTEM_PROMPT = (
         "You are the QXL Diagnostics AI assistant. You help visitors learn about "
         "QXL Diagnostics: lab tests, health packages, prices, collection centers, "
@@ -349,76 +387,26 @@ async def stream_answer_guest(
 
     location = (lat, lng) if lat is not None and lng is not None else None
 
-    # Public-only history: use conversation_id if provided but don't persist
-    history: list[dict] = []
-    if conversation_id is not None:
-        # Load last few turns if the conversation exists and is publicly readable
-        # (guests can't have DB conversations, so this is a no-op safety guard)
-        history = []
-
+    # Guests are stateless: ``conversation_id`` is accepted for API
+    # compatibility, but no history is loaded or persisted.
     messages = [
         {"role": "system", "content": GUEST_SYSTEM_PROMPT},
-        *history,
         {"role": "user", "content": question},
     ]
 
-    client = get_openai_client()
-
-    # Tool loop (public tools only)
-    guest_tool_specs = GUEST_TOOL_SPECS
-    for _ in range(MAX_TOOL_HOPS):
-        response = await client.chat.completions.create(
-            model=settings.OPENAI_MODEL,
-            messages=messages,
-            tools=guest_tool_specs,
-            tool_choice="auto",
-            temperature=0.2,
-        )
-        message = response.choices[0].message
-        if not message.tool_calls:
-            break
-        messages.append(
-            {
-                "role": "assistant",
-                "content": message.content,
-                "tool_calls": [
-                    {"id": tc.id, "type": "function", "function": {"name": tc.function.name, "arguments": tc.function.arguments}}
-                    for tc in message.tool_calls
-                ],
-            }
-        )
-        for tool_call in message.tool_calls:
-            import json as _json
-            try:
-                arguments = _json.loads(tool_call.function.arguments or "{}")
-            except _json.JSONDecodeError:
-                arguments = {}
-            result = await execute_tool(
-                tool_call.function.name, arguments, db=db, user=None, location=location
-            )
-            messages.append({"role": "tool", "tool_call_id": tool_call.id, "content": result})
-
-    # Emit a temporary conversation marker so frontend doesn't crash
-    import json as _json2
-    yield f"data: {_json2.dumps({'conversation_id': str(uuid.uuid4())})}\n\n"
-
-    collected: list[str] = []
     try:
-        stream = await client.chat.completions.create(
-            model=settings.OPENAI_MODEL,
-            messages=messages,
-            stream=True,
-            temperature=0.2,
-        )
-        async for chunk in stream:
-            if not chunk.choices:
-                continue
-            delta = chunk.choices[0].delta.content or ""
-            if delta:
-                collected.append(delta)
-                yield f"data: {_json2.dumps({'delta': delta})}\n\n"
-    except Exception:  # noqa: BLE001
-        logger.exception("Guest chat streaming failed")
-        yield f"data: {_json2.dumps({'error': 'generation_failed'})}\n\n"
+        # Temporary conversation marker so clients that expect one don't break.
+        # Sent before any OpenAI call so the client gets a first event at once.
+        yield _sse({"conversation_id": str(uuid.uuid4())})
 
-    yield "data: [DONE]\n\n"
+        client = get_openai_client()
+        messages, _ = await _run_tool_loop(
+            client, db, None, messages, location=location, tools=GUEST_TOOL_SPECS
+        )
+        async for event in _stream_deltas(client, messages, []):
+            yield event
+    except Exception:  # noqa: BLE001 - surface a clean SSE error to the client
+        logger.exception("Guest chat generation failed")
+        yield _sse({"error": "generation_failed"})
+
+    yield SSE_DONE
