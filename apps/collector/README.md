@@ -11,10 +11,13 @@ account that signs in:
 - **Courier** — accept custody by scanning every tube in the bag, pass it to another courier
   or set the destination lab, report a missing or damaged specimen.
 
-Accounts are ordinary staff users with the `collector` or `courier` role, created in the
-admin panel (**Users**), plus a field profile (**Collectors & Areas**: employee code, zone,
-shift, working days). Sign-in is staff identifier + password + one-time code. Field roles
-cannot sign in to the patient app or the admin panel.
+Accounts are created by an administrator in the admin panel (**Field Team & Areas → Add
+collector or courier**) from the person's details; that creates the login and the field profile
+(employee code, zone, shift, working days) and shows a one-time temporary password. Sign-in is
+phone or email + password + a one-time SMS code; the first sign-in forces the person to choose
+their own password. **Forgot password** (sign-in screen) and **Change password** (profile) send a
+code by SMS and another by email; both are needed, and every device is signed out afterwards.
+Field roles cannot sign in to the patient app or the admin panel.
 
 ## Safety rules (enforced in the app *and* on the server)
 

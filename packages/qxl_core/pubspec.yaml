@@ -30,3 +30,19 @@ dev_dependencies:
 flutter:
   assets:
     - assets/brand/qxl_logo.png
+    - assets/fonts/OFL.txt
+  # Plus Jakarta Sans — the qxldiagnostics.com typeface (SIL OFL 1.1, see
+  # assets/fonts/OFL.txt). Static weights cut from the variable font.
+  fonts:
+    - family: PlusJakartaSans
+      fonts:
+        - asset: assets/fonts/PlusJakartaSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/PlusJakartaSans-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/PlusJakartaSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/PlusJakartaSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/PlusJakartaSans-ExtraBold.ttf
+          weight: 800

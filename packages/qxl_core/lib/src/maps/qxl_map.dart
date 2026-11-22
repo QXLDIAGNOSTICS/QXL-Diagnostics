@@ -96,7 +96,7 @@ class _PinIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final (icon, color) = switch (kind) {
       MapPinKind.home => (Icons.home_rounded, Brand.navy),
-      MapPinKind.collector => (Icons.directions_bike_rounded, Brand.gold),
+      MapPinKind.collector => (Icons.directions_bike_rounded, Brand.accent),
       MapPinKind.lab => (Icons.science_rounded, Brand.mint),
     };
     return Container(

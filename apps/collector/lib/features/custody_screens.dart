@@ -481,7 +481,27 @@ class ProfileScreen extends ConsumerWidget {
           ListTile(
             leading: const Icon(Icons.sync),
             title: const Text('Sync status'),
+            trailing: const Icon(Icons.chevron_right),
             onTap: () => context.push('/sync'),
+          ),
+          ListTile(
+            leading: const Icon(Icons.password),
+            title: const Text('Change password'),
+            subtitle: const Text('Codes go to your phone and email. You’ll sign in again afterwards.'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () async {
+              if (ref.read(offlineQueueProvider).pendingCount > 0) {
+                showSnack(context, 'Sync your saved actions first — changing the password signs you out.');
+                return;
+              }
+              try {
+                final account = await ref.read(repositoryProvider).me();
+                if (!context.mounted) return;
+                await context.push('/change-password', extra: account?.email ?? account?.phone);
+              } catch (e) {
+                if (context.mounted) showSnack(context, describeError(e));
+              }
+            },
           ),
           const SizedBox(height: 16),
           OutlinedButton.icon(

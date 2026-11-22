@@ -15,6 +15,61 @@ Nothing from this phase is committed, pushed or deployed yet.
 | Shared core | `qxl-mobile/packages/qxl_core` | API client, config, navy/gold theme, widgets, OSM map, push wrapper |
 | Ops portal | `qxl-admin/src/app/collect/*` | Dispatch, Live map (Leaflet + OSM), Collectors & areas, Lab receiving, Lab reports (+ ITDOSE sync queue), Collect dashboard; each page is shown only to roles with its permission |
 
+## Update 2026-11-23 — accounts, passwords, payment checks, new look
+
+**Field staff accounts (admin → Field Team & Areas).** An administrator (permission
+`field_team.manage`, which admins have) adds a collector or courier from their details: name,
+DOB, mobile, email, employee code, zone, shift. The backend creates the login and the field
+profile together and returns a **12-character temporary password, shown once** to hand over in
+person. The same page issues a new temporary password (also clears a lockout and signs them
+out) and disables / re-enables a login. Disabling signs the person out at once and puts their
+not-yet-started visits back in the dispatch queue; it is refused while they are on the way to or
+at a patient. The Users page shows disabled / must-set-password status for all staff and can
+disable other accounts.
+
+**Passwords.**
+- First sign-in with a temporary password (collector app *and* admin panel): password + OTP,
+  then a forced "Set your password" screen. Until then the server refuses every other API call
+  (`403 password_change_required`), so a temporary password can't be used for anything else.
+- Forgot / change password: one code by **SMS** and a second, different code by **email**;
+  both are required. Same answer for unknown accounts, 5 requests per hour, 5 wrong tries per
+  request, single use, 5-minute expiry. A successful change signs the account out everywhere
+  and emails the owner.
+- Rule everywhere a password is set: 8–72 characters, letters and digits, must not contain the
+  mobile number or email name, must differ from the current one.
+- Staff passwords set by an admin on the Users page are now temporary too.
+
+**Auth fixes found in the audit.** A password attempt on a phone-only patient account crashed
+with a 500 (now a normal 401). Unknown accounts now take as long as real ones to reject.
+OTPs are compared in constant time. Disabled accounts can't sign in by password or phone OTP,
+and their existing sessions stop working on the next request.
+
+**Razorpay.** `POST /payments/verify` now checks the signature **and** asks Razorpay for the
+payment, accepting it only if it belongs to the order, is for the full amount in INR and is
+captured (authorized payments are captured). If Razorpay can't be reached the answer is `409
+payment_pending` and the app shows "confirming" until the webhook settles it. Webhooks with a
+different amount/currency are ignored and logged; a partial refund no longer marks the whole
+booking refunded; reconciliation applies the same amount check.
+
+**Look.** Both apps use the website's design tokens (`qxl-frontend/public/qxl-design-tokens.css`):
+corporate navy `#082C61`, primary blue `#1055AE`, light blue `#EAF6FF`, teal and the logo gold as
+a small accent, and the website font **Plus Jakarta Sans** (bundled, SIL OFL, licence in
+`packages/qxl_core/assets/fonts/OFL.txt`). The "Book now" gradient starts at `#1672C4` rather
+than the site's brighter blue so white text stays above 4.5:1. The collector app has a navy
+header with day stats and a duty toggle; sign-in, set-password and reset screens share one
+branded layout.
+
+**Verified 2026-11-23** (local backend, emulator, admin in a browser): admin created a collector
+→ she signed in with the temporary password + OTP → a password containing her email name was
+refused → she set her own → patient booked a home visit → admin assigned it to her → she
+acknowledged, travelled, arrived, verified identity with DOB + visit code, linked a tube, took
+cash → the patient's tracker moved Booked → Collector assigned → On the way → Collected →
+she signed out, reset her password with the SMS + email codes, and signed in with the new one.
+Backend real-DB tests: 6 passed (4 new: field-staff lifecycle, reset codes, login edge cases,
+Razorpay verification/webhooks). Patient tests 55, collector tests 14, admin `tsc`/`eslint`
+clean. Not verified: a real Razorpay payment (needs test keys) and the lab/report steps, which
+didn't change since 2026-11-15.
+
 ## Owner decisions applied (2026-11-15)
 
 Flutter for both apps · ops screens in qxl-admin · OpenStreetMap · FCM plus existing
@@ -89,7 +144,7 @@ Against a fresh local database seeded with `scripts/seed_data.py` and
 ## Deploying
 
 1. Review and commit the backend (branch `backend`) — leave `app/services/chat_service.py` out;
-   another session changed it. Deploy, then run `alembic upgrade head` (adds `0025_qxl_collect`;
+   another session changed it. Deploy, then run `alembic upgrade head` (adds `0025_qxl_collect` and `0026_account_security`;
    additive only, the website keeps working).
 2. Set the new settings in Railway (all in `.env.example` under "QXL Collect"):
    `VISITS_PER_COLLECTOR_PER_SLOT`, `HOME_VISIT_BOOKING_DAYS`, `CONSENT_VERSION`,

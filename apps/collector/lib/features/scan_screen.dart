@@ -107,7 +107,7 @@ class _ScanScreenState extends State<_ScanScreen> {
               width: 280,
               height: 160,
               decoration: BoxDecoration(
-                border: Border.all(color: Brand.gold, width: 3),
+                border: Border.all(color: Brand.accent, width: 3),
                 borderRadius: BorderRadius.circular(16),
               ),
             ),

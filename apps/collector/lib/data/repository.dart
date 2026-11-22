@@ -24,6 +24,32 @@ class CollectorRepository {
     decode: (j) => LoginStatus.fromJson(asJson(j)),
   );
 
+  // ── Passwords ─────────────────────────────────────────────────────────────
+  Future<PasswordResetStart> forgotPassword(String identifier) => _api.post(
+    '/auth/password/forgot',
+    body: {'identifier': identifier.trim()},
+    decode: (j) => PasswordResetStart.fromJson(asJson(j)),
+  );
+
+  Future<void> resetPassword({
+    required String resetId,
+    required String phoneCode,
+    String? emailCode,
+    required String newPassword,
+  }) => _api.post(
+    '/auth/password/reset',
+    body: {
+      'reset_id': resetId,
+      'phone_code': phoneCode.trim(),
+      if (emailCode != null && emailCode.trim().isNotEmpty) 'email_code': emailCode.trim(),
+      'new_password': newPassword,
+    },
+    decode: (_) {},
+  );
+
+  Future<void> changePassword(String current, String next) =>
+      _api.post('/auth/password/change', body: {'current_password': current, 'new_password': next}, decode: (_) {});
+
   Future<AppUser?> me() => _api.get('/auth/me', decode: (j) => j is Map ? AppUser.fromJson(asJson(j)) : null);
 
   Future<void> logout() => _api.post('/auth/logout', decode: (_) {});

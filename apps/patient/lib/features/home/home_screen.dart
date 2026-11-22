@@ -41,18 +41,34 @@ class HomeScreen extends ConsumerWidget {
             SliverAppBar(
               floating: true,
               titleSpacing: 16,
-              title: Row(
-                children: [
-                  const QxlLogo(size: 36),
-                  const SizedBox(width: 10),
-                  Flexible(
-                    child: Text(
-                      user?.name != null ? 'Hi, ${user!.name!.split(' ').first}' : 'QXL Diagnostics',
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                ],
-              ),
+              toolbarHeight: 64,
+              backgroundColor: Brand.blueSoft,
+              title: user?.name != null
+                  ? Row(
+                      children: [
+                        const QxlLogo(size: 38),
+                        const SizedBox(width: 10),
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'Hi, ${user!.name!.split(' ').first}',
+                                overflow: TextOverflow.ellipsis,
+                                style: context.text.titleMedium?.copyWith(fontWeight: FontWeight.w800),
+                              ),
+                              Text(
+                                'QXL Diagnostics · Super Speciality Lab',
+                                overflow: TextOverflow.ellipsis,
+                                style: context.text.labelSmall?.copyWith(color: context.colors.onSurfaceVariant),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                  : const QxlWordmark(size: 38),
               actions: [
                 if (settings?.aiChatEnabled ?? true)
                   IconButton(
@@ -68,7 +84,12 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ],
             ),
-            SliverToBoxAdapter(child: _SearchField(onTap: () => context.push(Routes.search))),
+            SliverToBoxAdapter(
+              child: DecoratedBox(
+                decoration: const BoxDecoration(gradient: Brand.washGradient),
+                child: _SearchField(onTap: () => context.push(Routes.search)),
+              ),
+            ),
             if (user != null) const SliverToBoxAdapter(child: _ActiveVisitBanner()),
             if (settings?.maintenanceMode == true)
               const SliverToBoxAdapter(
@@ -90,6 +111,7 @@ class HomeScreen extends ConsumerWidget {
                 ),
               ),
             const SliverToBoxAdapter(child: _BannerCarousel()),
+            const SliverToBoxAdapter(child: _HomeCollectionCta()),
             const SliverToBoxAdapter(child: _QuickActions()),
             const SliverToBoxAdapter(child: _FeaturedPackages()),
             const SliverToBoxAdapter(child: _Specialities()),
@@ -118,10 +140,13 @@ class _SearchField extends StatelessWidget {
         label: 'Search tests and packages',
         excludeSemantics: true,
         child: Material(
-          color: context.colors.surfaceContainerHigh,
-          borderRadius: BorderRadius.circular(16),
+          color: context.theme.brightness == Brightness.light ? Colors.white : context.colors.surfaceContainerHigh,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(28),
+            side: BorderSide(color: context.colors.outlineVariant),
+          ),
           child: InkWell(
-            borderRadius: BorderRadius.circular(16),
+            customBorder: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
             onTap: onTap,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -131,7 +156,7 @@ class _SearchField extends StatelessWidget {
                   const SizedBox(width: 12),
                   Expanded(
                     child: Text(
-                      'Search tests or health packages',
+                      'Search for lab tests or packages',
                       style: context.text.bodyLarge?.copyWith(color: context.colors.onSurfaceVariant),
                     ),
                   ),
@@ -320,6 +345,66 @@ class _BannerTile extends StatelessWidget {
   }
 }
 
+/// Home sample collection, the main thing patients come for.
+class _HomeCollectionCta extends StatelessWidget {
+  const _HomeCollectionCta();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 20, 16, 0),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Brand.navy, Color(0xFF0E4386)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(22),
+          boxShadow: Brand.cardShadow,
+        ),
+        padding: const EdgeInsets.all(18),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Brand.gold.withValues(alpha: 0.2),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    'HOME SAMPLE COLLECTION',
+                    style: context.text.labelSmall?.copyWith(color: const Color(0xFFF5D08A), letterSpacing: 0.8),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 10),
+            Text(
+              'A certified phlebotomist at your door',
+              style: context.text.titleLarge?.copyWith(color: Colors.white),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'Pick a slot, track your collector live, and get your report in the app.',
+              style: context.text.bodyMedium?.copyWith(color: Colors.white.withValues(alpha: 0.8)),
+            ),
+            const SizedBox(height: 14),
+            GradientButton(
+              label: 'BOOK NOW',
+              icon: Icons.arrow_forward,
+              onPressed: () => context.go(Routes.exploreTab(ExploreTab.tests)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class _QuickActions extends ConsumerWidget {
   const _QuickActions();
 
@@ -353,28 +438,32 @@ class _QuickActions extends ConsumerWidget {
               for (final (icon, label, color, onTap) in actions)
                 SizedBox(
                   width: width,
-                  child: Material(
-                    color: color.withValues(alpha: 0.12),
-                    borderRadius: BorderRadius.circular(16),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(16),
-                      onTap: onTap,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 8),
-                        child: Column(
-                          children: [
-                            Icon(
-                              icon,
-                              color: Theme.of(context).brightness == Brightness.dark
-                                  ? Color.lerp(color, Colors.white, 0.35)
-                                  : Color.lerp(color, Colors.black, 0.35),
-                              size: 28,
-                            ),
-                            const SizedBox(height: 8),
-                            Text(label, textAlign: TextAlign.center, style: context.text.labelMedium),
-                          ],
+                  child: BrandCard(
+                    onTap: onTap,
+                    padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 8),
+                    child: Column(
+                      children: [
+                        IconTile(
+                          icon: icon,
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Color.lerp(color, Colors.white, 0.35)
+                              : Color.lerp(color, Colors.black, 0.25),
                         ),
-                      ),
+                        const SizedBox(height: 8),
+                        // Room for two lines on every tile so a row stays even.
+                        ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minHeight: MediaQuery.textScalerOf(context).scale(
+                              2 * (context.text.labelMedium?.fontSize ?? 12) * 1.45,
+                            ),
+                          ),
+                          child: Text(
+                            label,
+                            textAlign: TextAlign.center,
+                            style: context.text.labelMedium?.copyWith(fontWeight: FontWeight.w700, height: 1.35),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

@@ -254,8 +254,8 @@ class _StatusCard extends StatelessWidget {
     final (icon, color) = switch (v.stage) {
       'cancelled' || 'unsuccessful' => (Icons.cancel_outlined, context.colors.error),
       'report_ready' => (Icons.verified_outlined, context.status.success),
-      'on_the_way' => (Icons.directions_bike_rounded, Brand.gold),
-      'arrived' => (Icons.door_front_door_outlined, Brand.gold),
+      'on_the_way' => (Icons.directions_bike_rounded, Brand.accent),
+      'arrived' => (Icons.door_front_door_outlined, Brand.accent),
       'awaiting_payment' => (Icons.payments_outlined, context.status.warning),
       _ => (Icons.event_available_outlined, context.colors.primary),
     };
@@ -334,7 +334,7 @@ class _Progress extends StatelessWidget {
                             : (i == current ? Icons.radio_button_checked : Icons.radio_button_unchecked),
                         size: 22,
                         color: i <= current
-                            ? (i == current ? Brand.gold : context.status.success)
+                            ? (i == current ? Brand.accent : context.status.success)
                             : context.colors.outline,
                       ),
                       const SizedBox(height: 4),
@@ -488,7 +488,7 @@ class _VisitCodeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Brand.goldSoft,
+      color: Brand.accentSoft,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(

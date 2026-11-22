@@ -44,6 +44,17 @@ final locationSharingProvider = Provider<LocationSharing>((ref) {
 /// Signed-in staff member's collector profile (null when signed out).
 final sessionProvider = AsyncNotifierProvider<SessionController, CollectorMe?>(SessionController.new);
 
+/// True while the signed-in account still has its temporary password: the
+/// app shows only the "set your password" screen until it's changed.
+final passwordChangeRequiredProvider = NotifierProvider<PasswordChangeRequired, bool>(PasswordChangeRequired.new);
+
+class PasswordChangeRequired extends Notifier<bool> {
+  @override
+  bool build() => false;
+
+  void set(bool value) => state = value;
+}
+
 class SessionController extends AsyncNotifier<CollectorMe?> {
   StreamSubscription<bool>? _sub;
 
@@ -60,6 +71,10 @@ class SessionController extends AsyncNotifier<CollectorMe?> {
     try {
       return await repo.profile();
     } on ApiException catch (e) {
+      if (e.code == 'password_change_required') {
+        ref.read(passwordChangeRequiredProvider.notifier).set(true);
+        return null;
+      }
       if (e.kind == ApiErrorKind.forbidden) {
         // Signed in but not a collector/courier: sign out of this app.
         await session.clear();
@@ -75,7 +90,9 @@ class SessionController extends AsyncNotifier<CollectorMe?> {
   Future<LoginChallenge> login(String identifier, String password) =>
       ref.read(repositoryProvider).login(identifier, password);
 
-  Future<CollectorMe> verifyOtp(String challengeId, String otp) async {
+  /// Returns the signed-in collector, or null when the account must first
+  /// replace its temporary password ([passwordChangeRequiredProvider]).
+  Future<CollectorMe?> verifyOtp(String challengeId, String otp) async {
     final repo = ref.read(repositoryProvider);
     final status = await repo.verifyOtp(challengeId, otp);
     final session = ref.read(sessionStoreProvider);
@@ -85,6 +102,25 @@ class SessionController extends AsyncNotifier<CollectorMe?> {
         message: 'Sign-in could not be completed. Request a new code.',
       );
     }
+    if (status.mustChangePassword) {
+      ref.read(passwordChangeRequiredProvider.notifier).set(true);
+      state = const AsyncData(null);
+      return null;
+    }
+    return _loadProfileAfterSignIn();
+  }
+
+  /// Replaces the temporary password; the server keeps this device signed in.
+  Future<CollectorMe> changeTemporaryPassword(String current, String next) async {
+    await ref.read(repositoryProvider).changePassword(current, next);
+    final me = await _loadProfileAfterSignIn();
+    ref.read(passwordChangeRequiredProvider.notifier).set(false);
+    return me;
+  }
+
+  Future<CollectorMe> _loadProfileAfterSignIn() async {
+    final repo = ref.read(repositoryProvider);
+    final session = ref.read(sessionStoreProvider);
     try {
       final me = await repo.profile();
       state = AsyncData(me);
@@ -129,6 +165,7 @@ class SessionController extends AsyncNotifier<CollectorMe?> {
     await queue.clear();
     await ref.read(encryptedStoreProvider).wipe();
     await ref.read(sessionStoreProvider).clear();
+    ref.read(passwordChangeRequiredProvider.notifier).set(false);
     state = const AsyncData(null);
   }
 }

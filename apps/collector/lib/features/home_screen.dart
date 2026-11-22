@@ -19,7 +19,10 @@ class HomeScreen extends ConsumerWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('My jobs'),
+          backgroundColor: Brand.navy,
+          foregroundColor: Colors.white,
+          titleTextStyle: context.text.titleLarge?.copyWith(color: Colors.white),
+          title: const QxlWordmark(size: 32, subtitle: 'Collector', onDark: true),
           actions: [
             IconButton(
               tooltip: 'Specimens with me',
@@ -32,18 +35,21 @@ class HomeScreen extends ConsumerWidget {
               icon: const Icon(Icons.account_circle_outlined),
             ),
           ],
-          bottom: const TabBar(
-            tabs: [
-              Tab(text: 'Today'),
-              Tab(text: 'Upcoming'),
-              Tab(text: 'History'),
-            ],
-          ),
         ),
         body: Column(
           children: [
             _Header(me: me),
             const SyncBanner(),
+            Material(
+              color: context.colors.surface,
+              child: const TabBar(
+                tabs: [
+                  Tab(text: 'Today'),
+                  Tab(text: 'Upcoming'),
+                  Tab(text: 'History'),
+                ],
+              ),
+            ),
             const Expanded(child: TabBarView(children: [_JobList('today'), _JobList('upcoming'), _JobList('history')])),
           ],
         ),
@@ -59,47 +65,155 @@ class _Header extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Material(
-      color: Brand.navy,
+    final hour = DateTime.now().hour;
+    final greeting = hour < 12 ? 'Good morning' : (hour < 17 ? 'Good afternoon' : 'Good evening');
+    return DecoratedBox(
+      decoration: const BoxDecoration(gradient: Brand.fieldGradient),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 12, 8, 12),
-        child: Row(
+        padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(me.name, style: context.text.titleMedium?.copyWith(color: Colors.white)),
-                  Text(
-                    '${me.employeeCode} · ${me.zone} · ${me.shiftStart}–${me.shiftEnd}',
-                    style: context.text.bodySmall?.copyWith(color: Colors.white70),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    '${me.completedToday} done · ${me.pendingToday} to go${me.unsuccessfulToday > 0 ? ' · ${me.unsuccessfulToday} unsuccessful' : ''}',
-                    style: context.text.labelLarge?.copyWith(color: Brand.gold),
-                  ),
-                ],
-              ),
-            ),
-            Column(
+            Row(
               children: [
-                Switch(
-                  value: me.onDuty,
-                  activeThumbColor: Brand.gold,
-                  onChanged: (v) async {
-                    try {
-                      await ref.read(repositoryProvider).setDuty(v);
-                      await ref.read(sessionProvider.notifier).refreshProfile();
-                    } catch (e) {
-                      if (context.mounted) showSnack(context, describeError(e));
-                    }
-                  },
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '$greeting, ${me.name.split(' ').first}',
+                        style: context.text.titleLarge?.copyWith(color: Colors.white),
+                      ),
+                      const SizedBox(height: 2),
+                      Text(
+                        '${me.employeeCode} · ${titleCase(me.zone)} · ${me.shiftStart}–${me.shiftEnd}',
+                        style: context.text.bodySmall?.copyWith(color: Colors.white70),
+                      ),
+                    ],
+                  ),
                 ),
-                Text(me.onDuty ? 'On duty' : 'Off duty', style: context.text.labelSmall?.copyWith(color: Colors.white)),
+                _DutySwitch(me: me),
+              ],
+            ),
+            const SizedBox(height: 14),
+            Row(
+              children: [
+                _Stat(value: me.completedToday, label: 'Done'),
+                const SizedBox(width: 8),
+                _Stat(value: me.pendingToday, label: 'To go'),
+                const SizedBox(width: 8),
+                _Stat(value: me.unsuccessfulToday, label: 'Unsuccessful'),
               ],
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _Stat extends StatelessWidget {
+  const _Stat({required this.value, required this.label});
+
+  final int value;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Semantics(
+        label: '$value $label',
+        excludeSemantics: true,
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+          decoration: BoxDecoration(
+            color: Colors.white.withValues(alpha: 0.1),
+            borderRadius: BorderRadius.circular(14),
+            border: Border.all(color: Colors.white.withValues(alpha: 0.14)),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('$value', style: context.text.headlineSmall?.copyWith(color: Colors.white)),
+              Text(label, style: context.text.labelMedium?.copyWith(color: Colors.white70)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _DutySwitch extends ConsumerStatefulWidget {
+  const _DutySwitch({required this.me});
+
+  final CollectorMe me;
+
+  @override
+  ConsumerState<_DutySwitch> createState() => _DutySwitchState();
+}
+
+class _DutySwitchState extends ConsumerState<_DutySwitch> {
+  bool _busy = false;
+
+  Future<void> _toggle(bool value) async {
+    setState(() => _busy = true);
+    try {
+      await ref.read(repositoryProvider).setDuty(value);
+      await ref.read(sessionProvider.notifier).refreshProfile();
+    } catch (e) {
+      if (mounted) showSnack(context, describeError(e));
+    } finally {
+      if (mounted) setState(() => _busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final on = widget.me.onDuty;
+    return Semantics(
+      toggled: on,
+      button: true,
+      label: 'Duty',
+      value: on ? 'On duty' : 'Off duty',
+      excludeSemantics: true,
+      onTap: _busy ? null : () => _toggle(!on),
+      child: Material(
+        color: on ? const Color(0xFF16A34A).withValues(alpha: 0.22) : Colors.white.withValues(alpha: 0.12),
+        shape: const StadiumBorder(),
+        child: InkWell(
+          customBorder: const StadiumBorder(),
+          onTap: _busy ? null : () => _toggle(!on),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 6, 8),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 8,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: on ? const Color(0xFF4ADE80) : Colors.white54,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Text(on ? 'On duty' : 'Off duty', style: context.text.labelLarge?.copyWith(color: Colors.white)),
+                const SizedBox(width: 4),
+                SizedBox(
+                  height: 32,
+                  child: FittedBox(
+                    child: Switch(
+                      value: on,
+                      onChanged: _busy ? null : _toggle,
+                      activeThumbColor: Colors.white,
+                      activeTrackColor: const Color(0xFF16A34A),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -210,48 +324,54 @@ class JobCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final j = job;
-    return Card(
-      child: InkWell(
-        onTap: () => context.push('/jobs/${j.id}'),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return BrandCard(
+      onTap: () => context.push('/jobs/${j.id}'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      '${DateFormat('EEE d MMM').format(j.slotDate)} · ${j.slotLabel}',
-                      style: context.text.titleSmall,
-                    ),
-                  ),
-                  StatusPill(label: jobStatusLabel(j.status), tone: jobTone(j.status)),
-                ],
+              Icon(Icons.schedule, size: 18, color: context.colors.primary),
+              const SizedBox(width: 6),
+              Expanded(
+                child: Text(
+                  '${DateFormat('EEE d MMM').format(j.slotDate)} · ${j.slotLabel}',
+                  style: context.text.titleSmall?.copyWith(color: context.colors.primary),
+                ),
               ),
-              const SizedBox(height: 8),
-              Text(j.patientName, style: context.text.titleMedium),
-              Text(
-                '${j.locality} · ${j.pincode}',
-                style: context.text.bodyMedium?.copyWith(color: context.colors.onSurfaceVariant),
-              ),
-              const SizedBox(height: 6),
-              Text(j.tests.join(', '), maxLines: 2, overflow: TextOverflow.ellipsis, style: context.text.bodySmall),
-              const SizedBox(height: 8),
-              Wrap(
-                spacing: 6,
-                runSpacing: 6,
-                children: [
-                  if (j.kind == 'recollection') Tag('Recollection', color: context.colors.error, icon: Icons.replay),
-                  if (j.paymentMode == 'pay_on_visit')
-                    const Tag('Collect payment', color: Brand.gold, icon: Icons.payments_outlined),
-                  if (j.isDelayed) Tag('Delayed', color: context.status.warning),
-                  if (j.lat == null) Tag('No map pin', color: context.colors.error, icon: Icons.location_off_outlined),
-                ],
+              StatusPill(label: jobStatusLabel(j.status), tone: jobTone(j.status)),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Text(j.patientName, style: context.text.titleMedium?.copyWith(fontSize: 17)),
+          const SizedBox(height: 2),
+          Row(
+            children: [
+              Icon(Icons.location_on_outlined, size: 16, color: context.colors.onSurfaceVariant),
+              const SizedBox(width: 4),
+              Expanded(
+                child: Text(
+                  '${j.locality} · ${j.pincode}',
+                  style: context.text.bodyMedium?.copyWith(color: context.colors.onSurfaceVariant),
+                ),
               ),
             ],
           ),
-        ),
+          const SizedBox(height: 6),
+          Text(j.tests.join(', '), maxLines: 2, overflow: TextOverflow.ellipsis, style: context.text.bodySmall),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 6,
+            runSpacing: 6,
+            children: [
+              if (j.kind == 'recollection') Tag('Recollection', color: context.colors.error, icon: Icons.replay),
+              if (j.paymentMode == 'pay_on_visit')
+                const Tag('Collect payment', color: Brand.blue, icon: Icons.payments_outlined),
+              if (j.isDelayed) Tag('Delayed', color: context.status.warning),
+              if (j.lat == null) Tag('No map pin', color: context.colors.error, icon: Icons.location_off_outlined),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -264,7 +384,9 @@ class _CourierHome extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Courier'),
+        backgroundColor: Brand.navy,
+        foregroundColor: Colors.white,
+        title: const QxlWordmark(size: 32, subtitle: 'Courier', onDark: true),
         actions: [
           IconButton(
             tooltip: 'Profile',

@@ -64,7 +64,7 @@ class VisitCard extends StatelessWidget {
       _ => PillTone.neutral,
     };
     return Card(
-      color: highlight ? Brand.goldSoft : null,
+      color: highlight ? Brand.accentSoft : null,
       child: InkWell(
         onTap: () => context.push('/visits/${v.id}'),
         child: Padding(
@@ -220,7 +220,7 @@ class InboxScreen extends ConsumerWidget {
                     return ListTile(
                       leading: Icon(
                         item.read ? Icons.notifications_none : Icons.notifications_active,
-                        color: item.read ? context.colors.outline : Brand.gold,
+                        color: item.read ? context.colors.outline : Brand.accent,
                       ),
                       title: Text(item.title, style: item.read ? null : const TextStyle(fontWeight: FontWeight.w700)),
                       subtitle: Text('${item.body}\n${formatDateTime(item.createdAt)}'),

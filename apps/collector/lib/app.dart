@@ -12,26 +12,42 @@ import 'features/custody_screens.dart';
 import 'features/home_screen.dart';
 import 'features/job_screen.dart';
 import 'features/login_screen.dart';
+import 'features/password_screens.dart';
 
 final _authRefresh = ValueNotifier<int>(0);
 
 final routerProvider = Provider<GoRouter>((ref) {
   ref.listen(sessionProvider, (_, _) => _authRefresh.value++);
+  ref.listen(passwordChangeRequiredProvider, (_, _) => _authRefresh.value++);
   return GoRouter(
     initialLocation: '/',
     refreshListenable: _authRefresh,
     redirect: (context, state) {
       final session = ref.read(sessionProvider);
       if (session.isLoading && !session.hasValue) return null;
+      final here = state.matchedLocation;
+      if (ref.read(passwordChangeRequiredProvider)) {
+        return here == '/set-password' ? null : '/set-password';
+      }
       final signedIn = session.value != null;
-      final atLogin = state.matchedLocation == '/login';
-      if (!signedIn && !atLogin) return '/login';
-      if (signedIn && atLogin) return '/';
+      const signedOutPages = {'/login', '/forgot-password'};
+      if (!signedIn && !signedOutPages.contains(here)) return '/login';
+      if (signedIn && (signedOutPages.contains(here) || here == '/set-password')) return '/';
       return null;
     },
     routes: [
       GoRoute(path: '/', builder: (_, _) => const HomeScreen()),
       GoRoute(path: '/login', builder: (_, _) => const LoginScreen()),
+      GoRoute(path: '/set-password', builder: (_, _) => const SetPasswordScreen()),
+      GoRoute(
+        path: '/forgot-password',
+        builder: (_, s) => ResetPasswordScreen(identifier: s.extra is String ? s.extra! as String : null),
+      ),
+      GoRoute(
+        path: '/change-password',
+        builder: (_, s) =>
+            ResetPasswordScreen(identifier: s.extra is String ? s.extra! as String : null, signedIn: true),
+      ),
       GoRoute(
         path: '/jobs/:id',
         builder: (_, s) => JobScreen(id: s.pathParameters['id']!),

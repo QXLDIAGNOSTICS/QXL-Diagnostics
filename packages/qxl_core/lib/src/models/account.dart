@@ -86,17 +86,53 @@ class LoginChallenge {
 /// `LoginStatusResponse`.
 @immutable
 class LoginStatus {
-  const LoginStatus({required this.challengeId, required this.otpVerified, required this.completed});
+  const LoginStatus({
+    required this.challengeId,
+    required this.otpVerified,
+    required this.completed,
+    this.mustChangePassword = false,
+  });
 
   factory LoginStatus.fromJson(Json json) => LoginStatus(
     challengeId: json['challenge_id'] as String,
     otpVerified: boolOr(json['otp_verified'], false),
     completed: boolOr(json['completed'], false),
+    mustChangePassword: boolOr(json['must_change_password'], false),
   );
 
   final String challengeId;
   final bool otpVerified;
   final bool completed;
+
+  /// Signed in with a temporary password from an administrator: nothing
+  /// else works until a new password is set.
+  final bool mustChangePassword;
+}
+
+/// Started password reset: a code went by SMS and (if the account has one)
+/// another by email. The response is the same for unknown accounts.
+class PasswordResetStart {
+  const PasswordResetStart({required this.resetId, required this.message, required this.expiresIn});
+
+  factory PasswordResetStart.fromJson(Json json) => PasswordResetStart(
+    resetId: json['reset_id'] as String,
+    message: strOr(json['message'], 'We sent a code to your phone and another to your email.'),
+    expiresIn: intOrNull(json['expires_in']) ?? 300,
+  );
+
+  final String resetId;
+  final String message;
+  final int expiresIn;
+}
+
+/// Same rule as the backend (`password_problem`), checked before sending.
+String? passwordProblem(String value) {
+  if (value.length < 8) return 'Use at least 8 characters.';
+  if (value.length > 72) return 'Use at most 72 characters.';
+  if (!value.contains(RegExp('[A-Za-z]')) || !value.contains(RegExp(r'\d'))) {
+    return 'Use both letters and numbers.';
+  }
+  return null;
 }
 
 /// Accepts what people type ("98765 43210", "+91-98765-43210", "098...")

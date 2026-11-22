@@ -297,4 +297,39 @@ void main() {
       expect((body['payment'] as Map)['amount_paise'], 65000);
     });
   });
+
+  group('Accounts', () {
+    test('a temporary-password sign-in is flagged', () {
+      final status = LoginStatus.fromJson({
+        'challenge_id': 'c-1',
+        'otp_verified': true,
+        'completed': true,
+        'must_change_password': true,
+      });
+      expect(status.mustChangePassword, isTrue);
+      expect(LoginStatus.fromJson({'challenge_id': 'c', 'completed': true}).mustChangePassword, isFalse);
+    });
+
+    test('new passwords follow the server rule', () {
+      expect(passwordProblem('short1'), isNotNull);
+      expect(passwordProblem('lettersonly'), isNotNull);
+      expect(passwordProblem('1234567890'), isNotNull);
+      expect(passwordProblem('Field2026x'), isNull);
+    });
+
+    test('password change and reset hit the right endpoints', () async {
+      backend.routes['POST /auth/password/forgot'] = (_) =>
+          (200, {'reset_id': 'r-1', 'expires_in': 300, 'message': 'sent'});
+      backend.routes['POST /auth/password/reset'] = (_) => (204, null);
+      backend.routes['POST /auth/password/change'] = (_) => (204, null);
+      final repo = CollectorRepository(api, JobCache(MemoryEncryptedStore()));
+      final started = await repo.forgotPassword(' ravi@demo.qxl.test ');
+      expect(started.resetId, 'r-1');
+      expect((backend.requests.last.data as Map)['identifier'], 'ravi@demo.qxl.test');
+      await repo.resetPassword(resetId: 'r-1', phoneCode: '11112222', emailCode: '33334444', newPassword: 'Field2026x');
+      expect((backend.requests.last.data as Map)['email_code'], '33334444');
+      await repo.changePassword('TempPass12', 'Field2026x');
+      expect(backend.requests.last.path, endsWith('/auth/password/change'));
+    });
+  });
 }

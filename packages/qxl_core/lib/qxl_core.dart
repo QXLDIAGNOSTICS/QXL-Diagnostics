@@ -10,6 +10,7 @@ export 'src/network/api_client.dart';
 export 'src/network/api_exception.dart';
 export 'src/network/session_store.dart';
 export 'src/theme/app_theme.dart';
+export 'src/widgets/brand.dart';
 export 'src/widgets/common.dart';
 export 'src/widgets/states.dart';
 export 'src/maps/qxl_map.dart';
