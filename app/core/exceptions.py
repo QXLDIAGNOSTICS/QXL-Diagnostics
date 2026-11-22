@@ -38,6 +38,19 @@ class UnauthorizedError(AppError):
     code = "unauthorized"
 
 
+class PasswordChangeRequiredError(AppError):
+    """The session belongs to an account that must set a new password
+    (temporary password from an administrator) before doing anything else."""
+
+    status_code = status.HTTP_403_FORBIDDEN
+    code = "password_change_required"
+
+
+class AccountDisabledError(AppError):
+    status_code = status.HTTP_403_FORBIDDEN
+    code = "account_disabled"
+
+
 class ValidationError(AppError):
     status_code = 422
     code = "validation_error"

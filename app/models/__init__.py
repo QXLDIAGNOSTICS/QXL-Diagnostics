@@ -28,6 +28,7 @@ from app.models.doc_chunk import DocChunk
 from app.models.file import FileRecord
 from app.models.lead import CollaborationLead, ContactInquiry
 from app.models.login_challenge import LoginChallenge
+from app.models.password_reset import PasswordReset
 from app.models.notification import BookingNotification
 from app.models.notification_rule import NotificationRule
 from app.models.payment import Payment
@@ -45,6 +46,7 @@ __all__ = [
     "DocChunk",
     "Session",
     "LoginChallenge",
+    "PasswordReset",
     "Payment",
     "BookingNotification",
     "NotificationRule",

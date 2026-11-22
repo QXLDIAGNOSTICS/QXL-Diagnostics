@@ -8,7 +8,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core import roles as R
 from app.core.config import settings
-from app.core.exceptions import PermissionDeniedError, UnauthorizedError
+from app.core.exceptions import (
+    PasswordChangeRequiredError,
+    PermissionDeniedError,
+    UnauthorizedError,
+)
 from app.db.session import get_db
 from app.models.user import User
 from app.services import session_service
@@ -16,13 +20,9 @@ from app.services import session_service
 DbSession = Annotated[AsyncSession, Depends(get_db)]
 
 
-async def get_current_user(request: Request, db: DbSession) -> User:
-    """Resolve the current user from our first-party session cookie.
-
-    The cookie is an opaque, hashed-at-rest token (see ``session_service``) —
-    there is no JWT/Bearer path; sessions only exist after a user has
-    completed the full password + OTP + SMS-link login handshake.
-    """
+async def get_session_user(request: Request, db: DbSession) -> User:
+    """The signed-in account, even if it still has to replace a temporary
+    password. Only the auth endpoints that let it do that use this directly."""
     session_token = request.cookies.get(settings.SESSION_COOKIE_NAME)
     if not session_token:
         raise UnauthorizedError("Not authenticated")
@@ -31,6 +31,33 @@ async def get_current_user(request: Request, db: DbSession) -> User:
     if user is None:
         raise UnauthorizedError("Session expired or revoked")
     return user
+
+
+async def get_current_user(request: Request, db: DbSession) -> User:
+    """Resolve the current user from our first-party session cookie.
+
+    The cookie is an opaque, hashed-at-rest token (see ``session_service``) —
+    there is no JWT/Bearer path. An account signed in with a temporary
+    password can't use anything until it sets its own
+    (``POST /auth/password/change``).
+    """
+    user = await get_session_user(request, db)
+    if user.must_change_password:
+        raise PasswordChangeRequiredError("Set a new password to continue")
+    return user
+
+
+SessionUser = Annotated[User, Depends(get_session_user)]
+
+
+async def get_session_user_optional(request: Request, db: DbSession) -> User | None:
+    try:
+        return await get_session_user(request, db)
+    except UnauthorizedError:
+        return None
+
+
+SessionUserOptional = Annotated[User | None, Depends(get_session_user_optional)]
 
 
 CurrentUser = Annotated[User, Depends(get_current_user)]
@@ -44,7 +71,7 @@ async def get_current_user_optional(request: Request, db: DbSession) -> User | N
     """
     try:
         return await get_current_user(request, db)
-    except UnauthorizedError:
+    except (UnauthorizedError, PasswordChangeRequiredError):
         return None
 
 

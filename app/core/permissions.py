@@ -26,6 +26,7 @@ PERMISSION_CATALOG: list[dict[str, str]] = [
     {"key": "dispatch.manage", "label": "Dispatch home collections, manage collectors & service areas", "group": "QXL Collect"},
     {"key": "lab.receive", "label": "Receive specimens & transport manifests at the lab", "group": "QXL Collect"},
     {"key": "lab.report", "label": "Record lab status, upload & release authorized reports", "group": "QXL Collect"},
+    {"key": "field_team.manage", "label": "Create, reset & disable collector/courier login accounts", "group": "QXL Collect"},
     {"key": "collect.metrics", "label": "View collection & lab operations dashboard", "group": "QXL Collect"},
     {"key": "field.collect", "label": "Collector app: perform home collections", "group": "QXL Collect"},
     {"key": "field.transport", "label": "Collector app: carry & hand over specimens (courier)", "group": "QXL Collect"},

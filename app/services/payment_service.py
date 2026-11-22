@@ -20,13 +20,18 @@ from __future__ import annotations
 import hashlib
 import hmac
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import httpx
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import settings
-from app.core.exceptions import NotFoundError, PermissionDeniedError, UnauthorizedError, ValidationError
+from app.core.exceptions import (
+    NotFoundError,
+    PermissionDeniedError,
+    UnauthorizedError,
+    ValidationError,
+)
 from app.core.logging import get_logger
 from app.models.booking import Booking
 from app.models.catalog import HealthPackage, TestCatalog
@@ -239,9 +244,47 @@ def verify_payment_signature(*, order_id: str, payment_id: str, signature: str) 
     return hmac.compare_digest(expected, signature)
 
 
+class PaymentPendingError(ValidationError):
+    """Razorpay hasn't confirmed the money yet (or couldn't be reached). The
+    webhook or a reconciliation will finish it; the app shows "confirming"."""
+
+    status_code = 409
+    code = "payment_pending"
+
+
+async def _fetch_razorpay_payment(payment_id: str) -> dict | None:
+    """The payment as Razorpay records it, or None if Razorpay can't be reached."""
+    try:
+        async with httpx.AsyncClient(
+            auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET), timeout=15.0
+        ) as client:
+            resp = await client.get(f"{_RAZORPAY_BASE_URL}/payments/{payment_id}")
+    except httpx.HTTPError:
+        logger.exception("Razorpay payment lookup failed for payment=%s", payment_id)
+        return None
+    if resp.status_code >= 400:
+        logger.error("Razorpay payment lookup failed: %s %s", resp.status_code, resp.text)
+        return None
+    return resp.json()
+
+
+def _matches_order(entity: dict, payment: Payment) -> bool:
+    """The money Razorpay received is for this order, in full, in our currency."""
+    return (
+        entity.get("order_id") == payment.razorpay_order_id
+        and int(entity.get("amount") or 0) == int(payment.amount)
+        and (entity.get("currency") or "").upper() == (payment.currency or "INR").upper()
+    )
+
+
 async def verify_payment(
     db: AsyncSession, *, order_id: str, payment_id: str, signature: str
 ) -> Payment:
+    """Client callback after checkout. The signature proves Razorpay issued
+    this payment for this order; we then ask Razorpay directly that it was
+    captured, for the full amount, before marking anything paid."""
+    if not order_id or not payment_id or not signature:
+        raise UnauthorizedError("Invalid payment signature")
     if not verify_payment_signature(order_id=order_id, payment_id=payment_id, signature=signature):
         raise UnauthorizedError("Invalid payment signature")
 
@@ -249,13 +292,30 @@ async def verify_payment(
     payment = await payment_repo.get_by_order_id(order_id)
     if payment is None:
         raise NotFoundError("Payment order not found")
+    if payment.razorpay_payment_id and payment.razorpay_payment_id != payment_id and payment.status == "paid":
+        # Already paid by a different attempt on the same order: nothing to do.
+        return payment
 
     already_paid = payment.status == "paid"
+    if not already_paid:
+        entity = await _fetch_razorpay_payment(payment_id)
+        if entity is None:
+            raise PaymentPendingError("We couldn't confirm your payment with Razorpay yet. It will update shortly.")
+        if not _matches_order(entity, payment):
+            logger.error(
+                "Razorpay payment %s does not match order %s (amount/currency/order)", payment_id, order_id
+            )
+            raise ValidationError("This payment doesn't match the order. Contact QXL support.")
+        if entity.get("status") == "authorized":
+            entity = await _capture_payment(entity, amount=payment.amount, currency=payment.currency) or entity
+        if entity.get("status") != "captured":
+            raise PaymentPendingError("Your payment hasn't completed yet. It will update shortly.")
+
     payment.razorpay_payment_id = payment_id
     payment.razorpay_signature = signature
     if not already_paid:
         payment.status = "paid"
-        payment.paid_at = datetime.now(timezone.utc)
+        payment.paid_at = datetime.now(UTC)
 
     await _mark_bookings_payment_status(db, payment, payment_status="paid", notify=not already_paid)
     await _confirm_collect_visits(db, payment)
@@ -294,11 +354,18 @@ async def handle_webhook_event(db: AsyncSession, event: dict) -> None:
         return
 
     if event_type in {"payment.captured", "order.paid"}:
+        if not _matches_order(payment_entity, payment):
+            logger.error(
+                "Webhook %s for order=%s has a different amount/currency than the order — not marking paid",
+                event_type,
+                order_id,
+            )
+            return
         already_paid = payment.status == "paid"
         payment.razorpay_payment_id = payment_entity.get("id") or payment.razorpay_payment_id
         if not already_paid:
             payment.status = "paid"
-            payment.paid_at = datetime.now(timezone.utc)
+            payment.paid_at = datetime.now(UTC)
         # Webhooks are retried by Razorpay and can also arrive after the
         # client-side /verify callback already confirmed the same payment —
         # only notify on the first time we record it as paid.
@@ -317,6 +384,12 @@ async def handle_webhook_event(db: AsyncSession, event: dict) -> None:
                 db, payment, payment_status="failed", notify=not already_failed
             )
     elif event_type in {"refund.processed", "refund.created"}:
+        refunded = int(payment_entity.get("amount_refunded") or 0)
+        if refunded < int(payment.amount):
+            # Partial refund: the bookings stay paid; staff see it in Razorpay.
+            logger.info("Partial refund %s/%s on order=%s", refunded, payment.amount, order_id)
+            await db.commit()
+            return
         already_refunded = payment.status == "refunded"
         payment.status = "refunded"
         await _mark_bookings_payment_status(db, payment, payment_status="refunded", notify=not already_refunded)
@@ -388,12 +461,14 @@ async def reconcile_payment(db: AsyncSession, *, payment_id: uuid.UUID) -> Payme
             payment.status = "failed"
             payment.failure_reason = "No payment attempts found at Razorpay during reconciliation"
             await _mark_bookings_payment_status(db, payment, payment_status="failed")
+    elif latest.get("status") == "captured" and not _matches_order(latest, payment):
+        logger.error("Reconcile: captured payment on order=%s doesn't match amount/currency", payment.razorpay_order_id)
     elif latest.get("status") == "captured":
         already_paid = payment.status == "paid"
         payment.razorpay_payment_id = latest.get("id") or payment.razorpay_payment_id
         if not already_paid:
             payment.status = "paid"
-            payment.paid_at = datetime.now(timezone.utc)
+            payment.paid_at = datetime.now(UTC)
         await _mark_bookings_payment_status(db, payment, payment_status="paid", notify=not already_paid)
         await _confirm_collect_visits(db, payment)
     elif latest.get("status") in {"failed"}:

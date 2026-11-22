@@ -26,6 +26,15 @@ class User(Base, TimestampMixin):
     is_email_verified: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
     is_phone_verified: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
 
+    # Account state. A disabled account can't sign in and its sessions stop
+    # working immediately. Staff accounts created with a temporary password
+    # must set their own before the session can do anything else.
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True, server_default="true", nullable=False)
+    must_change_password: Mapped[bool] = mapped_column(
+        Boolean, default=False, server_default="false", nullable=False
+    )
+    password_changed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+
     # Brute-force protection — checked/incremented on every login attempt.
     failed_login_attempts: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
     locked_until: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)

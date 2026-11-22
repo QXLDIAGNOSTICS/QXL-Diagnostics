@@ -263,6 +263,22 @@ class CollectorIn(BaseModel):
         return normalize_phone_number(v) if v else None
 
 
+class FieldStaffIn(CollectorIn):
+    """A new collector/courier: login account + field profile in one step."""
+
+    role: str = Field(pattern=r"^(collector|courier)$")
+    name: str = Field(min_length=2, max_length=120)
+    phone: str = Field(min_length=10, max_length=16)
+    email: str = Field(min_length=5, max_length=254)
+    date_of_birth: date | None = None
+    employee_code: str = Field(min_length=2, max_length=20)
+
+
+class FieldStaffStatusIn(BaseModel):
+    active: bool
+    reason: str | None = Field(default=None, max_length=300)
+
+
 class ServiceAreaIn(BaseModel):
     pincode: str = Field(min_length=6, max_length=6)
     locality: str | None = Field(default=None, max_length=120)

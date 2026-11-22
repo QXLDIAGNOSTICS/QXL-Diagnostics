@@ -66,9 +66,15 @@ async def get_user_by_token(db: DbAsyncSession, raw_token: str) -> User | None:
         return None
     # Slide the idle window forward for this request and persist immediately
     # (this request may not otherwise call db.commit()).
+    user = await UserRepository(db).get_by_id(session.user_id)
+    if user is None or not user.is_active:
+        # Disabled accounts lose access immediately, not at session expiry.
+        await repo.revoke(session)
+        await db.commit()
+        return None
     await repo.touch(session)
     await db.commit()
-    return await UserRepository(db).get_by_id(session.user_id)
+    return user
 
 
 async def revoke_session(db: DbAsyncSession, raw_token: str) -> None:

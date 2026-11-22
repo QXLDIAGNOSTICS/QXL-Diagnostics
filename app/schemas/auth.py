@@ -10,7 +10,7 @@ from __future__ import annotations
 import uuid
 from datetime import date
 
-from pydantic import BaseModel, ConfigDict, EmailStr, field_validator
+from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator
 
 from app.core.security import normalize_phone_number
 
@@ -36,6 +36,7 @@ class UserMe(BaseModel):
     # Resolved server-side (DB-aware — recognises super-admin-defined custom
     # roles too) so the frontend never has to re-implement role-tier logic
     # against a hardcoded role list.
+    must_change_password: bool = False
     is_staff: bool = False
     is_admin: bool = False
     is_super_admin: bool = False
@@ -74,6 +75,18 @@ class RegisterResponse(BaseModel):
     phone: str
 
 
+def normalize_identifier(v: str) -> str:
+    """Email (lower-cased) or phone (E.164); anything else passes through so
+    auth fails with the generic message instead of a 422."""
+    v = v.strip()
+    if "@" in v:
+        return v.lower()
+    try:
+        return normalize_phone_number(v)
+    except ValueError:
+        return v
+
+
 class LoginRequest(BaseModel):
     identifier: str  # email or phone
     password: str
@@ -81,15 +94,7 @@ class LoginRequest(BaseModel):
     @field_validator("identifier")
     @classmethod
     def _normalize_identifier(cls, v: str) -> str:
-        v = v.strip()
-        if "@" in v:
-            return v.lower()
-        try:
-            return normalize_phone_number(v)
-        except ValueError:
-            # Not phone-shaped either — let auth fail naturally with a
-            # generic "incorrect identifier/password" instead of a 422.
-            return v
+        return normalize_identifier(v)
 
 
 class PhoneOtpLoginRequest(BaseModel):
@@ -120,4 +125,34 @@ class LoginStatusResponse(BaseModel):
     challenge_id: uuid.UUID
     otp_verified: bool
     completed: bool
+    # True when the account signed in with a temporary password and must set
+    # its own before anything else works.
+    must_change_password: bool = False
+
+
+class PasswordForgotRequest(BaseModel):
+    identifier: str = Field(min_length=3, max_length=254)
+
+    @field_validator("identifier")
+    @classmethod
+    def _normalize(cls, v: str) -> str:
+        return normalize_identifier(v)
+
+
+class PasswordForgotResponse(BaseModel):
+    reset_id: uuid.UUID
+    expires_in: int
+    message: str
+
+
+class PasswordResetRequest(BaseModel):
+    reset_id: uuid.UUID
+    phone_code: str = Field(min_length=4, max_length=12)
+    email_code: str | None = Field(default=None, max_length=12)
+    new_password: str = Field(min_length=1, max_length=128)
+
+
+class PasswordChangeRequest(BaseModel):
+    current_password: str = Field(min_length=1, max_length=128)
+    new_password: str = Field(min_length=1, max_length=128)
 

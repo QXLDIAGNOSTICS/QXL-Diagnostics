@@ -37,6 +37,8 @@ class UserRead(UserBase):
     role: str
     is_email_verified: bool
     is_phone_verified: bool
+    is_active: bool = True
+    must_change_password: bool = False
     created_at: datetime
 
 
@@ -95,3 +97,7 @@ class AdminUserCreate(BaseModel):
         if not _ROLE_KEY_RE.match(v):
             raise ValueError("role must be a lowercase slug (letters, numbers, underscores)")
         return v
+
+
+class UserStatusUpdate(BaseModel):
+    active: bool

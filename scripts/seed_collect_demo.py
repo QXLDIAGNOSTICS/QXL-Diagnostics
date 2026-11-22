@@ -7,6 +7,7 @@ LOCAL DEVELOPMENT ONLY. Refuses to run when ENVIRONMENT=production.
 
 Creates (or updates) these accounts, all with QXL_DEMO_PASSWORD:
 
+    admin@demo.qxl.test        Administrator    admin panel (creates field staff logins)
     dispatcher@demo.qxl.test   Dispatcher       admin panel → Home collection ops
     lab@demo.qxl.test          Lab Reporting    admin panel → Lab receiving / reports
     collector@demo.qxl.test    Collector        QXL Collector app (phone +919000000001)
@@ -33,6 +34,7 @@ DEMO_ZONE = "demo"
 DEMO_PIN = "560040"
 ACCOUNTS = [
     # email, phone, name, role
+    ("admin@demo.qxl.test", "+919000000009", "Demo Admin", "admin"),
     ("dispatcher@demo.qxl.test", "+919000000010", "Demo Dispatcher", "dispatcher"),
     ("lab@demo.qxl.test", "+919000000011", "Demo Lab", "lab_reporting"),
     ("collector@demo.qxl.test", "+919000000001", "Ravi Kumar", "collector"),
@@ -81,6 +83,8 @@ async def main() -> None:
             user.is_phone_verified = True
             user.failed_login_attempts = 0
             user.locked_until = None
+            user.is_active = True
+            user.must_change_password = False
             users[role] = user
         await db.flush()
 

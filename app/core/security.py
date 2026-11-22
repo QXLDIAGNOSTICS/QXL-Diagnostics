@@ -27,11 +27,54 @@ def hash_password(raw_password: str) -> str:
     return bcrypt.hashpw(raw_password.encode("utf-8"), bcrypt.gensalt(rounds=12)).decode("utf-8")
 
 
-def verify_password(raw_password: str, password_hash: str) -> bool:
+# A real bcrypt hash of a random value: checked when there is no account (or
+# no password on it) so the response takes as long as a real check and
+# doesn't reveal whether the identifier exists.
+_DUMMY_HASH = bcrypt.hashpw(b"qxl-no-such-account", bcrypt.gensalt(rounds=12))
+
+
+def verify_password(raw_password: str, password_hash: str | None) -> bool:
+    if not raw_password:
+        return False
+    if not password_hash:
+        bcrypt.checkpw(raw_password.encode("utf-8"), _DUMMY_HASH)
+        return False
     try:
         return bcrypt.checkpw(raw_password.encode("utf-8"), password_hash.encode("utf-8"))
     except ValueError:
         return False
+
+
+def password_problem(raw_password: str, *, identifiers: tuple[str | None, ...] = ()) -> str | None:
+    """Why a new password is unacceptable, or None. Same rule everywhere a
+    password is set (registration, admin-created accounts, reset, change)."""
+    if len(raw_password) < max(settings.PASSWORD_MIN_LENGTH, 8):
+        return f"Password must be at least {max(settings.PASSWORD_MIN_LENGTH, 8)} characters"
+    if len(raw_password) > 72:
+        # bcrypt only uses the first 72 bytes.
+        return "Password must be at most 72 characters"
+    if not any(c.isalpha() for c in raw_password) or not any(c.isdigit() for c in raw_password):
+        return "Password must contain both letters and numbers"
+    lowered = raw_password.lower()
+    for ident in identifiers:
+        if not ident:
+            continue
+        core = ident.lower().split("@")[0].lstrip("+")
+        if core.isdigit():
+            core = core[-10:]  # the local mobile number, without +91
+        if len(core) >= 4 and core in lowered:
+            return "Password must not contain your phone number or email"
+    return None
+
+
+def generate_temporary_password() -> str:
+    """Readable one-time password handed to a new staff member: 12 characters
+    from an alphabet without look-alikes, always with letters and digits."""
+    alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789"
+    while True:
+        value = "".join(secrets.choice(alphabet) for _ in range(12))
+        if any(c.isdigit() for c in value) and any(c.isalpha() for c in value):
+            return value
 
 
 def is_password_strong_enough(raw_password: str) -> bool:

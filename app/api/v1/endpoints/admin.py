@@ -10,13 +10,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.api.deps import DbSession, require_role
 from app.core import roles as R
 from app.core.exceptions import NotFoundError, PermissionDeniedError, ValidationError
-from app.core.security import hash_password
+from app.core.security import hash_password, password_problem
 from app.models.booking import Booking
 from app.models.lead import CollaborationLead, ContactInquiry
 from app.models.prescription import Prescription
 from app.models.user import User
 from app.repositories.user_repository import UserRepository
-from app.schemas.user import AdminUserCreate, UserList, UserRead, UserRoleUpdate
+from app.schemas.user import AdminUserCreate, UserList, UserRead, UserRoleUpdate, UserStatusUpdate
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 
@@ -79,6 +79,9 @@ async def create_user(
         raise ValidationError("A user with this email already exists")
     if await repo.get_by_phone(body.phone):
         raise ValidationError("A user with this phone number already exists")
+    problem = password_problem(body.password, identifiers=(body.phone, body.email))
+    if problem:
+        raise ValidationError(problem)
     user = await repo.create(
         email=body.email,
         phone=body.phone,
@@ -86,9 +89,37 @@ async def create_user(
         name=body.name,
         role=body.role,
     )
+    # The administrator chose this password, so it's temporary: the person
+    # must set their own at first sign-in.
+    user.must_change_password = body.role != R.ROLE_PATIENT
     await db.commit()
     await db.refresh(user)
     return UserRead.model_validate(user)
+
+
+@router.patch("/users/{user_id}/status", response_model=UserRead)
+async def set_user_status(
+    user_id: uuid.UUID,
+    body: UserStatusUpdate,
+    db: DbSession,
+    current: User = Depends(require_role("admin")),
+) -> UserRead:
+    """Disable or re-enable an account. Disabling signs it out everywhere at once."""
+    from app.services.account_service import revoke_all_sessions
+
+    target = await UserRepository(db).get_by_id(user_id)
+    if target is None:
+        raise NotFoundError("User not found")
+    if target.id == current.id:
+        raise ValidationError("You cannot disable your own account")
+    if target.role == R.ROLE_SUPER_ADMIN and not R.is_super_admin(current.role):
+        raise PermissionDeniedError("Only a super admin can change another super admin")
+    target.is_active = body.active
+    if not body.active:
+        await revoke_all_sessions(db, target.id)
+    await db.commit()
+    await db.refresh(target)
+    return UserRead.model_validate(target)
 
 
 async def _count(db: AsyncSession, model, **filters) -> int:  # noqa: ANN001

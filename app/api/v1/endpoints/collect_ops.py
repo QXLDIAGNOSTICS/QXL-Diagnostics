@@ -18,6 +18,8 @@ from app.schemas.collect import (
     AssignIn,
     CollectorIn,
     DecisionIn,
+    FieldStaffIn,
+    FieldStaffStatusIn,
     LabReceiveIn,
     LabStatusIn,
     OpsRescheduleIn,
@@ -27,7 +29,7 @@ from app.schemas.collect import (
     ServiceAreaIn,
     ServiceAreaOut,
 )
-from app.services.collect import custody, dispatch, lab, lis, metrics, visits
+from app.services.collect import custody, dispatch, lab, lis, metrics, team, visits
 from app.services.collect.common import now_utc, today_ist
 
 router = APIRouter(tags=["collect-ops"])
@@ -199,6 +201,33 @@ async def ops_field_users(db: DbSession, user: User = Dispatcher) -> list[dict]:
         {"id": u.id, "name": u.name, "phone": u.phone, "role": u.role, "has_profile": u.id in have}
         for u in rows
     ]
+
+
+FieldTeamAdmin = Depends(require_permission("field_team.manage"))
+
+
+@router.post("/ops/field-staff", status_code=201)
+async def ops_create_field_staff(body: FieldStaffIn, db: DbSession, user: User = FieldTeamAdmin) -> dict:
+    """Create a collector/courier login from the person's details. The
+    temporary password is returned once — hand it over in person; they must
+    replace it at first sign-in."""
+    member, temporary = await team.create_member(db, body.model_dump(exclude_unset=False), user)
+    row = next(c for c in await dispatch.list_collectors(db, include_inactive=True) if c["user_id"] == member.id)
+    return {"member": row, "temporary_password": temporary}
+
+
+@router.post("/ops/field-staff/{user_id}/reset-password")
+async def ops_reset_field_password(user_id: uuid.UUID, db: DbSession, user: User = FieldTeamAdmin) -> dict:
+    """New temporary password (signs them out everywhere, clears a lockout)."""
+    return {"temporary_password": await team.reset_password(db, user_id, user)}
+
+
+@router.post("/ops/field-staff/{user_id}/status")
+async def ops_field_status(
+    user_id: uuid.UUID, body: FieldStaffStatusIn, db: DbSession, user: User = FieldTeamAdmin
+) -> dict:
+    await team.set_active(db, user_id, body.active, user, body.reason)
+    return next(c for c in await dispatch.list_collectors(db, include_inactive=True) if c["user_id"] == user_id)
 
 
 @router.put("/ops/collectors/{user_id}")

@@ -139,6 +139,8 @@ def queue_row(visit: HomeVisit, collectors: dict[uuid.UUID, CollectorProfile]) -
 
 
 async def list_collectors(db: AsyncSession, *, include_inactive: bool = False) -> list[dict]:
+    from app.services.collect.team import account_state
+
     query = select(CollectorProfile).options(selectinload(CollectorProfile.user))
     if not include_inactive:
         query = query.where(CollectorProfile.is_active.is_(True))
@@ -190,6 +192,7 @@ async def list_collectors(db: AsyncSession, *, include_inactive: bool = False) -
                 if last is None
                 else {"lat": last[0], "lng": last[1], "at": last[2]},
                 "photo_url": c.photo_url,
+                **account_state(c.user),
             }
         )
     return result

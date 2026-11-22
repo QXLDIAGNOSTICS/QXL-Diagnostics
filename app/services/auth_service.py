@@ -7,12 +7,13 @@ Flow:
 from __future__ import annotations
 
 import uuid
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.config import settings
-from app.core.exceptions import UnauthorizedError, ValidationError
+from app.core.exceptions import AccountDisabledError, UnauthorizedError, ValidationError
+from app.core.logging import get_logger
 from app.core.roles import SECRET_GATED_ROLES
 from app.core.security import (
     constant_time_equals,
@@ -28,7 +29,7 @@ from app.models.user import User
 from app.repositories.login_challenge_repository import LoginChallengeRepository
 from app.repositories.user_repository import UserRepository
 from app.services import notification_service, session_service
-from app.core.logging import get_logger
+
 logger = get_logger(__name__)
 
 
@@ -63,16 +64,18 @@ async def authenticate_password(db: AsyncSession, *, identifier: str, password: 
     repo = UserRepository(db)
     user = await repo.get_by_identifier(identifier)
     if user is None:
-        # Constant-ish response — don't reveal whether the identifier exists.
+        # Same work and response as a wrong password — don't reveal whether
+        # the identifier exists.
+        verify_password(password, None)
         raise UnauthorizedError("Incorrect email/phone or password")
 
-    if user.locked_until is not None and user.locked_until > datetime.now(timezone.utc):
+    if user.locked_until is not None and user.locked_until > datetime.now(UTC):
         raise UnauthorizedError("Account temporarily locked due to too many failed attempts")
 
     if not verify_password(password, user.password_hash):
         locked_until = None
         if user.failed_login_attempts + 1 >= settings.LOGIN_LOCKOUT_THRESHOLD:
-            locked_until = datetime.now(timezone.utc) + timedelta(
+            locked_until = datetime.now(UTC) + timedelta(
                 minutes=settings.LOGIN_LOCKOUT_MINUTES
             )
         await repo.record_failed_login(
@@ -83,6 +86,10 @@ async def authenticate_password(db: AsyncSession, *, identifier: str, password: 
 
     await repo.reset_failed_logins(user)
     await db.commit()
+    if not user.is_active:
+        # Only revealed after the correct password, so it can't be used to
+        # probe which accounts exist.
+        raise AccountDisabledError("This account has been disabled. Contact your QXL administrator.")
     return user
 
 
@@ -98,6 +105,8 @@ async def authenticate_phone_otp_user(db: AsyncSession, *, phone: str) -> User:
     repo = UserRepository(db)
     user = await repo.get_by_phone(phone)
     if user is not None:
+        if not user.is_active:
+            raise AccountDisabledError("This account has been disabled. Contact QXL support.")
         if user.role in {"admin", "super_admin"}:
             raise UnauthorizedError("Admin accounts must use admin login")
         from app.core.roles import FIELD_ROLES
@@ -120,7 +129,7 @@ async def create_login_challenge(
     db: AsyncSession, user: User, *, ip_address: str | None, user_agent: str | None
 ) -> LoginChallenge:
     """Generate a fresh OTP challenge, persist hashes, and deliver OTP."""
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     raw_otp = generate_otp()
     # Keep link token fields populated for schema compatibility; login no longer
     # requires SMS-link verification.
@@ -174,9 +183,9 @@ async def verify_otp(
     if challenge.otp_verified_at is None:
         if len(otp) != settings.OTP_LENGTH or not otp.isdigit():
             raise UnauthorizedError("Incorrect or expired code")
-        if datetime.now(timezone.utc) > _aware(challenge.otp_expires_at):
+        if datetime.now(UTC) > _aware(challenge.otp_expires_at):
             raise UnauthorizedError("Code has expired — please log in again")
-        if hash_opaque_value(otp) != challenge.otp_hash:
+        if not constant_time_equals(hash_opaque_value(otp), challenge.otp_hash):
             challenge.otp_attempts += 1
             await db.commit()
             raise UnauthorizedError("Incorrect or expired code")
@@ -184,6 +193,8 @@ async def verify_otp(
         user = await UserRepository(db).get_by_id(challenge.user_id)
         if user is None:
             raise UnauthorizedError("Account no longer exists")
+        if not user.is_active:
+            raise AccountDisabledError("This account has been disabled. Contact your QXL administrator.")
 
         # Promote configured super-admin identifiers automatically. Evaluated
         # before the secret-key gate below so the very first super-admin
@@ -208,7 +219,7 @@ async def verify_otp(
             if not constant_time_equals(admin_secret_key, settings.ADMIN_ACCESS_KEY):
                 raise UnauthorizedError("Incorrect Super Admin secret key")
 
-        challenge.otp_verified_at = datetime.now(timezone.utc)
+        challenge.otp_verified_at = datetime.now(UTC)
         user.is_phone_verified = True
         await db.commit()
 
@@ -232,8 +243,10 @@ async def _maybe_complete_login(db: AsyncSession, challenge: LoginChallenge) -> 
     user = await UserRepository(db).get_by_id(challenge.user_id)
     if user is None:
         raise UnauthorizedError("Account no longer exists")
+    if not user.is_active:
+        raise AccountDisabledError("This account has been disabled. Contact your QXL administrator.")
 
-    challenge.consumed_at = datetime.now(timezone.utc)
+    challenge.consumed_at = datetime.now(UTC)
     await db.commit()
 
     return await session_service.create_session(
@@ -251,4 +264,4 @@ def _ensure_challenge_usable(
 
 
 def _aware(dt: datetime) -> datetime:
-    return dt if dt.tzinfo is not None else dt.replace(tzinfo=timezone.utc)
+    return dt if dt.tzinfo is not None else dt.replace(tzinfo=UTC)

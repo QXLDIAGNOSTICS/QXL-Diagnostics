@@ -10,7 +10,7 @@ import uuid as _uuid
 
 from fastapi import APIRouter, Request, Response
 
-from app.api.deps import CurrentUserOptional, DbSession
+from app.api.deps import DbSession, SessionUser, SessionUserOptional
 from app.core import roles as R
 from app.core.config import settings
 from app.core.exceptions import ValidationError
@@ -22,12 +22,16 @@ from app.schemas.auth import (
     LoginRequest,
     LoginStatusResponse,
     OtpVerifyRequest,
+    PasswordChangeRequest,
+    PasswordForgotRequest,
+    PasswordForgotResponse,
+    PasswordResetRequest,
     PhoneOtpLoginRequest,
     RegisterRequest,
     RegisterResponse,
     UserMe,
 )
-from app.services import auth_service, session_service
+from app.services import account_service, auth_service, session_service
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -121,12 +125,16 @@ async def verify_login_otp(
         otp=payload.otp,
         admin_secret_key=payload.admin_secret_key,
     )
+    must_change = False
     if session_token:
         _set_session_cookie(response, session_token)
+        user = await session_service.get_user_by_token(db, session_token)
+        must_change = bool(user and user.must_change_password)
     return LoginStatusResponse(
         challenge_id=challenge.id,
         otp_verified=challenge.otp_verified_at is not None,
         completed=session_token is not None,
+        must_change_password=must_change,
     )
 
 
@@ -152,7 +160,7 @@ async def logout(request: Request, response: Response, db: DbSession) -> None:
 
 
 @router.get("/me", response_model=UserMe | None)
-async def me(user: CurrentUserOptional, db: DbSession) -> UserMe | None:
+async def me(user: SessionUserOptional, db: DbSession) -> UserMe | None:
     """Session probe used by the site chrome on every page load.
 
     Returns ``200 null`` when the visitor is a guest (no session cookie / expired
@@ -181,3 +189,55 @@ async def me(user: CurrentUserOptional, db: DbSession) -> UserMe | None:
         payload.permissions = sorted(row.permissions or []) if row else []
     return payload
 
+
+
+# ── Passwords ────────────────────────────────────────────────────────────────
+
+
+@router.post("/password/forgot", response_model=PasswordForgotResponse)
+@limiter.limit("10/hour")
+async def password_forgot(request: Request, db: DbSession, payload: PasswordForgotRequest) -> PasswordForgotResponse:
+    """Starts a reset (also used to change a password while signed in). One
+    code goes by SMS and, if the account has an email address, a second code
+    by email; both are needed. The answer is identical for unknown accounts."""
+    reset = await account_service.start_reset(
+        db, identifier=payload.identifier, ip_address=request.client.host if request.client else None
+    )
+    return PasswordForgotResponse(
+        reset_id=reset.id,
+        expires_in=settings.OTP_TTL_SECONDS,
+        message="If an account matches, we've sent a code to its phone and another to its email.",
+    )
+
+
+@router.post("/password/reset", status_code=204)
+@limiter.limit("20/hour")
+async def password_reset(request: Request, response: Response, db: DbSession, payload: PasswordResetRequest) -> None:
+    await account_service.complete_reset(
+        db,
+        reset_id=payload.reset_id,
+        phone_code=payload.phone_code,
+        email_code=payload.email_code,
+        new_password=payload.new_password,
+    )
+    # Every session was revoked; this device must sign in again too.
+    response.delete_cookie(settings.SESSION_COOKIE_NAME, path="/")
+
+
+@router.post("/password/change", status_code=204)
+@limiter.limit("10/hour")
+async def password_change(
+    request: Request, response: Response, db: DbSession, user: SessionUser, payload: PasswordChangeRequest
+) -> None:
+    """Replace the current (e.g. temporary) password. Other sessions are
+    signed out; this device gets a fresh session so the person can carry on."""
+    await account_service.change_password(
+        db, user, current_password=payload.current_password, new_password=payload.new_password
+    )
+    token = await session_service.create_session(
+        db,
+        user,
+        user_agent=request.headers.get("user-agent"),
+        ip_address=request.client.host if request.client else None,
+    )
+    _set_session_cookie(response, token)
