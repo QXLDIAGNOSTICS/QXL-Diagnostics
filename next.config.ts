@@ -53,6 +53,21 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // ── Host canonicalisation: one indexable host (https://qxldiagnostics.com) ──
+      // www.qxldiagnostics.com currently serves a duplicate 200; qxldiagnostics.in is a legacy domain
+      // (takes effect once the .in domain is attached to this Vercel project).
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.qxldiagnostics.com" }],
+        destination: "https://qxldiagnostics.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "(?:www\\.)?qxldiagnostics\\.in" }],
+        destination: "https://qxldiagnostics.com/:path*",
+        permanent: true,
+      },
       // ── Pancreatic pack: planned /health/pancreas/* URLs live under /blog ──
       { source: "/health/pancreas/early-warning-signs", destination: "/blog/pancreatic-cancer-early-warning-signs", permanent: true },
       { source: "/health/pancreas/ca-19-9-test", destination: "/blog/ca-19-9-test-pancreatic-cancer", permanent: true },

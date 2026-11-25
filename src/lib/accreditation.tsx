@@ -30,7 +30,19 @@ export type AccreditationRecord = {
   approvedPublicWording: string;
   certificateImageUrl?: string;
   replacesCertificate?: string;
+  /** Facility name exactly as printed on the NABL certificate. */
+  registeredName?: string;
+  /** Facility address exactly as printed on the certificate. */
+  registeredAddress?: string;
+  legalEntity?: string;
+  fieldOfAccreditation?: string;
+  issuingAuthority?: string;
+  validityNote?: string;
+  signatories?: { name: string; title: string }[];
 };
+
+const NABL_VALIDITY_NOTE =
+  "This certificate remains valid for the Scope of Accreditation as specified in the annexure subject to continued satisfactory compliance to the above standard & the relevant requirements of NABL. (To see the scope of accreditation of this laboratory, you may also visit NABL website www.nabl-india.org)";
 
 export const accreditation: AccreditationRecord = {
   facilityId: "kengeri-main-lab",
@@ -48,6 +60,16 @@ export const accreditation: AccreditationRecord = {
   approvedPublicWording: "NABL-accredited medical laboratory to ISO 15189:2022 — Certificate NABLM1126KA10694",
   certificateImageUrl: "/certificates/nabl-kengeri-NABLM1126KA10694.jpeg",
   replacesCertificate: "MC-6849",
+  registeredName: "QXL DIAGNOSTICS SUPER SPECIALITY LAB, UNIT OF QUALITIFY HEALTHTECH PRIVATE LIMITED",
+  registeredAddress: "3RD FLOOR, SLN COMPLEX, MYSORE ROAD, KENGERI, BENGALURU, BENGALURU URBAN, KARNATAKA, INDIA",
+  legalEntity: "QUALITIFY HEALTHTECH PRIVATE LIMITED",
+  fieldOfAccreditation: "MEDICAL TESTING",
+  issuingAuthority: "National Accreditation Board for Testing and Calibration Laboratories (NABL) / ilac-MRA",
+  validityNote: NABL_VALIDITY_NOTE,
+  signatories: [
+    { name: "Anuja Anand", title: "Director" },
+    { name: "Dr. Ramanand N. Shukla", title: "Chief Executive Officer" },
+  ],
 };
 
 /**
@@ -67,6 +89,16 @@ export const northHubAccreditation: AccreditationRecord = {
   status: "verified-active",
   approvedPublicWording: "NABL-accredited medical laboratory to ISO 15189:2022 — Certificate MC-10025 (North Hub, Yelahanka)",
   certificateImageUrl: "/certificates/nabl-north-hub-MC-10025.jpeg",
+  registeredName: "QXL DIAGNOSTICS – SUPER SPECIALITY LAB NORTH HUB AT NORTH CITY SPECIALITIES (A UNIT OF QUALITIFY HEALTHTECH PRIVATE LIMITED)",
+  registeredAddress: "1ST FLOOR, NORTH CITY SPECIALITIES, YELAHANKA NEW TOWN, BENGALURU, YELAHANKA, KARNATAKA, INDIA",
+  legalEntity: "QUALITIFY HEALTHTECH PRIVATE LIMITED",
+  fieldOfAccreditation: "MEDICAL TESTING",
+  issuingAuthority: "National Accreditation Board for Testing and Calibration Laboratories (NABL) / ilac-MRA",
+  validityNote: NABL_VALIDITY_NOTE,
+  signatories: [
+    { name: "Pankaj Johri", title: "Director" },
+    { name: "Dr. Ramanand N. Shukla", title: "Chief Executive Officer" },
+  ],
 };
 
 export const allAccreditations: AccreditationRecord[] = [accreditation, northHubAccreditation];

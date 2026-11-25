@@ -236,11 +236,34 @@ export default function QualityAccreditationPage() {
                 <dl className="mt-2 grid grid-cols-2 gap-2 text-xs text-slate-700">
                   <div><dt className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Certificate</dt><dd className="font-extrabold">{cert.certificateNumber}</dd></div>
                   <div><dt className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Standard</dt><dd className="font-extrabold">ISO 15189:2022</dd></div>
-                  <div><dt className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Issued</dt><dd className="font-extrabold">{cert.validFrom}</dd></div>
-                  <div><dt className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Valid until</dt><dd className="font-extrabold">{cert.validUntil}</dd></div>
+                  <div><dt className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Issued</dt><dd className="font-extrabold">{cert.validFrom?.split("-").reverse().join("/")}</dd></div>
+                  <div><dt className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Valid until</dt><dd className="font-extrabold">{cert.validUntil?.split("-").reverse().join("/")}</dd></div>
                 </dl>
                 {cert.replacesCertificate && (
                   <p className="mt-2 text-[11px] text-slate-500">Issued in lieu of earlier certificate {cert.replacesCertificate}.</p>
+                )}
+                <dl className="mt-3 space-y-1.5 text-[11px] text-slate-700">
+                  {cert.registeredName && (
+                    <div><dt className="inline font-bold text-slate-500">Accredited facility (as on certificate): </dt><dd className="inline">{cert.registeredName}</dd></div>
+                  )}
+                  {cert.registeredAddress && (
+                    <div><dt className="inline font-bold text-slate-500">Facility address: </dt><dd className="inline">{cert.registeredAddress}</dd></div>
+                  )}
+                  {cert.fieldOfAccreditation && (
+                    <div><dt className="inline font-bold text-slate-500">Field: </dt><dd className="inline">{cert.fieldOfAccreditation}</dd></div>
+                  )}
+                  {cert.legalEntity && (
+                    <div><dt className="inline font-bold text-slate-500">Legal entity: </dt><dd className="inline">{cert.legalEntity}</dd></div>
+                  )}
+                  {cert.issuingAuthority && (
+                    <div><dt className="inline font-bold text-slate-500">Issued by: </dt><dd className="inline">{cert.issuingAuthority}</dd></div>
+                  )}
+                  {cert.signatories && cert.signatories.length > 0 && (
+                    <div><dt className="inline font-bold text-slate-500">Signed for and on behalf of NABL: </dt><dd className="inline">{cert.signatories.map((s) => `${s.name} (${s.title})`).join(", ")}</dd></div>
+                  )}
+                </dl>
+                {cert.validityNote && (
+                  <p className="mt-2 text-[10.5px] text-slate-500 italic leading-relaxed">{cert.validityNote}</p>
                 )}
               </div>
               {cert.certificateImageUrl && (

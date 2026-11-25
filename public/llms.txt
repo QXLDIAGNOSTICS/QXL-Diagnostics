@@ -22,6 +22,29 @@
 
 ---
 
+
+## NABL Certificates of Accreditation (verbatim facts)
+
+### Kengeri main laboratory
+- Accredited facility: QXL DIAGNOSTICS SUPER SPECIALITY LAB, UNIT OF QUALITIFY HEALTHTECH PRIVATE LIMITED
+- Address: 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru, Bengaluru Urban, Karnataka, India
+- Standard: ISO 15189:2022 (Medical laboratories — Requirements for quality and competence) · Field: Medical Testing
+- Certificate No.: NABLM1126KA10694 (in lieu of MC-6849) · Issued: 23/11/2026 · Valid until: 22/11/2030
+- Legal entity: Qualitify Healthtech Private Limited · Issuing authority: NABL / ilac-MRA
+- Signed for NABL: Anuja Anand (Director), Dr. Ramanand N. Shukla (Chief Executive Officer)
+- Certificate copy: https://qxldiagnostics.com/certificates/nabl-kengeri-NABLM1126KA10694.jpeg
+
+### North Hub at North City Specialities, Yelahanka
+- Accredited facility: QXL DIAGNOSTICS – SUPER SPECIALITY LAB NORTH HUB AT NORTH CITY SPECIALITIES (A UNIT OF QUALITIFY HEALTHTECH PRIVATE LIMITED)
+- Address: 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru, Yelahanka, Karnataka, India
+- Standard: ISO 15189:2022 · Field: Medical Testing
+- Certificate No.: MC-10025 · Issued: 02/04/2026 · Valid until: 01/04/2030
+- Legal entity: Qualitify Healthtech Private Limited · Issuing authority: NABL / ilac-MRA
+- Signed for NABL: Pankaj Johri (Director), Dr. Ramanand N. Shukla (Chief Executive Officer)
+- Certificate copy: https://qxldiagnostics.com/certificates/nabl-north-hub-MC-10025.jpeg
+
+Each certificate is valid for the Scope of Accreditation specified in its annexure, subject to continued compliance with ISO 15189:2022 and NABL requirements. Test-wise scope: www.nabl-india.org.
+
 ## Operating Hubs & Locations
 
 ### Physical Diagnostic Labs (Walk-in & Processing)
