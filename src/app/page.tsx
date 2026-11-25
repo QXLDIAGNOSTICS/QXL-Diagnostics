@@ -920,7 +920,7 @@ export default function Home() {
   // ── Package & Home Collection Hero Slides ────────────────────────────────
   const contentSlides = [
     {
-      badge: "DOCTOR-LED DIAGNOSTICS · NABL MC-6849",
+      badge: "DOCTOR-LED DIAGNOSTICS · NABL NABLM1126KA10694",
       title: "Doctor-Led NABL Accredited Diagnostic Lab",
       titleAccent: "in Bengaluru",
       subtitle: "Advanced diagnostic testing with qualified medical oversight, home sample collection across Bengaluru and reliable turnaround times.",
@@ -945,7 +945,7 @@ export default function Home() {
       image: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150207/Assets-QXL/legacy-assets/image/home_blood_draw.jpg",
       imageFit: "cover",
       bgFrom: "#fff7ed", bgTo: "#f0fdf4",
-      features: ["300+ Specialized Tests", "NABL Accredited (MC-6849)", "ISO 15189 Quality", "Fast Digital Delivery"],
+      features: ["300+ Specialized Tests", "NABL Accredited (NABLM1126KA10694)", "ISO 15189 Quality", "Fast Digital Delivery"],
     },
   ];
 
@@ -1750,7 +1750,7 @@ export default function Home() {
                       </div>
                       <div>
                         <h3 className="text-xs font-extrabold text-[#0f2d5e]">Clinical Assurance</h3>
-                        <p className="text-xs text-slate-600 font-medium">NABL Accredited (MC-6849) · ISO 15189:2022 · Supervised by Dr. Shantakumar Muruda, MD</p>
+                        <p className="text-xs text-slate-600 font-medium">NABL Accredited (NABLM1126KA10694) · ISO 15189:2022 · Supervised by Dr. Shantakumar Muruda, MD</p>
                       </div>
                     </div>
                   </div>
@@ -1897,7 +1897,7 @@ export default function Home() {
 
               <div className="pt-2 text-xs text-slate-500 flex items-center gap-4 font-semibold">
                 <span>🏠 Free Home Collection</span>
-                <span>📋 NABL Accredited (MC-6849)</span>
+                <span>📋 NABL Accredited (NABLM1126KA10694)</span>
               </div>
             </div>
 

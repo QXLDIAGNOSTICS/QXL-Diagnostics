@@ -161,7 +161,7 @@ export default function CollectPlatformPage() {
           </div>
 
           <div className="flex items-center gap-4 text-[11px]">
-            <span>NABL Certificate: MC-6849</span>
+            <span>NABL Certificate: NABLM1126KA10694</span>
             <span>ITDOSE Adapter: INNOPATH REST Bridge</span>
             <span>DPDP 2026 Compliant</span>
           </div>

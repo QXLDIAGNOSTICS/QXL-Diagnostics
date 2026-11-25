@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     absolute: "QXL Diagnostics Yelahanka | Blood Test & Home Collection Centre",
   },
   description:
-    "Book blood test & full body checkups at QXL Diagnostics Yelahanka, Bengaluru. NABL Accredited (MC-6849) lab tests, 100% free doorstep sample collection across Yelahanka, same-day reports.",
+    "Book blood test & full body checkups at QXL Diagnostics Yelahanka, Bengaluru. NABL Accredited (NABLM1126KA10694) lab tests, 100% free doorstep sample collection across Yelahanka, same-day reports.",
   alternates: {
     canonical: "https://qxldiagnostics.com/qxl/yelahanka",
   },
   openGraph: {
     title: "QXL Diagnostics Yelahanka | Blood Test & Diagnostic Centre",
     description:
-      "NABL Accredited (MC-6849) diagnostic centre and home blood collection hub in Yelahanka, Bengaluru. Free doorstep collection, same-day reports.",
+      "NABL Accredited (NABLM1126KA10694) diagnostic centre and home blood collection hub in Yelahanka, Bengaluru. Free doorstep collection, same-day reports.",
     url: "https://qxldiagnostics.com/qxl/yelahanka",
     locale: "en_IN",
     type: "website",
@@ -51,7 +51,7 @@ export default function QXlYelahankaPage() {
     "name": "QXL Diagnostics — Yelahanka Centre & Home Collection Hub",
     "alternateName": ["QXL Yelahanka", "QXL Diagnostics Yelahanka"],
     "description":
-      "NABL Accredited (MC-6849) diagnostic lab centre offering walk-in blood collection, pathology, full body checkups, and free home sample collection in Yelahanka, Bengaluru.",
+      "NABL Accredited (NABLM1126KA10694) diagnostic lab centre offering walk-in blood collection, pathology, full body checkups, and free home sample collection in Yelahanka, Bengaluru.",
     "url": "https://qxldiagnostics.com/qxl/yelahanka",
     "telephone": PHONE_E164,
     "email": "info@qxldiagnostics.com",

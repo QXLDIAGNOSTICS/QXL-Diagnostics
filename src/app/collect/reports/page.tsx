@@ -29,7 +29,7 @@ export default function CollectReportsDirectPage() {
           </Link>
 
           <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-            NABL Accredited (MC-6849)
+            NABL Accredited (NABLM1126KA10694)
           </span>
         </div>
 

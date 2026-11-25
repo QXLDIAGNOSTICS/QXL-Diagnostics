@@ -12,7 +12,10 @@
     "test:collect": "npx tsx scripts/verifyQxlCollectWorkflow.ts",
     "test:drift": "npx tsx scripts/validate-data-drift.ts",
     "validate:pages": "npx tsx scripts/validate-page-audit.ts",
-    "validate:all": "npx tsx scripts/validate-data-consistency.ts && npx tsx scripts/validate-data-drift.ts && npx tsx scripts/validate-page-audit.ts && npx tsx scripts/verifyQualityGate.ts"
+    "validate:all": "npx tsx scripts/validate-data-consistency.ts && npx tsx scripts/validate-data-drift.ts && npx tsx scripts/validate-page-audit.ts && npx tsx scripts/verifyQualityGate.ts",
+    "seo:audit:public": "node scripts/seo-kit/audit-public.mjs",
+    "seo:audit:data": "node scripts/seo-kit/validate-data.mjs",
+    "seo:audit": "npm run seo:audit:data && npm run seo:audit:public"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

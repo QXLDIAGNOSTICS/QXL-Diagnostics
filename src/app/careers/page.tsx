@@ -386,7 +386,7 @@ export default function CareersPage() {
               <div className="space-y-3">
                 {[
                   { icon: MapPin, label: "Kengeri Main Lab — Open 24×7", detail: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060" },
-                  { icon: MapPin, label: "Yelahanka North Hub — Mon–Sun 7AM–8PM", detail: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru 560064" },
+                  { icon: MapPin, label: "Yelahanka North Hub — Mon–Sun 7AM–8PM", detail: "1st Floor, North City Specialities, Yelahanka New Town, Bengaluru 560064" },
                   { icon: Clock, label: "24×7 Central Laboratory Operations", detail: "Round-the-clock sample processing for hospitals and critical care" },
                   { icon: Users, label: "190+ B2B Clients", detail: "Hospitals, nursing homes and reference laboratories across Karnataka" },
                 ].map((item, i) => (

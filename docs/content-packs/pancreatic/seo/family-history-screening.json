@@ -1,0 +1,42 @@
+{
+  "slug": "family-history-screening",
+  "path": "/health/pancreas/family-history-screening",
+  "title": "Family History of Pancreatic Cancer: Genetic Risk and Who Needs Surveillance",
+  "description": "Why average-risk people do not need pancreatic cancer blood-test screening and how selected high-risk families may qualify for MRI/EUS surveillance.",
+  "keywords": [
+    "pancreatic cancer family history screening",
+    "pancreatic cancer genetic testing",
+    "BRCA pancreatic cancer screening",
+    "high risk pancreatic surveillance"
+  ],
+  "category": "Health & Pancreatic Disease",
+  "faq": [
+    {
+      "question": "Can CA 19-9 screen people with family history?",
+      "answer": "Not reliably. Selected high-risk people need specialist risk assessment and an imaging surveillance pathway."
+    },
+    {
+      "question": "Does one affected relative always mean surveillance?",
+      "answer": "Not necessarily. Gene status, number and relationship of affected relatives and age at diagnosis affect eligibility."
+    },
+    {
+      "question": "Should relatives undergo genetic counselling?",
+      "answer": "Genetic counselling is useful when family history or known inherited variants suggest a hereditary syndrome."
+    }
+  ],
+  "reviewStatus": "approved",
+  "reviewerName": "Dr. Shantakumar Muruda",
+  "reviewerQualification": "MD (Medical Biochemistry), Senior Consultant; Founder & CEO, QXL Diagnostics",
+  "author": "QXL Diagnostics Clinical Editorial Team",
+  "preparedOn": "2026-11-20",
+  "publicationDate": "2026-11-20",
+  "modifiedDate": "2026-11-20",
+  "seoTitle": "Pancreatic Cancer Family History & Screening | QXL",
+  "reviewedOn": "2026-11-20",
+  "medicalAuthorisation": true,
+  "testAvailability": "Test available at QXL Diagnostics",
+  "tatDisplay": "Same Day",
+  "tatNotice": "Same Day is an indicative laboratory turnaround, subject to sample receipt/cut-off, individual assay workflow, and confirmation by QXL. Some specialised and stool tests may take longer. Urgent symptoms require clinical care, not waiting for a result.",
+  "testDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+  "whatsappUrl": "https://wa.me/919964639639?text=Hello%20QXL%20Diagnostics%2C%20please%20share%20the%20test%20details%2C%20sample%20requirements%2C%20current%20price%20and%20confirmed%20turnaround%20time%20for%20pancreatic%20or%20gastrointestinal%20laboratory%20tests."
+}

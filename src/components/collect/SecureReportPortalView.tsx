@@ -266,7 +266,7 @@ export const SecureReportPortalView: React.FC<SecureReportPortalViewProps> = ({
                 <div className="border-t border-gray-200 pt-2 flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-xs text-gray-600">
                     <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                    <span>NABL MC-6849 Sealed</span>
+                    <span>NABL NABLM1126KA10694 Sealed</span>
                   </div>
 
                   <a

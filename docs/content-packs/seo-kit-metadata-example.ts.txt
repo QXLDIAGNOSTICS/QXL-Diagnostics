@@ -1,0 +1,15 @@
+// Next.js App Router examples. Integrate with existing app; do not overwrite production routes.
+import type { Metadata } from 'next';
+export const metadata: Metadata = {
+ title: 'Diagnostic Tests in Bengaluru | QXL Diagnostics',
+ description: 'Explore diagnostic tests, sample requirements, prices and booking at QXL Diagnostics Bengaluru.',
+ alternates: {canonical:'https://www.qxldiagnostics.com/tests'},
+ robots: {index:true,follow:true},
+};
+export const organizationJsonLd = {
+ '@context':'https://schema.org', '@type':'MedicalOrganization',
+ '@id':'https://www.qxldiagnostics.com/#organization',
+ name:'QXL Diagnostics', url:'https://www.qxldiagnostics.com/',
+ telephone:'+919964639639',
+ areaServed:{'@type':'City',name:'Bengaluru'}
+};

@@ -69,7 +69,7 @@ runCheck('TERM-02', 'Terminology', 'Zero occurrences of "certified phlebotomist"
   return { passed: found === 0, details: found === 0 ? 'Compliant ("Trained phlebotomy specialist" enforced)' : `Found ${found} violations` };
 });
 
-runCheck('TERM-03', 'Terminology & Accreditation', 'Zero occurrences of obsolete "MC-10025", "100% precision", or blanket pathologist signoff', () => {
+runCheck('TERM-03', 'Terminology & Accreditation', 'No North Hub certificate "MC-10025" on Kengeri test/home pages, "100% precision", or blanket pathologist signoff', () => {
   const targetFiles = [
     'src/app/page.tsx',
     'src/app/[slug]/page.tsx',
@@ -88,15 +88,15 @@ runCheck('TERM-03', 'Terminology & Accreditation', 'Zero occurrences of obsolete
   }
   return {
     passed: violations.length === 0,
-    details: violations.length === 0 ? 'Zero obsolete accreditation numbers or unverified 100% claims' : violations.join('; ')
+    details: violations.length === 0 ? 'No misattributed accreditation numbers or unverified 100% claims' : violations.join('; ')
   };
 });
 
 // 2. Certificate Standardization
-runCheck('CERT-01', 'Accreditation', 'Single source of truth NABL Certificate Number MC-6849', () => {
+runCheck('CERT-01', 'Accreditation', 'Single source of truth NABL Certificate Number NABLM1126KA10694', () => {
   const bInfo = fs.readFileSync(path.join(ROOT, 'src/lib/businessInfo.ts'), 'utf8');
-  const hasMc = bInfo.includes('MC-6849');
-  return { passed: hasMc, details: hasMc ? 'NABL Certificate MC-6849 verified in businessInfo.ts' : 'Missing MC-6849' };
+  const hasMc = bInfo.includes('NABLM1126KA10694');
+  return { passed: hasMc, details: hasMc ? 'NABL Certificate NABLM1126KA10694 verified in businessInfo.ts' : 'Missing NABLM1126KA10694' };
 });
 
 // 3. NAP Standardization
@@ -225,11 +225,15 @@ runCheck('PAY-01', 'Checkout & CRO', 'Zero-price and empty cart payments strictl
 // 8. Security Headers
 runCheck('SEC-01', 'Security & Indexing', 'HSTS header configured and private patient routes marked with noindex', () => {
   const nextConfig = fs.readFileSync(path.join(ROOT, 'next.config.ts'), 'utf8');
-  const robotsTxt = fs.readFileSync(path.join(ROOT, 'public/robots.txt'), 'utf8');
+  // robots rules live in src/app/robots.ts (public/robots.txt was retired); fall back to the static file if present.
+  const robotsTs = path.join(ROOT, 'src/app/robots.ts');
+  const robotsTxt = fs.existsSync(robotsTs)
+    ? fs.readFileSync(robotsTs, 'utf8')
+    : fs.readFileSync(path.join(ROOT, 'public/robots.txt'), 'utf8');
 
   const hasHsts = nextConfig.includes('Strict-Transport-Security') && nextConfig.includes('max-age=31536000');
   const hasNoindexHeader = nextConfig.includes('X-Robots-Tag') && nextConfig.includes('noindex, nofollow, noarchive');
-  const hasRobotsDisallow = robotsTxt.includes('/my-reports/') && robotsTxt.includes('/checkout/');
+  const hasRobotsDisallow = robotsTxt.includes('/my-reports') && robotsTxt.includes('/checkout/');
 
   const passed = hasHsts && hasNoindexHeader && hasRobotsDisallow;
   return {

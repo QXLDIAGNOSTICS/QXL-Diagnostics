@@ -29,7 +29,7 @@ import { getDynamicPageData } from '../src/lib/seoPages/dynamicPageResolver';
 import { cms100MasterData } from '../src/lib/seoPages/cms100MasterData';
 
 const FORBIDDEN_PATTERNS = [
-  { name: 'Obsolete Accreditation MC-10025', regex: /MC-10025/i },
+  { name: 'North Hub certificate MC-10025 misattributed to a Kengeri test page', regex: /MC-10025/i },
   { name: 'Absolute 100% Precision Claim', regex: /100% precision/i },
   { name: '100% Pathologist Signoff Claim', regex: /100% pathologist authori[sz]ation/i },
   { name: 'Blanket Every Report Pathologist Claim', regex: /every single report.*pathologist/i },

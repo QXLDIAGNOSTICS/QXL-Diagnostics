@@ -4,7 +4,7 @@
 **Domain:** `https://qxldiagnostics.com/`  
 **Deploy Date:** 18 November 2026  
 **Status:** **APPROVED & READY FOR PRODUCTION DEPLOYMENT**  
-**Accreditation:** NABL Accredited (Certificate No. MC-6849, ISO 15189:2022)  
+**Accreditation:** NABL Accredited (Certificate No. NABLM1126KA10694, ISO 15189:2022)  
 **Total Production Routes:** 367+ Pre-rendered Static Pages  
 
 ---

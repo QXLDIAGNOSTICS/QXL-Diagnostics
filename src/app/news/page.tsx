@@ -229,7 +229,7 @@ export default function NewsIndexPage() {
               <div className="bg-white border border-sky-150 rounded-2xl p-4 space-y-2 mb-2 shadow-2xs">
                 {[
                   "Doctor-led clinical governance under Founder & Chief Clinical Biochemist Dr. Shantakumar Muruda",
-                  "Strict NABL MC-6849 & ISO 15189:2022 medical laboratory compliance",
+                  "Strict NABL NABLM1126KA10694 & ISO 15189:2022 medical laboratory compliance",
                   "Turnkey HLM model relieving hospitals of equipment capital burdens",
                   "AI-assisted diagnostic guidance & same-day digital report delivery",
                 ].map((highlight, idx) => (

@@ -1,0 +1,401 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalOrganization",
+      "@id": "https://www.qxldiagnostics.com/#organization",
+      "name": "QXL Diagnostics Super Speciality Lab",
+      "url": "https://www.qxldiagnostics.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-9964639639"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda",
+      "name": "Dr Shantakumar Muruda",
+      "honorificSuffix": "MD (Medical Biochemistry)",
+      "jobTitle": "Senior Consultant; Founder and CEO",
+      "worksFor": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": [
+        "WebPage",
+        "MedicalWebPage"
+      ],
+      "@id": "https://www.qxldiagnostics.com/blog/ca-125-test-bengaluru#webpage",
+      "url": "https://www.qxldiagnostics.com/blog/ca-125-test-bengaluru",
+      "name": "CA-125 Test Bengaluru | Ovarian Symptoms & 2026 Guidance | QXL",
+      "description": "Learn why CA-125 rises, ovarian cancer warning symptoms, NICE 2026 age-specific thresholds, ultrasound pathway and safe interpretation. QXL Bengaluru.",
+      "inLanguage": "en-IN",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "isPartOf": {
+        "@id": "https://www.qxldiagnostics.com/#website"
+      },
+      "about": {
+        "@id": "https://www.qxldiagnostics.com/blog/ca-125-test-bengaluru#medicaltest"
+      },
+      "author": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "reviewedBy": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "publisher": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://www.qxldiagnostics.com/blog/ca-125-test-bengaluru#medicaltest"
+      }
+    },
+    {
+      "@type": "MedicalTest",
+      "@id": "https://www.qxldiagnostics.com/blog/ca-125-test-bengaluru#medicaltest",
+      "name": "CA-125 Blood Test",
+      "description": "CA-125 (cancer antigen 125) is a serum biomarker that can support evaluation of persistent symptoms suggestive of ovarian pathology and monitoring of selected patients with known epithelial ovarian cancer. It is neither a universal ovarian cancer screening test nor a stand-alone way to diagnose or exclude malignancy.",
+      "availableAtOrFrom": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.qxldiagnostics.com/blog/ca-125-test-bengaluru#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the CA-125 test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It measures an antigen associated with MUC16 in blood; it is used as an adjunct in selected ovarian disease pathways."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does CA-125 diagnose ovarian cancer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Diagnosis requires clinical assessment, imaging and sometimes histopathology."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a normal CA-125 rule out ovarian cancer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Early disease and some tumour types may produce normal values."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can endometriosis raise CA-125?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Endometriosis, menstruation and benign pelvic inflammation can raise levels."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can pregnancy elevate CA-125?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CA-125 can change in pregnancy, especially early; interpretation must consider gestational state."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a benign ovarian cyst increase CA-125?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A raised result is not specific for malignancy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can fibroids raise CA-125?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They may contribute in some contexts, but persistent symptoms still require an appropriate pelvic assessment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is CA-125 a good annual screening test for every woman?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Routine average-risk asymptomatic screening with CA-125 has not shown a suitable benefit–harm balance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What ovarian cancer symptoms should I watch for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Persistent abdominal distension, early satiety, pelvic pain and urinary frequency, especially if new or frequent, deserve evaluation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is persistent bloating important?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "New or frequent distension can be an early symptom of several diseases, including ovarian pathology; it is not specific for cancer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What level of CA-125 is abnormal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The assay reference interval is report-specific. Clinical imaging-referral thresholds are age-specific in the 2026 NICE symptom pathway."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the 2026 NICE CA-125 referral thresholds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For symptomatic people 40–49 ≥35, 50–59 ≥31, 60–69 ≥24, 70–79 ≥25 and ≥80 years ≥31 IU/mL; they are UK clinical referral thresholds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can an older person need ultrasound with CA-125 below 35?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 2026 NICE pathway uses lower age-specific thresholds for certain older age groups."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I am 39 or younger?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CA-125 should not be used alone to decide on ovarian cancer evaluation. Discuss ultrasound for persistent concerning symptoms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does every high CA-125 require cancer treatment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There are many benign causes and treatment must never start from a biomarker alone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What investigation usually follows concerning CA-125?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pelvic/abdominal ultrasound with clinical review; additional imaging or referral depends on findings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is CA-125 useful for follow-up after ovarian cancer treatment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Serial testing may help in selected patients under oncology supervision, alongside symptoms and imaging."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if CA-125 increases but imaging is normal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Clinical context, assay consistency, alternative causes and safety-net follow-up matter; discuss with the treating specialist."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can CA-125 be high in liver disease?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Liver inflammation or ascites may raise CA-125 without ovarian malignancy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can infection cause high CA-125?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pelvic or peritoneal inflammation and some infections can increase CA-125."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can CA-125 be high with tuberculosis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Peritoneal tuberculosis can occasionally elevate CA-125; it is not a TB-specific test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is HE4 and ROMA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HE4 is another serum marker, and ROMA is an algorithm combining HE4, CA-125 and menopausal status for selected adnexal mass contexts; neither is universal screening."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is fasting required for CA-125?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fasting is generally unnecessary for an isolated CA-125 test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should CA-125 be measured during menstruation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Menstruation can raise CA-125. Inform your clinician; collection timing may matter for borderline values."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a low CA-125 delay a needed scan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It should not. Persistent symptoms and clinical findings take priority over one blood result."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I repeat CA-125 every month?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no general rule. Repeat frequency depends on the clinical question and oncology plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does CA-125 identify the stage of ovarian cancer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Staging requires specialist evaluation and imaging/surgery as indicated."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can CA-125 detect every gynaecological cancer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Sensitivity and relevance vary substantially across cancer types and histologies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use CA-125 to check whether abdominal pain is cancer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It is a selective adjunct; many causes of pain require other tests and imaging."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if symptoms persist despite a normal ultrasound?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Seek reassessment and investigate alternative conditions; persistent or worsening symptoms need safety-net follow-up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is CA125 test available at QXL Diagnostics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test available at QXL Diagnostics Super Speciality Lab Bengaluru. Confirm the exact assay, specimen, appointment and laboratory schedule before collection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the turnaround time (TAT)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Same Day* — subject to specimen eligibility, receipt time, analytical schedule and operational confirmation. Contact QXL Diagnostics Super Speciality Lab Bengaluru on WhatsApp for Details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the price in Bengaluru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test Details: contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. No unverified rate or discount is quoted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book home sample collection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For blood tests, enquire about address-specific home collection and specimen requirements. Stool and TB specimens require separate collection/transport instructions; suitability must be confirmed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a prescription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A clinician’s assessment is recommended, especially where a positive or negative result could trigger further imaging, biopsy, treatment or urgent referral. The lab can explain booking requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the laboratory explain my result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL can clarify the reported analyte, units, laboratory reference interval and technical limitations. Clinical diagnosis and treatment decisions require the treating clinician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the test NABL-accredited?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL Diagnostics reports NABL accreditation in medical testing; the accreditation status of each individual assay must be confirmed against the current NABL scope. Laboratory accreditation is not a blanket claim for every test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I ask for specimen and method details?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. The precise method, sample volume, collection container, processing location and test-specific TAT require operational confirmation."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.qxldiagnostics.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Knowledge Centre",
+          "item": "https://www.qxldiagnostics.com/knowledge-centre"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CA-125 Blood Test",
+          "item": "https://www.qxldiagnostics.com/blog/ca-125-test-bengaluru"
+        }
+      ]
+    }
+  ]
+}

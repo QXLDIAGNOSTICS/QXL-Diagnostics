@@ -6,7 +6,7 @@ export const DOCTORS: DoctorReviewer[] = [
     name: "Dr. Shantakumar Muruda",
     qualification: "MBBS, MD (Biochemistry)",
     department: "Clinical Biochemistry & Molecular Diagnostics",
-    registrationNumber: "KMC-68491",
+    registrationNumber: "KNABLM1126KA106941",
     profileUrl: "/dr-shantakumar-muruda",
     avatarUrl: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150133/Assets-QXL/legacy-assets/image/dr_shantakumar_latest.jpg"
   },

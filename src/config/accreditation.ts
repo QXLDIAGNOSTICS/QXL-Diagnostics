@@ -1,8 +1,8 @@
 /**
  * Canonical Accreditation & Quality Governance Constants for QXL Diagnostics.
  *
- * Primary NABL Accreditation: MC-6849 (ISO 15189:2022)
- * Do NOT hardcode "MC-6849" or "NABL Accredited" elsewhere in the codebase.
+ * Primary NABL Accreditation: NABLM1126KA10694 (ISO 15189:2022)
+ * Do NOT hardcode "NABLM1126KA10694" or "NABL Accredited" elsewhere in the codebase.
  */
 
 import { accreditation, getAccreditationBadgeText, isAccreditationActive } from '@/lib/accreditation';
@@ -26,10 +26,13 @@ export const ACCREDITATION_DETAILS = {
   accreditationBody: "National Accreditation Board for Testing and Calibration Laboratories (NABL)",
   parentOrganization: "Quality Council of India (QCI), Govt. of India",
   standard: "ISO 15189:2022 Medical Laboratories — Requirements for Quality and Competence",
-  certificateNumber: "MC-6849",
+  certificateNumber: "NABLM1126KA10694",
   legalEntity: "Qualitify Healthtech Private Limited (QXL Diagnostics)",
   discipline: "Medical Testing Laboratory",
-  validityReference: "Continuous NABL cycle under ISO 15189:2022 standards (Certificate MC-6849, continuous surveillance audit cycle)",
+  validityReference: "Certificate NABLM1126KA10694 (in lieu of MC-6849), issued 23 November 2026, valid until 22 November 2030",
+  northHubCertificateNumber: "MC-10025",
+  northHubValidity: "Issued 2 April 2026, valid until 1 April 2030",
+  northHubAddress: "1st Floor, North City Specialities, Yelahanka New Town, Bengaluru, Karnataka",
   verificationPortalUrl: "https://nablwp.qci.org.in/",
   primaryLabAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060",
   governanceLead: "Dr. Shantakumar Muruda, MD (Biochemistry), Empaneled NABL Lead Assessor",

@@ -124,7 +124,7 @@ export default function VitaminDeficiencyProfilePage() {
           <div className="max-w-3xl space-y-5">
             <div className="inline-flex items-center gap-2 bg-amber-500/20 text-amber-200 border border-amber-400/30 px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider">
               <ShieldCheck className="w-3.5 h-3.5 text-amber-300" />
-              NABL ACCREDITED LAB (MC-6849) · ISO 15189:2022
+              NABL ACCREDITED LAB (NABLM1126KA10694) · ISO 15189:2022
             </div>
             <h1 className="text-3xl sm:text-5xl font-black text-white leading-tight">
               Vitamin Deficiency Testing in Bengaluru

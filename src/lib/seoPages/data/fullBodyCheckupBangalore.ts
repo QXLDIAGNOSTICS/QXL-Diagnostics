@@ -15,7 +15,7 @@ export const fullBodyCheckupBangalore: SeoLandingData = {
   aiOverviewPoints: [
     "70+ Parameters in Comprehensive Panels",
     "Free Home Collection Across Bengaluru",
-    "NABL Accredited Laboratory (MC-6849)",
+    "NABL Accredited Laboratory (NABLM1126KA10694)",
     "Specialist-Reviewed Digital Reports",
   ],
   highlights: [

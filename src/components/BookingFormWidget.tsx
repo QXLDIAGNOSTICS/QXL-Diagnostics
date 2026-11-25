@@ -681,7 +681,7 @@ export function BookingFormWidget({ showSidebar = true }: { showSidebar?: boolea
           <ul className="space-y-2.5 text-xs font-semibold text-slate-700">
             <li className="flex items-start gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-              <span>NABL Accredited Super Speciality Laboratory (MC-6849)</span>
+              <span>NABL Accredited Super Speciality Laboratory (NABLM1126KA10694)</span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />

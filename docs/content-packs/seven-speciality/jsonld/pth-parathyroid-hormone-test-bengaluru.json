@@ -1,0 +1,401 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalOrganization",
+      "@id": "https://www.qxldiagnostics.com/#organization",
+      "name": "QXL Diagnostics Super Speciality Lab",
+      "url": "https://www.qxldiagnostics.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-9964639639"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda",
+      "name": "Dr Shantakumar Muruda",
+      "honorificSuffix": "MD (Medical Biochemistry)",
+      "jobTitle": "Senior Consultant; Founder and CEO",
+      "worksFor": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": [
+        "WebPage",
+        "MedicalWebPage"
+      ],
+      "@id": "https://www.qxldiagnostics.com/blog/pth-parathyroid-hormone-test-bengaluru#webpage",
+      "url": "https://www.qxldiagnostics.com/blog/pth-parathyroid-hormone-test-bengaluru",
+      "name": "PTH Test Bengaluru | High PTH, Calcium & Vitamin D | QXL",
+      "description": "Understand intact PTH, high and low calcium, vitamin D deficiency, CKD, kidney stones, hyperparathyroidism tests and clinical pathways in Bengaluru.",
+      "inLanguage": "en-IN",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "isPartOf": {
+        "@id": "https://www.qxldiagnostics.com/#website"
+      },
+      "about": {
+        "@id": "https://www.qxldiagnostics.com/blog/pth-parathyroid-hormone-test-bengaluru#medicaltest"
+      },
+      "author": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "reviewedBy": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "publisher": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://www.qxldiagnostics.com/blog/pth-parathyroid-hormone-test-bengaluru#medicaltest"
+      }
+    },
+    {
+      "@type": "MedicalTest",
+      "@id": "https://www.qxldiagnostics.com/blog/pth-parathyroid-hormone-test-bengaluru#medicaltest",
+      "name": "Parathyroid Hormone (Intact PTH) Test",
+      "description": "Parathyroid hormone (PTH) regulates calcium, phosphate and bone–kidney physiology. The meaning of a PTH result depends first on simultaneous calcium and kidney function; an in-range PTH can be inappropriate when calcium is high. PTH alone cannot determine whether hyperparathyroidism is primary, secondary or tertiary.",
+      "availableAtOrFrom": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.qxldiagnostics.com/blog/pth-parathyroid-hormone-test-bengaluru#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an intact PTH test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A blood immunoassay measuring parathyroid hormone to evaluate calcium, phosphate and bone-mineral physiology."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why should PTH be tested with calcium?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Calcium tells the clinician whether the PTH response is appropriate; a stand-alone PTH value is often misleading."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can PTH be normal when calcium is high?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. A laboratory-normal PTH may be inappropriately unsuppressed in hypercalcaemia and can indicate a PTH-dependent process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does high PTH with normal calcium mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Possible secondary hyperparathyroidism from low vitamin D, CKD or malabsorption; normocalcaemic primary hyperparathyroidism is a diagnosis of exclusion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does high PTH with low calcium mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is usually an appropriate response to low calcium and may suggest vitamin D deficiency, CKD or malabsorption."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does low PTH with high calcium mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It suggests a PTH-independent cause and needs clinical work-up for malignancy, vitamin D-related or other disorders."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can vitamin D deficiency raise PTH?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Reduced calcium absorption can stimulate secondary PTH secretion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does kidney disease increase PTH?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often. CKD may alter phosphate balance and active vitamin D synthesis, producing secondary hyperparathyroidism."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a kidney stone be caused by high PTH?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Primary hyperparathyroidism can contribute to calcium stones, but not all stones are due to parathyroid disease."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does high PTH mean a parathyroid tumour?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Secondary hyperparathyroidism is common; biochemical classification comes first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is parathyroid disease the same as thyroid disease?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Parathyroid glands regulate calcium; the thyroid primarily regulates metabolic hormones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is primary hyperparathyroidism?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A condition of autonomous PTH secretion, commonly with high calcium and non-suppressed PTH, confirmed biochemically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is secondary hyperparathyroidism?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compensatory PTH elevation due to disturbances such as low vitamin D, CKD or malabsorption."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is tertiary hyperparathyroidism?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Autonomous PTH excess after longstanding secondary hyperparathyroidism, generally in advanced renal disease."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can calcium be normal in primary hyperparathyroidism?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes in carefully defined normocalcaemic PHPT, but only after repeated testing and exclusion of secondary causes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is an ultrasound needed to diagnose primary hyperparathyroidism?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The biochemical diagnosis precedes localisation imaging for surgery planning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do doctors ask for vitamin D and phosphate with PTH?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "These values help distinguish primary from secondary physiology and identify mineral-bone disturbances."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is ionised calcium?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The biologically active unbound calcium fraction; it may be useful when total calcium is confounded by albumin or acid–base changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can albumin affect total calcium?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Total calcium reflects protein-bound calcium; low albumin can lower total calcium without equivalent reduction in ionised calcium."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does high PTH cause osteoporosis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Persistently excessive PTH may affect skeletal health, but fracture risk depends on the underlying condition and other factors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can dehydration cause high calcium?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dehydration can concentrate some blood analytes and worsen hypercalcaemia; severe symptoms require urgent assessment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is familial hypocalciuric hypercalcaemia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An inherited condition with mild high calcium and usually low urine calcium; it can resemble primary hyperparathyroidism."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can medicines affect PTH and calcium?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lithium, thiazides, vitamin D, calcium supplements and antiresorptive medicines may alter interpretation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is fasting necessary for PTH?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not universally. Confirm QXL sample instructions; consistent timing can be useful for serial assessment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does PTH change during the day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PTH has biological variation and diurnal patterns; consistent collection conditions improve trends."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should PTH be repeated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Often, especially when confirming PHPT or reviewing CKD-MBD; clinical interpretation relies on trends."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a blood sample delay alter PTH?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Potentially. Appropriate specimen type, separation and temperature control are method-dependent and important."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I diagnose vitamin D deficiency from PTH alone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Measure 25-OH vitamin D directly and interpret alongside calcium and kidney function."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does PTH always need surgery when high?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Management depends on the cause, severity, symptoms and established criteria."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is low calcium an emergency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tetany, seizures, spasms of the airway, fainting or heart-rhythm symptoms require urgent evaluation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is PTH test available at QXL Diagnostics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test available at QXL Diagnostics Super Speciality Lab Bengaluru. Confirm the exact assay, specimen, appointment and laboratory schedule before collection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the turnaround time (TAT)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Same Day* — subject to specimen eligibility, receipt time, analytical schedule and operational confirmation. Contact QXL Diagnostics Super Speciality Lab Bengaluru on WhatsApp for Details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the price in Bengaluru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test Details: contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. No unverified rate or discount is quoted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book home sample collection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For blood tests, enquire about address-specific home collection and specimen requirements. Stool and TB specimens require separate collection/transport instructions; suitability must be confirmed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a prescription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A clinician’s assessment is recommended, especially where a positive or negative result could trigger further imaging, biopsy, treatment or urgent referral. The lab can explain booking requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the laboratory explain my result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL can clarify the reported analyte, units, laboratory reference interval and technical limitations. Clinical diagnosis and treatment decisions require the treating clinician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the test NABL-accredited?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL Diagnostics reports NABL accreditation in medical testing; the accreditation status of each individual assay must be confirmed against the current NABL scope. Laboratory accreditation is not a blanket claim for every test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I ask for specimen and method details?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. The precise method, sample volume, collection container, processing location and test-specific TAT require operational confirmation."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.qxldiagnostics.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Knowledge Centre",
+          "item": "https://www.qxldiagnostics.com/knowledge-centre"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Parathyroid Hormone (Intact PTH) Test",
+          "item": "https://www.qxldiagnostics.com/blog/pth-parathyroid-hormone-test-bengaluru"
+        }
+      ]
+    }
+  ]
+}

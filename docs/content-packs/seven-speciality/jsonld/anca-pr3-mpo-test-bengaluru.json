@@ -1,0 +1,401 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalOrganization",
+      "@id": "https://www.qxldiagnostics.com/#organization",
+      "name": "QXL Diagnostics Super Speciality Lab",
+      "url": "https://www.qxldiagnostics.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-9964639639"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda",
+      "name": "Dr Shantakumar Muruda",
+      "honorificSuffix": "MD (Medical Biochemistry)",
+      "jobTitle": "Senior Consultant; Founder and CEO",
+      "worksFor": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": [
+        "WebPage",
+        "MedicalWebPage"
+      ],
+      "@id": "https://www.qxldiagnostics.com/blog/anca-pr3-mpo-test-bengaluru#webpage",
+      "url": "https://www.qxldiagnostics.com/blog/anca-pr3-mpo-test-bengaluru",
+      "name": "ANCA PR3 MPO Test Bengaluru | Vasculitis Diagnosis | QXL",
+      "description": "Learn ANCA, c-ANCA/p-ANCA, PR3/MPO antibodies, kidney and lung vasculitis symptoms, test interpretation, biopsy pathways and limitations.",
+      "inLanguage": "en-IN",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "isPartOf": {
+        "@id": "https://www.qxldiagnostics.com/#website"
+      },
+      "about": {
+        "@id": "https://www.qxldiagnostics.com/blog/anca-pr3-mpo-test-bengaluru#medicaltest"
+      },
+      "author": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "reviewedBy": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "publisher": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://www.qxldiagnostics.com/blog/anca-pr3-mpo-test-bengaluru#medicaltest"
+      }
+    },
+    {
+      "@type": "MedicalTest",
+      "@id": "https://www.qxldiagnostics.com/blog/anca-pr3-mpo-test-bengaluru#medicaltest",
+      "name": "ANCA, PR3-ANCA and MPO-ANCA Tests",
+      "description": "ANCA testing detects autoantibodies associated with particular small-vessel vasculitides. High-quality antigen-specific PR3-ANCA and MPO-ANCA assays are preferred initial tests when granulomatosis with polyangiitis (GPA) or microscopic polyangiitis (MPA) is clinically suspected; positive ANCA does not independently establish vasculitis and negative ANCA cannot rule it out.",
+      "availableAtOrFrom": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.qxldiagnostics.com/blog/anca-pr3-mpo-test-bengaluru#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the ANCA blood test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It detects antibodies against neutrophil-associated proteins that may support investigation of certain small-vessel vasculitides."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between ANCA, PR3 and MPO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ANCA is the antibody group; PR3 and MPO are two important target antigens that can be measured with specific immunoassays."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is c-ANCA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A cytoplasmic pattern on indirect immunofluorescence, often but not always associated with PR3 antibodies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is p-ANCA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A perinuclear IIF pattern, often but not always associated with MPO antibodies; atypical patterns are possible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does positive ANCA mean I have vasculitis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Diagnosis depends on clinical features, organ assessment, alternative causes and sometimes tissue biopsy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I have vasculitis with negative ANCA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. ANCA-negative disease exists and should be considered when the clinical phenotype is convincing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does PR3-ANCA positivity suggest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can support GPA in a compatible clinical scenario, but is not diagnostic by itself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does MPO-ANCA positivity suggest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can support MPA or related syndromes depending on organ findings; positive results can occur in other conditions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can ANCA cause kidney failure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ANCA-associated vasculitis may cause rapidly progressive glomerulonephritis and kidney injury; urgent assessment is essential."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What urine findings matter in suspected vasculitis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Blood, protein, casts and changes in urine output are important when interpreted with creatinine and blood pressure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is pulmonary–renal syndrome?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Concurrent pulmonary pathology such as alveolar haemorrhage and kidney glomerular disease; it requires emergency assessment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can persistent sinusitis be GPA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rarely, yes, particularly with destructive changes and systemic findings; ordinary sinusitis is far more common."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can ANCA explain nosebleeds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not on its own. Nosebleeds have many causes; suspicious associated symptoms warrant clinician assessment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does skin purpura always indicate vasculitis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Purpura has multiple causes, including platelet disorders, infections and vascular injury."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can ANCA be positive with infections?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Some infections can produce ANCA reactivity or mimic vasculitis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can inflammatory bowel disease cause atypical ANCA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, especially atypical IIF patterns, which are not equivalent to PR3/MPO-associated vasculitis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should ANCA be ordered for routine fatigue?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Generally no, unless accompanying findings make vasculitis a realistic clinical differential."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need both PR3 and MPO tests?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In suspected GPA or MPA, both antigen-specific assays are commonly considered; the exact order is clinician-directed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ANCA by IIF better than PR3/MPO immunoassay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High-quality antigen-specific immunoassays are preferred initially in suspected GPA/MPA; IIF may supplement discordant cases."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does an atypical ANCA pattern mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is not specific for vasculitis and must be interpreted with antigen-specific testing and clinical context."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can normal CRP rule out vasculitis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Inflammatory markers are supportive, not definitive exclusion tests."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is biopsy necessary in vasculitis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It may be important to confirm diagnosis and organ damage, especially with kidney involvement; specialist judgement determines timing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can ANCA titres monitor treatment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They may provide context, but treatment changes must not be based solely on titre fluctuations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a falling ANCA titre mean cure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Clinical activity, organ function and long-term relapse risk remain relevant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can drug use trigger ANCA-associated disease?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Certain medications and exposures can cause ANCA positivity or vasculitis-like syndromes; medication history matters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is fasting required for ANCA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fasting is generally not necessary unless other ordered tests require it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the specimen for ANCA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually venous blood serum; verify the specific QXL assay and collection instructions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How quickly must suspected vasculitis be evaluated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Organ-threatening features, particularly lung bleeding or rapidly worsening kidney function, require urgent same-day clinical care."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a normal urine test exclude systemic vasculitis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Some phenotypes may spare kidneys; organ-specific investigation depends on symptoms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which specialist interprets ANCA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rheumatology and, depending on the organs, nephrology, pulmonology or ENT are typically involved."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ANCA PR3 MPO test available at QXL Diagnostics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test available at QXL Diagnostics Super Speciality Lab Bengaluru. Confirm the exact assay, specimen, appointment and laboratory schedule before collection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the turnaround time (TAT)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Same Day* — subject to specimen eligibility, receipt time, analytical schedule and operational confirmation. Contact QXL Diagnostics Super Speciality Lab Bengaluru on WhatsApp for Details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the price in Bengaluru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test Details: contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. No unverified rate or discount is quoted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book home sample collection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For blood tests, enquire about address-specific home collection and specimen requirements. Stool and TB specimens require separate collection/transport instructions; suitability must be confirmed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a prescription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A clinician’s assessment is recommended, especially where a positive or negative result could trigger further imaging, biopsy, treatment or urgent referral. The lab can explain booking requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the laboratory explain my result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL can clarify the reported analyte, units, laboratory reference interval and technical limitations. Clinical diagnosis and treatment decisions require the treating clinician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the test NABL-accredited?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL Diagnostics reports NABL accreditation in medical testing; the accreditation status of each individual assay must be confirmed against the current NABL scope. Laboratory accreditation is not a blanket claim for every test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I ask for specimen and method details?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. The precise method, sample volume, collection container, processing location and test-specific TAT require operational confirmation."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.qxldiagnostics.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Knowledge Centre",
+          "item": "https://www.qxldiagnostics.com/knowledge-centre"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ANCA, PR3-ANCA and MPO-ANCA Tests",
+          "item": "https://www.qxldiagnostics.com/blog/anca-pr3-mpo-test-bengaluru"
+        }
+      ]
+    }
+  ]
+}

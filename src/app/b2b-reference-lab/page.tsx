@@ -48,7 +48,7 @@ export default function B2bReferenceLabPage() {
               Super-Speciality Reference Laboratory Partner for Bengaluru Hospitals &amp; Clinics
             </h1>
             <p className="text-blue-100 text-base md:text-lg mb-8 leading-relaxed font-medium">
-              Outsource specialized pathology, histopathology, molecular testing, and rare bio-assays to our NABL Accredited (MC-6849) central laboratory in Kengeri, Mysuru Road.
+              Outsource specialized pathology, histopathology, molecular testing, and rare bio-assays to our NABL Accredited (NABLM1126KA10694) central laboratory in Kengeri, Mysuru Road.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#partner-form" className="bg-white text-[#0f2d5e] font-black px-7 py-3.5 rounded-full text-sm uppercase tracking-wider hover:bg-slate-100 transition-all shadow-lg">
@@ -69,7 +69,7 @@ export default function B2bReferenceLabPage() {
             <Award className="w-10 h-10 text-[#2563eb] mb-4" />
             <h3 className="text-lg font-bold text-[#0f2d5e] mb-2">NABL Accredited Quality</h3>
             <p className="text-slate-600 text-xs leading-relaxed font-medium">
-              Processed under Certificate MC-6849 according to ISO 15189:2022 standards with daily multi-rule Westgard IQC.
+              Processed under Certificate NABLM1126KA10694 according to ISO 15189:2022 standards with daily multi-rule Westgard IQC.
             </p>
           </div>
           <div className="glass-card p-6 rounded-2xl bg-white border border-slate-200 shadow-sm">

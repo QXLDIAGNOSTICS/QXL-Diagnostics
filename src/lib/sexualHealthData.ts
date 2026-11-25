@@ -5,7 +5,7 @@
  * - CDC Sexually Transmitted Infections Treatment Guidelines & Testing Guidance
  * - WHO Guidelines on Post-Exposure Prophylaxis (PEP) for HIV
  * - NACO (National AIDS Control Organisation, India) HIV Diagnostic Algorithms
- * - Single source of truth NABL Certificate MC-6849 & ISO 15189:2022 standards
+ * - Single source of truth NABL Certificate NABLM1126KA10694 & ISO 15189:2022 standards
  */
 
 export interface StiPackage {
@@ -67,7 +67,7 @@ export const QXL_STI_PACKAGES: StiPackage[] = [
       "Confidential numeric barcode reporting option",
       "Same-day digital reporting within 6 hours"
     ],
-    accreditationNote: "NABL Accredited testing performed under NABL Certificate MC-6849."
+    accreditationNote: "NABL Accredited testing performed under NABL Certificate NABLM1126KA10694."
   },
   {
     code: "QXL-STI-02",
@@ -258,7 +258,7 @@ export const QXL_STI_PACKAGES: StiPackage[] = [
       "Confidential electronic delivery with doctor-reviewed summary",
       "Available across South & North Hubs and doorstep home collection"
     ],
-    accreditationNote: "Performed under central quality oversight (NABL Certificate MC-6849)."
+    accreditationNote: "Performed under central quality oversight (NABL Certificate NABLM1126KA10694)."
   },
   {
     code: "QXL-STI-08",

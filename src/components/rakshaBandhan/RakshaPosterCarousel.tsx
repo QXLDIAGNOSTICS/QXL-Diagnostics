@@ -198,7 +198,7 @@ export default function RakshaPosterCarousel({ onOpenBooking }: RakshaPosterCaro
                   </div>
                   <div className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#2563EB] shrink-0" />
-                    <span>NABL Accredited Lab (MC-6849)</span>
+                    <span>NABL Accredited Lab (NABLM1126KA10694)</span>
                   </div>
                 </div>
               </div>

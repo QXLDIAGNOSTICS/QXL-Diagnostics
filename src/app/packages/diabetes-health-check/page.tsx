@@ -136,7 +136,7 @@ export default function DiabetesHealthCheckPage() {
           <div className="max-w-3xl space-y-5">
             <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-200 border border-blue-400/30 px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider">
               <ShieldCheck className="w-3.5 h-3.5 text-blue-300" />
-              NABL ACCREDITED LAB (MC-6849) · ISO 15189:2022
+              NABL ACCREDITED LAB (NABLM1126KA10694) · ISO 15189:2022
             </div>
             <h1 className="text-3xl sm:text-5xl font-black text-white leading-tight">
               Diabetes Monitoring Tests in Bengaluru
@@ -257,7 +257,7 @@ export default function DiabetesHealthCheckPage() {
             <div className="border border-slate-200 rounded-2xl p-5 space-y-2">
               <h3 className="font-extrabold text-slate-900 text-sm">Where is the sample processed?</h3>
               <p className="text-xs sm:text-sm text-slate-600">
-                All samples are transported under strict cold-chain protocols (2°C–8°C) to QXL’s central reference laboratory at SLN Complex, Mysore Road, Kengeri, Bengaluru 560060, accredited under ISO 15189:2022 (Certificate MC-6849).
+                All samples are transported under strict cold-chain protocols (2°C–8°C) to QXL’s central reference laboratory at SLN Complex, Mysore Road, Kengeri, Bengaluru 560060, accredited under ISO 15189:2022 (Certificate NABLM1126KA10694).
               </p>
             </div>
           </div>

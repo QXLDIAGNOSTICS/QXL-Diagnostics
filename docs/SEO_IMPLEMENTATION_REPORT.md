@@ -36,7 +36,7 @@ The digital platform is now structured as an integrated clinical search engine t
   - `Food Sensitivity (287 IgG)`: Unified at **₹14,500**.
   - `Q-Oncology Biomarker Panel`: Unified at **₹7,900**.
 - **Turnaround Time (TAT) Normalization:** Standardized routine biochemistry and hematology checkup TAT to **12 Hours (Same Day)**, eliminating conflicting 6h/24h statements.
-- **Accreditation Terminology Enforced:** Banned "NABL Certified"; globally enforced **"NABL Accredited"** under Certificate No. **MC-6849** (ISO 15189:2022).
+- **Accreditation Terminology Enforced:** Banned "NABL Certified"; globally enforced **"NABL Accredited"** under Certificate No. **NABLM1126KA10694** (ISO 15189:2022).
 - **Phlebotomy Qualifications Enforced:** Banned "certified phlebotomist"; standardized to **"Trained phlebotomy specialist"**.
 - **Privacy & Clinical Sensitivity:** Replaced "100% discrete" with **"Confidential testing with privacy-conscious sample collection and report delivery"**.
 
@@ -77,7 +77,7 @@ The automated test runner (`npm run validate:all`) verified the entire repositor
 [✅ PASS] TERM-01 (Terminology): Zero occurrences of "NABL Certified"
 [✅ PASS] TERM-02 (Terminology): Zero occurrences of "certified phlebotomist"
 [✅ PASS] TERM-03 (Terminology & Accreditation): Zero occurrences of obsolete "MC-10025", "100% precision", or blanket pathologist signoff
-[✅ PASS] CERT-01 (Accreditation): Single source of truth NABL Certificate Number MC-6849
+[✅ PASS] CERT-01 (Accreditation): Single source of truth NABL Certificate Number NABLM1126KA10694
 [✅ PASS] NAP-01 (Local SEO & NAP): Helpline standardized to +91 9964 639 639 and email info@qxldiagnostics.com
 [✅ PASS] ROUTE-01 (Route Hygiene): /home 301 redirect and 404 dynamic catch-all guard
 [✅ PASS] ROUTE-02 (Sitemap Hygiene): Zero non-canonical redirects in sitemap-packages.xml

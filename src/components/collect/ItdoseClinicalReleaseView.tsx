@@ -183,7 +183,7 @@ export const ItdoseClinicalReleaseView: React.FC<ItdoseClinicalReleaseViewProps>
                     className="w-full px-3 py-1.5 border border-gray-300 rounded-lg bg-gray-50 font-bold text-gray-800"
                   />
                   <span className="text-[10px] text-gray-500 block mt-0.5">
-                    NABL Certificate MC-6849 verified signatory
+                    NABL Certificate NABLM1126KA10694 verified signatory
                   </span>
                 </div>
 

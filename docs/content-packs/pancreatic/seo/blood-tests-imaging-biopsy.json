@@ -1,0 +1,42 @@
+{
+  "slug": "blood-tests-imaging-biopsy",
+  "path": "/health/pancreas/blood-tests-imaging-biopsy",
+  "title": "Pancreatic Cancer Blood Tests vs CT, MRI, EUS and Biopsy: Diagnostic Guide",
+  "description": "Learn what LFT, CBC, glucose, amylase, lipase, CA 19-9, CT, MRI/MRCP, EUS and biopsy can and cannot show.",
+  "keywords": [
+    "pancreatic cancer blood tests",
+    "how pancreatic cancer diagnosed",
+    "pancreas protocol ct",
+    "EUS biopsy pancreatic cancer"
+  ],
+  "category": "Health & Pancreatic Disease",
+  "faq": [
+    {
+      "question": "Can a normal LFT exclude pancreatic cancer?",
+      "answer": "No. A pancreatic tumour may exist without bile-duct obstruction."
+    },
+    {
+      "question": "Is ultrasound enough to rule out pancreatic cancer?",
+      "answer": "Not when clinical suspicion remains high; CT, MRI/MRCP or EUS may be required."
+    },
+    {
+      "question": "Does everyone need a biopsy before surgery?",
+      "answer": "Not always. The specialist MDT decides based on imaging, resectability and treatment plan."
+    }
+  ],
+  "reviewStatus": "approved",
+  "reviewerName": "Dr. Shantakumar Muruda",
+  "reviewerQualification": "MD (Medical Biochemistry), Senior Consultant; Founder & CEO, QXL Diagnostics",
+  "author": "QXL Diagnostics Clinical Editorial Team",
+  "preparedOn": "2026-11-20",
+  "publicationDate": "2026-11-20",
+  "modifiedDate": "2026-11-20",
+  "seoTitle": "Pancreatic Cancer Blood Tests, CT & Biopsy | QXL",
+  "reviewedOn": "2026-11-20",
+  "medicalAuthorisation": true,
+  "testAvailability": "Test available at QXL Diagnostics",
+  "tatDisplay": "Same Day",
+  "tatNotice": "Same Day is an indicative laboratory turnaround, subject to sample receipt/cut-off, individual assay workflow, and confirmation by QXL. Some specialised and stool tests may take longer. Urgent symptoms require clinical care, not waiting for a result.",
+  "testDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+  "whatsappUrl": "https://wa.me/919964639639?text=Hello%20QXL%20Diagnostics%2C%20please%20share%20the%20test%20details%2C%20sample%20requirements%2C%20current%20price%20and%20confirmed%20turnaround%20time%20for%20pancreatic%20or%20gastrointestinal%20laboratory%20tests."
+}

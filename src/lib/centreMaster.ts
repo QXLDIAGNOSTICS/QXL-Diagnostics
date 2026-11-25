@@ -79,7 +79,7 @@ export const CENTRE_MASTER: Record<string, PhysicalCentre> = {
     },
     nablScope: {
       isNablFacility: true,
-      certificateNumber: "MC-6849",
+      certificateNumber: "NABLM1126KA10694",
       scopeNote: "Primary accredited medical testing facility under ISO 15189:2022 standard.",
     },
     capabilities: [
@@ -95,19 +95,19 @@ export const CENTRE_MASTER: Record<string, PhysicalCentre> = {
 
   YELAHANKA_NORTH_HUB: {
     id: "CTR-BLR-YLH-02",
-    name: "QXL Diagnostics North Bengaluru Regional Accessioning Hub",
+    name: "QXL Diagnostics – Super Speciality Lab North Hub at North City Specialities",
     shortName: "Yelahanka North Hub",
     type: "REGIONAL_PROCESSING_HUB",
     isPhysicalHub: true,
     address: {
-      building: "L Square",
-      street: "Opposite RMZ Galleria Mall",
+      building: "1st Floor, North City Specialities",
+      street: "Yelahanka New Town",
       locality: "Yelahanka",
       city: "Bengaluru",
       state: "Karnataka",
       pincode: "560064",
-      fullFormatted: "L Square, Opposite RMZ Galleria Mall, Yelahanka, Bengaluru, Karnataka 560064",
-      landmarks: "Opposite RMZ Galleria Mall",
+      fullFormatted: "1st Floor, North City Specialities, Yelahanka New Town, Bengaluru, Karnataka 560064",
+      landmarks: "North City Specialities, Yelahanka New Town",
     },
     geo: {
       lat: 13.1007,
@@ -126,8 +126,8 @@ export const CENTRE_MASTER: Record<string, PhysicalCentre> = {
     },
     nablScope: {
       isNablFacility: true,
-      certificateNumber: "MC-6849",
-      scopeNote: "Operating under central clinical governance and NABL quality management systems.",
+      certificateNumber: "MC-10025",
+      scopeNote: "Independently NABL-accredited (ISO 15189:2022) under Certificate MC-10025, valid until 1 April 2030.",
     },
     capabilities: [
       "Patient Walk-in Sample Collection",

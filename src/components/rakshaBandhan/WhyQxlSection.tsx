@@ -8,7 +8,7 @@ export default function WhyQxlSection() {
   const features = [
     {
       title: "NABL Accredited Laboratory",
-      description: `Formal accreditation (MC-6849) adhering strictly to ISO 15189:2022 medical quality standards.`,
+      description: `Formal accreditation (NABLM1126KA10694) adhering strictly to ISO 15189:2022 medical quality standards.`,
       icon: ShieldCheck,
       badge: "NABL ACCREDITED",
     },

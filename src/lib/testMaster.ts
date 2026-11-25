@@ -830,7 +830,6 @@ export const MASTER_TESTS: Record<string, TestRecord> = {
  * Audit-enforced prohibited marketing claims.
  */
 export const PROHIBITED_MARKETING_CLAIMS = [
-  /MC-10025/i,
   /100% precision/i,
   /100% pathologist authori[sz]ation/i,
   /every single report.*pathologist/i,

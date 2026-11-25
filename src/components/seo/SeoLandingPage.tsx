@@ -503,7 +503,7 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
             Ready to Book? Get Tested with QXL Diagnostics Today
           </h2>
           <p className="text-slate-300 text-sm font-medium max-w-2xl mx-auto">
-            Free home sample collection across Bengaluru • NABL Accredited laboratory (MC-6849) •
+            Free home sample collection across Bengaluru • NABL Accredited laboratory (NABLM1126KA10694) •
             Same-day digital reports for most routine tests.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">

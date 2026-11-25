@@ -5,7 +5,7 @@
 **Target Domain:** https://qxldiagnostics.com/  
 **Legal Entity:** Qualitify Healthtech Private Limited  
 **Laboratory Facility:** QXL Diagnostics Super Speciality Reference Laboratory, Kengeri, Bengaluru  
-**Accreditation Status:** NABL Accredited (Certificate No. MC-6849 under ISO 15189:2022)  
+**Accreditation Status:** NABL Accredited (Certificate No. NABLM1126KA10694 under ISO 15189:2022)  
 **Lead Auditor:** Technical SEO & Healthcare Search Strategy Team  
 
 ---
@@ -52,7 +52,7 @@ Prior to our technical remediation, public search retrieval identified critical 
 | **P0 — Q-Master Pro Pricing Drift** | Promotional banner vs Booking Cart | Decoupled variant pricing (₹2,999 vs ₹4,600) | Unified canonical `Q-Master Health Pro` price to ₹4,600 (92 parameters, MRP ₹9,600) | `scripts/validate-data-drift.ts` |
 | **P0 — Conflicting Turnaround Times** | Full Body Checkup pages | Marketing copy stated 6h, 12h, and 24h in conflicting sections | Standardized routine biochemistry/hematology package TAT to **12 Hours (Same Day)** | `scripts/validate-page-audit.ts` |
 | **P0 — Non-Defensible Medical Copy** | STI & Sexual Health promo cards | "100% discrete" and absolute percentage certainty claims | Cleansed to **"Confidential testing with privacy-conscious sample collection and report delivery"**; 4th-Gen HIV designated as an Ag/Ab screening test | `scripts/verifyQualityGate.ts` (TERM-03) |
-| **P1 — Obsolete Accreditation Terminology** | Footers, headers, metadata | Mentions of "NABL Certified" and obsolete certificate "MC-10025" | Globally standardized to **"NABL Accredited"** under Certificate No. **MC-6849** (ISO 15189:2022) | `verifyQualityGate.ts` (TERM-01, CERT-01) |
+| **P1 — Obsolete Accreditation Terminology** | Footers, headers, metadata | Mentions of "NABL Certified" and obsolete certificate "MC-10025" | Globally standardized to **"NABL Accredited"** under Certificate No. **NABLM1126KA10694** (ISO 15189:2022) | `verifyQualityGate.ts` (TERM-01, CERT-01) |
 | **P1 — Phlebotomy Credentials** | Booking steps, CTAs | "Certified phlebotomist" | Standardized to **"Trained phlebotomy specialist"** complying with Indian healthcare norms | `verifyQualityGate.ts` (TERM-02) |
 | **P1 — Citywide PIN Code Promises** | Locality pages | "All PIN codes" unconditional text | Replaced with dynamic serviceability verification against `SERVICEABILITY_MASTER` (61 mapped PINs) | `validate-data-drift.ts` |
 
@@ -77,7 +77,7 @@ QXL implements a modular XML sitemap index structure that prevents sitemap trunc
 ## 5. Structured Data (JSON-LD) Audit
 
 All structured data across the platform adheres to Schema.org standards:
-- **`MedicalOrganization` & `DiagnosticLab`:** Canonical root node `@id: "https://qxldiagnostics.com/#organization"` declared with official registration CIN, telephone `+91 9964 639 639`, NABL credential `MC-6849`, and ISO 15189:2022 accreditation.
+- **`MedicalOrganization` & `DiagnosticLab`:** Canonical root node `@id: "https://qxldiagnostics.com/#organization"` declared with official registration CIN, telephone `+91 9964 639 639`, NABL credential `NABLM1126KA10694`, and ISO 15189:2022 accreditation.
 - **Physical Laboratories:** `/locations/kengeri-main-lab` and `/locations/yelahanka-north-hub` emit `@type: "DiagnosticLab"` with exact street address, geo-coordinates, walk-in opening hours, and emergency contact details.
 - **Home Collection Zones:** 61 residential localities emit `@type: "Service"` with `serviceType: "Diagnostic Test Home Sample Collection"` and `areaServed`, linked back to the physical Kengeri central lab provider `@id: "https://qxldiagnostics.com/#kengeri-lab"`, strictly complying with Google Maps Storefront guidelines.
 - **`MedicalTest` & `Offer`:** Emitted dynamically from `MASTER_CATALOGUE` with `priceValidUntil`, `priceCurrency: "INR"`, and biological sample requirements.

@@ -16,7 +16,7 @@ const updates: Record<string, TaskUpdate> = {
     status: 'Done',
     evidenceLink: 'src/app/quality-accreditation/page.tsx:L1',
     qxlApproval: 'Approved',
-    notes: 'MC-6849 under ISO 15189:2022 verified with scope disciplines across Biochemistry, Pathology, and Haematology. Obsolete MC-10025 purged.',
+    notes: 'NABLM1126KA10694 under ISO 15189:2022 verified with scope disciplines across Biochemistry, Pathology, and Haematology. North Hub (Yelahanka) separately accredited under MC-10025, valid to 1 April 2030.',
   },
   'QXL-002': {
     status: 'Done',
@@ -262,7 +262,7 @@ const updates: Record<string, TaskUpdate> = {
     status: 'Done',
     evidenceLink: 'src/components/Footer.tsx:L1',
     qxlApproval: 'Approved',
-    notes: 'Entity facts (NABL MC-6849, phone +91 9964 639 639, registered addresses) consistent sitewide.',
+    notes: 'Entity facts (NABL NABLM1126KA10694, phone +91 9964 639 639, registered addresses) consistent sitewide.',
   },
   'QXL-064': {
     status: 'Done',
@@ -346,7 +346,7 @@ for (const [taskId, update] of Object.entries(updates)) {
 
 // Update GOVERNANCE_GATES to Approved
 const gatesUpdates: Record<string, { decision: string; linkOrDate: string }> = {
-  'GATE-01': { decision: 'Approved', linkOrDate: '24 Oct 2026 - MC-6849 verified' },
+  'GATE-01': { decision: 'Approved', linkOrDate: '24 Oct 2026 - NABLM1126KA10694 verified' },
   'GATE-02': { decision: 'Approved', linkOrDate: '24 Oct 2026 - AAAAI guidelines & signatory qualification' },
   'GATE-03': { decision: 'Approved', linkOrDate: '24 Oct 2026 - Master product catalog & calculatePackageParameterCount' },
   'GATE-04': { decision: 'Approved', linkOrDate: '24 Oct 2026 - Walk-in vs service hubs verified' },

@@ -78,7 +78,7 @@ export default function DoctorReviewerCard({
             <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1 leading-relaxed">
               Head of Clinical Biochemistry &amp; Quality Management,{" "}
               <strong className="text-slate-800">QXL Diagnostics Bengaluru</strong> (NABL Accredited
-              Laboratory MC-6849). Trained Lead Assessor for ISO 15189:2022 medical laboratory standards.
+              Laboratory NABLM1126KA10694). Trained Lead Assessor for ISO 15189:2022 medical laboratory standards.
             </p>
           )}
         </div>

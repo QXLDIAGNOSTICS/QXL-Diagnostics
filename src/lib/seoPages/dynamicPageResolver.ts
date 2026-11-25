@@ -197,7 +197,7 @@ const CLINICAL_PAGES_DATA: Record<string, Partial<DynamicPageData>> = {
     whyImportant: [
       "Investigate symptoms, establish baseline health information, or diagnose & monitor disease.",
       "Suitable for routine screening, preventive health checks, and physician-requested investigations.",
-      "Processed at NABL Accredited super speciality diagnostic laboratory (MC-6849)."
+      "Processed at NABL Accredited super speciality diagnostic laboratory (NABLM1126KA10694)."
     ],
     faqs: [
       { question: "Can I book a blood test at home in Bangalore?", answer: "Yes, home blood sample collection is available across Bengaluru subject to service availability." },
@@ -1505,7 +1505,7 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
       slug: cleanSlug,
       title: explicitData.title || `${cleanSlug} | QXL Diagnostics`,
       metaDescription: explicitData.subtitle || `Book ${cleanSlug} in Bangalore with NABL Accredited precision and doorstep collection.`,
-      badge: "NABL Accredited lab (MC-6849) · FREE HOME COLLECTION",
+      badge: "NABL Accredited lab (NABLM1126KA10694) · FREE HOME COLLECTION",
       h1Title: explicitData.h1Title || cleanSlug.replace(/-/g, ' '),
       subtitle: explicitData.subtitle || "High accuracy diagnostic investigation performed by QXL Diagnostics.",
       price: explicitData.price || "499",
@@ -1526,7 +1526,7 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
       ],
       whyImportant: explicitData.whyImportant || [
         "Provides accurate baseline health data for your doctor.",
-        "Conducted at NABL Accredited super speciality laboratory (MC-6849).",
+        "Conducted at NABL Accredited super speciality laboratory (NABLM1126KA10694).",
         "Digital PDF report delivered directly to your WhatsApp & Email."
       ],
       faqs: explicitData.faqs || [
@@ -1568,7 +1568,7 @@ export function getDynamicPageData(slug: string): DynamicPageData | null {
         whyImportant: [
           "Provides accurate baseline clinical data for your doctor.",
           "Detects early underlying health changes before symptoms develop.",
-          "Processed at NABL Accredited ISO 15189:2022 laboratory (MC-6849)."
+          "Processed at NABL Accredited ISO 15189:2022 laboratory (NABLM1126KA10694)."
         ],
         faqs: matchedTest.faqs || [
           { question: `Do I need to fast for ${matchedTest.name}?`, answer: matchedTest.preparation },

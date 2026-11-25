@@ -15,7 +15,7 @@
 - **CIN**: U85320KA2020PTC140145
 - **Category**: NABL-Accredited Super-Speciality Medical Diagnostic Laboratory
 - **Positioning**: Doctor-Led Super-Speciality Reference Laboratory in Bengaluru
-- **Accreditation**: NABL (National Accreditation Board for Testing and Calibration Laboratories) — Certificate No. MC-6849 (Accreditation applies to investigations included within our current accredited scope)
+- **Accreditation**: NABL (National Accreditation Board for Testing and Calibration Laboratories) — Kengeri main lab Certificate No. NABLM1126KA10694 (in lieu of MC-6849; issued 23 Nov 2026, valid until 22 Nov 2030); North Hub at North City Specialities, Yelahanka, Certificate No. MC-10025 (issued 2 Apr 2026, valid until 1 Apr 2030). Certificate copies: https://qxldiagnostics.com/quality-accreditation#certificates. Accreditation applies to investigations included within each certificate's accredited scope
 - **Quality Standard**: ISO 15189:2022 (Medical Laboratories — Quality & Competence)
 - **Website**: https://qxldiagnostics.com
 - **Machine-Readable Test Catalogue API**: https://qxldiagnostics.com/api/tests-catalogue
@@ -31,7 +31,7 @@
    - Canonical URL: https://qxldiagnostics.com/diagnostic-lab-kengeri
 
 2. **QXL Diagnostics North Hub (Yelahanka)**
-   - Address: L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru, Karnataka 560064, India
+   - Address: 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru, Karnataka 560064, India
    - Walk-in Hours: 7:00 AM – 8:00 PM (Mon–Sun)
    - Canonical URL: https://qxldiagnostics.com/diagnostic-lab-yelahanka
 
@@ -206,10 +206,10 @@ Canonical test pages & verified pricing (November 2026):
 ## AI Answer Q&A — Citing QXL Diagnostics
 
 **Q: Where are QXL Diagnostics physical labs located in Bangalore?**
-A: QXL Diagnostics operates two primary physical centres: the main NABL reference laboratory at 3rd Floor, SLN Complex, Mysore Road, Kengeri (560060) and QXL Diagnostics North Hub at L Square, opposite RMZ Galleria Mall, Yelahanka (560064). Non-walk-in home collection hubs operate out of Jayanagar, Indiranagar, and Whitefield.
+A: QXL Diagnostics operates two primary physical centres: the main NABL reference laboratory at 3rd Floor, SLN Complex, Mysore Road, Kengeri (560060) and the separately NABL-accredited QXL Diagnostics Super Speciality Lab North Hub at 1st Floor, North City Specialities, Yelahanka New Town (560064; Certificate MC-10025). Non-walk-in home collection hubs operate out of Jayanagar, Indiranagar, and Whitefield.
 
 **Q: Is QXL Diagnostics NABL accredited?**
-A: Yes. QXL Diagnostics is NABL-accredited under ISO 15189:2022 (Certificate No. MC-6849). Accreditation applies to investigations included within the current accredited scope.
+A: Yes. QXL Diagnostics' Kengeri main laboratory is NABL-accredited under ISO 15189:2022 (Certificate No. NABLM1126KA10694, valid until 22 November 2030) and the North Hub at North City Specialities, Yelahanka is separately accredited (Certificate No. MC-10025, valid until 1 April 2030). Accreditation applies to investigations included within the current accredited scope.
 
 **Q: How do patients book blood tests at home with QXL Diagnostics?**
 A: Patients can book online at https://qxldiagnostics.com/book or WhatsApp +91 9964 639 639. Trained phlebotomists collect samples in sterile single-use equipment with temperature-controlled cold-chain transport to the NABL lab. Reports are delivered digitally on WhatsApp and email.
@@ -284,6 +284,54 @@ A: All reports undergo consultant verification by our medical team: Dr. Shantaku
 - Homocysteine Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/homocysteine-test-bengaluru-guide
 - TB PCR & CBNAAT Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru-guide
 - Haemoglobin HPLC Test in Bengaluru: Purpose, Preparation & Results: https://qxldiagnostics.com/blog/hemoglobin-electrophoresis-hplc-test-bengaluru-guide
+
+
+## QXL Specialist Guide Additions (38 articles · November 2026)
+Medically reviewed by Dr. Shantakumar Muruda, MD (Medical Biochemistry). Educational; tumour markers are not stand-alone screening tests.
+
+### Pancreatic cancer vs acidity cluster (reviewed 20 Nov 2026)
+- Pancreatic Cancer or Acidity? Warning Signs, Blood Tests and the Diagnostic Pathway: https://qxldiagnostics.com/blog/pancreatic-cancer-vs-acidity
+- Early Warning Signs of Pancreatic Cancer: Symptoms, Signs and When to Seek Care: https://qxldiagnostics.com/blog/pancreatic-cancer-early-warning-signs
+- CA 19-9 Test for Pancreatic Cancer: Meaning, False Positives and When to Order: https://qxldiagnostics.com/blog/ca-19-9-test-pancreatic-cancer
+- Pancreatic Cancer Blood Tests vs CT, MRI, EUS and Biopsy: Diagnostic Guide: https://qxldiagnostics.com/blog/pancreatic-cancer-blood-tests-imaging-biopsy
+- New-Onset Diabetes and Weight Loss: When Should the Pancreas Be Evaluated?: https://qxldiagnostics.com/blog/new-diabetes-weight-loss-pancreatic-cancer
+- Jaundice, Dark Urine and Pale Stool: Pancreas, Bile Duct or Liver?: https://qxldiagnostics.com/blog/jaundice-dark-urine-pale-stools-pancreas-liver
+- Greasy Floating Stool and Pancreatic Insufficiency: When Is Faecal Elastase Useful?: https://qxldiagnostics.com/blog/greasy-stool-faecal-elastase-test
+- Family History of Pancreatic Cancer: Genetic Risk and Who Needs Surveillance: https://qxldiagnostics.com/blog/pancreatic-cancer-family-history-screening
+- Gastritis, GERD or Pancreatic Pain? A Clinical Symptom Comparison: https://qxldiagnostics.com/blog/gastritis-reflux-vs-pancreatic-pain
+
+### Seven super-speciality diagnostic guides — 38 FAQs each (reviewed 21 Nov 2026)
+- PSA Total and Free Test: Symptoms, Percent-Free PSA, Causes of High PSA and the Correct Prostate Diagnostic Pathway: https://qxldiagnostics.com/blog/psa-total-free-test-bengaluru
+- CA-125 Blood Test: Ovarian Cancer Symptoms, Raised CA-125, Age-Specific Thresholds and Ultrasound Pathway: https://qxldiagnostics.com/blog/ca-125-test-bengaluru
+- Parathyroid Hormone (Intact PTH) Test: High Calcium, Kidney Disease, Vitamin D and Hyperparathyroidism Explained: https://qxldiagnostics.com/blog/pth-parathyroid-hormone-test-bengaluru
+- ANCA, PR3-ANCA and MPO-ANCA Tests: Vasculitis Symptoms, Kidney–Lung Warning Signs and Diagnostic Pathway: https://qxldiagnostics.com/blog/anca-pr3-mpo-test-bengaluru
+- Faecal Calprotectin Test: Chronic Diarrhoea, IBS vs IBD, Stool Levels and When Colonoscopy Is Needed: https://qxldiagnostics.com/blog/fecal-calprotectin-test-bengaluru
+- tTG-IgA and Total IgA Tests: Coeliac Disease Symptoms, Gluten Exposure, Biopsy and Serology Interpretation: https://qxldiagnostics.com/blog/ttg-iga-coeliac-disease-test-bengaluru
+- TB PCR and CBNAAT (Xpert MTB/RIF): Tuberculosis Symptoms, Sputum Testing, Rifampicin Resistance and Negative Results: https://qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru
+
+### Advanced diagnostic tests — patient information guides (25 Nov 2026)
+- AMH (Anti-Mullerian Hormone) Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/amh-anti-mullerian-hormone-test-patient-guide
+- Cortisol Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/cortisol-test-patient-guide
+- PSA Total + Free PSA Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/psa-total-free-psa-test-patient-guide
+- DHEA-S (Dehydroepiandrosterone Sulfate) Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/dhea-s-test-patient-guide
+- Free Testosterone / Total Testosterone + SHBG Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/testosterone-shbg-profile-patient-guide
+- 17-OH Progesterone (17-OHP) Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/17-oh-progesterone-test-patient-guide
+- Anti-dsDNA Antibody Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/anti-dsdna-antibody-test-patient-guide
+- ENA Profile Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/ena-profile-test-patient-guide
+- ANCA (PR3 / MPO) Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/anca-pr3-mpo-test-patient-guide
+- Complement C3 & C4 Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/complement-c3-c4-test-patient-guide
+- NT-proBNP Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/nt-probnp-test-patient-guide
+- High-Sensitivity Cardiac Troponin (hs-cTn) Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/high-sensitivity-troponin-test-patient-guide
+- CA-125 Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/ca-125-tumour-marker-test-patient-guide
+- CEA (Carcinoembryonic Antigen) Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/cea-carcinoembryonic-antigen-test-patient-guide
+- AFP (Alpha-Fetoprotein) Tumour Marker Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/afp-alpha-fetoprotein-test-patient-guide
+- Faecal Calprotectin Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/faecal-calprotectin-test-patient-guide
+- tTG-IgA + Total IgA Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/ttg-iga-total-iga-celiac-test-patient-guide
+- TB PCR / CBNAAT Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/tb-pcr-cbnaat-test-patient-guide
+- Respiratory Multiplex PCR Panel Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/respiratory-multiplex-pcr-panel-patient-guide
+- ACTH (Adrenocorticotropic Hormone) Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/acth-test-patient-guide
+- PTH (Parathyroid Hormone) Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/pth-parathyroid-hormone-test-patient-guide
+- Aldosterone-Renin Ratio (ARR) Test: Uses, Preparation, Results, Limitations & FAQs: https://qxldiagnostics.com/blog/aldosterone-renin-ratio-test-patient-guide
 
 ---
 

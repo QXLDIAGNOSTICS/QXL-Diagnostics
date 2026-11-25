@@ -338,7 +338,7 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
               </div>
 
               <div className="mt-5 pt-4 border-t border-white/15">
-                <p className="text-[10px] text-sky-300 font-bold">NABL Accredited · MC-6849 · ISO 15189:2022</p>
+                <p className="text-[10px] text-sky-300 font-bold">NABL Accredited · NABLM1126KA10694 · ISO 15189:2022</p>
                 <p className="text-[10px] text-sky-400 font-semibold mt-0.5">Home collection available across Bengaluru</p>
               </div>
             </div>

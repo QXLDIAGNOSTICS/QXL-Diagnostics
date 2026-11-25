@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     types: { "application/rss+xml": [{ url: "/blog/feed.xml", title: "QXL Diagnostics Health Articles" }] },
   },
   description:
-    "NABL Accredited diagnostic lab in Bengaluru (MC-6849). 300+ tests, free home collection, doctor-reviewed reports in 24 hrs.",
+    "NABL Accredited diagnostic lab in Bengaluru (NABLM1126KA10694). 300+ tests, free home collection, doctor-reviewed reports in 24 hrs.",
   manifest: "/manifest.json",
   authors: [{ name: "QXL Diagnostics" }],
   creator: "QXL Diagnostics",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "QXL Diagnostics",
     title: "Diagnostic Lab in Bengaluru | NABL Accredited & Doctor-Led | QXL Diagnostics",
     description:
-      "Advanced diagnostic testing in Bengaluru. NABL Accredited (MC-6849), free doorstep sample collection, 300+ tests, same-day digital reports.",
+      "Advanced diagnostic testing in Bengaluru. NABL Accredited (NABLM1126KA10694), free doorstep sample collection, 300+ tests, same-day digital reports.",
     images: [
       {
         url: "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     "geo.position": "12.9177;77.4835",
     "ICBM": "12.9177, 77.4835",
     "dc.coverage": "Bengaluru, Karnataka, India",
-    "nabl-accreditation": "MC-6849",
+    "nabl-accreditation": "NABLM1126KA10694",
     "lab-iso-standard": "ISO 15189:2022",
   },
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
@@ -103,23 +103,38 @@ const localBusinessSchema = {
   legalName: "Qualitify Healthtech Pvt Ltd",
   alternateName: ["QXL Diagnostics", "QXL Diagnostics Bengaluru", "QXL Diagnostics Bangalore"],
   description:
-    "NABL Accredited (MC-6849) doctor-led super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, and same-day digital reports.",
+    "NABL Accredited (NABLM1126KA10694) doctor-led super speciality diagnostic laboratory in Bengaluru offering 300+ tests, free home sample collection, and same-day digital reports.",
   url: "https://qxldiagnostics.com",
   telephone: "+91-9964-639639",
   email: "info@qxldiagnostics.com",
   logo: "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150021/Assets-QXL/legacy-assets/image/Logo_1.png",
   image: "https://res.cloudinary.com/btjglif5/image/upload/c_fill,w_1200,h_630,f_auto,q_auto/v1784150719/Assets-QXL/legacy-assets/images/banners/qxl_hero_1_1781507207090.jpg",
-  hasCredential: {
-    "@type": "EducationalOccupationalCredential",
-    credentialCategory: "Laboratory Accreditation",
-    name: "NABL Accreditation Certificate MC-6849",
-    description: "ISO 15189:2022 accreditation from National Accreditation Board for Testing and Calibration Laboratories (NABL), Government of India",
-    recognizedBy: {
-      "@type": "Organization",
-      name: "NABL — National Accreditation Board for Testing and Calibration Laboratories",
-      url: "https://www.nabl-india.org"
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Laboratory Accreditation",
+      name: "NABL Accreditation Certificate NABLM1126KA10694 — Kengeri main laboratory",
+      description: "ISO 15189:2022 accreditation (in lieu of MC-6849), issued 23 November 2026, valid until 22 November 2030. 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru.",
+      url: "https://qxldiagnostics.com/certificates/nabl-kengeri-NABLM1126KA10694.jpeg",
+      recognizedBy: {
+        "@type": "Organization",
+        name: "NABL — National Accreditation Board for Testing and Calibration Laboratories",
+        url: "https://www.nabl-india.org"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Laboratory Accreditation",
+      name: "NABL Accreditation Certificate MC-10025 — North Hub at North City Specialities, Yelahanka",
+      description: "ISO 15189:2022 accreditation, issued 2 April 2026, valid until 1 April 2030. 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru.",
+      url: "https://qxldiagnostics.com/certificates/nabl-north-hub-MC-10025.jpeg",
+      recognizedBy: {
+        "@type": "Organization",
+        name: "NABL — National Accreditation Board for Testing and Calibration Laboratories",
+        url: "https://www.nabl-india.org"
+      }
     }
-  },
+  ],
   sameAs: [
     "https://www.facebook.com/qxldiagnostics",
     "https://www.linkedin.com/company/qxl-diagnostics",
@@ -204,7 +219,7 @@ const faqSchema = {
       name: "Where is QXL Diagnostics located in Bengaluru?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "QXL Diagnostics has two centers: Main Lab at 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060, and North Hub at L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru 560064.",
+        text: "QXL Diagnostics has two centers: Main Lab at 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060, and North Hub at 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru 560064.",
       },
     },
     {
@@ -352,7 +367,7 @@ const organizationSchema = {
     {
       "@type": "PropertyValue",
       "propertyID": "NABL Accreditation Number",
-      "value": "MC-6849"
+      "value": "NABLM1126KA10694"
     },
     {
       "@type": "PropertyValue",
@@ -363,15 +378,20 @@ const organizationSchema = {
   "hasCredential": {
     "@type": "EducationalOccupationalCredential",
     "credentialCategory": "Laboratory Accreditation",
-    "name": "NABL Medical Laboratory Accreditation MC-6849"
+    "name": "NABL Medical Laboratory Accreditation NABLM1126KA10694 (Kengeri, valid until 22 November 2030)"
   },
   "department": {
     "@type": "MedicalBusiness",
     "@id": "https://qxldiagnostics.com/locations/yelahanka#location",
-    "name": "QXL Diagnostics North Hub",
+    "name": "QXL Diagnostics – Super Speciality Lab North Hub at North City Specialities",
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Laboratory Accreditation",
+      "name": "NABL Medical Laboratory Accreditation MC-10025 (valid until 1 April 2030)"
+    },
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "L Square, opposite RMZ Galleria Mall, Yelahanka",
+      "streetAddress": "1st Floor, North City Specialities, Yelahanka New Town",
       "addressLocality": "Bengaluru",
       "addressRegion": "Karnataka",
       "postalCode": "560064",
@@ -387,7 +407,7 @@ const speakableSchema = {
   "@type": "WebPage",
   "@id": "https://qxldiagnostics.com",
   "name": "QXL Diagnostics — NABL Accredited Super Speciality Lab Bengaluru",
-  "description": "NABL Accredited (MC-6849) diagnostic laboratory in Bengaluru. Free home collection, 300+ tests, same-day reports.",
+  "description": "NABL Accredited (NABLM1126KA10694) diagnostic laboratory in Bengaluru. Free home collection, 300+ tests, same-day reports.",
   "speakable": {
     "@type": "SpeakableSpecification",
     "cssSelector": [

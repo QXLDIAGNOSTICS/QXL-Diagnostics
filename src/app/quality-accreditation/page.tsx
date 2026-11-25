@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   Award, 
   CheckCircle2, 
@@ -18,11 +19,12 @@ import {
 import FaqSection from '@/components/FaqSection';
 import { SITE_URL, NABL_CERTIFICATE, PHONE_DISPLAY, PHONE_E164, EMAIL } from '@/lib/businessInfo';
 import { ACCREDITATION_DETAILS, ACCREDITATION_SCOPE } from '@/config/accreditation';
+import { allAccreditations } from '@/lib/accreditation';
 
 export const metadata: Metadata = {
-  title: "Quality Assurance & NABL Accreditation (MC-6849) | QXL Diagnostics",
-  description: "Official Quality & NABL Accreditation Portal for QXL Diagnostics Bengaluru. ISO 15189:2022 standards, Certificate MC-6849, Westgard IQC, EQAS proficiency testing, cold-chain integrity, and critical value protocols.",
-  keywords: ["NABL Accreditation MC-6849", "ISO 15189:2022 laboratory bangalore", "Westgard IQC diagnostic lab", "sample traceability barcode", "critical value alert protocol"],
+  title: "Quality Assurance & NABL Accreditation (NABLM1126KA10694) | QXL Diagnostics",
+  description: "Official Quality & NABL Accreditation Portal for QXL Diagnostics Bengaluru. ISO 15189:2022 standards, Certificate NABLM1126KA10694, Westgard IQC, EQAS proficiency testing, cold-chain integrity, and critical value protocols.",
+  keywords: ["NABL Accreditation NABLM1126KA10694", "ISO 15189:2022 laboratory bangalore", "Westgard IQC diagnostic lab", "sample traceability barcode", "critical value alert protocol"],
   alternates: { canonical: `${SITE_URL}/quality-accreditation` },
   openGraph: {
     title: "NABL Accreditation & Clinical Quality Governance | QXL Diagnostics",
@@ -186,7 +188,7 @@ export default function QualityAccreditationPage() {
             </div>
             <div>
               <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Certificate Number</span>
-              <span className="font-extrabold text-[#0f2d5e]">MC-6849 (ISO 15189:2022)</span>
+              <span className="font-extrabold text-[#0f2d5e]">NABLM1126KA10694 (ISO 15189:2022)</span>
             </div>
             <div>
               <span className="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Legal Entity</span>
@@ -205,10 +207,10 @@ export default function QualityAccreditationPage() {
             <ol className="list-decimal list-inside space-y-1 text-[11px] text-slate-600 font-medium">
               <li>Visit the official portal at <a href="https://nablwp.qci.org.in/" target="_blank" rel="noopener noreferrer" className="text-[#2563eb] underline font-semibold">nablwp.qci.org.in</a></li>
               <li>Navigate to <strong>Accredited Facilities &rarr; Medical Testing Laboratories</strong></li>
-              <li>Search by Certificate Number: <strong>MC-6849</strong> or Lab Name: <strong>Qualitify Healthtech</strong></li>
+              <li>Search by Certificate Number: <strong>NABLM1126KA10694</strong> or Lab Name: <strong>Qualitify Healthtech</strong></li>
             </ol>
             <p className="mt-2 text-[10.5px] text-slate-500 font-medium">
-              <strong>Validity &amp; Surveillance:</strong> Active accreditation maintained under continuous NABL surveillance audit cycles adhering to ISO 15189:2022 standard requirements.
+              <strong>Validity:</strong> Certificate NABLM1126KA10694 (issued in lieu of MC-6849) was issued on 23 November 2026 and is valid until 22 November 2030, subject to continued NABL surveillance under ISO 15189:2022.
             </p>
           </div>
 
@@ -216,6 +218,49 @@ export default function QualityAccreditationPage() {
             🔍 <strong>Test-Wise Scope Governance:</strong> Investigations included in the formal NABL Scope Schedule are validated under ISO 15189:2022 technical audits. For specialized or emerging investigations outside the specific NABL scope schedule, QXL applies identical clinical standards via daily two-level Westgard multi-rule Internal Quality Controls (IQC) and external proficiency testing (EQAS) to guarantee analytical reliability.
           </p>
         </div>
+      </section>
+
+      {/* Both NABL-accredited facilities with certificate copies */}
+      <section className="py-10 max-w-[1260px] mx-auto px-4" id="certificates">
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#0f2d5e]">Two Independently NABL-Accredited Laboratories</h2>
+          <p className="text-sm text-slate-600 mt-2 font-medium">
+            Each QXL laboratory holds its own ISO 15189:2022 certificate from NABL. Accreditation applies to the tests listed in that certificate&apos;s scope annexure on the NABL portal.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {allAccreditations.map((cert) => (
+            <article key={cert.certificateNumber} className="bg-white rounded-3xl border border-slate-200 shadow-sm p-5 flex flex-col gap-4">
+              <div>
+                <h3 className="text-lg font-black text-[#0f2d5e]">{cert.facility}</h3>
+                <dl className="mt-2 grid grid-cols-2 gap-2 text-xs text-slate-700">
+                  <div><dt className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Certificate</dt><dd className="font-extrabold">{cert.certificateNumber}</dd></div>
+                  <div><dt className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Standard</dt><dd className="font-extrabold">ISO 15189:2022</dd></div>
+                  <div><dt className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Issued</dt><dd className="font-extrabold">{cert.validFrom}</dd></div>
+                  <div><dt className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Valid until</dt><dd className="font-extrabold">{cert.validUntil}</dd></div>
+                </dl>
+                {cert.replacesCertificate && (
+                  <p className="mt-2 text-[11px] text-slate-500">Issued in lieu of earlier certificate {cert.replacesCertificate}.</p>
+                )}
+              </div>
+              {cert.certificateImageUrl && (
+                <a href={cert.certificateImageUrl} target="_blank" rel="noopener noreferrer" className="block rounded-2xl overflow-hidden border border-slate-200">
+                  <Image
+                    src={cert.certificateImageUrl}
+                    alt={`NABL certificate of accreditation ${cert.certificateNumber} — ${cert.facility}`}
+                    width={1131}
+                    height={1600}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="w-full h-auto"
+                  />
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+        <p className="mt-4 text-[11px] text-slate-500 text-center">
+          Kengeri main lab: 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru. North Hub: 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru. Legal entity: Qualitify Healthtech Private Limited.
+        </p>
       </section>
 
       {/* Scope of Accreditation */}

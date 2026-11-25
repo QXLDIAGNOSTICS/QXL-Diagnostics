@@ -1,0 +1,401 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalOrganization",
+      "@id": "https://www.qxldiagnostics.com/#organization",
+      "name": "QXL Diagnostics Super Speciality Lab",
+      "url": "https://www.qxldiagnostics.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-9964639639"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda",
+      "name": "Dr Shantakumar Muruda",
+      "honorificSuffix": "MD (Medical Biochemistry)",
+      "jobTitle": "Senior Consultant; Founder and CEO",
+      "worksFor": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": [
+        "WebPage",
+        "MedicalWebPage"
+      ],
+      "@id": "https://www.qxldiagnostics.com/blog/fecal-calprotectin-test-bengaluru#webpage",
+      "url": "https://www.qxldiagnostics.com/blog/fecal-calprotectin-test-bengaluru",
+      "name": "Stool Calprotectin Test Bengaluru | IBS vs IBD Guide | QXL",
+      "description": "Understand faecal calprotectin in chronic diarrhoea, IBS vs Crohn’s/ulcerative colitis, raised stool levels, test limitations and follow-up.",
+      "inLanguage": "en-IN",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "isPartOf": {
+        "@id": "https://www.qxldiagnostics.com/#website"
+      },
+      "about": {
+        "@id": "https://www.qxldiagnostics.com/blog/fecal-calprotectin-test-bengaluru#medicaltest"
+      },
+      "author": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "reviewedBy": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "publisher": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://www.qxldiagnostics.com/blog/fecal-calprotectin-test-bengaluru#medicaltest"
+      }
+    },
+    {
+      "@type": "MedicalTest",
+      "@id": "https://www.qxldiagnostics.com/blog/fecal-calprotectin-test-bengaluru#medicaltest",
+      "name": "Faecal Calprotectin Test",
+      "description": "Faecal calprotectin is a neutrophil-derived protein measured in stool that reflects intestinal inflammation. It is useful for distinguishing inflammatory bowel disease (IBD) from functional bowel symptoms in appropriately selected patients, and for selected monitoring of known IBD. Elevated values do not specify a cause or prove Crohn’s disease or ulcerative colitis.",
+      "availableAtOrFrom": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.qxldiagnostics.com/blog/fecal-calprotectin-test-bengaluru#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is faecal calprotectin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A neutrophil-derived protein measured in stool that reflects intestinal inflammation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is calprotectin a blood test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Standard faecal calprotectin testing uses a stool sample."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can calprotectin distinguish IBS from IBD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can help estimate likelihood of intestinal inflammation, but a final diagnosis requires clinical correlation and sometimes endoscopy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a high calprotectin mean Crohn’s disease?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Crohn’s is one possible cause; infections, medicines and other inflammatory conditions may elevate it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a high calprotectin mean ulcerative colitis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It supports intestinal inflammation but cannot identify ulcerative colitis specifically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a normal calprotectin value?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many assays use below 50 µg/g as a low-range result, but the reporting laboratory’s method-specific interval applies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does calprotectin 50–100 mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is a low or borderline range in many pathways; clinical symptoms, age, medication and need for follow-up determine action."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does calprotectin 100–250 mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is an intermediate range in many pathways; clinicians may assess confounders, repeat testing or refer based on overall risk."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does calprotectin over 250 mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It increases suspicion for significant inflammation but is not a disease-specific diagnosis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does low calprotectin rule out IBD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It lowers probability in selected patients but does not absolutely exclude IBD or other conditions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can infection raise calprotectin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Bacterial and other intestinal infections may elevate it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can NSAID painkillers affect calprotectin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. NSAIDs may cause intestinal inflammation and increase the result."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do proton-pump inhibitors affect the result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some studies show associations with modest elevations; medication context should be considered rather than assumed causal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can colon cancer raise calprotectin?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some cancers can elevate it, but calprotectin is not an appropriate colorectal cancer screening or exclusion test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I still need colonoscopy after a normal test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Possibly. Bleeding, anaemia, weight loss, age or strong clinical suspicion may warrant colonoscopy despite a low result."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can calprotectin be used to monitor established IBD?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it may support monitoring with symptoms, CRP and specialist assessment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it replace endoscopic biopsy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Endoscopy and histology may be necessary for diagnosis, assessment or cancer exclusion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I test during a stomach infection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The result may be transiently elevated. Discuss timing with the clinician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can children have calprotectin tests?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but age-related interpretation and local assay intervals are important, especially in infants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an older adult have a low test despite cancer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Alarm symptoms require age-appropriate investigation regardless of the calprotectin value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What sample is required?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A small stool sample in a clean, approved container, following the laboratory’s collection instructions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should the stool be refrigerated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Storage depends on the validated assay and transport interval; contact QXL for exact handling requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is fasting required?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No routine fasting is required for isolated stool calprotectin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I collect a sample at home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually yes if the approved container and transport requirements are followed; confirm with QXL."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can watery stool be tested?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Many assays can analyse watery stool, but specimen suitability is method-specific; ask QXL."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should a borderline result be repeated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only on clinical advice after considering infection, medicines and symptom persistence; there is no universal fixed interval."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does calprotectin diagnose food allergy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It is not a validated standalone food allergy marker."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it diagnose coeliac disease?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Coeliac disease is evaluated with tTG-IgA/total IgA and sometimes duodenal biopsy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why did my calprotectin level change?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Disease activity, infection, medication, sampling variation and assay differences can change results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is bloody diarrhoea urgent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Significant bleeding with dehydration, severe pain, fever or systemic illness requires urgent medical care."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is FECAL CALPROTECTIN test available at QXL Diagnostics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test available at QXL Diagnostics Super Speciality Lab Bengaluru. Confirm the exact assay, specimen, appointment and laboratory schedule before collection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the turnaround time (TAT)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Same Day* — subject to specimen eligibility, receipt time, analytical schedule and operational confirmation. Contact QXL Diagnostics Super Speciality Lab Bengaluru on WhatsApp for Details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the price in Bengaluru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test Details: contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. No unverified rate or discount is quoted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book home sample collection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For blood tests, enquire about address-specific home collection and specimen requirements. Stool and TB specimens require separate collection/transport instructions; suitability must be confirmed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a prescription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A clinician’s assessment is recommended, especially where a positive or negative result could trigger further imaging, biopsy, treatment or urgent referral. The lab can explain booking requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the laboratory explain my result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL can clarify the reported analyte, units, laboratory reference interval and technical limitations. Clinical diagnosis and treatment decisions require the treating clinician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the test NABL-accredited?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL Diagnostics reports NABL accreditation in medical testing; the accreditation status of each individual assay must be confirmed against the current NABL scope. Laboratory accreditation is not a blanket claim for every test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I ask for specimen and method details?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. The precise method, sample volume, collection container, processing location and test-specific TAT require operational confirmation."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.qxldiagnostics.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Knowledge Centre",
+          "item": "https://www.qxldiagnostics.com/knowledge-centre"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Faecal Calprotectin Test",
+          "item": "https://www.qxldiagnostics.com/blog/fecal-calprotectin-test-bengaluru"
+        }
+      ]
+    }
+  ]
+}

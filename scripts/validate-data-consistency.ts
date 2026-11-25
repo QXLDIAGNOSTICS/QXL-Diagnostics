@@ -93,8 +93,8 @@ if (!PACKAGE_MASTER || PACKAGE_MASTER.length !== 6) {
 }
 
 // 7. Accreditation Master Validation
-if (MAIN_LAB_ACCREDITATION.certificate_number !== "MC-6849") {
-  errors.push(`MAIN_LAB_ACCREDITATION certificate mismatch: expected MC-6849, got ${MAIN_LAB_ACCREDITATION.certificate_number}.`);
+if (MAIN_LAB_ACCREDITATION.certificate_number !== "NABLM1126KA10694") {
+  errors.push(`MAIN_LAB_ACCREDITATION certificate mismatch: expected NABLM1126KA10694, got ${MAIN_LAB_ACCREDITATION.certificate_number}.`);
 } else {
   console.log(`✅ MAIN_LAB_ACCREDITATION verified: ${MAIN_LAB_ACCREDITATION.certificate_number} under ${MAIN_LAB_ACCREDITATION.standard}.`);
 }
@@ -166,11 +166,11 @@ if (!fs.existsSync(llmsPath)) {
   errors.push("public/llms.txt file is missing.");
 } else {
   const llmsContent = fs.readFileSync(llmsPath, "utf-8");
-  if (!llmsContent.includes("MC-6849")) {
-    errors.push("public/llms.txt missing canonical accreditation MC-6849.");
+  if (!llmsContent.includes("NABLM1126KA10694")) {
+    errors.push("public/llms.txt missing canonical accreditation NABLM1126KA10694.");
   }
-  if (llmsContent.includes("NABL Certified") || llmsContent.includes("MC-10025")) {
-    errors.push("public/llms.txt contains obsolete NABL Certified or MC-10025 reference.");
+  if (llmsContent.includes("NABL Certified")) {
+    errors.push("public/llms.txt contains improper NABL Certified wording.");
   }
   console.log("✅ public/llms.txt verified cleanly.");
 }

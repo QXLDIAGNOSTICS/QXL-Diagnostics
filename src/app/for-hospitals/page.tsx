@@ -25,7 +25,7 @@ import B2bInquiryForm from "./B2bInquiryForm";
 export const metadata: Metadata = {
   title: "Reference Laboratory for Hospitals & Clinics in Bengaluru | QXL Diagnostics",
   description:
-    "NABL-accredited (MC-6849) reference lab for hospitals, nursing homes and clinics. Autoimmune, SPEP/IFE, IHC, molecular and cardiometabolic testing with consultant sign-off, scheduled pickups and fortnightly billing.",
+    "NABL-accredited (NABLM1126KA10694) reference lab for hospitals, nursing homes and clinics. Autoimmune, SPEP/IFE, IHC, molecular and cardiometabolic testing with consultant sign-off, scheduled pickups and fortnightly billing.",
   alternates: { canonical: `${SITE_URL}/for-hospitals` },
   openGraph: {
     title: "Reference Laboratory for Hospitals & Clinics in Bengaluru | QXL Diagnostics",
@@ -87,7 +87,7 @@ const faqs = [
   },
   {
     q: "Will the report carry my hospital's name?",
-    a: "Yes. Reports are issued on your letterhead with QXL's NABL accreditation reference (MC-6849) and the signing consultant's details, as required under ISO 15189.",
+    a: "Yes. Reports are issued on your letterhead with QXL's NABL accreditation reference (NABLM1126KA10694) and the signing consultant's details, as required under ISO 15189.",
   },
   {
     q: "How are samples transported?",
@@ -111,7 +111,7 @@ const faqs = [
   },
   {
     q: "Are you NABL accredited for all the tests on this page?",
-    a: "Our primary accreditation certificate is MC-6849 under ISO 15189:2022. Our scope document is available on request and searchable on the official NABL portal.",
+    a: "Our primary accreditation certificate is NABLM1126KA10694 under ISO 15189:2022. Our scope document is available on request and searchable on the official NABL portal.",
   },
 ];
 

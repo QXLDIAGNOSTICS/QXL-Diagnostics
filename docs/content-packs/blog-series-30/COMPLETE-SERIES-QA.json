@@ -1,0 +1,339 @@
+{
+  "status": "PASS",
+  "articleCount": 30,
+  "completeBlockSets": 30,
+  "FAQCount": 150,
+  "canonicalCount": 30,
+  "sourceArticleFilesUnchanged": true,
+  "allInternalSeriesLinksResolveWithinRegister": true,
+  "sourcePackages": [
+    {
+      "blogs": "01–10",
+      "sourcePackage": "QXL_Blogs_01-10_Reviewed_Updated",
+      "articleCount": 10
+    },
+    {
+      "blogs": "11–15",
+      "sourcePackage": "QXL_Blog_Batch_03",
+      "articleCount": 5
+    },
+    {
+      "blogs": "16–20",
+      "sourcePackage": "QXL_Blog_Batch_04",
+      "articleCount": 5
+    },
+    {
+      "blogs": "21–25",
+      "sourcePackage": "QXL_Blog_Batch_05",
+      "articleCount": 5
+    },
+    {
+      "blogs": "26–30",
+      "sourcePackage": "QXL_Blog_Batch_06",
+      "articleCount": 5
+    }
+  ],
+  "articles": [
+    {
+      "blog": 1,
+      "status": "PASS",
+      "words": 1294,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 2,
+      "status": "PASS",
+      "words": 1294,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 3,
+      "status": "PASS",
+      "words": 1299,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 4,
+      "status": "PASS",
+      "words": 1233,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 5,
+      "status": "PASS",
+      "words": 1269,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 6,
+      "status": "PASS",
+      "words": 1262,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 7,
+      "status": "PASS",
+      "words": 1299,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 8,
+      "status": "PASS",
+      "words": 1299,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 9,
+      "status": "PASS",
+      "words": 1299,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 10,
+      "status": "PASS",
+      "words": 1266,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 11,
+      "status": "PASS",
+      "words": 1246,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 12,
+      "status": "PASS",
+      "words": 1299,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 13,
+      "status": "PASS",
+      "words": 1238,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 14,
+      "status": "PASS",
+      "words": 1246,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 15,
+      "status": "PASS",
+      "words": 1281,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 16,
+      "status": "PASS",
+      "words": 1190,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 17,
+      "status": "PASS",
+      "words": 1240,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 18,
+      "status": "PASS",
+      "words": 1181,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 19,
+      "status": "PASS",
+      "words": 1220,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 20,
+      "status": "PASS",
+      "words": 1267,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 21,
+      "status": "PASS",
+      "words": 1231,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 22,
+      "status": "PASS",
+      "words": 1261,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 23,
+      "status": "PASS",
+      "words": 1181,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 24,
+      "status": "PASS",
+      "words": 1197,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 25,
+      "status": "PASS",
+      "words": 1197,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 26,
+      "status": "PASS",
+      "words": 1208,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 27,
+      "status": "PASS",
+      "words": 1248,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 28,
+      "status": "PASS",
+      "words": 1248,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 29,
+      "status": "PASS",
+      "words": 1259,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    },
+    {
+      "blog": 30,
+      "status": "PASS",
+      "words": 1233,
+      "FAQCount": 5,
+      "FAQSchemaMatch": true,
+      "clinicalFilesUnchanged": true,
+      "noBlankContent": true,
+      "typedSchemaValuesValid": true
+    }
+  ],
+  "publicationAndScopeInformation": "check with QXL for more information"
+}

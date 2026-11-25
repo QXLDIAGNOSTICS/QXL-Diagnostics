@@ -23,15 +23,14 @@ export const CLAIMS_MASTER: Record<string, GovernedClaim> = {
   ACCREDITATION_CLAIM: {
     id: "CLM-ACC-01",
     topic: "NABL Accreditation Status",
-    approvedText: "QXL Diagnostics Super Speciality Reference Laboratory is an NABL-accredited medical testing laboratory under Certificate Number MC-6849, operating in accordance with ISO 15189:2022 standards.",
+    approvedText: "QXL Diagnostics Super Speciality Reference Laboratory is an NABL-accredited medical testing laboratory under Certificate Number NABLM1126KA10694, operating in accordance with ISO 15189:2022 standards.",
     prohibitedTerms: [
       "NABL Certified",
       "certified phlebotomist",
       "100% precision",
       "100% accuracy",
-      "MC-10025",
     ],
-    evidenceSource: "Official NABL Certificate MC-6849 under ISO 15189:2022 standard; Quality Management System Manual.",
+    evidenceSource: "Official NABL Certificate NABLM1126KA10694 under ISO 15189:2022 standard; Quality Management System Manual.",
     approvingPerson: "Dr. Shantakumar Muruda",
     approvalRole: "NABL Lead Assessor / CEO & Clinical Biochemist",
     lastReviewDate: "2026-10-20",

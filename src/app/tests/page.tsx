@@ -455,7 +455,7 @@ export default function TestsPage() {
               <h3 className="font-extrabold text-slate-900 mb-1 flex items-center gap-1.5">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" /> Multidisciplinary Signatory Validation
               </h3>
-              <p>Every test parameter is analyzed using automated analyzer platforms and verified by qualified medical signatories including consultant pathologists, clinical biochemists, and medical microbiologists under NABL MC-6849 quality controls.</p>
+              <p>Every test parameter is analyzed using automated analyzer platforms and verified by qualified medical signatories including consultant pathologists, clinical biochemists, and medical microbiologists under NABL NABLM1126KA10694 quality controls.</p>
             </div>
             <div>
               <h3 className="font-extrabold text-slate-900 mb-1 flex items-center gap-1.5">

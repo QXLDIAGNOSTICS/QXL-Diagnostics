@@ -6,9 +6,9 @@ import { ShieldCheck, Award, CheckCircle2, Thermometer, AlertCircle, FileCheck, 
 import { SITE_URL, NABL_CERTIFICATE, PHONE_DISPLAY } from '@/lib/businessInfo';
 
 export const metadata: Metadata = {
-  title: "Quality Systems & NABL MC-6849 Accreditation | QXL Diagnostics",
-  description: "Official Quality & Accreditation Hub for QXL Diagnostics Bengaluru. NABL Certificate MC-6849, ISO 15189:2022 standards, Westgard IQC, EQAS, cold-chain transport, and critical value protocols.",
-  keywords: ["NABL Accreditation MC-6849", "ISO 15189 laboratory bangalore", "Westgard IQC diagnostic lab", "cold chain sample transport", "critical value alert protocol"],
+  title: "Quality Systems & NABL NABLM1126KA10694 Accreditation | QXL Diagnostics",
+  description: "Official Quality & Accreditation Hub for QXL Diagnostics Bengaluru. NABL Certificate NABLM1126KA10694, ISO 15189:2022 standards, Westgard IQC, EQAS, cold-chain transport, and critical value protocols.",
+  keywords: ["NABL Accreditation NABLM1126KA10694", "ISO 15189 laboratory bangalore", "Westgard IQC diagnostic lab", "cold chain sample transport", "critical value alert protocol"],
   alternates: { canonical: `${SITE_URL}/quality` },
 };
 
@@ -22,7 +22,7 @@ export default function QualityHubPage() {
     "hasCredential": {
       "@type": "EducationalOccupationalCredential",
       "credentialCategory": "Laboratory Accreditation",
-      "name": "NABL Accreditation Certificate MC-6849",
+      "name": "NABL Accreditation Certificate NABLM1126KA10694",
       "description": "ISO 15189:2022 Medical Laboratory Accreditation by National Accreditation Board for Testing and Calibration Laboratories (NABL), DST/QCI",
       "recognizedBy": {
         "@type": "Organization",
@@ -44,7 +44,7 @@ export default function QualityHubPage() {
             <span className="text-white font-black">Doctor-Led NABL Accredited Diagnostic Lab in Bengaluru</span>
           </div>
           <p className="text-xs text-emerald-100 font-bold shrink-0">
-            NABL MC-6849 • 300+ Tests • Free Home Collection Across Bengaluru
+            NABL NABLM1126KA10694 • 300+ Tests • Free Home Collection Across Bengaluru
           </p>
         </div>
       </div>
@@ -53,7 +53,7 @@ export default function QualityHubPage() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-300/40 text-sky-200 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
               <Award className="w-4 h-4 text-amber-300" />
-              NABL Accreditation Certificate MC-6849
+              NABL Accreditation Certificate NABLM1126KA10694
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
               Quality Assurance &amp; ISO 15189 Laboratory Systems
@@ -74,9 +74,9 @@ export default function QualityHubPage() {
             <span className="bg-blue-50 text-[#2563eb] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
               Verifiable Accreditation
             </span>
-            <h2 className="text-2xl font-black text-[#0f2d5e]">NABL Certificate MC-6849</h2>
+            <h2 className="text-2xl font-black text-[#0f2d5e]">NABL Certificate NABLM1126KA10694</h2>
             <p className="text-xs text-slate-600 max-w-xl leading-relaxed">
-              QXL Diagnostics Super Speciality Lab (Qualitify Healthtech Pvt Ltd) holds active NABL Accreditation under Certificate Number <strong>MC-6849</strong> operating to <strong>ISO 15189:2022</strong>. We encourage every patient and referring doctor to verify our scope directly on the NABL portal.
+              QXL Diagnostics Super Speciality Lab (Qualitify Healthtech Pvt Ltd) holds active NABL Accreditation under Certificate Number <strong>NABLM1126KA10694</strong> operating to <strong>ISO 15189:2022</strong>. We encourage every patient and referring doctor to verify our scope directly on the NABL portal.
             </p>
           </div>
           <a

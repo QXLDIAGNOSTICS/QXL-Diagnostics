@@ -124,7 +124,7 @@ export default function PopularPackagesGrid({ packages = CANONICAL_PACKAGES }: {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-4 sm:mb-5">
           <span className="bg-blue-100 text-blue-900 border border-blue-200 font-extrabold text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-            NABL ACCREDITED (MC-6849) • ISO 15189:2022
+            NABL ACCREDITED (NABLM1126KA10694) • ISO 15189:2022
           </span>
           <h1 className="text-xl sm:text-2xl font-black text-[#0f2d5e] mt-1.5">
             Complete Diagnostic Packages
@@ -574,7 +574,7 @@ export default function PopularPackagesGrid({ packages = CANONICAL_PACKAGES }: {
                   <div className="text-right text-xs font-bold text-slate-600 space-y-1">
                     <div className="flex items-center gap-1.5 justify-end text-emerald-700 font-extrabold">
                       <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                      <span>NABL Accredited (MC-6849)</span>
+                      <span>NABL Accredited (NABLM1126KA10694)</span>
                     </div>
                     <p className="text-[11px] text-slate-500 font-medium">Free Doorstep Home Collection</p>
                   </div>

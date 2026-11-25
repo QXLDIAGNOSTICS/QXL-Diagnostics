@@ -1,0 +1,401 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalOrganization",
+      "@id": "https://www.qxldiagnostics.com/#organization",
+      "name": "QXL Diagnostics Super Speciality Lab",
+      "url": "https://www.qxldiagnostics.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-9964639639"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda",
+      "name": "Dr Shantakumar Muruda",
+      "honorificSuffix": "MD (Medical Biochemistry)",
+      "jobTitle": "Senior Consultant; Founder and CEO",
+      "worksFor": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": [
+        "WebPage",
+        "MedicalWebPage"
+      ],
+      "@id": "https://www.qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru#webpage",
+      "url": "https://www.qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru",
+      "name": "TB PCR / CBNAAT Test Bengaluru | Sputum & Rifampicin | QXL",
+      "description": "Understand TB PCR/CBNAAT, sputum collection, Xpert MTB/RIF/Ultra, rifampicin resistance, extrapulmonary TB, negative test limitations and NTEP care.",
+      "inLanguage": "en-IN",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "isPartOf": {
+        "@id": "https://www.qxldiagnostics.com/#website"
+      },
+      "about": {
+        "@id": "https://www.qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru#medicaltest"
+      },
+      "author": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "reviewedBy": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "publisher": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://www.qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru#medicaltest"
+      }
+    },
+    {
+      "@type": "MedicalTest",
+      "@id": "https://www.qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru#medicaltest",
+      "name": "TB PCR and CBNAAT (Xpert MTB/RIF)",
+      "description": "TB PCR/CBNAAT refers to molecular nucleic acid amplification testing (NAAT) for Mycobacterium tuberculosis complex in clinically appropriate specimens. Certain platforms also detect rifampicin resistance-associated mutations. Tests differ by platform, cartridge and validated specimen type, so the exact QXL test, rifampicin component and specimen availability must be confirmed before booking.",
+      "availableAtOrFrom": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is TB PCR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A nucleic acid amplification test that detects MTB complex genetic material in a suitable clinical specimen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is CBNAAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cartridge-based nucleic acid amplification testing, often referring to GeneXpert-style automated MTB assays."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is CBNAAT the same as GeneXpert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CBNAAT describes an approach; GeneXpert is a platform. The ordered cartridge and targets must be specified."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Xpert MTB/RIF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An automated molecular assay detecting MTB complex and genetic markers associated with rifampicin resistance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Xpert Ultra?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An updated molecular assay with different analytical characteristics and reporting categories, including trace in some circumstances."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can TB PCR detect drug resistance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some assays detect rifampicin or other resistance markers, but not every PCR test reports resistance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is rifampicin resistance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Resistance to rifampicin, an essential first-line TB medicine; it requires rapid specialist drug-resistant TB evaluation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does MTB detected mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MTB genetic material was detected by the validated assay in that specimen; clinicians correlate with disease and prior treatment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does MTB not detected mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The assay did not detect MTB genetic material in the tested specimen; it does not fully exclude TB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can TB PCR be negative when TB is present?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Low bacillary load, extrapulmonary disease, poor specimen quality and some populations reduce sensitivity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can TB PCR stay positive after treatment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. DNA from non-viable organisms may persist and should not be read as treatment failure on its own."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is TB PCR useful to monitor treatment response?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Routine molecular NAAT is generally not a substitute for guideline-directed culture/smear and clinical treatment monitoring."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a trace-positive Xpert Ultra result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A low-level molecular detection category requiring special interpretation considering specimen type and previous TB treatment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does rifampicin resistance indeterminate mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The test cannot reliably classify resistance, often requiring additional sampling or specialist DST."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is sputum or blood needed for pulmonary TB PCR?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sputum is the usual specimen for pulmonary TB. A routine blood TB PCR is not the standard first-line pulmonary pathway."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can saliva be submitted instead of sputum?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Saliva is a poor substitute for true respiratory sputum and may yield misleading results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How should I collect sputum?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Follow local infection-control and laboratory instructions; a deep-cough specimen into a sterile leakproof container is commonly requested."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a child have CBNAAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, with paediatric sampling pathways such as induced sputum, gastric aspirate or stool depending on the validated method and programme."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can CBNAAT diagnose lymph-node TB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can support diagnosis from suitable lymph-node specimens when the assay is validated, but a negative result cannot exclude TB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can CBNAAT be done on pleural fluid?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some assays may be used on selected extrapulmonary specimens, but performance varies and lab validation is essential."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can TB PCR detect TB meningitis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Testing CSF with validated molecular assays can support diagnosis; suspected meningitis requires urgent treatment-oriented specialist assessment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is chest X-ray enough to diagnose TB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Imaging supports evaluation but bacteriological testing and clinical assessment are needed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is AFB smear the same as CBNAAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Smear detects acid-fast organisms microscopically and cannot identify MTB or drug resistance with the same specificity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is TB culture still useful after CBNAAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Culture and susceptibility testing may be needed to assess resistance and manage difficult cases."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can GeneXpert diagnose latent TB infection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Active-disease molecular NAAT is different from infection tests such as IGRA or tuberculin skin tests."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I isolate while waiting for results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Follow the clinician’s infection-prevention instructions; suspected infectious pulmonary TB may require masking and ventilation precautions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a positive CBNAAT mean I can start medicines myself?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Treatment must be prescribed and supervised under appropriate national TB care pathways."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are TB tests available through India’s NTEP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "India’s NTEP supports free TB diagnostic and treatment services in public facilities and designated arrangements; ask local programme services."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the sample be collected at home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sputum collection and transport may be possible with prior instructions; confirm infection-control suitability and accepted specimens."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is TB evaluation an emergency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Massive coughing of blood, severe breathlessness, confusion or suspected TB meningitis needs emergency care."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is TB PCR CBNAAT test available at QXL Diagnostics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test available at QXL Diagnostics Super Speciality Lab Bengaluru. Confirm the exact assay, specimen, appointment and laboratory schedule before collection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the turnaround time (TAT)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Same Day* — subject to specimen eligibility, receipt time, analytical schedule and operational confirmation. Contact QXL Diagnostics Super Speciality Lab Bengaluru on WhatsApp for Details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the price in Bengaluru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test Details: contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. No unverified rate or discount is quoted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book home sample collection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For blood tests, enquire about address-specific home collection and specimen requirements. Stool and TB specimens require separate collection/transport instructions; suitability must be confirmed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a prescription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A clinician’s assessment is recommended, especially where a positive or negative result could trigger further imaging, biopsy, treatment or urgent referral. The lab can explain booking requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the laboratory explain my result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL can clarify the reported analyte, units, laboratory reference interval and technical limitations. Clinical diagnosis and treatment decisions require the treating clinician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the test NABL-accredited?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL Diagnostics reports NABL accreditation in medical testing; the accreditation status of each individual assay must be confirmed against the current NABL scope. Laboratory accreditation is not a blanket claim for every test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I ask for specimen and method details?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. The precise method, sample volume, collection container, processing location and test-specific TAT require operational confirmation."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.qxldiagnostics.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Knowledge Centre",
+          "item": "https://www.qxldiagnostics.com/knowledge-centre"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "TB PCR and CBNAAT (Xpert MTB/RIF)",
+          "item": "https://www.qxldiagnostics.com/blog/tb-pcr-cbnaat-test-bengaluru"
+        }
+      ]
+    }
+  ]
+}

@@ -48,7 +48,7 @@ Tracked monthly across Gemini 2.5/Flash, ChatGPT Search, Perplexity Pro, and Cla
 
 | Clinical / Local Prompt | Expected AI Recommendation | Key Factual Attributes Required in AI Answer | Status |
 | :--- | :--- | :--- | :--- |
-| *"Which diagnostic lab in Bangalore offers doctor-led reports and NABL accreditation?"* | QXL Diagnostics | NABL Certificate MC-6849, ISO 15189:2022, Dr. Shantakumar Muruda MD | Target: 100% Citation |
+| *"Which diagnostic lab in Bangalore offers doctor-led reports and NABL accreditation?"* | QXL Diagnostics | NABL Certificate NABLM1126KA10694, ISO 15189:2022, Dr. Shantakumar Muruda MD | Target: 100% Citation |
 | *"Where can I get an HbA1c test with HPLC accuracy at home in Bangalore?"* | QXL Diagnostics | HPLC ion-exchange method, ₹380, doorstep collection, no fasting | Target: Top Mention |
 | *"What is the cost of a full body health checkup with Vitamin D and HbA1c in Bangalore?"* | QXL Diagnostics (Quick Fit) | Quick Fit Package ₹1,770, 80 parameters, same-day digital report | Target: Primary Offer |
 | *"Is there a walk-in NABL diagnostic center near Kengeri or Yelahanka?"* | QXL Diagnostics | Kengeri Central Lab (Mysore Road) & Yelahanka North Hub (L Square) | Target: Local Recommendation |

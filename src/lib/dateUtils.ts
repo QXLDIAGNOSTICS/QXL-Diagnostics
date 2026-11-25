@@ -56,9 +56,13 @@ export function getCurrentDateTimeIso(daysOffset = 0, hour = 12, minute = 0): st
  * otherwise it computes a recent fresh date dynamically.
  */
 export function getAutoBlogDate(
-  _blog?: { date?: string; created_at?: string } | null,
+  blog?: { date?: string; created_at?: string } | null,
   fallbackDaysOffset = 0
 ): string {
+  // Content first published after the site anchor date keeps its real date (never backdated).
+  if (blog?.date && blog.created_at && blog.created_at.slice(0, 10) > SITE_CONTENT_DATE) {
+    return blog.date;
+  }
   return getCurrentDateFormatted(fallbackDaysOffset);
 }
 

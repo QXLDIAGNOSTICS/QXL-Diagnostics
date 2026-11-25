@@ -158,7 +158,7 @@ export default function BlogPage() {
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-6 text-xs font-bold text-slate-600">
             <span className="flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1.5 rounded-full shadow-2xs">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              NABL Accredited (MC-6849)
+              NABL Accredited (NABLM1126KA10694)
             </span>
             <span className="flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1.5 rounded-full shadow-2xs">
               <Stethoscope className="w-4 h-4 text-blue-600" />

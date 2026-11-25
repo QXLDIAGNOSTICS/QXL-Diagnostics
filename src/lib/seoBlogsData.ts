@@ -120,7 +120,7 @@ Before confirming a booking on our website, patients have full transparency:
 - Earliest available morning collection slot;
 - Exact payable amount (with zero hidden doorstep surcharges).
 
-Samples are collected by trained phlebotomy specialists using sterile single-use vacuum tubes and transported in temperature-monitored cold-chain containers to our NABL-accredited central reference laboratory in Kengeri (Certificate No. MC-6849).
+Samples are collected by trained phlebotomy specialists using sterile single-use vacuum tubes and transported in temperature-monitored cold-chain containers to our NABL-accredited central reference laboratory in Kengeri (Certificate No. NABLM1126KA10694).
 
 ---
 

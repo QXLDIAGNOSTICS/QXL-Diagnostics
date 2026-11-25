@@ -27,7 +27,7 @@
 
 ## Non-Negotiable Publication Gates
 
-1. **NABL Accreditation Gate:** Quality Head verifies currently valid MC-6849 certificate and accredited schedule; older certificate expiry is a verification item, not evidence of present status.
+1. **NABL Accreditation Gate:** Quality Head verifies currently valid NABLM1126KA10694 certificate and accredited schedule; older certificate expiry is a verification item, not evidence of present status.
 2. **Clinical SKU Single Source:** Single approved clinical/commercial SKU source for prices, parameter counts, sample type, fasting, and report timing.
 3. **Medical Truth Gate:** Medical lead reviews food-specific IgG sensitivity claims and any AI symptom recommendations prior to publication.
 4. **Data Safeguard & Privacy Gate:** Uploads, patient reports, and payments pass strict security controls; **never send patient identifiers or health data to marketing analytics**.
@@ -187,7 +187,7 @@ graph TD
 | `/diagnostic-lab-yelahanka` | Local Landing — Yelahanka North Hub | Differentiate services from main lab; verified operational hours | **P1** |
 | `/locations/jp-nagar` | Service Area — JP Nagar home collection | State clearly: home collection coverage (not a false walk-in lab address) | **P1** |
 | `/diagnostic-lab-bangalore` | Regional Landing — Bengaluru lab service | Review cannibalization vs homepage before deciding canonical or merge | **P1** |
-| `/quality-accreditation` | Trust — NABL Accreditation & Quality | Publish verified MC-6849 scope, quality manual highlights, doctor profiles | **P0** |
+| `/quality-accreditation` | Trust — NABL Accreditation & Quality | Publish verified NABLM1126KA10694 scope, quality manual highlights, doctor profiles | **P0** |
 | `/blog` | Education — Medically reviewed health library | Author credentials, medical reviewer badge, dated references | **P1** |
 | `/hospital-laboratory-management` | B2B Commercial — Hospital partnerships | HLM/LMS models, STAT turnaround, reference network, assessment form | **P1** |
 | `/franchise` | Partnership — Lab collection franchise | Differentiate collection partner from full hospital lab management | **P1** |

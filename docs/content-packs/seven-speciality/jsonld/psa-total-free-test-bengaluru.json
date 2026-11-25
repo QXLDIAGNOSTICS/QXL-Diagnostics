@@ -1,0 +1,401 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalOrganization",
+      "@id": "https://www.qxldiagnostics.com/#organization",
+      "name": "QXL Diagnostics Super Speciality Lab",
+      "url": "https://www.qxldiagnostics.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-9964639639"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda",
+      "name": "Dr Shantakumar Muruda",
+      "honorificSuffix": "MD (Medical Biochemistry)",
+      "jobTitle": "Senior Consultant; Founder and CEO",
+      "worksFor": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": [
+        "WebPage",
+        "MedicalWebPage"
+      ],
+      "@id": "https://www.qxldiagnostics.com/blog/psa-total-free-test-bengaluru#webpage",
+      "url": "https://www.qxldiagnostics.com/blog/psa-total-free-test-bengaluru",
+      "name": "PSA Total & Free Test in Bengaluru | Meaning, % Free PSA | QXL",
+      "description": "What does high PSA mean? Learn total PSA, free PSA ratio, urinary symptoms, repeat testing, MRI and biopsy decisions. QXL Diagnostics Bengaluru.",
+      "inLanguage": "en-IN",
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "isPartOf": {
+        "@id": "https://www.qxldiagnostics.com/#website"
+      },
+      "about": {
+        "@id": "https://www.qxldiagnostics.com/blog/psa-total-free-test-bengaluru#medicaltest"
+      },
+      "author": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "reviewedBy": {
+        "@id": "https://www.qxldiagnostics.com/#dr-shantakumar-muruda"
+      },
+      "publisher": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://www.qxldiagnostics.com/blog/psa-total-free-test-bengaluru#medicaltest"
+      }
+    },
+    {
+      "@type": "MedicalTest",
+      "@id": "https://www.qxldiagnostics.com/blog/psa-total-free-test-bengaluru#medicaltest",
+      "name": "PSA Total and Free Test",
+      "description": "Total PSA is a prostate-derived blood marker, not a cancer diagnosis. Free PSA and the percent-free PSA ratio can refine risk estimates in appropriately selected patients with borderline or modestly raised total PSA. PSA must be interpreted with age, symptoms, examination, medication, infection and clinical risk.",
+      "availableAtOrFrom": {
+        "@id": "https://www.qxldiagnostics.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.qxldiagnostics.com/blog/psa-total-free-test-bengaluru#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a PSA total test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A blood immunoassay estimating total circulating prostate-specific antigen, including free and complexed PSA. It measures a biomarker, not cancer cells."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is free PSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The fraction of prostate-specific antigen circulating unbound to major serum proteins; it can be measured alongside total PSA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate percent-free PSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide free PSA by total PSA and multiply by 100, using compatible units and assays; the lab may report the percentage directly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a PSA of 4 mean prostate cancer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A single value cannot establish a diagnosis, and clinical thresholds vary by age, baseline PSA, risk and test context."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is PSA under 4 always normal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Cancer risk is not zero below an arbitrary threshold. Interpret the value in a personalised clinical context."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What causes high PSA besides cancer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Benign enlargement, prostatitis, UTI, retention, instrumentation and biological/analytical variation can increase PSA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can infection raise PSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. UTI or prostatitis may transiently elevate PSA; the clinician should manage infection and time a repeat measurement appropriately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can cycling or ejaculation affect PSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They may cause transient changes in some individuals. Follow consistent pre-test instructions when repeating a borderline value."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does PSA detect benign prostatic enlargement?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PSA may correlate with prostate volume, but it is not diagnostic of benign enlargement and must be interpreted alongside symptoms and examination."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is free PSA useful when total PSA is high?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It may help refine risk at selected total PSA concentrations; it does not replace imaging or histopathology."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a low percent-free PSA mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It may indicate greater probability of clinically significant prostate pathology in a selected clinical population, not definite cancer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does a high percent-free PSA mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It may lower estimated risk in the applicable population, but it cannot exclude cancer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I repeat a high PSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Guidelines recommend repeating a newly elevated PSA before secondary biomarkers, MRI or biopsy in most non-urgent situations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an MRI after a high PSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not automatically. A urologist considers repeat PSA, risk factors, examination, PSA density and individual preferences."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does a high PSA automatically require biopsy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Biopsy decisions depend on the estimated probability of clinically significant cancer, MRI and shared decision-making."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can normal PSA rule out prostate cancer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No single PSA result completely excludes cancer; symptomatic or high-risk patients require appropriate clinical assessment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is PSA density?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PSA density is serum PSA divided by estimated prostate volume, generally requiring prostate imaging; it may improve risk assessment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is PSA velocity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The rate of change of PSA over time. It should not be used alone as a biopsy trigger."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can finasteride change my PSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Finasteride and dutasteride suppress PSA concentrations; medication history is essential for interpretation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is fasting required for PSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No routine fasting is generally needed unless other ordered tests require it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I do PSA while taking antibiotics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Discuss current infection, indication and therapy with your clinician; testing during acute inflammation can mislead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "At what age should PSA screening start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Timing depends on baseline risk, life expectancy and informed discussion with the treating clinician; there is no universal age for every person."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is PSA testing recommended for every healthy man?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Benefits and harms of screening should be discussed before ordering."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can prostate cancer be asymptomatic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Early-stage cancer commonly causes no symptoms; symptoms are neither necessary nor sufficient for diagnosis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does PSA mean after prostatectomy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After prostate removal the expected PSA context is entirely different, with very low thresholds and specialist follow-up protocols."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is PSA alone useful for detecting recurrence?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Serial PSA is central to many follow-up pathways, but definitions of recurrence depend on treatment type and timing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if my PSA and MRI disagree?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The urologist integrates clinical risk, test quality, prostate size and need for further evaluation; neither result should be read alone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use free PSA to check for cancer at home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Interpretation requires a validated laboratory assay and clinical history."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do repeated PSA tests need to use the same lab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Using consistent methods improves comparability, especially around borderline values."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should urinary symptoms be treated as urgent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Acute retention, fever with urinary symptoms, gross bleeding or severe systemic illness require prompt examination."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is PSA TOTAL FREE test available at QXL Diagnostics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test available at QXL Diagnostics Super Speciality Lab Bengaluru. Confirm the exact assay, specimen, appointment and laboratory schedule before collection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the turnaround time (TAT)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Same Day* — subject to specimen eligibility, receipt time, analytical schedule and operational confirmation. Contact QXL Diagnostics Super Speciality Lab Bengaluru on WhatsApp for Details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the price in Bengaluru?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Test Details: contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. No unverified rate or discount is quoted."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I book home sample collection?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For blood tests, enquire about address-specific home collection and specimen requirements. Stool and TB specimens require separate collection/transport instructions; suitability must be confirmed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a prescription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A clinician’s assessment is recommended, especially where a positive or negative result could trigger further imaging, biopsy, treatment or urgent referral. The lab can explain booking requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the laboratory explain my result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL can clarify the reported analyte, units, laboratory reference interval and technical limitations. Clinical diagnosis and treatment decisions require the treating clinician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the test NABL-accredited?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "QXL Diagnostics reports NABL accreditation in medical testing; the accreditation status of each individual assay must be confirmed against the current NABL scope. Laboratory accreditation is not a blanket claim for every test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I ask for specimen and method details?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Contact QXL Diagnostics Super Speciality Lab Bengaluru. WhatsApp for Details. The precise method, sample volume, collection container, processing location and test-specific TAT require operational confirmation."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.qxldiagnostics.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Knowledge Centre",
+          "item": "https://www.qxldiagnostics.com/knowledge-centre"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "PSA Total and Free Test",
+          "item": "https://www.qxldiagnostics.com/blog/psa-total-free-test-bengaluru"
+        }
+      ]
+    }
+  ]
+}

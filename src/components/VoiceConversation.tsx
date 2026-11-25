@@ -316,7 +316,7 @@ export default function VoiceConversation({ onClose, onTranscript }: VoiceConver
                 ) : status === "error" ? (
                   <><span className="w-1.5 h-1.5 bg-red-400 rounded-full inline-block" /> Error</>
                 ) : (
-                  <>NABL Accredited MC-6849</>
+                  <>NABL Accredited NABLM1126KA10694</>
                 )}
               </div>
             </div>

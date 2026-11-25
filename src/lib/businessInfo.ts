@@ -53,7 +53,7 @@ export const EMAIL = "info@qxldiagnostics.com";
 
 import { NABL_CERTIFICATE as CONFIG_NABL_CERT, ISO_STANDARD as CONFIG_ISO, NABL_ACCREDITATION_TEXT as CONFIG_TEXT } from '@/config/accreditation';
 
-export const NABL_CERTIFICATE = CONFIG_NABL_CERT; // NABL Certificate MC-6849
+export const NABL_CERTIFICATE = CONFIG_NABL_CERT; // NABL Certificate NABLM1126KA10694
 export const NABL_ACCREDITATION_TEXT = CONFIG_TEXT;
 export const ISO_STANDARD = CONFIG_ISO;
 
@@ -184,10 +184,10 @@ export const SOCIAL_LINKS = {
 
 /**
  * Authoritative Accreditation Master
- * Backed by verified official NABL public record (MC-6849).
+ * Backed by verified official NABL public record (NABLM1126KA10694).
  */
 export const ACCREDITATION_MASTER = {
-  certificateNumber: NABL_CERTIFICATE, // MC-6849
+  certificateNumber: NABL_CERTIFICATE, // NABLM1126KA10694
   isoStandard: ISO_STANDARD, // ISO 15189:2022
   discipline: "Medical Testing (Clinical Biochemistry, Clinical Pathology, Haematology, Microbiology)",
   accreditedLegalEntity: `${BUSINESS_NAME} (${BUSINESS_PARENT_COMPANY})`,

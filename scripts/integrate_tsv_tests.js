@@ -112,7 +112,7 @@ rows.forEach(row => {
     slug: slug,
     title: row.seo_meta_title || `${testName} Test: Uses, Preparation & Results | QXL`,
     metaDescription: row.seo_meta_description || row.short_description,
-    badge: "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    badge: "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     h1Title: `${testName} Test in Bangalore`,
     subtitle: row.short_description || `High-precision ${testName} assay accredited under ISO 15189:2022 standards.`,
     price: "450",
@@ -134,7 +134,7 @@ rows.forEach(row => {
       `Primary Indication: ${row.clinical_significance || ''}`,
       `Specimen Protocol: ${row.sample_type || ''} (${row.container_requirements || ''})`,
       `Patient Preparation: ${row.patient_preparation || ''}`,
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ].filter(Boolean),

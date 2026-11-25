@@ -5,7 +5,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "complete-blood-count",
     "title": "Complete Blood Count (CBC) Test in Bangalore | Price ₹260, Normal Range | QXL",
     "metaDescription": "Book Complete Blood Count (CBC) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹260. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Complete Blood Count (CBC) Test in Bangalore",
     "subtitle": "High-precision Complete Blood Count assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "260",
@@ -41,7 +41,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate complete blood count for diagnostic assessment.",
       "Specimen Protocol: EDTA Whole Blood (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -83,7 +83,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Complete Blood Count test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Complete Blood Count test?",
@@ -112,7 +112,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "hba1c",
     "title": "Haemoglobin A1c (HbA1c) Test in Bangalore | Price ₹270, Normal Range | QXL",
     "metaDescription": "Book Haemoglobin A1c (HbA1c) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹270. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Haemoglobin A1c (HbA1c) Test in Bangalore",
     "subtitle": "High-precision Haemoglobin A1c assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "270",
@@ -148,7 +148,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate haemoglobin a1c for diagnostic assessment.",
       "Specimen Protocol: EDTA Whole Blood (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -190,7 +190,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Haemoglobin A1c test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Haemoglobin A1c test?",
@@ -219,7 +219,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "fasting-blood-sugar",
     "title": "Fasting Plasma Glucose (Fasting Blood Sugar) Test in Bangalore | Price ₹280, Normal Range | QXL",
     "metaDescription": "Book Fasting Plasma Glucose (Fasting Blood Sugar) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹280. 8 to 10 hours overnight fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Fasting Plasma Glucose (Fasting Blood Sugar) Test in Bangalore",
     "subtitle": "High-precision Fasting Plasma Glucose assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 6 Hours.",
     "price": "280",
@@ -255,7 +255,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate fasting plasma glucose for diagnostic assessment.",
       "Specimen Protocol: Serum (8 to 10 hours overnight fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -297,7 +297,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Fasting Plasma Glucose test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Fasting Plasma Glucose test?",
@@ -326,7 +326,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "post-prandial-blood-sugar",
     "title": "Postprandial Blood Glucose (PPBS) Test in Bangalore | Price ₹290, Normal Range | QXL",
     "metaDescription": "Book Postprandial Blood Glucose (PPBS) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹290. 8 to 10 hours overnight fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Postprandial Blood Glucose (PPBS) Test in Bangalore",
     "subtitle": "High-precision Postprandial Blood Glucose assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 6 Hours.",
     "price": "290",
@@ -362,7 +362,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate postprandial blood glucose for diagnostic assessment.",
       "Specimen Protocol: Serum (8 to 10 hours overnight fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -404,7 +404,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Postprandial Blood Glucose test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Postprandial Blood Glucose test?",
@@ -433,7 +433,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "random-blood-sugar",
     "title": "Random Plasma Glucose (Random Blood Sugar) Test in Bangalore | Price ₹300, Normal Range | QXL",
     "metaDescription": "Book Random Plasma Glucose (Random Blood Sugar) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹300. 8 to 10 hours overnight fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Random Plasma Glucose (Random Blood Sugar) Test in Bangalore",
     "subtitle": "High-precision Random Plasma Glucose assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 6 Hours.",
     "price": "300",
@@ -469,7 +469,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate random plasma glucose for diagnostic assessment.",
       "Specimen Protocol: Serum (8 to 10 hours overnight fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -511,7 +511,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Random Plasma Glucose test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Random Plasma Glucose test?",
@@ -540,7 +540,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "thyroid-profile",
     "title": "Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) Test in Bangalore | Price ₹310, Normal Range | QXL",
     "metaDescription": "Book Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹310. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) Test in Bangalore",
     "subtitle": "High-precision Thyroid Profile (TSH, Free T4 and Free T3) assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "310",
@@ -576,7 +576,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate thyroid profile (tsh, free t4 and free t3) for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -618,7 +618,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Thyroid Profile (TSH, Free T4 and Free T3) test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Thyroid Profile (TSH, Free T4 and Free T3) test?",
@@ -647,7 +647,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "tsh",
     "title": "Thyroid-Stimulating Hormone (TSH) Test in Bangalore | Price ₹320, Normal Range | QXL",
     "metaDescription": "Book Thyroid-Stimulating Hormone (TSH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹320. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Thyroid-Stimulating Hormone (TSH) Test in Bangalore",
     "subtitle": "High-precision Thyroid-Stimulating Hormone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "320",
@@ -683,7 +683,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate thyroid-stimulating hormone for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -725,7 +725,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Thyroid-Stimulating Hormone test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Thyroid-Stimulating Hormone test?",
@@ -754,7 +754,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "free-t3",
     "title": "Free Triiodothyronine (FT3) Test in Bangalore | Price ₹330, Normal Range | QXL",
     "metaDescription": "Book Free Triiodothyronine (FT3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹330. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Free Triiodothyronine (FT3) Test in Bangalore",
     "subtitle": "High-precision Free Triiodothyronine assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "330",
@@ -790,7 +790,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate free triiodothyronine for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -832,7 +832,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Free Triiodothyronine test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Free Triiodothyronine test?",
@@ -861,7 +861,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "free-t4",
     "title": "Free Thyroxine (FT4) Test in Bangalore | Price ₹340, Normal Range | QXL",
     "metaDescription": "Book Free Thyroxine (FT4) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹340. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Free Thyroxine (FT4) Test in Bangalore",
     "subtitle": "High-precision Free Thyroxine assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "340",
@@ -897,7 +897,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate free thyroxine for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -939,7 +939,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Free Thyroxine test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Free Thyroxine test?",
@@ -968,7 +968,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "lipid-profile",
     "title": "Lipid Profile (Lipid Profile) Test in Bangalore | Price ₹350, Normal Range | QXL",
     "metaDescription": "Book Lipid Profile (Lipid Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹350. 8 to 10 hours overnight fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Lipid Profile (Lipid Profile) Test in Bangalore",
     "subtitle": "High-precision Lipid Profile assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 6 Hours.",
     "price": "350",
@@ -1004,7 +1004,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate lipid profile for diagnostic assessment.",
       "Specimen Protocol: Serum (8 to 10 hours overnight fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -1046,7 +1046,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Lipid Profile test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Lipid Profile test?",
@@ -1075,7 +1075,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "liver-function-test",
     "title": "Liver Function Test Panel (Liver Function Test) Test in Bangalore | Price ₹360, Normal Range | QXL",
     "metaDescription": "Book Liver Function Test Panel (Liver Function Test) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹360. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Liver Function Test Panel (Liver Function Test) Test in Bangalore",
     "subtitle": "High-precision Liver Function Test Panel assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "360",
@@ -1111,7 +1111,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate liver function test panel for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -1153,7 +1153,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Liver Function Test Panel test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Liver Function Test Panel test?",
@@ -1182,7 +1182,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "kidney-function-test",
     "title": "Kidney Function Test Panel (Kidney Function Test) Test in Bangalore | Price ₹370, Normal Range | QXL",
     "metaDescription": "Book Kidney Function Test Panel (Kidney Function Test) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹370. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Kidney Function Test Panel (Kidney Function Test) Test in Bangalore",
     "subtitle": "High-precision Kidney Function Test Panel assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "370",
@@ -1218,7 +1218,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate kidney function test panel for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -1260,7 +1260,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Kidney Function Test Panel test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Kidney Function Test Panel test?",
@@ -1289,7 +1289,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "creatinine",
     "title": "Creatinine with Estimated Glomerular Filtration Rate (Creatinine) Test in Bangalore | Price ₹380, Normal Range | QXL",
     "metaDescription": "Book Creatinine with Estimated Glomerular Filtration Rate (Creatinine) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹380. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Creatinine with Estimated Glomerular Filtration Rate (Creatinine) Test in Bangalore",
     "subtitle": "High-precision Creatinine with Estimated Glomerular Filtration Rate assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "380",
@@ -1325,7 +1325,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate creatinine with estimated glomerular filtration rate for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -1367,7 +1367,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Creatinine with Estimated Glomerular Filtration Rate test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Creatinine with Estimated Glomerular Filtration Rate test?",
@@ -1396,7 +1396,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "uric-acid",
     "title": "Uric Acid (Uric Acid) Test in Bangalore | Price ₹390, Normal Range | QXL",
     "metaDescription": "Book Uric Acid (Uric Acid) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹390. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Uric Acid (Uric Acid) Test in Bangalore",
     "subtitle": "High-precision Uric Acid assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "390",
@@ -1432,7 +1432,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate uric acid for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -1474,7 +1474,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Uric Acid test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Uric Acid test?",
@@ -1503,7 +1503,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "crp",
     "title": "C-Reactive Protein (CRP) Test in Bangalore | Price ₹400, Normal Range | QXL",
     "metaDescription": "Book C-Reactive Protein (CRP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹400. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "C-Reactive Protein (CRP) Test in Bangalore",
     "subtitle": "High-precision C-Reactive Protein assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "400",
@@ -1539,7 +1539,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate c-reactive protein for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -1581,7 +1581,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the C-Reactive Protein test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my C-Reactive Protein test?",
@@ -1610,7 +1610,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "erythrocyte-sedimentation-rate",
     "title": "Erythrocyte Sedimentation Rate (ESR) Test in Bangalore | Price ₹410, Normal Range | QXL",
     "metaDescription": "Book Erythrocyte Sedimentation Rate (ESR) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹410. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Erythrocyte Sedimentation Rate (ESR) Test in Bangalore",
     "subtitle": "High-precision Erythrocyte Sedimentation Rate assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "410",
@@ -1646,7 +1646,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate erythrocyte sedimentation rate for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -1688,7 +1688,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Erythrocyte Sedimentation Rate test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Erythrocyte Sedimentation Rate test?",
@@ -1717,7 +1717,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "vitamin-d",
     "title": "25-Hydroxy Vitamin D (Vitamin D) Test in Bangalore | Price ₹420, Normal Range | QXL",
     "metaDescription": "Book 25-Hydroxy Vitamin D (Vitamin D) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹420. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "25-Hydroxy Vitamin D (Vitamin D) Test in Bangalore",
     "subtitle": "High-precision 25-Hydroxy Vitamin D assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "420",
@@ -1753,7 +1753,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate 25-hydroxy vitamin d for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -1795,7 +1795,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the 25-Hydroxy Vitamin D test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my 25-Hydroxy Vitamin D test?",
@@ -1824,7 +1824,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "vitamin-b12",
     "title": "Vitamin B12 (Vitamin B12) Test in Bangalore | Price ₹430, Normal Range | QXL",
     "metaDescription": "Book Vitamin B12 (Vitamin B12) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹430. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Vitamin B12 (Vitamin B12) Test in Bangalore",
     "subtitle": "High-precision Vitamin B12 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "430",
@@ -1860,7 +1860,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate vitamin b12 for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -1902,7 +1902,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Vitamin B12 test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Vitamin B12 test?",
@@ -1931,7 +1931,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "ferritin",
     "title": "Ferritin (Ferritin) Test in Bangalore | Price ₹440, Normal Range | QXL",
     "metaDescription": "Book Ferritin (Ferritin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹440. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Ferritin (Ferritin) Test in Bangalore",
     "subtitle": "High-precision Ferritin assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "440",
@@ -1967,7 +1967,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate ferritin for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -2009,7 +2009,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Ferritin test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Ferritin test?",
@@ -2038,7 +2038,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "iron-profile",
     "title": "Iron Profile (Iron Profile) Test in Bangalore | Price ₹450, Normal Range | QXL",
     "metaDescription": "Book Iron Profile (Iron Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹450. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Iron Profile (Iron Profile) Test in Bangalore",
     "subtitle": "High-precision Iron Profile assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "450",
@@ -2074,7 +2074,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate iron profile for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -2116,7 +2116,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Iron Profile test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Iron Profile test?",
@@ -2145,7 +2145,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "calcium",
     "title": "Total Calcium (Calcium) Test in Bangalore | Price ₹460, Normal Range | QXL",
     "metaDescription": "Book Total Calcium (Calcium) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹460. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Total Calcium (Calcium) Test in Bangalore",
     "subtitle": "High-precision Total Calcium assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "460",
@@ -2181,7 +2181,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate total calcium for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -2223,7 +2223,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Total Calcium test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Total Calcium test?",
@@ -2252,7 +2252,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "magnesium",
     "title": "Magnesium (Magnesium) Test in Bangalore | Price ₹470, Normal Range | QXL",
     "metaDescription": "Book Magnesium (Magnesium) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹470. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Magnesium (Magnesium) Test in Bangalore",
     "subtitle": "High-precision Magnesium assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "470",
@@ -2288,7 +2288,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate magnesium for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -2330,7 +2330,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Magnesium test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Magnesium test?",
@@ -2359,7 +2359,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "electrolytes",
     "title": "Electrolyte Panel (Electrolytes) Test in Bangalore | Price ₹480, Normal Range | QXL",
     "metaDescription": "Book Electrolyte Panel (Electrolytes) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹480. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Electrolyte Panel (Electrolytes) Test in Bangalore",
     "subtitle": "High-precision Electrolyte Panel assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "480",
@@ -2395,7 +2395,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate electrolyte panel for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -2437,7 +2437,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Electrolyte Panel test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Electrolyte Panel test?",
@@ -2466,7 +2466,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "urine-routine-microscopy",
     "title": "Urine Routine Examination (Urine Routine) Test in Bangalore | Price ₹490, Normal Range | QXL",
     "metaDescription": "Book Urine Routine Examination (Urine Routine) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹490. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Urine Routine Examination (Urine Routine) Test in Bangalore",
     "subtitle": "High-precision Urine Routine Examination assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "490",
@@ -2502,7 +2502,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate urine routine examination for diagnostic assessment.",
       "Specimen Protocol: Urine (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -2544,7 +2544,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Urine Routine Examination test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Urine Routine Examination test?",
@@ -2573,7 +2573,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "total-protein",
     "title": "Total Protein (Total Protein) Test in Bangalore | Price ₹500, Normal Range | QXL",
     "metaDescription": "Book Total Protein (Total Protein) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹500. No fasting required. 6 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Total Protein (Total Protein) Test in Bangalore",
     "subtitle": "High-precision Total Protein assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
     "price": "500",
@@ -2609,7 +2609,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate total protein for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 6 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -2651,7 +2651,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Total Protein test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Total Protein test?",
@@ -2680,7 +2680,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "insulin-fasting",
     "title": "Insulin, Serum (Insulin) Test in Bangalore | Price ₹510, Normal Range | QXL",
     "metaDescription": "Book Insulin, Serum (Insulin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹510. 8 to 10 hours overnight fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Insulin, Serum (Insulin) Test in Bangalore",
     "subtitle": "High-precision Insulin, Serum assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 12 Hours.",
     "price": "510",
@@ -2716,7 +2716,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate insulin, serum for diagnostic assessment.",
       "Specimen Protocol: Serum (8 to 10 hours overnight fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -2758,7 +2758,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Insulin, Serum test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Insulin, Serum test?",
@@ -2787,7 +2787,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "c-peptide",
     "title": "C-Peptide (C-peptide) Test in Bangalore | Price ₹520, Normal Range | QXL",
     "metaDescription": "Book C-Peptide (C-peptide) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹520. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "C-Peptide (C-peptide) Test in Bangalore",
     "subtitle": "High-precision C-Peptide assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "520",
@@ -2823,7 +2823,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate c-peptide for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -2865,7 +2865,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the C-Peptide test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my C-Peptide test?",
@@ -2894,7 +2894,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "homa-ir",
     "title": "HOMA-IR Calculation (HOMA-IR) Test in Bangalore | Price ₹530, Normal Range | QXL",
     "metaDescription": "Book HOMA-IR Calculation (HOMA-IR) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹530. 8 to 10 hours overnight fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "HOMA-IR Calculation (HOMA-IR) Test in Bangalore",
     "subtitle": "High-precision HOMA-IR Calculation assay accredited under ISO 15189:2022 standards. 8 to 10 hours overnight fasting required. Reports within 12 Hours.",
     "price": "530",
@@ -2930,7 +2930,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate homa-ir calculation for diagnostic assessment.",
       "Specimen Protocol: Serum (8 to 10 hours overnight fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -2972,7 +2972,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the HOMA-IR Calculation test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my HOMA-IR Calculation test?",
@@ -3001,7 +3001,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "urine-microalbumin",
     "title": "Urine Albumin-Creatinine Ratio (Microalbumin) Test in Bangalore | Price ₹540, Normal Range | QXL",
     "metaDescription": "Book Urine Albumin-Creatinine Ratio (Microalbumin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹540. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Urine Albumin-Creatinine Ratio (Microalbumin) Test in Bangalore",
     "subtitle": "High-precision Urine Albumin-Creatinine Ratio assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "540",
@@ -3037,7 +3037,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate urine albumin-creatinine ratio for diagnostic assessment.",
       "Specimen Protocol: Urine (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -3079,7 +3079,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Urine Albumin-Creatinine Ratio test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Urine Albumin-Creatinine Ratio test?",
@@ -3108,7 +3108,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "apob-test",
     "title": "Apolipoprotein B (ApoB) Test in Bangalore | Price ₹550, Normal Range | QXL",
     "metaDescription": "Book Apolipoprotein B (ApoB) test at home in Bangalore. NABL Accredited precision, same-day reports, price ₹550. No fasting required. 12 Hours TAT.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Apolipoprotein B (ApoB) Test in Bangalore",
     "subtitle": "High-precision automated Apolipoprotein B immunoturbidimetric assay accredited under ISO 15189:2022 standards. No fasting required. Verified digital reports within 12 Hours.",
     "price": "550",
@@ -3122,7 +3122,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "overview": [
       "Apolipoprotein B (ApoB) is the primary structural protein found on all atherogenic lipoprotein particles, including LDL, VLDL, IDL, and Lp(a).",
       "Because each atherogenic particle carries exactly one molecule of ApoB, measuring ApoB provides a direct particle count — a more accurate predictor of cardiovascular event risk than LDL cholesterol, especially in patients with diabetes, obesity, metabolic syndrome, or elevated triglycerides.",
-      "Conducted inside QXL Diagnostics' NABL Accredited central super speciality laboratory (MC-6849) using automated immunoturbidimetric analyzers calibrated to international WHO-IFCC standards.",
+      "Conducted inside QXL Diagnostics' NABL Accredited central super speciality laboratory (NABLM1126KA10694) using automated immunoturbidimetric analyzers calibrated to international WHO-IFCC standards.",
       "Blood specimens are collected using single-use SST vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
       "Every result undergoes automated dual-level internal quality control (IQC) and medical sign-off by Dr. Shantakumar Muruda, MD (Clinical Biochemistry), NABL Lead Assessor."
     ],
@@ -3161,7 +3161,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Superior to LDL-C: Detects hidden atherogenic risk when LDL-C appears deceptively normal (discordance).",
       "No Fasting Needed: ApoB levels remain stable postprandially; can be drawn anytime.",
       "Validated Methodology: Automated Immunoturbidimetry calibrated against WHO-IFCC reference standards.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022.",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022.",
       "Turnaround Time (TAT): Verified digital PDF report delivered within 12 Hours via WhatsApp & Email.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week from 7:00 AM across all Bengaluru areas."
@@ -3224,7 +3224,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "lipoprotein-a-test",
     "title": "Lipoprotein(a) (Lp(a)) Test in Bangalore | Price ₹1,249, Normal Range | QXL",
     "metaDescription": "Book Lipoprotein(a) (Lp(a)) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1,249. 10–12 hrs fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Lipoprotein(a) (Lp(a)) Test in Bangalore",
     "subtitle": "High-precision Lipoprotein(a) assay accredited under ISO 15189:2022 standards. 10–12 hrs fasting required. Reports within 12 Hours.",
     "price": "1249",
@@ -3260,7 +3260,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate lipoprotein(a) for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -3302,7 +3302,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Lipoprotein(a) test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Lipoprotein(a) test?",
@@ -3331,7 +3331,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "homocysteine-test",
     "title": "Homocysteine (Homocysteine) Test in Bangalore | Price ₹570, Normal Range | QXL",
     "metaDescription": "Book Homocysteine (Homocysteine) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹570. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Homocysteine (Homocysteine) Test in Bangalore",
     "subtitle": "High-precision Homocysteine assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "570",
@@ -3367,7 +3367,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate homocysteine for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -3409,7 +3409,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Homocysteine test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Homocysteine test?",
@@ -3438,7 +3438,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "hs-crp",
     "title": "High-Sensitivity C-Reactive Protein (hs-CRP) Test in Bangalore | Price ₹580, Normal Range | QXL",
     "metaDescription": "Book High-Sensitivity C-Reactive Protein (hs-CRP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹580. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "High-Sensitivity C-Reactive Protein (hs-CRP) Test in Bangalore",
     "subtitle": "High-precision High-Sensitivity C-Reactive Protein assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "580",
@@ -3474,7 +3474,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate high-sensitivity c-reactive protein for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -3516,7 +3516,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the High-Sensitivity C-Reactive Protein test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my High-Sensitivity C-Reactive Protein test?",
@@ -3545,7 +3545,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "testosterone-total",
     "title": "Total Testosterone (Testosterone) Test in Bangalore | Price ₹590, Normal Range | QXL",
     "metaDescription": "Book Total Testosterone (Testosterone) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹590. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Total Testosterone (Testosterone) Test in Bangalore",
     "subtitle": "High-precision Total Testosterone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "590",
@@ -3581,7 +3581,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate total testosterone for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -3623,7 +3623,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Total Testosterone test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Total Testosterone test?",
@@ -3652,7 +3652,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "testosterone-free",
     "title": "Free Testosterone (Free Testosterone) Test in Bangalore | Price ₹600, Normal Range | QXL",
     "metaDescription": "Book Free Testosterone (Free Testosterone) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹600. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Free Testosterone (Free Testosterone) Test in Bangalore",
     "subtitle": "High-precision Free Testosterone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "600",
@@ -3688,7 +3688,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate free testosterone for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -3730,7 +3730,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Free Testosterone test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Free Testosterone test?",
@@ -3759,7 +3759,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "prolactin",
     "title": "Prolactin (Prolactin) Test in Bangalore | Price ₹610, Normal Range | QXL",
     "metaDescription": "Book Prolactin (Prolactin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹610. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Prolactin (Prolactin) Test in Bangalore",
     "subtitle": "High-precision Prolactin assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "610",
@@ -3795,7 +3795,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate prolactin for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -3837,7 +3837,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Prolactin test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Prolactin test?",
@@ -3866,7 +3866,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "lh",
     "title": "Luteinizing Hormone (LH) Test in Bangalore | Price ₹620, Normal Range | QXL",
     "metaDescription": "Book Luteinizing Hormone (LH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹620. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Luteinizing Hormone (LH) Test in Bangalore",
     "subtitle": "High-precision Luteinizing Hormone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "620",
@@ -3902,7 +3902,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate luteinizing hormone for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -3944,7 +3944,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Luteinizing Hormone test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Luteinizing Hormone test?",
@@ -3973,7 +3973,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "fsh",
     "title": "Follicle-Stimulating Hormone (FSH) Test in Bangalore | Price ₹630, Normal Range | QXL",
     "metaDescription": "Book Follicle-Stimulating Hormone (FSH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹630. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Follicle-Stimulating Hormone (FSH) Test in Bangalore",
     "subtitle": "High-precision Follicle-Stimulating Hormone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "630",
@@ -4009,7 +4009,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate follicle-stimulating hormone for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -4051,7 +4051,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Follicle-Stimulating Hormone test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Follicle-Stimulating Hormone test?",
@@ -4080,7 +4080,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "estradioli",
     "title": "Estradiol (Estradiol) Test in Bangalore | Price ₹640, Normal Range | QXL",
     "metaDescription": "Book Estradiol (Estradiol) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹640. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Estradiol (Estradiol) Test in Bangalore",
     "subtitle": "High-precision Estradiol assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "640",
@@ -4116,7 +4116,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate estradiol for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -4158,7 +4158,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Estradiol test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Estradiol test?",
@@ -4187,7 +4187,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "progesterone",
     "title": "Progesterone (Progesterone) Test in Bangalore | Price ₹650, Normal Range | QXL",
     "metaDescription": "Book Progesterone (Progesterone) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹650. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Progesterone (Progesterone) Test in Bangalore",
     "subtitle": "High-precision Progesterone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "650",
@@ -4223,7 +4223,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate progesterone for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -4265,7 +4265,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Progesterone test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Progesterone test?",
@@ -4294,7 +4294,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "amh",
     "title": "Anti-Müllerian Hormone (AMH) Test in Bangalore | Price ₹660, Normal Range | QXL",
     "metaDescription": "Book Anti-Müllerian Hormone (AMH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹660. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Anti-Müllerian Hormone (AMH) Test in Bangalore",
     "subtitle": "High-precision Anti-Müllerian Hormone assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "660",
@@ -4330,7 +4330,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate anti-müllerian hormone for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -4372,7 +4372,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Anti-Müllerian Hormone test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Anti-Müllerian Hormone test?",
@@ -4401,7 +4401,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "cortisol",
     "title": "Cortisol (Cortisol) Test in Bangalore | Price ₹670, Normal Range | QXL",
     "metaDescription": "Book Cortisol (Cortisol) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹670. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Cortisol (Cortisol) Test in Bangalore",
     "subtitle": "High-precision Cortisol assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "670",
@@ -4437,7 +4437,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate cortisol for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -4479,7 +4479,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Cortisol test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Cortisol test?",
@@ -4508,7 +4508,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "dhea-s",
     "title": "Dehydroepiandrosterone Sulfate (DHEAS) Test in Bangalore | Price ₹680, Normal Range | QXL",
     "metaDescription": "Book Dehydroepiandrosterone Sulfate (DHEAS) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹680. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Dehydroepiandrosterone Sulfate (DHEAS) Test in Bangalore",
     "subtitle": "High-precision Dehydroepiandrosterone Sulfate assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "680",
@@ -4544,7 +4544,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate dehydroepiandrosterone sulfate for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -4586,7 +4586,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Dehydroepiandrosterone Sulfate test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Dehydroepiandrosterone Sulfate test?",
@@ -4615,7 +4615,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "beta-hcg",
     "title": "Quantitative Beta Human Chorionic Gonadotropin (beta-hCG) Test in Bangalore | Price ₹690, Normal Range | QXL",
     "metaDescription": "Book Quantitative Beta Human Chorionic Gonadotropin (beta-hCG) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹690. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Quantitative Beta Human Chorionic Gonadotropin (beta-hCG) Test in Bangalore",
     "subtitle": "High-precision Quantitative Beta Human Chorionic Gonadotropin assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "690",
@@ -4651,7 +4651,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate quantitative beta human chorionic gonadotropin for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -4693,7 +4693,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Quantitative Beta Human Chorionic Gonadotropin test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Quantitative Beta Human Chorionic Gonadotropin test?",
@@ -4722,7 +4722,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "double-marker-test",
     "title": "First-Trimester Double Marker Screen (Double Marker) Test in Bangalore | Price ₹700, Normal Range | QXL",
     "metaDescription": "Book First-Trimester Double Marker Screen (Double Marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹700. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "First-Trimester Double Marker Screen (Double Marker) Test in Bangalore",
     "subtitle": "High-precision First-Trimester Double Marker Screen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "700",
@@ -4758,7 +4758,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate first-trimester double marker screen for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -4800,7 +4800,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the First-Trimester Double Marker Screen test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my First-Trimester Double Marker Screen test?",
@@ -4829,7 +4829,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "papp-a-test",
     "title": "Pregnancy-Associated Plasma Protein A (PAPP-A) Test in Bangalore | Price ₹710, Normal Range | QXL",
     "metaDescription": "Book Pregnancy-Associated Plasma Protein A (PAPP-A) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹710. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Pregnancy-Associated Plasma Protein A (PAPP-A) Test in Bangalore",
     "subtitle": "High-precision Pregnancy-Associated Plasma Protein A assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "710",
@@ -4865,7 +4865,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate pregnancy-associated plasma protein a for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -4907,7 +4907,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Pregnancy-Associated Plasma Protein A test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Pregnancy-Associated Plasma Protein A test?",
@@ -4936,7 +4936,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "free-beta-hcg-test",
     "title": "Free Beta Human Chorionic Gonadotropin (Free beta-hCG) Test in Bangalore | Price ₹720, Normal Range | QXL",
     "metaDescription": "Book Free Beta Human Chorionic Gonadotropin (Free beta-hCG) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹720. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Free Beta Human Chorionic Gonadotropin (Free beta-hCG) Test in Bangalore",
     "subtitle": "High-precision Free Beta Human Chorionic Gonadotropin assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "720",
@@ -4972,7 +4972,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate free beta human chorionic gonadotropin for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -5014,7 +5014,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Free Beta Human Chorionic Gonadotropin test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Free Beta Human Chorionic Gonadotropin test?",
@@ -5043,7 +5043,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "triple-marker-test",
     "title": "Second-Trimester Triple Marker Screen (Triple Marker) Test in Bangalore | Price ₹730, Normal Range | QXL",
     "metaDescription": "Book Second-Trimester Triple Marker Screen (Triple Marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹730. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Second-Trimester Triple Marker Screen (Triple Marker) Test in Bangalore",
     "subtitle": "High-precision Second-Trimester Triple Marker Screen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "730",
@@ -5079,7 +5079,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate second-trimester triple marker screen for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -5121,7 +5121,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Second-Trimester Triple Marker Screen test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Second-Trimester Triple Marker Screen test?",
@@ -5150,7 +5150,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "quadruple-marker-test",
     "title": "Second-Trimester Quadruple Marker Screen (Quadruple Marker) Test in Bangalore | Price ₹740, Normal Range | QXL",
     "metaDescription": "Book Second-Trimester Quadruple Marker Screen (Quadruple Marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹740. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Second-Trimester Quadruple Marker Screen (Quadruple Marker) Test in Bangalore",
     "subtitle": "High-precision Second-Trimester Quadruple Marker Screen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "740",
@@ -5186,7 +5186,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate second-trimester quadruple marker screen for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -5228,7 +5228,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Second-Trimester Quadruple Marker Screen test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Second-Trimester Quadruple Marker Screen test?",
@@ -5257,7 +5257,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "ana-test",
     "title": "Antinuclear Antibody Screen (ANA) Test in Bangalore | Price ₹750, Normal Range | QXL",
     "metaDescription": "Book Antinuclear Antibody Screen (ANA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹750. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Antinuclear Antibody Screen (ANA) Test in Bangalore",
     "subtitle": "High-precision Antinuclear Antibody Screen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "750",
@@ -5293,7 +5293,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate antinuclear antibody screen for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -5335,7 +5335,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Antinuclear Antibody Screen test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Antinuclear Antibody Screen test?",
@@ -5364,7 +5364,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "ana-profile",
     "title": "Antinuclear Antibody Profile (ANA Profile) Test in Bangalore | Price ₹760, Normal Range | QXL",
     "metaDescription": "Book Antinuclear Antibody Profile (ANA Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹760. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Antinuclear Antibody Profile (ANA Profile) Test in Bangalore",
     "subtitle": "High-precision Antinuclear Antibody Profile assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "760",
@@ -5400,7 +5400,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate antinuclear antibody profile for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -5442,7 +5442,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Antinuclear Antibody Profile test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Antinuclear Antibody Profile test?",
@@ -5471,7 +5471,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "ana-ifa-test",
     "title": "Antinuclear Antibody by HEp-2 Indirect Immunofluorescence (ANA IFA) Test in Bangalore | Price ₹770, Normal Range | QXL",
     "metaDescription": "Book Antinuclear Antibody by HEp-2 Indirect Immunofluorescence (ANA IFA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹770. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Antinuclear Antibody by HEp-2 Indirect Immunofluorescence (ANA IFA) Test in Bangalore",
     "subtitle": "High-precision Antinuclear Antibody by HEp-2 Indirect Immunofluorescence assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "770",
@@ -5507,7 +5507,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate antinuclear antibody by hep-2 indirect immunofluorescence for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -5549,7 +5549,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Antinuclear Antibody by HEp-2 Indirect Immunofluorescence test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Antinuclear Antibody by HEp-2 Indirect Immunofluorescence test?",
@@ -5578,7 +5578,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "anti-dsdna-test",
     "title": "Anti-Double-Stranded DNA Antibody (Anti-dsDNA) Test in Bangalore | Price ₹780, Normal Range | QXL",
     "metaDescription": "Book Anti-Double-Stranded DNA Antibody (Anti-dsDNA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹780. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Anti-Double-Stranded DNA Antibody (Anti-dsDNA) Test in Bangalore",
     "subtitle": "High-precision Anti-Double-Stranded DNA Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "780",
@@ -5614,7 +5614,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate anti-double-stranded dna antibody for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -5656,7 +5656,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Anti-Double-Stranded DNA Antibody test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Anti-Double-Stranded DNA Antibody test?",
@@ -5685,7 +5685,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "ena-profile-test",
     "title": "Extractable Nuclear Antigen Profile (ENA Profile) Test in Bangalore | Price ₹790, Normal Range | QXL",
     "metaDescription": "Book Extractable Nuclear Antigen Profile (ENA Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹790. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Extractable Nuclear Antigen Profile (ENA Profile) Test in Bangalore",
     "subtitle": "High-precision Extractable Nuclear Antigen Profile assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "790",
@@ -5721,7 +5721,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate extractable nuclear antigen profile for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -5763,7 +5763,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Extractable Nuclear Antigen Profile test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Extractable Nuclear Antigen Profile test?",
@@ -5792,7 +5792,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "anti-ccp-test",
     "title": "Anti-Cyclic Citrullinated Peptide Antibody (Anti-CCP) Test in Bangalore | Price ₹800, Normal Range | QXL",
     "metaDescription": "Book Anti-Cyclic Citrullinated Peptide Antibody (Anti-CCP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹800. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Anti-Cyclic Citrullinated Peptide Antibody (Anti-CCP) Test in Bangalore",
     "subtitle": "High-precision Anti-Cyclic Citrullinated Peptide Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "800",
@@ -5828,7 +5828,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate anti-cyclic citrullinated peptide antibody for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -5870,7 +5870,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Anti-Cyclic Citrullinated Peptide Antibody test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Anti-Cyclic Citrullinated Peptide Antibody test?",
@@ -5899,7 +5899,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "rheumatoid-factor-test",
     "title": "Rheumatoid Factor (Rheumatoid Factor) Test in Bangalore | Price ₹810, Normal Range | QXL",
     "metaDescription": "Book Rheumatoid Factor (Rheumatoid Factor) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹810. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Rheumatoid Factor (Rheumatoid Factor) Test in Bangalore",
     "subtitle": "High-precision Rheumatoid Factor assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "810",
@@ -5935,7 +5935,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate rheumatoid factor for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -5977,7 +5977,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Rheumatoid Factor test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Rheumatoid Factor test?",
@@ -6006,7 +6006,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "anca-test",
     "title": "Antineutrophil Cytoplasmic Antibodies by IFA (ANCA) Test in Bangalore | Price ₹820, Normal Range | QXL",
     "metaDescription": "Book Antineutrophil Cytoplasmic Antibodies by IFA (ANCA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹820. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Antineutrophil Cytoplasmic Antibodies by IFA (ANCA) Test in Bangalore",
     "subtitle": "High-precision Antineutrophil Cytoplasmic Antibodies by IFA assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "820",
@@ -6042,7 +6042,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate antineutrophil cytoplasmic antibodies by ifa for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -6084,7 +6084,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Antineutrophil Cytoplasmic Antibodies by IFA test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Antineutrophil Cytoplasmic Antibodies by IFA test?",
@@ -6113,7 +6113,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "pr3-test",
     "title": "Proteinase 3 Antibody (PR3) Test in Bangalore | Price ₹830, Normal Range | QXL",
     "metaDescription": "Book Proteinase 3 Antibody (PR3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹830. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Proteinase 3 Antibody (PR3) Test in Bangalore",
     "subtitle": "High-precision Proteinase 3 Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "830",
@@ -6149,7 +6149,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate proteinase 3 antibody for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -6191,7 +6191,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Proteinase 3 Antibody test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Proteinase 3 Antibody test?",
@@ -6220,7 +6220,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "mpo-test",
     "title": "Myeloperoxidase Antibody (MPO) Test in Bangalore | Price ₹840, Normal Range | QXL",
     "metaDescription": "Book Myeloperoxidase Antibody (MPO) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹840. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Myeloperoxidase Antibody (MPO) Test in Bangalore",
     "subtitle": "High-precision Myeloperoxidase Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "840",
@@ -6256,7 +6256,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate myeloperoxidase antibody for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -6298,7 +6298,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Myeloperoxidase Antibody test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Myeloperoxidase Antibody test?",
@@ -6327,7 +6327,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "c3-complement-test",
     "title": "Complement Component C3 (C3) Test in Bangalore | Price ₹850, Normal Range | QXL",
     "metaDescription": "Book Complement Component C3 (C3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹850. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Complement Component C3 (C3) Test in Bangalore",
     "subtitle": "High-precision Complement Component C3 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "850",
@@ -6363,7 +6363,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate complement component c3 for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -6405,7 +6405,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Complement Component C3 test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Complement Component C3 test?",
@@ -6434,7 +6434,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "c4-complement-test",
     "title": "Complement Component C4 (C4) Test in Bangalore | Price ₹860, Normal Range | QXL",
     "metaDescription": "Book Complement Component C4 (C4) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹860. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Complement Component C4 (C4) Test in Bangalore",
     "subtitle": "High-precision Complement Component C4 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "860",
@@ -6470,7 +6470,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate complement component c4 for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -6512,7 +6512,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Complement Component C4 test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Complement Component C4 test?",
@@ -6541,7 +6541,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "total-ige-test",
     "title": "Total Immunoglobulin E (Total IgE) Test in Bangalore | Price ₹870, Normal Range | QXL",
     "metaDescription": "Book Total Immunoglobulin E (Total IgE) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹870. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Total Immunoglobulin E (Total IgE) Test in Bangalore",
     "subtitle": "High-precision Total Immunoglobulin E assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "870",
@@ -6577,7 +6577,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate total immunoglobulin e for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -6619,7 +6619,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Total Immunoglobulin E test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Total Immunoglobulin E test?",
@@ -6648,7 +6648,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "specific-ige-test",
     "title": "Allergen-Specific Immunoglobulin E (Specific IgE) Test in Bangalore | Price ₹969, Normal Range | QXL",
     "metaDescription": "Book Allergen-Specific Immunoglobulin E (Specific IgE) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹969. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Allergen-Specific Immunoglobulin E (Specific IgE) Test in Bangalore",
     "subtitle": "High-precision Allergen-Specific Immunoglobulin E assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "969",
@@ -6684,7 +6684,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate allergen-specific immunoglobulin e for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -6726,7 +6726,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Allergen-Specific Immunoglobulin E test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Allergen-Specific Immunoglobulin E test?",
@@ -6755,7 +6755,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "allergy-profile-test",
     "title": "Allergy Profile (Allergy Profile) Test in Bangalore | Price ₹890, Normal Range | QXL",
     "metaDescription": "Book Allergy Profile (Allergy Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹890. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Allergy Profile (Allergy Profile) Test in Bangalore",
     "subtitle": "High-precision Allergy Profile assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "890",
@@ -6791,7 +6791,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate allergy profile for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -6833,7 +6833,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Allergy Profile test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Allergy Profile test?",
@@ -6862,7 +6862,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "food-intolerance-test",
     "title": "Food-Specific IgG Panel (Food Intolerance) (Food Intolerance Test) Test in Bangalore | Price ₹900, Normal Range | QXL",
     "metaDescription": "Book Food-Specific IgG Panel (Food Intolerance) (Food Intolerance Test) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹900. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Food-Specific IgG Panel (Food Intolerance) (Food Intolerance Test) Test in Bangalore",
     "subtitle": "High-precision Food-Specific IgG Panel (Food Intolerance) assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "900",
@@ -6898,7 +6898,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate food-specific igg panel (food intolerance) for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -6940,7 +6940,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Food-Specific IgG Panel (Food Intolerance) test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Food-Specific IgG Panel (Food Intolerance) test?",
@@ -6969,7 +6969,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "psa-test",
     "title": "Total Prostate-Specific Antigen (PSA) Test in Bangalore | Price ₹910, Normal Range | QXL",
     "metaDescription": "Book Total Prostate-Specific Antigen (PSA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹910. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Total Prostate-Specific Antigen (PSA) Test in Bangalore",
     "subtitle": "High-precision Total Prostate-Specific Antigen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "910",
@@ -7005,7 +7005,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate total prostate-specific antigen for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -7047,7 +7047,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Total Prostate-Specific Antigen test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Total Prostate-Specific Antigen test?",
@@ -7076,7 +7076,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "free-psa",
     "title": "Free Prostate-Specific Antigen (Free PSA) Test in Bangalore | Price ₹920, Normal Range | QXL",
     "metaDescription": "Book Free Prostate-Specific Antigen (Free PSA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹920. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Free Prostate-Specific Antigen (Free PSA) Test in Bangalore",
     "subtitle": "High-precision Free Prostate-Specific Antigen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "920",
@@ -7112,7 +7112,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate free prostate-specific antigen for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -7154,7 +7154,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Free Prostate-Specific Antigen test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Free Prostate-Specific Antigen test?",
@@ -7183,7 +7183,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "ca-125",
     "title": "Cancer Antigen 125 (CA-125) Test in Bangalore | Price ₹930, Normal Range | QXL",
     "metaDescription": "Book Cancer Antigen 125 (CA-125) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹930. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Cancer Antigen 125 (CA-125) Test in Bangalore",
     "subtitle": "High-precision Cancer Antigen 125 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "930",
@@ -7219,7 +7219,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate cancer antigen 125 for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -7261,7 +7261,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Cancer Antigen 125 test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Cancer Antigen 125 test?",
@@ -7290,7 +7290,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "cea",
     "title": "Carcinoembryonic Antigen (CEA) Test in Bangalore | Price ₹940, Normal Range | QXL",
     "metaDescription": "Book Carcinoembryonic Antigen (CEA) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹940. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Carcinoembryonic Antigen (CEA) Test in Bangalore",
     "subtitle": "High-precision Carcinoembryonic Antigen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "940",
@@ -7326,7 +7326,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate carcinoembryonic antigen for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -7368,7 +7368,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Carcinoembryonic Antigen test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Carcinoembryonic Antigen test?",
@@ -7397,7 +7397,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "afp",
     "title": "Alpha-Fetoprotein Tumour Marker (AFP) Test in Bangalore | Price ₹950, Normal Range | QXL",
     "metaDescription": "Book Alpha-Fetoprotein Tumour Marker (AFP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹950. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Alpha-Fetoprotein Tumour Marker (AFP) Test in Bangalore",
     "subtitle": "High-precision Alpha-Fetoprotein Tumour Marker assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "950",
@@ -7433,7 +7433,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate alpha-fetoprotein tumour marker for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -7475,7 +7475,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Alpha-Fetoprotein Tumour Marker test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Alpha-Fetoprotein Tumour Marker test?",
@@ -7504,7 +7504,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "ca-19-9",
     "title": "Cancer Antigen 19-9 (CA 19-9) Test in Bangalore | Price ₹960, Normal Range | QXL",
     "metaDescription": "Book Cancer Antigen 19-9 (CA 19-9) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹960. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Cancer Antigen 19-9 (CA 19-9) Test in Bangalore",
     "subtitle": "High-precision Cancer Antigen 19-9 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "960",
@@ -7540,7 +7540,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate cancer antigen 19-9 for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -7582,7 +7582,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Cancer Antigen 19-9 test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Cancer Antigen 19-9 test?",
@@ -7611,7 +7611,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "ca-15-3",
     "title": "Cancer Antigen 15-3 (CA 15-3) Test in Bangalore | Price ₹970, Normal Range | QXL",
     "metaDescription": "Book Cancer Antigen 15-3 (CA 15-3) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹970. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Cancer Antigen 15-3 (CA 15-3) Test in Bangalore",
     "subtitle": "High-precision Cancer Antigen 15-3 assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "970",
@@ -7647,7 +7647,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate cancer antigen 15-3 for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -7689,7 +7689,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Cancer Antigen 15-3 test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Cancer Antigen 15-3 test?",
@@ -7718,7 +7718,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "beta-hcg-tumour-marker",
     "title": "Beta-hCG Tumour Marker (beta-hCG tumour marker) Test in Bangalore | Price ₹980, Normal Range | QXL",
     "metaDescription": "Book Beta-hCG Tumour Marker (beta-hCG tumour marker) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹980. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Beta-hCG Tumour Marker (beta-hCG tumour marker) Test in Bangalore",
     "subtitle": "High-precision Beta-hCG Tumour Marker assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "980",
@@ -7754,7 +7754,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate beta-hcg tumour marker for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -7796,7 +7796,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Beta-hCG Tumour Marker test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Beta-hCG Tumour Marker test?",
@@ -7825,7 +7825,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "troponin-test",
     "title": "High-Sensitivity Cardiac Troponin (Troponin) Test in Bangalore | Price ₹990, Normal Range | QXL",
     "metaDescription": "Book High-Sensitivity Cardiac Troponin (Troponin) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹990. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "High-Sensitivity Cardiac Troponin (Troponin) Test in Bangalore",
     "subtitle": "High-precision High-Sensitivity Cardiac Troponin assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "990",
@@ -7861,7 +7861,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate high-sensitivity cardiac troponin for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -7903,7 +7903,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the High-Sensitivity Cardiac Troponin test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my High-Sensitivity Cardiac Troponin test?",
@@ -7932,7 +7932,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "nt-probnp",
     "title": "N-Terminal pro-B-Type Natriuretic Peptide (NT-proBNP) Test in Bangalore | Price ₹1000, Normal Range | QXL",
     "metaDescription": "Book N-Terminal pro-B-Type Natriuretic Peptide (NT-proBNP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1000. No fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "N-Terminal pro-B-Type Natriuretic Peptide (NT-proBNP) Test in Bangalore",
     "subtitle": "High-precision N-Terminal pro-B-Type Natriuretic Peptide assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 12 Hours.",
     "price": "1000",
@@ -7968,7 +7968,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate n-terminal pro-b-type natriuretic peptide for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 12 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -8010,7 +8010,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the N-Terminal pro-B-Type Natriuretic Peptide test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my N-Terminal pro-B-Type Natriuretic Peptide test?",
@@ -8039,7 +8039,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "ck-mb",
     "title": "Creatine Kinase-MB Mass (CK-MB) Test in Bangalore | Price ₹1010, Normal Range | QXL",
     "metaDescription": "Book Creatine Kinase-MB Mass (CK-MB) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1010. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Creatine Kinase-MB Mass (CK-MB) Test in Bangalore",
     "subtitle": "High-precision Creatine Kinase-MB Mass assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1010",
@@ -8075,7 +8075,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate creatine kinase-mb mass for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -8117,7 +8117,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Creatine Kinase-MB Mass test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Creatine Kinase-MB Mass test?",
@@ -8146,7 +8146,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "apob-test",
     "title": "Apolipoprotein B (ApoB) Test in Bangalore | Price ₹550, Normal Range | QXL",
     "metaDescription": "Book Apolipoprotein B (ApoB) test at home in Bangalore. NABL Accredited precision, same-day reports, price ₹550. No fasting required. 12 Hours TAT.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Apolipoprotein B (ApoB) Test in Bangalore",
     "subtitle": "High-precision automated Apolipoprotein B immunoturbidimetric assay accredited under ISO 15189:2022 standards. No fasting required. Verified digital reports within 12 Hours.",
     "price": "550",
@@ -8160,7 +8160,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "overview": [
       "Apolipoprotein B (ApoB) is the primary structural protein found on all atherogenic lipoprotein particles, including LDL, VLDL, IDL, and Lp(a).",
       "Because each atherogenic particle carries exactly one molecule of ApoB, measuring ApoB provides a direct particle count — a more accurate predictor of cardiovascular event risk than LDL cholesterol.",
-      "Conducted inside QXL Diagnostics' NABL Accredited central super speciality laboratory (MC-6849) using automated immunoturbidimetric analyzers calibrated to international WHO-IFCC standards.",
+      "Conducted inside QXL Diagnostics' NABL Accredited central super speciality laboratory (NABLM1126KA10694) using automated immunoturbidimetric analyzers calibrated to international WHO-IFCC standards.",
       "Every result undergoes automated dual-level internal quality control (IQC) and medical sign-off by Dr. Shantakumar Muruda, MD (Clinical Biochemistry), NABL Lead Assessor."
     ],
     "parametersList": [
@@ -8198,7 +8198,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Superior to LDL-C: Detects hidden atherogenic risk when LDL-C appears deceptively normal (discordance).",
       "No Fasting Needed: ApoB levels remain stable postprandially; can be drawn anytime.",
       "Validated Methodology: Automated Immunoturbidimetry calibrated against WHO-IFCC reference standards.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022.",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022.",
       "Turnaround Time (TAT): Verified digital PDF report delivered within 12 Hours via WhatsApp & Email.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week from 7:00 AM across all Bengaluru areas."
@@ -8245,7 +8245,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "lipoprotein-a",
     "title": "Lipoprotein(a) Test in Bangalore | Price ₹1,249, Normal Range | QXL",
     "metaDescription": "Book Lipoprotein(a) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1,249. 10–12 hrs fasting required. 12 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Lipoprotein(a) Test in Bangalore",
     "subtitle": "High-precision Lipoprotein(a) assay accredited under ISO 15189:2022 standards. 10–12 hrs fasting required. Reports within 12 Hours.",
     "price": "1249",
@@ -8281,7 +8281,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate lipoprotein(a) (genomic lipid) for diagnostic assessment.",
       "Specimen Protocol: Serum (8 to 10 hours overnight fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -8323,7 +8323,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Lipoprotein(a) (Genomic Lipid) test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Lipoprotein(a) (Genomic Lipid) test?",
@@ -8352,7 +8352,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "spep",
     "title": "Serum Protein Electrophoresis (SPEP) Test in Bangalore | Price ₹1040, Normal Range | QXL",
     "metaDescription": "Book Serum Protein Electrophoresis (SPEP) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1040. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Serum Protein Electrophoresis (SPEP) Test in Bangalore",
     "subtitle": "High-precision Serum Protein Electrophoresis assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1040",
@@ -8388,7 +8388,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate serum protein electrophoresis for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -8430,7 +8430,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Serum Protein Electrophoresis test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Serum Protein Electrophoresis test?",
@@ -8459,7 +8459,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "immunofixation",
     "title": "Serum Immunofixation Electrophoresis (Immunofixation) Test in Bangalore | Price ₹1050, Normal Range | QXL",
     "metaDescription": "Book Serum Immunofixation Electrophoresis (Immunofixation) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1050. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Serum Immunofixation Electrophoresis (Immunofixation) Test in Bangalore",
     "subtitle": "High-precision Serum Immunofixation Electrophoresis assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1050",
@@ -8495,7 +8495,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate serum immunofixation electrophoresis for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -8537,7 +8537,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Serum Immunofixation Electrophoresis test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Serum Immunofixation Electrophoresis test?",
@@ -8566,7 +8566,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "serum-free-light-chains",
     "title": "Serum Free Light Chains with Kappa/Lambda Ratio (Serum Free Light Chains) Test in Bangalore | Price ₹1060, Normal Range | QXL",
     "metaDescription": "Book Serum Free Light Chains with Kappa/Lambda Ratio (Serum Free Light Chains) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1060. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Serum Free Light Chains with Kappa/Lambda Ratio (Serum Free Light Chains) Test in Bangalore",
     "subtitle": "High-precision Serum Free Light Chains with Kappa/Lambda Ratio assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1060",
@@ -8602,7 +8602,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate serum free light chains with kappa/lambda ratio for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -8644,7 +8644,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Serum Free Light Chains with Kappa/Lambda Ratio test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Serum Free Light Chains with Kappa/Lambda Ratio test?",
@@ -8673,7 +8673,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "urine-protein-electrophoresis",
     "title": "Urine Protein Electrophoresis (Urine Protein Electrophoresis) Test in Bangalore | Price ₹1070, Normal Range | QXL",
     "metaDescription": "Book Urine Protein Electrophoresis (Urine Protein Electrophoresis) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1070. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Urine Protein Electrophoresis (Urine Protein Electrophoresis) Test in Bangalore",
     "subtitle": "High-precision Urine Protein Electrophoresis assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1070",
@@ -8709,7 +8709,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate urine protein electrophoresis for diagnostic assessment.",
       "Specimen Protocol: Urine (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -8751,7 +8751,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Urine Protein Electrophoresis test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Urine Protein Electrophoresis test?",
@@ -8780,7 +8780,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "dengue-ns1-antigen",
     "title": "Dengue NS1 Antigen (Dengue NS1) Test in Bangalore | Price ₹1080, Normal Range | QXL",
     "metaDescription": "Book Dengue NS1 Antigen (Dengue NS1) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1080. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Dengue NS1 Antigen (Dengue NS1) Test in Bangalore",
     "subtitle": "High-precision Dengue NS1 Antigen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1080",
@@ -8816,7 +8816,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate dengue ns1 antigen for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -8858,7 +8858,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Dengue NS1 Antigen test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Dengue NS1 Antigen test?",
@@ -8887,7 +8887,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "dengue-igm-igg",
     "title": "Dengue IgM and IgG Antibodies (Dengue IgM/IgG) Test in Bangalore | Price ₹1090, Normal Range | QXL",
     "metaDescription": "Book Dengue IgM and IgG Antibodies (Dengue IgM/IgG) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1090. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Dengue IgM and IgG Antibodies (Dengue IgM/IgG) Test in Bangalore",
     "subtitle": "High-precision Dengue IgM and IgG Antibodies assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1090",
@@ -8923,7 +8923,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate dengue igm and igg antibodies for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -8965,7 +8965,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Dengue IgM and IgG Antibodies test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Dengue IgM and IgG Antibodies test?",
@@ -8994,7 +8994,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "malaria-parasite",
     "title": "Malaria Parasite Detection (Malaria) Test in Bangalore | Price ₹1100, Normal Range | QXL",
     "metaDescription": "Book Malaria Parasite Detection (Malaria) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1100. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Malaria Parasite Detection (Malaria) Test in Bangalore",
     "subtitle": "High-precision Malaria Parasite Detection assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1100",
@@ -9030,7 +9030,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate malaria parasite detection for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -9072,7 +9072,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Malaria Parasite Detection test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Malaria Parasite Detection test?",
@@ -9101,7 +9101,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "widal-test",
     "title": "Typhoid Fever Diagnostic Testing (Typhoid) Test in Bangalore | Price ₹1110, Normal Range | QXL",
     "metaDescription": "Book Typhoid Fever Diagnostic Testing (Typhoid) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1110. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Typhoid Fever Diagnostic Testing (Typhoid) Test in Bangalore",
     "subtitle": "High-precision Typhoid Fever Diagnostic Testing assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1110",
@@ -9137,7 +9137,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate typhoid fever diagnostic testing for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -9179,7 +9179,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Typhoid Fever Diagnostic Testing test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Typhoid Fever Diagnostic Testing test?",
@@ -9208,7 +9208,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "hbsag",
     "title": "Hepatitis B Surface Antigen (HBsAg) Test in Bangalore | Price ₹1120, Normal Range | QXL",
     "metaDescription": "Book Hepatitis B Surface Antigen (HBsAg) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1120. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Hepatitis B Surface Antigen (HBsAg) Test in Bangalore",
     "subtitle": "High-precision Hepatitis B Surface Antigen assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1120",
@@ -9244,7 +9244,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate hepatitis b surface antigen for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -9286,7 +9286,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Hepatitis B Surface Antigen test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Hepatitis B Surface Antigen test?",
@@ -9315,7 +9315,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "anti-hcv",
     "title": "Hepatitis C Antibody (HCV) Test in Bangalore | Price ₹1130, Normal Range | QXL",
     "metaDescription": "Book Hepatitis C Antibody (HCV) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1130. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Hepatitis C Antibody (HCV) Test in Bangalore",
     "subtitle": "High-precision Hepatitis C Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1130",
@@ -9351,7 +9351,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate hepatitis c antibody for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -9393,7 +9393,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Hepatitis C Antibody test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Hepatitis C Antibody test?",
@@ -9422,7 +9422,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "hiv-1-2-antibody",
     "title": "HIV-1/2 Antigen and Antibody Screening (HIV screening) Test in Bangalore | Price ₹1140, Normal Range | QXL",
     "metaDescription": "Book HIV-1/2 Antigen and Antibody Screening (HIV screening) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1140. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "HIV-1/2 Antigen and Antibody Screening (HIV screening) Test in Bangalore",
     "subtitle": "High-precision HIV-1/2 Antigen and Antibody Screening assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1140",
@@ -9458,7 +9458,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate hiv-1/2 antigen and antibody screening for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -9500,7 +9500,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the HIV-1/2 Antigen and Antibody Screening test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my HIV-1/2 Antigen and Antibody Screening test?",
@@ -9529,7 +9529,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "h1n1-pcr-test",
     "title": "Influenza A(H1N1) RT-PCR (H1N1 PCR) Test in Bangalore | Price ₹1150, Normal Range | QXL",
     "metaDescription": "Book Influenza A(H1N1) RT-PCR (H1N1 PCR) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1150. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Influenza A(H1N1) RT-PCR (H1N1 PCR) Test in Bangalore",
     "subtitle": "High-precision Influenza A(H1N1) RT-PCR assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1150",
@@ -9565,7 +9565,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate influenza a(h1n1) rt-pcr for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -9607,7 +9607,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Influenza A(H1N1) RT-PCR test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Influenza A(H1N1) RT-PCR test?",
@@ -9636,7 +9636,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "aqp4-nmo-antibody",
     "title": "Aquaporin-4 IgG Antibody (AQP4/NMO) Test in Bangalore | Price ₹1160, Normal Range | QXL",
     "metaDescription": "Book Aquaporin-4 IgG Antibody (AQP4/NMO) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1160. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Aquaporin-4 IgG Antibody (AQP4/NMO) Test in Bangalore",
     "subtitle": "High-precision Aquaporin-4 IgG Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1160",
@@ -9672,7 +9672,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate aquaporin-4 igg antibody for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -9714,7 +9714,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Aquaporin-4 IgG Antibody test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Aquaporin-4 IgG Antibody test?",
@@ -9743,7 +9743,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "mog-antibody",
     "title": "Myelin Oligodendrocyte Glycoprotein IgG1 Antibody (MOG Antibody) Test in Bangalore | Price ₹1170, Normal Range | QXL",
     "metaDescription": "Book Myelin Oligodendrocyte Glycoprotein IgG1 Antibody (MOG Antibody) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1170. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Myelin Oligodendrocyte Glycoprotein IgG1 Antibody (MOG Antibody) Test in Bangalore",
     "subtitle": "High-precision Myelin Oligodendrocyte Glycoprotein IgG1 Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1170",
@@ -9779,7 +9779,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate myelin oligodendrocyte glycoprotein igg1 antibody for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -9821,7 +9821,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Myelin Oligodendrocyte Glycoprotein IgG1 Antibody test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Myelin Oligodendrocyte Glycoprotein IgG1 Antibody test?",
@@ -9850,7 +9850,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "anti-nmda-receptor-antibody",
     "title": "N-Methyl-D-Aspartate Receptor Antibody (Anti-NMDA receptor antibody) Test in Bangalore | Price ₹1180, Normal Range | QXL",
     "metaDescription": "Book N-Methyl-D-Aspartate Receptor Antibody (Anti-NMDA receptor antibody) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1180. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "N-Methyl-D-Aspartate Receptor Antibody (Anti-NMDA receptor antibody) Test in Bangalore",
     "subtitle": "High-precision N-Methyl-D-Aspartate Receptor Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1180",
@@ -9886,7 +9886,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate n-methyl-d-aspartate receptor antibody for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -9928,7 +9928,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the N-Methyl-D-Aspartate Receptor Antibody test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my N-Methyl-D-Aspartate Receptor Antibody test?",
@@ -9957,7 +9957,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "paraneoplastic-panel",
     "title": "Paraneoplastic Neurologic Antibody Panel (Paraneoplastic panel) Test in Bangalore | Price ₹8,075, Normal Range | QXL",
     "metaDescription": "Book Paraneoplastic Neurologic Antibody Panel (Paraneoplastic panel) test at home in Bangalore. NABL Accredited precision, reports in 3–5 days, starting at ₹8,075. No fasting required.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Paraneoplastic Neurologic Antibody Panel (Paraneoplastic panel) Test in Bangalore",
     "subtitle": "High-precision Paraneoplastic Neurologic Antibody Panel assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 3–5 Days.",
     "price": "8075",
@@ -9993,7 +9993,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate paraneoplastic neurologic antibody panel for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -10035,7 +10035,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Paraneoplastic Neurologic Antibody Panel test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Paraneoplastic Neurologic Antibody Panel test?",
@@ -10064,7 +10064,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "autoimmune-encephalitis-panel",
     "title": "Autoimmune Encephalitis Antibody Panel (Autoimmune encephalitis panel) Test in Bangalore | Price ₹23,275, Normal Range | QXL",
     "metaDescription": "Book Autoimmune Encephalitis Antibody Panel (Autoimmune encephalitis panel) test in Bangalore. NABL Accredited precision, reports in 3–5 days, starting at ₹23,275. Specialist collection required.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · SPECIALIST CSF COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · SPECIALIST CSF COLLECTION",
     "h1Title": "Autoimmune Encephalitis Antibody Panel (Autoimmune encephalitis panel) Test in Bangalore",
     "subtitle": "High-precision Autoimmune Encephalitis Antibody Panel assay accredited under ISO 15189:2022 standards. Paired CSF & Serum. Reports within 3–5 Days.",
     "price": "23275",
@@ -10100,7 +10100,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate autoimmune encephalitis antibody panel for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -10142,7 +10142,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Autoimmune Encephalitis Antibody Panel test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Autoimmune Encephalitis Antibody Panel test?",
@@ -10171,7 +10171,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "oligoclonal-bands",
     "title": "Oligoclonal Bands, Paired CSF and Serum (Oligoclonal bands) Test in Bangalore | Price ₹1210, Normal Range | QXL",
     "metaDescription": "Book Oligoclonal Bands, Paired CSF and Serum (Oligoclonal bands) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1210. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Oligoclonal Bands, Paired CSF and Serum (Oligoclonal bands) Test in Bangalore",
     "subtitle": "High-precision Oligoclonal Bands, Paired CSF and Serum assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1210",
@@ -10207,7 +10207,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate oligoclonal bands, paired csf and serum for diagnostic assessment.",
       "Specimen Protocol: CSF & Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -10249,7 +10249,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Oligoclonal Bands, Paired CSF and Serum test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Oligoclonal Bands, Paired CSF and Serum test?",
@@ -10278,7 +10278,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "coeliac-profile",
     "title": "Coeliac Disease Antibody Profile (Coeliac Profile) Test in Bangalore | Price ₹1220, Normal Range | QXL",
     "metaDescription": "Book Coeliac Disease Antibody Profile (Coeliac Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1220. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Coeliac Disease Antibody Profile (Coeliac Profile) Test in Bangalore",
     "subtitle": "High-precision Coeliac Disease Antibody Profile assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1220",
@@ -10314,7 +10314,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate coeliac disease antibody profile for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -10356,7 +10356,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Coeliac Disease Antibody Profile test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Coeliac Disease Antibody Profile test?",
@@ -10385,7 +10385,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "anti-tpo",
     "title": "Thyroid Peroxidase Antibody (Anti-TPO) Test in Bangalore | Price ₹1230, Normal Range | QXL",
     "metaDescription": "Book Thyroid Peroxidase Antibody (Anti-TPO) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1230. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Thyroid Peroxidase Antibody (Anti-TPO) Test in Bangalore",
     "subtitle": "High-precision Thyroid Peroxidase Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1230",
@@ -10421,7 +10421,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate thyroid peroxidase antibody for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -10463,7 +10463,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Thyroid Peroxidase Antibody test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Thyroid Peroxidase Antibody test?",
@@ -10492,7 +10492,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "thyroglobulin-antibody",
     "title": "Thyroglobulin Antibody (Thyroglobulin antibody) Test in Bangalore | Price ₹1240, Normal Range | QXL",
     "metaDescription": "Book Thyroglobulin Antibody (Thyroglobulin antibody) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1240. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Thyroglobulin Antibody (Thyroglobulin antibody) Test in Bangalore",
     "subtitle": "High-precision Thyroglobulin Antibody assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1240",
@@ -10528,7 +10528,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate thyroglobulin antibody for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -10570,7 +10570,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Thyroglobulin Antibody test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Thyroglobulin Antibody test?",
@@ -10599,7 +10599,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "flow-cytometry",
     "title": "Flow Cytometry Immunophenotyping (Flow Cytometry) Test in Bangalore | Price ₹1250, Normal Range | QXL",
     "metaDescription": "Book Flow Cytometry Immunophenotyping (Flow Cytometry) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹1250. No fasting required. 24 Hours.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "Flow Cytometry Immunophenotyping (Flow Cytometry) Test in Bangalore",
     "subtitle": "High-precision Flow Cytometry Immunophenotyping assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 24 Hours.",
     "price": "1250",
@@ -10635,7 +10635,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "whyImportant": [
       "Primary Indication: Evaluate flow cytometry immunophenotyping for diagnostic assessment.",
       "Specimen Protocol: Serum (No fasting required.).",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Turnaround Time (TAT): Digital PDF report delivered within 24 Hours.",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Technology: Automated Chemiluminescence / Spectrophotometry / High-Resolution Flow Analysis.",
@@ -10677,7 +10677,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       },
       {
         "question": "What quality certifications back the Flow Cytometry Immunophenotyping test at QXL?",
-        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (MC-6849) compliant with ISO 15189:2022 international standards."
+        "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
         "question": "How often should I repeat or monitor my Flow Cytometry Immunophenotyping test?",
@@ -10706,7 +10706,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "1-25-dihydroxy-vitamin-d",
     "title": "1,25-Dihydroxy Vitamin D Test: Uses & Results | QXL",
     "metaDescription": "Learn why active vitamin D is tested, how to prepare, and what high or low calcitriol means in calcium disorders, kidney disease and childhood rickets.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "1,25-Dihydroxy Vitamin D Test in Bangalore",
     "subtitle": "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
     "price": "450",
@@ -10728,7 +10728,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
       "Specimen Protocol: Serum (Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.)",
       "Patient Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -10793,7 +10793,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "1-25-dihydroxy-vitamin-d",
     "title": "1,25-Dihydroxy Vitamin D Test: Uses & Results | QXL",
     "metaDescription": "Learn why active vitamin D is tested, how to prepare, and what high or low calcitriol means in calcium disorders, kidney disease and childhood rickets.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "1,25-Dihydroxy Vitamin D Test in Bangalore",
     "subtitle": "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
     "price": "450",
@@ -10815,7 +10815,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
       "Specimen Protocol: Serum (Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.)",
       "Patient Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -10880,7 +10880,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "1-25-dihydroxy-vitamin-d",
     "title": "1,25-Dihydroxy Vitamin D Test: Uses & Results | QXL",
     "metaDescription": "Learn why active vitamin D is tested, how to prepare, and what high or low calcitriol means in calcium disorders, kidney disease and childhood rickets.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "1,25-Dihydroxy Vitamin D Test in Bangalore",
     "subtitle": "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
     "price": "450",
@@ -10902,7 +10902,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
       "Specimen Protocol: Serum (Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.)",
       "Patient Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -10967,7 +10967,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "1-25-dihydroxy-vitamin-d",
     "title": "1,25-Dihydroxy Vitamin D Test: Uses & Results | QXL",
     "metaDescription": "Learn why active vitamin D is tested, how to prepare, and what high or low calcitriol means in calcium disorders, kidney disease and childhood rickets.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "1,25-Dihydroxy Vitamin D Test in Bangalore",
     "subtitle": "Measures the active vitamin D hormone that helps regulate calcium and phosphate. Its production depends on kidney function and hormonal signals.",
     "price": "450",
@@ -10989,7 +10989,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Investigation of selected calcium disorders, impaired vitamin D activation in kidney disease, and inherited disorders of vitamin D metabolism or action.",
       "Specimen Protocol: Serum (Laboratory-approved serum collection tube; confirm gel acceptance with the performing laboratory.)",
       "Patient Preparation: No universal fasting requirement applies; follow the selected laboratory assay instructions. Report vitamin D, calcitriol, calcium and other supplements, and continue prescribed treatment unless instructed otherwise.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11054,7 +11054,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "17-alpha-hydroxyprogesterone",
     "title": "17-OHP Test: Preparation, CAH & Results | QXL",
     "metaDescription": "Understand the 17-hydroxyprogesterone test for congenital adrenal hyperplasia, morning and menstrual timing, raised results and newborn considerations.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "17-Alpha-Hydroxyprogesterone Test in Bangalore",
     "subtitle": "Measures a steroid precursor used in adrenal hormone production. It commonly accumulates when the 21-hydroxylase enzyme is deficient.",
     "price": "450",
@@ -11076,7 +11076,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
       "Specimen Protocol: Serum (Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.)",
       "Patient Preparation: For a baseline androgen-excess investigation, collection is usually early morning and, in menstruating patients, during the early follicular phase. Record steroid treatment and collection time. Follow the endocrinologist timing plan for treatment monitoring or stimulation testing.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11139,7 +11139,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "17-alpha-hydroxyprogesterone",
     "title": "17-OHP Test: Preparation, CAH & Results | QXL",
     "metaDescription": "Understand the 17-hydroxyprogesterone test for congenital adrenal hyperplasia, morning and menstrual timing, raised results and newborn considerations.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "17-Alpha-Hydroxyprogesterone Test in Bangalore",
     "subtitle": "Measures a steroid precursor used in adrenal hormone production. It commonly accumulates when the 21-hydroxylase enzyme is deficient.",
     "price": "450",
@@ -11161,7 +11161,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
       "Specimen Protocol: Serum (Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.)",
       "Patient Preparation: For a baseline androgen-excess investigation, collection is usually early morning and, in menstruating patients, during the early follicular phase. Record steroid treatment and collection time. Follow the endocrinologist timing plan for treatment monitoring or stimulation testing.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11224,7 +11224,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "17-alpha-hydroxyprogesterone",
     "title": "17-OHP Test: Preparation, CAH & Results | QXL",
     "metaDescription": "Understand the 17-hydroxyprogesterone test for congenital adrenal hyperplasia, morning and menstrual timing, raised results and newborn considerations.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "17-Alpha-Hydroxyprogesterone Test in Bangalore",
     "subtitle": "Measures a steroid precursor used in adrenal hormone production. It commonly accumulates when the 21-hydroxylase enzyme is deficient.",
     "price": "450",
@@ -11246,7 +11246,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Evaluation of suspected congenital adrenal hyperplasia, selected cases of androgen excess, and monitoring of established congenital adrenal hyperplasia under specialist care.",
       "Specimen Protocol: Serum (Laboratory-approved serum tube; newborn dried-blood-spot screening is a separate specimen pathway.)",
       "Patient Preparation: For a baseline androgen-excess investigation, collection is usually early morning and, in menstruating patients, during the early follicular phase. Record steroid treatment and collection time. Follow the endocrinologist timing plan for treatment monitoring or stimulation testing.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11309,7 +11309,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "21-hydroxylase-antibodies-serum",
     "title": "21-Hydroxylase Antibody Test: Uses & Results | QXL",
     "metaDescription": "Learn how 21-hydroxylase antibodies help assess autoimmune adrenal disease, what positive and negative results mean, and how this differs from CAH testing.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "21-Hydroxylase Antibodies, Serum Test in Bangalore",
     "subtitle": "Detects antibodies directed against the adrenal enzyme 21-hydroxylase, which can indicate autoimmune damage affecting adrenal hormone production.",
     "price": "450",
@@ -11331,7 +11331,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
       "Specimen Protocol: Serum (Laboratory-approved serum tube, with serum quality assessed for the chosen assay.)",
       "Patient Preparation: Fasting is not generally central to this antibody test. Tell the clinician about steroid replacement and immunosuppressive medicines. Continue prescribed treatment; cortisol or stimulation testing ordered at the same visit may have separate timing instructions.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11394,7 +11394,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "21-hydroxylase-antibodies-serum",
     "title": "21-Hydroxylase Antibody Test: Uses & Results | QXL",
     "metaDescription": "Learn how 21-hydroxylase antibodies help assess autoimmune adrenal disease, what positive and negative results mean, and how this differs from CAH testing.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "21-Hydroxylase Antibodies, Serum Test in Bangalore",
     "subtitle": "Detects antibodies directed against the adrenal enzyme 21-hydroxylase, which can indicate autoimmune damage affecting adrenal hormone production.",
     "price": "450",
@@ -11416,7 +11416,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
       "Specimen Protocol: Serum (Laboratory-approved serum tube, with serum quality assessed for the chosen assay.)",
       "Patient Preparation: Fasting is not generally central to this antibody test. Tell the clinician about steroid replacement and immunosuppressive medicines. Continue prescribed treatment; cortisol or stimulation testing ordered at the same visit may have separate timing instructions.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11479,7 +11479,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "21-hydroxylase-antibodies-serum",
     "title": "21-Hydroxylase Antibody Test: Uses & Results | QXL",
     "metaDescription": "Learn how 21-hydroxylase antibodies help assess autoimmune adrenal disease, what positive and negative results mean, and how this differs from CAH testing.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "21-Hydroxylase Antibodies, Serum Test in Bangalore",
     "subtitle": "Detects antibodies directed against the adrenal enzyme 21-hydroxylase, which can indicate autoimmune damage affecting adrenal hormone production.",
     "price": "450",
@@ -11501,7 +11501,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Investigation of an autoimmune cause of primary adrenal insufficiency and selected patients with autoimmune polyglandular syndromes.",
       "Specimen Protocol: Serum (Laboratory-approved serum tube, with serum quality assessed for the chosen assay.)",
       "Patient Preparation: Fasting is not generally central to this antibody test. Tell the clinician about steroid replacement and immunosuppressive medicines. Continue prescribed treatment; cortisol or stimulation testing ordered at the same visit may have separate timing instructions.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11564,7 +11564,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-urea",
     "title": "24-Hour Urine Urea Test: Collection & Results | QXL",
     "metaDescription": "Understand 24-hour urine urea testing for protein intake and nitrogen balance, how to collect the sample, and why diet and kidney function affect results.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Urea Test in Bangalore",
     "subtitle": "Measures the amount of urea, a waste product of protein breakdown, passed in urine over a full day. Urea and urea nitrogen are related but use different reporting conventions.",
     "price": "450",
@@ -11586,7 +11586,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: A day-long fast is not required. Maintain the diet and fluid intake prescribed by your clinician and document any protein supplements or nutrition support. Do not deliberately increase protein to alter the result. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11648,7 +11648,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-urea",
     "title": "24-Hour Urine Urea Test: Collection & Results | QXL",
     "metaDescription": "Understand 24-hour urine urea testing for protein intake and nitrogen balance, how to collect the sample, and why diet and kidney function affect results.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Urea Test in Bangalore",
     "subtitle": "Measures the amount of urea, a waste product of protein breakdown, passed in urine over a full day. Urea and urea nitrogen are related but use different reporting conventions.",
     "price": "450",
@@ -11670,7 +11670,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Helps assess dietary protein intake or nitrogen balance in selected nutritional or kidney-care settings. Interpretation also requires kidney function, clinical state and a complete collection.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: A day-long fast is not required. Maintain the diet and fluid intake prescribed by your clinician and document any protein supplements or nutrition support. Do not deliberately increase protein to alter the result. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11732,7 +11732,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-oxalate",
     "title": "24-Hour Urine Oxalate Test: Stone Risk & Prep | QXL",
     "metaDescription": "Learn how urine oxalate helps investigate calcium oxalate stones, why vitamin C and collection technique matter, and what raised results mean in children.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Oxalate Test in Bangalore",
     "subtitle": "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones.",
     "price": "450",
@@ -11754,7 +11754,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11817,7 +11817,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-oxalate",
     "title": "24-Hour Urine Oxalate Test: Stone Risk & Prep | QXL",
     "metaDescription": "Learn how urine oxalate helps investigate calcium oxalate stones, why vitamin C and collection technique matter, and what raised results mean in children.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Oxalate Test in Bangalore",
     "subtitle": "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones.",
     "price": "450",
@@ -11839,7 +11839,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11902,7 +11902,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-oxalate",
     "title": "24-Hour Urine Oxalate Test: Stone Risk & Prep | QXL",
     "metaDescription": "Learn how urine oxalate helps investigate calcium oxalate stones, why vitamin C and collection technique matter, and what raised results mean in children.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Oxalate Test in Bangalore",
     "subtitle": "Measures how much oxalate is lost in urine during a day. Oxalate can combine with calcium and contribute to calcium oxalate kidney stones.",
     "price": "450",
@@ -11924,7 +11924,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Used in recurrent kidney-stone evaluation and when excessive intestinal absorption or an inherited oxalate disorder is suspected. It is interpreted with urine volume, other stone-risk measurements and kidney function.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: Do not fast for the collection. Follow the prescribed stone-investigation diet plan and report vitamin C supplements and bowel or bariatric surgery. Any restriction of high-dose vitamin C should follow the clinician or laboratory instructions. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -11987,7 +11987,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-protein-creatinine-ratio",
     "title": "24-Hour Urine Protein/Creatinine Ratio Test | QXL",
     "metaDescription": "Understand the timed urine protein/creatinine ratio, how it differs from daily protein loss, collection preparation and age-specific interpretation in children.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Protein/Creatinine Ratio Test in Bangalore",
     "subtitle": "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day.",
     "price": "450",
@@ -12009,7 +12009,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -12072,7 +12072,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-protein-creatinine-ratio",
     "title": "24-Hour Urine Protein/Creatinine Ratio Test | QXL",
     "metaDescription": "Understand the timed urine protein/creatinine ratio, how it differs from daily protein loss, collection preparation and age-specific interpretation in children.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Protein/Creatinine Ratio Test in Bangalore",
     "subtitle": "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day.",
     "price": "450",
@@ -12094,7 +12094,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -12157,7 +12157,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-protein-creatinine-ratio",
     "title": "24-Hour Urine Protein/Creatinine Ratio Test | QXL",
     "metaDescription": "Understand the timed urine protein/creatinine ratio, how it differs from daily protein loss, collection preparation and age-specific interpretation in children.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Protein/Creatinine Ratio Test in Bangalore",
     "subtitle": "Compares total protein with creatinine measured in the same timed urine collection. It is a ratio, not the same measurement as total protein excreted per day.",
     "price": "450",
@@ -12179,7 +12179,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Helps quantify urinary protein loss when specifically requested. The clinician may instead request a first-morning spot ratio or total 24-hour protein depending on the clinical question.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: No full-day fast is needed. Follow normal prescribed fluid intake, avoid unusual strenuous exercise, and tell the laboratory about fever, urinary symptoms or menstrual contamination. Do not shorten a requested timed collection. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -12242,7 +12242,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-creatinine",
     "title": "24-Hour Urine Creatinine: Collection & Results | QXL",
     "metaDescription": "Learn why 24-hour urine creatinine checks collection completeness, how muscle mass affects results, and when a paired blood test is needed for clearance.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Creatinine Test in Bangalore",
     "subtitle": "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass.",
     "price": "450",
@@ -12264,7 +12264,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -12327,7 +12327,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-creatinine",
     "title": "24-Hour Urine Creatinine: Collection & Results | QXL",
     "metaDescription": "Learn why 24-hour urine creatinine checks collection completeness, how muscle mass affects results, and when a paired blood test is needed for clearance.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Creatinine Test in Bangalore",
     "subtitle": "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass.",
     "price": "450",
@@ -12349,7 +12349,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -12412,7 +12412,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-creatinine",
     "title": "24-Hour Urine Creatinine: Collection & Results | QXL",
     "metaDescription": "Learn why 24-hour urine creatinine checks collection completeness, how muscle mass affects results, and when a paired blood test is needed for clearance.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Creatinine Test in Bangalore",
     "subtitle": "Measures the creatinine passed in urine over 24 hours. Creatinine comes mainly from muscle metabolism, so daily excretion is influenced by body size and muscle mass.",
     "price": "450",
@@ -12434,7 +12434,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: Helps assess completeness of a timed urine collection and can be combined with a blood creatinine measurement to calculate creatinine clearance. Urine creatinine alone is not an estimated glomerular filtration rate.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: Avoid changing your usual diet solely for the test and report creatine supplements or an unusually heavy meat intake. Do not undertake unusual strenuous exercise. Follow the clinician instructions if a paired blood sample is required. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -12497,7 +12497,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-glucose",
     "title": "24-Hour Urine Glucose Test: Uses & Results | QXL",
     "metaDescription": "Understand daily urine glucose measurement, why blood tests are usually preferred for diabetes, and how kidney handling, pregnancy and medicines affect results.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Glucose Test in Bangalore",
     "subtitle": "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced.",
     "price": "450",
@@ -12519,7 +12519,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -12582,7 +12582,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-glucose",
     "title": "24-Hour Urine Glucose Test: Uses & Results | QXL",
     "metaDescription": "Understand daily urine glucose measurement, why blood tests are usually preferred for diabetes, and how kidney handling, pregnancy and medicines affect results.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Glucose Test in Bangalore",
     "subtitle": "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced.",
     "price": "450",
@@ -12604,7 +12604,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],
@@ -12667,7 +12667,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "slug": "24-hour-urine-glucose",
     "title": "24-Hour Urine Glucose Test: Uses & Results | QXL",
     "metaDescription": "Understand daily urine glucose measurement, why blood tests are usually preferred for diabetes, and how kidney handling, pregnancy and medicines affect results.",
-    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (MC-6849) · FREE HOME COLLECTION",
+    "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
     "h1Title": "24-Hour Urine Glucose Test in Bangalore",
     "subtitle": "Measures glucose excreted in urine during a day. Glucose appears in urine when the filtered amount exceeds kidney reabsorption or when tubular reabsorption is reduced.",
     "price": "450",
@@ -12689,7 +12689,7 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
       "Primary Indication: May help investigate selected cases of glycosuria or renal tubular dysfunction. Blood glucose and HbA1c are generally more useful for diagnosing and monitoring diabetes than a timed urine glucose test.",
       "Specimen Protocol: Complete 24-hour urine collection (Laboratory-supplied 24-hour urine container; confirm analyte-compatible preservative and storage before starting.)",
       "Patient Preparation: Do not fast throughout the 24-hour collection. Follow your usual prescribed diet and diabetes treatment unless your clinician directs otherwise. Report medicines that increase urinary glucose, including SGLT2 inhibitors. Use the laboratory-supplied container. Empty your bladder at the start and discard that urine, record the time, then collect every void for the next 24 hours, including the final void at the same time the next day. Follow the laboratory storage instructions and report any missed or spilled urine. Do not add your own preservative.",
-      "Certification: NABL Accredited Super Speciality Laboratory (MC-6849).",
+      "Certification: NABL Accredited Super Speciality Laboratory (NABLM1126KA10694).",
       "Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry), NABL Lead Assessor.",
       "Home Collection: Available 7 days a week across 40+ Bengaluru areas."
     ],

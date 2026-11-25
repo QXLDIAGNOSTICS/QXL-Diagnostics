@@ -42,7 +42,7 @@ export default function Footer() {
     contactPhone: "+91 9964 639 639",
     supportEmail: "info@qxldiagnostics.com",
     hqAddress: "3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru – 560 060",
-    northHubAddress: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560 064",
+    northHubAddress: "1st Floor, North City Specialities, Yelahanka New Town, Bengaluru – 560 064",
     workingHours: `Walk-in: Kengeri 6:30 AM–8 PM (24×7 Lab Processing) · Yelahanka 7 AM–8 PM · Home Collection 7 AM–9 PM · 24×7 Support: +91 9964 639 639`,
     whatsappNumber: "+91 9964 639 639",
     copyrightText: `© ${year} QXL Diagnostics. All rights reserved.`,
@@ -247,7 +247,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-white text-xs font-bold mb-0.5">North Hub (Yelahanka)</p>
-                  <p className="text-slate-200 text-[11px] font-medium leading-relaxed">{settings.northHubAddress || "L Square, Yelahanka, Bengaluru – 560 064"}</p>
+                  <p className="text-slate-200 text-[11px] font-medium leading-relaxed">{settings.northHubAddress || "North City Specialities, Yelahanka New Town, Bengaluru – 560 064"}</p>
                 </div>
               </li>
               <li className="flex items-center gap-2.5">
@@ -300,7 +300,7 @@ export default function Footer() {
             {settings.copyrightText || `© ${year} QXL Diagnostics. All rights reserved.`}
           </p>
           <p className="text-slate-300 text-[11px] font-semibold text-center">
-            {currentDate && `Last updated: ${currentDate} · `}NABL Accredited Medical Laboratory · {ISO_STANDARD} · Bengaluru, Karnataka
+            {currentDate && `Last updated: ${currentDate} · `}NABL Accredited ({ISO_STANDARD}): Kengeri NABLM1126KA10694 · North Hub, Yelahanka MC-10025 · Bengaluru, Karnataka
           </p>
           <div className="flex items-center justify-center gap-3 flex-wrap my-1">
             <div className="flex items-center gap-2.5 shrink-0">

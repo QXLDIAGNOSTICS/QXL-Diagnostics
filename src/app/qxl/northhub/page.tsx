@@ -18,7 +18,6 @@ import {
 import {
   BUSINESS_NAME,
   ISO_STANDARD,
-  NABL_CERTIFICATE,
   PHONE_DISPLAY,
   PHONE_E164,
   WHATSAPP_LINK,
@@ -27,14 +26,14 @@ import {
 export const metadata: Metadata = {
   title: "QXL Diagnostics — Yelahanka North Hub | NABL Accredited Laboratory",
   description:
-    "Visit QXL Diagnostics Yelahanka North Hub at L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru. NABL Accredited (MC-6849) pathology, blood tests, full body checkups & express sample processing.",
+    "Visit QXL Diagnostics Yelahanka North Hub at 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru. NABL Accredited (MC-10025) pathology, blood tests, full body checkups & express sample processing.",
   alternates: {
     canonical: "https://qxldiagnostics.com/qxl/northhub",
   },
   openGraph: {
     title: "QXL Diagnostics — Yelahanka North Hub",
     description:
-      "NABL Accredited (MC-6849) express diagnostic laboratory hub in Yelahanka, Bengaluru. Walk-in diagnostics & doorstep sample collection.",
+      "NABL Accredited (MC-10025) super speciality laboratory North Hub in Yelahanka, Bengaluru. Walk-in diagnostics & doorstep sample collection.",
     url: "https://qxldiagnostics.com/qxl/northhub",
     locale: "en_IN",
     type: "website",
@@ -49,13 +48,13 @@ export default function QXlNorthHubPage() {
     "name": "QXL Diagnostics — Yelahanka North Hub",
     "alternateName": "QXL North Hub Yelahanka",
     "description":
-      "NABL Accredited (MC-6849) super speciality diagnostic laboratory hub located opposite RMZ Galleria Mall, Yelahanka, Bengaluru. Specializing in pathology, clinical biochemistry, hormones, and express home collection.",
+      "NABL Accredited (MC-10025, ISO 15189:2022) super speciality diagnostic laboratory North Hub at North City Specialities, Yelahanka New Town, Bengaluru. Specializing in pathology, clinical biochemistry, hormones, and express home collection.",
     "url": "https://qxldiagnostics.com/qxl/northhub",
     "telephone": PHONE_E164,
     "email": "info@qxldiagnostics.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "L Square, opposite RMZ Galleria Mall, Yelahanka",
+      "streetAddress": "1st Floor, North City Specialities, Yelahanka New Town",
       "addressLocality": "Bengaluru",
       "addressRegion": "Karnataka",
       "postalCode": "560064",
@@ -129,7 +128,7 @@ export default function QXlNorthHubPage() {
   const faqs = [
     {
       q: "Where is QXL Diagnostics North Hub located?",
-      a: "Our North Hub is located at L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560064. It is easily accessible from Yelahanka New Town, Old Town, Sahakarnagar, and Hebbal.",
+      a: "Our North Hub is located on the 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru – 560064. It is easily accessible from Yelahanka New Town, Old Town, Sahakarnagar, and Hebbal.",
     },
     {
       q: "What are the walk-in and sample processing hours at North Hub?",
@@ -141,7 +140,7 @@ export default function QXlNorthHubPage() {
     },
     {
       q: "Is QXL North Hub NABL Accredited?",
-      a: "Yes, QXL Diagnostics is NABL Accredited (Certificate MC-6849) adhering strictly to ISO 15189:2022 medical quality standards with MD doctor review for all clinical results.",
+      a: "Yes. The QXL Diagnostics Super Speciality Lab North Hub at North City Specialities holds its own NABL accreditation under Certificate MC-10025 (ISO 15189:2022), issued 2 April 2026 and valid until 1 April 2030. The Kengeri main laboratory is separately accredited under Certificate NABLM1126KA10694. Test-wise accredited scope is listed in each certificate's NABL annexure.",
     },
   ];
 
@@ -160,7 +159,7 @@ export default function QXlNorthHubPage() {
             <div className="max-w-3xl w-full">
               <div className="flex flex-wrap items-center gap-2 mb-3.5">
                 <span className="bg-[#2563EB] text-white text-[9.5px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-xs flex items-center gap-1">
-                  <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> NABL ACCREDITED ({NABL_CERTIFICATE})
+                  <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> NABL ACCREDITED (MC-10025)
                 </span>
                 <span className="bg-white/10 text-sky-200 border border-white/20 text-[9.5px] sm:text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
                   EXPRESS DIAGNOSTIC HUB
@@ -172,7 +171,7 @@ export default function QXlNorthHubPage() {
               </h1>
 
               <p className="text-sky-100 text-xs sm:text-base font-medium leading-relaxed mb-6 sm:mb-8 max-w-2xl">
-                State-of-the-art diagnostic laboratory hub located opposite RMZ Galleria Mall. Serving Yelahanka, Sahakarnagar, Hebbal, Vidyaranyapura, Jakkur, and North Bengaluru with doctor-led accuracy &amp; same-day digital reports.
+                State-of-the-art diagnostic laboratory hub located at North City Specialities, Yelahanka New Town. Serving Yelahanka, Sahakarnagar, Hebbal, Vidyaranyapura, Jakkur, and North Bengaluru with doctor-led accuracy &amp; same-day digital reports.
               </p>
 
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
@@ -212,7 +211,7 @@ export default function QXlNorthHubPage() {
                     Location Address
                   </span>
                   <p className="font-semibold text-white leading-relaxed">
-                    L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560064
+                    1st Floor, North City Specialities, Yelahanka New Town, Bengaluru – 560064
                   </p>
                 </div>
                 <div>
@@ -387,7 +386,7 @@ export default function QXlNorthHubPage() {
                         QXL Diagnostics North Hub
                       </strong>
                       <p className="leading-relaxed">
-                        L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru, Karnataka 560064
+                        1st Floor, North City Specialities, Yelahanka New Town, Bengaluru, Karnataka 560064
                       </p>
                     </div>
                   </div>

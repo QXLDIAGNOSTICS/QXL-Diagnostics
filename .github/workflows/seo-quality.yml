@@ -1,0 +1,23 @@
+name: SEO and Medical Content Quality
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 2 * * *'
+  pull_request:
+    paths: ['scripts/seo-kit/**', '.github/workflows/seo-quality.yml']
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run seo:audit
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qxl-public-audit
+          path: reports/seo-kit/

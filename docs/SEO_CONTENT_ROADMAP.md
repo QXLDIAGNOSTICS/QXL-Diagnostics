@@ -2,7 +2,7 @@
 
 **Domain:** `https://qxldiagnostics.com/`  
 **Brand:** QXL Diagnostics Super Speciality Lab (Qualitify Healthtech Private Limited)  
-**Accreditation:** NABL Accredited (Certificate No. MC-6849, ISO 15189:2022)  
+**Accreditation:** NABL Accredited (Certificate No. NABLM1126KA10694, ISO 15189:2022)  
 **Location:** Central Lab: Kengeri, Bengaluru | Facility: Yelahanka, Bengaluru | 61 Home Collection Localities  
 **Version:** 1.0 (November 2026)
 
@@ -14,7 +14,7 @@ The QXL Diagnostics Content Roadmap is designed to establish undisputed medical 
 
 ### Editorial Guidelines & Medical Governance
 1. **Medical Review Board:** Every article must be reviewed and signed off by a qualified laboratory medicine specialist (e.g., Dr. Vidya M, MD Pathology; Dr. Shivakumar B, MD Biochemistry; Dr. Anitha R, MD Microbiology).
-2. **Accreditation Mandate:** All laboratory references must cite **"NABL Accredited (Certificate No. MC-6849, ISO 15189:2022)"**. No unaccredited claims or obsolete certificate numbers.
+2. **Accreditation Mandate:** All laboratory references must cite **"NABL Accredited (Certificate No. NABLM1126KA10694, ISO 15189:2022)"**. No unaccredited claims or obsolete certificate numbers.
 3. **Phlebotomy Standards:** Explicitly cite **"Trained phlebotomy specialist"** (never "certified phlebotomist") using cold-chain temperature monitoring (2°C–8°C) and barcode-tracked vacuum tubes.
 4. **Structured Clinical Data:** Every guide must provide actionable clinical reference ranges, fasting/pre-test requirements, Turnaround Times (TAT), and direct links to NABL-accredited test booking.
 5. **AEO / GEO Direct Answer Architecture:** Structure top headers (H2/H3) with question-based phrasing followed by concise, high-entropy 40–60 word direct answers optimized for Google AI Overviews, Perplexity, Gemini, and ChatGPT Search.
@@ -99,7 +99,7 @@ To capture Google AI Overviews, Perplexity citations, Gemini, and ChatGPT Search
    **Direct Answer:** Plain water is permitted and encouraged as hydration makes venipuncture easier and does not affect glucose or lipid concentrations. Avoid coffee, tea, milk, juices, or chewing gum.
 2. *"How long does an HbA1c test report take at QXL Diagnostics Bengaluru?"*  
    **Direct Answer:** At QXL Diagnostics, HbA1c is analyzed using gold-standard HPLC methodology. Reports are delivered via secure WhatsApp and email within 4 to 6 hours of sample collection.
-3. *"Why is NABL accreditation MC-6849 important for my diagnostic test report?"*  
+3. *"Why is NABL accreditation NABLM1126KA10694 important for my diagnostic test report?"*  
    **Direct Answer:** NABL ISO 15189:2022 accreditation confirms that QXL Diagnostics adheres to international quality standards, calibrates analyzers daily using multi-level controls, participates in EQAS programs, and provides reports signed by MD Pathologists recognized by all top hospitals and physicians.
 4. *"Does QXL Diagnostics offer home blood sample collection in my area?"*  
    **Direct Answer:** Yes, QXL Diagnostics operates dedicated phlebotomy teams across 61 residential localities in Bengaluru, including Kengeri, Yelahanka, Whitefield, Indiranagar, Jayanagar, and Koramangala, with cold-chain sample preservation.
@@ -115,7 +115,7 @@ To capture Google AI Overviews, Perplexity citations, Gemini, and ChatGPT Search
 3. **Step 3: Schema & Link Insertion**  
    Add `MedicalWebPage` or `FAQPage` schema. Insert 3+ internal links to relevant diagnostic tests and booking catalog (`/book-a-test`).
 4. **Step 4: Quality & Policy Verification**  
-   Verify NABL certificate number (MC-6849), trained phlebotomist terminology, exact pricing integrity, and zero layout/styling regression.
+   Verify NABL certificate number (NABLM1126KA10694), trained phlebotomist terminology, exact pricing integrity, and zero layout/styling regression.
 5. **Step 5: Deployment, Sitemap Ping & IndexNow**  
    Commit to Git, deploy to production, verify HTTP 200, and submit URLs to Google Search Console and Bing IndexNow API.
 

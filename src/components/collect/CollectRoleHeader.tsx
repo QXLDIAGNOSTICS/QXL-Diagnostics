@@ -78,7 +78,7 @@ export const CollectRoleHeader: React.FC<CollectRoleHeaderProps> = ({
 
           <span className="hidden md:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-medium text-[11px]">
             <ShieldCheck className="w-3.5 h-3.5" />
-            NABL Accredited (MC-6849)
+            NABL Accredited (NABLM1126KA10694)
           </span>
 
           <span className="hidden lg:inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-blue-500/20 text-blue-200 text-[10px] font-mono">

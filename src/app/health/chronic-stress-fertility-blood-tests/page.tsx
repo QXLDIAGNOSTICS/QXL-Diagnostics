@@ -251,7 +251,7 @@ export default function ChronicStressFertilityPage() {
 
             <div className="flex items-center gap-1.5 border-l border-slate-300 pl-4">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>NABL Accredited Review (MC-6849)</span>
+              <span>NABL Accredited Review (NABLM1126KA10694)</span>
             </div>
           </div>
         </div>

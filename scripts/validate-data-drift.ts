@@ -137,7 +137,7 @@ console.log('🔍 Checking Accreditation Master consistency...');
 if (accreditation.certificateNumber !== MAIN_LAB_ACCREDITATION.certificate_number) {
   alerts.push({
     entity: 'ACCREDITATION_MASTER',
-    id: 'MC-6849',
+    id: 'NABLM1126KA10694',
     field: 'certificateNumber',
     expected: MAIN_LAB_ACCREDITATION.certificate_number,
     actual: accreditation.certificateNumber,

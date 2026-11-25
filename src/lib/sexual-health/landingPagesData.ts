@@ -1,6 +1,6 @@
 /**
  * QXL Diagnostics — Sexual Health Master Landing Pages Catalogue (36 Dedicated Landing Pages)
- * Clinically reviewed under ISO 15189:2022 standards and NABL Certificate MC-6849.
+ * Clinically reviewed under ISO 15189:2022 standards and NABL Certificate NABLM1126KA10694.
  * Medical Reviewer: Dr. Shantakumar Muruda, MD (Biochemistry)
  * Guidelines: CDC, WHO, NACO, BASHH, IUSTI
  */
@@ -2675,7 +2675,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
         "window": "18\u201345 Days",
         "tat": "6 Hours",
         "price": "\u20b9945",
-        "clinicalNote": "Chemiluminescent immunoassay under NABL MC-6849."
+        "clinicalNote": "Chemiluminescent immunoassay under NABL NABLM1126KA10694."
       },
       {
         "name": "Syphilis Dual Serology (RPR + TPHA)",
@@ -2734,7 +2734,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     ],
     "clinicalReferences": [
       {
-        "label": "NABL \u2014 National Accreditation Board for Testing and Calibration Laboratories (MC-6849)",
+        "label": "NABL \u2014 National Accreditation Board for Testing and Calibration Laboratories (NABLM1126KA10694)",
         "url": "https://www.nabl-india.org/"
       },
       {

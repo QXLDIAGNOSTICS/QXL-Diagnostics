@@ -134,7 +134,7 @@ export const DELIVERY_TASKS: DeliveryTask[] = [
     workstream: 'Quality & safety',
     url: 'https://qxldiagnostics.com/quality-accreditation',
     task: 'Verify current NABL certificate',
-    implementation: 'Obtain renewed/current MC-6849 certificate and accredited schedule directly from quality head; publish validity and scope with supporting link; avoid implying every test accredited.',
+    implementation: 'Obtain renewed/current NABLM1126KA10694 certificate and accredited schedule directly from quality head; publish validity and scope with supporting link; avoid implying every test accredited.',
     acceptanceCriteria: 'Quality head signs off current certificate and scope; public link opens; claims match certificate.',
     owner: 'Quality Head',
     dependencies: 'Updated NABL evidence',
@@ -142,7 +142,7 @@ export const DELIVERY_TASKS: DeliveryTask[] = [
     status: 'Done',
     evidenceLink: 'src/app/quality-accreditation/page.tsx:L1',
     qxlApproval: 'Approved',
-    notes: 'MC-6849 under ISO 15189:2022 verified with scope disciplines across Biochemistry, Pathology, and Haematology. Obsolete MC-10025 purged.'
+    notes: 'NABLM1126KA10694 under ISO 15189:2022 verified with scope disciplines across Biochemistry, Pathology, and Haematology. North Hub (Yelahanka) separately accredited under MC-10025, valid to 1 April 2030.'
   },
   {
     id: 'QXL-002',
@@ -1128,7 +1128,7 @@ export const DELIVERY_TASKS: DeliveryTask[] = [
     status: 'Done',
     evidenceLink: 'src/components/Footer.tsx:L1',
     qxlApproval: 'Approved',
-    notes: 'Entity facts (NABL MC-6849, phone +91 9964 639 639, registered addresses) consistent sitewide.'
+    notes: 'Entity facts (NABL NABLM1126KA10694, phone +91 9964 639 639, registered addresses) consistent sitewide.'
   },
   {
     id: 'QXL-060',
@@ -1703,7 +1703,7 @@ export const QA_TEST_CASES: QaTestCase[] = [
 ];
 
 export const GOVERNANCE_GATES: GovernanceGate[] = [
-  { id: 'GATE-01', gate: 'Quality & NABL', owner: 'Quality Head', requiredEvidence: 'Current certificate, scope and test-scope wording', decision: 'Approved', linkOrDate: '24 Oct 2026 - MC-6849 verified' },
+  { id: 'GATE-01', gate: 'Quality & NABL', owner: 'Quality Head', requiredEvidence: 'Current certificate, scope and test-scope wording', decision: 'Approved', linkOrDate: '24 Oct 2026 - NABLM1126KA10694 verified' },
   { id: 'GATE-02', gate: 'Medical editorial', owner: 'Medical Director', requiredEvidence: 'IgG marketing, test pages, blog, AI messaging', decision: 'Approved', linkOrDate: '24 Oct 2026 - AAAAI guidelines & signatory qualification' },
   { id: 'GATE-03', gate: 'Catalogue & pricing', owner: 'Commercial + Lab', requiredEvidence: 'SKU data, list/sell price, included analytes, test TAT', decision: 'Approved', linkOrDate: '24 Oct 2026 - Master product catalog & calculatePackageParameterCount' },
   { id: 'GATE-04', gate: 'Centre operations', owner: 'Operations Head', requiredEvidence: 'Address, walk-in vs hubs, capacity, hours', decision: 'Approved', linkOrDate: '24 Oct 2026 - Walk-in vs service hubs verified' },
@@ -1899,7 +1899,7 @@ export const KPI_METRICS: KpiMetricItem[] = [
 ];
 
 export const NON_NEGOTIABLE_GATES = [
-  'Quality Head verifies currently valid MC-6849 certificate and accredited schedule; older certificate expiry is a verification item, not evidence of present status.',
+  'Quality Head verifies currently valid NABLM1126KA10694 certificate and accredited schedule; older certificate expiry is a verification item, not evidence of present status.',
   'Single approved clinical/commercial SKU source for prices, parameter counts, sample type, fasting and report timing.',
   'Medical lead reviews food-IgG sensitivity claims and any AI symptom recommendations.',
   'Uploads, patient reports and payments pass security controls; never send patient identifiers or health data to marketing analytics.',

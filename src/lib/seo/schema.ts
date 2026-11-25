@@ -131,7 +131,7 @@ export const SEO_FAQS = [
   },
   {
     q: "Where is QXL Diagnostics located in Bengaluru?",
-    a: "QXL Diagnostics Main Lab is at 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060. The North Hub is at L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru 560064.",
+    a: "QXL Diagnostics Main Lab is at 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060. The North Hub is at 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru 560064.",
   },
   {
     q: "What tests does QXL Diagnostics offer?",

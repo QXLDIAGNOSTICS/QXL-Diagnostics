@@ -1,0 +1,213 @@
+[
+  {
+    "code": "QXL-PAN-01",
+    "name": "Upper-Abdominal & Hepatobiliary Symptom Assessment",
+    "slug": "upper-abdominal-hepatobiliary-assessment",
+    "audience": "Clinician-selected non-emergency workup of upper-abdominal complaints when liver or biliary abnormalities are considered",
+    "defaultTests": [
+      "CBC",
+      "Bilirubin total and direct",
+      "ALT",
+      "AST",
+      "ALP",
+      "GGT"
+    ],
+    "optionalOnlyIfIndicated": [
+      "Albumin/total protein",
+      "Fasting or random plasma glucose",
+      "HbA1c",
+      "Creatinine/eGFR",
+      "PT/INR"
+    ],
+    "excludeAsRoutine": [
+      "CA 19-9",
+      "CEA",
+      "Amylase/lipase unless pancreatitis suspected"
+    ],
+    "emergencyExclusion": "New unexplained jaundice, jaundice with fever, severe abdominal pain or other alarm signs require prompt clinical assessment and imaging; do not route to home collection as a substitute.",
+    "cancerScreening": false,
+    "priceINR": null,
+    "tatHours": null,
+    "bookingEnabled": false,
+    "specimen": "Blood; fasting only when requested for a selected analyte",
+    "clinicalApprover": null,
+    "testAvailability": "Test available at QXL Diagnostics",
+    "availabilityScope": "General QXL laboratory availability claim supplied by management; confirm each requested analyte, specimen and collection method.",
+    "tatDisplay": "Same Day",
+    "tatDisclaimer": "Same Day is an indicative laboratory turnaround, subject to sample receipt/cut-off, individual assay workflow, and confirmation by QXL. Some specialised and stool tests may take longer. Urgent symptoms require clinical care, not waiting for a result.",
+    "testDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+    "unconfirmedDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+    "whatsappLabel": "WhatsApp for Details",
+    "whatsappUrl": "https://wa.me/919964639639?text=Hello%20QXL%20Diagnostics%2C%20please%20provide%20details%20for%20Upper-Abdominal%20%26%20Hepatobiliary%20Symptom%20Assessment%20%28QXL-PAN-01%29%2C%20including%20the%20confirmed%20test%20list%2C%20sample%20requirements%2C%20price%20and%20Same%20Day%20TAT%20cut-off.",
+    "availabilityNote": "Individual test confirmation required; this is not a statement of current NABL scope.",
+    "medicalContentReviewedBy": "Dr. Shantakumar Muruda, MD (Medical Biochemistry), Senior Consultant and Founder & CEO, QXL Diagnostics",
+    "medicalContentReviewedOn": "2026-11-20",
+    "commercialApprovalStatus": "pending_live_LIMS_price_TAT_and_whatsapp_validation"
+  },
+  {
+    "code": "QXL-PAN-02",
+    "name": "New-Onset Diabetes & Unexplained Weight-Loss Laboratory Assessment",
+    "slug": "new-diabetes-weight-loss-labs",
+    "audience": "Investigations selected by a clinician when unexplained weight loss accompanies new or changing hyperglycaemia",
+    "defaultTests": [
+      "Plasma glucose",
+      "HbA1c",
+      "CBC",
+      "Creatinine/eGFR",
+      "ALT",
+      "AST",
+      "ALP",
+      "Total bilirubin"
+    ],
+    "optionalOnlyIfIndicated": [
+      "GGT",
+      "Direct bilirubin",
+      "Albumin",
+      "Electrolytes"
+    ],
+    "excludeAsRoutine": [
+      "CA 19-9",
+      "CEA",
+      "Amylase",
+      "Lipase"
+    ],
+    "emergencyExclusion": "Clinical red flags prompt urgent doctor assessment and consideration of pancreatic imaging, not waiting for a package.",
+    "cancerScreening": false,
+    "priceINR": null,
+    "tatHours": null,
+    "bookingEnabled": false,
+    "specimen": "Blood; fasting according to requested glucose assay",
+    "clinicalApprover": null,
+    "testAvailability": "Test available at QXL Diagnostics",
+    "availabilityScope": "General QXL laboratory availability claim supplied by management; confirm each requested analyte, specimen and collection method.",
+    "tatDisplay": "Same Day",
+    "tatDisclaimer": "Same Day is an indicative laboratory turnaround, subject to sample receipt/cut-off, individual assay workflow, and confirmation by QXL. Some specialised and stool tests may take longer. Urgent symptoms require clinical care, not waiting for a result.",
+    "testDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+    "unconfirmedDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+    "whatsappLabel": "WhatsApp for Details",
+    "whatsappUrl": "https://wa.me/919964639639?text=Hello%20QXL%20Diagnostics%2C%20please%20provide%20details%20for%20New-Onset%20Diabetes%20%26%20Unexplained%20Weight-Loss%20Laboratory%20Assessment%20%28QXL-PAN-02%29%2C%20including%20the%20confirmed%20test%20list%2C%20sample%20requirements%2C%20price%20and%20Same%20Day%20TAT%20cut-off.",
+    "availabilityNote": "Individual test confirmation required; this is not a statement of current NABL scope.",
+    "medicalContentReviewedBy": "Dr. Shantakumar Muruda, MD (Medical Biochemistry), Senior Consultant and Founder & CEO, QXL Diagnostics",
+    "medicalContentReviewedOn": "2026-11-20",
+    "commercialApprovalStatus": "pending_live_LIMS_price_TAT_and_whatsapp_validation"
+  },
+  {
+    "code": "QXL-PAN-03",
+    "name": "Pancreatic Exocrine Insufficiency (EPI) Assessment",
+    "slug": "pancreatic-exocrine-insufficiency-assessment",
+    "audience": "Clinician-selected evaluation of fatty stools, suspected maldigestion and nutritional consequences",
+    "defaultTests": [
+      "Faecal elastase-1"
+    ],
+    "optionalOnlyIfIndicated": [
+      "CBC",
+      "Albumin",
+      "Ferritin/iron studies",
+      "Vitamin D",
+      "Other selected nutritional investigations"
+    ],
+    "excludeAsRoutine": [
+      "CA 19-9",
+      "CEA",
+      "Pancreatic cancer marker panel"
+    ],
+    "emergencyExclusion": "Unexplained jaundice or rapid weight loss with pain requires clinical imaging referral irrespective of the stool test result.",
+    "cancerScreening": false,
+    "priceINR": null,
+    "tatHours": null,
+    "bookingEnabled": false,
+    "specimen": "Semi-solid or solid stool for faecal elastase; additional blood samples if prescribed",
+    "clinicalApprover": null,
+    "testAvailability": "Test available at QXL Diagnostics",
+    "availabilityScope": "General QXL laboratory availability claim supplied by management; confirm each requested analyte, specimen and collection method.",
+    "tatDisplay": "Same Day",
+    "tatDisclaimer": "Same Day is an indicative laboratory turnaround, subject to sample receipt/cut-off, individual assay workflow, and confirmation by QXL. Some specialised and stool tests may take longer. Urgent symptoms require clinical care, not waiting for a result.",
+    "testDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+    "unconfirmedDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+    "whatsappLabel": "WhatsApp for Details",
+    "whatsappUrl": "https://wa.me/919964639639?text=Hello%20QXL%20Diagnostics%2C%20please%20provide%20details%20for%20Pancreatic%20Exocrine%20Insufficiency%20%28EPI%29%20Assessment%20%28QXL-PAN-03%29%2C%20including%20the%20confirmed%20test%20list%2C%20sample%20requirements%2C%20price%20and%20Same%20Day%20TAT%20cut-off.",
+    "availabilityNote": "Individual test confirmation required; this is not a statement of current NABL scope.",
+    "medicalContentReviewedBy": "Dr. Shantakumar Muruda, MD (Medical Biochemistry), Senior Consultant and Founder & CEO, QXL Diagnostics",
+    "medicalContentReviewedOn": "2026-11-20",
+    "commercialApprovalStatus": "pending_live_LIMS_price_TAT_and_whatsapp_validation"
+  },
+  {
+    "code": "QXL-PAN-04",
+    "name": "Pancreatic Oncology Marker Monitoring (Specialist-Requested)",
+    "slug": "pancreatic-oncology-marker-monitoring",
+    "audience": "Oncologist-directed baseline/serial monitoring in established or strongly suspected disease, not general screening",
+    "defaultTests": [
+      "CA 19-9"
+    ],
+    "optionalOnlyIfIndicated": [
+      "Total and direct bilirubin",
+      "ALP",
+      "GGT",
+      "AST",
+      "ALT",
+      "Albumin",
+      "CBC",
+      "Renal chemistry",
+      "CEA only if the oncologist identifies a role"
+    ],
+    "excludeAsRoutine": [
+      "Multiple organ tumour-marker panels as routine screening"
+    ],
+    "emergencyExclusion": "New jaundice, cholangitis symptoms or acute clinical deterioration needs urgent specialist review and treatment.",
+    "cancerScreening": false,
+    "priceINR": null,
+    "tatHours": null,
+    "bookingEnabled": false,
+    "specimen": "Blood; assay/laboratory continuity recommended for trends",
+    "clinicalApprover": null,
+    "testAvailability": "Test available at QXL Diagnostics",
+    "availabilityScope": "General QXL laboratory availability claim supplied by management; confirm each requested analyte, specimen and collection method.",
+    "tatDisplay": "Same Day",
+    "tatDisclaimer": "Same Day is an indicative laboratory turnaround, subject to sample receipt/cut-off, individual assay workflow, and confirmation by QXL. Some specialised and stool tests may take longer. Urgent symptoms require clinical care, not waiting for a result.",
+    "testDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+    "unconfirmedDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+    "whatsappLabel": "WhatsApp for Details",
+    "whatsappUrl": "https://wa.me/919964639639?text=Hello%20QXL%20Diagnostics%2C%20please%20provide%20details%20for%20Pancreatic%20Oncology%20Marker%20Monitoring%20%28Specialist-Requested%29%20%28QXL-PAN-04%29%2C%20including%20the%20confirmed%20test%20list%2C%20sample%20requirements%2C%20price%20and%20Same%20Day%20TAT%20cut-off.",
+    "availabilityNote": "Individual test confirmation required; this is not a statement of current NABL scope.",
+    "medicalContentReviewedBy": "Dr. Shantakumar Muruda, MD (Medical Biochemistry), Senior Consultant and Founder & CEO, QXL Diagnostics",
+    "medicalContentReviewedOn": "2026-11-20",
+    "commercialApprovalStatus": "pending_live_LIMS_price_TAT_and_whatsapp_validation"
+  },
+  {
+    "code": "QXL-GI-01",
+    "name": "Uncomplicated Dyspepsia / H. pylori Assessment",
+    "slug": "dyspepsia-h-pylori-assessment",
+    "audience": "Clinician-selected assessment of uncomplicated dyspepsia/ulcer symptoms without alarm features",
+    "defaultTests": [
+      "H. pylori stool antigen if clinically indicated"
+    ],
+    "optionalOnlyIfIndicated": [
+      "CBC for suspected anaemia",
+      "Other gastrointestinal tests on doctor advice"
+    ],
+    "excludeAsRoutine": [
+      "CA 19-9",
+      "CEA",
+      "Other tumour marker screening"
+    ],
+    "emergencyExclusion": "Weight loss, bleeding, progressive pain, jaundice, dysphagia or persistent vomiting should be clinically evaluated; do not substitute H. pylori testing for indicated imaging/endoscopy.",
+    "cancerScreening": false,
+    "priceINR": null,
+    "tatHours": null,
+    "bookingEnabled": false,
+    "specimen": "Stool; verify medications and washout directions with ordering clinician",
+    "clinicalApprover": null,
+    "testAvailability": "Test available at QXL Diagnostics",
+    "availabilityScope": "General QXL laboratory availability claim supplied by management; confirm each requested analyte, specimen and collection method.",
+    "tatDisplay": "Same Day",
+    "tatDisclaimer": "Same Day is an indicative laboratory turnaround, subject to sample receipt/cut-off, individual assay workflow, and confirmation by QXL. Some specialised and stool tests may take longer. Urgent symptoms require clinical care, not waiting for a result.",
+    "testDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+    "unconfirmedDetails": "Contact QXL Diagnostics Super Speciality Lab Bengaluru",
+    "whatsappLabel": "WhatsApp for Details",
+    "whatsappUrl": "https://wa.me/919964639639?text=Hello%20QXL%20Diagnostics%2C%20please%20provide%20details%20for%20Uncomplicated%20Dyspepsia%20/%20H.%20pylori%20Assessment%20%28QXL-GI-01%29%2C%20including%20the%20confirmed%20test%20list%2C%20sample%20requirements%2C%20price%20and%20Same%20Day%20TAT%20cut-off.",
+    "availabilityNote": "Individual test confirmation required; this is not a statement of current NABL scope.",
+    "medicalContentReviewedBy": "Dr. Shantakumar Muruda, MD (Medical Biochemistry), Senior Consultant and Founder & CEO, QXL Diagnostics",
+    "medicalContentReviewedOn": "2026-11-20",
+    "commercialApprovalStatus": "pending_live_LIMS_price_TAT_and_whatsapp_validation"
+  }
+]

@@ -622,7 +622,7 @@ export const PatientBookingView: React.FC<PatientBookingViewProps> = ({
                     />
                     <span>
                       I consent to the collection of clinical specimens at my residence, two-identifier identity
-                      verification, and authorized laboratory processing under NABL accredited protocols (MC-6849).
+                      verification, and authorized laboratory processing under NABL accredited protocols (NABLM1126KA10694).
                     </span>
                   </label>
                 </div>
@@ -816,7 +816,7 @@ export const PatientBookingView: React.FC<PatientBookingViewProps> = ({
               <div className="bg-gray-50 p-3 rounded-lg border border-gray-200 text-[11px] text-gray-600 space-y-1">
                 <div className="font-bold text-[#082142] flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>NABL Accredited (MC-6849)</span>
+                  <span>NABL Accredited (NABLM1126KA10694)</span>
                 </div>
                 <p>All vacutainers barcode-scanned at bedside. Temperature-controlled cold chain logistics.</p>
               </div>

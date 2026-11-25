@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "geo.placename": "Bengaluru",
     "geo.position": "12.9177;77.4835",
     "ICBM": "12.9177, 77.4835",
-    "nabl-accreditation": "MC-6849",
+    "nabl-accreditation": "NABLM1126KA10694",
     "dc.coverage": "Bengaluru, Karnataka, India",
   },
   openGraph: {

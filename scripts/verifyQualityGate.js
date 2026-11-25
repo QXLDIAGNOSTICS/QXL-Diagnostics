@@ -56,10 +56,10 @@ runCheck('TERM-02', 'Terminology', 'Zero occurrences of "certified phlebotomist"
 });
 
 // 2. Certificate Standardization
-runCheck('CERT-01', 'Accreditation', 'Single source of truth NABL Certificate Number MC-6849', () => {
+runCheck('CERT-01', 'Accreditation', 'Single source of truth NABL Certificate Number NABLM1126KA10694', () => {
   const bInfo = fs.readFileSync(path.join(ROOT, 'src/lib/businessInfo.ts'), 'utf8');
-  const hasMc = bInfo.includes('MC-6849');
-  return { passed: hasMc, details: hasMc ? 'NABL Certificate MC-6849 verified in businessInfo.ts' : 'Missing MC-6849' };
+  const hasMc = bInfo.includes('NABLM1126KA10694');
+  return { passed: hasMc, details: hasMc ? 'NABL Certificate NABLM1126KA10694 verified in businessInfo.ts' : 'Missing NABLM1126KA10694' };
 });
 
 // 3. NAP Standardization

@@ -53,6 +53,16 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // ── Pancreatic pack: planned /health/pancreas/* URLs live under /blog ──
+      { source: "/health/pancreas/early-warning-signs", destination: "/blog/pancreatic-cancer-early-warning-signs", permanent: true },
+      { source: "/health/pancreas/ca-19-9-test", destination: "/blog/ca-19-9-test-pancreatic-cancer", permanent: true },
+      { source: "/health/pancreas/blood-tests-imaging-biopsy", destination: "/blog/pancreatic-cancer-blood-tests-imaging-biopsy", permanent: true },
+      { source: "/health/pancreas/new-diabetes-weight-loss", destination: "/blog/new-diabetes-weight-loss-pancreatic-cancer", permanent: true },
+      { source: "/health/pancreas/jaundice-dark-urine-pale-stools", destination: "/blog/jaundice-dark-urine-pale-stools-pancreas-liver", permanent: true },
+      { source: "/health/pancreas/greasy-stool-fecal-elastase", destination: "/blog/greasy-stool-faecal-elastase-test", permanent: true },
+      { source: "/health/pancreas/family-history-screening", destination: "/blog/pancreatic-cancer-family-history-screening", permanent: true },
+      { source: "/health/pancreas/gastritis-reflux-vs-pancreatic-pain", destination: "/blog/gastritis-reflux-vs-pancreatic-pain", permanent: true },
+      { source: "/health/pancreas", destination: "/blog/pancreatic-cancer-vs-acidity", permanent: true },
       // ── Condition URLs Canonical 301 Redirects ──────────────────────────────
       {
         source: "/conditions/food-sensitivity",

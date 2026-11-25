@@ -4,16 +4,16 @@ export const diagnosticLabBangalore: SeoLandingData = {
   slug: "/diagnostic-lab-bangalore",
   breadcrumbLabel: "Diagnostic Lab Bangalore",
   pageType: "service",
-  heroBadge: "NABL Accredited Laboratory (MC-6849) | ISO 15189:2022",
+  heroBadge: "NABL Accredited Laboratory (NABLM1126KA10694) | ISO 15189:2022",
   h1Lead: "Doctor-Led NABL Accredited ",
   h1Highlight: "Diagnostic Lab in Bengaluru",
   heroIntro:
     "Advanced diagnostic testing with qualified medical oversight, home sample collection across Bengaluru and reliable turnaround times.",
   aiOverviewTitle: "Why choose QXL Diagnostics?",
   aiOverview:
-    "QXL Diagnostics is a doctor-led, NABL Accredited (MC-6849) super-speciality diagnostic lab in Bangalore following ISO 15189:2022 quality standards. Founded by Clinical Biochemist Dr. Shantakumar Muruda, QXL combines advanced automation, molecular diagnostics and consultant-reviewed reporting with free home sample collection across Bengaluru.",
+    "QXL Diagnostics is a doctor-led, NABL Accredited (NABLM1126KA10694) super-speciality diagnostic lab in Bangalore following ISO 15189:2022 quality standards. Founded by Clinical Biochemist Dr. Shantakumar Muruda, QXL combines advanced automation, molecular diagnostics and consultant-reviewed reporting with free home sample collection across Bengaluru.",
   aiOverviewPoints: [
-    "NABL Accreditation: MC-6849",
+    "NABL Accreditation: NABLM1126KA10694",
     "ISO 15189:2022 Quality Standards",
     "300+ Tests & Health Packages",
     "Free Home Collection Across Bengaluru",
@@ -22,7 +22,7 @@ export const diagnosticLabBangalore: SeoLandingData = {
     {
       icon: "award",
       title: "NABL Accredited Quality",
-      desc: "Accredited under NABL certificate MC-6849 and operating to ISO 15189:2022 medical laboratory standards with daily internal and external quality control.",
+      desc: "Accredited under NABL certificate NABLM1126KA10694 and operating to ISO 15189:2022 medical laboratory standards with daily internal and external quality control.",
     },
     {
       icon: "userCheck",
@@ -65,7 +65,7 @@ export const diagnosticLabBangalore: SeoLandingData = {
     {
       heading: "Two Centres Plus City-Wide Home Collection",
       paragraphs: [
-        "Visit us at our Kengeri Main Laboratory (3rd Floor, SLN Complex, Mysore Road, Bengaluru 560060) or our Yelahanka North Hub (L Square, opposite RMZ Galleria Mall, Bengaluru 560064). If travelling isn't convenient, book a free home visit — our phlebotomy team covers all major Bengaluru localities including Whitefield, Koramangala, Indiranagar, HSR Layout, Marathahalli, Electronic City, Hebbal and Manyata Tech Park.",
+        "Visit us at our Kengeri Main Laboratory (3rd Floor, SLN Complex, Mysore Road, Bengaluru 560060) or our Yelahanka North Hub (1st Floor, North City Specialities, Yelahanka New Town, Bengaluru 560064). If travelling isn't convenient, book a free home visit — our phlebotomy team covers all major Bengaluru localities including Whitefield, Koramangala, Indiranagar, HSR Layout, Marathahalli, Electronic City, Hebbal and Manyata Tech Park.",
       ],
     },
   ],
@@ -120,11 +120,11 @@ export const diagnosticLabBangalore: SeoLandingData = {
   faqs: [
     {
       q: "How do I choose a NABL Accredited diagnostic lab in Bangalore?",
-      a: "When selecting an accredited laboratory, evaluate: (1) Active NABL Accreditation scope & certificate number; (2) Implementation of ISO 15189:2022 quality systems; (3) Specialist medical expertise for report verification; (4) Test availability and turnaround time; (5) Temperature-controlled cold-chain home collection. QXL Diagnostics meets all these criteria under NABL Certificate MC-6849 with 300+ tests and doctor-led reporting across Bengaluru.",
+      a: "When selecting an accredited laboratory, evaluate: (1) Active NABL Accreditation scope & certificate number; (2) Implementation of ISO 15189:2022 quality systems; (3) Specialist medical expertise for report verification; (4) Test availability and turnaround time; (5) Temperature-controlled cold-chain home collection. QXL Diagnostics meets all these criteria under NABL Certificate NABLM1126KA10694 with 300+ tests and doctor-led reporting across Bengaluru.",
     },
     {
       q: "Where is QXL Diagnostics located in Bangalore?",
-      a: "Our Main Laboratory is at 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060 (Walk-in: 6:30 AM – 8:00 PM Mon–Sun, with 24×7 emergency & central lab processing). Our North Hub is at L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru 560064 (Walk-in: 7:00 AM – 8:00 PM Mon–Sun). Doorstep home sample collection operates daily from 7:00 AM to 9:00 PM across Bengaluru.",
+      a: "Our Main Laboratory is at 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060 (Walk-in: 6:30 AM – 8:00 PM Mon–Sun, with 24×7 emergency & central lab processing). Our North Hub is at 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru 560064 (Walk-in: 7:00 AM – 8:00 PM Mon–Sun). Doorstep home sample collection operates daily from 7:00 AM to 9:00 PM across Bengaluru.",
     },
     {
       q: "Do you offer home sample collection across Bangalore?",

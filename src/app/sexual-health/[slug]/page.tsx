@@ -222,7 +222,7 @@ export default async function SexualHealthLandingPageDynamic({ params }: PagePro
               </span>
               <span className="inline-flex items-center gap-1 text-sky-200 text-xs font-semibold bg-sky-900/50 px-2.5 py-0.5 rounded-full border border-sky-400/30">
                 <ShieldCheck className="w-3 h-3 text-emerald-400" />
-                NABL Accredited Lab (MC-6849)
+                NABL Accredited Lab (NABLM1126KA10694)
               </span>
             </div>
 
@@ -433,7 +433,7 @@ export default async function SexualHealthLandingPageDynamic({ params }: PagePro
                 Physical Central Facilities in Bengaluru
               </h3>
               <p className="text-slate-300 leading-relaxed">
-                Samples are processed directly at our NABL-accredited reference laboratory facilities in Kengeri and Yelahanka, operating under ISO 15189:2022 standards (Certificate No. MC-6849). No third-party outsourcing.
+                Samples are processed directly at our NABL-accredited reference laboratory facilities in Kengeri and Yelahanka, operating under ISO 15189:2022 standards (Certificate No. NABLM1126KA10694). No third-party outsourcing.
               </p>
               <div className="text-xs text-slate-400 space-y-1">
                 <div><strong>Kengeri Hub:</strong> 540, 1st Floor, 5th Cross, Kengeri Satellite Town, Bengaluru 560060</div>

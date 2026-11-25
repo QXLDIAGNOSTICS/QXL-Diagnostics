@@ -90,7 +90,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           "medical-reviewed-by": reviewer,
           "medical-review-date": (blog as any).date || getCurrentDateFormatted(),
         }),
-      "nabl-accreditation": "MC-6849",
+      "nabl-accreditation": "NABLM1126KA10694",
       "dc.coverage": "Bengaluru, Karnataka, India",
     },
     openGraph: {
@@ -340,7 +340,7 @@ export default async function SingleBlogPage({ params }: Props) {
                     <strong className="text-slate-900">{reviewer}</strong>
                   </span>
                   <span className="block text-[11px] text-slate-500 font-normal">
-                    {(blog as any).reviewer_title || "Head of Biochemistry · QXL Diagnostics (NABL Lab MC-6849)"}
+                    {(blog as any).reviewer_title || "Head of Biochemistry · QXL Diagnostics (NABL Lab NABLM1126KA10694)"}
                   </span>
                 </div>
               </div>
@@ -401,7 +401,7 @@ export default async function SingleBlogPage({ params }: Props) {
                     </span>
                     <span className="text-xs font-bold text-slate-600 flex items-center gap-1">
                       <MapPin className="w-3.5 h-3.5 text-[#2563eb]" /> Bengaluru Laboratory Hub (NABL
-                      MC-6849)
+                      NABLM1126KA10694)
                     </span>
                   </div>
 
@@ -551,7 +551,7 @@ export default async function SingleBlogPage({ params }: Props) {
                         </strong>
                         <span>
                           Central Lab: 3rd Flr SLN Complex, Mysore Rd, Kengeri (560060) · North Hub:
-                          Galleria Mall, Yelahanka (560064). NABL Certificate: MC-6849.
+                          Galleria Mall, Yelahanka (560064). NABL Certificate: NABLM1126KA10694.
                         </span>
                       </div>
                     </div>

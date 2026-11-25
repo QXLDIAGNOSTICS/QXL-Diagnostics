@@ -1,0 +1,18 @@
+flowchart TD
+    A[Patient with acidity, indigestion or upper-abdominal discomfort] --> B{Emergency features?}
+    B -->|Yes: jaundice plus fever, severe illness, collapse, PE symptoms| C[Emergency department immediately]
+    B -->|No| D{Unexplained jaundice or progressive pain plus weight loss?}
+    D -->|Yes| E[Prompt physician / gastroenterology evaluation]
+    D -->|No| F{New diabetes plus weight loss, major family risk, persistent change?}
+    F -->|Yes| E
+    F -->|No| G[Standard clinician-led dyspepsia assessment]
+    G --> H[Selected H. pylori testing, medication review or endoscopy if indicated]
+    E --> I[Clinical exam plus selective CBC, LFT, glucose, renal tests]
+    I --> J[Appropriate imaging: US for ducts/stones and pancreas-protocol CT if suspicious]
+    J --> K{Lesion / unresolved suspicion?}
+    K -->|Yes| L[MRI/MRCP or EUS and tissue as decided by specialist MDT]
+    K -->|No| M[Clinician reassessment and alternative causes]
+    L --> N[Specialist staging, biopsy when required and treatment plan]
+    N --> O[Oncology-directed monitoring: CA19-9 plus clinical imaging]
+    style C fill:#ffe6df,stroke:#a23f34,color:#111
+    style O fill:#eaf4ff,stroke:#275d91,color:#111

@@ -1,0 +1,11 @@
+# Independent source and editorial review — Blog 25
+
+Read-only review of the completed ANCA/PR3/MPO draft, actual supplied textbook passages and its primary conference source. No article or deliverable was edited.
+
+No substantive correction identified. Laposata, Clinical Diagnostic Tests (2016), chapter 3, one-based PDF pages 146–147 were read. The text supports the distinction between an ANCA staining pattern and an antigen-specific result, clinical selection of testing, and the possibility of positive findings in drug, infection and other nonvasculitic settings. The draft does not convert these associations into a one-to-one disease diagnosis or import the older book’s test-ordering sequence as a mandatory contemporary algorithm.
+
+Harrison’s Principles of Internal Medicine, 22nd edition, chapter 375, PDF pages 2936–2937 and the relevant passages on 2940–2943 were read. They support PR3/MPO and c-ANCA/p-ANCA distinctions, clinical-context-dependent interpretation, possible negative ANCA in relevant disease, the need for other evidence, and serious pulmonary/kidney presentations. The article appropriately directs coughing blood, severe breathlessness or rapid deterioration to urgent clinical care rather than routine home collection or waiting for Same Day reports. No treatment regimen, dose, universal cutoff or self-directed biopsy recommendation is supplied.
+
+The International Society of Nephrology event page opened with substantive text: WCN25-AB-3629, 8 February 2025. It is a conference poster reporting a selected South Indian cohort diagnosed during 2016–2022, not a full prospective trial or Bengaluru population estimate. The draft uses it only as research context; no numerical outcomes or treatment comparisons are transferred.
+
+The fictional-composite label, assigned Dr. Ajitha Pillai byline, full unavailable-information phrase, report-specific interpretation caveat and operational method boundaries are present. The draft does not assume ECLIA or cobas pro for this specialist investigation or carry earlier articles’ completed review into this new post. This review checks sources and wording; it does not independently certify QXL’s medical sign-off, accreditation or local availability.

@@ -10,7 +10,7 @@
 
 | Competitor | Core Search Advantage | QXL Strategic Countermeasure | Target SERP Feature |
 | :--- | :--- | :--- | :--- |
-| **Orange Health Labs** | Dominates "60-minute home collection" and local Bengaluru emergency testing | Focus on **NABL Reference Laboratory (MC-6849)** quality, doctor-led verification, sub-specialty assays (Lp(a), ApoB, Food IgG 287) | Local 3-Pack, Featured Snippets, Direct Booking CTAs |
+| **Orange Health Labs** | Dominates "60-minute home collection" and local Bengaluru emergency testing | Focus on **NABL Reference Laboratory (NABLM1126KA10694)** quality, doctor-led verification, sub-specialty assays (Lp(a), ApoB, Food IgG 287) | Local 3-Pack, Featured Snippets, Direct Booking CTAs |
 | **Tata 1mg** | Massive transactional test catalogue and national domain authority | Dedicated, indexable Bengaluru-first test landing pages (`/tests/[slug]`) with transparent local pricing and same-day reports | Organic Top 3, Sitelinks, Schema `Offer` price |
 | **Dr Lal PathLabs** | Legacy brand recall and vast physical franchisee footprint | Highlight walk-in state-of-the-art facilities in **Kengeri & Yelahanka**, zero-transit cold-chain processing, MD specialist review | Google Business Profile Local Pack, Brand Knowledge Panel |
 | **Neuberg / Anand Lab** | High institutional reputation among Bengaluru consultant physicians | Emphasize doctor-led governance by **Dr. Shantakumar Muruda (NABL Lead Assessor)**, advanced neuroimmunology, and B2B hospital lab management | Clinical Question PAA, Authoritative AI Citations |
@@ -24,7 +24,7 @@
 
 | Primary Keyword | Secondary & Long-Tail Variations | Search Intent | Est. Monthly Vol (BLR) | Target Landing Page | Content Requirements |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **diagnostic lab in bangalore** | best diagnostic centre in bengaluru, top pathology lab bangalore, NABL accredited lab near me | Commercial / Transactional | 14,800 | `/diagnostic-lab-bangalore` | Facility photos, NABL certificate MC-6849, test search bar, doctor profiles, walk-in hours |
+| **diagnostic lab in bangalore** | best diagnostic centre in bengaluru, top pathology lab bangalore, NABL accredited lab near me | Commercial / Transactional | 14,800 | `/diagnostic-lab-bangalore` | Facility photos, NABL certificate NABLM1126KA10694, test search bar, doctor profiles, walk-in hours |
 | **blood test at home bangalore** | home blood sample collection bangalore, doorstep blood test bangalore, blood test home visit | Transactional | 18,200 | `/home-blood-collection-bangalore` | Pincode availability checker, phlebotomy hygiene protocol, same-day digital report guarantee, booking CTA |
 | **nabl accredited lab bangalore** | NABL certified laboratory bangalore, ISO 15189 lab bangalore, government approved pathology lab | Informational / Commercial | 4,400 | `/nabl-accredited-lab-bangalore` | Accreditation scope explanation, IQC/EQAS standards, lead assessor credentials |
 | **pathology lab bangalore** | blood testing lab bangalore, clinical pathology laboratory bangalore | Commercial | 9,600 | `/pathology-lab-bangalore` | Hematology, biochemistry, and cytology department overviews, turnaround times |

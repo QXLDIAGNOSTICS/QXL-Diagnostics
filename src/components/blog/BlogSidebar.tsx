@@ -30,7 +30,7 @@ export default function BlogSidebar({ currentSlug, trendingBlogs }: BlogSidebarP
             <Sparkles className="w-3 h-3 text-amber-300" /> Bengaluru Lab Care
           </span>
           <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-            NABL MC-6849
+            NABL NABLM1126KA10694
           </span>
         </div>
 
@@ -170,7 +170,7 @@ export default function BlogSidebar({ currentSlug, trendingBlogs }: BlogSidebarP
               3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060
             </p>
             <span className="inline-block mt-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
-              NABL Cert: MC-6849
+              NABL Cert: NABLM1126KA10694
             </span>
           </div>
 

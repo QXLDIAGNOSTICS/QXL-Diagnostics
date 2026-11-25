@@ -173,7 +173,7 @@ export default function HivTestBangalorePage() {
               <div className="space-y-2 text-xs text-slate-600 border-y border-slate-150 py-3">
                 <div className="flex justify-between">
                   <span>Accreditation:</span>
-                  <strong className="text-slate-800">NABL Accredited (MC-6849)</strong>
+                  <strong className="text-slate-800">NABL Accredited (NABLM1126KA10694)</strong>
                 </div>
                 <div className="flex justify-between">
                   <span>Home Collection:</span>
@@ -292,7 +292,7 @@ export default function HivTestBangalorePage() {
                 NABL Accredited Laboratory Testing in Bengaluru
               </h4>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Processed in our central facility (NABL Certificate MC-6849). Every positive or borderline sample undergoes strict verification under NACO algorithms before reporting.
+                Processed in our central facility (NABL Certificate NABLM1126KA10694). Every positive or borderline sample undergoes strict verification under NACO algorithms before reporting.
               </p>
               <div className="pt-2">
                 <a

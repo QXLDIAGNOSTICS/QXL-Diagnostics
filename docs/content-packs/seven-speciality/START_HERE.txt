@@ -1,0 +1,17 @@
+QXL DIAGNOSTICS: SEVEN SUPER SPECIALITY MEDICAL PUBLICATION PAGES
+Medical review: Dr Shantakumar Muruda, MD (Medical Biochemistry), Senior Consultant and Founder & CEO, QXL Diagnostics Super Speciality Lab, Bengaluru
+Editorial date: 21 November 2026
+Total: 7 articles, 266 FAQs, seven proposed packages.
+
+Individual topics:
+1. PSA Total and Free Test — /blog/psa-total-free-test-bengaluru
+2. CA-125 Blood Test — /blog/ca-125-test-bengaluru
+3. Parathyroid Hormone (Intact PTH) Test — /blog/pth-parathyroid-hormone-test-bengaluru
+4. ANCA, PR3-ANCA and MPO-ANCA Tests — /blog/anca-pr3-mpo-test-bengaluru
+5. Faecal Calprotectin Test — /blog/fecal-calprotectin-test-bengaluru
+6. tTG-IgA and Total IgA Tests — /blog/ttg-iga-coeliac-disease-test-bengaluru
+7. TB PCR and CBNAAT (Xpert MTB/RIF) — /blog/tb-pcr-cbnaat-test-bengaluru
+
+Publication safety: Same Day* label subject to lab confirmation; prices and precise test details available on enquiry.
+The seven package concepts are NOT live, orderable SKUs unless approved.
+See README_DEVELOPER.md for Next.js implementation and audit steps.

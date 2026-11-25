@@ -2,7 +2,7 @@
 
 **Domain:** `https://qxldiagnostics.com/`  
 **Framework:** Next.js 16 (App Router) / Node.js / React 19  
-**Accreditation:** NABL Accredited (MC-6849, ISO 15189:2022)  
+**Accreditation:** NABL Accredited (NABLM1126KA10694, ISO 15189:2022)  
 **Standard:** WCAG 2.1 AA / Core Web Vitals / Schema.org Medical Entity  
 **Status:** 100% Pass / Production Ready
 
@@ -24,7 +24,7 @@
 ## 2. Meta Tags, Headers & Titles (Points 9–15)
 
 - [x] **9. Title Tag Length & Structure:** Every page title follows the optimized format `<Test/Topic Name> in Bangalore | NABL Accredited Lab | QXL Diagnostics` (50–60 characters).
-- [x] **10. Meta Description Optimization:** Action-oriented, high-CTR meta descriptions (140–160 characters) featuring price, turnaround time, sample collection details, and NABL MC-6849 verification.
+- [x] **10. Meta Description Optimization:** Action-oriented, high-CTR meta descriptions (140–160 characters) featuring price, turnaround time, sample collection details, and NABL NABLM1126KA10694 verification.
 - [x] **11. Open Graph Tags:** Comprehensive `og:title`, `og:description`, `og:url`, `og:site_name`, `og:locale` (`en_IN`), and high-resolution `og:image` (1200x630px).
 - [x] **12. Twitter Card Tags:** Explicit `twitter:card` set to `summary_large_image` with proper `twitter:title` and `twitter:image`.
 - [x] **13. Viewport & Mobile Scaling:** `<meta name="viewport" content="width=device-width, initial-scale=1">` present across all server-rendered layouts.
@@ -35,7 +35,7 @@
 
 ## 3. Schema.org & Structured Data Validation (Points 16–25)
 
-- [x] **16. DiagnosticLab Entity Schema:** Central laboratory at Kengeri and Yelahanka emitted with `@type: "DiagnosticLab"` including NABL MC-6849 identifier, coordinates, phone numbers, and opening hours.
+- [x] **16. DiagnosticLab Entity Schema:** Central laboratory at Kengeri and Yelahanka emitted with `@type: "DiagnosticLab"` including NABL NABLM1126KA10694 identifier, coordinates, phone numbers, and opening hours.
 - [x] **17. MedicalBusiness Parent Organization:** Global organization structured with `@type: "MedicalBusiness"` pointing to legal entity `Qualitify Healthtech Private Limited`.
 - [x] **18. MedicalTest & MedicalProcedure Schema:** Individual test pages emit `@type: "MedicalTest"` specifying `usedToDiagnose`, `sampleType`, `preparation`, and `code` (LOINC / SNOMED CT).
 - [x] **19. MedicalWebPage Schema for Blogs:** Clinical articles declare `@type: "MedicalWebPage"` with `reviewedBy` (licensed MD Pathologist/Biochemist), `datePublished`, and `dateModified`.
@@ -76,7 +76,7 @@
 ## 6. Content Quality & Medical E-E-A-T (Points 41–45)
 
 - [x] **41. Qualified Medical Reviewers:** Every health guide identifies an MD Pathologist or Clinical Biochemist with medical registration number and credentials.
-- [x] **42. Accreditation Verification Number:** Prominently displays NABL Certificate No. **MC-6849** (ISO 15189:2022).
+- [x] **42. Accreditation Verification Number:** Prominently displays NABL Certificate No. **NABLM1126KA10694** (ISO 15189:2022).
 - [x] **43. Phlebotomy Quality Standards:** Clear documentation of trained phlebotomy specialists, sterile single-use vacuum tubes (Vacutainer), and temperature-controlled sample transport.
 - [x] **44. High-Entropy Clinical Answers:** Headers directly answer clinical intent (e.g., fasting hours, normal ranges, report delivery TAT) within the first 50 words.
 - [x] **45. Academic & Clinical Citations:** Scientific references to ICMR, ADA, WHO, and KDIGO clinical guidelines for clinical rigor.
