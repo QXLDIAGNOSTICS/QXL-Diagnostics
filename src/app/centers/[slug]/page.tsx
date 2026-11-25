@@ -7,6 +7,15 @@ import { SITE_URL, EMAIL } from "@/lib/businessInfo";
 
 export const revalidate = 3600;
 
+// Only QXL's two NABL-accredited laboratories carry their own certificate; partner
+// hospital collection points send samples to these laboratories for processing.
+function accreditedCertificateFor(center: { slug?: string; name?: string }): string | null {
+  const key = `${center.slug || ""} ${center.name || ""}`.toLowerCase();
+  if (key.includes("kengeri-main") || key.includes("main super speciality reference laboratory")) return "NABLM1126KA10694";
+  if (key.includes("north city") || key.includes("north hub") || key.includes("yelahanka-galleria")) return "MC-10025";
+  return null;
+}
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -23,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Center Not Found | QXL Diagnostics" };
   }
   const title = `${center.name} — Diagnostic Centre in ${center.city}`;
-  const description = `Visit QXL Diagnostics' ${center.name} at ${center.address}, ${center.city}. NABL Accredited testing, home sample collection, and same-day reports. Call ${center.phone || ""}.`;
+  const description = `Visit QXL Diagnostics' ${center.name} at ${center.address}, ${center.city}. Samples processed at QXL's NABL-accredited laboratories, home sample collection, and same-day reports for many routine tests. Call ${center.phone || ""}.`;
   return {
     title,
     description,
@@ -105,9 +114,13 @@ export default async function CenterDetailPage({ params }: Props) {
         <div className="max-w-[1000px] mx-auto px-4 w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-3xl border border-gray-100 shadow-sm p-8">
             <div className="flex items-center gap-2 mb-2">
-              {center.is_nabl && (
+              {accreditedCertificateFor(center) ? (
                 <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wide">
-                  <Shield className="w-3 h-3" /> NABL Accredited
+                  <Shield className="w-3 h-3" /> NABL Accredited · {accreditedCertificateFor(center)}
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-1 bg-slate-50 text-slate-600 text-[10px] font-bold px-2.5 py-1 rounded-full tracking-wide">
+                  <Shield className="w-3 h-3" /> Samples processed at QXL&apos;s NABL-accredited laboratories
                 </span>
               )}
             </div>

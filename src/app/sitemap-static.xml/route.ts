@@ -1,7 +1,18 @@
 import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
+import { isSitemapEligible } from '@/lib/seo/sitemapExclusions';
 
 const BASE_URL = 'https://qxldiagnostics.com';
+
+// Paths owned by a more specific sitemap (blogs, knowledge, locations, packages, b2b,
+// tests, health). Listed once there to keep each URL in exactly one sitemap.
+const OWNED_BY_SPECIFIC_SITEMAP = new Set([
+  '/blog', '/insights', '/knowledge-centre', '/for-doctors', '/for-hospitals',
+  '/hospital-laboratory-management', '/corporate-health-packages', '/full-body-checkup-bangalore',
+  '/diagnostic-lab-kengeri', '/diagnostic-lab-nagarabhavi', '/diagnostic-lab-vijayanagar',
+  '/diagnostic-lab-yelahanka', '/kidney-function-test', '/lipid-profile-test', '/liver-function-test',
+  '/thyroid-test', '/vitamin-b12-test', '/vitamin-d-test', '/sexual-health', '/sexual-health/packages',
+]);
 
 const STATIC_URLS = [
   { path: '', priority: '1.0', changefreq: 'daily' },
@@ -60,7 +71,7 @@ const STATIC_URLS = [
 
 export async function GET() {
   const lastmod = new Date(SITE_CONTENT_DATETIME).toISOString();
-  const urlsXml = STATIC_URLS.map(
+  const urlsXml = STATIC_URLS.filter((u) => isSitemapEligible(u.path) && !OWNED_BY_SPECIFIC_SITEMAP.has(u.path)).map(
     (u) => `  <url>
     <loc>${BASE_URL}${u.path}</loc>
     <lastmod>${lastmod}</lastmod>

@@ -47,18 +47,18 @@ const DEFAULT_CENTERS = [
   },
   {
     id: "center-2",
-    name: "Yelahanka (Galleria Mall) – North City Specialities, Powered by QXL Diagnostics (NABL Accredited)",
+    name: "QXL Diagnostics – Super Speciality Lab North Hub at North City Specialities, Yelahanka (NABL MC-10025)",
     slug: "yelahanka-galleria-mall",
     pincode: "560064",
     locality: "Yelahanka",
-    address: "L Square, opposite RMZ Galleria Mall, Yelahanka, Bengaluru – 560064",
+    address: "1st Floor, North City Specialities, Yelahanka New Town, Bengaluru – 560064",
     city: "Bengaluru",
     phone: PHONE_DISPLAY,
     hours: "Walk-in: 7:00 AM – 8:00 PM (Mon–Sun)",
     lat: 13.0991,
     lng: 77.5968,
     is_nabl: true,
-    type: "physical_centre",
+    type: "physical_lab",
   },
   {
     id: "center-3",
@@ -72,7 +72,7 @@ const DEFAULT_CENTERS = [
     hours: "Walk-in & Sample Collection: 7:00 AM – 8:00 PM (Mon–Sun)",
     lat: 12.9468,
     lng: 77.5255,
-    is_nabl: true,
+    is_nabl: false,
     type: "physical_centre",
   },
   {
@@ -87,7 +87,7 @@ const DEFAULT_CENTERS = [
     hours: "Walk-in & Sample Collection: 7:00 AM – 8:00 PM (Mon–Sun)",
     lat: 12.9616,
     lng: 77.5133,
-    is_nabl: true,
+    is_nabl: false,
     type: "physical_centre",
   },
   {
@@ -102,7 +102,7 @@ const DEFAULT_CENTERS = [
     hours: "Walk-in & Sample Collection: 7:00 AM – 8:00 PM (Mon–Sun)",
     lat: 12.9555,
     lng: 77.5292,
-    is_nabl: true,
+    is_nabl: false,
     type: "physical_centre",
   },
   {
@@ -117,7 +117,7 @@ const DEFAULT_CENTERS = [
     hours: "Walk-in & Sample Collection: 7:00 AM – 8:00 PM (Mon–Sun)",
     lat: 13.0942,
     lng: 77.5950,
-    is_nabl: true,
+    is_nabl: false,
     type: "physical_centre",
   },
   {
@@ -132,7 +132,7 @@ const DEFAULT_CENTERS = [
     hours: "Walk-in & Sample Collection: 7:00 AM – 8:00 PM (Mon–Sun)",
     lat: 13.0416,
     lng: 77.5772,
-    is_nabl: true,
+    is_nabl: false,
     type: "physical_centre",
   },
   {
@@ -147,7 +147,7 @@ const DEFAULT_CENTERS = [
     hours: "Walk-in & Sample Collection: 7:00 AM – 8:00 PM (Mon–Sun)",
     lat: 13.0805,
     lng: 77.5562,
-    is_nabl: true,
+    is_nabl: false,
     type: "physical_centre",
   },
   {
@@ -162,7 +162,7 @@ const DEFAULT_CENTERS = [
     hours: "Doorstep Home Collection: 7:00 AM – 9:00 PM (Mon–Sun)",
     lat: 12.9250,
     lng: 77.5838,
-    is_nabl: true,
+    is_nabl: false,
     type: "home_collection_service",
   },
   {
@@ -177,7 +177,7 @@ const DEFAULT_CENTERS = [
     hours: "Doorstep Home Collection: 7:00 AM – 9:00 PM (Mon–Sun)",
     lat: 12.9719,
     lng: 77.6412,
-    is_nabl: true,
+    is_nabl: false,
     type: "home_collection_service",
   },
   {
@@ -192,7 +192,7 @@ const DEFAULT_CENTERS = [
     hours: "Doorstep Home Collection: 7:00 AM – 9:00 PM (Mon–Sun)",
     lat: 12.9863,
     lng: 77.7337,
-    is_nabl: true,
+    is_nabl: false,
     type: "home_collection_service",
   },
 ];
@@ -342,7 +342,7 @@ export default function CentersPage() {
                 QXL Diagnostic Labs &amp; Collection Centres
               </h1>
               <p className="text-slate-600 text-xs sm:text-sm font-medium max-w-xl">
-                Locate QXL NABL Accredited ({NABL_CERTIFICATE}) laboratory hubs across Bengaluru. Search by 6-digit pincode, area, or GPS distance.
+                Locate QXL&apos;s two NABL-accredited laboratories (Kengeri {NABL_CERTIFICATE} and North Hub, Yelahanka MC-10025) and partner collection centres across Bengaluru. Search by 6-digit pincode, area, or GPS distance.
               </p>
             </div>
 
@@ -457,7 +457,7 @@ export default function CentersPage() {
                         <div className="mb-1.5">
                           {center.type === "physical_lab" || center.slug?.includes("kengeri") ? (
                             <span className="bg-[#EFF6FF] border border-[#BFDBFE] text-[#2563EB] text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                              🔬 Main Laboratory
+                              🔬 NABL-Accredited Laboratory
                             </span>
                           ) : center.type === "physical_centre" || center.slug?.includes("yelahanka") ? (
                             <span className="bg-sky-50 border border-sky-200 text-sky-800 text-[9.5px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">

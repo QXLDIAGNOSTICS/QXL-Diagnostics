@@ -492,6 +492,7 @@ const nextConfig: NextConfig = {
       { source: "/home-blood-collection-bengaluru", destination: "/home-blood-collection-bangalore", permanent: true },
       { source: "/packages/full-body-checkup-bengaluru", destination: "/full-body-checkup-bangalore", permanent: true },
       // Duplicate test intents canonical consolidation
+      { source: "/apob-test-bangalore", destination: "/apob-test", permanent: true },
       { source: "/apob", destination: "/apob-test", permanent: true },
       { source: "/apob/", destination: "/apob-test", permanent: true },
       { source: "/tests/apob", destination: "/apob-test", permanent: true },

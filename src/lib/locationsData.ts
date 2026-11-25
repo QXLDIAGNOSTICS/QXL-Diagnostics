@@ -320,7 +320,7 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     name: "Yelahanka",
     slug: "yelahanka",
     nearestLab: "QXL Yelahanka Patient Collection Center",
-    description: "Reliable home blood test collection across Yelahanka New Town, Old Town, and Kogilu. Supported by our QXL Yelahanka patient collection center and Kengeri laboratory.",
+    description: "Reliable home blood test collection across Yelahanka New Town, Old Town, and Kogilu. Supported by the NABL-accredited QXL North Hub at North City Specialities, Yelahanka (Certificate MC-10025) and the Kengeri main laboratory.",
     pincodes: ["560064"],
     popularTests: ["Full Body Package", "Complete Blood Count", "Diabetes Screening", "Full Body Checkup"]
   },

@@ -22,8 +22,8 @@ import { ACCREDITATION_DETAILS, ACCREDITATION_SCOPE } from '@/config/accreditati
 import { allAccreditations } from '@/lib/accreditation';
 
 export const metadata: Metadata = {
-  title: "Quality Assurance & NABL Accreditation (NABLM1126KA10694) | QXL Diagnostics",
-  description: "Official Quality & NABL Accreditation Portal for QXL Diagnostics Bengaluru. ISO 15189:2022 standards, Certificate NABLM1126KA10694, Westgard IQC, EQAS proficiency testing, cold-chain integrity, and critical value protocols.",
+  title: "NABL Accredited Labs in Bengaluru (NABLM1126KA10694, MC-10025) | QXL Diagnostics",
+  description: "Two NABL-accredited QXL Diagnostics laboratories in Bengaluru: Kengeri NABLM1126KA10694 and North Hub, Yelahanka MC-10025. ISO 15189:2022 certificates, validity, addresses and how to verify scope.",
   keywords: ["NABL Accreditation NABLM1126KA10694", "ISO 15189:2022 laboratory bangalore", "Westgard IQC diagnostic lab", "sample traceability barcode", "critical value alert protocol"],
   alternates: { canonical: `${SITE_URL}/quality-accreditation` },
   openGraph: {
@@ -56,43 +56,45 @@ export default function QualityAccreditationPage() {
     }
   };
 
+  const accreditationFaqs: { q: string; a: string }[] = [
+    {
+      q: "Is QXL Diagnostics NABL accredited?",
+      a: "Yes. QXL Diagnostics has two separately NABL-accredited medical laboratories in Bengaluru: the Kengeri main laboratory (Certificate NABLM1126KA10694) and the North Hub at North City Specialities, Yelahanka (Certificate MC-10025). Both are accredited to ISO 15189:2022 for the examinations in their approved scopes.",
+    },
+    {
+      q: "What is the current NABL certificate number for QXL Kengeri?",
+      a: "NABLM1126KA10694, issued on 23 November 2026 and valid until 22 November 2030. It was issued in lieu of the earlier certificate MC-6849.",
+    },
+    {
+      q: "What is the NABL certificate number for QXL North Hub, Yelahanka?",
+      a: "MC-10025, issued on 2 April 2026 and valid until 1 April 2030, for the laboratory at 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru.",
+    },
+    {
+      q: "Are all QXL tests NABL accredited?",
+      a: "Accreditation applies only to the examinations, methods and laboratory listed in the relevant approved NABL scope. Patients and clinicians can contact QXL to confirm the accreditation status of a specific test.",
+    },
+    {
+      q: "How can I verify a QXL NABL certificate?",
+      a: "Visit the NABL website (nabl-india.org) and search by certificate number or laboratory name. Check the laboratory name, facility address, validity and approved scope.",
+    },
+    {
+      q: "Does NABL accreditation guarantee 100% accurate results?",
+      a: "No laboratory can guarantee that every result is error-free. Accreditation is independent recognition of a laboratory's competence and quality-system conformity for its approved scope; all measurements have technical and clinical limitations.",
+    },
+    {
+      q: "How does QXL Diagnostics ensure sample identity and prevent sample swaps?",
+      a: "Samples are barcoded at collection and read by analysers through the laboratory information system, reducing manual transcription and the risk of sample transposition.",
+    },
+  ];
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is QXL Diagnostics' NABL Accreditation Certificate Number?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": `QXL Diagnostics Super Speciality Laboratory holds active NABL accreditation under Certificate Number ${NABL_CERTIFICATE} operating strictly in compliance with ISO 15189:2022 international standards.`
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does NABL ISO 15189:2022 accreditation mean for patients and doctors?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "NABL ISO 15189:2022 accreditation confirms that a medical laboratory has undergone formal independent assessment of technical competence, staff qualifications, equipment calibration, biological reference ranges, sample traceability, and daily quality control systems."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does QXL Diagnostics ensure sample identity and prevent sample swaps?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "QXL employs bedside primary tube barcoding at specimen collection. Automated analyzers read sample barcodes directly via bidirectional LIS interfacing, avoiding manual transcription and preventing sample transposition."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is QXL's Critical Panic Value Protocol?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "When a laboratory test result falls outside safe physiological thresholds (e.g., severe electrolyte derangements, acute low platelets, or extreme blood glucose), QXL mandates immediate direct telephone notification to the ordering physician or patient before digital report release."
-        }
-      }
-    ]
+    "mainEntity": accreditationFaqs.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
   };
 
   const qualityPillars = [
@@ -291,11 +293,11 @@ export default function QualityAccreditationPage() {
         <div className="max-w-[1260px] mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <span className="bg-blue-50 text-[#2563eb] font-extrabold text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider">
-              Accredited Laboratory Departments
+              Laboratory Disciplines
             </span>
-            <h2 className="text-3xl font-black text-[#0f2d5e] mt-3">Scope of NABL Accreditation</h2>
+            <h2 className="text-3xl font-black text-[#0f2d5e] mt-3">Our Laboratory Disciplines</h2>
             <p className="text-slate-600 text-xs sm:text-sm mt-2 font-medium">
-              ISO 15189:2022 technical evaluation applies to investigations across our core diagnostic departments:
+              QXL performs investigations across these disciplines. NABL accreditation covers only the examinations listed in each laboratory&apos;s approved scope annexure; contact QXL to confirm whether a specific test is within scope.
             </p>
           </div>
 
@@ -392,6 +394,19 @@ export default function QualityAccreditationPage() {
             </p>
           </div>
 
+        </div>
+      </section>
+
+      {/* Accreditation FAQs (also emitted as FAQPage schema above) */}
+      <section className="py-10 max-w-[1000px] mx-auto px-4" id="accreditation-faq">
+        <h2 className="text-2xl font-black text-[#0f2d5e] mb-4">NABL Accreditation: Frequently Asked Questions</h2>
+        <div className="space-y-3">
+          {accreditationFaqs.map((f) => (
+            <details key={f.q} className="bg-white rounded-2xl border border-slate-200 p-4">
+              <summary className="font-extrabold text-sm text-[#0f2d5e] cursor-pointer">{f.q}</summary>
+              <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">{f.a}</p>
+            </details>
+          ))}
         </div>
       </section>
 

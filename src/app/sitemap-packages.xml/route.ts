@@ -1,5 +1,6 @@
 import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
+import { isSitemapEligible } from '@/lib/seo/sitemapExclusions';
 
 const BASE_URL = 'https://qxldiagnostics.com';
 
@@ -29,7 +30,7 @@ const PACKAGE_PAGES = [
 export async function GET() {
   const lastmod = new Date(SITE_CONTENT_DATETIME).toISOString();
 
-  const urlsXml = PACKAGE_PAGES.map(
+  const urlsXml = PACKAGE_PAGES.filter(isSitemapEligible).map(
     (path) => `  <url>
     <loc>${BASE_URL}${path}</loc>
     <lastmod>${lastmod}</lastmod>

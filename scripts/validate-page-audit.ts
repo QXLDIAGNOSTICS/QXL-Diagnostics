@@ -57,9 +57,13 @@ interface ValidationError {
 const errors: ValidationError[] = [];
 const passedPages: string[] = [];
 
+// Pages where the North Hub certificate MC-10025 is legitimately shown alongside Kengeri's.
+const MC_10025_ALLOWED = [/\/quality-accreditation/, /\/qxl\/northhub/, /\/nabl-accredited-lab-bangalore/, /yelahanka/];
+
 function validatePage(page: PageAuditRecord) {
   // 1. Forbidden regex check
   for (const { name, regex } of FORBIDDEN_PATTERNS) {
+    if (regex.source.includes('MC-10025') && MC_10025_ALLOWED.some((r) => r.test(page.url))) continue;
     if (regex.test(page.renderedText)) {
       errors.push({
         url: page.url,

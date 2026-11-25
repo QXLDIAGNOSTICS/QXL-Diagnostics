@@ -1,5 +1,6 @@
 import { SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
 import { NextResponse } from 'next/server';
+import { isSitemapEligible } from '@/lib/seo/sitemapExclusions';
 import { cms100MasterData } from '@/lib/seoPages/cms100MasterData';
 import { advancedDiagnosticTestsData } from '@/lib/seoPages/advancedDiagnosticTestsData';
 
@@ -7,7 +8,6 @@ const BASE_URL = 'https://qxldiagnostics.com';
 
 const CORE_TEST_PAGES = [
   '/cbc-test-bangalore',
-  '/cbc-test',
   '/apob-test',
   '/hba1c-test-bangalore',
   '/hba1c-test',
@@ -38,6 +38,8 @@ const RETIRED_REDIRECTED_SLUGS = new Set([
   '/apolipoprotein-b',
   '/complete-blood-count',
   '/tests/apob',
+  '/cbc-test',
+  '/apob-test-bangalore',
 ]);
 
 export async function GET() {
@@ -46,7 +48,7 @@ export async function GET() {
   const cmsSlugs = Object.keys(cms100MasterData).map((slug) => `/${slug}`);
   const advancedSlugs = Object.keys(advancedDiagnosticTestsData).map((slug) => `/${slug}`);
   const allTestPaths = Array.from(new Set([...CORE_TEST_PAGES, ...cmsSlugs, ...advancedSlugs]))
-    .filter((path) => !RETIRED_REDIRECTED_SLUGS.has(path));
+    .filter((path) => !RETIRED_REDIRECTED_SLUGS.has(path) && isSitemapEligible(path));
 
   const urlsXml = allTestPaths
     .map(

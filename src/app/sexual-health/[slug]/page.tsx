@@ -433,11 +433,11 @@ export default async function SexualHealthLandingPageDynamic({ params }: PagePro
                 Physical Central Facilities in Bengaluru
               </h3>
               <p className="text-slate-300 leading-relaxed">
-                Samples are processed directly at our NABL-accredited reference laboratory facilities in Kengeri and Yelahanka, operating under ISO 15189:2022 standards (Certificate No. NABLM1126KA10694). No third-party outsourcing.
+                Samples are processed at QXL's NABL-accredited laboratories under ISO 15189:2022 — Kengeri main laboratory (Certificate NABLM1126KA10694) and North Hub at North City Specialities, Yelahanka (Certificate MC-10025). Accreditation applies to the tests in each laboratory's approved scope.
               </p>
               <div className="text-xs text-slate-400 space-y-1">
-                <div><strong>Kengeri Hub:</strong> 540, 1st Floor, 5th Cross, Kengeri Satellite Town, Bengaluru 560060</div>
-                <div><strong>Yelahanka Facility:</strong> North Bengaluru Referral Centre, Yelahanka, Bengaluru 560064</div>
+                <div><strong>Kengeri Main Laboratory:</strong> 3rd Floor, SLN Complex, Mysore Road, Kengeri, Bengaluru 560060</div>
+                <div><strong>North Hub, Yelahanka:</strong> 1st Floor, North City Specialities, Yelahanka New Town, Bengaluru 560064</div>
               </div>
             </div>
 
