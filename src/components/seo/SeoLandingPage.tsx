@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 import type { IconName, SeoLandingData } from "@/lib/seoPages/types";
 import { SITE_URL, WHATSAPP_LINK } from "@/lib/businessInfo";
-import { getAutoReviewDate } from "@/lib/dateUtils";
+import { getMedicalReview, formatReviewDate } from "@/lib/medicalReviews";
 
 const ICONS: Record<IconName, React.ComponentType<{ className?: string }>> = {
   award: Award,
@@ -69,6 +69,7 @@ const ICONS: Record<IconName, React.ComponentType<{ className?: string }>> = {
 
 function buildJsonLd(data: SeoLandingData) {
   const url = `${SITE_URL}${data.slug}`;
+  const review = getMedicalReview(data.slug);
   const description =
     data.aiOverview.length > 300 ? `${data.aiOverview.slice(0, 297)}...` : data.aiOverview;
 
@@ -105,8 +106,8 @@ function buildJsonLd(data: SeoLandingData) {
           : undefined,
       breadcrumb: { "@id": `${url}#breadcrumb` },
       provider: { "@id": `${SITE_URL}/#organization` },
-      reviewedBy: reviewerNode,
-      lastReviewed: getAutoReviewDate(data.lastReviewedDate, "iso"),
+      // Only a recorded clinician sign-off produces reviewedBy / lastReviewed.
+      ...(review ? { reviewedBy: reviewerNode, lastReviewed: review.reviewedOn } : {}),
       areaServed: { "@type": "City", name: "Bengaluru" },
       inLanguage: "en-IN",
     },
@@ -169,6 +170,7 @@ function buildJsonLd(data: SeoLandingData) {
 
 export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
   const jsonLd = buildJsonLd(data);
+  const review = getMedicalReview(data.slug);
 
   useEffect(() => {
     trackChatGPTTestView(data.medicalTestName || data.h1Lead, data.slug, data.price);
@@ -263,13 +265,13 @@ export default function SeoLandingPage({ data }: { data: SeoLandingData }) {
               {data.reviewerName && (
                 <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
                   <UserCheck className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>Medically Reviewed by</span>
+                  <span>{review ? "Medically Reviewed by" : "Medical reviewer"}</span>
                   <Link href={`/${data.reviewerSlug || "dr-naveen-kumar-n"}`} className="font-extrabold text-[#0B2545] hover:underline">
                     {data.reviewerName}
                   </Link>
                   {data.reviewerQuals && <span className="text-slate-500">({data.reviewerQuals})</span>}
                   <span className="text-slate-300">•</span>
-                  <span className="text-slate-500">Last Reviewed: {getAutoReviewDate(data.lastReviewedDate, "display")}</span>
+                  <span className="text-slate-500">{review ? `Last Reviewed: ${formatReviewDate(review.reviewedOn)}` : "Clinical review pending"}</span>
                 </div>
               )}
             </div>

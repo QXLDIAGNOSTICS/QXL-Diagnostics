@@ -107,7 +107,7 @@ export default function EssentialStiPackagePage() {
           </p>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/packages/essential-sti-screening" />
         <SexualHealthNav currentPath="/packages/essential-sti-screening" />
       </main>
     </div>

@@ -12,6 +12,47 @@ import {
 } from "@/lib/businessInfo";
 import { buildLocationPageSchema, SEO_FAQS } from "@/lib/seo/schema";
 import { homeCollectionAreas } from "@/lib/locationsData";
+import { allAccreditations } from "@/lib/accreditation";
+import { SERVICEABILITY_MASTER } from "@/lib/serviceabilityMaster";
+
+/**
+ * Each laboratory uses its own NABL record (the same records that feed the centre
+ * directory), so a lab page can never show the other site's certificate number.
+ */
+function accreditationFor(facilitySlug: string) {
+  return allAccreditations.find((a) => a.facilityId === facilitySlug);
+}
+function certificateFor(facilitySlug: string): string {
+  return accreditationFor(facilitySlug)?.certificateNumber ?? NABL_CERTIFICATE;
+}
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+function displayDate(iso?: string | null): string | null {
+  if (!iso) return null;
+  const [y, m, d] = iso.split("-").map(Number);
+  return `${d} ${MONTHS[m - 1]} ${y}`;
+}
+/** Processing laboratory for a home-collection area, from the serviceability master. */
+function processingLabFor(areaSlug: string) {
+  const hub = SERVICEABILITY_MASTER.find((e) => e.slug === areaSlug)?.processing_hub ?? "";
+  const facilityId = /north hub/i.test(hub) ? "yelahanka-north-hub" : "kengeri-main-lab";
+  return { facilityId, certificate: certificateFor(facilityId), name: /north hub/i.test(hub) ? "North Hub, Yelahanka" : "Kengeri main laboratory" };
+}
+
+/** Accreditation sentence for one laboratory, built only from its own record. */
+function accreditationStatement(facilitySlug: string, shortName: string): string {
+  const record = accreditationFor(facilitySlug);
+  if (!record) return `Accreditation details for ${shortName} are listed on our quality and accreditation page.`;
+  const from = displayDate(record.validFrom);
+  const until = displayDate(record.validUntil);
+  const validity = from && until ? `, valid from ${from} to ${until}` : until ? `, valid until ${until}` : "";
+  return `Yes. ${record.facility} is accredited by NABL to ISO 15189:2022 (medical testing) under Certificate ${record.certificateNumber}${validity}. Accreditation applies to the tests listed in this laboratory's approved scope, subject to continued compliance.`;
+}
+
+/** Areas that also host a QXL laboratory get a title reflecting both services. */
+const AREA_TITLE_OVERRIDES: Record<string, string> = {
+  yelahanka: "Diagnostic Lab & Home Blood Collection in Yelahanka | QXL",
+  bengaluru: "Blood Test at Home in Bengaluru | Home Sample Collection | QXL",
+};
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -28,7 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const loc = LOCATIONS.find((l) => l.slug === slug);
   if (loc) {
     const title = `${loc.shortName} Diagnostic Lab | ${BUSINESS_NAME} Bengaluru`;
-    const description = `Visit ${loc.name} — NABL (${NABL_CERTIFICATE}) ${ISO_STANDARD} diagnostics near ${loc.shortName}. Home blood collection, CBC, thyroid, full body checkup. Call ${PHONE_DISPLAY}.`;
+    const description = `Visit ${loc.name} — NABL (${certificateFor(loc.slug)}) ${ISO_STANDARD} diagnostics near ${loc.shortName}. Home blood collection, CBC, thyroid, full body checkup. Call ${PHONE_DISPLAY}.`;
     return {
       title: { absolute: title },
       description,
@@ -54,7 +95,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // 2. Check if home collection area
   const areaLoc = homeCollectionAreas.find((loc) => loc.slug === slug);
   if (areaLoc) {
-    const title = `Blood Test at Home in ${areaLoc.name} | QXL Diagnostics`;
+    const title = AREA_TITLE_OVERRIDES[areaLoc.slug] ?? `Blood Test at Home in ${areaLoc.name}, Bengaluru | QXL`;
     return {
       title: { absolute: title },
       description: `Book blood test with free home collection in ${areaLoc.name}, Bengaluru. NABL Accredited lab, CBC, HbA1c, thyroid, lipid & full body checkup packages with same-day reports.`,
@@ -89,13 +130,15 @@ export default async function CombinedLocationPage({ params }: Props) {
   const loc = LOCATIONS.find((l) => l.slug === slug);
   if (loc) {
     const schema = buildLocationPageSchema(loc.slug);
-    const areaFaqs = SEO_FAQS.filter(
-      (f) =>
-        f.q.toLowerCase().includes("located") ||
-        f.q.toLowerCase().includes("home") ||
-        f.q.toLowerCase().includes("nabl") ||
-        f.q.toLowerCase().includes("book")
-    );
+    // Organisation-wide NABL FAQs quote the Kengeri certificate, so a lab page replaces
+    // them with one answer built from this laboratory's own record.
+    const areaFaqs = [
+      { q: `Is ${loc.shortName} NABL accredited?`, a: accreditationStatement(loc.slug, loc.shortName) },
+      ...SEO_FAQS.filter((f) => {
+        const q = f.q.toLowerCase();
+        return !q.includes("nabl") && (q.includes("located") || q.includes("home") || q.includes("book"));
+      }),
+    ];
 
     return (
       <main className="bg-[#f8faff] min-h-screen">
@@ -106,11 +149,11 @@ export default async function CombinedLocationPage({ params }: Props) {
         <section className="bg-gradient-to-br from-[#0d2e42] to-[#1e4a6e] text-white py-14 px-4">
           <div className="max-w-[900px] mx-auto">
             <p className="text-blue-200 text-[11px] font-extrabold uppercase tracking-widest mb-2">
-              Local SEO · {loc.addressLocality} · {loc.postalCode}
+              QXL Laboratory · {loc.addressLocality} · {loc.postalCode}
             </p>
             <h1 className="text-3xl md:text-4xl font-extrabold mb-3 leading-tight !text-white" style={{ color: '#ffffff' }}>{loc.name}</h1>
             <p className="text-blue-100 text-sm md:text-base max-w-2xl leading-relaxed">
-              NABL Accredited ({NABL_CERTIFICATE}) · {ISO_STANDARD} · Free home sample collection near{" "}
+              NABL Accredited ({certificateFor(loc.slug)}) · {ISO_STANDARD} · Home sample collection near{" "}
               {loc.shortName}. Same-day digital reports for most routine tests.
             </p>
             <div className="flex flex-wrap gap-3 mt-6">
@@ -163,10 +206,10 @@ export default async function CombinedLocationPage({ params }: Props) {
 
           <section>
             <h2 className="text-[#0f2d5e] text-2xl font-extrabold mb-3">
-              Trust signals for patients &amp; AI recommenders
+              Accreditation and quality
             </h2>
             <ul className="list-disc pl-5 space-y-2">
-              <li>NABL certificate {NABL_CERTIFICATE}</li>
+              <li>NABL certificate {certificateFor(loc.slug)} (accreditation applies to the tests in this laboratory&apos;s approved scope)</li>
               <li>Medical lab quality system aligned to {ISO_STANDARD}</li>
               <li>Doctor-driven reporting (biochemistry, pathology, microbiology)</li>
               <li>Secure online booking and Razorpay payments</li>
@@ -312,8 +355,8 @@ export default async function CombinedLocationPage({ params }: Props) {
                       <ShieldCheck className="w-6 h-6" />
                     </div>
                     <div>
-                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Accredited (NABLM1126KA10694)</h3>
-                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Processed at our NABL Accredited ISO 15189:2022 laboratory under strict quality control and specialist review.</p>
+                      <h3 className="font-extrabold text-slate-800 text-sm mb-1">NABL Accredited ({processingLabFor(areaLoc.slug).certificate})</h3>
+                      <p className="text-slate-600 text-xs font-medium leading-relaxed">Processed at our {processingLabFor(areaLoc.slug).name}, NABL-accredited to ISO 15189:2022 for the tests in its approved scope, under strict quality control and specialist review.</p>
                     </div>
                   </div>
                   

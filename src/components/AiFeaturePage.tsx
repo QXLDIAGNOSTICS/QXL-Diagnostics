@@ -87,9 +87,9 @@ export default function AiFeaturePage({
     setTimeout(() => {
       let aiOutput = "";
       if (featureKey.includes("finder") || featureKey.includes("test")) {
-        aiOutput = `Based on your clinical input ("${inputText}"), we recommend the following diagnostic panel:\n\n• Complete Blood Count (CBC) — ₹350\n• Fasting Blood Sugar & HbA1c — ₹450\n• Thyroid Profile (T3, T4, TSH) — ₹550\n• Vitamin D3 & B12 — ₹1,200\n\nNABL Accredited · Same-Day Digital Reports · Free Home Collection in Bengaluru.`;
+        aiOutput = `Based on your clinical input ("${inputText}"), we recommend the following diagnostic panel:\n\n• Complete Blood Count (CBC) — ₹250\n• Fasting Blood Sugar & HbA1c\n• Thyroid Profile (T3, T4, TSH) — ₹350\n• Vitamin D3 (₹410) & B12 (₹600)\n\nNABL Accredited · Same-Day Digital Reports · Free Home Collection in Bengaluru.`;
       } else if (featureKey.includes("recommender") || featureKey.includes("package")) {
-        aiOutput = `Recommended Health Package: Q-Master Health Pro Package (₹4,600)\n\nIncludes 20 Parameters: Lipid Profile, Liver Function, Kidney Function, Thyroid Profile, Vitamin D & B12, HbA1c, CBC, and Inflammatory Markers.\n\nIdeal for annual preventative screening.`;
+        aiOutput = `Recommended Health Package: Q-Master Health Pro Package (₹4,600)\n\nIncludes 92 Parameters: Lipid Profile, Liver Function, Kidney Function, Thyroid Profile, Vitamin D & B12, HbA1c, CBC, and Inflammatory Markers.\n\nIdeal for annual preventative screening.`;
       } else if (featureKey.includes("explainer") || featureKey.includes("report")) {
         aiOutput = `Clinical Report Analysis:\n\n1. Hemoglobin: 14.2 g/dL (Normal)\n2. Fasting Glucose: 108 mg/dL (Mildly Elevated — Borderline Fasting Glucose)\n3. TSH: 2.4 mIU/L (Optimal)\n\nRecommendation: Repeat Fasting Blood Sugar in 3 months and maintain a low glycemic index diet.`;
       } else if (featureKey.includes("scanner") || featureKey.includes("prescription")) {

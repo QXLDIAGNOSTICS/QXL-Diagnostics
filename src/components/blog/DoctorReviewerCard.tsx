@@ -1,14 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import { ShieldCheck, Stethoscope, Award, MessageCircle, Calendar } from "lucide-react";
-import { getAutoReviewDate } from "@/lib/dateUtils";
+import { getMedicalReview, formatReviewDate } from "@/lib/medicalReviews";
 
 interface DoctorReviewerCardProps {
   reviewer?: string;
-  date?: string;
+  /** Page path; the review date comes only from the medical review registry. */
+  path: string;
   /** Credentials/designation line; defaults to Dr. Muruda's biochemistry bio. */
   title?: string;
-  /** Reviewer assigned but sign-off not yet confirmed: avoid "reviewed" claims. */
+  /** Force the pending state even if a record exists (e.g. content edited since review). */
   pending?: boolean;
 }
 
@@ -21,11 +22,13 @@ const PROFILE_LINKS: Record<string, string> = {
 
 export default function DoctorReviewerCard({
   reviewer = "Dr. Shantakumar Muruda, MD (Biochemistry)",
-  date,
+  path,
   title,
-  pending = false,
+  pending: forcePending = false,
 }: DoctorReviewerCardProps) {
-  const displayDate = getAutoReviewDate(date);
+  const review = forcePending ? undefined : getMedicalReview(path);
+  const pending = !review;
+  const displayDate = review ? formatReviewDate(review.reviewedOn) : null;
   const lower = reviewer.toLowerCase();
   const profileHref = Object.entries(PROFILE_LINKS).find(([name]) => lower.includes(name))?.[1];
   return (

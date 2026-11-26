@@ -71,7 +71,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Condom broke or slipped during sex? Clinical 72-hour PEP guidance, baseline safety bloods, and accurate testing schedules for HIV, Syphilis, Chlamydia & Gonorrhea in Bengaluru.",
     "h1": "Condom Break STI Testing & Emergency Protocol in Bangalore",
     "subtitle": "Clear, evidence-based steps following condom failure or slippage. Understand the 72-hour window for emergency PEP, baseline laboratory workups, and conclusive STI testing timelines.",
-    "badge": "P0 Clinical Emergency Pathway",
+    "badge": "Clinical Emergency Pathway",
     "showPepBanner": true,
     "showHivCalculator": true,
     "emergencyNotice": {
@@ -203,11 +203,11 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "priority": "P0",
     "category": "Exposure & Emergency",
     "title": "STI Testing Window Periods Bangalore | Timeline & Accuracy Guide | QXL",
-    "seoTitle": "STI Testing Window Periods: When Tests Become Conclusive | QXL Diagnostics",
+    "seoTitle": "STI Testing Window Periods: When Results Become Reliable | QXL Diagnostics",
     "description": "Evidence-based timeline of STI testing window periods. Understand incubation and detection windows for HIV, Chlamydia, Gonorrhea, Syphilis, Hepatitis B & C in Bangalore.",
     "h1": "Complete Guide to STI Diagnostic Window Periods",
     "subtitle": "Biological timelines explaining when pathogens and immune antibodies can be accurately detected by modern laboratory assays, avoiding false-negative reassurance.",
-    "badge": "P0 Master Clinical Guide",
+    "badge": "Clinical Guide",
     "showHivCalculator": true,
     "overview": [
       "A diagnostic window period is the time interval between potential exposure to an infectious pathogen and the moment a laboratory test can reliably detect it. Testing too early can yield a false-negative result, providing false reassurance while an infection replicates silently.",
@@ -277,15 +277,15 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
       },
       {
         "timeframe": "45 Days (6 Weeks)",
-        "title": "CDC Venous Ag/Ab HIV Milestone",
+        "title": "Lab Ag/Ab HIV Follow-up (CDC Window)",
         "action": "Follow-up 4th Gen HIV test",
-        "clinicalGuidance": "Conclusive for laboratory venous blood Ag/Ab combo tests without ARV/PEP interference."
+        "clinicalGuidance": "Most infections are detectable by laboratory venous Ag/Ab combination tests by 45 days. A non-reactive result is generally reliable if no PEP or antiretroviral exposure occurred; your clinician may still advise repeat testing."
       },
       {
         "timeframe": "90 Days (3 Months)",
-        "title": "Comprehensive Serological Conclusiveness",
+        "title": "Comprehensive Follow-up Serology",
         "action": "Final blood panel: HIV, Syphilis, HBV, HCV",
-        "clinicalGuidance": "Universal clinical milestone for definitive exclusion across all global guidelines."
+        "clinicalGuidance": "Commonly used follow-up point for HIV, syphilis, hepatitis B and hepatitis C serology. Window periods differ by test and guideline, and PEP, PrEP or immune suppression can delay detection, so interpret the result with your clinician."
       }
     ],
     "faqs": [
@@ -336,7 +336,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Targeted HIV testing after potential exposure in Bengaluru. High-sensitivity 4th Gen p24 antigen/antibody ECLIA, viral RNA PCR, window periods, and PEP guidance.",
     "h1": "HIV Testing After Suspected Exposure in Bangalore",
     "subtitle": "Accurate, confidential laboratory investigations following potential exposure. Understanding 4th-generation p24 antigen tests, RNA PCR, and clinical testing intervals.",
-    "badge": "P0 Critical Pathway",
+    "badge": "Critical Pathway",
     "showHivCalculator": true,
     "showPepBanner": true,
     "emergencyNotice": {
@@ -425,7 +425,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Essential diagnostic panels for HIV PEP (Post-Exposure Prophylaxis) and PrEP (Pre-Exposure Prophylaxis) in Bangalore. Baseline renal, liver, HBsAg and HIV 4th gen testing.",
     "h1": "HIV PEP & PrEP Clinical Testing Protocols in Bangalore",
     "subtitle": "Complete diagnostic monitoring for Post-Exposure and Pre-Exposure Prophylaxis. Baseline organ safety checks, Hepatitis B screening, and scheduled serological follow-ups.",
-    "badge": "P0 Prevention & Prophylaxis",
+    "badge": "Prevention & Prophylaxis",
     "showPepBanner": true,
     "overview": [
       "Post-Exposure Prophylaxis (PEP) and Pre-Exposure Prophylaxis (PrEP) are highly effective biomedical interventions that prevent HIV transmission. Safe, effective administration requires precise laboratory monitoring.",
@@ -508,7 +508,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Comprehensive STI screening after receptive or insertive anal intercourse in Bengaluru. Rectal swab NAAT for gonorrhea and chlamydia, blood serology for HIV, syphilis & hepatitis.",
     "h1": "STI Screening After Anal Sex: Rectal Swabs & Blood Serology",
     "subtitle": "Anatomically targeted sexual health diagnostics. Why routine urine tests miss up to 85% of rectal chlamydia and gonorrhea, and how 3-site screening protects your health.",
-    "badge": "P1 Anatomical Pathway",
+    "badge": "Anatomical Pathway",
     "overview": [
       "Engaging in anal sex\u2014whether insertive or receptive\u2014carries distinct transmission risks for bacterial and viral sexually transmitted infections. Mucosal lining in the rectum is thin and highly vascularized, facilitating transmission.",
       "Crucially, routine urine tests only detect infections in the male urethra. Studies demonstrate that more than 80% of rectal chlamydia and gonorrhea infections in individuals who practice receptive anal intercourse are completely missed if only a urine sample is tested. Direct rectal swab testing with molecular NAAT/PCR is mandatory.",
@@ -603,7 +603,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Complete STI screening following vaginal intercourse in Bengaluru. High vaginal swabs, first-catch urine PCR, and blood panels for HIV, Syphilis, Hepatitis & Trichomonas.",
     "h1": "STI Screening Following Vaginal Intercourse in Bangalore",
     "subtitle": "Accurate, comfortable diagnostics for men and women following vaginal exposure. Differentiating bacterial STIs from yeast infections and bacterial vaginosis.",
-    "badge": "P1 Comprehensive Assessment",
+    "badge": "Comprehensive Assessment",
     "overview": [
       "Vaginal intercourse is the most common route of sexual exposure for a wide range of bacterial, viral, and protozoan infections. Symptoms can vary significantly between partners.",
       "In women, self-collected vaginal swabs or clinician cervical swabs provide superior sensitivity for Chlamydia and Gonorrhea compared to urine tests. In men, first-catch urine NAAT accurately surveys the urethral tract.",
@@ -689,7 +689,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Routine, asymptomatic STI screening in Bengaluru. Why over 70% of STIs have zero symptoms, and how routine PCR & serology prevent long-term complications.",
     "h1": "Asymptomatic STI Screening: Protecting Health Without Symptoms",
     "subtitle": "Why 'feeling fine' does not guarantee the absence of sexually transmitted infections. Understanding silent carriage, reproductive protection, and routine annual checkups.",
-    "badge": "P1 Preventive Screening",
+    "badge": "Preventive Screening",
     "overview": [
       "One of the greatest misconceptions in sexual health is that an infection always produces noticeable symptoms like pain, sores, or discharge. In reality, the vast majority of common STIs are completely silent.",
       "Up to 70\u201380% of women and 50% of men with Chlamydia experience no symptoms whatsoever. Similarly, asymptomatic gonorrhea, high-risk HPV, and early syphilis frequently go unnoticed while silently causing chronic inflammation, pelvic scarring, or transmission to partners.",
@@ -767,7 +767,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Clinical diagnosis for genital discharge and burning urination (dysuria) in Bengaluru. Distinguishing gonorrhea, chlamydia, non-gonococcal urethritis (NGU) & UTIs.",
     "h1": "Genital Discharge & Burning Urination: Diagnosis & Testing",
     "subtitle": "Rapid, accurate identification of urethral and genital infections. Differentiating gonococcal urethritis, non-gonococcal pathogens, and urinary tract infections.",
-    "badge": "P0 Symptom Pathway",
+    "badge": "Symptom Pathway",
     "overview": [
       "Experiencing burning during urination (dysuria), accompanied by penile or vaginal discharge, is a cardinal clinical presentation of urogenital inflammation, commonly known as urethritis.",
       "Urethritis is broadly categorized into Gonococcal Urethritis (caused by Neisseria gonorrhoeae, often presenting with thick, yellow-green purulent discharge) and Non-Gonococcal Urethritis (NGU, caused by Chlamydia trachomatis, Mycoplasma genitalium, Ureaplasma, or Trichomonas, typically presenting with clear, mucoid, or watery discharge).",
@@ -850,7 +850,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Clinical evaluation for genital itching, irritation, and redness in Bengaluru. Differentiating fungal candidiasis, pubic lice, contact dermatitis, herpes & STIs.",
     "h1": "Genital Itching & Irritation: Causes, Diagnosis & Relief",
     "subtitle": "Distinguishing sexually transmitted infections from dermatological skin conditions, candidal balanitis, and allergic reactions to avoid improper topical treatments.",
-    "badge": "P0 Symptom Pathway",
+    "badge": "Symptom Pathway",
     "overview": [
       "Itching, redness, and irritation in the genital region (penis, scrotum, vulva, or perineum) are extremely common and can be caused by a wide spectrum of infectious and non-infectious conditions.",
       "While many patients immediately fear an incurable STI, common non-STI causes include fungal infections (Candida albicans / jock itch), contact dermatitis (from scented body washes, condoms, or laundry detergents), pubic lice, and scabies. However, genital herpes prodromes and trichomoniasis also frequently manifest as intense itching.",
@@ -928,7 +928,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Clinical diagnosis for genital sores, blisters, and ulcers in Bengaluru. Distinguishing painless Syphilis chancres from painful Herpes vesicles, chancroid & aphthous ulcers.",
     "h1": "Genital Sores, Blisters & Ulcers: Syphilis vs Herpes",
     "subtitle": "Accurate differential diagnosis for genital lesions. Painless vs painful ulcers, fluid-filled blister clusters, and necessary laboratory testing protocols in Bangalore.",
-    "badge": "P0 Clinical Priority",
+    "badge": "Clinical Priority",
     "overview": [
       "The emergence of a sore, blister, or ulcer in the genital, anal, or oral area requires immediate clinical evaluation. The two most common sexually transmitted etiologies are Primary Syphilis and Genital Herpes Simplex (HSV).",
       "The classic hallmark of Primary Syphilis is a single, indurated, PAINLESS ulcer (known as a chancre) that appears 2 to 6 weeks after exposure. In contrast, Genital Herpes typically presents as multiple PAINFUL, fluid-filled blisters that rupture into shallow, tender erosions.",
@@ -1006,7 +1006,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Comprehensive diagnostic testing for abnormal vaginal discharge in Bengaluru. Accurately differentiate Bacterial Vaginosis (BV), Candidiasis, Trichomonas & Cervicitis.",
     "h1": "Abnormal Vaginal Discharge: Causes, Testing & Diagnosis",
     "subtitle": "Accurately identifying the cause of vaginal discharge, odor, and discomfort. Distinguishing physiological changes from Bacterial Vaginosis, Yeast, and sexually transmitted pathogens.",
-    "badge": "P0 Women's Health Pathway",
+    "badge": "Women's Health Pathway",
     "overview": [
       "Vaginal discharge is a normal physiological function of the female reproductive tract. However, alterations in discharge color, consistency, volume, or scent\u2014especially when accompanied by itching, burning, or odor\u2014signal an underlying imbalance or infection.",
       "The vast majority of abnormal discharge cases are caused by three conditions: Bacterial Vaginosis (BV, an overgrowth of anaerobic bacteria with an amine 'fishy' odor), Vulvovaginal Candidiasis (yeast overgrowth causing thick, white, curdy discharge), and Trichomoniasis (a sexually transmitted protozoan causing frothy greenish discharge).",
@@ -1089,7 +1089,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Clinical diagnosis for throat soreness, redness, and ulcers following oral sex in Bengaluru. Pharyngeal swab NAAT for Gonorrhea, Chlamydia, Oral Herpes & Syphilis.",
     "h1": "Throat & Oral Symptoms After Oral Sex: Diagnostic Guide",
     "subtitle": "Differentiating routine viral or bacterial pharyngitis from sexually transmitted pharyngeal gonorrhea, oral chlamydia, syphilis, and herpes simplex in Bangalore.",
-    "badge": "P1 Symptom Pathway",
+    "badge": "Symptom Pathway",
     "overview": [
       "Developing a sore throat, tonsillar redness, or oral ulcers shortly after performing oral sex can cause anxiety. While common respiratory viruses and Streptococcus are frequent culprits, specific STIs can directly infect the pharyngeal mucosa.",
       "The most significant pathogen in this anatomical site is Neisseria gonorrhoeae. Pharyngeal gonorrhea is notoriously asymptomatic in over 85% of cases, but when symptomatic, it presents as persistent pharyngitis unresponsive to routine beta-lactam antibiotics.",
@@ -1167,7 +1167,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Clinical breakdown of HIV Acute Retroviral Syndrome (ARS) symptoms vs severe psychosomatic health anxiety. Objective timelines and conclusive laboratory tests in Bengaluru.",
     "h1": "HIV Symptoms vs Health Anxiety: Clinical Facts & Reassurance",
     "subtitle": "Disentangling real Acute Retroviral Syndrome symptoms from anxiety-induced psychosomatic manifestations. Why testing\u2014not symptom-searching\u2014is the only path to peace of mind.",
-    "badge": "P1 Psycho-Clinical Support",
+    "badge": "Psycho-Clinical Support",
     "showHivCalculator": true,
     "overview": [
       "Following a perceived sexual risk, individuals frequently experience intense anxiety, catastrophic thinking, and obsessive body monitoring. This psychological distress often manifests as somatic physical symptoms that mimic illness.",
@@ -1246,7 +1246,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Clinical guide differentiating Urinary Tract Infections (UTIs) from Sexually Transmitted Infections (STIs) in Bangalore. Comparing symptoms, urine collection & testing.",
     "h1": "UTI vs STI: Symptoms, Key Differences & Correct Testing",
     "subtitle": "Burning urination? Understand why midstream urine culture diagnoses UTIs while first-catch urine NAAT detects STIs, ensuring proper antibiotic treatment.",
-    "badge": "P1 Diagnostic Guide",
+    "badge": "Diagnostic Guide",
     "overview": [
       "Burning urination (dysuria) and urinary frequency are distressing symptoms that prompt patients to wonder whether they have a routine Urinary Tract Infection (UTI) or a Sexually Transmitted Infection (STI).",
       "A Urinary Tract Infection involves the bladder, ureters, or kidneys, most commonly caused by gastrointestinal coliform bacteria such as Escherichia coli entering the urethra. It is especially common in women due to anatomical proximity.",
@@ -1325,7 +1325,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Gold-standard molecular dual NAAT/PCR testing for Neisseria gonorrhoeae and Chlamydia trachomatis in Bengaluru. High-sensitivity first-catch urine & swab analysis.",
     "h1": "Gonorrhea & Chlamydia Real-Time PCR (NAAT) in Bangalore",
     "subtitle": "The definitive molecular diagnostic test for Chlamydia trachomatis and Neisseria gonorrhoeae. Automated real-time amplification from first-catch urine or anatomical swabs.",
-    "badge": "P0 Gold Standard Molecular Assay",
+    "badge": "Gold Standard Molecular Assay",
     "overview": [
       "Chlamydia trachomatis and Neisseria gonorrhoeae are the two most prevalent bacterial sexually transmitted infections globally. Because both organisms infect the same mucosal tissues and produce overlapping clinical syndromes, simultaneous dual testing is the international standard of care.",
       "Traditional bacterial cultures have poor sensitivity (often below 50% for fastidious organisms like Chlamydia). In contrast, Nucleic Acid Amplification Tests (NAAT) like Real-Time PCR detect specific target DNA sequences with clinical sensitivity and specificity exceeding 99%.",
@@ -1403,7 +1403,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "NABL-accredited Syphilis testing in Bengaluru. Quantitative RPR/VDRL with antibody dilution titers, TPHA treponemal confirmation, and disease staging serology.",
     "h1": "Syphilis Testing in Bangalore: RPR Titers & TPHA Confirmation",
     "subtitle": "Comprehensive dual-algorithm serology for Treponema pallidum. Differentiating active primary/secondary syphilis, latent disease, and successful past treatment response.",
-    "badge": "P1 Specialized Serology",
+    "badge": "Specialized Serology",
     "overview": [
       "Syphilis, caused by the spirochete Treponema pallidum, is known as the 'Great Imitator' due to its diverse clinical presentations spanning primary ulcers, secondary rashes, and years of asymptomatic latency.",
       "Accurate diagnosis requires two complementary classes of serological tests: Non-Treponemal tests (like Rapid Plasma Reagin / RPR or VDRL) and Treponemal tests (like TPHA or Treponema pallidum ECLIA).",
@@ -1481,7 +1481,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Comprehensive Hepatitis B Triple Panel serology in Bengaluru. Differentiating active infection, vaccine-induced immunity & resolved exposure with HBsAg, Anti-HBs & Total Anti-HBc.",
     "h1": "Hepatitis B Triple Panel: Complete Serological Assessment",
     "subtitle": "Why testing only HBsAg is clinically inadequate. Understanding the three essential blood markers for accurate diagnosis, immunity verification, and exposure history in Bangalore.",
-    "badge": "P0 Core Serology Master",
+    "badge": "Core Serology Master",
     "overview": [
       "Hepatitis B virus (HBV) is a blood-borne and sexually transmitted virus that is roughly 50 to 100 times more infectious than HIV. Sexual transmission occurs readily through blood, semen, and vaginal fluids.",
       "A widespread clinical shortcoming is ordering only Hepatitis B Surface Antigen (HBsAg). While HBsAg identifies active infection, it cannot evaluate whether you have protective immunity from vaccination, nor can it detect past resolved infections or the 'core window' period.",
@@ -1559,7 +1559,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "NABL-accredited Hepatitis C testing in Bengaluru. 4th Gen Anti-HCV chemiluminescent antibody screening with reflex quantitative HCV RNA PCR confirmation.",
     "h1": "Hepatitis C Testing in Bangalore: Screening & Viral Load",
     "subtitle": "Accurate serological screening and molecular confirmation for Hepatitis C. Understanding antibody window periods, transmission routes, and curative antiviral therapies.",
-    "badge": "P1 Blood-Borne Serology",
+    "badge": "Blood-Borne Serology",
     "overview": [
       "Hepatitis C virus (HCV) is a blood-borne virus that causes acute and chronic hepatitis, potentially leading to liver cirrhosis and hepatocellular carcinoma if left untreated.",
       "While primarily transmitted through blood-to-blood contact (such as unsterile needles, medical procedures, or tattooing), sexual transmission of HCV occurs, particularly among men who have sex with men (MSM), individuals with multiple partners, or when mucosal trauma or concurrent ulcer disease is present.",
@@ -1637,7 +1637,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Evidence-based Genital Herpes testing in Bengaluru. Active lesion swab Real-Time PCR, type-specific HSV-1 & HSV-2 IgG serology, and why IgM is clinically discouraged.",
     "h1": "Genital Herpes Testing: HSV-1 & HSV-2 Diagnosis",
     "subtitle": "Accurate molecular swab PCR and type-specific IgG serology. Why CDC guidelines discourage routine IgM testing and how to obtain definitive clarity in Bangalore.",
-    "badge": "P1 Molecular & Serology",
+    "badge": "Molecular & Serology",
     "overview": [
       "Genital herpes is caused by two related viruses: Herpes Simplex Virus Type 1 (HSV-1, historically associated with oral cold sores but now a leading cause of genital herpes due to oral sex) and Herpes Simplex Virus Type 2 (HSV-2, primarily genital).",
       "The gold standard for diagnosing an active blister, sore, or ulcer is Real-Time DNA PCR from a lesion swab. PCR is up to five times more sensitive than viral culture and differentiates HSV-1 from HSV-2.",
@@ -1707,7 +1707,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "High-Risk HPV DNA testing and PCR genotyping in Bengaluru. Detects oncogenic HPV 16, 18 and high-risk subtypes for cervical cancer prevention and genital wart evaluation.",
     "h1": "High-Risk HPV DNA PCR Testing & Genotyping in Bangalore",
     "subtitle": "Advanced molecular screening for Human Papillomavirus. Identifying oncogenic high-risk genotypes 16 and 18 for cervical cancer prevention and wart management.",
-    "badge": "P1 Molecular Screening",
+    "badge": "Molecular Screening",
     "overview": [
       "Human Papillomavirus (HPV) is the most common sexually transmitted infection worldwide. Over 100 strains exist, broadly categorized into High-Risk (oncogenic) and Low-Risk (non-oncogenic) types.",
       "High-risk HPV types (predominantly 16 and 18, along with 31, 33, 45, 52, 58) are the primary cause of cervical cancer, anal cancer, and oropharyngeal cancers. These high-risk strains do NOT cause visible genital warts; they cause silent cellular dysplasia.",
@@ -1777,7 +1777,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Accurate Trichomonas vaginalis testing in Bengaluru. High-sensitivity Real-Time PCR NAAT vs traditional wet mount microscopy for persistent discharge and irritation.",
     "h1": "Trichomonas vaginalis: Molecular NAAT vs Microscopy",
     "subtitle": "Definitive diagnosis for one of the most common yet underdiagnosed non-viral STIs. Overcoming the 50% false-negative rate of saline wet mount microscopy with PCR.",
-    "badge": "P1 Targeted Parasitology",
+    "badge": "Targeted Parasitology",
     "overview": [
       "Trichomonas vaginalis is a motile parasitic protozoan that infects the urogenital tract. Despite being one of the most widespread curable STIs worldwide, it is frequently missed during routine clinical checkups.",
       "In women, symptoms include frothy, greenish-yellow vaginal discharge, foul odor, vulvar irritation, and 'strawberry cervix' (punctate cervical hemorrhages). In men, Trichomonas infects the urethra and prostate, but over 70% of men have zero symptoms and unknowingly transmit the parasite.",
@@ -1855,7 +1855,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Advanced diagnostic evaluation for persistent, recurrent, or treatment-resistant urethritis in Bengaluru. Mycoplasma genitalium, Ureaplasma & macrolide resistance testing.",
     "h1": "Persistent & Recurrent Urethritis: Advanced Testing",
     "subtitle": "When standard antibiotics fail to cure burning urination. Investigating Mycoplasma genitalium, Ureaplasma urealyticum, and antibiotic resistance in Bangalore.",
-    "badge": "P1 Complex Diagnostics",
+    "badge": "Complex Diagnostics",
     "overview": [
       "Experiencing persistent or recurrent urethral burning, tingling, or clear discharge after completing standard courses of antibiotics (such as azithromycin, doxycycline, or cefixime) is a frustrating and alarming clinical dilemma.",
       "In many cases, this is caused by Mycoplasma genitalium (Mgen), a fastidious bacterium that lacks a cell wall (making beta-lactam antibiotics useless) and has developed widespread resistance to macrolide antibiotics like azithromycin.",
@@ -1933,7 +1933,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Clinical diagnosis for lesser-known genital conditions in Bengaluru: Ureaplasma parvum, Mycoplasma hominis, candidal balanitis, molluscum contagiosum & commensal flora.",
     "h1": "Other Genital Infections: Ureaplasma, Balanitis & Molluscum",
     "subtitle": "Differentiating commensal colonization from true pathogens. Evidence-based evaluation of Ureaplasma, non-specific balanoposthitis, and viral molluscum lesions.",
-    "badge": "P2 Specialized Assessment",
+    "badge": "Specialized Assessment",
     "overview": [
       "Not all genital discomfort or unusual lesions fall neatly into standard categories like Gonorrhea, Chlamydia, or Syphilis. A variety of other microbial organisms and viral dermatoses affect the genital region.",
       "Organisms such as Ureaplasma parvum and Mycoplasma hominis frequently colonize the genital tract as harmless commensal flora. Routine treatment is often unnecessary unless high bacterial loads cause clinical urethritis, bacterial vaginosis synergy, or reproductive complications.",
@@ -2011,7 +2011,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Step-by-step instructions for collecting STI samples: first-catch urine, throat swabs, rectal swabs & blood draws. Essential pre-test guidelines under NABL standards.",
     "h1": "STI Sample Collection Guide: Preparation & Protocols",
     "subtitle": "Accurate lab results start with proper sample collection. Detailed instructions for first-catch urine, self-swabs, and blood draws under ISO 15189:2022 standards.",
-    "badge": "P1 Pre-Analytical Quality",
+    "badge": "Pre-Analytical Quality",
     "overview": [
       "In diagnostic medicine, pre-analytical sample quality dictates diagnostic accuracy. An assay with 99.9% analytical sensitivity will yield a false-negative result if the biological specimen is collected incorrectly.",
       "For sexually transmitted infections, sample collection requires precise protocols: first-catch urine (the very first 20\u201330 mL containing desquamated urethral epithelial cells) is completely different from a standard midstream urine culture.",
@@ -2081,7 +2081,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "When to test for STIs after taking antibiotics. Understand false-negative risks, non-viable dead DNA detection, and recommended test-of-cure intervals in Bengaluru.",
     "h1": "STI Testing After Antibiotics: Timing & Test-of-Cure",
     "subtitle": "Navigating the complexities of testing post-antibiotic therapy. Why testing too early causes false negatives or dead-DNA false positives, and when to re-test.",
-    "badge": "P2 Clinical Guidance",
+    "badge": "Clinical Guidance",
     "overview": [
       "Taking antibiotics\u2014whether appropriately prescribed or self-administered\u2014dramatically alters laboratory diagnostic findings.",
       "Antibiotics rapidly suppress bacterial replication, causing conventional bacterial cultures to become falsely negative within hours. Conversely, highly sensitive Real-Time PCR tests detect microbial DNA fragments, which can persist in dead, non-viable bacterial debris for 3 to 4 weeks after successful cure, leading to false-positive PCR results.",
@@ -2151,7 +2151,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "What to do when all STI tests are negative but symptoms like burning, pain or discharge persist. Evaluating Chronic Pelvic Pain Syndrome (CPPS), pelvic floor dysfunction & non-infectious causes.",
     "h1": "Negative STI Tests but Persistent Symptoms: What Next?",
     "subtitle": "Navigating unexplained burning, pelvic ache, and irritation after repeated negative lab results. Differentiating infectious resistance from non-infectious pelvic syndromes.",
-    "badge": "P1 Specialist Pathway",
+    "badge": "Specialist Pathway",
     "overview": [
       "One of the most distressing clinical experiences is having ongoing symptoms\u2014such as urethral burning, genital irritation, testicular ache, or pelvic heaviness\u2014while every laboratory test returns completely negative.",
       "When high-sensitivity PCR and serological panels repeatedly show no evidence of infection, the cause is frequently non-infectious. In men, up to 90% of chronic prostatitis cases are non-bacterial, classified as Chronic Pelvic Pain Syndrome (CPPS) or chronic non-inflammatory pelvic floor dysfunction.",
@@ -2221,7 +2221,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "How to read and understand STI lab reports in Bengaluru. Deciphering non-reactive, reactive, equivocal, antibody titers, and PCR 'Not Detected' results under NABL standards.",
     "h1": "How to Read & Understand Your STI Test Results",
     "subtitle": "Clear, physician-led explanations of diagnostic terminology. What 'Non-Reactive', 'Cutoff Ratios', 'Titers', and 'DNA Not Detected' mean for your health.",
-    "badge": "P1 Patient Education",
+    "badge": "Patient Education",
     "overview": [
       "Receiving a laboratory report containing unfamiliar medical jargon, mathematical ratios, and technical reference intervals can be confusing and intimidating.",
       "Understanding the fundamental difference between qualitative serology ('Non-Reactive' vs 'Reactive'), quantitative antibody titers (such as RPR 1:16), and molecular genetic reporting ('Target DNA Not Detected') allows you to interpret your results accurately.",
@@ -2291,7 +2291,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Comprehensive pre-marital and new relationship STI screening for couples in Bengaluru. Synchronous dual testing, window period planning & mutual reproductive peace of mind.",
     "h1": "Couples STI Screening: Pre-Marital & Relationship Panels",
     "subtitle": "Building intimate partnerships on mutual trust and transparent clinical health. Pre-marital and relationship screening panels for couples in Bangalore.",
-    "badge": "P2 Relationship Health",
+    "badge": "Relationship Health",
     "overview": [
       "Entering a new relationship, preparing for marriage, or deciding to discontinue barrier protection (condoms) is an important relationship milestone. Proactively screening together ensures both partners protect each other and their future reproductive health.",
       "Because many sexually transmitted infections\u2014including Chlamydia, Gonorrhea, high-risk HPV, and Hepatitis B\u2014remain completely asymptomatic for years, past relationships can leave unrecognized dormant infections.",
@@ -2361,7 +2361,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Essential antenatal STI screening during pregnancy in Bengaluru. Preventing mother-to-child vertical transmission of HIV, Syphilis, Hepatitis B & Chlamydia.",
     "h1": "Pregnancy & STI Testing: Protecting Mother & Baby",
     "subtitle": "Comprehensive antenatal screening to eliminate vertical transmission. Protecting maternal health, pregnancy viability, and neonatal development in Bangalore.",
-    "badge": "P1 Maternal-Fetal Health",
+    "badge": "Maternal-Fetal Health",
     "overview": [
       "Screening for sexually transmitted infections is an indispensable component of comprehensive antenatal care. Undiagnosed STIs pose severe risks to fetal development, pregnancy viability, and neonatal survival.",
       "Mother-to-child transmission (MTCT) can occur transplacentally during pregnancy (such as Congenital Syphilis or HIV), during labor and delivery through infected birth canals (such as Hepatitis B, Gonorrhea, and Chlamydia causing neonatal ophthalmia and pneumonia), or postpartum via breast milk.",
@@ -2431,7 +2431,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "How untreated STIs cause female and male infertility in Bengaluru. Understand Pelvic Inflammatory Disease (PID), fallopian tube scarring & sperm quality impairment.",
     "h1": "STIs & Infertility: Protecting Reproductive Potential",
     "subtitle": "How silent, untreated infections impact fallopian tubes, ovaries, and sperm parameters. Early molecular detection to preserve reproductive health in Bangalore.",
-    "badge": "P2 Reproductive Endocrinology",
+    "badge": "Reproductive Endocrinology",
     "overview": [
       "Sexually transmitted infections are one of the leading preventable causes of involuntary infertility worldwide. Because infections like Chlamydia and Gonorrhea often cause zero immediate symptoms, they can silently ascend into the upper reproductive tract.",
       "In women, untreated chlamydia or gonorrhea can cause Pelvic Inflammatory Disease (PID). PID causes subclinical scarring and adhesions of the delicate fallopian tube cilia, leading to tubal occlusion, hydrosalpinx, chronic pelvic pain, and up to a sixfold increase in life-threatening ectopic pregnancies.",
@@ -2509,7 +2509,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Urgent medical support and emergency triage for acute sexual health concerns in Bengaluru. 72-hour PEP guidance, acute testicular pain, emergency referrals & crisis helpline.",
     "h1": "Urgent Sexual Health Support & Emergency Triage in Bangalore",
     "subtitle": "Immediate clinical triage for acute exposures and severe symptoms. Understanding the 72-hour PEP window, acute urological red flags, and confidential helpline support.",
-    "badge": "P0 Emergency Triage",
+    "badge": "Emergency Triage",
     "showPepBanner": true,
     "emergencyNotice": {
       "title": "Acute Medical Red Flags",
@@ -2580,16 +2580,16 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "slug": "confidential-sti-testing-bangalore",
     "priority": "P0",
     "category": "Access, Pricing & Care",
-    "title": "100% Confidential STI Testing Bangalore | Barcode Privacy | QXL",
-    "seoTitle": "Confidential STI Testing Bangalore | Complete Privacy Guarantee | QXL",
+    "title": "Confidential STI Testing Bangalore | Barcode Privacy | QXL",
+    "seoTitle": "Confidential STI Testing in Bangalore | Discreet Home Collection | QXL",
     "description": "Completely confidential, non-judgmental STI testing in Bengaluru. Barcode-anonymized samples, discreet home collection, encrypted PDF reports under NABL standards.",
-    "h1": "100% Confidential STI & Sexual Health Testing in Bangalore",
-    "subtitle": "Zero stigma, absolute privacy, and encrypted data delivery. How QXL Diagnostics protects your identity, personal information, and diagnostic results under ISO 15189:2022.",
-    "badge": "P0 Privacy Guarantee",
+    "h1": "Confidential STI & Sexual Health Testing in Bangalore",
+    "subtitle": "Non-judgemental care, privacy safeguards and encrypted report delivery. How QXL Diagnostics protects your identity, personal information, and diagnostic results under ISO 15189:2022.",
+    "badge": "Confidential Testing",
     "overview": [
       "We recognize that fear of stigma, embarrassment, or concerns about privacy are the single greatest barriers preventing individuals from seeking timely sexual health diagnostics.",
       "At QXL Diagnostics, patient confidentiality is built into every layer of our laboratory workflow. From numeric barcode registration that strips personal identifying details from sample tubes to plain-clothes phlebotomy specialists who arrive at your doorstep in unmarked transport, your privacy is safeguarded.",
-      "All diagnostic reports are password-protected, encrypted with enterprise-grade security, and transmitted directly to your personal WhatsApp or secure email portal. No test names are ever mentioned during telephone confirmations."
+      "All diagnostic reports are password-protected, encrypted with enterprise-grade security, and transmitted directly to your personal WhatsApp or secure email portal. Our team does not name the test during telephone confirmations."
     ],
     "keyTakeaways": [
       "Barcoded samples: Laboratory technicians process samples identified only by alphanumeric barcodes.",
@@ -2655,7 +2655,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Complete 2026 price list for STI testing in Bengaluru. Individual test costs (HIV \u20b9945, PCR \u20b91,999, Syphilis \u20b9750) and discounted comprehensive packages. No hidden fees.",
     "h1": "STI Test Cost in Bangalore: Complete 2026 Price Catalogue",
     "subtitle": "100% transparent diagnostic pricing. From individual automated assays to comprehensive multi-pathogen screening packages across our NABL-accredited Bangalore laboratories.",
-    "badge": "P0 Pricing Transparency",
+    "badge": "Pricing Transparency",
     "overview": [
       "Diagnostic pricing should never be ambiguous or concealed behind vague inquiry forms. At QXL Diagnostics, we publish transparent, fixed prices for all individual tests and bundled sexual health profiles.",
       "Whether you need an individual 4th-generation HIV Duo test, an extragenital throat swab NAAT, or an all-inclusive 10-pathogen screening package, our prices reflect high-throughput automation on advanced analyzers without inflated hospital markups.",
@@ -2758,7 +2758,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Safe, confidential home sample collection for STI tests across 60+ Bengaluru localities. Trained phlebotomists, temperature-controlled cold chain, plain-clothes option.",
     "h1": "Discreet STI Home Sample Collection in Bangalore",
     "subtitle": "Professional diagnostic phlebotomy and sample collection in the comfort and privacy of your home. Covering 60+ Bengaluru localities with cold-chain sample logistics.",
-    "badge": "P1 Service Delivery",
+    "badge": "Service Delivery",
     "overview": [
       "We understand that visiting a diagnostic laboratory or clinic for sexual health testing can feel stressful or inconvenient. Our dedicated home sample collection service brings accredited laboratory care directly to your residence.",
       "Our certified, trained phlebotomy specialists operate with strict clinical rigor: using single-use vacuum collection needles, observing antiseptic skin preparation, and transporting specimens in validated 2\u00b0C\u20138\u00b0C cold-chain transport boxes to preserve sample stability across Bengaluru traffic.",
@@ -2828,7 +2828,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Evidence-based transmission risks for non-penetrative sex: deep kissing, genital rubbing (frottage), and skin-to-skin intimate contact. When testing is indicated.",
     "h1": "STI Risk from Kissing, Genital Rubbing & Skin Contact",
     "subtitle": "Clinical reality vs panic. Understanding the transmission risks of non-penetrative intimacy, deep french kissing, skin-to-skin contact, and frottage in Bangalore.",
-    "badge": "P2 Transmission Science",
+    "badge": "Transmission Science",
     "overview": [
       "Patients frequently experience significant anxiety after non-penetrative sexual encounters, such as passionate deep kissing, mutual masturbation, genital rubbing without penetration ('dry humping' or frottage), or oral-to-breast contact.",
       "From an infectious disease perspective, these activities carry vastly different risk profiles compared to unbarriered penetrative sex. Deep kissing carries virtually ZERO risk of HIV transmission (saliva contains viral inhibitors and insufficient viral particles) and negligible risk for Chlamydia or Gonorrhea.",
@@ -2898,7 +2898,7 @@ export const SEXUAL_HEALTH_LANDING_PAGES: SexualHealthLandingPage[] = [
     "description": "Affirming, confidential sexual health testing for LGBTQIA+, MSM, and transgender individuals in Bengaluru. 3-site extragenital screening, PrEP monitoring & zero judgment.",
     "h1": "Inclusive & Affirming Sexual Health Testing in Bangalore",
     "subtitle": "Healthcare guided by dignity, clinical excellence, and zero judgment. Comprehensive 3-site extragenital screening and affirmative care for all sexual orientations and gender identities.",
-    "badge": "P2 Affirming Care",
+    "badge": "Affirming Care",
     "overview": [
       "Every individual deserves compassionate, dignified, and scientifically rigorous healthcare. For many LGBTQIA+ individuals, men who have sex with men (MSM), and transgender persons, healthcare settings have historically been associated with stigma or awkward interactions.",
       "At QXL Diagnostics, we practice an Anatomical Inventory Approach: diagnostic testing is guided entirely by your anatomy, sexual practices, and potential exposure sites\u2014not by societal labels or assumptions.",

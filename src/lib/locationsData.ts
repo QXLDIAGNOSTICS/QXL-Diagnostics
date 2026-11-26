@@ -1,3 +1,4 @@
+import { getServiceablePincodes } from "./serviceabilityMaster";
 export interface HomeCollectionArea {
   id: string;
   name: string;
@@ -15,7 +16,8 @@ export const homeCollectionAreas: HomeCollectionArea[] = [
     slug: "bengaluru",
     nearestLab: "QXL Central NABL Processing Laboratory",
     description: "QXL Diagnostics provides scheduled and hygienic home blood sample collection across eligible PIN codes in Bengaluru. Check your pincode during booking to confirm availability, applicable collection charge, and same-day digital reports.",
-    pincodes: ["560001", "560002", "560004", "560011", "560024", "560037", "560060", "560064", "560066", "560100"],
+    // Every eligible PIN from the serviceability master (the booking source of truth).
+    pincodes: getServiceablePincodes().sort(),
     popularTests: ["Full Body Health Check", "Complete Blood Count (CBC)", "HbA1c & Fasting Sugar", "Lipid Profile", "Thyroid Profile (T3, T4, TSH)"]
   },
   {

@@ -107,6 +107,7 @@ export interface SeoLandingData {
   reviewerSlug?: string;
   reviewerQuals?: string;
   publishedDate?: string;
+  /** @deprecated Ignored. Review dates come only from src/lib/medicalReviews.ts. */
   lastReviewedDate?: string;
   references?: string[];
 }

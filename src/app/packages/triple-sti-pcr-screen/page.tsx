@@ -107,7 +107,7 @@ export default function TripleStiPcrPackagePage() {
           </p>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/packages/triple-sti-pcr-screen" />
         <SexualHealthNav currentPath="/packages/triple-sti-pcr-screen" />
       </main>
     </div>

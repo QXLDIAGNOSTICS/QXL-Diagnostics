@@ -181,7 +181,7 @@ export default function SexualHealthPackagesPage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/sexual-health/packages" />
         <SexualHealthNav currentPath="/sexual-health/packages" />
       </main>
     </div>

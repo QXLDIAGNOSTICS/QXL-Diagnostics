@@ -5,6 +5,7 @@ import { excel100TestsData } from './excel100TestsData';
 import { cms100MasterData } from './cms100MasterData';
 import { advancedDiagnosticTestsData } from './advancedDiagnosticTestsData';
 import { MASTER_CATALOGUE } from '../masterCatalogue';
+import { formatINR, RUPEE_AMOUNT } from '../formatINR';
 
 export interface ReferenceRange {
   label: string;
@@ -1455,12 +1456,16 @@ function syncWithMasterCatalogueData(data: DynamicPageData, cleanSlug: string): 
     let title = data.title;
     let metaDescription = data.metaDescription;
 
+    // Match the whole grouped amount ("₹1,249"); matching only \d+ left "₹1249,249" in titles.
+    const price = formatINR(masterMatch.price);
+    const pricePattern = new RegExp(`Price\\s*${RUPEE_AMOUNT}`, 'gi');
+    const startingPattern = new RegExp(`starting at\\s*${RUPEE_AMOUNT}`, 'gi');
     if (title) {
-      title = title.replace(/Price\s*₹?\s*\d+/gi, `Price ₹${masterMatch.price}`);
+      title = title.replace(pricePattern, `Price ${price}`);
     }
     if (metaDescription) {
-      metaDescription = metaDescription.replace(/starting at\s*₹?\s*\d+/gi, `starting at ₹${masterMatch.price}`);
-      metaDescription = metaDescription.replace(/Price\s*₹?\s*\d+/gi, `Price ₹${masterMatch.price}`);
+      metaDescription = metaDescription.replace(startingPattern, `starting at ${price}`);
+      metaDescription = metaDescription.replace(pricePattern, `Price ${price}`);
     }
 
     return {

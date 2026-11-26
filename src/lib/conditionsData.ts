@@ -1,3 +1,5 @@
+import { findMasterBySlug, nameMatchesMaster } from "./masterCatalogue";
+
 export interface ConditionItem {
   slug: string;
   title: string;
@@ -11,7 +13,7 @@ export interface ConditionItem {
   faqs: { question: string; answer: string }[];
 }
 
-export const CONDITIONS_DATA: Record<string, ConditionItem> = {
+const RAW_CONDITIONS_DATA: Record<string, ConditionItem> = {
   "diabetes-testing": {
     slug: "diabetes-testing",
     title: "Diabetes Blood Tests & Diagnostic Screening Bangalore | QXL",
@@ -122,8 +124,8 @@ export const CONDITIONS_DATA: Record<string, ConditionItem> = {
     recommendedTests: [
       { name: "Thyroid Function Test (TFT - T3, T4, TSH)", slug: "thyroid-test", price: "500", description: "Comprehensive 3-parameter thyroid hormonal profile." },
       { name: "TSH (Thyroid Stimulating Hormone)", slug: "tsh-test-bangalore", price: "350", description: "First-line screening marker for hypothyroid or hyperthyroid states." },
-      { name: "Free T3 & Free T4", slug: "thyroid-test", price: "700", description: "Direct measure of active unbound circulating thyroid hormones." },
-      { name: "Anti-TPO Autoantibody Test", slug: "thyroid-test", price: "750", description: "Detects autoimmune Hashimoto's thyroiditis." }
+      { name: "Thyroid Profile Free (FT3, FT4, TSH)", slug: "book?test=thyroid-profile-free", price: "750", description: "Direct measure of active unbound circulating thyroid hormones with TSH." },
+      { name: "Anti-TPO Autoantibody Test", slug: "thyroid-peroxidase-antibody", price: "1290", description: "Detects autoimmune Hashimoto's thyroiditis." }
     ],
     overview: [
       "The thyroid gland regulates basal metabolic rate, energy expenditure, protein synthesis, and hormone sensitivity throughout the body.",
@@ -260,7 +262,7 @@ export const CONDITIONS_DATA: Record<string, ConditionItem> = {
       { name: "Total & Free Testosterone", slug: "tests/testosterone-test-bangalore", price: "600", description: "Measures circulating androgen levels responsible for hirsutism, acne, and ovulatory arrest." },
       { name: "Anti-Müllerian Hormone (AMH)", slug: "tests/amh-test-bangalore", price: "1600", description: "Evaluates ovarian antral follicle reserve; elevated AMH is a classic biomarker of polycystic ovaries." },
       { name: "Fasting Insulin & HOMA-IR", slug: "tests/homa-ir-test-bangalore", price: "650", description: "Detects underlying hyperinsulinaemia and cellular insulin resistance that drives ovarian androgen overproduction." },
-      { name: "Thyroid Stimulating Hormone (TSH)", slug: "thyroid-test", price: "250", description: "Rules out concurrent subclinical hypothyroidism which mimics PCOS menstrual irregularity." }
+      { name: "Thyroid Stimulating Hormone (TSH)", slug: "tsh-test-bangalore", price: "180", description: "Rules out concurrent subclinical hypothyroidism which mimics PCOS menstrual irregularity." }
     ],
     overview: [
       "Polycystic Ovary Syndrome (PCOS) is a complex neuro-endocrine and metabolic disorder affecting an estimated 1 in 5 women of reproductive age in Bengaluru.",
@@ -439,3 +441,21 @@ export const CONDITIONS_DATA: Record<string, ConditionItem> = {
     ]
   }
 };
+
+/**
+ * Recommended-test prices always come from MASTER_CATALOGUE so condition pages,
+ * test pages, booking and llms.txt cannot drift apart. A price is only replaced when
+ * the card's name matches the catalogue item behind its link; otherwise it is kept.
+ */
+export const CONDITIONS_DATA: Record<string, ConditionItem> = Object.fromEntries(
+  Object.entries(RAW_CONDITIONS_DATA).map(([key, condition]) => [
+    key,
+    {
+      ...condition,
+      recommendedTests: condition.recommendedTests.map((test) => {
+        const master = findMasterBySlug(test.slug);
+        return master && nameMatchesMaster(test.name, master) ? { ...test, price: String(master.price) } : test;
+      }),
+    },
+  ])
+);

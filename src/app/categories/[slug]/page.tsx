@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { findMasterBySlug, nameMatchesMaster } from '@/lib/masterCatalogue';
 import { ShieldCheck, CheckCircle2, ArrowRight, Activity, Heart, Users, Sparkles, FileText, Plus } from 'lucide-react';
 
 interface CategoryData {
@@ -29,6 +30,12 @@ interface CategoryData {
     originalPrice: number;
     slug: string;
   }[];
+}
+
+/** Displayed prices always come from MASTER_CATALOGUE (the booking source of truth). */
+function withMasterPrice(test: CategoryData['popularTests'][number]) {
+  const master = findMasterBySlug(test.slug);
+  return master && nameMatchesMaster(test.name, master) ? { ...test, price: master.price, originalPrice: master.mrp } : test;
 }
 
 const CATEGORIES_DATA: Record<string, CategoryData> = {
@@ -359,7 +366,7 @@ export default async function CategoryPage({ params }: Props) {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {category.popularTests.map((test, idx) => (
+            {category.popularTests.map(withMasterPrice).map((test, idx) => (
               <div
                 key={idx}
                 className="bg-white border border-slate-200/90 rounded-2xl p-4 flex flex-col justify-between hover:border-[#2563EB] transition-all shadow-2xs"

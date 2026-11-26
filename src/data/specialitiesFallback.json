@@ -363,7 +363,7 @@
     "Adrenal and cortisol assessment"
    ],
    "packages": [
-    "Thyroid Profile ₹640",
+    "Thyroid Profile Total (T3, T4, TSH) ₹350",
     "Complete Hormonal Panel ₹5,200"
    ]
   },
@@ -995,7 +995,7 @@
   "card_image_url": "https://res.cloudinary.com/btjglif5/image/upload/f_auto,q_auto/v1784150423/Assets-QXL/legacy-assets/image/spec_neurology.png",
   "hero_image_url": "https://res.cloudinary.com/btjglif5/image/upload/v1793559890/Assets-QXL/specialities/neurology-hero.jpg",
   "hero_title": "Advanced Neurology & Autoimmune Neurology Testing in Bengaluru",
-  "hero_description": "Neuropathy panels, autoimmune encephalitis workup, CSF analysis, myasthenia gravis testing, and paraneoplastic antibody profiling — with expert-reviewed reports and home sample collection.",
+  "hero_description": "Neuropathy panels, autoimmune encephalitis workup, CSF analysis, myasthenia gravis testing, and paraneoplastic antibody profiling — with expert-reviewed reports. Home collection is available for blood (serum) tests; CSF must be collected by a neurologist or intensivist in a clinical setting.",
   "intro": "QXL Diagnostics offers advanced neurology diagnostic testing for clinicians managing complex neurological disorders. Our panels cover autoimmune encephalitis, peripheral neuropathy, myasthenia gravis, multiple sclerosis support, NMO/MOG spectrum disease, and neuro-infectious conditions — all with consultant-reviewed reports.",
   "who_should_take": [
    "Patients with unexplained encephalopathy, seizures, or psychiatric symptoms",
@@ -1134,11 +1134,11 @@
    }
   ],
   "cta_title": "Book Your Neurology Profile Today",
-  "cta_text": "Home collection available. Doctor referral required for CSF-based tests. Reports reviewed by consultant pathologist.",
+  "cta_text": "Home collection is available for blood-based tests only. CSF specimens must be collected by a neurologist or intensivist (lumbar puncture) and sent to the laboratory with a referral. Reports reviewed by consultant pathologist.",
   "help_title": "Need help with neurology testing?",
   "help_text": "Our consultants are available for guidance on panel selection and result interpretation.",
-  "seo_title": "Neurology Testing: Autoimmune Neurology & Neuropathy Panels",
-  "seo_description": "Neuropathy panels, autoimmune encephalitis workup, CSF analysis, myasthenia gravis testing, and paraneoplastic antibody profiling in Bengaluru — expert-reviewed reports with home sample collection.",
+  "seo_title": "Autoimmune Neurology & CSF Diagnostic Testing | QXL",
+  "seo_description": "Neuropathy panels, autoimmune encephalitis workup, CSF analysis, myasthenia gravis testing, and paraneoplastic antibody profiling in Bengaluru. Home blood collection; CSF collected by your neurologist.",
   "is_active": true,
   "sort_order": 7,
   "id": "aba34c1d-d519-46ec-adc9-4fd177dc0e21",

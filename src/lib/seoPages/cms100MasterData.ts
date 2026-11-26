@@ -538,13 +538,13 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
   },
   "thyroid-profile": {
     "slug": "thyroid-profile",
-    "title": "Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) Test in Bangalore | Price ₹310, Normal Range | QXL",
-    "metaDescription": "Book Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹310. No fasting required. 6 Hours.",
+    "title": "Thyroid Profile Total (T3, T4, TSH) Test in Bangalore | Price ₹350, Normal Range | QXL",
+    "metaDescription": "Book Thyroid Profile Total (T3, T4, TSH) test at home in Bangalore. NABL Accredited precision, same-day reports, starting at ₹350. No fasting required. 6 Hours.",
     "badge": "NABL ACCREDITED SUPER SPECIALITY LAB (NABLM1126KA10694) · FREE HOME COLLECTION",
-    "h1Title": "Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) Test in Bangalore",
-    "subtitle": "High-precision Thyroid Profile (TSH, Free T4 and Free T3) assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
-    "price": "310",
-    "oldPrice": "449",
+    "h1Title": "Thyroid Profile Total (T3, T4, TSH) Test in Bangalore",
+    "subtitle": "High-precision Thyroid Profile Total (T3, T4, TSH) assay accredited under ISO 15189:2022 standards. No fasting required. Reports within 6 Hours.",
+    "price": "350",
+    "oldPrice": "550",
     "discountPercent": "30% OFF",
     "parametersCount": "Complete Clinical Panel",
     "sampleType": "Serum",
@@ -552,14 +552,14 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "turnaroundTime": "6 Hours",
     "category": "Endocrinology",
     "overview": [
-      "The Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) is an essential diagnostic laboratory investigation performed in the Endocrinology department at QXL Diagnostics, Bengaluru.",
+      "The Thyroid Profile Total (T3, T4, TSH) is an essential diagnostic laboratory investigation performed in the Endocrinology department at QXL Diagnostics, Bengaluru.",
       "Conducted inside our NABL Accredited central super speciality laboratory using automated analyzers, this test complies strictly with ISO 15189:2022 quality standards.",
       "It provides actionable quantitative data for early subclinical screening, disease staging, and evaluating response to medical treatment.",
       "Blood or fluid specimens are collected using single-use vacuum collection tubes by trained phlebotomists and transported under cold-chain conditions.",
       "Every result undergoes automated dual-level internal quality control (IQC) and pathologist sign-off by Dr. Shantakumar Muruda, MD."
     ],
     "parametersList": [
-      "Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) Quantitative Assay Level",
+      "Thyroid Profile Total (T3, T4, TSH) Quantitative Assay Level",
       "Age- and Sex-Stratified Normal Reference Interval",
       "Clinical Alert Flags & Out-of-Range Highlights",
       "Preanalytical Hemolysis & Lipemia Quality Index",
@@ -585,43 +585,43 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     ],
     "faqs": [
       {
-        "question": "What is the Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) test?",
-        "answer": "The Thyroid Profile (TSH, Free T4 and Free T3) (Thyroid Profile) is an essential clinical investigation in the Endocrinology department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
+        "question": "What is the Thyroid Profile Total (T3, T4, TSH) test?",
+        "answer": "The Thyroid Profile Total (T3, T4, TSH) is an essential clinical investigation in the Endocrinology department at QXL Diagnostics, Bengaluru. It measures circulating biomarkers to assess organ function and overall biological health."
       },
       {
-        "question": "Why has my doctor recommended a Thyroid Profile (TSH, Free T4 and Free T3) test?",
+        "question": "Why has my doctor recommended a Thyroid Profile Total (T3, T4, TSH) test?",
         "answer": "Your physician ordered this test to evaluate thyroid profile (tsh, free t4 and free t3), detect underlying health issues early, and guide targeted medical treatment."
       },
       {
-        "question": "What fasting or preparation is required for Thyroid Profile (TSH, Free T4 and Free T3)?",
+        "question": "What fasting or preparation is required for Thyroid Profile Total (T3, T4, TSH)?",
         "answer": "No fasting required. Only plain water is permitted during fasting windows. Inform the phlebotomist about any ongoing prescription medicines or vitamin supplements."
       },
       {
-        "question": "How is the sample collected for Thyroid Profile (TSH, Free T4 and Free T3)?",
+        "question": "How is the sample collected for Thyroid Profile Total (T3, T4, TSH)?",
         "answer": "A certified QXL phlebotomist collects a specimen of Serum using a sterile, barcoded vacuum tube and transports it in a temperature-monitored cold box."
       },
       {
-        "question": "How fast will I get my official report for Thyroid Profile (TSH, Free T4 and Free T3)?",
-        "answer": "Verified digital PDF reports for Thyroid Profile (TSH, Free T4 and Free T3) are delivered within 6 Hours of sample receipt via WhatsApp and Email."
+        "question": "How fast will I get my official report for Thyroid Profile Total (T3, T4, TSH)?",
+        "answer": "Verified digital PDF reports for Thyroid Profile Total (T3, T4, TSH) are delivered within 6 Hours of sample receipt via WhatsApp and Email."
       },
       {
-        "question": "Can I book home sample collection for Thyroid Profile (TSH, Free T4 and Free T3) in Bangalore?",
+        "question": "Can I book home sample collection for Thyroid Profile Total (T3, T4, TSH) in Bangalore?",
         "answer": "Yes! QXL Diagnostics provides free doorstep sample collection across all major Bengaluru areas including Kengeri, RR Nagar, Yelahanka, Whitefield, Koramangala, and HSR Layout."
       },
       {
-        "question": "What factors or medications can interfere with Thyroid Profile (TSH, Free T4 and Free T3) results?",
+        "question": "What factors or medications can interfere with Thyroid Profile Total (T3, T4, TSH) results?",
         "answer": "High-dose Biotin (Vitamin B7), corticosteroids, acute illness, physical stress, and hemolysis can alter baseline readings."
       },
       {
-        "question": "How are abnormal Thyroid Profile (TSH, Free T4 and Free T3) results interpreted?",
+        "question": "How are abnormal Thyroid Profile Total (T3, T4, TSH) results interpreted?",
         "answer": "Out-of-range results represent clinical deviations requiring correlation with your physical symptoms and history by a qualified doctor."
       },
       {
-        "question": "What quality certifications back the Thyroid Profile (TSH, Free T4 and Free T3) test at QXL?",
+        "question": "What quality certifications back the Thyroid Profile Total (T3, T4, TSH) test at QXL?",
         "answer": "All samples are processed at QXL Diagnostics' NABL Accredited Super Speciality Laboratory (NABLM1126KA10694) compliant with ISO 15189:2022 international standards."
       },
       {
-        "question": "How often should I repeat or monitor my Thyroid Profile (TSH, Free T4 and Free T3) test?",
+        "question": "How often should I repeat or monitor my Thyroid Profile Total (T3, T4, TSH) test?",
         "answer": "For routine wellness tracking, annual testing is customary. For condition management, your doctor may recommend testing every 3 to 6 months."
       }
     ],
@@ -632,8 +632,8 @@ export const cms100MasterData: Record<string, DynamicPageData> = {
     "draftCode": "QXL-DRAFT-006",
     "aliases": [
       "Thyroid Profile",
-      "Thyroid Profile (TSH, Free T4 and Free T3) test",
-      "Thyroid Profile (TSH, Free T4 and Free T3) Bangalore",
+      "Thyroid Profile Total (T3, T4, TSH) test",
+      "Thyroid Profile Total (T3, T4, TSH) Bangalore",
       "Thyroid Profile report"
     ],
     "department": "Endocrinology",

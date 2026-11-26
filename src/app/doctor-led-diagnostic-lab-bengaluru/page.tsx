@@ -22,7 +22,7 @@ import { BookingFormWidget } from "../../components/BookingFormWidget";
 import { WHATSAPP_LINK } from "../../lib/businessInfo";
 
 export const metadata: Metadata = {
-  title: "Diagnostic Lab in Bengaluru | NABL Accredited & Doctor-Led | QXL Diagnostics",
+  title: "Doctor-Led Diagnostic Lab in Bengaluru | Pathologist-Reviewed Reports | QXL",
   description: "Discover QXL Diagnostics, a NABL Accredited, doctor-led diagnostic lab in Bengaluru combining advanced technology, quality systems and specialist medical review.",
   keywords: [
     "doctor-led diagnostic lab in Bengaluru",

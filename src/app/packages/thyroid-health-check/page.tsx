@@ -136,10 +136,10 @@ export default function ThyroidHealthCheckPage() {
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <Link
-                href="/book?test=thyroid"
+                href="/book?test=thyroid-profile"
                 className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-black px-6 py-3.5 rounded-full text-xs uppercase tracking-wider shadow-lg transition-all"
               >
-                Book Thyroid Profile (From ₹250)
+                Book Thyroid Profile (₹350)
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a

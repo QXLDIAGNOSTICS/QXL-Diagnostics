@@ -6,7 +6,7 @@ import { NABL_CERTIFICATE, PHONE_DISPLAY, WHATSAPP_LINK } from "@/lib/businessIn
 export const metadata: Metadata = {
   title: "QXL Diagnostic Centres & Hubs | Bengaluru",
   description:
-    "Explore QXL Diagnostics super speciality labs and express collection hubs across Bengaluru. NABL Accredited (NABLM1126KA10694) diagnostics in Kengeri, Yelahanka, and doorstep home collection.",
+    "Explore QXL Diagnostics super speciality labs and express collection hubs across Bengaluru. NABL-accredited laboratories in Kengeri (NABLM1126KA10694) and North Hub, Yelahanka (MC-10025), plus doorstep home collection.",
 };
 
 export default function QXlIndexPage() {

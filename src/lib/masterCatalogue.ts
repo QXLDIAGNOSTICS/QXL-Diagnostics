@@ -160,7 +160,9 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
   // ── THYROID PANEL ─────────────────────────────────────────────────────────
   {
     id: "thyroid-profile",
-    name: "Thyroid Profile (TSH, Free T4 and Free T3)",
+    // ₹350 panel is the TOTAL profile (Total T3, Total T4, TSH): matches testMaster THYROID001
+    // and the ITDOSE catalogue (ITD-IMM-022). The free-hormone panel is "thyroid-profile-free".
+    name: "Thyroid Profile Total (T3, T4, TSH)",
     shortName: "Thyroid Profile",
     category: "Thyroid",
     price: 350,
@@ -174,7 +176,28 @@ export const MASTER_CATALOGUE: MasterCatalogEntry[] = [
     slug: "/thyroid-test",
     icon: "🦋",
     popular: true,
-    aliases: ["thyroid profile", "tsh free t4 free t3", "free thyroid profile", "thyroid profile (tsh, free t4 and free t3)", "tft"],
+    aliases: ["thyroid profile", "thyroid profile total", "total thyroid profile", "t3 t4 tsh", "thyroid function test", "tft"],
+    homeCollectionAvailable: true,
+    kind: "test"
+  },
+  {
+    id: "thyroid-profile-free",
+    // Free-hormone panel, priced per testMaster THYROID002 (₹750, MRP ₹1,200).
+    name: "Thyroid Profile Free (FT3, FT4, TSH)",
+    shortName: "Free Thyroid Profile",
+    category: "Thyroid",
+    price: 750,
+    mrp: 1200,
+    parametersCount: 3,
+    paramText: "3 Parameters",
+    fasting: false,
+    fastingInstruction: "No Fasting Required",
+    sampleType: "Serum",
+    tat: "6 Hours (Same Day)",
+    slug: "/book?test=thyroid-profile-free",
+    icon: "🦋",
+    popular: false,
+    aliases: ["free thyroid profile", "thyroid profile free", "tsh free t4 free t3", "ft3 ft4 tsh", "thyroid profile (tsh, free t4 and free t3)"],
     homeCollectionAvailable: true,
     kind: "test"
   },
@@ -2233,3 +2256,33 @@ export function matchMasterItem(query: string): MasterCatalogEntry | undefined {
 
   return undefined;
 }
+
+const normaliseSlug = (slug: string) =>
+  slug.toLowerCase().replace(/^\/+|\/+$/g, '').replace(/^tests\//, '').replace(/-bangalore$/, '').replace(/-test$/, '');
+
+/**
+ * Strict lookup by page slug ("lipid-profile-test", "/tests/apob-test-bangalore").
+ * Unlike matchMasterItem this never fuzzy-matches names, so a genuinely different
+ * panel is never given another test's price.
+ */
+export function findMasterBySlug(slug: string): MasterCatalogEntry | undefined {
+  const target = normaliseSlug(slug);
+  if (!target) return undefined;
+  return MASTER_CATALOGUE.find((m) => normaliseSlug(m.slug) === target || m.id === target);
+}
+
+const normaliseName = (text: string) => ` ${text.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim()} `;
+
+/**
+ * True when a displayed test name refers to the same catalogue item (its name, short
+ * name or an alias appears as whole words). Guards price syncing: several cards link
+ * to a shared landing page, e.g. a TSH-only card pointing at /thyroid-test.
+ */
+export function nameMatchesMaster(displayName: string, master: MasterCatalogEntry): boolean {
+  const name = normaliseName(displayName);
+  return [master.name, master.shortName, ...master.aliases].some((label) => {
+    const l = normaliseName(label).trim();
+    return l.length > 2 && name.includes(` ${l} `);
+  });
+}
+

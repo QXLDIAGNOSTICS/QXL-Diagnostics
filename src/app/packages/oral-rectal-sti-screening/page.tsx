@@ -116,7 +116,7 @@ export default function OralRectalStiPackagePage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/packages/oral-rectal-sti-screening" />
         <SexualHealthNav currentPath="/packages/oral-rectal-sti-screening" />
       </main>
     </div>

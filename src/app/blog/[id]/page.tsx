@@ -16,7 +16,8 @@ import {
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { defaultBlogs, getDefaultBlogBySlug, getBlogCategory, getReadingTime } from "@/lib/blogsData";
-import { getAutoBlogDate, getCurrentDateFormatted, getCurrentDateIso, SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
+import { getAutoBlogDate, SITE_CONTENT_DATETIME } from "@/lib/dateUtils";
+import { getMedicalReview } from "@/lib/medicalReviews";
 import { extractHeadings, slugifyHeading, getNodeText } from "@/lib/blogUtils";
 import ReadingProgressBar from "@/components/blog/ReadingProgressBar";
 import TableOfContents from "@/components/blog/TableOfContents";
@@ -84,11 +85,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "geo.placename": "Bengaluru",
       "geo.position": "12.9177;77.4835",
       "ICBM": "12.9177, 77.4835",
-      ...((blog as any).review_pending
+      ...(((blog as any).review_pending || !getMedicalReview(`/blog/${blog.slug}`))
         ? {}
         : {
-          "medical-reviewed-by": reviewer,
-          "medical-review-date": (blog as any).date || getCurrentDateFormatted(),
+          "medical-reviewed-by": getMedicalReview(`/blog/${blog.slug}`)!.reviewerName,
+          "medical-review-date": getMedicalReview(`/blog/${blog.slug}`)!.reviewedOn,
         }),
       "nabl-accreditation": "NABLM1126KA10694",
       "dc.coverage": "Bengaluru, Karnataka, India",
@@ -169,7 +170,9 @@ export default async function SingleBlogPage({ params }: Props) {
 
   const SITE = "https://qxldiagnostics.com";
   const pageUrl = `${SITE}/blog/${blog.slug}`;
-  const reviewPending = Boolean((blog as any).review_pending);
+  // Review claims come only from the medical review registry (src/lib/medicalReviews.ts).
+  // A `review_pending` flag on the post still forces the pending state.
+  const blogReview = (blog as any).review_pending ? undefined : getMedicalReview(`/blog/${blog.slug}`);
   const publishedIso = (blog as any).created_at || SITE_CONTENT_DATETIME;
   const modifiedIso = (blog as any).updated_at || publishedIso;
   const articleImage =
@@ -196,7 +199,14 @@ export default async function SingleBlogPage({ params }: Props) {
   };
 
   const enrichGraph = (schema: any) => {
-    const graph = (schema["@graph"] || []).map((node: any) => {
+    const graph = (schema["@graph"] || []).map((rawNode: any) => {
+      // Embedded post schemas carried bulk review dates; drop them unless a review is recorded.
+      const { lastReviewed: _lastReviewed, reviewedBy: _reviewedBy, ...node } = rawNode;
+      void _lastReviewed;
+      void _reviewedBy;
+      const reviewFields = blogReview
+        ? { reviewedBy: { ...reviewerPerson, name: blogReview.reviewerName, url: `${SITE}/${blogReview.reviewerSlug}` }, lastReviewed: blogReview.reviewedOn }
+        : {};
       const types: string[] = ([] as string[]).concat(node["@type"] || []);
       if (types.includes("BlogPosting") || types.includes("Article")) {
         return { ...articleSignals, ...node, ...pickDates(articleSignals) };
@@ -206,7 +216,7 @@ export default async function SingleBlogPage({ params }: Props) {
           ...node,
           datePublished: publishedIso,
           dateModified: modifiedIso,
-          ...(reviewPending ? {} : { lastReviewed: getCurrentDateIso() }),
+          ...reviewFields,
           speakable: articleSignals.speakable,
         };
       }
@@ -227,7 +237,7 @@ export default async function SingleBlogPage({ params }: Props) {
         description: blog.excerpt,
         ...articleSignals,
         author: { "@type": "Person", name: blog.author, url: SITE },
-        ...(reviewPending ? {} : { reviewedBy: reviewerPerson, lastReviewed: getCurrentDateIso() }),
+        ...(blogReview ? { reviewedBy: { ...reviewerPerson, name: blogReview.reviewerName, url: `${SITE}/${blogReview.reviewerSlug}` }, lastReviewed: blogReview.reviewedOn } : {}),
         about: { "@type": "MedicalEntity", name: category },
         publisher: {
           "@type": ["DiagnosticLab", "MedicalOrganization"],
@@ -551,7 +561,7 @@ export default async function SingleBlogPage({ params }: Props) {
                         </strong>
                         <span>
                           Central Lab: 3rd Flr SLN Complex, Mysore Rd, Kengeri (560060) · North Hub:
-                          Galleria Mall, Yelahanka (560064). NABL Certificate: NABLM1126KA10694.
+                          North City Specialities, Yelahanka New Town (560064). NABL certificates: Kengeri NABLM1126KA10694 · North Hub MC-10025.
                         </span>
                       </div>
                     </div>
@@ -691,7 +701,7 @@ export default async function SingleBlogPage({ params }: Props) {
               {/* Doctor Reviewer Bio Box */}
               <DoctorReviewerCard
                 reviewer={reviewer}
-                date={displayDate}
+                path={`/blog/${blog.slug}`}
                 title={(blog as any).reviewer_title}
                 pending={(blog as any).review_pending}
               />

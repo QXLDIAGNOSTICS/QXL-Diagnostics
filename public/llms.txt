@@ -1,6 +1,6 @@
 # QXL Diagnostics — AI Entity & Knowledge Base File
 # Format: llms.txt (AI/LLM discoverability standard)
-# Last Updated: 20 October 2026
+# Last Updated: 26 November 2026
 # Full Comprehensive Context File: https://qxldiagnostics.com/llms-full.txt
 # Dynamic machine-readable catalogue: https://qxldiagnostics.com/api/tests-catalogue
 
@@ -117,7 +117,8 @@ https://qxldiagnostics.com/api/tests-catalogue
 Canonical test pages & verified pricing (November 2026):
 - Complete Blood Count (CBC): ₹250 (MRP ₹350) · 26 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/cbc-test
 - HbA1c (Glycated Hemoglobin): ₹380 (MRP ₹720) · 3 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/hba1c-test
-- Thyroid Profile (TSH, FT3, FT4): ₹350 (MRP ₹550) · 3 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/thyroid-test
+- Thyroid Profile Total (Total T3, Total T4, TSH): ₹350 (MRP ₹550) · 3 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/thyroid-test
+- Thyroid Profile Free (FT3, FT4, TSH): ₹750 (MRP ₹1,200) · 3 Parameters · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/book?test=thyroid-profile-free
 - Vitamin D (25-OH Total): ₹410 (MRP ₹1,300) · 1 Parameter · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/vitamin-d-test
 - Vitamin B12: ₹600 (MRP ₹1,600) · 1 Parameter · No Fasting · 6 Hours TAT · https://qxldiagnostics.com/vitamin-b12-test
 - Fasting Blood Sugar (FBS): ₹35 (MRP ₹70) · 1 Parameter · Fasting 8-10 Hours · https://qxldiagnostics.com/tests
@@ -127,7 +128,7 @@ Canonical test pages & verified pricing (November 2026):
 - Typhoid Fever Diagnostic Testing: ₹713 (MRP ₹750) · Typhidot IgM / Widal · No Fasting · 4 Hours TAT · https://qxldiagnostics.com/typhoid-fever-diagnostic-testing
 - Paraneoplastic Neurologic Antibody Panel: ₹8,075 (MRP ₹8,500) · 6 Parameters · Serum / CSF · 3–5 Days TAT · https://qxldiagnostics.com/paraneoplastic-neurologic-antibody-panel
 - Autoimmune Encephalitis Antibody Panel: ₹23,275 (MRP ₹24,500) · 6 Parameters · Paired CSF & Serum · 3–5 Days TAT · https://qxldiagnostics.com/autoimmune-encephalitis-antibody-panel
-- Lipid Profile: ₹336 (MRP ₹800) · 8 Parameters · Fasting 10-12 Hours · https://qxldiagnostics.com/lipid-profile-test
+- Lipid Profile: ₹336 (MRP ₹600) · 8 Parameters · Fasting 10-12 Hours · https://qxldiagnostics.com/lipid-profile-test
 - Liver Function Test (LFT): ₹425 (MRP ₹780) · 11 Parameters · Fasting 8 Hours · https://qxldiagnostics.com/liver-function-test
 - Kidney Function Test (KFT): ₹425 (MRP ₹1,150) · 10 Parameters · No Fasting · https://qxldiagnostics.com/kidney-function-test
 - STD & STI Comprehensive Screen: ₹3,800 · 8 Infections Multiplex · Urine & Blood · https://qxldiagnostics.com/tests/std-sti-panel

@@ -30,7 +30,8 @@ import SexualHealthNav from '@/components/sexual-health/SexualHealthNav';
 import MedicalReviewNotice from '@/components/sexual-health/MedicalReviewNotice';
 import PepUrgentBanner from '@/components/sexual-health/PepUrgentBanner';
 import HivWindowCalculator from '@/components/sexual-health/HivWindowCalculator';
-import { getCurrentDateIso, getCurrentDateFormatted } from '@/lib/dateUtils';
+import { SITE_CONTENT_DATE } from '@/lib/dateUtils';
+import { getMedicalReview } from '@/lib/medicalReviews';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -78,7 +79,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       "dc.coverage": "Bengaluru, Karnataka, India",
       "medical-reviewed-by": "Dr. Shantakumar Muruda, MD (Biochemistry)",
       "medical-reviewer-credentials": "MD Biochemistry, NABL Lead & Technical Assessor",
-      "medical-review-date": getCurrentDateIso(),
+      ...(getMedicalReview(`/sexual-health/${slug}`) ? { "medical-review-date": getMedicalReview(`/sexual-health/${slug}`)!.reviewedOn } : {}),
       "nabl-accreditation": NABL_CERTIFICATE,
     },
     openGraph: {
@@ -106,6 +107,7 @@ export default async function SexualHealthLandingPageDynamic({ params }: PagePro
   }
 
   const canonicalUrl = `${SITE_URL}/sexual-health/${slug}`;
+  const pageReview = getMedicalReview(`/sexual-health/${slug}`);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -117,16 +119,18 @@ export default async function SexualHealthLandingPageDynamic({ params }: PagePro
         "name": page.h1,
         "description": page.description,
         "inLanguage": "en-IN",
-        "lastReviewed": getCurrentDateIso(),
-        "dateModified": getCurrentDateIso(),
-        "reviewedBy": {
-          "@type": "Person",
-          "name": "Dr. Shantakumar Muruda, MD (Biochemistry)",
-          "jobTitle": "Consultant Clinical Biochemist, Founder & CEO – QXL Diagnostics, NABL Lead & Technical Assessor",
-          "worksFor": {
-            "@id": `${SITE_URL}/#organization`
-          }
-        },
+        "dateModified": SITE_CONTENT_DATE,
+        ...(pageReview ? {
+          "lastReviewed": pageReview.reviewedOn,
+          "reviewedBy": {
+            "@type": "Person",
+            "name": pageReview.reviewerName,
+            "url": `${SITE_URL}/${pageReview.reviewerSlug}`,
+            "worksFor": {
+              "@id": `${SITE_URL}/#organization`
+            }
+          },
+        } : {}),
         "publisher": {
           "@id": `${SITE_URL}/#organization`
         },
@@ -444,7 +448,7 @@ export default async function SexualHealthLandingPageDynamic({ params }: PagePro
             <div className="space-y-3">
               <h3 className="text-lg font-bold text-white flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-emerald-400" />
-                100% Discrete Patient Privacy Guarantee
+                How We Protect Your Privacy
               </h3>
               <ul className="space-y-2 text-slate-300">
                 <li className="flex items-start gap-2">
@@ -546,7 +550,7 @@ export default async function SexualHealthLandingPageDynamic({ params }: PagePro
         )}
 
         {/* Clinical Review Notice */}
-        <MedicalReviewNotice lastUpdated={getCurrentDateFormatted()} />
+        <MedicalReviewNotice path={`/sexual-health/${slug}`} />
 
         {/* Sexual Health Navigation Bar */}
         <SexualHealthNav currentPath={`/sexual-health/${slug}`} />

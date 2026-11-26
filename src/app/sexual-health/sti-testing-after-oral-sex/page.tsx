@@ -1,3 +1,5 @@
+import { getMedicalReview } from "@/lib/medicalReviews";
+
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -20,6 +22,8 @@ import {
 import { SITE_URL, PHONE_DISPLAY, PHONE_E164, WHATSAPP_LINK, NABL_CERTIFICATE } from '@/lib/businessInfo';
 import SexualHealthNav from '@/components/sexual-health/SexualHealthNav';
 import MedicalReviewNotice from '@/components/sexual-health/MedicalReviewNotice';
+
+const pageReview = getMedicalReview("/sexual-health/sti-testing-after-oral-sex");
 
 export const metadata: Metadata = {
   title: "STI Testing After Oral Sex Bangalore | Throat PCR | QXL",
@@ -118,13 +122,14 @@ export default function StiTestingAfterOralSexPage() {
         "publisher": {
           "@id": `${SITE_URL}/#organization`
         },
-        "reviewedBy": {
-          "@type": "Physician",
-          "name": "Dr. Shantakumar Muruda",
-          "jobTitle": "Consultant Clinical Biochemist, Founder & CEO",
-          "alumniOf": "MD (Biochemistry)",
-          "url": `${SITE_URL}/dr-shantakumar-muruda`
-        },
+        ...(pageReview ? {
+          "reviewedBy": {
+            "@type": "Physician",
+            "name": pageReview.reviewerName,
+            "url": `${SITE_URL}/${pageReview.reviewerSlug}`
+          },
+          "lastReviewed": pageReview.reviewedOn
+        } : {}),
         "audience": {
           "@type": "Patient"
         },
@@ -813,7 +818,7 @@ export default function StiTestingAfterOralSexPage() {
         <MedicalReviewNotice
           reviewedBy="Dr. Shantakumar Muruda, MD (Biochemistry)"
           reviewerTitle="Consultant Clinical Biochemist, Founder & CEO – QXL Diagnostics, NABL Lead & Technical Assessor"
-          lastUpdated="20 October 2026"
+          path="/sexual-health/sti-testing-after-oral-sex"
         />
 
         {/* Section 15: Footer CTA */}

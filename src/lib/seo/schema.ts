@@ -511,38 +511,4 @@ export const kengeriSchema = {
   ]
 };
 
-export function buildMedicalPageSchema({
-  url,
-  headline,
-  description,
-  reviewedDate,
-  reviewer
-}: {
-  url: string;
-  headline: string;
-  description: string;
-  reviewedDate: string;
-  reviewer: {
-    name: string;
-    profileUrl: string;
-  };
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "MedicalWebPage",
-    "@id": `${url}#webpage`,
-    url,
-    headline,
-    description,
-    lastReviewed: reviewedDate,
-    reviewedBy: {
-      "@type": "Person",
-      name: reviewer.name,
-      url: reviewer.profileUrl
-    },
-    publisher: {
-      "@id": "https://qxldiagnostics.com/#organization"
-    }
-  };
-}
 

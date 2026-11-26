@@ -350,7 +350,7 @@ export default function SexualHealthHubPage() {
         </section>
 
         {/* 7. Medical Review Notice */}
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/sexual-health" />
 
         {/* 8. Comprehensive Cross-Navigation */}
         <SexualHealthNav currentPath="/sexual-health" />

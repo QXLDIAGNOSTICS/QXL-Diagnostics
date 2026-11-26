@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Quote, BadgeCheck } from 'lucide-react';
+import { getMedicalReview, formatReviewDate } from '@/lib/medicalReviews';
 
 interface Props {
   doctorName: string;
@@ -8,7 +9,8 @@ interface Props {
   qualifications: string;
   specialty: string;
   note: string;
-  reviewDate?: string;
+  /** Page path; a review date is shown only when the registry has a sign-off. */
+  path: string;
   photoUrl?: string;
 }
 
@@ -18,9 +20,10 @@ export default function DoctorInterpretationNote({
   qualifications,
   specialty,
   note,
-  reviewDate = '2026',
+  path,
   photoUrl,
 }: Props) {
+  const review = getMedicalReview(path);
   return (
     <div className="bg-gradient-to-br from-[#eff6ff] via-[#f0f7ff] to-[#dbeafe] border border-blue-200 rounded-3xl p-6 shadow-sm relative overflow-hidden">
       {/* Header */}
@@ -69,7 +72,7 @@ export default function DoctorInterpretationNote({
           {note}
         </p>
         <p className="text-slate-400 text-[10px] font-semibold mt-3 pt-3 border-t border-slate-100">
-          Clinically reviewed · {reviewDate} · QXL Diagnostics NABL Lab
+          {review ? `Clinically reviewed · ${formatReviewDate(review.reviewedOn)}` : "Clinician's interpretation note · clinical review pending"} · QXL Diagnostics
         </p>
       </div>
     </div>

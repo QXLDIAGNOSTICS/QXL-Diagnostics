@@ -41,3 +41,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 reports/
+
+# content-kit preview/production output (partial; never deploy over the site)
+/scripts/content-kit/out/
+# SEO regression audit output
+/qxl_priority/
+/qxl_complete/
+__pycache__/

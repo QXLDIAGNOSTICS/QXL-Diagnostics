@@ -1,3 +1,5 @@
+import { getMedicalReview } from "@/lib/medicalReviews";
+
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -15,6 +17,8 @@ import {
 } from "lucide-react";
 import { SITE_URL, PHONE_DISPLAY, BUSINESS_LEGAL_NAME } from "@/lib/businessInfo";
 import { MASTER_CATALOGUE } from "@/lib/masterCatalogue";
+
+const pageReview = getMedicalReview("/tests/food-sensitivity-test-bangalore");
 
 const testData = MASTER_CATALOGUE.find((t) => t.id === "food-sensitivity-287") || {
   id: "food-sensitivity-287",
@@ -152,14 +156,13 @@ export default function FoodSensitivityTestPage() {
         description:
           "Complete information on 287 food-specific IgG blood testing, panel coverage, fasting requirements, transparent pricing, and home sample collection in Bengaluru.",
         inLanguage: "en-IN",
-        lastReviewed: "2026-10-20",
         dateModified: "2026-10-20",
-        reviewedBy: {
-          "@type": "Person",
-          "@id": `${SITE_URL}/#founder`,
-          name: "Dr. Shantakumar Muruda",
-          jobTitle: "Founder & Chief Clinical Biochemist",
-        },
+        ...(pageReview
+          ? {
+              lastReviewed: pageReview.reviewedOn,
+              reviewedBy: { "@type": "Person", name: pageReview.reviewerName, url: `${SITE_URL}/${pageReview.reviewerSlug}` },
+            }
+          : {}),
         about: {
           "@id": `${SITE_URL}/tests/food-sensitivity-test-bangalore#test`,
         },

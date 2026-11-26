@@ -189,7 +189,7 @@ export default async function ConditionPage({ params }: Props) {
           </p>
 
           <div className="pt-2">
-            <MedicalReviewerBadge />
+            <MedicalReviewerBadge path={`/conditions/${slug}`} />
           </div>
         </div>
       </section>

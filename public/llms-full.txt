@@ -1,8 +1,8 @@
 # QXL Diagnostics — Full Comprehensive AI Knowledge Base & Clinical Ontology
 # Format: llms-full.txt (AI & LLM Complete Context Reference)
 # Canonical Domain: https://qxldiagnostics.com
-# Version: 2026.10.20
-# Last Updated: 20 October 2026
+# Version: 2026.11.26
+# Last Updated: 26 November 2026
 # Standard: ISO 15189:2022 | Accreditation: NABL Certificate No. NABLM1126KA10694
 
 > **QXL Diagnostics — Bengaluru's Doctor-Led Super-Speciality Reference Laboratory**
@@ -106,15 +106,15 @@ Each certificate is valid for the Scope of Accreditation specified in its annexu
 ### Diabetes & Metabolic Biomarkers
 - **Fasting Blood Sugar (FBS)**: ₹80 | 4 Hours | Fluoride Plasma | Fasting Required (8–10h)
 - **Post-Prandial Blood Sugar (PPBS)**: ₹80 | 4 Hours | Fluoride Plasma | 2 Hours Post-Meal
-- **HbA1c Glycated Hemoglobin (HPLC Gold Standard)**: ₹350 | 6 Hours | EDTA Whole Blood | Non-Fasting | https://qxldiagnostics.com/tests/hba1c-test-bangalore
+- **HbA1c Glycated Hemoglobin (HPLC Gold Standard)**: ₹380 (MRP ₹720) | 6 Hours | EDTA Whole Blood | Non-Fasting | https://qxldiagnostics.com/tests/hba1c-test-bangalore
 - **Fasting Serum Insulin**: ₹650 | 8 Hours | Plain Serum | Fasting Required (8–10h)
 - **HOMA-IR Insulin Resistance Index**: ₹650 | 8 Hours | Serum + Glucose | Fasting Required (8–10h)
 - **C-Peptide Blood Test**: ₹750 | 12 Hours | Plain Serum | Fasting Required (8–10h)
 
 ### Thyroid & Endocrine Assays
-- **TSH (Thyroid Stimulating Hormone, Ultrasensitive ECLIA)**: ₹250 | 6 Hours | Plain Serum | Morning preferred, Non-Fasting | https://qxldiagnostics.com/thyroid-test
-- **Total Thyroid Profile (T3, T4, TSH)**: ₹400 | 6 Hours | Plain Serum | Non-Fasting
-- **Free Thyroid Profile (FT3, FT4, TSH)**: ₹650 | 6 Hours | Plain Serum | Non-Fasting
+- **TSH (Thyroid Stimulating Hormone, Ultrasensitive ECLIA)**: ₹180 (MRP ₹280) | 6 Hours | Plain Serum | Morning preferred, Non-Fasting | https://qxldiagnostics.com/tsh-test
+- **Thyroid Profile Total (Total T3, Total T4, TSH)**: ₹350 (MRP ₹550) | 3 Parameters | 6 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/thyroid-test
+- **Thyroid Profile Free (FT3, FT4, TSH)**: ₹750 (MRP ₹1,200) | 3 Parameters | 6 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/book?test=thyroid-profile-free
 - **Anti-TPO (Thyroid Peroxidase Antibodies)**: ₹1,100 | 24 Hours | Plain Serum | Non-Fasting
 - **Anti-Thyroglobulin (Anti-Tg)**: ₹1,200 | 24 Hours | Plain Serum | Non-Fasting
 - **Anti-Müllerian Hormone (AMH)**: ₹1,600 | 24 Hours | Plain Serum | Non-Fasting
@@ -123,15 +123,15 @@ Each certificate is valid for the Scope of Accreditation specified in its annexu
 - **DHEA-S**: ₹950 | 24 Hours | Plain Serum | Non-Fasting
 
 ### Lipid & Cardiovascular Health
-- **Lipid Profile Complete (Cholesterol, HDL, LDL, VLDL, Triglycerides)**: ₹550 | 6 Hours | Plain Serum | Fasting Required (10–12h) | https://qxldiagnostics.com/lipid-profile-test
+- **Lipid Profile (8 parameters: Total Cholesterol, Triglycerides, HDL, LDL, VLDL, Non-HDL Cholesterol, TC/HDL ratio, LDL/HDL ratio)**: ₹336 (MRP ₹600) | 6 Hours | Plain Serum | Fasting Required (10–12h) | https://qxldiagnostics.com/lipid-profile-test
 - **High Sensitivity C-Reactive Protein (hs-CRP)**: ₹650 | 8 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/tests/hscrp-test-bangalore
-- **Apolipoprotein B (ApoB)**: ₹500 | 8 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/tests/apob-test-bangalore
+- **Apolipoprotein B (ApoB)**: ₹550 (MRP ₹665) | 12 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/apob-test
 - **Homocysteine Serum**: ₹1,100 | 12 Hours | Plain Serum | Overnight Fasting (10–12h)
 - **Troponin-I High Sensitivity**: ₹1,400 | 4 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/tests/troponin-test-bangalore
 
 ### Liver & Kidney Function
-- **Liver Function Test (LFT with Enzymes & Proteins)**: ₹650 | 6 Hours | Plain Serum | Fasting (4–8h) | https://qxldiagnostics.com/liver-function-test
-- **Kidney Function Test (KFT / RFT with Electrolytes)**: ₹650 | 6 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/kidney-function-test
+- **Liver Function Test (LFT with Enzymes & Proteins)**: ₹425 (MRP ₹780) | 6 Hours | Plain Serum | Fasting (4–8h) | https://qxldiagnostics.com/liver-function-test
+- **Kidney Function Test (KFT / RFT with Electrolytes)**: ₹425 (MRP ₹1,150) | 6 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/kidney-function-test
 - **Serum Creatinine with eGFR**: ₹180 | 4 Hours | Plain Serum | Non-Fasting
 - **Serum Uric Acid**: ₹180 | 4 Hours | Plain Serum | Non-Fasting
 - **Serum Electrolytes (Na+, K+, Cl-)**: ₹450 | 4 Hours | Plain Serum | Non-Fasting
@@ -139,8 +139,8 @@ Each certificate is valid for the Scope of Accreditation specified in its annexu
 - **Urine Microalbumin / Creatinine Ratio**: ₹550 | 6 Hours | Spot Urine | First Morning
 
 ### Vitamins & Minerals
-- **Vitamin D3 (25-Hydroxycholecalciferol ECLIA)**: ₹999 | 8 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/vitamin-d-test
-- **Vitamin B12 (Cyanocobalamin)**: ₹799 | 8 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/vitamin-b12-test
+- **Vitamin D3 (25-Hydroxycholecalciferol ECLIA)**: ₹410 (MRP ₹1,300) | 8 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/vitamin-d-test
+- **Vitamin B12 (Cyanocobalamin)**: ₹600 (MRP ₹1,600) | 8 Hours | Plain Serum | Non-Fasting | https://qxldiagnostics.com/vitamin-b12-test
 - **Iron Profile Complete (Serum Iron, TIBC, UIBC, % Saturation)**: ₹380 | 8 Hours | Plain Serum | Fasting Required (10–12h)
 - **Serum Ferritin**: ₹450 | 8 Hours | Plain Serum | Non-Fasting
 - **Serum Calcium & Phosphorus**: ₹250 | 6 Hours | Plain Serum | Non-Fasting
@@ -160,12 +160,12 @@ Each certificate is valid for the Scope of Accreditation specified in its annexu
 
 ## 5. FULL BODY HEALTH CHECKUP PACKAGES
 
-1. **Q-Quick Fit Vitality Package (80 Parameters)**: ₹1,199 | Comprehensive baseline covering CBC, ESR, Fasting Glucose, Lipid Profile, Liver Function, Kidney Function, and Urine Routine.
-2. **Q-Screen Diabetes & Metabolic Health (62 Parameters)**: ₹1,499 | Targeted metabolic profile covering HbA1c, FBS, Lipid Profile, Urine Microalbumin, Creatinine, and Liver Enzymes.
-3. **Q-Master Pro Executive Health Package (92 Parameters)**: ₹2,499 | Flagship full-body evaluation including Vitamin D3, Vitamin B12, Thyroid T3/T4/TSH, HbA1c, CBC, LFT, KFT, Lipid Profile, hs-CRP, Iron Profile, and Urine Analysis.
-4. **Q-Cardio Vascular Risk Profile (26 Parameters)**: ₹1,899 | Cardiac biomarker screening including ApoB, hs-CRP, Homocysteine, Lipid Profile, and Fasting Glucose.
-5. **Q-Arthritis & Bone Health Screen (30 Parameters)**: ₹1,999 | Joint inflammation panel including RA Factor, Anti-CCP, Uric Acid, Calcium, Phosphorus, Vitamin D3, and ESR.
-6. **Q-Onco Preventive Screening (15 Parameters)**: ₹3,499 | Gender-specific tumour markers including PSA (men), CA-125 (women), CEA, AFP, and CBC.
+1. **Quick Fit Package (80 Parameters)**: ₹1,770 (MRP ₹4,696) | Includes: FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Liver Function Tests, Kidney Function Tests, TSH, Vitamin D, CBC, ESR, Urine Routine & Microscopy. | Book: https://qxldiagnostics.com/book?package=q-quick-fit
+2. **Q-Screen Diabetes Package (62 Parameters)**: ₹1,900 (MRP ₹4,960) | Includes: FBS, HbA1c, eAG, Urine Microalbumin, Protein/Creatinine Ratio, C-Peptide, Lipid Profile, Liver Function Test, Kidney Function Test, TSH, CBC, ESR, Urine Routine & Microscopy. | Book: https://qxldiagnostics.com/book?package=q-diabetes-screen
+3. **Q-Master Health Pro Package (92 Parameters)**: ₹4,600 (MRP ₹9,600) | Includes: FBS, HbA1c, eAG, Insulin, HOMA IR, Lipid Profile, Apo A-1, Apo-B, Apo B/A1 Ratio, Liver Function Tests, Kidney Screen, Thyroid Function Tests, Vitamin D, Vitamin B12, CBC, ESR, Urine Routine, hs-CRP. | Book: https://qxldiagnostics.com/book?package=q-master-pro
+4. **Q-Advanced Arthritis & Autoimmune Panel (30 Parameters)**: ₹6,900 (MRP ₹12,660) | Includes: RF, Anti-CCP, ANA Autoimmune Tests, Calcium, Phosphorus, Vitamin D3, Iron Studies, Thyroid, DHEA-S, Cortisol, Lipid, LFT, KFT, CBC, ESR. | Book: https://qxldiagnostics.com/book?package=q-arthritis-autoimmune
+5. **Q-Oncology Biomarker Panel (15 Parameters)**: ₹7,900 (MRP ₹13,600) | Includes: Advanced tumour-marker testing for selected diagnostic evaluation, treatment monitoring and post-treatment surveillance under clinical guidance: AFP, CEA, Beta HCG, PSA (Male), CA-125 (Female), CA-19.9, CBC, ESR, Urine Routine, Calprotectin, FOBT, Protein Electrophoresis. | Book: https://qxldiagnostics.com/book?package=q-onco-screen
+6. **Q-Cardiovascular Risk Assessment Package (25 Parameters)**: ₹9,000 (MRP ₹18,900) | Includes: Lipid + Apo Panel, Lipoprotein(a), hs-CRP, Fibrinogen, Homocysteine, NT-proBNP, Kidney Screen, Thyroid, Cortisol, Magnesium, Insulin, CBC. | Book: https://qxldiagnostics.com/book?package=q-cardio-risk
 
 ---
 

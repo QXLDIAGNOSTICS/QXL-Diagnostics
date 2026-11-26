@@ -215,7 +215,7 @@ export default function HivFourthGenTestPage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/tests/hiv-4th-generation-test" />
         <SexualHealthNav currentPath="/tests/hiv-4th-generation-test" />
       </main>
     </div>

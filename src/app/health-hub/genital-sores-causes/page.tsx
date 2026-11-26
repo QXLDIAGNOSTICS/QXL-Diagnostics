@@ -198,7 +198,7 @@ export default function GenitalSoresCausesPage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/health-hub/genital-sores-causes" />
         <SexualHealthNav currentPath="/health-hub/genital-sores-causes" />
       </main>
     </div>

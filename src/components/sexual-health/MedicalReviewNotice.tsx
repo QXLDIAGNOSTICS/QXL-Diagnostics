@@ -1,18 +1,21 @@
 import React from 'react';
 import { UserCheck, BookOpen, Lock, Award } from 'lucide-react';
 import { NABL_CERTIFICATE } from '@/lib/businessInfo';
+import { getMedicalReview, formatReviewDate } from '@/lib/medicalReviews';
 
 interface Props {
   reviewedBy?: string;
   reviewerTitle?: string;
-  lastUpdated?: string;
+  /** Page path; "Clinically reviewed" and a date appear only with a registry record. */
+  path: string;
 }
 
 export default function MedicalReviewNotice({
   reviewedBy = "Dr. Shantakumar Muruda, MD (Biochemistry)",
   reviewerTitle = "Consultant Clinical Biochemist, Founder & CEO – QXL Diagnostics, NABL Lead & Technical Assessor",
-  lastUpdated = "November 2026",
+  path,
 }: Props) {
+  const review = getMedicalReview(path);
   return (
     <div className="bg-slate-50 border border-slate-200/90 rounded-2xl p-6 sm:p-7 space-y-4 my-8 text-xs text-slate-700">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
@@ -22,7 +25,7 @@ export default function MedicalReviewNotice({
           </div>
           <div>
             <span className="font-extrabold text-slate-900 block text-xs">
-              Clinically Reviewed by {reviewedBy}
+              {review ? `Clinically Reviewed by ${review.reviewerName}` : `Assigned medical reviewer: ${reviewedBy}`}
             </span>
             <span className="text-[11px] text-slate-500">{reviewerTitle}</span>
           </div>
@@ -32,7 +35,7 @@ export default function MedicalReviewNotice({
             <Award className="w-3 h-3" /> NABL Accredited ({NABL_CERTIFICATE})
           </span>
           <span className="text-[11px] text-slate-500 font-medium">
-            Updated: {lastUpdated}
+            {review ? `Reviewed: ${formatReviewDate(review.reviewedOn)}` : "Clinical review pending"}
           </span>
         </div>
       </div>

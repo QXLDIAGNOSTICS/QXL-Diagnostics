@@ -193,7 +193,7 @@ export default function SyphilisTestPage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/tests/syphilis-test" />
         <SexualHealthNav currentPath="/tests/syphilis-test" />
       </main>
     </div>

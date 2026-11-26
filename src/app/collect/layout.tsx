@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'QXL Collect — Eight-Stage Home Sample Collection Platform | Bengaluru',
+  title: 'QXL Collect – Home Blood Collection Service | Bengaluru',
   description:
-    'Integrated home blood collection platform connecting patients, dispatchers, phlebotomists, cold-chain logistics, and ITDOSE laboratory accessioning in Bengaluru.',
+    'Book home blood sample collection in Bengaluru with QXL Collect: choose a slot, see the collection charge, and track your sample from doorstep pickup to laboratory accessioning and report release.',
   alternates: {
     canonical: 'https://qxldiagnostics.com/collect'
   },

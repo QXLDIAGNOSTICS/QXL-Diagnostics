@@ -118,7 +118,7 @@ export default function ConditionsDirectoryPage() {
           </p>
 
           <div className="pt-2">
-            <MedicalReviewerBadge />
+            <MedicalReviewerBadge path="/conditions" />
           </div>
         </div>
       </section>

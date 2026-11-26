@@ -4,7 +4,7 @@ export const thyroidTest: SeoLandingData = {
   slug: "/thyroid-test",
   breadcrumbLabel: "Thyroid Test",
   pageType: "test",
-  medicalTestName: "Thyroid Profile (T3, T4, TSH) Test",
+  medicalTestName: "Thyroid Profile Total (T3, T4, TSH) Test",
   price: 350,
   originalPrice: 550,
   synonyms: ["Thyroid Test", "TFT", "Thyroid Profile", "T3 T4 TSH", "Thyroid Function Test"],
@@ -16,22 +16,21 @@ export const thyroidTest: SeoLandingData = {
   reviewerSlug: "dr-shantakumar-muruda",
   reviewerQuals: "MD Biochemistry, NABL Lead Assessor",
   publishedDate: "2026-01-15",
-  lastReviewedDate: "October 20, 2026",
   references: [
     "American Thyroid Association (ATA) Guidelines for Diagnosis and Management of Thyroid Disease.",
     "Indian Thyroid Society (ITS) Consensus Guidelines for Thyroid Disorders in India.",
     "NABL ISO 15189:2022 Immunoassay Reference Standards."
   ],
-  heroBadge: "TSH + FT3 + FT4 Complete Profile | Home Collection",
+  heroBadge: "Total T3 + Total T4 + TSH Profile | Home Collection",
   h1Lead: "Thyroid Test in Bangalore —",
   h1Highlight: "Answers for Fatigue, Weight & Mood Changes",
   heroIntro:
-    "A complete thyroid profile at QXL Diagnostics measures TSH with Free T3 and Free T4 — the full picture your doctor needs to diagnose hypothyroidism, hyperthyroidism and autoimmune thyroid disease. Home collection across Bengaluru, same-day reports.",
+    "The QXL thyroid profile measures TSH with Total T3 and Total T4 to help your doctor assess hypothyroidism and hyperthyroidism. A Free T3/Free T4 profile and Anti-TPO antibodies are available when your doctor needs them. Home collection across Bengaluru, same-day reports.",
   aiOverviewTitle: "What does a thyroid profile include?",
   aiOverview:
-    "QXL's thyroid test in Bangalore measures Thyroid Stimulating Hormone (TSH) plus Free T3 and Free T4, with Anti-TPO antibodies available for autoimmune thyroiditis (Hashimoto's/Graves'). Testing is done on chemiluminescence immunoassay platforms at our NABL Accredited laboratory, with free home sample collection across Bengaluru.",
+    "QXL's standard thyroid profile in Bangalore (₹350) measures Thyroid Stimulating Hormone (TSH) plus Total T3 and Total T4. A Free thyroid profile (FT3, FT4, TSH; ₹750) and Anti-TPO antibodies for autoimmune thyroiditis (Hashimoto's/Graves') are available separately. Testing is done on chemiluminescence immunoassay platforms at our NABL Accredited laboratory, with free home sample collection across Bengaluru.",
   aiOverviewPoints: [
-    "TSH, FT3, FT4 Complete Profile",
+    "Total T3, Total T4 & TSH Profile",
     "Anti-TPO Antibody Available",
     "CLIA Platform Precision",
     "Same-Day Digital Report",
@@ -98,12 +97,12 @@ export const thyroidTest: SeoLandingData = {
         desc: "Third-generation assay capable of distinguishing subtle suppression and elevation — essential for dose fine-tuning.",
       },
       {
-        title: "Free T4",
-        desc: "The active thyroxine fraction not bound to proteins — direct measure of available hormone.",
+        title: "Total T4",
+        desc: "Total thyroxine (bound and free). Free T4, the unbound active fraction, is available in the Free thyroid profile.",
       },
       {
-        title: "Free T3",
-        desc: "The more biologically active hormone; disproportionately elevated in hyperthyroid states.",
+        title: "Total T3",
+        desc: "Total triiodothyronine, the more biologically active hormone; often disproportionately elevated in hyperthyroid states.",
       },
       {
         title: "Anti-TPO (Optional Add-On)",
@@ -128,7 +127,7 @@ export const thyroidTest: SeoLandingData = {
   faqs: [
     {
       q: "What is the thyroid test price in Bangalore?",
-      a: "At QXL Diagnostics, a complete Thyroid Profile (T3, T4, TSH) test in Bangalore costs ₹350 (MRP ₹550), including 3 parameters, same-day report and home sample collection. Individual TSH test is available at ₹250.",
+      a: "At QXL Diagnostics, the Thyroid Profile Total (Total T3, Total T4, TSH) costs ₹350 (MRP ₹550) for 3 parameters, with a same-day report and home sample collection. The Free thyroid profile (FT3, FT4, TSH) costs ₹750 (MRP ₹1,200) and an individual TSH test costs ₹180.",
     },
     {
       q: "Is fasting required for a thyroid test?",
@@ -136,7 +135,7 @@ export const thyroidTest: SeoLandingData = {
     },
     {
       q: "Which test is better — TSH alone or full profile?",
-      a: "For first-time diagnosis, a complete profile (TSH + FT3 + FT4) gives your doctor the full picture immediately. For routine monitoring on stable medication doses, TSH alone often suffices — follow your doctor's preference.",
+      a: "For first-time diagnosis, a profile (TSH with T3 and T4) gives your doctor a fuller picture than TSH alone; your doctor may prefer the Free T3/Free T4 profile, particularly in pregnancy or when binding-protein changes are suspected. For routine monitoring on stable medication doses, TSH alone often suffices — follow your doctor's preference.",
     },
     {
       q: "Can thyroid problems cause weight gain and hair loss?",

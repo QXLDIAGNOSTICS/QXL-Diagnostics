@@ -116,7 +116,7 @@ const defaultTests = [
   { id: "test-3", name: "APOLIPOPROTEIN B (APOB)", price: "550", old_price: "665", parameters: "1 Parameter" },
   { id: "test-4", name: "THYROID PROFILE (T3, T4, TSH)", price: "350", old_price: "550", parameters: "3 Parameters" },
   { id: "test-5", name: "VITAMIN D (25-OH TOTAL)", price: "410", old_price: "1300", parameters: "1 Parameter" },
-  { id: "test-6", name: "LIPID PROFILE", price: "336", old_price: "800", parameters: "8 Parameters" },
+  { id: "test-6", name: "LIPID PROFILE", price: "336", old_price: "600", parameters: "8 Parameters" },
   { id: "test-7", name: "LIVER FUNCTION TEST (LFT)", price: "425", old_price: "780", parameters: "11 Parameters" },
   { id: "test-8", name: "KIDNEY FUNCTION TEST (KFT)", price: "425", old_price: "1150", parameters: "10 Parameters" }
 ];

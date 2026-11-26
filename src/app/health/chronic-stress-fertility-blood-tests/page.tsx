@@ -93,11 +93,8 @@ const articleLd = {
       "url": "https://qxldiagnostics.com/health/chronic-stress-fertility-blood-tests",
       "name": "Can Chronic Stress Affect Your Fertility? Hormonal Imbalance, Warning Signs & Essential Blood Tests",
       "description": "Evidence-based clinical explanation of the stress-cortisol reproductive axis, female and male fertility laboratory blood tests, and separating psychological stress from treatable conditions.",
-      "inLanguage": "en-IN",
-      "lastReviewed": "2026-10-20",
-      "reviewedBy": {
-        "@id": "https://qxldiagnostics.com/dr-shantakumar-muruda#person"
-      }
+      "inLanguage": "en-IN"
+      // lastReviewed/reviewedBy are added only when src/lib/medicalReviews.ts has a record.
     },
     {
       "@type": "BlogPosting",
@@ -225,7 +222,7 @@ export default function ChronicStressFertilityPage() {
             Can Chronic Stress Affect Your Fertility? Warning Signs, Hormonal Imbalances &amp; Essential Blood Tests
           </h1>
           <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed">
-            A clinician-reviewed guide by Dr. Shantakumar Muruda on how chronic stress influences the neuroendocrine reproductive axis, which tests to order, and why you shouldn't dismiss fertility hurdles as "just stress."
+            A guide by Dr. Shantakumar Muruda on how chronic stress influences the neuroendocrine reproductive axis, which tests to order, and why you shouldn't dismiss fertility hurdles as "just stress."
           </p>
 
           <div className="flex flex-wrap items-center gap-4 text-xs text-slate-600 border-t border-slate-200 pt-4 mt-4">
@@ -251,7 +248,7 @@ export default function ChronicStressFertilityPage() {
 
             <div className="flex items-center gap-1.5 border-l border-slate-300 pl-4">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              <span>NABL Accredited Review (NABLM1126KA10694)</span>
+              <span>NABL-accredited Kengeri laboratory (NABLM1126KA10694)</span>
             </div>
           </div>
         </div>

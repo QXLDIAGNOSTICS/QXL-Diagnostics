@@ -12,7 +12,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { SITE_URL, PHONE_DISPLAY, PHONE_E164, WHATSAPP_LINK } from "@/lib/businessInfo";
-import { getAutoReviewDate } from "@/lib/dateUtils";
+import { getMedicalReview, formatReviewDate } from "@/lib/medicalReviews";
 
 export interface SymptomSection {
   heading: string;
@@ -25,7 +25,9 @@ export interface SymptomPageData {
   metaDescription: string;
   h1: string;
   primaryKeyword: string;
-  lastReviewed: string;
+  /** @deprecated Ignored. Review dates come only from the medical review registry. */
+  lastReviewed?: string;
+  /** Assigned medical reviewer (shown as "review pending" until a registry record exists). */
   reviewedBy: string;
   parentHub: string;
   intro: string;
@@ -46,6 +48,7 @@ interface SymptomPageProps {
 
 export default function SymptomPageLayout({ data, children }: SymptomPageProps) {
   const fullUrl = `${SITE_URL}${data.url}`;
+  const review = getMedicalReview(data.url);
   const graphNodes: Record<string, unknown>[] = [
     {
       "@type": "BreadcrumbList",
@@ -66,15 +69,19 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
       isPartOf: { "@id": `${SITE_URL}/#website` },
       breadcrumb: { "@id": `${fullUrl}#breadcrumb` },
       provider: { "@id": `${SITE_URL}/#organization` },
-      reviewedBy: {
-        "@type": "Physician",
-        "@id": `${SITE_URL}/dr-shantakumar-muruda#physician`,
-        name: "Dr. Shantakumar Muruda, MD",
-        url: `${SITE_URL}/dr-shantakumar-muruda`,
-        medicalSpecialty: "Medical Biochemistry & Pathology",
-        worksFor: { "@id": `${SITE_URL}/#organization` },
-      },
-      lastReviewed: getAutoReviewDate(data.lastReviewed, "iso"),
+      // reviewedBy / lastReviewed only when a genuine review is recorded for this page.
+      ...(review
+        ? {
+            reviewedBy: {
+              "@type": "Physician",
+              "@id": `${SITE_URL}/${review.reviewerSlug}#physician`,
+              name: review.reviewerName,
+              url: `${SITE_URL}/${review.reviewerSlug}`,
+              worksFor: { "@id": `${SITE_URL}/#organization` },
+            },
+            lastReviewed: review.reviewedOn,
+          }
+        : {}),
       areaServed: { "@type": "City", name: "Bengaluru" },
       inLanguage: "en-IN",
     },
@@ -138,11 +145,11 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
           <div className="flex flex-wrap items-center gap-5 pt-5 border-t border-white/15">
             <div className="flex items-center gap-2 text-xs text-slate-100 font-bold">
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>Medically reviewed by {data.reviewedBy}</span>
+              <span>{review ? `Medically reviewed by ${review.reviewerName}` : `Medical reviewer: ${data.reviewedBy}`}</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-slate-100 font-bold">
               <BookOpen className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Last reviewed: {getAutoReviewDate(data.lastReviewed, "display")}</span>
+              <span>{review ? `Last reviewed: ${formatReviewDate(review.reviewedOn)}` : "Clinical review pending"}</span>
             </div>
           </div>
         </div>
@@ -286,10 +293,10 @@ export default function SymptomPageLayout({ data, children }: SymptomPageProps) 
                 Medical Review
               </h3>
               <p className="text-xs text-slate-600 font-semibold leading-relaxed">
-                <strong>Medically reviewed by:</strong> {data.reviewedBy}
+                <strong>{review ? "Medically reviewed by:" : "Assigned medical reviewer:"}</strong> {review ? review.reviewerName : data.reviewedBy}
               </p>
               <p className="text-xs text-slate-600 font-semibold mt-1">
-                <strong>Last medically reviewed:</strong> {getAutoReviewDate(data.lastReviewed, "display")}
+                <strong>Last medically reviewed:</strong> {review ? formatReviewDate(review.reviewedOn) : "Pending clinician sign-off"}
               </p>
               <p className="text-xs text-slate-600 font-semibold mt-1">
                 <strong>Clinical reference framework:</strong> Harrison&apos;s Principles of Internal Medicine; Tietz Fundamentals of Clinical Chemistry and Molecular Diagnostics; and relevant specialty guidance as clinically appropriate.

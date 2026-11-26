@@ -87,7 +87,8 @@ POPULAR INDIVIDUAL BLOOD TESTS & PRICING:
 - HbA1c (Glycated Hemoglobin): ₹380 (MRP ₹720) - 3-month sugar average. No fasting.
 - Fasting Blood Sugar (FBS): ₹35 (MRP ₹70) - 8-10 hrs fasting required.
 - Postprandial Blood Sugar (PPBS): ₹35 (MRP ₹70) - 2 hrs post meal.
-- Thyroid Profile (TSH, Free T4, Free T3): ₹350 (MRP ₹550) - 3 parameters.
+- Thyroid Profile Total (Total T3, Total T4, TSH): ₹350 (MRP ₹550) - 3 parameters.
+- Thyroid Profile Free (FT3, FT4, TSH): ₹750 (MRP ₹1,200) - 3 parameters.
 - Thyroid Stimulating Hormone (TSH): ₹180 (MRP ₹280)
 - Lipid Profile: ₹336 (MRP ₹600) - 8 parameters, 10-12 hrs fasting required.
 - Liver Function Test (LFT): ₹425 (MRP ₹780) - 11 parameters.

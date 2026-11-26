@@ -23,6 +23,9 @@ import {
   BookOpen,
 } from "lucide-react";
 import { SITE_URL } from "@/lib/businessInfo";
+import { getReviewDate } from "@/lib/medicalReviews";
+
+const HUB_REVIEW_DATE = getReviewDate("/health/symptoms-causes");
 
 export const metadata: Metadata = {
   title: "Symptoms & Causes: Common Health Symptoms | QXL Diagnostics",
@@ -292,11 +295,11 @@ export default function SymptomsCausesHubPage() {
           <div className="flex flex-wrap gap-4 mt-8 pt-6 border-t border-white/15">
             <div className="flex items-center gap-2 text-xs text-sky-200 font-bold">
               <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>All articles medically reviewed by Dr. Shantakumar Muruda, MD</span>
+              <span>Medical reviewer: Dr. Shantakumar Muruda, MD (each article shows its own review status)</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-sky-200 font-bold">
               <BookOpen className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>Last reviewed: November 2026</span>
+              <span>{HUB_REVIEW_DATE ? `Last reviewed: ${HUB_REVIEW_DATE}` : "Clinical review pending"}</span>
             </div>
           </div>
         </div>
@@ -401,10 +404,10 @@ export default function SymptomsCausesHubPage() {
             Medical Review
           </h2>
           <p className="text-xs text-slate-600 font-semibold">
-            <strong>Medically reviewed by:</strong> Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder &amp; CEO, QXL Diagnostics Super Speciality Lab, Bengaluru
+            <strong>{HUB_REVIEW_DATE ? "Medically reviewed by:" : "Assigned medical reviewer:"}</strong> Dr. Shantakumar Muruda, MD - Medical Biochemistry; Founder &amp; CEO, QXL Diagnostics Super Speciality Lab, Bengaluru
           </p>
           <p className="text-xs text-slate-600 font-semibold mt-2">
-            <strong>Last medically reviewed:</strong> 20 October 2026
+            <strong>Last medically reviewed:</strong> {HUB_REVIEW_DATE ?? "Pending clinician sign-off"}
           </p>
           <p className="text-xs text-slate-500 font-semibold mt-3 leading-relaxed">
             <strong>Medical Disclaimer:</strong> This information is intended for general health education and does not replace consultation, diagnosis or treatment by a qualified healthcare professional. Seek urgent medical attention for severe, sudden or rapidly worsening symptoms or any emergency warning signs described on the individual symptom pages.

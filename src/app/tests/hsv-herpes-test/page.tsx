@@ -210,7 +210,7 @@ export default function HsvHerpesTestPage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/tests/hsv-herpes-test" />
         <SexualHealthNav currentPath="/tests/hsv-herpes-test" />
       </main>
     </div>

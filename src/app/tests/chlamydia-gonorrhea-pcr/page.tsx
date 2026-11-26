@@ -217,7 +217,7 @@ export default function ChlamydiaGonorrheaPcrPage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/tests/chlamydia-gonorrhea-pcr" />
         <SexualHealthNav currentPath="/tests/chlamydia-gonorrhea-pcr" />
       </main>
     </div>

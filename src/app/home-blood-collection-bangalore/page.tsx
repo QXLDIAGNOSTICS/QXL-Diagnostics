@@ -11,11 +11,11 @@ import HomeCollectionClientForm from './HomeCollectionClientForm';
 const SITE_URL = "https://qxldiagnostics.com";
 
 export const metadata: Metadata = {
-  title: "Home Blood Collection Bangalore | QXL Diagnostics",
+  title: "Home Blood Sample Collection in Bangalore | QXL",
   description: "Book home blood collection across Bengaluru. NABL Accredited diagnostic laboratory (NABLM1126KA10694), trained phlebotomy specialists, temperature-controlled cold chain transport & same-day reports.",
   alternates: { canonical: `${SITE_URL}/home-blood-collection-bangalore` },
   openGraph: {
-    title: "Home Blood Collection in Bangalore | QXL Diagnostics",
+    title: "Home Blood Sample Collection in Bangalore | QXL",
     description: "Book home blood collection across Bengaluru. NABL Accredited laboratory, trained phlebotomists & same-day reports.",
     url: `${SITE_URL}/home-blood-collection-bangalore`,
   },

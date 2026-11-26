@@ -236,7 +236,7 @@ export default function VdrlRprTestPage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/tests/vdrl-rpr-test" />
         <SexualHealthNav currentPath="/tests/vdrl-rpr-test" />
       </main>
     </div>

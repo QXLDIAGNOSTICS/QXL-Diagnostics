@@ -1,7 +1,8 @@
 /**
- * QXL Diagnostics — Dynamic Date Utility
- * Automatically keeps blog publication dates, medical review timestamps,
- * schema.org metadata, and website badges fresh and synchronized.
+ * QXL Diagnostics — Content Date Utility
+ * Publication / last-updated dates for content, schema.org and feeds.
+ * Medical REVIEW dates do not come from here: they come only from genuine sign-offs in
+ * src/lib/medicalReviews.ts.
  */
 
 const MONTH_NAMES = [
@@ -10,8 +11,8 @@ const MONTH_NAMES = [
 ];
 
 /**
- * Single source of truth for the site-wide content publication / last-updated /
- * medical-review date used in visible labels, Schema.org, Open Graph, sitemaps and feeds.
+ * Site-wide content publication / last-updated date used in visible labels, Schema.org,
+ * Open Graph, sitemaps and feeds. It is NOT a medical review date.
  * Change this one value to re-date the whole site.
  */
 export const SITE_CONTENT_DATE = "2026-10-20";
@@ -64,11 +65,4 @@ export function getAutoBlogDate(
     return blog.date;
   }
   return getCurrentDateFormatted(fallbackDaysOffset);
-}
-
-/**
- * Returns the site-wide medical review date ("October 20, 2026" or "2026-10-20").
- */
-export function getAutoReviewDate(_existingDate?: string, format: "display" | "iso" = "display"): string {
-  return format === "iso" ? getCurrentDateIso() : getCurrentDateFormatted();
 }

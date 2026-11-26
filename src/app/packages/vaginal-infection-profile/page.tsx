@@ -107,7 +107,7 @@ export default function VaginalInfectionPackagePage() {
           </p>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/packages/vaginal-infection-profile" />
         <SexualHealthNav currentPath="/packages/vaginal-infection-profile" />
       </main>
     </div>

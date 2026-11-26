@@ -5,7 +5,7 @@ import { Phone, CheckCircle2, ShieldCheck, Activity, Clock, ArrowRight, Beaker, 
 import { getDynamicPageData } from "@/lib/seoPages/dynamicPageResolver";
 import { PHONE_DISPLAY, WHATSAPP_LINK, NABL_CERTIFICATE, ISO_STANDARD, SITE_URL } from "@/lib/businessInfo";
 import { getTestInternalLinks } from "@/lib/seo/internalLinks";
-import { getCurrentDateIso } from "@/lib/dateUtils";
+import { getMedicalReview } from "@/lib/medicalReviews";
 
 import MedicalReviewerBadge from "@/components/MedicalReviewerBadge";
 import ReferenceRangesTable from "@/components/ReferenceRangesTable";
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "dc.coverage": "Bengaluru, Karnataka, India",
       "medical-reviewed-by": links?.doctorName ?? pageData.doctorName ?? "Dr. Shantakumar Muruda",
       "medical-reviewer-credentials": links?.doctorQuals ?? pageData.doctorQuals ?? "MD Biochemistry",
-      "medical-review-date": getCurrentDateIso(),
+      ...(getMedicalReview(`/${slug}`) ? { "medical-review-date": getMedicalReview(`/${slug}`)!.reviewedOn } : {}),
       "medical-specialty": pageData.category,
       "nabl-accreditation": NABL_CERTIFICATE,
       "lab-iso-standard": ISO_STANDARD,
@@ -85,6 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function DynamicSlugTestPage({ params }: Props) {
   const { slug } = await params;
+  const pageReview = getMedicalReview(`/${slug}`);
 
   if (slug.includes('.') || slug.startsWith('_') || INVALID_SLUGS.has(slug.toLowerCase())) {
     notFound();
@@ -195,12 +196,15 @@ export default async function DynamicSlugTestPage({ params }: Props) {
             "credentialCategory": "ISO 15189:2022 Medical Laboratory"
           }
         },
-        "reviewedBy": {
-          "@type": "Person",
-          "name": doctorName,
-          "jobTitle": doctorQuals,
-          "worksFor": { "@type": "Organization", "name": "QXL Diagnostics" }
-        },
+        ...(pageReview ? {
+          "reviewedBy": {
+            "@type": "Person",
+            "name": pageReview.reviewerName,
+            "url": `${SITE_URL}/${pageReview.reviewerSlug}`,
+            "worksFor": { "@type": "Organization", "name": "QXL Diagnostics" }
+          },
+          "lastReviewed": pageReview.reviewedOn,
+        } : {}),
         "subjectOf": data.relatedGuide ? {
           "@type": "MedicalWebPage",
           "name": data.relatedGuide.title,
@@ -315,7 +319,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
               <MedicalReviewerBadge
                 doctorName={doctorName}
                 qualifications={doctorQuals}
-                reviewDate="November 2026"
+                path={`/${slug}`}
               />
             </div>
 
@@ -619,7 +623,7 @@ export default async function DynamicSlugTestPage({ params }: Props) {
                 qualifications={doctorQuals}
                 specialty={data.category}
                 note={data.doctorNote}
-                reviewDate="November 2026"
+                path={`/${slug}`}
               />
             )}
 

@@ -17,26 +17,31 @@ import {
 } from "lucide-react";
 import {
   BUSINESS_NAME,
-  ISO_STANDARD,
-  NABL_CERTIFICATE,
   PHONE_DISPLAY,
   PHONE_E164,
   WHATSAPP_LINK,
 } from "@/lib/businessInfo";
+import { northHubAccreditation } from "@/lib/accreditation";
+
+// Yelahanka samples are processed at the North Hub (serviceability master), so this page
+// quotes the North Hub record (MC-10025), the same record used by the centre directory.
+// It must never show the Kengeri certificate.
+const NORTH_HUB_CERT = northHubAccreditation.certificateNumber;
+const NORTH_HUB_ACCREDITATION_TEXT = `Samples collected in Yelahanka are processed at the QXL Diagnostics Super Speciality Lab North Hub at North City Specialities, Yelahanka New Town, accredited by NABL to ISO 15189:2022 under Certificate ${NORTH_HUB_CERT}, valid from 2 April 2026 to 1 April 2030. Accreditation applies to the tests in the North Hub's approved scope, subject to continued compliance.`;
 
 export const metadata: Metadata = {
   title: {
     absolute: "QXL Diagnostics Yelahanka | Blood Test & Home Collection Centre",
   },
   description:
-    "Book blood test & full body checkups at QXL Diagnostics Yelahanka, Bengaluru. NABL Accredited (NABLM1126KA10694) lab tests, 100% free doorstep sample collection across Yelahanka, same-day reports.",
+    `Book blood tests & health checkups at QXL Diagnostics Yelahanka, Bengaluru. Samples processed at our NABL-accredited North Hub laboratory (${NORTH_HUB_CERT}). Doorstep sample collection across Yelahanka, same-day reports for most routine tests.`,
   alternates: {
     canonical: "https://qxldiagnostics.com/qxl/yelahanka",
   },
   openGraph: {
     title: "QXL Diagnostics Yelahanka | Blood Test & Diagnostic Centre",
     description:
-      "NABL Accredited (NABLM1126KA10694) diagnostic centre and home blood collection hub in Yelahanka, Bengaluru. Free doorstep collection, same-day reports.",
+      `Yelahanka collection centre and home blood collection, with testing at QXL's NABL-accredited North Hub laboratory (${NORTH_HUB_CERT}). Same-day reports for most routine tests.`,
     url: "https://qxldiagnostics.com/qxl/yelahanka",
     locale: "en_IN",
     type: "website",
@@ -51,7 +56,7 @@ export default function QXlYelahankaPage() {
     "name": "QXL Diagnostics — Yelahanka Centre & Home Collection Hub",
     "alternateName": ["QXL Yelahanka", "QXL Diagnostics Yelahanka"],
     "description":
-      "NABL Accredited (NABLM1126KA10694) diagnostic lab centre offering walk-in blood collection, pathology, full body checkups, and free home sample collection in Yelahanka, Bengaluru.",
+      `Walk-in blood collection, health checkups and home sample collection in Yelahanka, Bengaluru. Samples are processed at the QXL North Hub laboratory, NABL-accredited under Certificate ${NORTH_HUB_CERT} for the tests in its approved scope.`,
     "url": "https://qxldiagnostics.com/qxl/yelahanka",
     "telephone": PHONE_E164,
     "email": "info@qxldiagnostics.com",
@@ -132,7 +137,11 @@ export default function QXlYelahankaPage() {
     },
     {
       q: "Is home sample collection free in Yelahanka?",
-      a: "Yes! QXL Diagnostics provides 100% free home blood sample collection across Yelahanka New Town, Yelahanka Old Town, Kogilu, Sahakarnagar, and surrounding pin codes.",
+      a: "Yes. QXL Diagnostics provides free home blood sample collection across Yelahanka New Town, Yelahanka Old Town, Kogilu, Sahakarnagar, and surrounding pin codes.",
+    },
+    {
+      q: "Is the Yelahanka laboratory NABL accredited?",
+      a: NORTH_HUB_ACCREDITATION_TEXT,
     },
     {
       q: "When will I get my blood test reports?",
@@ -158,7 +167,7 @@ export default function QXlYelahankaPage() {
             <div className="max-w-3xl w-full">
               <div className="flex flex-wrap items-center gap-2 mb-3.5">
                 <span className="bg-[#2563EB] text-white text-[9.5px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-xs flex items-center gap-1">
-                  <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> NABL ACCREDITED ({NABL_CERTIFICATE})
+                  <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5" /> NORTH HUB NABL ({NORTH_HUB_CERT})
                 </span>
                 <span className="bg-emerald-500 text-white text-[9.5px] sm:text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
                   FREE HOME COLLECTION
@@ -170,7 +179,7 @@ export default function QXlYelahankaPage() {
               </h1>
 
               <p className="text-sky-100 text-xs sm:text-base font-medium leading-relaxed mb-6 sm:mb-8 max-w-2xl">
-                NABL Accredited blood tests, pathology, and comprehensive health checkup packages in Yelahanka. Walk-in at RMZ Galleria Mall opposite or book free doorstep sample collection with same-day digital reports.
+                Blood tests, pathology and health checkup packages in Yelahanka, processed at our NABL-accredited North Hub laboratory (Certificate {NORTH_HUB_CERT}, valid 2 April 2026 – 1 April 2030, within its approved scope). Walk in opposite RMZ Galleria Mall or book doorstep sample collection with same-day digital reports.
               </p>
 
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
@@ -252,9 +261,9 @@ export default function QXlYelahankaPage() {
                 <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h3 className="font-black text-[#0f2d5e] text-xs sm:text-sm mb-1">NABL Accredited Lab</h3>
+                <h3 className="font-black text-[#0f2d5e] text-xs sm:text-sm mb-1">NABL-Accredited North Hub</h3>
                 <p className="text-slate-600 text-[11px] sm:text-xs font-medium leading-relaxed">
-                  ISO 15189:2022 medical quality system with high-precision automated analyzers.
+                  Processed at the North Hub, Certificate {NORTH_HUB_CERT} (ISO 15189:2022), for tests in its approved scope.
                 </p>
               </div>
             </div>

@@ -358,7 +358,7 @@ export default function HivTestBangalorePage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/tests/hiv-test-bangalore" />
         <SexualHealthNav currentPath="/tests/hiv-test-bangalore" />
       </main>
     </div>

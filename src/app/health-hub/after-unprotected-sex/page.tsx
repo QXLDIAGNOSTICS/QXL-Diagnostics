@@ -190,7 +190,7 @@ export default function AfterUnprotectedSexPage() {
           <HivWindowCalculator />
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/health-hub/after-unprotected-sex" />
         <SexualHealthNav currentPath="/health-hub/after-unprotected-sex" />
       </main>
     </div>

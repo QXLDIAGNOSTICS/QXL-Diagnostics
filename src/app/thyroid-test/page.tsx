@@ -3,8 +3,8 @@ import SeoLandingPage from "@/components/seo/SeoLandingPage";
 import { thyroidTest } from "@/lib/seoPages/data/thyroidTest";
 
 export const metadata: Metadata = {
-  title: "Thyroid Test in Bangalore | TSH FT3 FT4 Profile | QXL Diagnostics",
-  description: "Complete thyroid test in Bangalore — TSH, Free T3, Free T4 & Anti-TPO. CLIA precision at our NABL lab, free home collection, same-day reports.",
+  title: "Thyroid Test in Bangalore | T3, T4, TSH Profile ₹350 | QXL Diagnostics",
+  description: "Thyroid profile in Bangalore: Total T3, Total T4 and TSH for ₹350, with Free T3/T4 (₹750) and Anti-TPO available. Home sample collection and same-day reports.",
   alternates: {
     canonical: "https://qxldiagnostics.com/thyroid-test",
   },

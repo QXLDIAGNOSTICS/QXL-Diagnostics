@@ -182,7 +182,7 @@ export default function HivTestWindowPeriodGuidePage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/health-hub/hiv-test-window-period" />
         <SexualHealthNav currentPath="/health-hub/hiv-test-window-period" />
       </main>
     </div>

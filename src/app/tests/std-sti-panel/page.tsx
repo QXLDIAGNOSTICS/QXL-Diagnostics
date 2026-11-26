@@ -237,7 +237,7 @@ export default function StdStiPanelPage() {
           </div>
         </section>
 
-        <MedicalReviewNotice />
+        <MedicalReviewNotice path="/tests/std-sti-panel" />
         <SexualHealthNav currentPath="/tests/std-sti-panel" />
       </main>
     </div>

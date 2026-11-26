@@ -219,7 +219,7 @@ export const defaultBlogs: BlogPost[] = [
     "image_height": 900,
     "image_alt": "Confidential STD and STI testing in Bangalore by QXL Diagnostics",
     "og_title": "STD & STI Testing in Bangalore: Window Periods, PCR & Home Collection",
-    "og_description": "Microbiologist-led guide to accurate STI detection window periods, 4th-gen HIV screening, urine PCR, and 100% discrete doorstep collection across Bengaluru.",
+    "og_description": "Microbiologist-led guide to accurate STI detection window periods, 4th-gen HIV screening, urine PCR, and discreet doorstep collection across Bengaluru.",
     "twitter_title": "STD & STI Testing Bangalore: Window Periods & Confidential Screening",
     "twitter_description": "Accurate biological detection windows for HIV, Syphilis, Chlamydia, Gonorrhea & doorstep collection across Bengaluru.",
     "custom_schema": {
