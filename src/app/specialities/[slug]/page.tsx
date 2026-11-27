@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { enAlternates } from "@/content/kn/common";
 import { notFound } from "next/navigation";
 import { serverApi } from "@/lib/serverApi";
 import { SITE_URL } from "@/lib/businessInfo";
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: enAlternates(`/specialities/${spec.slug}`, url),
     openGraph: { title: `${title} | QXL Diagnostics`, description, url },
   };
 }

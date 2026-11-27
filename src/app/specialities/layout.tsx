@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { enAlternates } from "@/content/kn/common";
 
 export const metadata: Metadata = {
   title: "Our Specialities | 10 Super Speciality Diagnostic Panels",
   description:
     "Explore QXL Diagnostics' 10 super speciality diagnostic panels — neurology, hematology, cardiology, urology, endocrinology, oncology, infectious diseases, women's health, gastroenterology, and bone disorders.",
-  alternates: { canonical: "/specialities" },
+  alternates: enAlternates("/specialities"),
   openGraph: {
     title: "Our Specialities | QXL Diagnostics",
     description: "10 super speciality diagnostic panels reviewed by expert consultants in Bengaluru.",

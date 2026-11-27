@@ -14,6 +14,7 @@ const CHILD_SITEMAPS = [
   'sitemap-b2b.xml',
   'sitemap-knowledge.xml',
   'sitemap-blogs.xml',
+  'sitemap-kannada.xml',
 ];
 
 export async function GET() {

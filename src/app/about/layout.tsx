@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { enAlternates } from "@/content/kn/common";
 
 export const metadata: Metadata = {
   title: "About QXL Diagnostics | NABL Lab Bengaluru",
   description:
     "Learn about QXL Diagnostics — NABL Accredited (NABLM1126KA10694) ISO 15189:2022 super speciality diagnostic laboratory in Bengaluru founded by Dr. Shantakumar Muruda. Mission, centres, and clinical excellence.",
-  alternates: { canonical: "https://qxldiagnostics.com/about" },
+  alternates: enAlternates("/about"),
   openGraph: {
     title: "About QXL Diagnostics | NABL Lab Bengaluru",
     description:

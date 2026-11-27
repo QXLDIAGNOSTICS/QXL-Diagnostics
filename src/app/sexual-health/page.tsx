@@ -1,4 +1,5 @@
 import React from 'react';
+import { enAlternates } from "@/content/kn/common";
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
@@ -31,9 +32,7 @@ export const metadata: Metadata = {
   title: "Confidential STD & HIV Testing in Bengaluru | Doctor-Led STI Clinic | QXL Diagnostics",
   description:
     "Confidential, doctor-led STD & STI testing in Bengaluru. NABL Accredited 4th Gen HIV Duo, Syphilis RPR/TPHA, Chlamydia & Gonorrhea PCR, and complete STI screening packages with discrete home collection.",
-  alternates: {
-    canonical: `${SITE_URL}/sexual-health`,
-  },
+  alternates: enAlternates("/sexual-health"),
   openGraph: {
     title: "Confidential STD & HIV Testing in Bengaluru | QXL Diagnostics",
     description:

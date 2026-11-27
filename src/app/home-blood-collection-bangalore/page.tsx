@@ -1,4 +1,5 @@
 import React from 'react';
+import { enAlternates } from "@/content/kn/common";
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ShieldCheck, CheckCircle2, Clock, MapPin, Phone, MessageSquare, ArrowRight, Award, UserCheck, ThermometerSnowflake, FileCheck, ArrowLeft, CheckCircle } from 'lucide-react';
@@ -13,7 +14,7 @@ const SITE_URL = "https://qxldiagnostics.com";
 export const metadata: Metadata = {
   title: "Home Blood Sample Collection in Bangalore | QXL",
   description: "Book home blood collection across Bengaluru. NABL Accredited diagnostic laboratory (NABLM1126KA10694), trained phlebotomy specialists, temperature-controlled cold chain transport & same-day reports.",
-  alternates: { canonical: `${SITE_URL}/home-blood-collection-bangalore` },
+  alternates: enAlternates("/home-blood-collection-bangalore"),
   openGraph: {
     title: "Home Blood Sample Collection in Bangalore | QXL",
     description: "Book home blood collection across Bengaluru. NABL Accredited laboratory, trained phlebotomists & same-day reports.",

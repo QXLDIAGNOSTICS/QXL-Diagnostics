@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Globe, Check, ChevronDown } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { KN_PATHS, KN_TO_EN } from "@/content/kn/common";
 
 /* ─── Supported languages ─────────────────────────────────────────── */
 const LANGUAGES = [
@@ -90,10 +92,12 @@ export default function LanguageSwitcher({ variant = "globe", className = "" }: 
   useEffect(() => {
     // 1. Read saved language
     const saved = (localStorage.getItem(STORAGE_KEY) as LangCode) || "en";
-    setActiveLang(saved);
+    // Kannada pages are already in Kannada (hand-translated): show ಕನ್ನಡ and skip machine translation.
+    const onKannadaPage = /^\/kn(\/|$)/.test(window.location.pathname);
+    setActiveLang(onKannadaPage ? "kn" : saved);
 
     // 2. If there's a saved language, wait for the widget's select to appear and apply
-    if (saved !== "en") {
+    if (saved !== "en" && !onKannadaPage) {
       const tryApply = (retries = 20) => {
         const select = document.querySelector<HTMLSelectElement>(".goog-te-combo");
         if (select && select.options.length > 1) {
@@ -119,7 +123,20 @@ export default function LanguageSwitcher({ variant = "globe", className = "" }: 
   }, []);
 
   /* Select a language */
+  const pathname = usePathname() ?? "/";
   const selectLanguage = useCallback((lang: typeof LANGUAGES[number]) => {
+    const path = pathname.replace(/\/$/, "") || "/";
+    // Hand-translated Kannada pages exist for some routes: go there instead of machine translation.
+    const knTarget = lang.code === "kn" ? KN_PATHS[path] : undefined;
+    const isKnPage = path === "/kn" || path.startsWith("/kn/");
+    const enTarget = lang.code !== "kn" && isKnPage ? (KN_TO_EN[path] ?? (path.startsWith("/kn/blog") ? "/blog" : "/")) : undefined;
+    if (knTarget || enTarget) {
+      localStorage.setItem(STORAGE_KEY, lang.code);
+      setGoogTransCookie(lang.code);
+      setOpen(false);
+      window.location.href = (knTarget ?? enTarget)!;
+      return;
+    }
     if (lang.code === activeLang) { setOpen(false); return; }
     setActiveLang(lang.code);
     setIsTranslating(true);
@@ -127,7 +144,7 @@ export default function LanguageSwitcher({ variant = "globe", className = "" }: 
     setOpen(false);
     // Small delay so the UI updates before potential reload
     setTimeout(() => doTranslate(lang.code), 80);
-  }, [activeLang]);
+  }, [activeLang, pathname]);
 
   const currentLang = LANGUAGES.find(l => l.code === activeLang) ?? LANGUAGES[0];
 

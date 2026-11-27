@@ -8,6 +8,7 @@ import PrescriptionModal from './PrescriptionModal';
 import SmartSearchBar from './SmartSearchBar';
 import { motion, AnimatePresence } from 'framer-motion';
 import LanguageSwitcher from './LanguageSwitcher';
+import KnLogo from './kn/KnLogo';
 
 import { cmsStore } from '../lib/cmsStore';
 import { WHATSAPP_LINK, NABL_CERTIFICATE } from '../lib/businessInfo';
@@ -52,6 +53,7 @@ function useHeaderCountdown() {
 
 export default function Header() {
   const pathname = usePathname();
+  const isKannada = pathname === '/kn' || !!pathname?.startsWith('/kn/');
   const { user } = useAuth();
   const countdown = useHeaderCountdown();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -255,8 +257,8 @@ export default function Header() {
 
             {/* Logo & Location */}
             <div className="flex items-center">
-              <Link href="/" className="flex-shrink-0 flex items-center">
-              <img
+              <Link href={isKannada ? "/kn" : "/"} className="flex-shrink-0 flex items-center">
+              {isKannada ? <KnLogo height={84} /> : <img
                   src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 340, h: 105, crop: "fit" })}
                   alt={settings.siteName || "QXL Diagnostics"}
                   width={340}
@@ -268,7 +270,7 @@ export default function Header() {
                     const fallbackSpan = e.currentTarget.parentElement?.querySelector('.logo-text-header') as HTMLElement;
                     if (fallbackSpan) fallbackSpan.classList.remove('hidden');
                   }}
-                />
+                />}
                 <span className="logo-text-header font-extrabold text-2xl text-[#0f2d5e] hidden">
                   {settings.logoText || "QXL"}
                 </span>
@@ -452,8 +454,8 @@ export default function Header() {
               <Menu className="w-6.5 h-6.5 text-[#0f2d5e]" strokeWidth={2.4} />
             </button>
 
-            <Link href="/" className="flex items-center py-1 shrink-0">
-              <img
+            <Link href={isKannada ? "/kn" : "/"} className="flex items-center py-1 shrink-0">
+              {isKannada ? <KnLogo height={40} /> : <img
                 src={optimizeCloudinaryUrl(settings.logoImage || FALLBACK_LOGO, { w: 240, h: 70, crop: "fit" })}
                 alt={settings.siteName || "QXL Diagnostics"}
                 width={180}
@@ -463,7 +465,7 @@ export default function Header() {
                 onError={(e) => {
                   e.currentTarget.src = FALLBACK_LOGO;
                 }}
-              />
+              />}
             </Link>
           </div>
 
